@@ -1,12 +1,12 @@
 ---
-title: Audio effects detection  
+title: Enable audio effects detection  
 description: Audio Effects Detection is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/04/2022
 ms.author: juliako
 ---
 
-# Audio effects detection (preview)
+# Enable audio effects detection (preview)
 
 **Audio effects detection** is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 

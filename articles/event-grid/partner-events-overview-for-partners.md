@@ -96,7 +96,7 @@ A verified partner is a partner organization whose identity has been validated b
 Customers authorize you to create partner topics or partner destinations on their Azure subscription. The authorization is granted for a given resource group in a customer Azure subscription and it's time bound. You must create the channel before the expiration date set by the customer. You should have documentation suggesting the customer an adequate window of time for configuring your system to send or receive events and to create the channel before the authorization expires. If you attempt to create a channel without authorization or after it has expired, the channel creation will fail and no resource will be created on the customer's Azure subscription. 
 
 > [!NOTE]
-> Event Grid will start **requiring authorizations to create partner topics or partner destinations** around June 30th, 2022. You should update your documentation asking your customers to grant you the authorization before you attempt to create a channel or an event channel.
+> Event Grid started **enforcing authorization checks to create partner topics or partner destinations** around June 30th, 2022. You should update your documentation asking your customers to grant you the authorization before you attempt to create a channel or an event channel.
 
 >[!IMPORTANT]
 > **A verified partner is not an authorized partner**. Even if a partner has been vetted by Microsoft, you still need to be authorized before you can create a partner topic or partner destination on the customer's Azure subscription. 

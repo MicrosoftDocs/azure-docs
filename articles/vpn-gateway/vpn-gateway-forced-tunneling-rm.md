@@ -37,7 +37,7 @@ Forced tunneling in Azure is configured using virtual network custom user-define
   * **On-premises routes:** To the Azure VPN gateway.
   * **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
 * Forced tunneling must be associated with a VNet that has a route-based VPN gateway. Your forced tunneling configuration will override the default route for any subnet in its VNet. You need to set a "default site" among the cross-premises local sites connected to the virtual network. Also, the on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors. 
-* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. For more information, see the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/).
+* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. For more information, see the [ExpressRoute Documentation](/azure/expressroute/).
 
 ## Configuration overview
 

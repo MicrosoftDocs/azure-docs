@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 04/06/2022
+ms.date: 09/06/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022
 ---
@@ -70,10 +70,10 @@ To create a virtual network, use the following steps:
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
-    1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the __172.16.0.0/16 value__.
+    1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.16.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the __172.16.0.0/16 value__.
     
         > [!IMPORTANT]
-        > We do not recommend using an address in the 172.17.0.1/16 range if you plan on using Azure Kubernetes Services for deployment with this cluster. The Docker bridge in Azure Kubernetes Services uses 172.17.0.1/16 as its default. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+        > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
@@ -436,7 +436,7 @@ For more information on creating a compute cluster and compute cluster, includin
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
 1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
-1. From the Cloud Shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
+1. From the Cloud Shell, use the following command to install the 2.0 CLI for Azure Machine Learning:
  
     ```azurecli-interactive
     az extension add -n ml

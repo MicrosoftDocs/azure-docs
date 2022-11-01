@@ -63,7 +63,7 @@ Event Grid also provides [diagnostic logs schemas](diagnostic-logs.md) and [metr
 
 ## More information
 
-You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](/azure/event-grid/event-grid-faq).
+You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](./event-grid-faq.yml).
 
 ## Next steps
 

@@ -287,19 +287,19 @@
     {
       "path_to_root": "azure-search-javascript-samples",
       "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-search-dotnet-samples",
       "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-search-python-samples",
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -371,12 +371,6 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "media-services-v3-dotnet-quickstarts",
-      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
       "branch": "master",
       "branch_mapping": {}
     },

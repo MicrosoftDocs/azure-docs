@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/text-analysis-runtime)
 
 Use this quickstart to send entity linking requests using the REST API. In the following example, you will use cURL to identify and disambiguate entities found in text.
 
@@ -146,3 +146,14 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 	}
 }
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Entity linking language support](../../language-support.md)
+* [How to call the entity linking API](../../how-to/call-api.md)  
+* [Reference documentation](/rest/api/language/text-analysis-runtime)

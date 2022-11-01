@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL output from Azure Stream Analytics (Preview)
+title: Azure Database for PostgreSQL output from Azure Stream Analytics
 description: This article describes Azure Database for PostgreSQL as output for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/27/2022
 ---
 
-# Azure Database for PostgreSQL output from Azure Stream Analytics (Preview)
+# Azure Database for PostgreSQL output from Azure Stream Analytics
 
 You can use [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) as an output for data that is relational in nature or for applications that depend on the content being hosted in a relational database. Azure Stream Analytics jobs write to an existing table in PostgreSQL Database. The table schema must exactly match the fields and their types in your job's output. 
 
@@ -47,8 +47,6 @@ The following table lists the property names and their description for creating 
 
 Partitioning needs to enabled and is based on the PARTITION BY clause in the query. When the Inherit Partitioning option is enabled, it follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). 
 
-## Limitation
-Test connection functionality to Azure Database for PostgreSQL is not supported at the time of preview.
 
 ## Next steps
 

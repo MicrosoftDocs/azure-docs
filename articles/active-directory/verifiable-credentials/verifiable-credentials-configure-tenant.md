@@ -16,7 +16,7 @@ ms.date: 08/11/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in their apps and services.
+Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in their apps and services. In both cases, you will have to configure your Azure AD tenant so that you can use it to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials that were issued by another organization. In case you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials as well as verify those of others.
 
 In this tutorial, you learn how to configure your Azure AD tenant to use the verifiable credentials service.
 
@@ -35,7 +35,8 @@ The following diagram illustrates the Verified ID architecture and the component
 ## Prerequisites
 
 - You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
+- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you will need permission [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) to complete the app registration including granting admin consent.
+- Ensure that you have the [contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the Azure subscription or the resource group that you will deploy Azure Key Vault in.
 
 ## Create a key vault
 
@@ -69,7 +70,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 The Verifiable credentials service request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
 
-1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124**.
+1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124f**.
 
 1. For **Key permissions**, select permissions **Get** and **Sign**. 
 
@@ -108,7 +109,7 @@ To set up Verified ID, follow these steps:
 
 ## Register an application in Azure AD
 
- Verified ID needs to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verified ID Request Service that you set up in the previous step.
+Your application needs to get access tokens when it wants to call into Microsoft Entra Verified ID so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verified ID Request Service. For example, use the following steps for a web application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
@@ -138,7 +139,7 @@ To add the required permissions, follow these steps:
 
 1. Select **APIs my organization uses**.
 
-1. Search for the service principal that you created earlier, **Verifiable Credentials Service Request**, and select it.
+1. Search for the **Verifiable Credentials Service Request** and **Verifiable Credentials Service** service principals, and select them.
     
     ![Screenshot that shows how to select the service principal.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png)
 
@@ -158,9 +159,9 @@ To add the required permissions, follow these steps:
     1. Website ID registration
     1. Domain verification.
 1. Select on each section and download the JSON file under each.
-1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
-    - https://contoso.com/.well-known/did.json
-    - https://contoso.com/.well-known/did-configuration.json.
+1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
+    - `https://contoso.com/.well-known/did.json`
+    - `https://contoso.com/.well-known/did-configuration.json`
 
 Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
 

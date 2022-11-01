@@ -26,10 +26,8 @@ In this article, you learn how to deploy your machine learning model to managed 
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-* The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
-* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it.
-* You must have an Azure Machine Learning workspace.
+[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+
 * To deploy locally, you must install [Docker Engine](https://docs.docker.com/engine/) on your local computer. We highly recommend this option, so it's easier to debug issues.
 
 ### Clone examples repository

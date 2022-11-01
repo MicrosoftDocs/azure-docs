@@ -152,12 +152,12 @@ The `RequestCredential` provides information about the requested credentials the
 
 ### Configuration.Validation type
 
-The `Configuration.Validation` provides information about the presented credentials should be validated. It contains the following properties:
+The `Configuration.Validation` provides information about how the presented credentials should be validated. It contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
 | `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from an unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 

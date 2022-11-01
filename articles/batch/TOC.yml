@@ -103,6 +103,18 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
+  - name: Retirements
+    items:
+    - name: Batch Certificates Migration Guide
+      href: batch-certificate-migration-guide.md
+    - name: Batch pools without public IP addresses classic Retirement Migration Guide
+      href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
+    - name: Batch TLS 1.0_1 Migration Guide
+      href: batch-tls-101-migration-guide.md
+    - name: Job Pool Lifetime Statistics Migration Guide
+      href: job-pool-lifetime-statistics-migration-guide.md
+    - name: Low Priority VMs Retirement Migration Guide
+      href: low-priority-VMs-retirement-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -284,7 +296,7 @@
       - name: Rendering architectures
         href: batch-rendering-architectures.md
     - name: Data processing with Batch and Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=/azure/batch/toc.json
 - name: Reference
   items:
   - name: Azure CLI

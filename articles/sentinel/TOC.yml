@@ -13,6 +13,8 @@
     href: quickstart-onboard.md
 - name: Tutorials
   items:
+  - name: Forward syslog data to workspace
+    href: forward-syslog-monitor-agent.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -24,7 +26,7 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+    href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
   - name: Integrate with Microsoft Purview
@@ -62,13 +64,15 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find solutions and content
     items:
     - name: About Sentinel content
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: Manage custom content with repositories
+      href: ci-cd-custom-content.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -82,13 +86,13 @@
       - name: Overview
         href: kusto-overview.md
       - name: Query best practices
-        href: /azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: SQL to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Splunk to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: KQL quick reference
-        href: /azure/data-explorer/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
         href: kusto-resources.md
   - name: Normalize data
@@ -236,6 +240,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API
@@ -282,6 +288,8 @@
       href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Add entity to threat indicators
+      href: add-entity-to-threat-intelligence.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -362,6 +370,10 @@
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -374,6 +386,8 @@
     items:
     - name: Create automation rules
       href: create-manage-use-automation-rules.md
+    - name: Add advanced conditions to automation rules
+      href: add-advanced-conditions-to-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
@@ -508,6 +522,8 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks

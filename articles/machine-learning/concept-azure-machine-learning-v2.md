@@ -40,7 +40,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 ### Create a workspace
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 To create a workspace using CLI v2, use the following command:
 
@@ -81,7 +81,7 @@ A compute is a designated compute resource where you run your job or host your e
 * **Inference cluster** - used to deploy trained machine learning models to Azure Kubernetes Service. You can create an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or attach an existing AKS cluster.
 * **Attached compute** - You can attach your own compute resources to your workspace and use them for training and inference.
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 To create a compute using CLI v2, use the following command:
 
@@ -126,7 +126,7 @@ Azure Machine Learning datastores securely keep the connection information to yo
 * Azure Data Lake
 * Azure Data Lake Gen2
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 To create a datastore using CLI v2, use the following command:
 
@@ -171,7 +171,7 @@ Azure machine learning models consist of the binary file(s) that represent a mac
 
 ### Creating a model
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 To create a model using CLI v2, use the following command:
 
@@ -221,7 +221,7 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### Create an Azure ML custom environment
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 To create an environment using CLI v2, use the following command:
 

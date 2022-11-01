@@ -1,8 +1,8 @@
 ---
 title: Deploy an Azure Red Hat OpenShift cluster using the Azure portal
 description: Deploy an Azure Red Hat OpenShift cluster using the Azure portal
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.date: 11/30/2021

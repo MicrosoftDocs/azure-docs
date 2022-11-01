@@ -21,6 +21,41 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## September 19, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.09.19`
+
+Main changes:
+
+- `.Net Framework` to version `3.1.423`
+- `Azure Cli` to version `2.40.0`
+- `Intelijidea` to version `2022.2.2`
+- Microsoft Edge Browser to version `107.0.1379.1`
+- `Nodejs` to version `v16.17.0`
+- `Pycharm` to version `2022.2.1`
+
+Environment Specific Updates:
+
+`azureml_py38`:
+- `azureml-core` to version `1.45.0`
+
+`py38_default`:
+- `Jupyter Lab` to version `3.4.7`
+- `azure-core` to version `1.25.1`
+- `keras` to version `2.10.0`
+- `tensorflow-gpu` to version `2.10.0`
+
+## September 12, 2022
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version `22.09.06`
+
+Main changes:
+
+- Base OS level image updates.
+
+
 ## August 16, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
@@ -53,7 +88,7 @@ Version `22.07.18`
 
 Main Changes:
 
-- General OS level updates
+- General OS level updates.
 
 ## July 11, 2022
 [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)

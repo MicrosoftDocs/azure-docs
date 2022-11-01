@@ -7,6 +7,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-migrate-from-estimators-to-scriptrunconfig.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-migrate-from-estimators-to-scriptrunconfig",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-prebuilt-docker-image-inference.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-troubleshoot-prebuilt-docker-image-inference",
         "redirect_document_id": true

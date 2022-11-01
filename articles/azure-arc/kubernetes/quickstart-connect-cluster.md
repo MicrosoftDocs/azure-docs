@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 08/25/2022
+ms.date: 09/15/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -148,11 +148,12 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
-|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`*.servicebus.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 
 > [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 ## Create a resource group
 
@@ -242,6 +243,9 @@ Helm release deployment succeeded
 
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
+
+> [!IMPORTANT]
+> In some cases, deployment may fail due to a timeout error. Please see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

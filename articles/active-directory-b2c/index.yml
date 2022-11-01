@@ -29,7 +29,7 @@ landingContent:
           - text: What is Azure AD B2C?
             url: overview.md
           - text: Compare solutions for External Identities
-            url: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/external-identities/external-identities-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
           - text: Technical and feature overview
@@ -43,13 +43,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Authentication and authorization
-            url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: Tokens
-            url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: Protocols
-            url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: Authentication library
-            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
           - text: 'Build a web site: HTML, CSS, JavaScript'
             url: /learn/modules/build-simple-website/
 

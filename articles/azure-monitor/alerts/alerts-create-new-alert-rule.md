@@ -4,7 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -29,15 +29,35 @@ And then defining these elements for the resulting alert actions using:
 
 1. In the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, **resource location**, or do a search.
 
-    You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. The available signal types change based on the selected resource.
+    The **Available signal types** for your selected resource(s) are at the bottom right of the pane.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing the select resource pane for creating new alert rule.":::
 
 1. Select **Include all future resources** to include any future resources added to the selected scope.
 1. Select **Done**.
 1. Select **Next: Condition>** at the bottom of the page.
-1. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you're creating.
-1. Select the **Signal name**, and follow the steps below depending on the type of alert you're creating.
+1. In the **Select a signal** pane, filter the list of signals using the **Signal type** and **Monitor service**.
+    - **Signal Type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
+    - **Monitor service**: The service sending the signal. This list is pre-populated based on the type of alert rule you selected.
+
+    This table describes the services available for each type of alert rule:
+
+    |Signal type  |Monitor service  |Description  |
+    |---------|---------|---------|
+    |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.|
+    |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
+    |       |Azure.VM.Windows.GuestMetrics   |VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, and custom perf counters.        |
+    |       |\<your custom namespace\>|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+    |Log    |Log Analytics|The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.         |
+    |Activity log|Activity Log – Administrative|The service that provides the ‘Administrative’ activity log events.         |
+    |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
+    |       |Activity Log – Autoscale|The service that provides the ‘Autoscale’ activity log events.         |
+    |       |Activity Log – Security|The service that provides the ‘Security’ activity log events.         |
+    |Resource health|Resource health|The service that provides the resource-level health status. |
+    |Service health|Service health|The service that provides the subscription-level health status.         |
+
+ 
+1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the type of alert you're creating.
     ### [Metric alert](#tab/metric)
 
     1. In the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
@@ -168,10 +188,26 @@ And then defining these elements for the resulting alert actions using:
     From this point on, you can select the **Review + create** button at any time.
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+1. (Optional) If you want to make sure that the data processing for the action group takes place within a specific region, you can select an action group in one of these regions in which to process the action group:
+    - Sweden Central
+    - Germany West Central
+
+    > [!NOTE]
+    > We are continually adding more regions for regional data processing.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of the actions tab when creating a new alert rule.":::
 
-1. In the **Details** tab, define the **Project details** by selecting the **Subscription** and **Resource group**. 
+1. In the **Details** tab, define the **Project details**.
+    - Select the **Subscription**.
+    - Select the **Resource group**.
+    - (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the regions below, and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions: 
+        - North Europe
+        - West Europe
+        - Sweden Central
+        - Germany West Central 
+  
+    > [!NOTE]
+    > We are continually adding more regions for regional data processing.
 1. Define the **Alert rule details**.
 
     ### [Metric alert](#tab/metric)
@@ -184,7 +220,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
          
 
@@ -200,7 +236,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
@@ -413,7 +449,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 
 ## Changes to log alert rule creation experience
 
-If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
+If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.

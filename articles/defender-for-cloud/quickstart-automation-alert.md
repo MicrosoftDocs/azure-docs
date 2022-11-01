@@ -1,11 +1,9 @@
 ---
 title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template) or Bicep
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template) or Bicep.
-services: azure-resource-manager
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 05/16/2022
+ms.date: 08/31/2022
 ---
 # Quickstart: Create an automatic response to a specific security alert using an ARM template or Bicep
 
@@ -16,6 +14,8 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automation.md).
+
+The examples in this quickstart assume you have an existing Logic App. To deploy the example, you pass in parameters that contain the logic app name and resource group. For information about deploying a logic app, see [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with Bicep](../logic-apps/quickstart-create-deploy-bicep.md) or [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md).
 
 ## ARM template tutorial
 

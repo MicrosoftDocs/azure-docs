@@ -23,7 +23,7 @@ This tutorial also assumes that the device update takes place in a secure enviro
 This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> The sample used in this tutorial is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this tutorial to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
+> The sample used in this tutorial is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/How%20To/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-sdk-csharp](https://github.com/Azure/azure-iot-sdk-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this tutorial to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## Prerequisites
 

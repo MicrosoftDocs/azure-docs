@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 01/18/2022
+ms.date: 09/13/2022
 ms.author: greglin
 ---
 
@@ -151,3 +151,4 @@ For an Application Gateway v1-v2 feature comparison, see [What is Azure Applicat
 ## Next steps
 
 - Learn [how an application gateway works](how-application-gateway-works.md)
+- Review [Frequently asked questions about Azure Application Gateway](application-gateway-faq.yml)

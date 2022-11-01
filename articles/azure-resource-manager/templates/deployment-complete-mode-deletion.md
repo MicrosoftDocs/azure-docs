@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 08/31/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -220,6 +220,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | configurationProfiles / versions | Yes |
 > | patchJobConfigurations | Yes |
 > | patchJobConfigurations / patchJobs | No |
+> | patchSchedules | Yes |
+> | patchSchedules / associations | Yes |
 > | patchTiers | Yes |
 > | servicePrincipals | No |
 
@@ -252,6 +254,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | accounts | Yes |
 > | accounts / datapools | No |
 > | workspaces | Yes |
+> | workspaces / eventgridfilters | No |
 
 ## Microsoft.AutonomousSystems
 
@@ -372,6 +375,16 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | catalogs / deviceRegistrations | Yes |
 > | catalogs / provisioningPackages | Yes |
 
+## Microsoft.AzureSphereV2
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | catalogs | Yes |
+> | catalogs / certificates | No |
+> | catalogs / deviceRegistrations | Yes |
+> | catalogs / provisioningPackages | Yes |
+
 ## Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
@@ -395,13 +408,16 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | clusters / offers | No |
 > | clusters / publishers | No |
 > | clusters / publishers / offers | No |
-> | galleryimages | Yes |
-> | marketplacegalleryimages | Yes |
+> | clusters / updates | No |
+> | clusters / updates / updateRuns | No |
+> | clusters / updateSummaries | No |
+> | galleryImages | Yes |
+> | marketplaceGalleryImages | Yes |
 > | networkinterfaces | Yes |
-> | storagecontainers | Yes |
+> | storageContainers | Yes |
 > | virtualharddisks | Yes |
 > | virtualmachines | Yes |
-> | virtualmachines / extensions | Yes |
+> | virtualMachines / extensions | Yes |
 > | virtualmachines / hybrididentitymetadata | No |
 > | virtualnetworks | Yes |
 
@@ -481,7 +497,10 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | billingAccounts / createBillingRoleAssignment | No |
 > | billingAccounts / customers | No |
 > | billingAccounts / customers / billingPermissions | No |
+> | billingAccounts / customers / billingRoleAssignments | No |
+> | billingAccounts / customers / billingRoleDefinitions | No |
 > | billingAccounts / customers / billingSubscriptions | No |
+> | billingAccounts / customers / createBillingRoleAssignment | No |
 > | billingAccounts / customers / initiateTransfer | No |
 > | billingAccounts / customers / policies | No |
 > | billingAccounts / customers / products | No |
@@ -880,10 +899,12 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | snapshots | Yes |
 > | sshPublicKeys | Yes |
 > | virtualMachines | Yes |
+> | virtualMachines / applications | Yes |
 > | virtualMachines / extensions | Yes |
 > | virtualMachines / metricDefinitions | No |
 > | virtualMachines / runCommands | Yes |
 > | virtualMachineScaleSets | Yes |
+> | virtualMachineScaleSets / applications | No |
 > | virtualMachineScaleSets / extensions | No |
 > | virtualMachineScaleSets / networkInterfaces | No |
 > | virtualMachineScaleSets / publicIPAddresses | No |
@@ -961,6 +982,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | VirtualMachines / GuestAgents | No |
 > | VirtualMachines / HybridIdentityMetadata | No |
 > | VirtualMachines / InstallPatches | No |
+> | VirtualMachines / UpgradeExtensions | No |
 > | VirtualMachineTemplates | Yes |
 > | VirtualNetworks | Yes |
 
@@ -1406,6 +1428,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | devcenters / images | No |
 > | networkconnections | Yes |
 > | projects | Yes |
+> | projects / allowedEnvironmentTypes | No |
 > | projects / attachednetworks | No |
 > | projects / devboxdefinitions | No |
 > | projects / environmentTypes | No |
@@ -1483,6 +1506,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | cassandraClusters | Yes |
 > | databaseAccountNames | No |
 > | databaseAccounts | Yes |
+> | databaseAccounts / encryptionScopes | No |
 > | restorableDatabaseAccounts | No |
 
 ## Microsoft.DomainRegistration
@@ -1737,6 +1761,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | networkFunctionPublishers / networkFunctionDefinitionGroups | No |
 > | networkFunctionPublishers / networkFunctionDefinitionGroups / publisherNetworkFunctionDefinitionVersions | No |
 > | networkfunctions | Yes |
+> | networkfunctions / components | No |
 > | networkFunctionVendors | No |
 > | publishers | Yes |
 > | publishers / artifactStores | Yes |
@@ -2195,17 +2220,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | mobileNetworks / simPolicies | Yes |
 > | mobileNetworks / sites | Yes |
 > | mobileNetworks / slices | Yes |
-> | networks | Yes |
-> | networks / sites | Yes |
 > | packetCoreControlPlanes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | Yes |
 > | packetCoreControlPlaneVersions | No |
-> | packetCores | Yes |
 > | simGroups | Yes |
 > | simGroups / sims | No |
 > | sims | Yes |
-> | sims / simProfiles | Yes |
 
 ## Microsoft.Monitor
 
@@ -2413,6 +2434,9 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | energyServices | Yes |
+> | energyServices / privateEndpointConnectionProxies | No |
+> | energyServices / privateEndpointConnections | No |
+> | energyServices / privateLinkResources | No |
 
 ## Microsoft.OpenLogisticsPlatform
 
@@ -2433,6 +2457,29 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / eventGridFilters | No |
 > | workspaces / shares | No |
 > | workspaces / shareSubscriptions | No |
+
+## Microsoft.OperationalInsights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | clusters | Yes |
+> | deletedWorkspaces | No |
+> | linkTargets | No |
+> | querypacks | Yes |
+> | storageInsightConfigs | No |
+> | workspaces | Yes |
+> | workspaces / dataExports | No |
+> | workspaces / dataSources | No |
+> | workspaces / linkedServices | No |
+> | workspaces / linkedStorageAccounts | No |
+> | workspaces / metadata | No |
+> | workspaces / networkSecurityPerimeterAssociationProxies | No |
+> | workspaces / networkSecurityPerimeterConfigurations | No |
+> | workspaces / query | No |
+> | workspaces / scopedPrivateLinkProxies | No |
+> | workspaces / storageInsightConfigs | No |
+> | workspaces / tables | No |
 
 ## Microsoft.Orbital
 
@@ -2480,6 +2527,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | playerAccountPools | Yes |
 > | titles | Yes |
+> | titles / automationRules | No |
 > | titles / segments | No |
 > | titles / titleDataSets | No |
 > | titles / titleInternalDataKeyValues | No |
@@ -3156,6 +3204,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | testBaseAccounts / emailEvents | No |
 > | testBaseAccounts / externalTestTools | No |
 > | testBaseAccounts / externalTestTools / testCases | No |
+> | testBaseAccounts / featureUpdateSupportedOses | No |
 > | testBaseAccounts / flightingRings | No |
 > | testBaseAccounts / packages | Yes |
 > | testBaseAccounts / packages / favoriteProcesses | No |
@@ -3176,6 +3225,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | environments / privateEndpointConnections | No |
 > | environments / privateLinkResources | No |
 > | environments / referenceDataSets | Yes |
+
+## Microsoft.UsageBilling
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | accounts | Yes |
 
 ## Microsoft.VideoIndexer
 

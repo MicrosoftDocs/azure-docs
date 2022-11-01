@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 08/31/2022
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -24,7 +24,7 @@ The following table outlines the regions ultra disks are available in, as well a
 | Redundancy options | Regions |
 |--------------------|---------|
 | **Single VMs** | Australia Central<br/>Brazil South<br/>Central India<br/>East Asia<br/>Germany West Central<br/>Korea Central<br/>North Central US, South Central US, West US<br/>US Gov Arizona, US Gov Texas, US Gov Virginia |
-| **One availability zone** | Qatar Central |
+| **One availability zone** | China North 3<br/>Qatar Central |
 | **Two availability zones** | France Central |
 | **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 

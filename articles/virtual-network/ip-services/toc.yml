@@ -175,7 +175,7 @@ items:
     - name: Move across regions
       items:
       - name: Public IPs
-        href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2fip-services%2ftoc.json
+        href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/ip-services/toc.json
 - name: Reference
   items:
   - name: Azure CLI

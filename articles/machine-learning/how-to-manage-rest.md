@@ -2,12 +2,13 @@
 title: Use REST to manage ML resources
 titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure Machine Learning resources, such as a workspace, or register models.
-author: blackmist
-ms.author: larryfr
+author: deeikele
+ms.author: deeikele
+ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/28/2022
+ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -71,7 +72,7 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you'll use it to authenticate all additional administrative requests. You'll do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
 curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
@@ -340,17 +341,17 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 
 ## Create a workspace using customer-managed encryption keys
 
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [additional set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [another set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
 
-To create a workspaces that uses your keys for encryption, you need to meet the following prerequisites:
+To create a workspace that uses your keys for encryption, you need to meet the following prerequisites:
 
 * The Azure Machine Learning service principal must have contributor access to your Azure subscription.
 * You must have an existing Azure Key Vault that contains an encryption key.
-* The Azure Key Vault must exist in the same Azure region where you will create the Azure Machine Learning workspace.
-* The Azure Key Vault must have soft delete and purge protection enabled to protect against data loss in case of accidental deletion.
+* The Azure Key Vault must exist in the same Azure region where you'll create the Azure Machine Learning workspace.
+* The Azure Key Vault must have soft delete and purge protection enabled to protect against data loss if there was accidental deletion.
 * You must have an access policy in Azure Key Vault that grants get, wrap, and unwrap access to the Azure Cosmos DB application.
 
-To create a workspaces that uses a user-assigned managed identity and customer-managed keys for encryption, use the below request body. When using an user-assigned managed identity for the workspace, also set the `userAssignedIdentity` property to the resource ID of the managed identity.
+To create a workspace that uses a user-assigned managed identity and customer-managed keys for encryption, use the below request body. When using a user-assigned managed identity for the workspace, also set the `userAssignedIdentity` property to the resource ID of the managed identity.
 
 ```bash
 curl -X PUT \

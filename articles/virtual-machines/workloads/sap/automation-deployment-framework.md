@@ -60,6 +60,7 @@ The key components of the control plane are:
 - Storage account for Terraform state files
 - Storage account for SAP installation media
 - Azure Key Vault for deployment credentials
+- Configuration Web Application
 
 The following diagram shows the key components of the control plane and workload zone.
 
@@ -77,6 +78,18 @@ The application configuration will be performed from the Ansible Controller in t
 
 
 For more information of how to configure and deploy the control plane, see [Configuring the control plane](automation-configure-control-plane.md) and [Deploying the control plane](automation-deploy-control-plane.md).
+
+## Software acquisition process
+
+The framework also provides an Ansible playbook that can be used to download the software from SAP and persist it in the storage accounts in the SAP Library resource group.
+
+The software acquisition is using an SAP Application manifest file that contains the list of SAP software to be downloaded. The manifest file is a YAML file that contains the following information:
+
+- List of files to be downloaded
+- List of the Product IDs for the SAP application components
+- A set of template files used to provide the parameters for the unattended installation
+
+The SAP Software download playbook will process the manifest file and the dependent manifest files and download the SAP software from SAP using the specified SAP user account. The software will be downloaded to the SAP Library storage account and will be available for the installation process. As part of the download the process the application manifest and the supporting templates will also be persisted in the storage account. The application manifest and the dependent manifests will be aggregated into a single manifest file that will be used by the installation process.
 
 ### Deployer Virtual Machine
 

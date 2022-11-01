@@ -108,8 +108,20 @@ conceptualContent:
           itemType: overview
           text:  Azure OpenAI (Preview)
         - url: ./openai/concepts/models.md
-          itemType: overview
+          itemType: concept
           text: Azure OpenAI Models
+        - url: ./openai/quickstart.md
+          itemType: get-started
+          text: Get started generating text using Azure OpenAI
+        - url: ./openai/how-to/embeddings.md
+          itemType: how-to-guide
+          text: Generate embeddings with Azure OpenAI
+        - url: ./openai/how-to/fine-tuning.md
+          itemType: how-to-guide
+          text: Customize a model for your application
+        - url: https://aka.ms/oaiapply
+          itemType: get-started
+          text: Apply for access to Azure OpenAI
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

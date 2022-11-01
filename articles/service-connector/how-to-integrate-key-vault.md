@@ -43,6 +43,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
 | None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
@@ -51,8 +52,12 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                      |                            | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) |                                      |                            | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -60,16 +65,14 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Use the connection details below to connect compute services to Azure Key Vault. For each example below, replace the placeholder texts `<vault-name>`, `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your key vault name,  client-ID, client secret and tenant ID.
 
-### .NET, Java, Node.JS, Python
-
-#### System-assigned managed identity
+### System-assigned managed identity
 
 | Default environment variable name | Description             | Example value                           |
 |-----------------------------------|-------------------------|-----------------------------------------|
 | AZURE_KEYVAULT_SCOPE              | Your Azure RBAC scope   | `https://management.azure.com/.default` |
 | AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
 
-#### User-assigned managed identity
+### User-assigned managed identity
 
 | Default environment variable name | Description             | Example value                           |
 |-----------------------------------|-------------------------|-----------------------------------------|
@@ -77,7 +80,7 @@ Use the connection details below to connect compute services to Azure Key Vault.
 | AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
 | AZURE_KEYVAULT_CLIENTID           | Your Client ID          | `<client-ID>`                           |
 
-#### Service principal
+### Service principal
 
 | Default environment variable name | Description             | Example value                           |
 |-----------------------------------|-------------------------|-----------------------------------------|
@@ -87,9 +90,7 @@ Use the connection details below to connect compute services to Azure Key Vault.
 | AZURE_KEYVAULT_CLIENTSECRET       | Your Client secret      | `<client-secret>`                       |
 | AZURE_KEYVAULT_TENANTID           | Your Tenant ID          | `<tenant-id>`                           |
 
-### Java - Spring Boot
-
-#### Java - Spring Boot service principal
+### Java - Spring Boot service principal
 
 | Default environment variable name | Description                 | Example value                             |
 |-----------------------------------|-----------------------------|-------------------------------------------|

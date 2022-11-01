@@ -30,7 +30,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 ## July 2022
 
 - The Request Service APIs have a **new hostname** `verifiedid.did.msidentity.com`. The `beta.did.msidentity` and the `beta.eu.did.msidentity` will continue to work, but you should change your application and configuration. Also, you no longer need to specify `.eu.` for an EU tenant.
-- Request Service API have **new endpoints** and **updated JSON payloads**. For issuance, see [Issuance API specification](issuance-request-api.md#issuance-request-payload) and for presentation, see [Presentation API specification](presentation-request-api.md#presentation-request-payload). The old endpoints and JSON payloads will continue to work, but you should change your applications to use the new endpoints and payloads.
+- The Request Service APIs have **new endpoints** and **updated JSON payloads**. For issuance, see [Issuance API specification](issuance-request-api.md#issuance-request-payload) and for presentation, see [Presentation API specification](presentation-request-api.md#presentation-request-payload). The old endpoints and JSON payloads will continue to work, but you should change your applications to use the new endpoints and payloads.
 - Request Service API **[Error codes](error-codes.md)** have been **updated** 
 - The **[Admin API](admin-api.md)** is made **public** and is documented. The Azure portal is using the Admin API and with this REST API you can automate the onboarding or your tenant and creation of credential contracts.
 - Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-use-vcnetwork.md).
@@ -45,7 +45,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 
 - We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verified-id). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you'll need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
 - We are rolling out several features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
-  - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
+  - Introducing Managed Credentials, which are verifiable credentials that no longer use Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
   - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
   - Administrators can create a Verified Employee Managed Credential using the [new quick start](how-to-use-quickstart-verifiedemployee.md). The Verified Employee is a verifiable credential of type verifiedEmployee that is based on a pre-defined set of claims from your tenant's Azure Active Directory.
 
@@ -138,8 +138,8 @@ Sample contract file:
             "lastName": { "claim": "$.family_name" }
           },
           "configuration": "https://self-issued.me",
-          "client_id": "",
-          "redirect_uri": ""
+          "clientId": "",
+          "redirectUri": ""
         }
       ]
     },

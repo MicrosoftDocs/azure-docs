@@ -82,6 +82,16 @@ items:
     href: quotas.md
   - name: Understand app status
     href: concept-app-status.md
+  - name: Memory
+    items:
+    - name: Java memory management
+      href: concepts-for-java-memory-management.md
+    - name: Tools to troubleshoot memory issues
+      href: tools-to-troubleshoot-memory-issues.md
+    - name: Fix app restart issues caused by OOM
+      href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Metrics
     href: concept-metrics.md
   - name: Spring Boot Actuator
@@ -127,7 +137,7 @@ items:
     - name: Use IntelliJ to deploy apps
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
-      href: https://code.visualstudio.com/docs/java/java-spring-cloud
+      href: https://code.visualstudio.com/docs/java/java-spring-apps
     - name: Deploy Spring apps with Maven
       href: how-to-maven-deploy-apps.md
     - name: Deploy Spring apps with Azure PowerShell
@@ -248,18 +258,18 @@ items:
       href: github-actions-key-vault.md
   - name: Disaster recovery
     items:
-    - name: Enable availability zone
-      href: how-to-enable-availability-zone.md
-    - name: Plan for disaster recovery
-      href: disaster-recovery.md
+    - name: Redundancy and high availability
+      href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
       href: how-to-self-diagnose-solve.md
     - name: Self diagnose running in VNET
       href: how-to-self-diagnose-running-in-vnet.md
-    - name: Troubleshooting guide
+    - name: Troubleshoot common issues
       href: troubleshoot.md
+    - name: Troubleshoot common exit code issues
+      href: troubleshoot-exit-code.md
     - name: Capture heap/thread dump and use JFR
       href: how-to-capture-dumps.md
     - name: Use JVM options for troubleshooting

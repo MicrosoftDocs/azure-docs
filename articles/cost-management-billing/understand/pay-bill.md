@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 09/01/2022
 ms.author: banders
 ---
 
@@ -54,7 +54,9 @@ If you want to learn how to change your default payment method to check or wire 
 
 There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
 
-Hong Kong and Brazil only support credit cards.
+- Hong Kong and Brazil only support credit cards.
+- India supports debit and credit cards through Visa and Mastercard.
+
 
 ### Check or wire transfer
 

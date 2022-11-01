@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/08/2022
+ms.date: 09/06/2022
 ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -27,9 +27,7 @@ In this article, learn about the network communication requirements when securin
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
->     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 
@@ -90,7 +88,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 1. Add __Application rules__ for the following hosts:
 
     > [!NOTE]
-    > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+    > This is not a complete list of the hosts required for all hosts you may need to communicate with, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
@@ -101,7 +99,10 @@ These rule collections are described in more detail in [What are some Azure Fire
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+    | **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
+    | **code.visualstudio.com** | Required to download and install VS Code desktop. This is not required for VS Code Web. |
+    | **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
+    | **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install VS Code extensions. These enable the remote connection to Compute Instances provided by the Azure ML extension for VS Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) for more information. |
     | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
     | **dc.applicationinsights.azure.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
     | **dc.applicationinsights.microsoft.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
@@ -413,7 +414,10 @@ The hosts in this section are used to install Visual Studio Code packages to est
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+| **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
+| **code.visualstudio.com** | Required to download and install VS Code desktop. This is not required for VS Code Web. |
+| **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
+| **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install VS Code extensions. These enable the remote connection to Compute Instances provided by the Azure ML extension for VS Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) for more information. |
 | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Next steps
@@ -423,9 +427,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 

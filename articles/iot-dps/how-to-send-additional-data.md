@@ -57,7 +57,7 @@ If the custom allocation policy webhook wishes to return some data to the device
 
 This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and the IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
 
-[IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
+[IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
 
 ## IoT Edge support
 

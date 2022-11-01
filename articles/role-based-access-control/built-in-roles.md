@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 08/20/2022
+ms.date: 09/09/2022
 ms.custom: generated
 ---
 
@@ -271,6 +271,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
+> | [Template Spec Contributor](#template-spec-contributor) | Allows full access to Template Spec operations at the assigned scope. | 1c9b6475-caf0-4164-b5a1-2142a7116f4b |
+> | [Template Spec Reader](#template-spec-reader) | Allows read access to Template Specs at the assigned scope. | 392ae280-861d-42bd-9ea5-08ee6d83b80e |
 > | **Virtual desktop infrastructure** |  |  |
 > | [Desktop Virtualization Application Group Contributor](#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
 > | [Desktop Virtualization Application Group Reader](#desktop-virtualization-application-group-reader) | Reader of the Desktop Virtualization Application Group. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
@@ -4299,6 +4301,7 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/* | Create and manage server farms |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/hostingEnvironments/Join/Action | Joins an App Service Environment |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/autoscalesettings/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4324,7 +4327,8 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
         "Microsoft.Web/serverFarms/*",
-        "Microsoft.Web/hostingEnvironments/Join/Action"
+        "Microsoft.Web/hostingEnvironments/Join/Action",
+        "Microsoft.Insights/autoscalesettings/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -10338,7 +10342,7 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read | Get or list template specs and template spec versions |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
@@ -11061,7 +11065,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [microsoft.monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
+> | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11115,9 +11119,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.AlertsManagement/migrateFromSmartDetection/*"
       ],
       "notActions": [],
-      "dataActions": [
-        "microsoft.monitor/accounts/data/metrics/read"
-      ],
+      "dataActions": [],
       "notDataActions": []
     }
   ],
@@ -11187,7 +11189,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
+> | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11207,9 +11209,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [
-        "Microsoft.Monitor/accounts/data/metrics/read"
-      ],
+      "dataActions": [],
       "notDataActions": []
     }
   ],
@@ -13495,6 +13495,90 @@ Lets you manage tags on entities, without providing access to the entities thems
 }
 ```
 
+### Template Spec Contributor
+
+Allows full access to Template Spec operations at the assigned scope.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/* | Create and manage template specs and template spec versions |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows full access to Template Spec operations at the assigned scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1c9b6475-caf0-4164-b5a1-2142a7116f4b",
+  "name": "1c9b6475-caf0-4164-b5a1-2142a7116f4b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/templateSpecs/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Template Spec Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Template Spec Reader
+
+Allows read access to Template Specs at the assigned scope.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read | Get or list template specs and template spec versions |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read access to Template Specs at the assigned scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/392ae280-861d-42bd-9ea5-08ee6d83b80e",
+  "name": "392ae280-861d-42bd-9ea5-08ee6d83b80e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/templateSpecs/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Template Spec Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Virtual desktop infrastructure
 
 
@@ -14063,10 +14147,11 @@ Full access role for Digital Twins data-plane [Learn more](../digital-twins/conc
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Read, create, update, or delete any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Invoke any Command on a Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Read, create, update, or delete any Digital Twin Relationship |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/* |  |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Read, create, update, or delete any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
@@ -14085,10 +14170,11 @@ Full access role for Digital Twins data-plane [Learn more](../digital-twins/conc
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DigitalTwins/eventroutes/*",
         "Microsoft.DigitalTwins/digitaltwins/*",
         "Microsoft.DigitalTwins/digitaltwins/commands/*",
         "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/jobs/*",
         "Microsoft.DigitalTwins/models/*",
         "Microsoft.DigitalTwins/query/*"
       ],
@@ -14115,6 +14201,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read | Read any Bulk Import Job |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
@@ -14136,6 +14223,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
         "Microsoft.DigitalTwins/digitaltwins/read",
         "Microsoft.DigitalTwins/digitaltwins/relationships/read",
         "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/jobs/import/read",
         "Microsoft.DigitalTwins/models/read",
         "Microsoft.DigitalTwins/query/action"
       ],

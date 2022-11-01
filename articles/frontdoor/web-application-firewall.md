@@ -50,7 +50,7 @@ An IP address–based access control rule is a custom WAF rule that lets you con
 
 ## Rate limiting
 
-A custom rate limit rule controls access based on matching conditions and the rates of incoming requests. For more information, see [configure rate limit](../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md).
+A custom rate limit rule controls access based on matching conditions and the rates of incoming requests. For more information, see [What is rate limiting for Azure Front Door Service?](../web-application-firewall/afds/waf-front-door-rate-limit.md).
 
 ## Tuning
 

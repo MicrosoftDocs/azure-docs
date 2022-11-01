@@ -63,6 +63,26 @@ landingContent:
             url: perform-access-review.md
   
   # Card
+  - title: Govern the lifecycle of users as they join, move within, and leave organizations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Lifecycle Workflows (Preview)?
+            url: what-are-lifecycle-workflows.md
+      - linkListType: tutorial
+        links:
+          - text: On-boarding users to your organization using Lifecycle workflows with Azure portal
+            url: tutorial-onboard-custom-workflow-portal.md
+          - text: On-boarding users to your organization using Lifecycle workflows with Microsoft Graph
+            url: tutorial-onboard-custom-workflow-graph.md
+      - linkListType: concept
+        links:
+          - text: Understanding Lifecycle Workflows 
+            url: understanding-lifecycle-workflows.md
+          - text: Lifecycle Workflows built-in tasks
+            url: lifecycle-workflow-tasks.md  
+  
+  # Card
   - title: Make users eligible for privileged roles
     linkLists:
       - linkListType: overview

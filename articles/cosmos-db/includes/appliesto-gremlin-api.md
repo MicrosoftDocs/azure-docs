@@ -1,1 +1,1 @@
-APPLIES TO: :::image type="icon" source="../media/applies-to/yes.png" border="false":::Gremlin API
+APPLIES TO: :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::Gremlin API

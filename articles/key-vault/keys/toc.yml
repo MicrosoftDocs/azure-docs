@@ -63,6 +63,8 @@ items:
   items:
   - name: Secure key release policy grammar
     href: policy-grammar.md
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI

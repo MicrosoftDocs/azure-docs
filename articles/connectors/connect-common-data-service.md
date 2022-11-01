@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 09/07/2022
 tags: connectors
 ---
 
@@ -14,8 +14,9 @@ tags: connectors
 > [!IMPORTANT]
 >
 > On August 30, 2022, the connector operations for Common Data Service 2.0, also known as Microsoft Dataverse 
-> (Legacy), migrate to the current Microsoft Dataverse connector. You can use the current Dataverse connector 
-> in any existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
+> (Legacy), migrate to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
+> while current operations bear the "preview" label. You can use the current Dataverse connector in any 
+> existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
 > with the legacy Dataverse connector. However, make sure to review these workflows, and update them promptly.
 >
 > Starting October 2023, the legacy version becomes unavailable for new workflows. Existing workflows continue 

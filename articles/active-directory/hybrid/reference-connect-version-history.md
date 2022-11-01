@@ -24,9 +24,7 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
- - If you're using *Windows Server 2016 or newer*, use *Azure AD Connect V2.0*. You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).
- - If you're still using an *older version of Windows Server*, use *Azure AD Connect V1.6*. You can download the latest version of Azure AD Connect V1 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336). See the [release notes for the latest V1.6 release](reference-connect-version-history.md#16160).
- - We're only applying critical changes to the V1.x versions going forward. You might not find some of the features and fixes for V2.0 in the V1.x releases. For this reason, upgrade to the V2.0 version as soon as possible. Most notably, there's an issue with the 1.16.4.2 build. When you upgrade to this V1.6 build or any newer builds, the group limit resets to 50,000. When you upgrade a server to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).
 
 The following table lists related topics:
 
@@ -37,7 +35,8 @@ Required permissions | For permissions required to apply an update, see [Azure A
 
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
-> *On August 31, 2022, all 1.x versions of Azure AD Connect will be retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
+> *As of August 31, 2022, all 1.x versions of Azure AD Connect are retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
+> AADConnect V1.x may stop working on December 31st, due to the retirement of the ADAL library service on that date.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]
@@ -46,6 +45,7 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > 
 > The following versions will retire on 15 March 2023:
 >
+> - 2.0.91.0
 > - 2.0.89.0
 > - 2.0.88.0
 > - 2.0.28.0
@@ -57,7 +57,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > 
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
 > 
-> This policy does not change the retirement of all 1.x versions of Azure AD Connect Sync on 31 August 2022, which is due to the retirement of the SQL Server 2012 and Azure AD Authentication Library (ADAL) components.
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
@@ -345,8 +344,6 @@ There are no functional changes in this release.
 > This release is a security update release of Azure AD Connect. It's intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
 
 This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability, see the CVE.
-
-To download the latest version of Azure AD Connect 1.6, see the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336).
 
 ### Release status
 

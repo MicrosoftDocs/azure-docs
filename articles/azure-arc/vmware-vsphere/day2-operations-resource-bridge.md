@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform day 2 administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 08/25/2022
+ms.date: 09/15/2022
 
 ---
 
@@ -68,11 +68,15 @@ There are two different sets of credentials stored on the Arc resource bridge. Y
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
 - **Account for VMware cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled VMware vSphere
 
-To update the credentials of the account for Arc resource bridge, use the Azure CLI command [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware). Run the command from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
+To update the credentials of the account for Arc resource bridge, run the following Azure CLI commands . Run the commands from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
 
 ```azurecli
-az arcappliance update-infracredentials vmware --kubeconfig <kubeconfig>
+az account set -s <subscription id>
+az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
+az arcappliance update-infracredentials vmware --kubeconfig kubeconfig
 ```
+For more details on the commands see [`az arcappliance get-credentials`](/cli/azure/arcappliance/get-credentials#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
+
 
 To update the credentials used by the VMware cluster extension on the resource bridge. This command can be run from anywhere with `connectedvmware` CLI extension installed.
 
@@ -84,27 +88,21 @@ az connectedvmware vcenter connect --custom-location <name of the custom locatio
 
 For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](/cli/azure/arcappliance/logs#az-arcappliance-logs-vmware) command.
 
-The `az arcappliance log` command must be run from a workstation that can communicate with the Arc resource bridge either via the cluster configuration IP address or the IP address of the Arc resource bridge VM.
-
-To save the logs to a destination folder, run the following command. This command requires connectivity to cluster configuration IP address.
+To save the logs to a destination folder, run the following commands. These commands need connectivity to cluster configuration IP address.
 
 ```azurecli
-az arcappliance logs <provider> --kubeconfig <path to kubeconfig> --out-dir <path to specified output directory>
+az account set -s <subscription id>
+az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
+az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified output directory>
 ```
 
-If the Kubernetes cluster on the resource bridge isn't in functional state, you can use the following command. This command requires connectivity to IP address of the Azure Arc resource bridge VM via SSH
+If the Kubernetes cluster on the resource bridge isn't in functional state, you can use the following commands. These commands require connectivity to IP address of the Azure Arc resource bridge VM via SSH
 
 ```azurecli
-az arcappliance logs <provider> --out-dir <path to specified output directory> --ip XXX.XXX.XXX.XXX
+az account set -s <subscription id>
+az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
+az arcappliance logs vmware --out-dir <path to specified output directory> --ip XXX.XXX.XXX.XXX
 ```
-
-During initial onboarding, SSH keys are saved to the workstation. If you're running this command from the workstation that was used for onboarding, no other steps are required.
-
-If you're running this command from a different workstation, make sure the following files are copied to the new workstation in the same location.
-
-- For a Windows workstation, `C:\ProgramData\kva\.ssh\logkey` and `C:\ProgramData\kva\.ssh\logkey.pub`
-  
-- For a Linux workstation, `$HOME\.KVA\.ssh\logkey` and `$HOME\.KVA\.ssh\logkey.pub`
 
 ## Next steps
 

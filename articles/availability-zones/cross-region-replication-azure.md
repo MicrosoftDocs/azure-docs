@@ -2,7 +2,7 @@
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
 author: awysza
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 3/01/2022
 ms.author: rarco

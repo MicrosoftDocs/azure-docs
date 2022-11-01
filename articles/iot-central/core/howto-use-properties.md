@@ -19,7 +19,9 @@ Properties represent point-in-time values. For example, a device can use a prope
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
-To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+
+To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 ## Define your properties
 

@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: javascript
 ms.topic: sample
 ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js

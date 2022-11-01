@@ -10,7 +10,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/text-analysis-runtime)
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you will use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -184,3 +184,14 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Sentiment-analysis-and-opinion-mining" target="_target">I ran into an issue</a>
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Sentiment analysis and opinion mining language support](../../language-support.md)
+* [How to call the API](../../how-to/call-api.md)  
+* [Reference documentation](/rest/api/language/text-analysis-runtime)

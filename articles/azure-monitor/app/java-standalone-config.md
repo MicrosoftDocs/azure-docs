@@ -32,14 +32,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.3.1.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.0.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.3.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.0.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -62,7 +62,7 @@ You can also set the connection string using the environment variable `APPLICATI
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.3.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.0.jar` is located.
 
 ```json
 {
@@ -129,12 +129,51 @@ Or you can set the cloud role instance using the Java system property `applicati
 
 ## Sampling
 
-Sampling is helpful if you need to reduce cost.
-Sampling is performed as a function on the operation ID (also known as trace ID), so that the same operation ID will always result in the same sampling decision. This ensures that you won't get parts of a distributed transaction sampled in while other parts of it are sampled out.
+> [!NOTE]
+> Sampling can be a great way to reduce the cost of Application Insights. Make sure to set up your sampling
+> configuration appropriately for your use case.
 
-For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
+Sampling is request-based, meaning if a request is captured (sampled), then so are its dependencies, logs and
+exceptions.
 
-Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - make sure you set the sampling rate that is correct for your use case:
+Furthermore, sampling is trace ID based, to help ensure consistent sampling decisions across different services.
+
+### Rate-Limited Sampling
+
+Starting from 3.4.0, rate-limited sampling is available, and is now the default.
+
+If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
+(approximately) 5 requests per second, along with all the dependencies and logs on those requests.
+
+This replaces the prior default which was to capture all requests.
+If you still wish to capture all requests, use [fixed-percentage sampling](#fixed-percentage-sampling) and set the
+sampling percentage to 100.
+
+> [!NOTE]
+> The rate-limited sampling is approximate, because internally it must adapt a "fixed" sampling percentage over
+> time in order to emit accurate item counts on each telemetry record. Internally, the rate-limited sampling is
+> tuned to adapt quickly (0.1 seconds) to new application loads, so you should not see it exceed the configured rate by
+> much, or for very long.
+
+Here is an example how to set the sampling to capture at most (approximately) 1 request per second:
+
+```json
+{
+  "sampling": {
+    "requestsPerSecond": 1.0
+  }
+}
+```
+
+Note that `requestsPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you wish.
+For example, a value of `0.5` means capture at most 1 request every 2 seconds.
+
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_REQUESTS_PER_SECOND`
+(which will then take precedence over rate limit specified in the json configuration).
+
+### Fixed-Percentage Sampling
+
+Here is an example how to set the sampling to capture approximately a third of all requests:
 
 ```json
 {
@@ -148,7 +187,8 @@ You can also set the sampling percentage using the environment variable `APPLICA
 (which will then take precedence over sampling percentage specified in the json configuration).
 
 > [!NOTE]
-> For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
+> For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.
+> Currently sampling doesn't support other values.
 
 ## Sampling overrides (preview)
 
@@ -223,6 +263,31 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
       "type": "string"
     }
   ]
+}
+```
+
+## Connection string overrides (preview)
+
+This feature is in preview, starting from 3.4.0.
+
+Connection string overrides allow you to override the [default connection string](#connection-string), for example:
+* Set one connection string for one http path prefix `/myapp1`.
+* Set another connection string for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "connectionStringOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "connectionString": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "connectionString": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
 }
 ```
 
@@ -355,9 +420,28 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > | project timestamp, message, itemType
 > ```
 
+
+### Code properties for Logback (preview) 
+
+You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumber_) for Logback: 
+
+```json
+{
+  "preview": {
+    "captureLogbackCodeAttributes": true
+  }
+}
+```
+
+> [!WARNING]
+>
+> This feature could add a performance overhead.
+
+This feature is in preview, starting from 3.4.0.
+
 ### LoggingLevel
 
-Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is aleady captured in the `SeverityLevel` field.
+Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
 
 If needed, you can re-enable the previous behavior:
 
@@ -390,6 +474,42 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
   "instrumentation": {
     "micrometer": {
       "enabled": false
+    }
+  }
+}
+```
+
+## JDBC query masking
+
+Literal values in JDBC queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.0, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "jdbc": {
+      "masking": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+## Mongo query masking
+
+Literal values in Mongo queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.0, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "mongo": {
+      "masking": {
+        "enabled": false
+      }
     }
   }
 }
@@ -656,7 +776,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.3.1.jar` is located.
+`applicationinsights-agent-3.4.0.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

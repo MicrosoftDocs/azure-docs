@@ -22,9 +22,6 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
->[!NOTE]
->The supported version of SAP S4/HANA is 6.0.
-
 When scanning SAP S/4HANA source, Microsoft Purview supports:
 
 - Extracting technical metadata including:

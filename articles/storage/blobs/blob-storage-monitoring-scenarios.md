@@ -1,6 +1,7 @@
 ---
 title: Best practices for monitoring Azure Blob Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage.
+recommendations: false
 author: normesta
 ms.service: storage
 ms.subservice: blobs

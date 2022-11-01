@@ -129,3 +129,18 @@ landingContent:
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.yml
+
+  # Card
+  - title: Learn about Load Balancer architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load-balancing options
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Networking on Azure and AWS
+            url: /azure/architecture/aws-professional/networking
+          - text: Windows N-tier application on Azure
+            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+          - text: Oracle databse migration to Azure
+            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure
+

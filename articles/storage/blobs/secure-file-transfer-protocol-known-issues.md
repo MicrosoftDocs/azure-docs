@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 09/13/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -16,11 +16,10 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+> SFTP support is currently in PREVIEW. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 >
-> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 > [!IMPORTANT]
 > Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.

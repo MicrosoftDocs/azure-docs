@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/11/2022
-ms.author: rohink
+ms.date: 09/16/2022
+ms.author: greglin
 ms.custom: fasttrack-edit
 ---
 
@@ -18,11 +18,12 @@ ms.custom: fasttrack-edit
 
 Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you might need to allow the virtual machines (VMs), and other resources deployed in a virtual network to communicate with each other. Although you can enable communication by using IP addresses, it is much simpler to use names that can be easily remembered, and do not change.
 
-When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of three methods:
+When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
 * [Azure DNS private zones](../dns/private-dns-overview.md)
 * [Azure-provided name resolution](#azure-provided-name-resolution)
 * [Name resolution that uses your own DNS server](#name-resolution-that-uses-your-own-dns-server) (which might forward queries to the Azure-provided DNS servers)
+* [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
 
 The type of name resolution you use depends on how your resources need to communicate with each other. The following table illustrates scenarios and corresponding name resolution solutions:
 
@@ -36,13 +37,13 @@ The type of name resolution you use depends on how your resources need to commun
 | **Scenario** | **Solution** | **DNS Suffix** |
 | --- | --- | --- |
 | Name resolution between VMs located in the same virtual network, or Azure Cloud Services role instances in the same cloud service. | [Azure DNS private zones](../dns/private-dns-overview.md) or [Azure-provided name resolution](#azure-provided-name-resolution) |Hostname or FQDN |
-| Name resolution between VMs in different virtual networks or role instances in different cloud services. |[Azure DNS private zones](../dns/private-dns-overview.md) or, Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Name resolution from an Azure App Service (Web App, Function, or Bot) using virtual network integration to role instances or VMs in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Name resolution from App Service Web Apps to VMs in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Name resolution from App Service Web Apps in one virtual network to VMs in a different virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Resolution of on-premises computer and service names from VMs or role instances in Azure. |Customer-managed DNS servers (on-premises domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers, for example). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution between VMs in different virtual networks or role instances in different cloud services. |[Azure DNS private zones](../dns/private-dns-overview.md), [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md), or Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from an Azure App Service (Web App, Function, or Bot) using virtual network integration to role instances or VMs in the same virtual network. |[Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) or customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from App Service Web Apps to VMs in the same virtual network. |[Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) or customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from App Service Web Apps in one virtual network to VMs in a different virtual network. |[Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) or customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Resolution of on-premises computer and service names from VMs or role instances in Azure. |[Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) or customer-managed DNS servers (on-premises domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers, for example). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Resolution of Azure hostnames from on-premises computers. |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Reverse DNS for internal IPs. |[Azure DNS private zones](../dns/private-dns-overview.md) or [Azure-provided name resolution](#azure-provided-name-resolution) or [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |Not applicable |
+| Reverse DNS for internal IPs. |[Azure DNS private zones](../dns/private-dns-overview.md), [Azure-provided name resolution](#azure-provided-name-resolution), [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md), or [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |Not applicable |
 | Name resolution between VMs or role instances located in different cloud services, not in a virtual network. |Not applicable. Connectivity between VMs and role instances in different cloud services is not supported outside a virtual network. |Not applicable|
 
 ## Azure-provided name resolution
@@ -79,6 +80,7 @@ Points to consider when you are using Azure-provided name resolution:
 * The Azure DNS IP address is 168.63.129.16. This is a static IP address and will not change.
 
 ### Reverse DNS Considerations
+
 Reverse DNS is supported in all ARM based virtual networks. You can issue reverse DNS queries (PTR queries) to map IP addresses of virtual machines to FQDNs of virtual machines.
 * All PTR queries for IP addresses of virtual machines will return FQDNs of form \[vmname\].internal.cloudapp.net
 * Forward lookup on FQDNs of form \[vmname\].internal.cloudapp.net will resolve to IP address assigned to the virtual machine.
@@ -150,6 +152,9 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
 ## Name resolution that uses your own DNS server
 
 This section covers VMs, role instances, and web apps.
+
+> [!NOTE]
+> [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) replaces the need to use VM-based DNS servers in a virtual network.  The following section is provided if you wish to use a VM-based DNS solution, however there are many benefits to using Azure DNS Private Resolver, including cost reduction, built-in high availability, scalability, and flexibility. 
 
 ### VMs and role instances
 

@@ -108,7 +108,7 @@
       href: functions-event-grid-blob-trigger.md
       displayName: storage, ngrok, local
     - name: Image resize with Event Grid
-      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
@@ -119,7 +119,7 @@
       href: functions-create-function-linux-custom-image.md
       displayName: container, docker
     - name: Functions on IoT Edge device
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
       href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -248,7 +248,7 @@
     - name: Consumption plan costs
       href: functions-consumption-costs.md
       displayName: best practice
-    - name: Functions Proxies
+    - name: Serverless REST APIs
       href: functions-proxies.md
     - name: Networking options
       href: functions-networking-options.md
@@ -398,12 +398,14 @@
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/developer/jenkins/deploy-to-azure-functions?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
       items:
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
+        - name: Reference function app settings from App Configuration (preview)
+          href: ../app-service/app-service-configuration-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
           href: set-runtime-version.md
         - name: Disable a function
@@ -414,6 +416,10 @@
           href: functions-geo-disaster-recovery.md
         - name: Move across regions
           href: functions-move-across-regions.md
+        - name: Migrate to a zone-redundant plan
+          href: ../availability-zones/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Work with legacy Functions Proxies
+          href: legacy-proxies.md  
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -436,39 +442,39 @@
         - name: Configure auth providers
           items:
             - name: Authenticate with Azure AD
-              href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Facebook
-              href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with GitHub
-              href: ../app-service/configure-authentication-provider-github.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
-              href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Twitter
-              href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
-              href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate using Sign in with Apple (Preview)
-              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
+              href: ../app-service/configure-authentication-provider-apple.md?toc=/azure/azure-functions/toc.json
         - name: Customize sign-ins/outs
-          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=/azure/azure-functions/toc.json
         - name: Access user identities
-          href: ../app-service/configure-authentication-user-identities.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-user-identities.md?toc=/azure/azure-functions/toc.json
         - name: Work with tokens
-          href: ../app-service/configure-authentication-oauth-tokens.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-oauth-tokens.md?toc=/azure/azure-functions/toc.json
         - name: Manage API versions
-          href: ../app-service/configure-authentication-api-version.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json
         - name: File-based configuration
-          href: ../app-service/configure-authentication-file-based.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
         - name: Add SSL cert
-          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
-          href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json
         - name: Use a managed identity
-          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
         - name: Reference secrets from Key Vault
-          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
@@ -490,13 +496,13 @@
             - name: SignalR
               items:
                 - name: C#
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=/azure/azure-functions/toc.json
                 - name: Java
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=/azure/azure-functions/toc.json
                 - name: JavaScript
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=%2fazure%2fazure-functions%2ftoc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json                  
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -524,8 +530,8 @@
               href: openapi-apim-integrate-visual-studio.md
               displayName: OpenAPI, Swagger
         - name: Use a managed identity
-          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Customize HTTP function endpoint
+          href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
+        - name: Customize endpoints with legacy proxies
           href: functions-create-serverless-api.md
         - name: Manage on-premises resources
           href: functions-hybrid-powershell.md
@@ -535,7 +541,7 @@
           href: functions-recover-storage-account.md
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
-          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
           displayName: troubleshoot 
         - name: Python functions
           items:
@@ -746,6 +752,14 @@
             href: errors-diagnostics/sdk-rules/azf0001.md
           - name: AZF0002
             href: errors-diagnostics/sdk-rules/azf0002.md
+        - name: Diagnostic events
+          items:
+          - name: AZFD0001
+            href: errors-diagnostics/diagnostic-events/azfd0001.md
+          - name: AZFD0002
+            href: errors-diagnostics/diagnostic-events/azfd0002.md
+          - name: AZFD0003
+            href: errors-diagnostics/diagnostic-events/azfd0003.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

@@ -15,6 +15,23 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
 
+## August 2022
+
+### New articles
+
+- [Configure Azure Active Directory B2C with Deduce to combat identity fraud and create a trusted user experience](partner-deduce.md)
+
+### Updated articles
+
+- [Clean up resources and delete the tenant](tutorial-delete-tenant.md)
+- [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
+- [JSON claims transformations](json-transformations.md)
+- [Extensions app in Azure AD B2C](extensions-app.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md)
+- [Azure Active Directory B2C: What's new](whats-new-docs.md)
+- [Page layout versions](page-layout.md)
+
 ## July 2022
 
 ### New articles
@@ -87,71 +104,3 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery](publish-app-to-azure-ad-app-gallery.md)
 - [Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C](quickstart-native-app-desktop.md)
 - [Register a single-page application (SPA) in Azure Active Directory B2C](tutorial-register-spa.md)
-
-## March 2022
-
-### New articles
-
-- [Configure eID-Me with Azure Active Directory B2C for identity verification](partner-eid-me.md)
-- [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
-- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md)
-
-### Updated articles
-
-- [Configure eID-Me with Azure Active Directory B2C for identity verification](partner-eid-me.md)
-- [Language customization in Azure Active Directory B2C](language-customization.md)
-- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md)
-- [Set up direct sign in using Azure Active Directory B2C](direct-signin.md)
-- [Single-page application sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md)
-- [Azure AD B2C: Authentication protocols](protocols-overview.md)
-- [Configure Akamai with Azure Active Directory B2C](partner-akamai.md)
-- [Cookies definitions for Azure AD B2C](cookie-definitions.md)
-- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
-- [Azure Active Directory B2C: What's new](whats-new-docs.md)
-- [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md)
-- [Options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md)
-
-## February 2022
-
-### New articles
-
-- [Configure authentication in a sample Node.js web application by using Azure Active Directory B2C](configure-a-sample-node-web-app.md)
-- [Configure authentication in a sample Node.js web API by using Azure Active Directory B2C](configure-authentication-in-sample-node-web-app-with-api.md)
-- [Enable authentication options in a Node.js web app by using Azure Active Directory B2C](enable-authentication-in-node-web-app-options.md)
-- [Enable Node.js web API authentication options using Azure Active Directory B2C](enable-authentication-in-node-web-app-with-api-options.md)
-- [Enable authentication in your own Node.js web API by using Azure Active Directory B2C](enable-authentication-in-node-web-app-with-api.md)
-- [Enable authentication in your own Node web application using Azure Active Directory B2C](enable-authentication-in-node-web-app.md)
-
-### Updated articles
-
-- [Configure session behavior in Azure Active Directory B2C](session-behavior.md)
-- [Customize the user interface with HTML templates in Azure Active Directory B2C](customize-ui-with-html.md)
-- [Define a self-asserted technical profile in an Azure Active Directory B2C custom policy](self-asserted-technical-profile.md)
-- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md)
-- [Date claims transformations](date-transformations.md)
-- [Integer claims transformations](integer-transformations.md)
-- [JSON claims transformations](json-transformations.md)
-- [Define phone number claims transformations in Azure AD B2C](phone-number-claims-transformations.md)
-- [Social accounts claims transformations](social-transformations.md)
-- [String claims transformations](string-transformations.md)
-- [Web sign in with OpenID Connect in Azure Active Directory B2C](openid-connect.md)
-
-## January 2022
-
-### Updated articles
-
-- [Tutorial: Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP](partner-f5.md)
-- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md)
-- [Boolean claims transformations](boolean-transformations.md)
-- [Date claims transformations](date-transformations.md)
-- [General claims transformations](general-transformations.md)
-- [Integer claims transformations](integer-transformations.md)
-- [JSON claims transformations](json-transformations.md)
-- [Define phone number claims transformations in Azure AD B2C](phone-number-claims-transformations.md)
-- [Social accounts claims transformations](social-transformations.md)
-- [String claims transformations](string-transformations.md)
-- [StringCollection claims transformations](stringcollection-transformations.md)
-- [Billing model for Azure Active Directory B2C](billing.md)
-- [Configure SAML identity provider options with Azure Active Directory B2C](identity-provider-generic-saml-options.md)
-- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md)
-- [Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C](identity-provider-adfs-saml.md)

@@ -179,16 +179,6 @@ The logged information contains text similar to the following JSON:
 }
 ```
 
-### Python SDK
-
-After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-run.properties['azureml.git.commit']
-```
-
 
 ## Next steps
 

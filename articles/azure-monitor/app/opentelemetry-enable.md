@@ -94,7 +94,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 ### Prerequisites
 
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
 ### [.NET](#tab/net)
 
@@ -316,7 +316,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might set the [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-the-context-of-the-application-map) and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This step updates Cloud Role Name and Cloud Role Instance from their default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value.
+You might set the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This step updates Cloud Role Name and Cloud Role Instance from their default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value.
 
 ### [.NET](#tab/net)
 

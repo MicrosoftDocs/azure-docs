@@ -103,9 +103,7 @@ Here are the general high-level steps for using Azure Pipelines:
 
 1. Choose the resources you need for the pipeline, such as your logic app template and template parameters files, which you generate manually or as part of the build process.
 
-1. For your agent job, find and add the **Azure Resource Group Deployment** task.
-
-   ![Add "Azure Resource Group Deployment" task](./media/logic-apps-deploy-azure-resource-manager-templates/add-azure-resource-group-deployment-task.png)
+1. For your agent job, find and add the **ARM Template deployment** task.
 
 1. Configure with a [service principal](/azure/devops/pipelines/library/connect-to-azure).
 

@@ -47,7 +47,9 @@ When you get ready to integrate and responsibly use AI-powered products or featu
 
 - **Transparency**: Consider providing users with information about how the content was personalized. For example, you can give your users a button labeled Why These Suggestions? that shows which top features of the user and actions played a role in producing the Personalizer results.  
 
-- **Adversarial use**: consider establishing a process to detect and act on malicious manipulation. There are actors that will take advantage of machine learning and AI systems' ability to learn from their environment. With coordinated attacks, they can artificially fake patterns of behavior that shift the data and AI models toward their goals. If your use of Personalizer could influence important choices, make sure you have the appropriate means to detect and mitigate these types of attacks in place. 
+- **Adversarial use**: consider establishing a process to detect and act on malicious manipulation. There are actors that will take advantage of machine learning and AI systems' ability to learn from their environment. With coordinated attacks, they can artificially fake patterns of behavior that shift the data and AI models toward their goals. If your use of Personalizer could influence important choices, make sure you have the appropriate means to detect and mitigate these types of attacks in place.
+
+- **Opt out**: Consider providing a control for users to opt out of receiving personalized recommendations. For these users, the Personalizer Rank API will not be called from your application. Instead, your application can use an alternative mechanism for deciding what action is taken. For example, by opting out of personalized recommendations and choosing the default or baseline action, the user would experience the action that would be taken without Personalizer's recommendation. Alternatively, your application can use recommendations based on aggregate or population-based measures (e.g., now trending, top 10 most popular, etc.).
 
 
 ## Your responsibility

@@ -142,6 +142,8 @@ items:
       href: integrate-with-nat-gateway.md
     - name: Add or modify rules using PowerShell
       href: deploy-rules-powershell.md
+    - name: Backup Azure Firewall
+      href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
 - name: Reference
   items:
   - name: Azure CLI

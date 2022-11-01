@@ -83,6 +83,9 @@ The `dbo.read_dist_recommendation` system stored procedure will return recommend
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
 
+> [!NOTE]
+> To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
+
 ## Troubleshooting
 
 This section contains common troubleshooting scenarios and common mistakes that you may encounter.
@@ -143,6 +146,8 @@ Ensure that you have the most up to date version of the stored procedure from Gi
 
 
 ## Azure Synapse product group feedback
+
+To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
 
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 

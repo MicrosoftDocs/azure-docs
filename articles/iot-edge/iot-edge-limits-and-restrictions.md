@@ -3,7 +3,7 @@ title: Limits and restrictions - Azure IoT Edge | Microsoft Docs
 description: Description of the limits and restrictions when using IoT Edge.
 author: raisalitch
 ms.author: ralitchf
-ms.date: 07/05/2022
+ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,13 @@ This article explains the limits and restrictions when using IoT Edge.
 
 ## Limits
 ### Number of children in gateway hierarchy
-IoT Edge gateway hierarchies have a default limit of up to 100 connected child devices. This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+Each IoT Edge parent device in gateway hierarchies can have up to 100 connected child devices by default. 
+
+However, it's imporant to know that each IoT Edge device in a nested topology open a separate logical connection to the parent EdgeHub (or IoT Hub) on behalf of each connected client (device or module), plus one connection for itself. So the connections at each layer are not aggregated, but added.
+
+For example, if there are 2 IoT Edge child devices in one layer L4, each in turn has 100 clients, then the parent IoT Edge device in the layer above L5 would have 202 total incoming connections from L4.
+
+This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module. But IoT Edge can run into issues with reporting its state in the twin reported properties if the number of clients exceeds a few hundred because of the IoT Hub twin size limit. In general, be careful when increasing the limit by changing this environment variable.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 

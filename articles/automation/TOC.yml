@@ -168,7 +168,7 @@
               href: troubleshoot/runbooks.md
             - name: Data to collect when opening a case for Microsoft Azure Automation
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Work with a Hybrid Runbook Worker
+        - name: Work with Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md

@@ -144,7 +144,7 @@ Azure Machine Learning is a fully managed cloud service that enables you to buil
 
 After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
-Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
+Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](/azure/machine-learning/).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 

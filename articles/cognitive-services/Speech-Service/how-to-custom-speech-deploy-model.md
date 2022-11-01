@@ -70,9 +70,6 @@ Here's an example Speech CLI command to create an endpoint and deploy a model:
 spx csr endpoint create --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -144,9 +141,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -212,9 +206,6 @@ Here's an example Speech CLI command that redeploys the custom endpoint with a n
 spx csr endpoint update --endpoint YourEndpointId --model YourModelId
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -270,9 +261,6 @@ curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content
   }
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -337,9 +325,6 @@ Here's an example Speech CLI command that gets logs for an endpoint:
 spx csr endpoint list --endpoint YourEndpointId
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
-
 The location of each log file with more details are returned in the response body.
 
 ::: zone-end
@@ -353,9 +338,6 @@ Make an HTTP GET request using the URI as shown in the following example. Replac
 ```azurecli-interactive
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 03/13/2020
+ms.date: 09/13/2022
 
 ms.author: gasinh
 author: gargi-sinha
 manager: amycolannino
-ms.reviewer: jsimmons
+ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
 ---
 
@@ -164,6 +164,17 @@ To unjoin a device from Azure AD, run the following command at a command prompt:
 The user will need to [re-enroll](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) for Windows Hello for Business if it's being used. 
 Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
+
+## Mobile Application Management (MAM) app protection policies known issues and workarounds
+
+**Known Issues**
+
+Your organization may use [MAM app protection policies](https://docs.microsoft.com/mem/intune/apps/app-protection-policy) to protect corporate data in apps on end users' devices.
+MAM app protection policies are currently not resiliant to UPN changes. UPN changes can break the connection between existing MAM enrollments and active users in MAM integrated applications, resulting in undefined behavior. This could leave data in an unprotected state.
+
+**Work Around**
+
+IT admins should [issue a selective wipe](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe) to impacted users following UPN changes. This will force impacted end users to reauthenticate and reenroll with their new UPNs.
 
 ## Microsoft Authenticator known issues and workarounds
 

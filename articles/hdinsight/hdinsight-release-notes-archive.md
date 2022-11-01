@@ -72,21 +72,21 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | Support parallel load for HastTables - Interfaces|[HIVE-25583](https://issues.apache.org/jira/browse/HIVE-25583)|
 | Include MultiDelimitSerDe in HiveServer2 By Default|[HIVE-20619](https://issues.apache.org/jira/browse/HIVE-20619)|
 | Remove glassfish.jersey and mssql-jdbc classes from jdbc-standalone jar|[HIVE-22134](https://issues.apache.org/jira/browse/HIVE-22134)|
-| Null pointer exception on running compaction against an MM table.|[HIVE-21280 ](https://issues.apache.org/jira/browse/HIVE-21280)|
+| Null pointer exception on running compaction against an MM table.|[HIVE-21280](https://issues.apache.org/jira/browse/HIVE-21280)|
 | Hive query with large size via knox fails with Broken pipe Write failed|[HIVE-22231](https://issues.apache.org/jira/browse/HIVE-22231)|
 | Adding ability for user to set bind user|[HIVE-21009](https://issues.apache.org/jira/browse/HIVE-21009)|
 | Implement UDF to interpret date/timestamp using its internal representation and Gregorian-Julian hybrid calendar|[HIVE-22241](https://issues.apache.org/jira/browse/HIVE-22241)|
 | Beeline option to show/not show execution report|[HIVE-22204](https://issues.apache.org/jira/browse/HIVE-22204)|
-| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169 ](https://issues.apache.org/jira/browse/HIVE-22169)|
+| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169](https://issues.apache.org/jira/browse/HIVE-22169)|
 | Remove expensive logging from the LLAP cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
 | UDF: FunctionRegistry synchronizes on org.apache.hadoop.hive.ql.udf.UDFType class|[HIVE-22161](https://issues.apache.org/jira/browse/HIVE-22161)|
 | Prevent the creation of query routing appender if property is set to false|[HIVE-22115](https://issues.apache.org/jira/browse/HIVE-22115)|
 | Remove cross-query synchronization for the partition-eval|[HIVE-22106](https://issues.apache.org/jira/browse/HIVE-22106)|
 | Skip setting up hive scratch dir during planning|[HIVE-21182](https://issues.apache.org/jira/browse/HIVE-21182)|
 | Skip creating scratch dirs for tez if RPC is on|[HIVE-21171](https://issues.apache.org/jira/browse/HIVE-21171)|
-| switch Hive UDFs to use Re2J regex engine|[HIVE-19661 ](https://issues.apache.org/jira/browse/HIVE-19661)|
+| switch Hive UDFs to use Re2J regex engine|[HIVE-19661](https://issues.apache.org/jira/browse/HIVE-19661)|
 | Migrated clustered tables using bucketing_version 1 on hive 3 uses bucketing_version 2 for inserts|[HIVE-22429](https://issues.apache.org/jira/browse/HIVE-22429)|
-| Bucketing: Bucketing version 1 is incorrectly partitioning data|[HIVE-21167 ](https://issues.apache.org/jira/browse/HIVE-21167)|
+| Bucketing: Bucketing version 1 is incorrectly partitioning data|[HIVE-21167](https://issues.apache.org/jira/browse/HIVE-21167)|
 | Adding ASF License header to the newly added file|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
 | Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
 | Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
@@ -103,7 +103,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | Fix wrong results/ArrayOutOfBound exception in left outer map joins on specific boundary conditions|[HIVE-22120](https://issues.apache.org/jira/browse/HIVE-22120)|
 | Remove distribution management tag from pom.xml|[HIVE-19667](https://issues.apache.org/jira/browse/HIVE-19667)|
 | Parsing time can be high if there's deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
-| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
+| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057](https://issues.apache.org/jira/browse/HIVE-20057)|
 | JDBC: HiveConnection shades log4j interfaces|[HIVE-18874](https://issues.apache.org/jira/browse/HIVE-18874)|
 | Update repo URLs in poms - branh 3.1 version|[HIVE-21786](https://issues.apache.org/jira/browse/HIVE-21786)|
 | DBInstall tests broken on master and branch-3.1|[HIVE-21758](https://issues.apache.org/jira/browse/HIVE-21758)|

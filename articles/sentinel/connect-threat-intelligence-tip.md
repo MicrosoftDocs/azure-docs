@@ -110,7 +110,7 @@ You now have all three pieces of information you need to configure your TIP or c
 
 1. Enter these values in the configuration of your integrated TIP or custom solution where required.
 
-1. For the target product, specify **Microsoft Sentinel**.
+1. For the target product, specify **Azure Sentinel**.  (Specifying "Microsoft Sentinel" will result in an error.)
 
 1. For the action, specify **alert**.
 

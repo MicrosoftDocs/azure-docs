@@ -3,7 +3,7 @@ title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desk
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 08/23/2022
 ms.author: helohr
 manager: femila
 ---
@@ -23,7 +23,7 @@ The second option is more efficient in terms of resources and cost, but requires
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
 -   An Azure VM with Windows 11 Enterprise installed
--   A Language and Optional Features (LoF) ISO. You can download the ISO at  [Windows 11 Language and Optional Features LoF ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+-   A Language and Optional Features (LoF) ISO. You can download the ISO at [Windows 11 Language and Optional Features LoF ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
 -   An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]
@@ -35,7 +35,7 @@ To create the content repository you'll use to add languages and features to you
 
 1. Open the VM you want to add languages to in Azure.
 
-2. Open and mount the ISO file you downloaded in [Requirements](#requirements) on the VM.
+2. Open and mount the ISO file you downloaded in the [Requirements](#requirements) section above on the VM.
 
 3. Create a folder on the file share.
 
@@ -79,7 +79,7 @@ You can create a custom image by following these steps:
 
    ##Set Path of CSV File##
    $CSVFile = "Windows-10-1809-FOD-to-LP-Mapping-Table.csv"
-   $filePath = (Get-Location).Path + "/$CSVFile"
+   $filePath = (Get-Location).Path + "\$CSVFile"
 
    ##Import Necesarry CSV File##
    $FODList = Import-Csv -Path $filePath -Delimiter ";"

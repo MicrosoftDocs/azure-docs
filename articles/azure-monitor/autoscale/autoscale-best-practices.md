@@ -1,8 +1,8 @@
 ---
 title: Best practices for autoscale
-description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
+description: Autoscale patterns in Azure for Web Apps, virtual machine scale sets, and Cloud Services
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 09/13/2022
 ms.subservice: autoscale
 ms.reviewer: riroloff
 ---
@@ -42,39 +42,7 @@ In this example, you can have a situation in which the memory usage is over 90% 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
 
-### Choose the thresholds carefully for all metric types
-We recommend carefully choosing different thresholds for scale-out and scale-in based on practical situations.
 
-We *do not recommend* autoscale settings like the examples below with the same or similar threshold values for out and in conditions:
-
-* Increase instances by 1 count when Thread Count >= 600
-* Decrease instances by 1 count when Thread Count <= 600
-
-Let's look at an example of what can lead to a behavior that may seem confusing. Consider the following sequence.
-
-1. Assume there are two instances to begin with and then the average number of threads per instance grows to 625.
-2. Autoscale scales out adding a third instance.
-3. Next, assume that the average thread count across instance falls to 575.
-4. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means autoscale would have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop.
-5. To avoid this situation (termed "flapping"), autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. The flapping state can confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
-
-Estimation during a scale-in is intended to avoid "flapping" situations, where scale-in and scale-out actions continually go back and forth. Keep this behavior in mind when you choose the same thresholds for scale-out and in.
-
-We recommend choosing an adequate margin between the scale-out and in thresholds. As an example, consider the following better rule combination.
-
-* Increase instances by 1 count when CPU%  >= 80
-* Decrease instances by 1 count when CPU% <= 60
-
-In this case
-
-1. Assume there are 2 instances to start with.
-2. If the average CPU% across instances goes to 80, autoscale scales out adding a third instance.
-3. Now assume that over time the CPU% falls to 60.
-4. Autoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So autoscale does not scale-in because it would have to scale-out again immediately. Instead, it skips scaling down.
-5. The next time autoscale checks, the CPU continues to fall to 50. It estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances.
-
-> [!NOTE]
-> If the autoscale engine detects flapping could occur as a result of scaling to the target number of instances, it will also try to scale to a different number of instances between the current count and the target count. If flapping does not occur within this range, autoscale will continue the scale operation with the new target.
 
 ### Considerations for scaling threshold values for special metrics
 For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the threshold value for this metric.
@@ -160,5 +128,6 @@ We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absol
 
 
 ## Next Steps
+- [Autoscale flapping](/azure/azure-monitor/autoscale/autoscale-flapping)
 - [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)

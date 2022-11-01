@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 09/14/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -23,26 +23,26 @@ Open or create a Bicep file in VS Code, select the **View** menu and then select
 
 These commands include:
 
-- [Build Bicep File](#build-bicep-file)
+- [Build ARM Template](#build-arm-template)
 - [Create Bicep Configuration File](#create-bicep-configuration-file)
 - [Deploy Bicep File](#deploy-bicep-file)
 - [Generate Parameters File](#generate-parameters-file)
 - [Insert Resource](#insert-resource)
 - [Open Bicep Visualizer](#open-bicep-visualizer)
 - [Open Bicep Visualizer to the side](#open-bicep-visualizer)
-- [Restore Bicep File (Force)](#restore-bicep-file)
+- [Restore Bicep Modules (Force)](#restore-bicep-modules)
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
 
-### Build Bicep file
+### Build ARM template
 
 The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). The new JSON template is stored in the same folder with the same file name.  If a file with the same file name exists, it overwrites the old file.  For more information, see [Bicep CLI commands](./bicep-cli.md#bicep-cli-commands).
 
 ### Create Bicep configuration file
 
-The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you have the option to overwrite the existing file.
+The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you can overwrite the existing file.
 
 ### Deploy Bicep file
 
@@ -82,15 +82,15 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
 [![Visual Studio Code Bicep visualizer](./media/visual-studio-code/visual-studio-code-bicep-visualizer.png)](./media/visual-studio-code/visual-studio-code-bicep-visualizer-expanded.png#lightbox)
 
-You have the option to open the visualizer side-by-side with the Bicep file.
+You can also open the visualizer side-by-side with the Bicep file.
 
-### Restore Bicep file
+### Restore Bicep modules
 
 When your Bicep file uses modules that are published to a registry, the restore command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information, see [restore](./bicep-cli.md#restore).
 
 ## View type document
 
-From Visual Studio Code, you can easily open the template reference for the resource type you are working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can easily open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 

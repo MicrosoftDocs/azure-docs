@@ -1,8 +1,8 @@
 ---
-title: "Quickstart: Azure Blob storage client library for .NET"
-description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: normesta
-ms.author: normesta
+title: "Quickstart: Azure Blob Storage client library for .NET"
+description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 
-# Quickstart: Azure Blob storage client library v11 for .NET
+# Quickstart: Azure Blob Storage client library v11 for .NET
 
 Get started with the Azure Blob Storage client library v11 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
 > [!NOTE]
-> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md).
+> This quickstart uses a legacy version of the Azure Blob Storage client library. To get started with the latest version, see [Quickstart: Azure Blob Storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md).
 
 Use the Azure Blob Storage client library for .NET to:
 
@@ -168,7 +168,7 @@ After you add the environment variable, restart any running programs that will n
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 - The storage account.
 - A container in the storage account
@@ -187,7 +187,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
+These example code snippets show you how to perform the following with the Azure Blob Storage client library for .NET:
 
    - [Authenticate the client](#authenticate-the-client)
    - [Create a container](#create-a-container)
@@ -363,7 +363,7 @@ dotnet run
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob storage - .NET Quickstart example
+Azure Blob Storage - .NET Quickstart example
 
 Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
 

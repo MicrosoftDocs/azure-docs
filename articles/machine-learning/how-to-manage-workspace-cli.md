@@ -128,7 +128,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 To create a new workspace where the __services are automatically created__, use the following command:
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name>
+az ml workspace create -n <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources](#tab/bringexistingresources)

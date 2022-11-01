@@ -22,7 +22,7 @@ ms.custom: mode-ui
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](../introduction.md) account, create a document database, and container, and add data to the container. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](../introduction.md) account, create a document database, and container, and add data to the container. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@ services: azure
 author: maertendMSFT
 ms.author: damaerte
 tags: azure-resource-manager
-ms.service: azure
+ms.service: azure-resource-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

@@ -26,7 +26,7 @@ When you complete the steps in this article, you will have:
 
 Use these objects to experience Azure Arc-enabled data services. 
 
-Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL Hyperscale data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
+Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL server data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
 
 ## Install client tools
 

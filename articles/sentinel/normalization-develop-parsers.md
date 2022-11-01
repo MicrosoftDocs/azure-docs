@@ -203,7 +203,7 @@ In many cases, the original value extracted needs to be normalized. For example,
 
 Also, ensuring that parser output fields matches type defined in the schema is critical for parsers to work.  For example, you may need to convert a string representing date and time to a datetime field. Functions such as `todatetime` and `tohex` are helpful in these cases.
 
-For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extned` and `tostring` instead of `project-rename`:
+For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
 ```KQL
   | extend EventOriginalUid = tostring(ReportId),

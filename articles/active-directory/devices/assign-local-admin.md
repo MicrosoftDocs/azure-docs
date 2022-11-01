@@ -27,7 +27,7 @@ This article explains how the local administrators membership update works and h
 
 When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
-- The Azure AD global administrator role
+- The Azure AD Global Administrator role
 - The Azure AD joined device local administrator role 
 - The user performing the Azure AD join   
 
@@ -35,7 +35,7 @@ By adding Azure AD roles to the local administrators group, you can update the u
 
 ## Manage the global administrators role
 
-To view and update the membership of the global administrator role, see:
+To view and update the membership of the Global Administrator role, see:
 
 - [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
@@ -44,7 +44,7 @@ To view and update the membership of the global administrator role, see:
 
 In the Azure portal, you can manage the device administrator role from **Device settings**. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 1. Browse to **Azure Active Directory** > **Devices** > **Device settings**.
 1. Select **Manage Additional local administrators on all Azure AD joined devices**.
 1. Select **Add assignments** then choose the other administrators you want to add and select **Add**.

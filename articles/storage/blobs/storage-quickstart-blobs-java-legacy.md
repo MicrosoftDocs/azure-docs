@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage client library v8 for Java"
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library v8 for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-author: normesta
 ms.custom: devx-track-java, mode-api
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs

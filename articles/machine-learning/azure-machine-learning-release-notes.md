@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/03/2022
+ms.date: 08/29/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,24 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2022-08-29
+
+### Azure Machine Learning SDK for Python v1.45.0 
+  + **azureml-automl-runtime**
+    + Fixed a bug where the sample_weight column was not properly validated.
+    + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evaluation() method.
+    + Fixed an issue where AutoML Regression tasks may fall back to train-valid split for model evaluation, when CV would have been a more appropriate choice.
+  + **azureml-core**
+    + New cloud configuration suffix added, "aml_discovery_endpoint".
+    + Updated the vendored azure-storage package from version 2 to version 12.
+  + **azureml-mlflow**
+    + New cloud configuration suffix added, "aml_discovery_endpoint".
+  + **azureml-responsibleai**
+    + update azureml-responsibleai package and curated images to raiwidgets and responsibleai 0.21.0
+  + **azureml-sdk**
+    + The azureml-sdk package now allow Python 3.9.
+
 
 ## 2022-08-01
 

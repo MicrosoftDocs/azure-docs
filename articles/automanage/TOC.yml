@@ -1,7 +1,16 @@
 - name: Azure Automanage (preview)
-  href: automanage-virtual-machines.md
+  href: index.yml
+- name: Overview
+  items: 
+  - name: About Azure Automanage
+    href: overview-about.md
+  - name: Configuration profiles
+    href: overview-configuration-profiles.md
+  - name: Check VM status
+    href: overview-vm-status.md
+  - name: Azure disk encryption
+    href: overview-azure-disk-encryption.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Enable on VMs in the Azure portal
     href: quick-create-virtual-machines-portal.md
@@ -14,12 +23,10 @@
   - name: JavaScript
     href: quick-javascript-sdk.md
 - name: Tutorials
-  expanded: true
   items: 
   - name: Create assignment with Python
     href: tutorial-create-assignment-python.md
 - name: Concepts
-  expanded: true
   items:
   - name: Automanage for Linux
     href: automanage-linux.md
@@ -35,10 +42,11 @@
   - name: Automanage for Azure Arc-enabled servers
     href: automanage-arc.md
 - name: How to
-  expanded: true
   items:
   - name: Create custom profile
     href: virtual-machines-custom-profile.md
+  - name: Disable Azure Automanage
+    href: how-to-disable-automanage.md
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
   - name: Enable on VMs through an ARM template
@@ -58,12 +66,10 @@
   - name: Windows Server VNext Datacenter Azure Edition (preview)
     href: windows-server-azure-edition-vnext.md
 - name: References
-  expanded: true
   items: 
   - name: SDKs
     href: reference-sdk.md
 - name: Resources
-  expanded: true
   items:
   - name: FAQ
     href: faq.yml

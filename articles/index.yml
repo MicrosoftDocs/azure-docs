@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
-  services: azure
+  services: azure-resource-manager
   ms.service: azure
   ms.topic: hub-page
   author: rolyon
@@ -551,7 +551,7 @@ productDirectory:
       azureCategories:
         - compute
         - databases
-      url: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      url: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?toc=/azure/virtual-machines/windows/toc.json
     - title: Static Web Apps
       summary: A modern web app service that offers streamlined full-stack development from source code to global high availability
       imageSrc: ./media/index/static-apps.svg
@@ -593,7 +593,7 @@ productDirectory:
         - compute
       url: ./virtual-machines/index.yml
     # Card
-    - title: Azure Container Apps (Preview)
+    - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
       imageSrc: ./media/index/container-apps.svg
       azureCategories:
@@ -830,7 +830,7 @@ productDirectory:
         - devops
       url: load-testing/index.yml
     # Card
-    - title: Azure Managed Grafana (Preview)
+    - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service
       imageSrc: ./media/index/managed-grafana.svg
       azureCategories:

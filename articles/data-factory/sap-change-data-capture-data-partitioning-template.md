@@ -1,7 +1,7 @@
 ---
-title: SAP change data capture solution (Preview) - data partitioning template
+title: Auto-generate a pipeline by using the SAP data partitioning template
 titleSuffix: Azure Data Factory
-description: This topic describes how to use the SAP data partitioning template for SAP change data capture (Preview) in Azure Data Factory.
+description: Learn how to use the SAP data partitioning template for SAP change data capture (CDC) (preview) extraction in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,48 +10,48 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Auto-generate a pipeline from the SAP data partitioning template
+# Auto-generate a pipeline by using the SAP data partitioning template
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This topic introduces and describes auto-generation of a pipeline with the SAP data partitioning template for SAP change data capture (Preview) in Azure Data Factory.
+Learn how to use the SAP data partitioning template to auto-generate a pipeline as part of your SAP change data capture (CDC) solution (preview). Then, use the pipeline in Azure Data Factory to partition SAP CDC extracted data.
 
-## Steps to use the SAP data partitioning template
+## Create a data partitioning pipeline from a template
 
-To auto-generate ADF pipeline from SAP data partitioning template, complete the following steps.
+To auto-generate an Azure Data Factory pipeline by using the SAP data partitioning template:
 
-1.	Create a new pipeline from template.
+1. In Azure Data Factory Studio, go to the Author hub of your data factory. In **Factory Resources**, under **Pipelines** > **Pipelines Actions**, select **Pipeline from template**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-pipeline-from-template.png" alt-text="Screenshot of the Azure Data Factory resources tab with the Pipeline from template menu highlighted.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-pipeline-from-template.png" alt-text="Screenshot of the Azure Data Factory resources tab, with Pipeline from template highlighted.":::
 
-1.	Select the **Partition SAP data to extract and load into Azure Data Lake Store Gen2 in parallel** template.
+1. Select the **Partition SAP data to extract and load into Azure Data Lake Store Gen2 in parallel** template, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-selection.png" alt-text="Screenshot of the template gallery with the SAP data partitioning template highlighted.":::
- 
-1.	Create SAP CDC and ADLS Gen2 linked services, if you haven’t done so already, and use them as inputs to SAP data partitioning template.  
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-selection.png" alt-text="Screenshot of the template gallery, with the SAP data partitioning template highlighted.":::
 
-    For the **Connect via integration runtime** property of SAP ODP linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2 linked service, select _AutoResolveIntegrationRuntime_.
+1. Create new or use existing [linked services](sap-change-data-capture-prepare-linked-service-source-dataset.md) for SAP ODP (preview), Azure Data Lake Storage Gen2, and Azure Synapse Analytics. Use the linked services as inputs in the SAP data partitioning template.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-configuration.png" alt-text="Screenshot of the SAP data partitioning template configuration page with the Inputs section highlighted.":::
+    Under **Inputs**, for the SAP ODP linked service, in **Connect via integration runtime**, select your self-hosted integration runtime. For the Data Lake Storage Gen2 linked service, in **Connect via integration runtime**, select **AutoResolveIntegrationRuntime**.
 
-1.	Select **Use this template** button to auto-generate SAP data partitioning pipeline that can run multiple ADF copy activities to extract multiple partitions in parallel.
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-template-configuration.png" alt-text="Screenshot of the SAP data partitioning template configuration page, with the Inputs section highlighted.":::
 
-    ADF copy activities run on SHIR to concurrently extract raw data (full) from your SAP system and load it into ADLS Gen2 as CSV files.  The files can be found in _sapcdc_ container under _deltachange/&lt;your pipeline name&gt;/&lt;your pipeline run timestamp&gt;_ folder path.  The **Extraction mode** property of ADF copy activity is set to _Full_.
+1. Select **Use this template** to auto-generate an SAP data partitioning pipeline that can run multiple Data Factory copy activities to extract multiple partitions in parallel.
 
-    To ensure high throughput, locate your SAP system, SHIR, ADLS Gen2, and Azure IR in the same region.
+    Data Factory copy activities run on a self-hosted integration runtime to concurrently extract full raw data from your SAP system and load it into Data Lake Storage Gen2 as CSV files.  The files are stored in the *sapcdc* container in the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. Be sure that **Extraction mode** for the Data Factory copy activity is set to **Full**.
 
-1.	Assign your SAP data extraction context and data source object names, as well as an array of partitions, each is defined as an array of row selection conditions, as run-time parameter values for SAP data partitioning pipeline.
+    To ensure high throughput, deploy your SAP system, self-hosted integration runtime, Data Lake Storage Gen2 instance, Azure integration runtime, and Azure Synapse Analytics instance in the same region.
 
-    For the **selectionRangeList** parameter, enter your array of partition(s), each is defined as an array of row selection condition(s).  For example, here’s an array of three partitions, where the first partition includes only rows where the value in _CUSTOMERID_ column is between _1_ and _1000000_ (the first million customers), the second partition includes only rows where the value in _CUSTOMERID_ column is between _1000001_ and _2000000_ (the second million customers), and the third partition includes the rest of customers:
+1. Assign your SAP data extraction context, data source object names, and an array of partitions. Define each element as an array of row selection conditions that serve as runtime parameter values for the SAP data partitioning pipeline.
 
-    _[[{"fieldName":"CUSTOMERID","sign":"I","option":"BT","low":"1","high":"1000000"}],[{"fieldName":"CUSTOMERID","sign":"I","option":"BT","low":"1000001","high":"2000000"}],[{"fieldName":"CUSTOMERID","sign":"E","option":"BT","low":"1","high":"2000000"}]]_
+    For the `selectionRangeList` parameter, enter your array of partitions. Define each partition as an array of row selection conditions. For example, here’s an array of three partitions, where the first partition includes only rows where the value in the **CUSTOMERID** column is between **1** and **1000000** (the first million customers), the second partition includes only rows where the value in the **CUSTOMERID** column is between **1000001** and **2000000** (the second million customers), and the third partition includes the rest of the customers:
 
-    These three partitions will be extracted using three ADF copy activities running in parallel.
+   `[[{"fieldName":"CUSTOMERID","sign":"I","option":"BT","low":"1","high":"1000000"}],[{"fieldName":"CUSTOMERID","sign":"I","option":"BT","low":"1000001","high":"2000000"}],[{"fieldName":"CUSTOMERID","sign":"E","option":"BT","low":"1","high":"2000000"}]]`
+
+    The three partitions are extracted by using three Data Factory copy activities that run in parallel.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-partition-extraction-configuration.png" alt-text="Screenshot of the pipeline configuration for the SAP data partitioning template with the parameters section highlighted.":::
 
-1.	Select the **Save all** button and you can now run SAP data partitioning pipeline.
+1. Select **Save all** and run the SAP data partitioning pipeline.
 
 ## Next steps
 
-[Auto-generate a pipeline from the SAP data replication template](sap-change-data-capture-data-replication-template.md).
+[Auto-generate a pipeline by using the SAP data replication template](sap-change-data-capture-data-replication-template.md)

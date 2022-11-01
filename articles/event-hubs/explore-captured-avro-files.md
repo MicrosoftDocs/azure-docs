@@ -81,8 +81,8 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
-[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
+[Java]: https://avro.apache.org/docs/1.11.1/getting-started-java/
+[Python]: https://avro.apache.org/docs/1.11.1/getting-started-python/
 [Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html

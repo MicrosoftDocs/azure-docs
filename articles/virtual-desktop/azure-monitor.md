@@ -154,7 +154,7 @@ To set up performance counters using the configuration workbook:
 
 You'll also need to enable specific Windows Event Logs to collect errors, warnings, and information from the session hosts and send them to the Log Analytics workspace.
 
-If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  You can add and remove Windows Event Logs in the same location.
+If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).  You can add and remove Windows Event Logs in the same location.
 
 To set up Windows Event Logs using the configuration workbook:
 

@@ -74,6 +74,8 @@ A private endpoint uses a private IP address in the managed virtual network to e
 
 Only a managed private endpoint in an approved state can send traffic to a specific private link resource.
 
+> [!NOTE]
+> Custom DNS is not supported in managed virtual network.
 
 ## Interactive authoring
 

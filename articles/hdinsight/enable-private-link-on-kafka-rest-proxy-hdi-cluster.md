@@ -1,6 +1,6 @@
 ---
-title: Enable Private Link on an HDInsight Kafka Rest Proxy cluster
-description: Learn how to Enable Private Link on an HDInsight Kafka Rest Proxy cluster. 
+title: Enable Private Link on an Azure HDInsight Kafka Rest Proxy cluster
+description: Learn how to Enable Private Link on an Azure HDInsight Kafka Rest Proxy cluster. 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
@@ -14,7 +14,7 @@ Follow these extra steps to enable private link for Kafka Rest Proxy HDI cluster
 
 ## Prerequisites 
 
-As a prerequisite, complete the steps mentioned in [Enable Private Link on an HDInsight cluster document](./hdinsight-private-link.md), then perform the below steps. 
+As a prerequisite, complete the steps mentioned in [Enable Private Link on an Azure HDInsight cluster document](./hdinsight-private-link.md), then perform the below steps. 
 
 ## Create private endpoints
 
@@ -22,7 +22,7 @@ As a prerequisite, complete the steps mentioned in [Enable Private Link on an HD
     
     | Config | Value |
     | ------ | ----- |
-    | Name | hdi-privlink-cluster-1 |
+    | Name | hdi-prilink-cluster-restproxy |
     | Resource type | Microsoft.Network/privatelinkServices |
     | Resource | kafkamanagementnode-* (This value should match the HDI deployment ID of your cluster, for example kafkamanagementnode 4eafe3a2a67e4cd88762c22a55fe4654) |
     | Virtual network | hdi-privlink-client-vnet |
@@ -34,7 +34,7 @@ As a prerequisite, complete the steps mentioned in [Enable Private Link on an HD
     
     | Config | Value |
     | ------ | ----- |
-    | Name | YourPrivatelinkClusterName-1 |
+    | Name | hdi-prilink-cluster-restproxy |
     | Type | A - Alias record to 1Pv4 address |
     | TTL | 1 |
     | TTL unit | Hours |

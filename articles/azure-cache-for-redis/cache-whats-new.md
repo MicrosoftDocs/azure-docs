@@ -2,14 +2,23 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 08/01/2022
+ms.date: 09/01/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## September 2022
+
+### Support for managed identity in Azure Cache for Redis
+
+Authenticating storage account connections using managed identity has now reached General Availability (GA).
+
+For more information, see [Managed identity for storage](cache-managed-identity.md).
 
 ## August 2022
 
@@ -86,7 +95,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
-For more information, see [Managed identity with Azure Cache for Redis (Preview)](cache-managed-identity.md).
+For more information, see [Managed identity with Azure Cache for Redis](cache-managed-identity.md).
 
 ## October 2021
 

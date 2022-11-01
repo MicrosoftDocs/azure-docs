@@ -84,7 +84,7 @@ You can put your web application firewall devices, such as Azure Application Gat
 Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
 > [!NOTE]
-> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. However, the supportability is determined by the subscription where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily or configure a service endpoint temporarily. For more information and troubleshooting see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Private endpoint
 

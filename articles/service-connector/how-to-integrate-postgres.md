@@ -23,7 +23,6 @@ This page shows the supported authentication types and client types of Azure Dat
 
 Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
 
 | Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
@@ -37,30 +36,6 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 | PHP (native)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Ruby (ruby-pg)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | None                      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET (ADO.NET)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go (pg)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js (pg)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python (psycopg2)         |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python-Django             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| PHP (native)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Ruby (ruby-pg)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None                      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
----
 
 ## Default environment variable names or application properties
 

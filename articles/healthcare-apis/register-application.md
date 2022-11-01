@@ -1,12 +1,12 @@
 ---
 title: Register a client application in Azure Active Directory for the Azure Health Data Services
 description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Health Data Services
-services: healthcare-apis
-author: ginalee-dotcom
+author: mcevoy-building7
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/06/2022
-ms.author: mikaelw
+ms.date: 09/02/2022
+ms.author: v-smcevoy
 ---
 
 # Register a client application in Azure Active Directory
@@ -71,25 +71,25 @@ The following steps are required for the DICOM service, but optional for the FHI
 
 1. Select the **API permissions** blade.
 
-   [ ![Add API permissions](dicom/media/dicom-add-apis-permissions.png) ](dicom/media/dicom-add-apis-permissions.png#lightbox)
+   [ ![Screenshot of API permission page with Add a permission button highlighted.](dicom/media/dicom-add-apis-permissions.png) ](dicom/media/dicom-add-apis-permissions.png#lightbox)
 
 2. Select **Add a permission**.
 
-   If you're using Azure Health Data Services, you'll add a permission to the DICOM service by searching for **Azure Healthcare APIs** under **APIs my organization** uses. 
+   If you're using Azure Health Data Services, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
 
-   [ ![Search API permissions](dicom/media/dicom-search-apis-permissions.png) ](dicom/media/dicom-search-apis-permissions.png#lightbox)
+   [ ![Screenshot of Search API permissions page with the APIs my organization uses tab selected.](dicom/media/dicom-search-apis-permissions.png) ](dicom/media/dicom-search-apis-permissions.png#lightbox)
 
-   The search result for Azure Healthcare APIs will only return if you've already deployed the DICOM service in the workspace.
+   The search result for Azure API for DICOM will only return if you've already deployed the DICOM service in the workspace.
 
    If you're referencing a different resource application, select your DICOM API Resource Application Registration that you created previously under **APIs my organization**.
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-   [ ![Select permissions scopes.](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
+   [ ![Screenshot of scopes (permissions) that the client application will ask for on behalf of a user.](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
 
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
->>Use  grant_type of client_credentials or authentication_doe when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
+>>Use  grant_type of client_credentials or authentication_code when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.
 
@@ -99,5 +99,3 @@ In this article, you learned how to register a client application in the Azure A
 
 >[!div class="nextstepaction"]
 >[Overview of Azure Health Data Services](healthcare-apis-overview.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

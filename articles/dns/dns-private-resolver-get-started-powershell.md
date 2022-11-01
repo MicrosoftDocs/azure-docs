@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 08/18/2022
+ms.date: 09/16/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api
@@ -68,6 +68,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## Create a DNS resolver instance
+
+> [!IMPORTANT]
+> Steps to verify or confirm that resources were successfully created are not optional. Do not skip these steps. The steps populate variables that can be used in later procedures.
 
 Create a resource group to host the resources. The resource group must be in a [supported region](dns-private-resolver-overview.md). In this example, the location is westcentralus.
 

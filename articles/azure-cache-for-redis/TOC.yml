@@ -114,13 +114,15 @@
     - name: Redis modules 
       href: cache-redis-modules.md
     - name: Caching architecture
-      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
 - name: How-to guides
   items:
   - name: Plan
     items:
     - name: Choose a cache tier
       href: cache-overview.md#choosing-the-right-tier
+    - name: Upgrade to a new version
+      href: cache-how-to-upgrade.md
     - name: Set Redis version
       href: cache-how-to-version.md
     - name: Distribute your cache with clustering

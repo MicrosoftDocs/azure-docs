@@ -200,9 +200,9 @@
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
         href: logic-apps-enterprise-integration-agreements.md
-      - name: Schemas for XML validation
+      - name: Schemas
         href: logic-apps-enterprise-integration-schemas.md
-      - name: Maps for XML transform
+      - name: Maps
         href: logic-apps-enterprise-integration-maps.md
       - name: Certificates
         href: logic-apps-enterprise-integration-certificates.md

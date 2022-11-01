@@ -32,7 +32,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
 * **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
 
-Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](/azure/service-fabric).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## App Service on Linux
 
@@ -79,7 +79,7 @@ Next, create a deployment slot to test that your application works properly with
     ```
 1. Deploy your application to the deployment slot using the tool of your choice (VS Code, Azure CLI, GitHub Actions, etc.)
 1. Confirm your application is functioning as expected in the deployment slot.
-1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `APPSETTING_DEFAULT_OS=bullseye` app setting to production.
+1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `ORYX_DEFAULT_OS=bullseye` app setting to production.
 1. Delete the deployment slot if you are no longer using it.
 
 ##### Resources

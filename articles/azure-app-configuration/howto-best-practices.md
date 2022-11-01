@@ -65,16 +65,19 @@ The App Configuration [Key Vault reference](use-key-vault-references-dotnet-core
 
 To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
 
-A better option is to use the managed identities feature in Azure Active Directory. With managed identities, you need only the App Configuration endpoint URL to bootstrap access to your App Configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for details.
+A better option is to use the managed identities feature in Azure Active Directory. With managed identities, you need only the App Configuration endpoint URL to bootstrap access to your App Configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md) for details.
 
-## App or function access to App Configuration
+## App Service or Azure Functions access to App Configuration
 
-You can provide access to App Configuration for Web Apps or Azure Functions by using any of the following methods:
+Use the App Configuration provider or SDK libraries to access App Configuration directly in your application. This approach gives you full access to App Configuration's functionalities, including dynamic configuration and feature management. Your application running on App Service or Azure Functions can obtain access to your App Configuration store via any of the following methods:
 
-* Through the Azure portal, enter the connection string to your App Configuration store in the Application settings of App Service.
-* Store the connection string to your App Configuration store in Key Vault and [reference it from App Service](../app-service/app-service-key-vault-references.md).
-* Use Azure managed identities to access the App Configuration store. For more information, see [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md).
-* Push configuration from App Configuration to App Service. App Configuration provides an export function (in Azure portal and the Azure CLI) that sends data directly into App Service. With this method, you don't need to change the application code at all.
+* Enable managed identity on your App Service or Azure Functions and grant it access to your App Configuration store. For more information, see [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
+* Store the connection string to your App Configuration store in the *Application settings* of App Service or Azure Functions. For enhanced security, store the connection string in Key Vault and [reference it from App Service or Azure Functions](../app-service/app-service-key-vault-references.md).
+
+You can also make your App Configuration data accessible to your application as *Application settings* or environment variables. With this approach, you can avoid changing your application code.
+
+* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
+* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
 
 ## Reduce requests made to App Configuration
 

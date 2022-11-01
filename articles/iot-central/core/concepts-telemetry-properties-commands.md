@@ -14,7 +14,7 @@ ms.custom: device-developer
 
 # Telemetry, property, and command payloads
 
-A device template in Azure IoT Central is a blueprint that defines the:
+A [device template](concepts-device-templates.md) in Azure IoT Central is a blueprint that defines the:
 
 * Telemetry a device sends to IoT Central.
 * Properties a device synchronizes with IoT Central.
@@ -61,6 +61,16 @@ Don't create telemetry types with the following names. IoT Central uses these re
 * `User`
 * `$metadata`
 * `$version`
+
+### Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
 
 ### Telemetry in components
 

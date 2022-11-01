@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-ti
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/).  
 
 As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](v1/reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
@@ -35,7 +35,9 @@ As your needs change or requirements for automation increase you can also manage
 
 ## Create a workspace
 
-# [Python](#tab/python)
+You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
+
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -166,7 +168,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 > For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
 
@@ -210,7 +212,7 @@ Use the following steps to provide your own key:
 > * Create and configure an Azure Key Vault
 > * Generate a key
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 Use `cmk_keyvault` and `resource_cmk_uri` to specify the customer managed key.
 
@@ -243,7 +245,7 @@ from azureml.core import Workspace
 
 If you will be creating a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance has already created a copy of this file for you.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
 
@@ -301,7 +303,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 See a list of all the workspaces you can use.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -340,7 +342,7 @@ When you no longer need a workspace, delete it.
 
 If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

@@ -10,4 +10,4 @@
  ms.custom: include file
 ---
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through [Azure IoT device SDKs](/articles/iot-hub/iot-hub-devguide-sdks.md). Learn how to connect your device to this article's code with [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
+> IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through [Azure IoT device SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md). Learn how to connect your device to this article's code with [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).

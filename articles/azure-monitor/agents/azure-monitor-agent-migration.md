@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: shseth
-ms.date: 08/04/2022 
+ms.date: 9/14/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-# Customer intent: As an IT manager, I want to understand if and when I should move from using legacy agents to Azure Monitor Agent.    
+# Customer intent: As an IT manager, I want to understand how I should move from using legacy agents to Azure Monitor Agent.    
 ---
 
 # Migrate to Azure Monitor Agent from Log Analytics agent
-[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines Azure Monitor and introduces a simplified, flexible method of configuring collection configuration called [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent (AMA) and provides guidance on how to implement a successful migration.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines, in Azure and on premises. It introduces a simplified, flexible method of configuring collection configuration called [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent (AMA) and provides guidance on how to implement a successful migration.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are currently using the Log Analytics agent with Azure Monitor or other supported features and services, you should start planning your migration to Azure Monitor Agent using the information in this article.
@@ -36,23 +36,26 @@ Azure Monitor Agent provides the following benefits over legacy agents:
 
 Your migration plan to the Azure Monitor Agent should take into account:
 
-- **Current and new feature requirements:** Review [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent has the features you require. If you currently use unsupported features you can temporarily do without, consider migrating to benefit from other important features in the new agent. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview) to discover what solutions and features you're using the legacy agent for.
+- **Current and new feature requirements:** Review [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent has the features you require. If you currently use unsupported features you can temporarily do without, consider migrating to the new agent to benefit from added security and reduced cost immediately. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview) to **discover what solutions and features you're using today that depend on the legacy agent**.
 
     If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
 
-- **Installing Azure Monitor Agent alongside a legacy agent:** If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, and you still need a legacy agent, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort.
+- **Installing Azure Monitor Agent alongside a legacy agent:** If you're setting up a **new environment** with resources, such as deployment scripts and onboarding templates, and you still need a legacy agent, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort.
 
-    Azure Monitor Agent can run alongside the legacy Log Analytics agents on the same machine so that you can continue to use existing functionality during evaluation or migration. While this allows you to begin the transition given the limitations:
+    Azure Monitor Agent can run alongside the legacy Log Analytics agents on the same machine so that you can continue to use existing functionality during evaluation or migration. While this allows you to begin the transition, ensure you understand the limitations:
     - Be careful in collecting duplicate data from the same machine, which could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. 
-    
     If you install Azure Monitor Agent and create a data collection rule for these events and performance data, you'll collect duplicate data. If you're using both agents to collect the same type of data, make sure the agents are **collecting data from different machines** or **sending the data to different destinations**. Collecting duplicate data also generates more charges for data ingestion and retention.
     
     - Running two telemetry agents on the same machine consumes double the resources, including, but not limited to CPU, memory, storage space, and network bandwidth.
 
+## Prerequisites
+Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use Azure Monitor Agent. For on-premises servers or other cloud managed servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Arc for this purpose comes at no added cost, and it's not mandatory to use Arc for server management overall (i.e. you can continue using your existing on premises management solutions). Once Arc agent is installed, you can follow the same guidance below across Azure and on-premise for migration.
+
 ## Migration testing
 To ensure safe deployment during migration, begin testing with few resources running Azure Monitor Agent in your nonproduction environment. After you validate the data collected on these test resources, roll out to production by following the same steps.
 
-See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to start collecting some of the existing data types. After you validate that data is flowing as expected with Azure Monitor Agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
+See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to start collecting some of the existing data types. Alternatively you can use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator-preview) to convert existing legacy agent configuration into data collection rules.  
+After you **validate** that data is flowing as expected with Azure Monitor Agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
 
 ## At-scale migration using Azure Policy
 We recommend using [Azure Policy](../../governance/policy/overview.md) to migrate a large number of agents. Start by analyzing your current monitoring setup with the Log Analytics agent using the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview) to find sources, such as virtual machines, virtual machine scale sets, and on-premises servers.

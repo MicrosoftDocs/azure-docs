@@ -128,7 +128,9 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 7. Paste the connection string in the **Connection string** box and select **Connect**.
 
-8. In the on-premises management console, in the **Site Management** window, assign the sensor to a zone.
+8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
+
+Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Change the name of a sensor
 

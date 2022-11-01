@@ -3,32 +3,33 @@ title: Required URLs for Azure Virtual Desktop
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 08/30/2022
 ms.author: helohr
 manager: femila
 ---
 
 # Required URLs for Azure Virtual Desktop
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
+In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users. These URLs could be blocked if you're using [Azure Firewall](../firewall/protect-azure-virtual-desktop.md) or a third-party firewall or proxy service. Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 You can validate that your session host VMs can connect to these URLs by following the steps to run the [Required URL Check tool](required-url-check-tool.md). The Required URL Check tool will validate each URL and show whether your session host VMs can access them. You can only use for deployments in the Azure public cloud, it does not check access for sovereign clouds.
 
 ## Session host virtual machines
 
-Below is the list of URLs your session host VMs need to access for Azure Virtual Desktop. Select the relevant tab based on which cloud you're using.
+The following table is the list of URLs your session host VMs need to access for Azure Virtual Desktop. Select the relevant tab based on which cloud you're using.
 
 # [Azure cloud](#tab/azure)
 
-| Address | Outbound TCP port | Purpose | Service Tag |
+| Address | Outbound TCP port | Purpose | Service tag |
 |---|---|---|---|
+| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.microsoft.com` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
 | `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
 | `azkms.core.windows.net` | 1688 | Windows activation | Internet |
-| `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and SXS stack updates | AzureCloud |
+| `mrsglobalsteus2prod.blob.core.windows.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.windows.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | `168.63.129.16` | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
@@ -36,9 +37,9 @@ Below is the list of URLs your session host VMs need to access for Azure Virtual
 | `www.microsoft.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `*.prod.warm.ingest.monitor.core.windows.net` if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status due to this, you must allow the URL `*.prod.warm.ingest.monitor.core.windows.net` if you haven't already. You should also remove the following URLs if you explicitly allowed them before the change:
 > 
-> | Address | Outbound TCP port | Purpose | Service Tag |
+> | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
 > | `production.diagnostics.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 > | `*xt.blob.core.windows.net` | 443 | Agent traffic | AzureCloud |
@@ -50,10 +51,9 @@ The following table lists optional URLs that your session host virtual machines 
 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
-| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `login.windows.net` | 443 | Sign in to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
+| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `*.sfx.ms` | 443 | Updates for OneDrive client software |
 | `*.digicert.com` | 443 | Certificate revocation check |
@@ -62,22 +62,23 @@ The following table lists optional URLs that your session host virtual machines 
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
-| Address | Outbound TCP port | Purpose | Service Tag |
+| Address | Outbound TCP port | Purpose | Service tag |
 |--|--|--|--|
+| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.usgovcloudapi.net` | 1688 | Windows activation | Internet |
-| `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and SXS stack updates | AzureCloud |
+| `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.usgovcloudapi.net` | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | `168.63.129.16` | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 | `ocsp.msocsp.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We've finished transitioning the URLs we use for Agent traffic. We no longer support the following URLs. To prevent your session host VMs from showing a *Needs Assistance* status due to this, you must allow the URL `*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you haven't already. You should also remove the following URLs if you explicitly allowed them before the change:
 > 
-> | Address | Outbound TCP port | Purpose | Service Tag |
+> | Address | Outbound TCP port | Purpose | Service tag |
 > |--|--|--|--|
 > | `monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 > | `fairfax.warmpath.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
@@ -89,9 +90,8 @@ The following table lists optional URLs that your session host virtual machines 
 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
-| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the OS is connected to the internet |
+| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `oneclient.sfx.ms` | 443 | Updates for OneDrive client software |
 | `*.digicert.com` | 443 | Certificate revocation check |
@@ -121,12 +121,13 @@ Azure Virtual Desktop currently doesn't have a list of IP address ranges that yo
 
 ## Remote Desktop clients
 
-Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) you use to connect to Azure Virtual Desktop must have access to the URLs below. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
+Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) you use to connect to Azure Virtual Desktop must have access to the following URLs. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
 
 # [Azure cloud](#tab/azure)
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
+| `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services | All |
 | `*.wvd.microsoft.com` | 443 | Service traffic | All |
 | `*.servicebus.windows.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
@@ -139,6 +140,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 
 | Address | Outbound TCP port | Purpose | Client(s) |
 |--|--|--|--|
+| `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services | All |
 | `*.wvd.azure.us` | 443 | Service traffic | All |
 | `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
@@ -150,3 +152,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 ---
 
 These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory or Office 365. Azure Active Directory URLs can be found under IDs 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+
+## Next steps
+
+To learn how to unblock these URLs in Azure Firewall for your Azure Virtual Desktop deployment, see [Use Azure Firewall to protect Azure Virtual Desktop](../firewall/protect-azure-virtual-desktop.md).

@@ -99,5 +99,3 @@ If you're an existing customer and your application for access is denied, you wi
 ## Help and support 
 
 Report abuse of Limited Access services [here](https://aka.ms/reportabuse).
-
-## Next steps

@@ -325,6 +325,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
+## New Features
+Many new features like ARM64, Accelerated Networking, TrustedVMSupported etc. are only supported through Azure Compute Gallery and not available for 'Managed images'.  For a complete list of new features available through Azure Compute Gallery, please refer
+https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-create 
 
 ## Next steps
 

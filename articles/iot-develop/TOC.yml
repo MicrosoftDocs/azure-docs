@@ -55,6 +55,8 @@
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
+  - name: C SDK and Embedded C SDK usage scenarios
+    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
   - name: Device certification

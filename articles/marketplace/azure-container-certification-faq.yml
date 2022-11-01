@@ -1,0 +1,46 @@
+### YamlMime:FAQ
+metadata:
+  title: Container certification troubleshooting for Azure Marketplace
+  description: Troubleshoot common issues related to testing and certifying container products for Azure Marketplace.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: faq
+  author: mathapli
+  ms.author: mathapli
+  ms.date: 09/27/2021
+title: Troubleshoot container certification
+summary: |
+  When you publish your container products to Azure Marketplace, the Azure team validates it to ensure that it's secure. If your container products fail any of the tests, it won't be published. You'll receive an error message that describes the issue.
+  
+  This article explains common error messages during container publishing, along with related solutions.
+  
+  > [!NOTE]
+  > If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533).
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Vulnerability failure
+        answer: |
+          A vulnerability is an exploitable risk and/or an unsecured entry points that can be used by malicious actors for nefarious actions.       
+          If you're planning to publish container products, you should scan your product for vulnerability and fix them before publishing the container product. 
+          If your existing container products have vulnerabilities in them, you should deprecate/hide the affected offer and republish after fixing the vulnerabilities.   
+
+      - question: |
+          Malware failure
+        answer: |
+          A malware, or malicious software, is a file or program that is designed to be harmful to computer, network or servers.  
+          
+          If you're planning to publish container products, you should scan your product for malware, identify all files that contain malware and remove them before publishing the container product. 
+          
+          If your existing container products have malware, you should deprecate/hide the affected offers and republish the patched product.
+          
+
+additionalContent: |
+
+  ## Next steps
+     - [Plan an Azure container offer](marketplace-containers.md)
+     - [Active marketplace rewards](marketplace-rewards.md)
+     - If you have questions or feedback for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533)

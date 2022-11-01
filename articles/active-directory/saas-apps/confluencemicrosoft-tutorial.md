@@ -57,7 +57,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.17.0
+- Confluence: 7.0.1 to 7.19.0
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -78,6 +78,8 @@ To configure the integration of Confluence SAML SSO by Microsoft into Azure AD, 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Confluence SAML SSO by Microsoft** in the search box.
 1. Select **Confluence SAML SSO by Microsoft** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Confluence SAML SSO by Microsoft
 

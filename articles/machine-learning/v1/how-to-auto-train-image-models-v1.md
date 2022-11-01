@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -75,7 +75,7 @@ In order to generate computer vision models, you need to bring labeled image dat
 If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](../how-to-prepare-datasets-for-automl-images.md). 
 
 > [!Warning]
-> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
+> Creation of TabularDatasets from data in JSONL format is supported using the SDK only, for this capability. Creating the dataset via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.
 
 > [!Note]
 > The training dataset needs to have at least 10 images in order to be able to submit an AutoML run. 

@@ -175,6 +175,10 @@ Follow these steps to create a view for your data:
 
 You can create as many views as you like. Once you're done defining the views, select **Sample** to sample the data.
 
+> [!IMPORTANT]
+> The query text in the view definition should not contain line breaks. Otherwise, we will get a generic error when previewing the view.
+
+
 ## Query with SQL Server Management Studio
 
 Once you set up an Azure Cosmos DB ODBC Driver User DSN, you can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.

@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 09/09/2022
 ---
 
 # Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
@@ -37,35 +37,54 @@ There are two ways to implement a soft delete strategy:
 For this deletion detection approach, Cognitive Search depends on the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature in Azure Blob Storage to determine whether blobs have transitioned to a soft deleted state. When blobs are detected in this state, a search indexer uses this information to remove the corresponding document from the index.
 
 > [!IMPORTANT]
-> Support for native blob soft delete is in preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](./search-api-preview.md) provides this feature. There is currently no portal or .NET SDK support.
+> Support for native blob soft delete is in preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](./search-api-preview.md) provides this feature. There is currently no .NET SDK support.
 
 ### Requirements for native soft delete
 
 + [Enable soft delete for blobs](../storage/blobs/soft-delete-blob-enable.md).
 + Blobs must be in an Azure Blob Storage container. The Cognitive Search native blob soft delete policy is not supported for blobs in ADLS Gen2.
 + Document keys for the documents in your index must be mapped to either be a blob property or blob metadata.
-+ You must use the preview REST API (`api-version=2020-06-30-Preview`) to configure support for soft delete.
++ You must use the preview REST API (`api-version=2020-06-30-Preview`) or the indexer Data Source configuration in your Cognitive Search Service from the Azure portal, to configure support for soft delete.
 
 ### How to configure deletion detection using native soft delete
 
 1. In Blob storage, when enabling soft delete, set the retention policy to a value that's much higher than your indexer interval schedule. This way if there's an issue running the indexer or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure Cognitive Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
 
-1. In Cognitive Search, set a native blob soft deletion detection policy on the data source. An example is shown below. Because this feature is in preview, you must use the preview REST API.
+1. In Cognitive Search, set a native blob soft deletion detection policy on the data source. You can do this either from the Azure portal or by using preview REST API (`api-version=2020-06-30-Preview`).
 
-    ```http
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : null },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
-        }
-    }
-    ```
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com).
+
+1. On the Cognitive Search service Overview page, go to **New Data Source**, a visual editor for specifying a data source definition. 
+
+   The following screenshot shows where you can find this feature in the portal. 
+
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="Screenshot of portal data source." border="true":::
+
+1. On the **New Data Source** form, fill out the required fields, select the **Track deletions** checkbox and choose **Native blob soft delete**. Then hit **Save** to enable the feature on Data Source creation.
+
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/native-soft-delete.png" alt-text="Screenshot of portal data source native soft delete." border="true":::
+
+
+### [**REST**](#tab/rest-api)
+
+An example of using REST API to set soft deletion detection policy on the data source is shown below. 
+
+```http
+PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+{
+   "name" : "blob-datasource",
+   "type" : "azureblob",
+   "credentials" : { "connectionString" : "<your storage connection string>" },
+   "container" : { "name" : "my-container", "query" : null },
+   "dataDeletionDetectionPolicy" : {
+   "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+   }
+}
+```
 
 1. [Run the indexer](/rest/api/searchservice/run-indexer) or set the indexer to run [on a schedule](search-howto-schedule-indexers.md). When the indexer runs and processes a blob having a soft delete state, the corresponding search document will be removed from the index.
 

@@ -12,7 +12,7 @@ items:
   href: quickstart.md
 - name: Concepts
   items:
-    - name: Azure OpenAI Models
+    - name: Azure OpenAI models
       href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md

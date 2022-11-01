@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
-ms.date: 07/18/2022
+ms.date: 09/11/2022
 ms.custom: references_regions
 ms.reviewer: riroloff
 ---
@@ -26,12 +26,12 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 The following limitations apply during public preview. Predictive autoscale:
 
-- Only works for workloads exhibiting cyclical CPU usage patterns.
-- Only can be enabled for virtual machine scale sets.
-- Only supports using the metric *Percentage CPU* with the aggregation type *Average*.
-- Only supports scale-out. You can't use predictive autoscale to scale in.
+- Predictive autoscale is for workloads exhibiting cyclical CPU usage patterns.
+- Support is only available for virtual machine scale sets.
+- The *Percentage CPU* metric with the aggregation type *Average* is the only metric currently supported.
+- Predictive autoscale supports scale-out only. Configure standard autoscale to manage scaling in.
+- Predictive autoscale is only available for the Azure Commercial cloud. Azure Government clouds are not currently supported.
 
-You must enable standard (or reactive) autoscale to manage scale-in.
 
 ## Enable predictive autoscale or forecast only with the Azure portal
 

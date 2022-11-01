@@ -1,6 +1,6 @@
 ---
-title: Monitor an app in Azure Container Apps
-description: Learn how applications are monitored and logged in Azure Container Apps.
+title: Write and view application logs in Azure Container Apps
+description: Learn write and view logs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -51,17 +51,15 @@ Set the name of your resource group and Log Analytics workspace, and then retrie
 ```azurecli
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 $RESOURCE_GROUP="my-containerapps"
 $LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
 ```
 
 ---
@@ -79,11 +77,9 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" `
-  --out table
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3"
+$queryResults.Results
 ```
 
 ---
@@ -101,4 +97,4 @@ my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:43.1
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage secrets](manage-secrets.md)
+> [Monitor logs in Azure Container Apps with Log Analytics](log-monitoring.md)

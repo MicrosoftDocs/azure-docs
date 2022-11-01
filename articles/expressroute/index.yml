@@ -88,6 +88,15 @@ landingContent:
           - text: Design for Disaster Recovery with private peering
             url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
   # Card
+  - title: Learn about ExpressRoute architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Extend an on-premises network using ExpressRoute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+          - text: Connect an on-premises network to Azure using ExpressRoute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+  # Card
   - title: Encrypt traffic
     linkLists:
       - linkListType: how-to-guide

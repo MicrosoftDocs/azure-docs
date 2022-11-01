@@ -61,5 +61,5 @@ For more information about custom security attributes, see:
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)

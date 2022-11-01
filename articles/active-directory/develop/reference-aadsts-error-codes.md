@@ -134,6 +134,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - User needs to enroll for second factor authentication (interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge. |
 | AADSTS50076 | UserStrongAuthClientAuthNRequired - Due to a configuration change made by the admin, or because you moved to a new location, the user must use multi-factor authentication to access the resource. Retry with a new authorize request for the resource. |
+| AADSTS50078 | UserStrongAuthExpired- Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access '{resource}'.|
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - Due to a configuration change made by the administrator, or because the user moved to a new location, the user is required to use multi-factor authentication. |
 | AADSTS50085 | Refresh token needs social IDP login. Have user try signing-in again with username -password |
 | AADSTS50086 | SasNonRetryableError |

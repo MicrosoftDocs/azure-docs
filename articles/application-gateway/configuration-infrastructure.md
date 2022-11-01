@@ -5,8 +5,8 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 06/14/2021
-ms.author: surmb
+ms.date: 09/13/2022
+ms.author: greglin
 ---
 
 # Application Gateway infrastructure configuration
@@ -32,7 +32,7 @@ Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 ins
 
 Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private frontend IP configuration + 5 Azure reserved). A minimum subnet size of /24 is recommended.
 
-To determine the available capacity of a subnet that has existing Application Gateways provisioned, take the size of the subnet and subtract the five reserved IP addresses of the subnet reserved by the platform.  Next, take each gateway and subtract the the max-instance count.  For each gateway that has a private frontend IP configuration, subtract one additional IP address per gateway as well.
+To determine the available capacity of a subnet that has existing Application Gateways provisioned, take the size of the subnet and subtract the five reserved IP addresses of the subnet reserved by the platform.  Next, take each gateway and subtract the max-instance count.  For each gateway that has a private frontend IP configuration, subtract one additional IP address per gateway as well.
 
 For example, here's how to calculate the available addressing for a subnet with three gateways of varying sizes:
 - Gateway 1: Maximum of 10 instances; utilizes a private frontend IP configuration
@@ -46,7 +46,7 @@ Subnet Size /24 = 255 IP addresses - 5 reserved from the platform = 250 availabl
 237 - Gateway 3 (15) - 1 private frontend IP configuration = 221
 
 > [!IMPORTANT]
-> Although a /24 subnet is not required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades. You should ensure that the Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic. If you specify the maximum instance count, then the subnet should have capacity for at least that many addresses. For capacity planning around instance count, see [instance count details](understanding-pricing.md#instance-count).
+> Although a /24 subnet isn't required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades. You should ensure that the Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic. If you specify the maximum instance count, then the subnet should have capacity for at least that many addresses. For capacity planning around instance count, see [instance count details](understanding-pricing.md#instance-count).
 
 > [!TIP]
 > IP addresses are allocated from the beginning of the defined subnet space for gateway instances. As instances are created and removed due to creation of gateways or scaling events, it can become difficult to understand what the next available address is in the subnet. To be able to determine the next address to use for a future gateway and have a contiguous addressing theme for frontend IPs, consider assigning frontend IP addresses from the upper half of the defined subset space. For example, if my subnet address space is 10.5.5.0/24, consider setting the private frontend IP configuration of your gateways starting with 10.5.5.254 and then following with 10.5.5.253, 10.5.5.252, 10.5.5.251, and so forth for future gateways.

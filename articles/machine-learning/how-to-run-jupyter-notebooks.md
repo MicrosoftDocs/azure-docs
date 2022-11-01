@@ -62,7 +62,7 @@ Use focus mode to expand your current view so you can focus on your
 * Learn more about the code you're using
 * Keep track of the parameters you're typing
 * Add calls to properties and methods 
-
+<!--
 ### Insert code snippets (preview)
 
 Use **Ctrl+Space** to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
@@ -78,7 +78,7 @@ You can browse and search the list of snippets by using the notebook toolbar to 
 From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
-
+-->
 ## Share a notebook
 
 Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.

@@ -38,4 +38,4 @@ ms.date: 08/04/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Cloud integration with Microsoft Entra | Defender for Cloud in the Field](episode-seventeen.md)

@@ -32,7 +32,7 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Backend type** | IP based, NIC based | NIC based |
 | **Protocol** | TCP, UDP | TCP, UDP |
 | **[Frontend IP Configurations](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 600 configurations | Supports up to 200 configurations |
-| **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances | Supports up to 300 instances |
+| **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 5000 instances | Supports up to 300 instances |
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |

@@ -107,6 +107,9 @@ If you use custom domain names for the API Management endpoints, especially if y
 
 In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
+> [!NOTE]
+> With the self-hosted gateway v2, API Management provides a new configuration endpoint: `<apim-service-name>.configuration.azure-api.net`. Currently, API Management doesn't enable configuring a custom domain name for the v2 configuration endpoint. If you need custom hostname mapping for this endpoint, you may be able to configure an override in the container's local hosts file, for example, using a [`hostAliases`](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) element in a Kubernetes container spec. 
+
 ## Configuration backup
 
 Configure a local storage volume for the self-hosted gateway container, so it can persist a backup copy of the latest downloaded configuration. If connectivity is down, the storage volume can use the backup copy upon restart. The volume mount path must be `/apim/config` and must be owned by group ID `1001`. See an example on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).

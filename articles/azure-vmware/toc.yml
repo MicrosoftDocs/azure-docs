@@ -24,10 +24,10 @@
     href: tutorial-network-checklist.md
   - name: 2 - Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Access a private cloud
-    href: tutorial-access-private-cloud.md
-  - name: 4 - Configure networking
+  - name: 3 - Configure networking
     href: tutorial-configure-networking.md
+  - name: 4 - Access a private cloud
+    href: tutorial-access-private-cloud.md
   - name: 5 - Create an NSX-T network segment
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud

@@ -16,7 +16,7 @@
   - name: Create a Linux NFS file share
     href: storage-files-quick-create-use-linux.md
   - name: Extend Windows file servers with Azure File Sync
-    href: ../file-sync/file-sync-extend-servers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../file-sync/file-sync-extend-servers.md?toc=/azure/storage/files/toc.json
 - name: Concepts
   items:
   - name: Planning for an Azure Files deployment
@@ -30,7 +30,7 @@
   - name: Networking considerations for direct access
     href: storage-files-networking-overview.md
   - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
   - name: Azure file share snapshots
     href: storage-snapshots-files.md
   - name: Performance and scale
@@ -44,15 +44,15 @@
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
-    href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json
   - name: Encryption
     items: 
     - name: Encryption at-rest
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
     - name: Encryption at-rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/files/toc.json
   - name: Compliance offerings
-    href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: FAQ
     href: storage-files-faq.md
   - name: What's new in Azure Files?
@@ -68,7 +68,7 @@
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
     - name: SQL Server FCI with premium file shares
-      href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
     - name: Purchase storage reservations
       href: files-reserve-capacity.md
   - name: Mount
@@ -116,9 +116,9 @@
   - name: Manage
     items:
     - name: Manage storage in Azure independent clouds
-      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
     - name: Initiate an account failover
-      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -126,45 +126,50 @@
     - name: Manage data redundancy
       items:
       - name: Change how data is replicated
-        href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
       - name: Design highly available applications
-        href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        items:
+        - name: .NET (v12 SDK)
+          href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
+        - name: .NET (v11 SDK)
+          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
+        
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
-        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/last-sync-time-get.md?toc=/azure/storage/files/toc.json
       - name: Initiate account failover
-        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
     - name: Back up file shares
       items:
       - name: Portal
-        href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/backup-afs.md?toc=/azure/storage/files/toc.json
       - name: CLI
-        href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/backup-afs-cli.md?toc=/azure/storage/files/toc.json
       - name: PowerShell
-        href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/backup-azure-afs-automation.md?toc=/azure/storage/files/toc.json
       - name: REST API
-        href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/backup-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
     - name: Restore file shares
       items:
       - name: Portal
-        href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/restore-afs.md?toc=/azure/storage/files/toc.json
       - name: CLI
-        href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/restore-afs-cli.md?toc=/azure/storage/files/toc.json
       - name: PowerShell
-        href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/restore-afs-powershell.md?toc=/azure/storage/files/toc.json
       - name: REST API
-        href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/restore-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
     - name: Manage file shares
       items:
       - name: Portal
-        href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/manage-afs-backup.md?toc=/azure/storage/files/toc.json
       - name: CLI
-        href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/manage-afs-backup-cli.md?toc=/azure/storage/files/toc.json
       - name: PowerShell
-        href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/manage-afs-powershell.md?toc=/azure/storage/files/toc.json
       - name: REST API
-        href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../../backup/manage-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
   - name: Monitor
     items:
     - name: Monitor Azure Files
@@ -196,7 +201,7 @@
   - name: Develop
     items:
     - name: Configure connection strings
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
     - name: .NET
       href: storage-dotnet-how-to-use-files.md
     - name: Java
@@ -210,41 +215,49 @@
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account
-        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/files/toc.json
       - name: Configure customer-managed keys in Azure Key Vault
         items:
-        - name: Configure customer-managed keys for a new account
-          href: ../common/customer-managed-keys-configure-new-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Configure customer-managed keys for an existing account
-          href: ../common/customer-managed-keys-configure-existing-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configure customer-managed keys in the same tenant
+          items:
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a different tenant
+          items:
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
       - name: Configure customer-managed keys in a managed HSM
-        href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/files/toc.json
     - name: Enable infrastructure encryption for the account
-      href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
-      href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
     - name: Configure firewalls and virtual networks
-      href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
     - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json
     - name: Disable SMB 1 on the Windows SMB client
-      href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
     - name: Disable SMB on the Linux SMB client
       href: files-remove-smb1-linux.md
     - name: Manage Transport Layer Security (TLS)
       items:
       - name: Enforce minimum TLS version for incoming requests
-        href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json 
       - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
   - name: Transfer data
     items: 
     - name: Get started with AzCopy
-      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json
     - name: Use AzCopy with Files
-      href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, troubleshoot - AzCopy
-      href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files on Windows (SMB)
@@ -256,7 +269,7 @@
     - name: Troubleshoot Azure Files on Linux (NFS)
       href: storage-troubleshooting-files-nfs.md
     - name: Troubleshoot backing up file shares
-      href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference
   items:
   - name: Azure Files API reference
@@ -287,7 +300,7 @@
   - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
   - name: Compare access with NFS to Azure Files, Blob Storage, and NetApp Files
-    href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/nfs-comparison.md?toc=/azure/storage/files/toc.json
   - name: Customer case studies
     href: azure-files-case-study.md
   - name: NuGet packages (.NET)

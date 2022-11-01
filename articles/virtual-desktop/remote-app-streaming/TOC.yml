@@ -203,7 +203,7 @@
   - name: Troubleshooting overview, feedback, and support
     href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Identify and diagnose issues
-    href: ../troubleshoot-set-up-overview.md?bc=%2fazure%2fvirtual-desktop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-desktop%2fremote-app-streaming%2ftoc.json
+    href: ../troubleshoot-set-up-overview.md?bc=/azure/virtual-desktop/breadcrumb/toc.json&toc=/azure/virtual-desktop/remote-app-streaming/toc.json
   - name: Getting started feature
     href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Host pool creation

@@ -164,7 +164,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    * Input your **link connection name**.
 
-   * Select your **Core count**. We recommend starting from small number and increasing as needed.
+   * Select your **Core count** for the [link connection compute](sql-server-2022-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target. We recommend starting from small number and increasing as needed.
 
    * Configure your landing zone. Select your **linked service** connecting to your landing zone.
 

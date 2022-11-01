@@ -48,7 +48,7 @@ Automation for major version upgrade isn't yet supported. For example, there's c
 
 Microsoft has a team of committers and contributors who work full time on the open source Postgres project and are long term members of the community. Our contributions include but aren't  limited to features, performance enhancements, bug fixes, security patches among other things. Our open source team also incorporates feedback from our Azure fleet (and customers) when prioritizing work, however please keep in mind that Postgres project has its own independent contribution guidelines, review process and release schedule.
 
-If you encounter a PostgreSQL engine defect while working with Azure Database for PostgreSQL, Microsoft will take immediate action to mitigate the issue when possible, Microsoft will fix the defect to address the production issue and work with the community to incorporate it.
+When an defect with PostgreSQL engine is identified, Microsoft will take immediate action to mitigate the issue. If it requires code change, Microsoft will fix the defect to address the production issue, if possible, and work with the community to incorporate the fix as quickly as possible.
 
 
 <!--

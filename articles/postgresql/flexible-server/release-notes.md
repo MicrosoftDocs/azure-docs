@@ -25,7 +25,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: July 2022
 
-* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore-preview) in [additional regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
+* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore) in [more regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
 
 ## Release: June 2022
 
@@ -84,7 +84,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
 * Support for [new regions](overview.md#azure-regions) Central India and Japan West.
 * Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
-* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for `log_line_prefix` server parameter, which adds the string at the beginning of each log line.
 * Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
 * Several bug fixes, stability, and performance improvements.
 
@@ -148,7 +148,7 @@ In addition, consider the following points of contact as appropriate:
 
  Will Flexible Server replace Single Server or Will Single Server be retired soon?
 
-We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+We continue to support Single Server and encourage you to adopt Flexible Server, which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
   
 
 ## Next steps

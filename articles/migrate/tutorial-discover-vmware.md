@@ -14,7 +14,7 @@ ms.custom: mvc, subject-rbac-steps
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server running in your vCenter Server instance, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, ASP.NET web apps, and SQL Server instances and databases.
+This tutorial shows you how to discover the servers that are running in your VMware environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server running in your vCenter Server instance, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
 
 In this tutorial, you learn how to:
 
@@ -38,7 +38,7 @@ Requirement | Details
 --- | ---
 **vCenter Server/ESXi host** | You need a server running vCenter Server version 6.7, 6.5, 6.0, or 5.5.<br /><br /> Servers must be hosted on an ESXi host running version 5.5 or later.<br /><br /> On the vCenter Server, allow inbound connections on TCP port 443 so that the appliance can collect configuration and performance metadata.<br /><br /> The appliance connects to vCenter Server on port 443 by default. If the server running vCenter Server listens on a different port, you can modify the port when you provide the vCenter Server details in the appliance configuration manager.<br /><br /> On the ESXi hosts, make sure that inbound access is allowed on TCP port 443 for discovery of installed applications and for agentless dependency analysis on servers.
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
-**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#aspnet-web-apps-discovery-requirements).
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).
 
 ## Prepare an Azure user account
 
@@ -286,7 +286,7 @@ The appliance must connect to vCenter Server to discover the configuration and p
 
 ### Provide server credentials
 
-In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with vCenter Server discovery. You can change this option at any time.
+In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of web apps in your VMware environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with vCenter Server discovery. You can change this option at any time.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory, dependency analysis, and s q l server discovery.":::
 
@@ -297,7 +297,7 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
     
-    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+    You can provide domain, Windows(non-domain), Linux(non-domain), and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
     * A username.
@@ -330,7 +330,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
-* ASP.NET web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
+* Web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::

@@ -14,10 +14,6 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
-
 ## Set up the environment
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
@@ -63,9 +59,6 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
     ```console
     mvn clean dependency:copy-dependencies
     ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Translate speech from a microphone
 
@@ -152,9 +145,6 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech translation.
 Translated into 'it': Sono entusiasta di provare la traduzione vocale.
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Translate-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

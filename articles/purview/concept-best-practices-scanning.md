@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 09/14/2022
 ms.custom: ignite-fall-2021
 ---
 

@@ -12,7 +12,7 @@
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
     - name: Solution architectures
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
   expanded: true
   items:
@@ -44,7 +44,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-    - name: Subscribe to AKS events with Event Grid (Preview)
+    - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
   items:
@@ -94,7 +94,7 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
-    - name: Multi-instance GPU Node pool (preview)
+    - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
       href: servicemesh-about.md
@@ -172,6 +172,16 @@
   items:
     - name: Cluster operations
       items:
+        - name: Abort long running operations
+          href: manage-abort-operations.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -184,8 +194,6 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Automatically upgrade an AKS cluster
-          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -198,12 +206,6 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
-        - name: Configure an AKS cluster
-          href: cluster-configuration.md
-        - name: Custom node configuration
-          href: custom-node-configuration.md
-        - name: Integrate ACR with an AKS cluster
-          href: cluster-container-registry-integration.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
@@ -269,6 +271,8 @@
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Remove vulnerable images with ImageCleaner (preview)
+              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -342,6 +346,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+            - name: Use Azure-CNI Overlay (Preview)
+              href: azure-cni-overlay.md
         - name: Use API Server VNet Integration
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
@@ -430,6 +436,8 @@
           href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
+        - name: Upgrade from Windows Server 2019 to 2022
+          href: upgrade-windows-2019-2022.md          
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
@@ -448,13 +456,11 @@
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
-        - name: Build Jakarta EE app with PostgreSQL
-          href: howto-deploy-java-liberty-app-with-postgresql.md
+        - name: Build Java app with WebSphere Liberty or Open Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Build Jakarta EE app with Open Liberty or WebSphere Liberty
-          href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr

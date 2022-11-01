@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when you use Azure Cosm
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/19/2022
+ms.date: 08/30/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -27,7 +27,7 @@ When you design your application, [follow the .NET SDK best practices](performan
 Consider the following when developing your application:
 
 * The application should be in the same region as your Azure Cosmos DB account.
-* Your [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion), [ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions), or [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) for V2 SDK configuration is should reflect your regional preference and point to the region your application is deployed on.
+* Your [ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) should reflect your regional preference and point to the region your application is deployed on.
 * There might be a bottleneck on the Network interface because of high traffic. If the application is running on Azure Virtual Machines, there are possible workarounds:
   * Consider using a [Virtual Machine with Accelerated Networking enabled](../../virtual-network/create-vm-accelerated-networking-powershell.md).
   * Enable [Accelerated Networking on an existing Virtual Machine](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
@@ -41,49 +41,23 @@ If you need to verify that a database or container exists, don't do so by callin
 
 ## Slow requests on bulk mode
 
-[Bulk mode](tutorial-sql-api-dotnet-bulk-import.md) is a throughput optimized mode meant for high data volume operations, not a latency optimized mode; it's meant to saturate the available throughput. If you are experiencing slow requests when using bulk mode make sure that:
+[Bulk mode](tutorial-sql-api-dotnet-bulk-import.md) is a throughput optimized mode meant for high data volume operations, not a latency optimized mode; it's meant to saturate the available throughput. If you're experiencing slow requests when using bulk mode make sure that:
 
 * Your application is compiled in Release configuration.
-* You are not measuring latency while debugging the application (no debuggers attached).
+* You aren't measuring latency while debugging the application (no debuggers attached).
 * The volume of operations is high, don't use bulk for less than 1000 operations. Your provisioned throughput dictates how many operations per second you can process, your goal with bulk would be to utilize as much of it as possible.
-* Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container or reduce the volume of data (maybe create smaller batches of data at a time).
-* You are correctly using the `async/await` pattern to [process all concurrent Tasks](tutorial-sql-api-dotnet-bulk-import.md#step-6-populate-a-list-of-concurrent-tasks) and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
+* Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container, or reduce the volume of data (maybe create smaller batches of data at a time).
+* You're correctly using the `async/await` pattern to [process all concurrent Tasks](tutorial-sql-api-dotnet-bulk-import.md#step-6-populate-a-list-of-concurrent-tasks) and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
-## <a name="capture-diagnostics"></a>Capture the diagnostics
+## Capture diagnostics
 
-All the responses in the SDK, including `CosmosException`, have a `Diagnostics` property. This property records all the information related to the single request, including if there were retries or any transient failures. 
-
-The diagnostics are returned as a string. The string changes with each version, as it's improved for troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Don't parse the string to avoid breaking changes. The following code sample shows how to read diagnostic logs by using the .NET SDK:
-
-```c#
-try
-{
-    ItemResponse<Book> response = await this.Container.CreateItemAsync<Book>(item: testItem);
-    if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan)
-    {
-        // Log the response.Diagnostics.ToString() and add any additional info necessary to correlate to other logs 
-    }
-}
-catch (CosmosException cosmosException)
-{
-    // Log the full exception including the stack trace with: cosmosException.ToString()
-    
-    // The Diagnostics can be logged separately if required with: cosmosException.Diagnostics.ToString()
-}
-
-// When using Stream APIs
-ResponseMessage response = await this.Container.CreateItemStreamAsync(partitionKey, stream);
-if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan || !response.IsSuccessStatusCode)
-{
-    // Log the diagnostics and add any additional info necessary to correlate to other logs with: response.Diagnostics.ToString()
-}
-```
+[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
 ## Diagnostics in version 3.19 and later
 
 The JSON structure has breaking changes with each version of the SDK. This makes it unsafe to be parsed. The JSON represents a tree structure of the request going through the SDK. The following sections cover a few key things to look at.
 
-### <a name="cpu-history"></a>CPU history
+### CPU history
 
 High CPU utilization is the most common cause for slow requests. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries, where the requests might do multiple connections for a single query.
 
@@ -119,7 +93,7 @@ The timeouts include diagnostics, which contain the following, for example:
 
 * If the `cpu` values are over 70 percent, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
 * If the `threadInfo/isThreadStarving` nodes have `True` values, the cause is thread starvation. In this case, the solution is to investigate the source or sources of the thread starvation (potentially locked threads), or scale the machine or machines to a larger resource size.
-* If the `dateUtc` time between measurements is not approximately 10 seconds, it also indicates contention on the thread pool. CPU is measured as an independent task that is enqueued in the thread pool every 10 seconds. If the time between measurements is longer, it indicates that the async tasks aren't able to be processed in a timely fashion. The most common scenario is when your application code is [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
+* If the `dateUtc` time between measurements isn't approximately 10 seconds, it also indicates contention on the thread pool. CPU is measured as an independent task that is enqueued in the thread pool every 10 seconds. If the time between measurements is longer, it indicates that the async tasks aren't able to be processed in a timely fashion. The most common scenario is when your application code is [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
 # [Older SDK](#tab/cpu-old)
 
@@ -137,7 +111,7 @@ CPU count: 8)
 ```
 
 * If the CPU measurements are over 70 percent, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
-* If the CPU measurements are not happening every 10 seconds (for example, there are gaps, or measurement times indicate longer times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source or sources of the thread starvation (potentially locked threads), or scale the machine or machines to a larger resource size.
+* If the CPU measurements aren't happening every 10 seconds (for example, there are gaps, or measurement times indicate longer times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source or sources of the thread starvation (potentially locked threads), or scale the machine or machines to a larger resource size.
 
 ---
 
@@ -145,7 +119,7 @@ CPU count: 8)
 
 The client application that uses the SDK should be scaled up or out.
 
-### <a name="httpResponseStats"></a>HttpResponseStats
+### HttpResponseStats
 
 `HttpResponseStats` are requests that go to the [gateway](sql-sdk-connection-modes.md). Even in direct mode, the SDK gets all the metadata information from the gateway.
 
@@ -172,7 +146,7 @@ If the request is slow, first verify that none of the previous suggestions yield
 ]
 ```
 
-### <a name="storeResult"></a>StoreResult
+### StoreResult
 
 `StoreResult` represents a single request to Azure Cosmos DB, by using direct mode with the TCP protocol.
 
@@ -194,7 +168,7 @@ For multiple store results for a single request, be aware of the following:
 * Strong consistency and bounded staleness consistency always have at least two store results.
 * Check the status code of each `StoreResult`. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly improved to cover more scenarios. 
 
-### <a name="rntbdRequestStats"></a>RntbdRequestStats 
+### RntbdRequestStats 
 
 Show the time for the different stages of sending and receiving a request in the transport layer.
 
@@ -203,22 +177,25 @@ Show the time for the different stages of sending and receiving a request in the
 * *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
 * *Received time is large* might be caused by a thread starvation problem. This is the time between having the response and returning the result.
 
-### <a name="ServiceEndpointStatistics"></a>ServiceEndpointStatistics 
+### ServiceEndpointStatistics
+
 Information about a particular backend server. The SDK can open multiple connections to a single backend server depending upon the number of pending requests and the MaxConcurrentRequestsPerConnection.
 
-* `inflightRequests` The number of pending requests to a backend server (maybe from different partitions). A high number may to lead to more traffic and higher latencies.
-* `openConnections` is the total Number of connections open to a single backend server. This can be useful to show SNAT port exhausion if this number is very high.
+* `inflightRequests` The number of pending requests to a backend server (maybe from different partitions). A high number may lead to more traffic and higher latencies.
+* `openConnections` is the total Number of connections open to a single backend server. This can be useful to show SNAT port exhaustion if this number is very high.
 
-### <a name="ConnectionStatistics"></a>ConnectionStatistics 
+### ConnectionStatistics
+
 Information about the particular connection (new or old) the request get's assigned to.
 
 * `waitforConnectionInit`: The current request was waiting for new connection initialization to complete. This will lead to higher latencies.
-* `callsPendingReceive`: Number of calls that was pending receive before this call was sent. A high number can show us that there were a lot of calls before this call and it may lead to higher latencies. If this number is high it points to a head of line blocking issue possibly caused by another request like query or feed operation that is taking a long time to process. Try lowering the CosmosClientOptions.MaxRequestsPerTcpConnection to increase the number of channels. 
-* `LastSentTime`:  Time of last request that was sent to this server. This along with LastReceivedTime can be used to see connectivity or endpoint issues. For example if there are a lot of receive timeouts, Sent time will be much larger than the Receive time.
+* `callsPendingReceive`: Number of calls that was pending receive before this call was sent. A high number can show us that there were many calls before this call and it may lead to higher latencies. If this number is high it points to a head of line blocking issue possibly caused by another request like query or feed operation that is taking a long time to process. Try lowering the CosmosClientOptions.MaxRequestsPerTcpConnection to increase the number of channels. 
+* `LastSentTime`:  Time of last request that was sent to this server. This along with LastReceivedTime can be used to see connectivity or endpoint issues. For example if there are many receive timeouts, Sent time will be much larger than the Receive time.
 * `lastReceive`: Time of last request that was received from this server
 * `lastSendAttempt`: Time of the last send attempt
 
-### <a name="Request and response sizes"></a>Request and response sizes 
+### Request and response sizes
+
 * `requestSizeInBytes`: The total size of the request sent to Cosmos DB
 * `responseMetadataSizeInBytes`: The size of headers returned from Cosmos DB 
 * `responseBodySizeInBytes`: The size of content returned from Cosmos DB 
@@ -302,4 +279,5 @@ Contact [Azure support](https://aka.ms/azure-support).
 ## Next steps
 
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) problems when you use the Azure Cosmos DB .NET SDK.
-* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
+* Learn about performance guidelines for the [.NET SDK](performance-tips-dotnet-sdk-v3-sql.md).
+* Learn about the best practices for the [.NET SDK](best-practice-dotnet.md)

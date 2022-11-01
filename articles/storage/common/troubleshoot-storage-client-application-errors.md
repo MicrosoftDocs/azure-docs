@@ -202,6 +202,6 @@ You can find a list of common REST API error codes that the storage services ret
 - [Monitoring Azure Files](../files/storage-files-monitoring.md)
 - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
 - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
-- [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=/azure/storage/blobs/toc.json)
+- [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=/azure/storage/blobs/toc.json)
 - [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)

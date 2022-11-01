@@ -54,7 +54,7 @@ Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which inc
 
 - [Try Dynatrace with 15 days free trial](https://www.dynatrace.com/trial)
 - [Launch from Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dynatrace.dynatrace-managed)
-- [Documentation on how to Cosmos DB with Azure Monitor](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/set-up-integration-with-azure-monitor/?_ga=2.184080354.559899881.1623174355-748416177.1603817475)
+- [Documentation on how to Cosmos DB with Azure Monitor](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services)
 - [Cosmos DB - Dynatrace Integration details](https://www.dynatrace.com/news/blog/azure-services-explained-part-4-azure-cosmos-db/?_ga=2.185016301.559899881.1623174355-748416177.1603817475)
 - [Dynatrace Monitoring for Azure databases](https://www.dynatrace.com/technologies/azure-monitoring/azure-database-performance/)
 - [Dynatrace for Azure solution overview](https://www.dynatrace.com/technologies/azure-monitoring/)

@@ -2,8 +2,8 @@
 title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # How to manage the Container insights agent
@@ -12,9 +12,9 @@ Container insights uses a containerized version of the Log Analytics agent for L
 
 ## How to upgrade the Container insights agent
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift version 3.x. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) and Azure Red Hat OpenShift version 4.x, the agent is not managed, and you need to manually upgrade the agent.
+Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md), the agent is not managed, and you need to manually upgrade the agent.
 
-If the agent upgrade fails for a cluster hosted on AKS or Azure Red Hat OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### Upgrade agent on AKS cluster
 
@@ -59,20 +59,6 @@ If the Log Analytics workspace is in Azure US Government, run the following comm
 $ helm upgrade --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
-### Upgrade agent on Azure Red Hat OpenShift v4
-
-Perform the following steps to upgrade the agent on a Kubernetes cluster running on Azure Red Hat OpenShift version 4.x. 
-
->[!NOTE]
->Azure Red Hat OpenShift version 4.x only supports running in the Azure commercial cloud.
->
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
-```
-
 ## How to disable environment variable collection on a container
 
 Container insights collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the Kubernetes cluster, or after by setting the environment variable *AZMON_COLLECT_ENV*. This feature is available from the agent version – ciprod11292018 and higher.  
@@ -84,13 +70,7 @@ To disable collection of environmental variables on a new or existing container,
   value: "False"  
 ```
 
-Run the following command to apply the change to Kubernetes clusters other than Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. To edit ConfigMap and apply this change for Azure Red Hat OpenShift clusters, run the command:
-
-```bash
-oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-```
-
-This opens your default text editor. After setting the variable, save the file in the editor.
+Run the following command to apply the change to Kubernetes clusters: `kubectl apply -f  <path to yaml file>`.
 
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.
 

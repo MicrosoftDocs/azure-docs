@@ -6,7 +6,7 @@ author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 08/04/2022
+ms.date: 08/22/2022
 ms.author: alkemper
 ms.custom: include file, devdivchpfy22
 ---

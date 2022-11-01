@@ -55,7 +55,19 @@
       - name: Securing a custom VNET
         href: firewall-integration.md
     - name: Observability
-      href: observability.md
+      items:
+      - name: Overview
+        href: observability.md
+      - name: Log streaming
+        href: log-streaming.md
+      - name: Container console
+        href: container-console.md
+      - name: Metrics
+        href: metrics.md
+      - name: Log monitoring
+        href: log-monitoring.md
+      - name: Alerts
+        href: alerts.md
     - name: Authentication
       href: authentication.md
     - name: Dapr integration
@@ -112,6 +124,8 @@
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
       href: microservices-dapr-azure-resource-manager.md
+    - name: Deploy a Dapr application using GitHub Actions
+      href: dapr-github-actions.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount
@@ -120,12 +134,26 @@
   items:
     - name: ARM and YAML specifications
       href: azure-resource-manager-api-spec.md
-    - name: Azure CLI reference
+    - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: Azure PowerShell
+      href: /powershell/module/az.app/#container-apps
     - name: Azure policy definitions
       href: policy-reference.md
-    - name: REST API reference
+    - name: REST API
       href: /rest/api/containerapps/
+    - name: Management SDKs
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.resourcemanager.appcontainers
+        - name: Go
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers
+        - name: Java
+          href: /java/api/overview/azure/resourcemanager-appcontainers-readme
+        - name: Node.js
+          href: /javascript/api/overview/azure/arm-appcontainers-readme
+        - name: Python
+          href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
 - name: Resources
   items:
     - name: Samples

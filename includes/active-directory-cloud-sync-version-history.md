@@ -18,9 +18,9 @@ Release date: August 8, 2022
 
 ### New or changed functionality
 
- - We added a new cmdlet to enable and disable writeback of passwords. For more information about this cmdlet and its use, see [Enable password writeback in Azure AD Connect cloud sync](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md#enable-password-writeback-in-azure-ad-connect-cloud-sync).
+ - We added a new cmdlet to enable and disable writeback of passwords. For more information about this cmdlet and its use, see [Enable password writeback in Azure AD Connect cloud sync](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md#enable-password-writeback-in-sspr).
  - We now return more info in the 'Get-AADCloudSyncDomains' cmdlet. 
- - We updated new cmdlets of CloudSync powershell module in the unattended agent install script. 
+ - We updated new cmdlets of CloudSync PowerShell module in the unattended agent install script. 
  - We have added support for the installation of the provisioning agent using the commandline. 
  - We added support for EX and RX environments.
   

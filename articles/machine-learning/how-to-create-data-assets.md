@@ -17,13 +17,11 @@ ms.date: 05/24/2022
 ---
 
 # Create data assets
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
 > * [v2 (current version)](how-to-create-data-assets.md)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
 In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from datastores, Azure Storage, public URLs, and local files.
 
@@ -66,7 +64,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 Below shows you how to create a *folder* as an asset:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a `YAML` file (`<file-name>.yml`):
 
@@ -90,7 +88,7 @@ Next, create the data asset using the CLI:
 az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 
 You can create a data asset in Azure Machine Learning using the following Python Code:
 
@@ -123,7 +121,7 @@ ml_client.data.create_or_update(my_data)
 
 Below shows you how to create a *specific file* as a data asset:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Sample `YAML` file `<file-name>.yml` for data in local path is as below:
 
@@ -146,7 +144,7 @@ path: <uri>
 > az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
@@ -223,7 +221,7 @@ The `uri` parameter in `mltable.load()` should be a valid path to a local or clo
 Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a `YAML` file (`<file-name>.yml`):
 
@@ -252,7 +250,7 @@ Next, create the data asset using the CLI:
 az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 
 You can create a data asset in Azure Machine Learning using the following Python Code:
 

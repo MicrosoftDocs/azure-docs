@@ -16,7 +16,7 @@ You can use a new or existing key vault to store customer-managed keys. The stor
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/azure-portal)
 
 To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../articles/key-vault/general/quick-create-portal.md). When you create the key vault, select **Enable purge protection**, as shown in the following image.
 
@@ -28,7 +28,7 @@ To enable purge protection on an existing key vault, follow these steps:
 1. Under **Settings**, choose **Properties**.
 1. In the **Purge protection** section, choose **Enable purge protection**.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To create a new key vault with PowerShell, install version 2.0.0 or later of the [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell module. Then call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) to create a new key vault. With version 2.0.0 and later of the Az.KeyVault module, soft delete is enabled by default when you create a new key vault.
 

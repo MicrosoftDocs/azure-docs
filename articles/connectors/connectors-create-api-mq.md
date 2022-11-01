@@ -3,8 +3,8 @@ title: Connect to IBM MQ server
 description: Connect to an MQ server on premises or in Azure from a workflow using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: ChristopherHouser
-ms.author: chrishou
+author: mijacobs
+ms.author: mijacobs
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/14/2022

@@ -253,23 +253,23 @@ This section describes the current state of the functional and behavioral differ
 | ---- | ---- | ---- |
 | .NET versions | .NET Core 3.1<br/>.NET 6.0 | .NET 6.0<br/>.NET 7.0 (Preview)<br/>.NET Framework 4.8 (Preview) |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
-| Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Under [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
-| Logging | [ILogger] passed to the function | [ILogger] obtained from [FunctionContext] |
-| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | Not supported |
-| Output bindings | Out parameters | Return values |
-| Output binding types |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage], and other client-specific types | Simple types, JSON serializable types, and arrays. |
-| Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
-| HTTP trigger | [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
+| Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
-| Imperative bindings | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
-| function.json artifact | Generated | Not generated |
-| Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and custom initialization |
+| Model types exposed by bindings | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>Service SDK types such as [BlobClient]<br/>`IAsyncCollector` (for output bindings) | Simple types<br/>JSON serializable types<br/>Arrays/enumerations |
+| HTTP trigger model types| [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
+| Output binding interaction | Return values (single output only)<br/>`out` parameters<br/>`IAsyncCollector` | Return values (expanded model with single or [multiple outputs](#multiple-output-bindings)) |
+| Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](#dependency-injection) |
-| Middleware | Not supported | Supported |
-| Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
+| Middleware | Not supported | [Supported](#middleware) |
+| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](#dependency-injection)|
+| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
+| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | Not supported |
+| Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
-| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | Not Supported |
 
+<sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
+
+<sup>2</sup> Cold start times may be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This applies to both the in-process and out-of-process models but may be particularly noticeable if comparing across different versions. This delay for preview versions is not present on Linux plans.
 
 ## Remote Debugging using Visual Studio
 
@@ -280,19 +280,21 @@ Because your isolated process app runs outside the Functions runtime, you need t
 + [Learn more about best practices for Azure Functions](functions-best-practices.md)
 
 
-[HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder?view=dotnet-plat-ext-5.0&preserve-view=true
-[IHost]: /dotnet/api/microsoft.extensions.hosting.ihost?view=dotnet-plat-ext-5.0&preserve-view=true
+[HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
+[IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
 [ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
-[ConfigureAppConfiguration]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureappconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true
-[IServiceCollection]: /dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true
-[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureAppConfiguration]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureappconfiguration
+[IServiceCollection]: /dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices
 [FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
-[ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true
+[ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
+[ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.ilogger-1
 [GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
+[BlobClient]: /dotnet/api/azure.storage.blobs.blobclient?view=azure-dotnet
 [DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
-[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
-[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
-[JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
+[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult
+[JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions

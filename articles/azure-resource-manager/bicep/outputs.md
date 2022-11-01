@@ -2,7 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 09/16/2022
 ---
 
 # Outputs in Bicep
@@ -142,6 +142,10 @@ az deployment group show \
 ```
 
 ---
+
+## Object sorting in outputs
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Next steps
 

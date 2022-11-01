@@ -15,6 +15,8 @@ ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
 # Hyperparameter tuning a model (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](v1/how-to-tune-hyperparameters-v1.md)
 > * [v2 (current version)](how-to-tune-hyperparameters.md)

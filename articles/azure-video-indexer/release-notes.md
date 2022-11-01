@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/20/2022
+ms.date: 09/15/2022
 ms.author: juliako
 ---
 
@@ -41,13 +41,52 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## July 2022 release updates
+## September 2022
 
-### Featured clothing insight (preview)
+### General availability of Azure Resource Management (ARM)
 
-You can now view the featured clothing of an observed person, when indexing a video using Azure Video Indexer advanced video settings. With the new featured clothing insight information, you can enable more targeted ads placement. 
+With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
 
-For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
+- Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
+ 
+To create an ARM-based account, see [create an account](create-account-portal.md).
+
+### New source languages support for STT, translation, and search
+
+Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
+
+For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
+
+## August 2022
+
+### Update topic inferencing model 
+
+Azure Video Indexer topic inferencing model was updated and now we extract more than 6.5 million topics (for example, covering topics such as Covid virus). To benefit from recent model updates you need to re-index your video files. 
+
+### Topic inferencing model is now available on Azure Government 
+
+You can now leverage topic inferencing model in your Azure Video Indexer paid account on [Azure Government](../azure-government/documentation-government-welcome.md) in Virginia and Arizona regions. With this release we completed the AI parity between Azure global and Azure Government. 
+To benefit from the model updates you need to re-index your video files. 
+
+### Session length is now 30 days in the Azure Video Indexer website
+
+The [Azure Video Indexer website](https://vi.microsoft.com) session length was extended to 30 days. You can preserve your session without having to re-login every 1 hour.
+
+## July 2022
+
+### The featured clothing insight (preview)
+
+The featured clothing insight enables more targeted ads placement. 
+
+The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
+
+To view the featured clothing of an observed person, you have to index the video using Azure Video Indexer advanced video settings. For details on how featured clothing images are ranked and how to view this insight, see [featured clothing](observed-people-featured-clothing.md).
 
 ## June 2022
 
@@ -287,7 +326,7 @@ Azure Video Indexer has a new [Developer Portal](https://api-portal.videoindexer
 
 SDK is now available to embed Azure Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Azure Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Azure Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Azure Video Indexer insights).
 
-### Azure Video Indexer deployed in the US North Central , US West and Canada Central
+### Azure Video Indexer deployed in the US North Central, US West and Canada Central
 
 You can now create an Azure Video Indexer paid account in the US North Central, US West and Canada Central regions
 

@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
-ms.date: 03/21/2022
+ms.date: 09/01/2022
 ms.author: madsd
 
 ---
@@ -75,9 +75,8 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 
 1. Optionally, enter a name and description of the rule.
 1. In the **Priority** box, enter a priority value.
-1. In the **Type** drop-down list, select the type of rule.
-
-The different types of rules are described in the following sections.
+1. In the **Type** drop-down list, select the type of rule. The different types of rules are described in the following sections.
+1. After typing in the rule specific input select **Save** to save the changes.
 
 > [!NOTE]
 > - There is a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider installing a standalone security product, such as Azure Front Door, Azure App Gateway, or an alternative WAF.
@@ -120,7 +119,9 @@ All available service tags are supported in access restriction rules. Each servi
 
 1. To begin editing an existing access restriction rule, on the **Access Restrictions** page, select the rule you want to edit.
 
-1. On the **Edit Access Restriction** pane, make your changes, and then select **Update rule**. Edits are effective immediately, including changes in priority ordering.
+1. On the **Edit Access Restriction** pane, make your changes, and then select **Update rule**. 
+
+1. Select **Save** to save the changes.
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2" alt-text="Screenshot of the 'Edit Access Restriction' pane in the Azure portal, showing the fields for an existing access restriction rule.":::
 
@@ -129,7 +130,9 @@ All available service tags are supported in access restriction rules. Each servi
 
 ### Delete a rule
 
-To delete a rule, on the **Access Restrictions** page, select the ellipsis (**...**) next to the rule you want to delete, and then select **Remove**.
+1. To delete a rule, on the **Access Restrictions** page, check the rule or rules you want to delete, and then select **Delete**. 
+
+1. Select **Save** to save the changes.
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the 'Access Restrictions' page, showing the 'Remove' ellipsis next to the access restriction rule to be deleted.":::
 
@@ -162,17 +165,15 @@ PowerShell example:
 
 ### Block a single IP address
 
-When you add your first access restriction rule, the service adds an explicit *Deny all* rule with a priority of 2147483647. In practice, the explicit *Deny all* rule is the final rule to be executed, and it blocks access to any IP address that's not explicitly allowed by an *Allow* rule.
-
-For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add an explicit *Allow All* rule.
+For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add a **Deny** rule for the specific IP address and configure the unmatched rule action to **Allow**.
 
 :::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing a single blocked IP address.":::
 
 ### Restrict access to an SCM site 
 
-In addition to being able to control access to your app, you can restrict access to the SCM site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Same restrictions as \<app name>** check box, everything is blanked out. If you clear the check box, your SCM site settings are reapplied. 
+In addition to being able to control access to your app, you can restrict access to the SCM (Advanced tool) site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Use main site rules** check box, the rules list will be hidden and it will use the rules from the main site. If you clear the check box, your SCM site settings will appear again. 
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
 
 ### Restrict access to a specific Azure Front Door instance
 Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you will need to further filter the incoming requests based on the unique http header that Azure Front Door sends.
@@ -199,9 +200,6 @@ You can add access restrictions programmatically by doing either of the followin
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-   > [!NOTE]
-   > Working with service tags, http headers or multi-source rules in Azure CLI requires at least version 2.23.0. You can verify the version of the installed module with: ```az version```
-
 * Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
 
@@ -209,8 +207,6 @@ You can add access restrictions programmatically by doing either of the followin
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
-   > [!NOTE]
-   > Working with service tags, http headers or multi-source rules in Azure PowerShell requires at least version 5.7.0. You can verify the version of the installed module with: ```Get-InstalledModule -Name Az```
 
 You can also set values manually by doing either of the following:
 
