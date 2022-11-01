@@ -140,7 +140,7 @@ Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVML -RunCommandName MyRunC
 Create or update Run Command on a VM using pre-existing `commandId`. Available commandIds can be retrieved using [Get-AzVMRunCommandDocument](/powershell/module/az.compute/get-azvmruncommanddocument).
 
 ```azurepowershell-interactive
-Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVMEE -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceCommandId DisableWindowsUpdate
+Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVMEE -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceCommandId ipconfig
 ```
 
 ### Create or update Run Command on a VM using OutputBlobUri, ErrorBlobUri to stream standard output and standard error messages to output and error Append blobs
