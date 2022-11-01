@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 08/20/2022
-# As a developer, I want learn how to create my own custom built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
@@ -15,15 +15,15 @@ ms.date: 08/20/2022
 
 If you need connectors that aren't available in Standard logic app workflows, you can create your own built-in connectors using the same extensibility model that's used by the [*service provider-based built-in connectors*](custom-connector-overview.md#service-provider-interface-implementation) available for Standard workflows in single-tenant Azure Logic Apps. This extensibility model is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
-This article shows how to create an example custom built-in Cosmos DB connector, which has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
+This article shows how to create an example custom built-in Azure Cosmos DB connector, which has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Azure Cosmos DB and then runs a workflow that uses the input payload as the Azure Cosmos DB document.
 
 | Operation | Operation details | Description |
 |-----------|-------------------|-------------|
-| Trigger | When a document is received | This trigger operation runs when an insert operation happens in the specified Cosmos DB database and collection. |
+| Trigger | When a document is received | This trigger operation runs when an insert operation happens in the specified Azure Cosmos DB database and collection. |
 | Action | None | This connector doesn't define any action operations. |
 ||||
 
-This sample connector uses the same functionality as the [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), which is based on [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md). For the complete sample, review [Sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
+This sample connector uses the same functionality as the [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), which is based on [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md). For the complete sample, review [Sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
 
 For more information, review the following documentation:
 
@@ -47,7 +47,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 
 ## High-level steps
 
@@ -73,7 +73,7 @@ The following outline describes the high-level steps to build the example connec
 
 To provide the operations for the sample built-in connector, in the **Microsoft.Azure.Workflows.WebJobs.Extension** NuGet package, implement the methods for the following interfaces. The following diagram shows the interfaces with the method implementations that the Azure Logic Apps designer and runtime expect for a custom built-in connector that has an Azure Functions-based trigger:
 
-![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
+![Conceptual class diagram showing method implementation for sample Azure Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
 
 ### IServiceOperationsProvider
 
@@ -95,7 +95,7 @@ This interface includes the following methods that provide the operation manifes
 
   If your connector has actions, the runtime in Azure Logic Apps requires the [**InvokeOperation()**](#invokeoperation) method to call each action in your connector that runs during workflow execution. If your connector doesn't have actions, you don't have to implement the **InvokeOperation()** method.
 
-  In this example, the Cosmos DB custom built-in connector doesn't have actions. However, the method is included in this example for completeness.
+  In this example, the Azure Cosmos DB custom built-in connector doesn't have actions. However, the method is included in this example for completeness.
 
 For more information about these methods and their implementation, review these methods later in this article.
 
@@ -152,7 +152,7 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
 
 #### InvokeOperation()
 
-The example Cosmos DB custom built-in connector doesn't have actions, but the following method is included for completeness:
+The example Azure Cosmos DB custom built-in connector doesn't have actions, but the following method is included for completeness:
 
 ```csharp
 public Task<ServiceOperationResponse> InvokeOperation(string operationId, InsensitiveDictionary<JToken> connectionParameters, ServiceOperationRequest serviceOperationRequest)
@@ -182,7 +182,7 @@ This method has a default implementation, so you don't need to explicitly implem
 
 ## Register your connector
 
-To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Cosmos DB Documents to a **JObject** array.
+To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
@@ -192,7 +192,7 @@ The following sections show how to register your custom built-in connector as an
 
 1. Implement the **IWebJobsStartup** interface. In the **Configure()** method, register the extension and inject the service provider.
 
-   For example, the following code snippet shows the startup class implementation for the sample custom built-in Cosmos DB connector:
+   For example, the following code snippet shows the startup class implementation for the sample custom built-in Azure Cosmos DB connector:
 
    ```csharp
    using Microsoft.Azure.WebJobs;
@@ -222,7 +222,7 @@ The following sections show how to register your custom built-in connector as an
 
 ### Register the service provider
 
-Now, register the service provider implementation as an Azure Functions extension with the Azure Logic Apps engine. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger. This example also registers the new Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension. For more information, review [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md).
+Now, register the service provider implementation as an Azure Functions extension with the Azure Logic Apps engine. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger. This example also registers the new Azure Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension. For more information, review [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md).
 
 ```csharp
 using Microsoft.Azure.Documents;
@@ -247,7 +247,7 @@ namespace ServiceProviders.CosmosDb.Extensions
          serviceOperationsProvider.RegisterService(serviceName: CosmosDBServiceOperationsProvider.ServiceName, serviceOperationsProviderId: CosmosDBServiceOperationsProvider.ServiceId, serviceOperationsProviderInstance: operationsProvider);
       }
 
-      // Convert the Cosmos Document array to a generic JObject array.
+      // Convert the Azure Cosmos DB Document array to a generic JObject array.
       public static JObject[] ConvertDocumentToJObject(IReadOnlyList<Document> data)
       {
          List<JObject> jobjects = new List<JObject>();
@@ -263,7 +263,7 @@ namespace ServiceProviders.CosmosDb.Extensions
       // In the Initialize method, you can add any custom implementation.
       public void Initialize(ExtensionConfigContext context)
       {
-         // Convert the Cosmos Document list to a JObject array.
+         // Convert the Azure Cosmos DB Document list to a JObject array.
          context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
       }
    }
@@ -275,7 +275,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier in this example:
 
 ```csharp
-// Convert the Cosmos document list to a JObject array.
+// Convert the Azure Cosmos DB  document list to a JObject array.
 context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
 ```
 
@@ -355,7 +355,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    The operations picker shows your custom built-in connector and trigger, for example:
 
-   ![Screenshot showing Visual Studio Code and the designer for a Standard logic app workflow with the new custom built-in Cosmos DB connector.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-picker.png)
+   ![Screenshot showing Visual Studio Code and the designer for a Standard logic app workflow with the new custom built-in Azure Cosmos DB connector.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-picker.png)
 
 1. From the **Triggers** list, select your custom built-in trigger to start your workflow.
 
@@ -363,8 +363,8 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Connection name** | Yes | <*Cosmos-DB-connection-name*> | The name for the Cosmos DB connection to create |
-   | **Connection String** | Yes | <*Cosmos-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
+   | **Connection name** | Yes | <*Azure-Cosmos-DB-connection-name*> | The name for the Azure Cosmos DB connection to create |
+   | **Connection String** | Yes | <*Azure Cosmos DB-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
    |||||
 
    ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
@@ -375,8 +375,8 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Database name** | Yes | <*Cosmos-DB-database-name*> | The name for the Cosmos DB database to use |
-   | **Collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
+   | **Database name** | Yes | <*Azure-Cosmos-DB-database-name*> | The name for the Azure Cosmos DB database to use |
+   | **Collection name** | Yes | <*Azure-Cosmos-DB-collection-name*> | The name for the Azure Cosmos DB collection where you want to add each new received document. |
    |||||
 
    ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
@@ -435,10 +435,10 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
 1. To trigger your workflow, in the Azure portal, open your Azure Cosmos DB account. On the account menu, select **Data Explorer**. Browse to the database and collection that you specified in the trigger. Add an item to the collection.
 
-   ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-custom-built-in-connector-standard/cosmos-db-account-test-add-item.png)
+   ![Screenshot showing the Azure portal, Azure Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-custom-built-in-connector-standard/cosmos-db-account-test-add-item.png)
 
 ## Next steps
 
-* [Source for sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
+* [Source for sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
 
 * [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-running-anywhere-built-in-service-bus-trigger/ba-p/2079995)

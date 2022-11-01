@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## October 2022
+
+### Computer Vision Image Analysis 4.0 public preview
+
+Version 4.0 of Computer Vision has been released in public preview. The new API includes image captioning, image tagging, object detection people detection, and Read OCR functionality, available in the same Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
+
 ## September 2022
 
 ### Computer Vision 3.0/3.1 Read previews deprecation
@@ -70,7 +76,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * Improved processing of digital PDF documents.
 * Input file size limit increased 10x to 500 MB.
 * Performance and latency improvements.
-* Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
+* Available as [cloud service](overview-ocr.md) and [Docker container](computer-vision-how-to-install-containers.md).
 
 See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 

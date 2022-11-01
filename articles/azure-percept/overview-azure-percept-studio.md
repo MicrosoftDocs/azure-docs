@@ -1,15 +1,15 @@
 ---
-title: Azure Percept Studio overview v1
+title: Azure Percept Studio overview
 description: Learn more about Azure Percept Studio
 author: yvonne-dq
 ms.author: nbabar
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/06/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Azure Percept Studio overview v1
+# Azure Percept Studio overview
 
 [!INCLUDE [Retirement note](./includes/retire.md)]
 
@@ -30,5 +30,4 @@ Regardless of if you are a beginner or an advanced AI model and solution develop
 ## Next steps
 
 - Check out [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)
-- Get the Azure Percept DK and Azure Percept Audio accessory at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 - Learn more about [Azure Percept AI models and solutions](./overview-ai-models.md)

@@ -4,10 +4,10 @@ description: Learn how to stream Azure resource logs to a Log Analytics workspac
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 05/09/2022
 ms.author: bwren
 ms.reviewer: lualderm
-
 ---
 
 # Azure resource logs
@@ -188,14 +188,15 @@ The blob for a network security group might have a name similar to this example:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL, for example, h=12. During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00 because resource log events are broken into individual blobs per hour.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Within the PT1H.json file, each event is stored in the following format. It uses a common top-level schema but is unique for each Azure service, as described in [Resource logs schema](./resource-logs-schema.md).
 
 > [!NOTE]
-> Logs are written to the blob relevant to the time that the log was generated, not the time that it was received. So, at the turn of the hour, both the previous hour and current hour blobs could be receiving new writes.
+> Logs are written to blobs based on the time that the log was received, regardless of the time it was generated. This means that a given blob can contain log data that is outside the hour specified in the blob’s URL. Where a data source like Application insights, supports uploading stale telemetry a blob can contain data from the previous 48 hours.  
+> At the start of a new hour, it is possible that existing logs are still being written to the previous hour’s blob while new logs are written to the new hour’s blob.  
 
-``` JSON
+```json
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
 ```
 

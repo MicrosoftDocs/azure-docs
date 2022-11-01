@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 10/27/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -273,6 +273,31 @@ Then go to path C:\Program Files\Microsoft Integration Runtime\5.0\Gateway\DataS
 </configuration>
 ```
 
+Local traffic must be excluded from proxy, for example if your Microsoft Purview account is behind private endpoints. In such cases, update the following four files under the path to include bypass list C:\Program Files\Microsoft Integration Runtime\5.0\ with required bypass list:
+
+- .\Shared\diahost.exe.config
+- .\Shared\diawp.exe.config
+- .\Gateway\DataScan\Microsoft.DataMap.Agent.exe.config
+- .\Gateway\DataScan\DataTransfer\Microsoft.DataMap.Agent.Connectors.Azure.DataFactory.ServiceHost.exe.config
+
+An example for bypass list for scanning an Azure SQL Database and ADLS gen 2 Storage:
+
+ ```xml
+  <system.net>
+    <defaultProxy>
+      <bypasslist>
+        <add address="scaneastus4123.blob.core.windows.net" />
+        <add address="scaneastus4123.queue.core.windows.net" />
+        <add address="Atlas-abc12345-1234-abcd-a73c-394243a566fa.servicebus.windows.net" />
+        <add address="contosopurview123.purview.azure.com" />
+        <add address="contososqlsrv123.database.windows.net" />
+        <add address="contosoadls123.dfs.core.windows.net" />
+        <add address="contosoakv123.vault.azure.net" />
+      </bypasslist>
+      <proxy proxyaddress=http://proxy.domain.org:8888 bypassonlocal="True" />
+    </defaultProxy>
+  </system.net>
+  ```
 Restart the self-hosted integration runtime host service, which picks up the changes. To restart the service, use the services applet from Control Panel. Or from Integration Runtime Configuration Manager, select the **Stop Service** button, and then select **Start Service**. If the service doesn't start, you likely added incorrect XML tag syntax in the application configuration file that you edited.
 
 > [!IMPORTANT]

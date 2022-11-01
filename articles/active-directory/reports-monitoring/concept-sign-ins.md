@@ -2,21 +2,15 @@
 title: Sign-in logs in Azure Active Directory | Microsoft Docs
 description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/06/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-
 ms.collection: M365-identity-device-management
 ---
 # Sign-in logs in Azure Active Directory

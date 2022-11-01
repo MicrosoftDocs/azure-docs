@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 10/12/2022
 
 ms.author: mimart
 author: msmimart
@@ -96,6 +96,10 @@ For example, say Contoso (the resource tenant) trusts MFA claims from Fabrikam. 
 - If the Fabrikam user hasn’t completed MFA, they’ll be blocked from accessing the resource.
 
 For information about Conditional Access and Teams, see [Overview of security and compliance](/microsoftteams/security-compliance-overview) in the Microsoft Teams documentation.
+
+## Trust settings for device compliance
+
+In your cross-tenant access settings, you can use **Trust settings** to trust claims from an external user's home tenant about whether the user's device meets their device compliance policies or is hybrid Azure AD joined. When device trust settings are enabled, Azure AD checks a user's authentication session for a device claim. If the session contains a device claim indicating that the policies have already been met in the user's home tenant, the external user is granted seamless sign-on to your shared resource. You can enable device trust settings for all Azure AD organizations or individual organizations. ([Learn more](authentication-conditional-access.md#device-compliance-and-hybrid-azure-ad-joined-device-policies))
 
 ## B2B direct connect user experience
 

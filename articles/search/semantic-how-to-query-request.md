@@ -28,13 +28,9 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 + An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
 
-+ A search client for sending queries.
++ A search client for sending queries and updating indexes.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query or use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
-
-+ A search client for updating indexes.
-
-  The search client must support preview REST APIs on the query request. You can use the Azure portal, [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), another web client, or code that makes REST calls to the preview APIs. [Search explorer](search-explorer.md) in Azure portal can be used to submit a semantic query. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
 
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include `queryType=semantic` and other parameters described in this article.
 

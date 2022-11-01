@@ -65,9 +65,12 @@ Follow these steps:
 Follow these steps:
 
 1. In the Resource Guard created above, go to **Properties**.
-2. Select **Disable** for operations that you wish to exclude from being authorized using the Resource Guard. Note that the operations **Disable soft delete** and **Remove MUA protection** cannot be disabled.
+1. Select **Disable** for operations that you wish to exclude from being authorized using the Resource Guard. 
+
+   >[!Note]
+   >The operations **Disable soft delete** and **Remove MUA protection** cannot be disabled.
 1. Optionally, you can also update the description for the Resource Guard using this blade. 
-1. Click **Save**.
+1. Select **Save**.
 
 ## Assign permissions to the Backup admin on the Resource Guard to enable MUA
 
@@ -103,7 +106,7 @@ Follow these steps:
 
 ## Next steps
 
-- [Protect against unauthorized (protected) operations](multi-user-authorization.md#protect-against-unauthorized-protected-operations)
+- [Protected operations using MUA](multi-user-authorization.md?pivots=vaults-recovery-services-vault#protected-operations-using-mua)
 - [Authorize critical (protected) operations using Azure AD Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
 - [Performing a protected operation after approval](multi-user-authorization.md#performing-a-protected-operation-after-approval)
 - [Disable MUA on a Recovery Services vault](multi-user-authorization.md#disable-mua-on-a-recovery-services-vault)

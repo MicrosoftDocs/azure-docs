@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Energy Data Services Preview documentation # < 60 chars
-summary: Microsoft Energy Data Services Preview is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise.
+summary: Microsoft Energy Data Services Preview is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise.
 
 metadata:
   title: Microsoft Energy Data Services Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -102,3 +102,5 @@ landingContent:
         links:
           - text: Set up Private Links
             url: how-to-set-up-private-links.md
+          - text: Set up Customer managed encryption keys (CMEK)
+            url: how-to-manage-data-security-and-encryption.md

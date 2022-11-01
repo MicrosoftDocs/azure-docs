@@ -1,6 +1,6 @@
 ---
 title:  Control egress traffic for an Azure Spring Apps instance
-description: Learn how to control egress traffic for an Azure Spring Apps instance
+description: Learn how to control egress traffic for an Azure Spring Apps instance.
 author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps

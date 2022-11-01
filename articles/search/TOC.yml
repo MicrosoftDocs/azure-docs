@@ -3,12 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Search?
+  - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
+  - name: What's new in Search?
+    href: whats-new.md
   - name: Features in Search
     href: search-features-list.md
-  - name: New in Search
-    href: whats-new.md
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Portal
@@ -17,13 +19,13 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a knowledge store
-      href: knowledge-store-create-portal.md
     - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: Visual Studio Code 
+  - name: Visual Studio Code (preview - retired)
     href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
@@ -89,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Enrich with SynapseML
+  - name: Index at scale (Apache Spark)
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
@@ -140,7 +142,9 @@
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
-      href: index-similarity-and-scoring.md     
+      href: index-similarity-and-scoring.md
+    - name: Semantic ranking
+      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
@@ -348,11 +352,11 @@
           href: search-howto-index-changed-deleted-blobs.md
       - name: Azure Cosmos DB
         items:
-        - name: SQL API
+        - name: Azure Cosmos DB for NoSQL
           href: search-howto-index-cosmosdb.md
-        - name: MongoDB API
+        - name: Azure Cosmos DB for MongoDB
           href: search-howto-index-cosmosdb-mongodb.md
-        - name: Gremlin API
+        - name: Azure Cosmos DB for Apache Gremlin
           href: search-howto-index-cosmosdb-gremlin.md
       - name: Azure DB for MySQL
         href: search-howto-index-mysql.md
@@ -454,11 +458,9 @@
       href: search-normalizers.md
   - name: Relevance
     items:
-    - name: Similarity ranking
+    - name: Configure scoring
       href: index-ranking-similarity.md
-    - name: Semantic ranking
-      href: semantic-ranking.md
-    - name: Scoring profiles 
+    - name: Add a scoring profile
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
@@ -618,31 +620,15 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
+  - name: Demo sites
+    href: resource-demo-sites.md
+  - name: Tools
+    href: resource-tools.md
+  - name: Training
+    href: resource-training.md
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
   - name: Partner data sources (Terms of Use)
     href: search-data-sources-terms-of-use.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Demo sites
-    items:
-    - name: Financial files demo
-      href: https://wolterskluwereap.azurewebsites.net/
-    - name: JFK files demo
-      href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
-    - name: NYC Jobs demo
-      href: https://azjobsdemo.azurewebsites.net/
-    - name: Semantic search for retail
-      href: https://brave-meadow-0f59c9b1e.1.azurestaticapps.net/
-    - name: Semantic search for content
-      href: https://semantic-search-demo-web.azurewebsites.net/
-  - name: Training
-    items:
-    - name: Introduction (Learn module)
-      href: /training/modules/intro-to-azure-search/
-    - name: Add search to apps (Pluralsight)
-      href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-    - name: Developer course (Pluralsight)
-      href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling

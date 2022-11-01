@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central | Microsoft Docs
 description: Learn how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central 
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 06/16/2022
 ms.topic: how-to
 ms.service: iot-central

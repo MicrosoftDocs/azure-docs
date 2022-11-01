@@ -873,7 +873,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "reusable-content",
+      "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
@@ -902,7 +902,7 @@
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
-    ".openpublishing.redirection.iot-hub.json",
+    "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.app-service.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.sql-database.json",
@@ -952,10 +952,11 @@
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
     "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
     ".openpublishing.redirection.virtual-desktop.json",
+    ".openpublishing.redirection.deployment-environments.json",
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
-    "articles/applied-ai-services/.openpublishing.archived.json",
+    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
-    ".openpublishing.redirection.baremetal-infrastructure.json"
-
+    ".openpublishing.redirection.baremetal-infrastructure.json",
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
   ]
 }

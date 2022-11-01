@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
-zone_pivot_groups: acs-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to manage video calls with the acs sdks so that I can create a calling application that provides video capabilities.
 ---
@@ -35,6 +35,10 @@ Learn how to manage video calls with the Azure Communication Services SDKS. We'l
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Manage Video Calls iOS](./includes/manage-video/manage-video-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Manage Video Calls Windows](./includes/manage-video/manage-video-windows.md)]
 ::: zone-end
 
 ## Next steps

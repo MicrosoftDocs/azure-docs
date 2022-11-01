@@ -138,8 +138,8 @@ The following table provides an example of [`linuxFxVersion`] values required to
 
 | [Hosting plan](functions-scale.md)  | [`linuxFxVersion` value][`linuxFxVersion`] |
 | --- | --- |
-| Consumption  | `DOCKER\|mcr.microsoft.com/azure-functions/mesh:4.11.2-node18` | 
-| Premium/Dedicated | `DOCKER\|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` |
+| Consumption  | `DOCKER|mcr.microsoft.com/azure-functions/mesh:4.11.2-node18` | 
+| Premium/Dedicated | `DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` |
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 

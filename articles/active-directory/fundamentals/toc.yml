@@ -87,6 +87,8 @@ items:
     items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
+    - name: What's new in sovereign clouds?
+      href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
       href: whats-new-archive.md
   - name: Frequently asked questions

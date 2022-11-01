@@ -107,7 +107,7 @@ For instance, to implement routes for a calendar application, you can rewrite al
 The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/2020`, and `/calendar/overview`.
 
 > [!NOTE]
-> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it will not match requests for the paths _/calendar_ or _/calendar.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
+> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it won't match requests for the paths _/calendar_ or _/calendar.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
 
 You can filter wildcard matches by file extension. For instance, if you wanted to add a rule that only matches HTML files in a given path you could create the following rule:
 
@@ -425,7 +425,7 @@ A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash 
 
 Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
 
-The following normalization and redirect rules will apply for each of the available configurations:
+The following normalization and redirect rules apply for each of the available configurations:
 
 ### Always 
 

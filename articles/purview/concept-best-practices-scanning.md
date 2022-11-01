@@ -18,6 +18,9 @@ Running a *scan* invokes the process to ingest metadata from the registered data
 
 The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft Purview compliance portal.
 
+> [!IMPORTANT]
+> If you have any [Azure Policies](../governance/policy/overview.md) preventing **updates to Storage accounts**, this will cause errors for Microsoft Purview's scanning process. Follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts. 
+
 ## Why do you need best practices to manage data sources?
 
 Best practices enable you to:

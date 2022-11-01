@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 10/20/2022
 author: mgoedtel
 
 ---
@@ -26,7 +26,7 @@ This article helps you understand this new authentication feature, and reviews t
 
 ## Dependencies
 
-- AKS supports Azure AD workload identities on version 1.24 and higher.
+- AKS supports Azure AD workload identities on version 1.22 and higher.
 
 - The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 

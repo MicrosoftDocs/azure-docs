@@ -229,6 +229,8 @@
           href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
     - name: Frameworks
       items:
         - name: Express.js

@@ -362,11 +362,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/troubleshoot-workbooks.md" ,
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/vm/vminsights-ga-release-faq.md" ,
             "redirect_url": "/azure/azure-monitor/faq#vm-insights",
             "redirect_document_id": false
@@ -849,6 +844,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/java-get-started.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-power-bi.md",
+            "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
             "redirect_document_id": false
         },
         {
@@ -5277,6 +5277,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-alert.md",
+            "redirect_url": "/azure/azure-monitor/app/availability-standard-tests",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/dotnet-quickstart.md",
             "redirect_url": "/azure/azure-monitor/app/asp-net-core",
             "redirect_document_id": false
@@ -5440,11 +5445,49 @@
             "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
             "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-integration.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-existing-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-new-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-update-metrics.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-custom-metrics",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
+            "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
+            "redirect_document_id": false
         }
         ,
         {
             "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-template",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-integrations.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
             "redirect_document_id": false
         }
     ]

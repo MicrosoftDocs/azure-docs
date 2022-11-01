@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions about SAP deployment automation
-  description: How to handle common errors with the SAP deployment automation framework on Azure.
+  description: How to handle common errors with the SAP on Azure Deployment Automation Framework.
   author: jhajduk
   ms.author: kimforss
   ms.reviewer: kimforss
@@ -9,11 +9,11 @@ metadata:
   ms.topic: faq
   ms.service: virtual-machines-sap
   
-title: SAP deployment automation framework for Azure FAQ
+title: SAP on Azure Deployment Automation Framework for Azure FAQ
 summary: |
   ## Frequently asked questions
   
-  This article provides answers to frequently asked questions (FAQ) about the [SAP deployment automation framework on Azure](automation-deployment-framework.md).
+  This article provides answers to frequently asked questions (FAQ) about the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md).
     
 sections:
   - name: Terraform deployment
@@ -128,4 +128,4 @@ additionalContent: |
   ## Next steps
   
   > [!div class="nextstepaction"]
-  > [Get started with SAP deployment automation framework for Azure](automation-get-started.md)
+  > [Get started with SAP on Azure Deployment Automation Framework for Azure](automation-get-started.md)

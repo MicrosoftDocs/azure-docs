@@ -1,6 +1,6 @@
 ---
-title: Get started to try out your first data factory pipeline
-description: Get started with your first data factory demo to copy data from one blob storage to another.
+title: Get started and try out your first data factory pipeline
+description: Get started with your first data factory to copy data from one blob storage to another.
 author: pennyzhou-msft
 ms.service: data-factory
 ms.subservice: data-movement
@@ -50,6 +50,9 @@ Select the button below to try it out!  (If you clicked the one above already, y
 [![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
 
 You will be redirected to the configuration page shown in the image below to deploy the template.  Here, you only need to create a **new resource group**. (You can leave all the other values with their defaults.) Then click **Review + create** and click **Create** to deploy the resources.
+
+> [!NOTE]
+> The user deploying the template needs to assign a role to a managed identity.  This requires permissions that can be granted through the Owner, User Access Administrator or Managed Identity Operator roles.
 
 All of the resources referenced above will be created in the new resource group, so you can easily clean them up after trying the demo.    
 
