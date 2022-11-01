@@ -43,11 +43,11 @@ You must have a valid Application Insights connection string. This string is req
 
 Specific instructions for each type of application are described in the following sections.
 
-## .NET Core LTS worker service application
+## .NET Core LTS Worker Service application
 
 The full example is shared at the [NuGet website](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService).
 
-1. Download and install .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+1. Download and install .NET Core [Long Term Support (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 1. Create a new Worker Service project either by using a Visual Studio new project template or the command line `dotnet new worker`.
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
@@ -330,7 +330,7 @@ Although the SDK automatically collects telemetry as explained, in most cases, y
 
 ## Configure the Application Insights SDK
 
-The default `TelemetryConfiguration` used by the worker service SDK is similar to the automatic configuration used in an ASP.NET or ASP.NET Core application, minus the telemetry initializers used to enrich telemetry from `HttpContext`.
+The default `TelemetryConfiguration` used by the Worker Service SDK is similar to the automatic configuration used in an ASP.NET or ASP.NET Core application, minus the telemetry initializers used to enrich telemetry from `HttpContext`.
 
 You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](/aspnet/core/fundamentals/dependency-injection). The Worker Service SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed in the next section.
 
@@ -537,7 +537,7 @@ This section provides answers to common questions.
 
 ### Which package should I use?
 
-| .Net Core app scenario | Package  |
+| .NET Core app scenario | Package  |
 |---------|---------|
 | Without HostedServices                              | AspNetCore                     |
 | With HostedServices                                 | AspNetCore (not WorkerService) |
