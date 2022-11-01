@@ -847,6 +847,10 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
 
+### Column rename in Delta table is not supported
+
+The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
+
 ### JSON text isn't properly formatted
 
 This error indicates that serverless SQL pool can't read the Delta Lake transaction log. You'll probably see the following error:
