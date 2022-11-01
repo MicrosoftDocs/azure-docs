@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -92,6 +92,7 @@ The script uses the Azure SDK for Cognitive Search:
 ## Copy your Search resource name
 
 [!INCLUDE [tutorial-load-index-copy](includes/tutorial-add-search-website-load-index-copy-resource-name.md)]
+
 
 ## Next steps
 
