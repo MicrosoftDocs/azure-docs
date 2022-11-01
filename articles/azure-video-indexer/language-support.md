@@ -39,8 +39,8 @@ This section describes languages supported by Azure Video Indexer API.
     - Frame patterns (Only to Hebrew as of now)
 - Language customization
 
-| **Language**                   | **Code**       | **Transcription** | **LID**\*   | **MLID**\*  | **Translation** | **Customization** (language model)  |
-|:------------------------------:|:--------------:|:--------------------:|:-------:|:-------:|:-------------:|:---------------:|
+| **Language**                   | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (language model)  |
+|:------------------------------:|:--------------:|:-----------------:|:-----------:|:-----------:|:-------------:|:---------------:|
 | Afrikaans                        | `af-ZA`      |   |      |    |  | ✔ |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |      |   |  | ✔ |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔   | ✔  | ✔ | ✔ |
@@ -59,7 +59,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Bulgarian                        | `bg-BG`      |   |      |   | ✔ |   |
 | Catalan                          | `ca-ES`      |   |      |   | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔   | ✔ | ✔ | ✔ |
-| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*|   | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)|   | ✔ | ✔ |
 | Chinese (Traditional)            | `zh-Hant`    |   |      |   | ✔ |  |
 | Croatian                         | `hr-HR`      |   |      |   | ✔ |  |
 | Czech                            | `cs-CZ`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
@@ -67,22 +67,22 @@ This section describes languages supported by Azure Video Indexer API.
 | Dutch                            | `nl-NL`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English Australia                | `en-AU`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English United Kingdom           | `en-GB`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United States            | `en-US`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
+| English United States            | `en-US`      | ✔ |  ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Estonian                         | `et-EE`      |   |       |   | ✔ |   |
 | Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
 | Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
 | Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| French                           | `fr-FR`      | ✔ |  ✔\* | ✔\* | ✔ | ✔ |
+| French                           | `fr-FR`      | ✔ |  ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| German                           | `de-DE`      | ✔ |  ✔ \*| ✔ \*| ✔ | ✔ |
+| German                           | `de-DE`      | ✔ |  ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Greek                            | `el-GR`      |   |       |   | ✔ |   |
 | Haitian                          | `fr-HT`      |   |       |   | ✔ |   |
 | Hebrew                           | `he-IL`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hindi                            | `hi-IN`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hungarian                        | `hu-HU`      |   |       |   | ✔ |  |
 | Indonesian                       | `id-ID`      |   |       |   | ✔ |  |
-| Italian                          | `it-IT`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
-| Japanese                         | `ja-JP`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
+| Italian                          | `it-IT`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
+| Japanese                         | `ja-JP`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
 | Kiswahili                        | `sw-KE`      |   |       |   | ✔ |  |
 | Korean                           | `ko-KR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Latvian                          | `lv-LV`      |   |       |   | ✔ |  |
@@ -93,16 +93,16 @@ This section describes languages supported by Azure Video Indexer API.
 | Norwegian                        | `nb-NO`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
 | Persian                          | `fa-IR`      | ✔ |      |   | ✔ | ✔ |
 | Polish                           | `pl-PL`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Portuguese                       | `pt-BR`      | ✔ | ✔\*  |  ✔ | ✔ | ✔ |
+| Portuguese                       | `pt-BR`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
 | Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Romanian                         | `ro-RO`      |   |       |   | ✔ |  |
-| Russian                          | `ru-RU`      | ✔ | ✔\*   |  ✔ | ✔ | ✔ |
+| Russian                          | `ru-RU`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)  |  ✔ | ✔ | ✔ |
 | Samoan                           | `en-WS`      |   |       |   | ✔ |  |
 | Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |       |   | ✔ |  |
 | Serbian (Latin)                  | `sr-Latn-RS` |   |       |   | ✔ |  |
 | Slovak                           | `sk-SK`      |   |       |   | ✔ |  |
-| Slovenian                        | `sl-SI`      |   |       |   | ✔ |  |
-| Spanish                          | `es-ES`      | ✔ | ✔\*  | ✔\*  | ✔ | ✔ |
+| Slovenian                as default languages, w        | `sl-SI`      |   |       |   | ✔ |  
+| Spanish                          | `es-ES`      | ✔ | ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Spanish (Mexico)                 | `es-MX`      | ✔ |       |   | ✔ | ✔ |
 | Swedish                          | `sv-SE`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
 | Tamil                            | `ta-IN`      |   |        |  | ✔ | |
@@ -113,10 +113,12 @@ This section describes languages supported by Azure Video Indexer API.
 | Urdu                             | `ur-PK`      |    |      |   | ✔ |  |
 | Vietnamese                       | `vi-VN`      | ✔  |  ✔  | ✔  | ✔ |  |
 
-\*By default, languages marked with * (in the table above) are supported by language identification (LID) or/and multi-language identification (MLID) auto-detection. When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API, you can specify to use other supported languages, from the table above, by using `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
+### Change default languages supported by LID and MLID 
+
+Languages marked with * (in the table above) are used as default when auto-detecting languages by LID or/and MLID. You can specify to use other supported languages (listed in the table above) as default languages, when [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API and passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
-> To change the default languages to auto-detect one or more languages by LID or MLID, set the `customLanguages` parameter. 
+> To change the default languages that you want for LID or MLID to use when auto-detecting, call [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and set the `customLanguages` parameter. 
 
 ## Language support in frontend experiences
 

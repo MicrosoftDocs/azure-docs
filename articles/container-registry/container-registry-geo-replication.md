@@ -23,6 +23,15 @@ A geo-replicated registry provides the following benefits:
 > * If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
 > * If you want to move a registry to a different Azure region, instead of geo-replicating the registry, see [Manually move a container registry to another region](manual-regional-move.md).
 
+## Prerequisites
+
+* The user will require following permissions (at registry level) to create/delete replications:
+
+    | Permission | Description |
+    |---|---|
+    | Microsoft.ContainerRegistry/registries/write | Create a replication |
+    | Microsoft.ContainerRegistry/registries/replications/write | Delete a replication |
+
 ## Example use case
 Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs [Azure Kubernetes Service](../aks/index.yml) (AKS) clusters in West US, East US, Canada Central, and West Europe. The website application, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database.
 
