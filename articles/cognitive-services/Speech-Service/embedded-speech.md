@@ -93,6 +93,10 @@ embeddedSpeechConfig.SetSpeechSynthesisVoice(
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/dotnetcore/embedded-speech)
+- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/embedded-speech)
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -119,6 +123,7 @@ embeddedSpeechConfig->SetSpeechSynthesisVoice(
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
+You can find ready to use embedded speech samples at [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/embedded-speech)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -142,15 +147,11 @@ embeddedSpeechConfig.setSpeechSynthesisVoice(
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
-::: zone-end
-
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
-
-- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/dotnetcore/embedded-speech)
-- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/embedded-speech)
-- [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/embedded-speech)
 - [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/embedded-speech)
 - [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/embedded-speech)
+::: zone-end
+
 
 ## Hybrid speech
 
@@ -162,7 +163,7 @@ With hybrid speech configuration for [text-to-speech](text-to-speech.md) (voices
 
 ## Cloud speech
 
-For cloud speech, you use the `SpeechConfig` object, as shown in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md). To run the quickstarts, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
+For cloud speech, you use the `SpeechConfig` object, as shown in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
 
 ## Next steps
 
