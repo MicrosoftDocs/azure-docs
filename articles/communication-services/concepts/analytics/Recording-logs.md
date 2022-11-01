@@ -27,21 +27,21 @@ Please note the call recording logs will be published once the call recording is
 
 | Field Name |	DataType |	Description |
 |----------  |-----------|--------------|
-|TimeGenerated|DateTime|The timestamp (UTC) of when the log was generated|
-|OperationName| String | The operation associated with log record|
-|CorrelationId	|String |The ID for correlated events. Can be used to identify correlated events between multiple tables (`CallID`)|
-|RecordingID| String | The ID given to the recording this log refers to|
-|Category| String | The log category of the event. Logs with the same log category and resource type will have the same properties fields|        
-|ResultType|	String| The status of the operation|
-|Level	|String	|The severity level of the operation|
-|ChunkCount	|Integer|The total number of chunks created for the recording|
-|ChannelType|	String |The recording's channel type, i.e., mixed, unmixed|
-|RecordingStartTime|	DateTime|The time that the recording started |
-|ContentType|	String | The recording's content, i.e., Audio Only, Audio - Video, Transcription, etc.|
-|FormatType|	String | The recording's file format|
-|RecordingLength|	Double | 	Duration of the recording in seconds|
-|AudioChannelsCount|	Integer | Total number of audio channels in the recording|
-|RecordingEndReason|	String | The reason why the recording ended |   
+|timeGenerated|DateTime|The timestamp (UTC) of when the log was generated|
+|operationName| String | The operation associated with log record|
+|correlationId	|String |`CallID` is used to correlate events between multiple tables|
+|recordingID| String | The ID given to the recording this log refers to|
+|category| String | The log category of the event. Logs with the same log category and resource type will have the same properties fields|        
+|resultType|	String| The status of the operation                                                        |
+|level	|String	|The severity level of the operation                                                                                                                          |
+|chunkCount	|Integer|The total number of chunks created for the recording|
+|channelType|	String |The recording's channel type, i.e., mixed, unmixed|
+|recordingStartTime|	DateTime|The time that the recording started |
+|contentType|	String | The recording's content, i.e., Audio Only, Audio - Video, Transcription, etc.|
+|formatType|	String | The recording's file format                                                                  |
+|recordingLength|	Double | 	Duration of the recording in seconds                                                                                                                                                                                            |
+|audioChannelsCount|	Integer | Total number of audio channels in the recording|
+|recordingEndReason|	String | The reason why the recording ended |   
 
 
 ### Call recording and sample data
