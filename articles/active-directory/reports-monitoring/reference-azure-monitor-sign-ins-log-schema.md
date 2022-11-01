@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Interpret the Azure AD sign-in logs schema in Azure Monitor
 
-This article describes the Azure Active Directory (Azure AD) sign-in log schema in Azure Monitor. Most of the information that's related to sign-ins is provided under the *Properties* attribute of the `records` object.
+This article describes the Azure Active Directory (Azure AD) sign-in log schema in Azure Monitor. Information related to sign-ins is provided under the *Properties* attribute of the `records` object.
 
 
 ```json
@@ -201,7 +201,7 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | ResultDescription | N/A or blank | Provides the error description for the sign-in operation. |
 | riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require an Azure AD Premium P2 license. Other licenses return the value `hidden`. |
 | riskEventTypes | riskEventTypes | Risk detection types associated with the sign-in. The possible values are: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic`, and `unknownFutureValue`. |
-| authProcessingDetails	| Azure AD app authentication library | Contains Family, Library, and Platform information in format: "Family: Microsoft Authentication Library Library: ADAL.JS 1.0.0 Platform: JS" |
+| authProcessingDetails	| Azure AD app authentication library | Contains Family, Library, and Platform information in format: "Family: Microsoft Authentication Library: ADAL.JS 1.0.0 Platform: JS" |
 | authProcessingDetails	| IsCAEToken | Values are True or False |
 | riskLevelAggregated | riskLevel | Aggregated risk level. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in wasn't enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Risk level during sign-in. The possible values are: `none`, `low`, `medium`, `high`, `hidden`, and `unknownFutureValue`. The value `hidden` means the user or sign-in wasn't enabled for Azure AD Identity Protection. **Note:** Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned `hidden`. |
