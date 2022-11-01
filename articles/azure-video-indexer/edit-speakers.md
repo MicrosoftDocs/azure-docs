@@ -35,25 +35,25 @@ This action allows adding new speakers that were not identified by Azure Video I
 1. Select the edit mode.
 
     :::image type="content" alt-text="Screenshot of how to edit speakers." source="./media/edit-speakers-website/edit.png":::
-1. Go to the transcript line on which you want to assign a new speaker to.
+1. Go to the transcript line you want to assign a new speaker to.
 1. Select **Assign a new speaker**.
 
     :::image type="content" alt-text="Screenshot of how to add a new speaker." source="./media/edit-speakers-website/assign-new.png":::
 1. Add the name of the speaker you would like to use.
-1. Press a checkmark (on the right) to save.
+1. Press a checkmark to save.
  
 ## Rename an existing speaker
 
 This action allows renaming an existing speaker that was identified by Azure Video Indexer. To add a new speaker from the website for the selected video, do the following: 
 
 1. Select the edit mode.
-1. Go to the transcript line on which you want to rename a speaker.
+1. Go to the transcript line where the speaker you wish to rename appears.
 1. Select **Rename selected speaker**. 
 
     :::image type="content" alt-text="Screenshot of how to rename a speaker." source="./media/edit-speakers-website/rename.png":::
 
    This action will update speakers by this name.
-1. Press a checkmark (on the right) to save.
+1. Press a checkmark to save.
 
 ## Assign a speaker to a transcript line
 
