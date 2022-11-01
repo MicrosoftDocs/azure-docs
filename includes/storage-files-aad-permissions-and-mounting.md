@@ -82,7 +82,7 @@ The following sets of permissions are supported on the root directory of a file 
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-### Mount the Azure file share
+### Mount the file share using your storage account key
 
 Before you configure Windows ACLs, you must first mount the file share to your domain-joined VM by using your storage account key. To do this, log into the domain-joined VM as an Azure AD user, open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
