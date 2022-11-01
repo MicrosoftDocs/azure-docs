@@ -1,5 +1,5 @@
 ---
-title: Media Streaming overview
+title: Media streaming overview
 description: Conceptual information about using Media Streaming APIs with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
@@ -9,7 +9,7 @@ ms.author: kpunjabi
 ms.custom: private_preview
 ---
 
-# Media Streaming Overview - Audio Subscription
+# Media streaming overview - audio subscription
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
@@ -34,7 +34,7 @@ Audio streams can be used in many ways, below are some examples of how developer
 
 ## Sample architecture for subscribing to audio streams from an ongoing call
 
-![Screenshot of flow for play action.](./media/media_streaming.png)
+[![Screenshot of flow for play action.](./media/media_streaming_flow.png)](./media/media_streaming_flow.png#lightbox)
 
 ## Supported formats
 
