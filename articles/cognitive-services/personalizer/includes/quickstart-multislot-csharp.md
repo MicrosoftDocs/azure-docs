@@ -159,7 +159,7 @@ private static IList<PersonalizerRankableAction> GetActions()
 Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
-This quickstart has simple slot features. In production systems, determining and [evaluating](../howto-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple slot features. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 private static IList<PersonalizerSlotOptions> GetSlots()
