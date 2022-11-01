@@ -67,6 +67,9 @@ There are some important best practices to follow for optimal performance of NFS
 - Create multiple datastores of 4-TB size for better performance. The default limit is 64 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Work with your Microsoft representative to ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within same [Availability Zone](../availability-zones/az-overview.md#availability-zones). 
 
+> [!IMPORTANT]
+>Changing the Azure NetApp Files volumes tier after creating the datastore will result in unexpected behavior in portal and API due to metadata mismatch. Set your performance tier of the Azure NetApp Files volume when creating the datastore. If you need to change tier during run time, detach the datastore, change the performance tier of the volume and attach the datastore. We are working on improvements to make this seamless.
+
 ## Attach an Azure NetApp Files volume to your private cloud
 
 ### [Portal](#tab/azure-portal)

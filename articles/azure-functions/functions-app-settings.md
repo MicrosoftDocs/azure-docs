@@ -544,6 +544,14 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 
 If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
+## WEBSITE\_SLOT\_NAME
+
+Read-only. Name of the current deployment slot. The name of the production slot is `Production`.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SLOT_NAME|`Production`|
+
 ## WEBSITE\_TIME\_ZONE
 
 Allows you to set the timezone for your function app.
