@@ -68,7 +68,7 @@ In this tutorial, you configure and test Azure AD SSO for on-premise confluence 
 2. Select **App proxy** from Azure Services section.
 3. Select **Download connector service**.
 
-    ![Screenshot for Download connector service](./media/confluence-app-proxy-tutorial/download-connector-service.png)
+    ![Screenshot for Download connector service.](./media/confluence-app-proxy-tutorial/download-connector-service.png)
 
 4. Accept terms & conditions to download connector. Once downloaded, install it to the system, which hosts the confluence application.
 
@@ -82,11 +82,11 @@ To add an Application proxy, we need to create an enterprise application.
 1. To add new application, select **New application**.
 1. Choose **Add an on-premise application**.
 
-    ![Screenshot for Add an on-premise application](./media/confluence-app-proxy-tutorial/add-on-premises-application.png)
+    ![Screenshot for Add an on-premise application.](./media/confluence-app-proxy-tutorial/add-on-premises-application.png)
 
 1. Type the name of the application and click the create button at the bottom left column.
 
-    ![Screenshot for on-premise application](./media/confluence-app-proxy-tutorial/on-premises-application.png)
+    ![Screenshot for on-premise application.](./media/confluence-app-proxy-tutorial/on-premises-application.png)
 
     1.	**Internal URL** will be your Confluence application URL.
     2.	**External URL** will be auto-generated based on the Name you choose.
@@ -114,7 +114,7 @@ Now that you've prepared your environment and installed a connector, you're read
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-    ![Screenshot for Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot for Edit Basic SAML Configuration.](common/edit-urls.png)
 
 1. On the Basic SAML Configuration section, enter the **External Url** value for the following fields: identifier, Reply URL, SignOn URL.
 
