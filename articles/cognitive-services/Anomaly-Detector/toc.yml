@@ -54,6 +54,8 @@
       items:
         - name: Create an Anomaly Detector Resource
           href: how-to/create-resource.md
+        - name: Prepare and upload your data
+          href: how-to/prepare-data.md
         - name: Train a model
           href: how-to/train-model.md
         - name: Batch inference      
