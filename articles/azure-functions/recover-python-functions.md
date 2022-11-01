@@ -49,7 +49,7 @@ This section helps you troubleshoot module-related errors in your Python functio
 This error occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
 * [The package can't be found](#the-package-cant-be-found)
-* [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
+* [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-the-proper-linux-wheel)
 * [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
 * [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
 * [The package supports only Windows and macOS platforms](#the-package-supports-only-windows-and-macos-platforms)
@@ -163,7 +163,7 @@ However, if you're finding that the issue hasn't been fixed, and you're on a dea
 
 ---
 
-## Troubleshoot the "cannot import 'cygrpc'" error
+## Troubleshoot "cannot import 'cygrpc'"
 
 This section helps you troubleshoot 'cygrpc' related errors in your Python function app. These errors typically result in the following Azure Functions error message:
 
