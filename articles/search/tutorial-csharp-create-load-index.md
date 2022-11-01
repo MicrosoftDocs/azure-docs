@@ -57,14 +57,14 @@ The script uses the Azure SDK for Cognitive Search:
 * [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 * [Reference Documentation](/dotnet/api/overview/azure/search)
 
-1. In Visual Studio Code, open the `Program.cs` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `Program.cs` file in the subdirectory,  `search-website-functions-v4/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/bulk-insert/Program.cs" highlight="16-19" :::
+    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" highlight="16-19" :::
 
-1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website/bulk-insert`, then run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, then run the following command to install the dependencies. 
 
     ```bash
     dotnet restore
@@ -72,7 +72,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `Program.cs` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, to run the following bash command to run the `Program.cs` script:
 
     ```bash
     dotnet run

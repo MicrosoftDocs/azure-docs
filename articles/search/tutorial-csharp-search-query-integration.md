@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 11/01/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
@@ -17,7 +17,7 @@ ms.devlang: csharp
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 
 The application is available: 
-* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website)
+* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## Azure SDK Azure.Search.Documents
@@ -31,24 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a local.settings.json file
 
-1. Create a new file named `local.settings.json` at `./api/` and copy the following JSON object into the file.
-
-    ```json
-    {
-      "IsEncrypted": false,
-      "Values": {
-        "AzureWebJobsStorage": "",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-        "SearchApiKey": "YOUR_SEARCH_QUERY_KEY",
-        "SearchServiceName": "YOUR_SEARCH_RESOURCE_NAME",
-        "SearchIndexName": "good-books"
-      }
-    }
-    ```
-
-1. Change the following for you own Search resource values: 
-    * YOUR_SEARCH_RESOURCE_NAME
-    * YOUR_SEARCH_QUERY_KEY
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js":::
 
 ## Azure Function: Search the catalog
 
