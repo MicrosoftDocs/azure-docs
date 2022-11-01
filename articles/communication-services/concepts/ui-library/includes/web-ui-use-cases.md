@@ -20,7 +20,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |                     | Join an Azure Communication Services call by using a group ID   |
 |                     | Join an Azure Communication Services [Room](../../rooms/room-concept.md) |
 |                     | Start an outbound call to another Azure Communication Services user |
-|                     | Start an outbound call to a [phone number](../../telephony/telephony-concept#voice-calling-pstn) |
+|                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#voice-calling-pstn) |
 | [Teams interoperability](../../teams-interop.md)      | Join the call lobby                                             |
 |                     | Display a transcription and recording alert banner               |
 | Call controls       | Mute and unmute a call                                       |
