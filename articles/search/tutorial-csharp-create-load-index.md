@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/30/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
@@ -15,8 +15,9 @@ ms.devlang: csharp
 # 2 - Create and load Search Index with .NET
 
 Continue to build your Search-enabled website by:
-* Creating a Search resource with the VS Code extension
-* Creating a new index and importing data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
+* Create a Search resource with the VS Code extension
+* Create a new index
+* Import data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
 
 ## Create an Azure Search resource 
 
@@ -26,7 +27,7 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Azure subscription under the Azure: Cognitive Search area and select Create new search service.":::
 
 1. Follow the prompts to provide the following information:
 
@@ -45,7 +46,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Search resource and select Copy Admin Key.":::
 
 1. Keep this admin key, you will need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
 
@@ -86,18 +87,11 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 
 1. In Visual Studio Code, open the Azure Cognitive Search extension and select your Search resource.  
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="Screenshot of Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
 
 1. Expand Indexes, then Documents, then `good-books`, then select a doc to see all the document-specific data.
  
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
-
-## Copy your Search resource name
-
-Note your **Search resource name**. You will need this to connect the Azure Function app to your Search resource. 
-
-> [!CAUTION]
-> While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Screenshot of Visual Studio Code showing Cognitive Search resource, expand Indexes, then `good-books`, then select a doc.":::
 
 ## Rollback bulk import file changes
 
@@ -106,6 +100,15 @@ Use the following git command in the VS Code integrated terminal at the `bulk-in
 ```git
 git checkout .
 ```
+
+## Copy your Search resource name
+
+Note your **Search resource name**. You will need this to connect the Azure Function app to your Search resource. 
+
+> [!CAUTION]
+> While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
+
+
 
 ## Next steps
 
