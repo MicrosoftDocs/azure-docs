@@ -14,7 +14,7 @@ ms.devlang: csharp
 
 # 4 - .NET Search integration cheat sheet
 
-In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
+In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 
 The application is available: 
 * [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
@@ -63,7 +63,7 @@ The Suggest function API is called in the React app at `\client\src\components\S
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/api/Lookup.cs) takes an ID and returns the document object from the Search Index. 
 
 :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Lookup.cs" highlight="19-21, 42" :::
 

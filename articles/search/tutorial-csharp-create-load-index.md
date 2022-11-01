@@ -48,7 +48,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
     :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Search resource and select Copy Admin Key.":::
 
-1. Keep this admin key, you will need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
+1. Keep this admin key, you'll need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
 
 ## Prepare the bulk import script for Search
 
