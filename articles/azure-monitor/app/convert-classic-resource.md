@@ -9,11 +9,18 @@ ms.reviewer: cawa
 
 # Migrate to workspace-based Application Insights resources
 
-This article walks you through migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace. This behavior allows you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
+This article walks through migrating a classic Application Insights resource to a workspace-based resource.
 
-Workspace-based resources enable common Azure role-based access control across your resources and eliminate the need for cross-app/workspace queries.
+Workspace-based resources:
 
-Workspace-based resources are currently available in all commercial regions and Azure US Government.
+> [!div class="checklist"]
+> - Support full integration between Application Insights and [Log Analytics](../logs/log-analytics-overview.md)
+> - Send Application Insights telemetry to a common [Log Analytics workspace](../logs/log-analytics-workspace-overview.md)
+> - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location
+> - Enable common [Azure role-based access control](../../role-based-access-control/overview.md) across your resources
+> - Eliminate the need for cross-app/workspace queries
+> - Are available in all commercial regions and [Azure US Government](https://learn.microsoft.com/en-us/azure/azure-government)
+> - Do not require changing instrumentation keys after migration
 
 ## New capabilities
 
