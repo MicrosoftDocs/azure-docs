@@ -43,6 +43,36 @@ You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be
 
 # [Event Hubs](#tab/eventhubs)
 
+If you need to create an Event Hubs resource, see [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create). This quickstart shows you how to first create an Event Hubs namespace (which acts as a container), followed by an event hub. 
+
+1. Go to your IoT hub in the Azure portal and select **Message routing** from the **Hub settings** menu. Select **+ Add** to add a new route.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/message-routing-add.jpg" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
+
+1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-event-hubs-route**.
+
+1. For **Endpoint**, select the **+ Add endpoint** dropdown list and choose **Event hubs**.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-endpoint-event-hubs.jpg" alt-text="Screenshot that shows location of the 'Add endpoint' dropdown list.":::
+
+1. A new page, **Add an event hub endpoint**, opens. Create an **Endpoint name** for your IoT Hub. This will display in your IoT Hub.
+   
+   For **Event hub namespace**, choose the namespace you previously created in your Event Hubs resource from the dropdown list.
+
+   For **Event hub instance**, choose the event hub you created in your Event Hubs resource from the dropdown list.
+
+   Select **Create** at the bottom and you'll go back to the **Add a route** page.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-event-hub.jpg" alt-text="Screenshot that shows all options to choose on the 'Add an event hub endpoint' page.":::
+
+1. Unless you have a specific build in mind, leave all the other values as their defaults on the **Add a route** page.
+
+1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** page. 
+
+   > [!NOTE]
+   > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create a new route with an **events** endpoint if needed.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-route.jpg" alt-text="Screenshot that shows the new route you created on the 'Message routing' page.":::
 
 
 # [Service Bus queue](#tab/servicebusqueue)

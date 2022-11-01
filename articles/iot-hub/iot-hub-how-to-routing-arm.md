@@ -43,6 +43,9 @@ You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be
 
 # [Event Hubs](#tab/eventhubs)
 
+If you need to create an Event Hubs resource, see [Quickstart: Create an event hub by using an ARM template](/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub). This quickstart shows you how to create an Event Hubs namespace (acts as a container) and an event hub. 
+
+
 
 
 # [Service Bus queue](#tab/servicebusqueue)
