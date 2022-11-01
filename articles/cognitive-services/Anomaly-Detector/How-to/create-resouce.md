@@ -32,7 +32,7 @@ Anomaly Detector service is a cloud-based Cognitive Service that uses machine-le
 
 1. Select **Identity** in the banner above and make sure you set the status as **On** which enables Anomaly Detector to visit your data in Azure in a secure way, then select **Review + create.**
 
-    ![enable mi](../../media/how-to/enable-managed-identity.png)
+    ![enable mi](../media/create-resource/enable-managed-identity.png)
 
 1. Wait a few seconds until validation passed, and select **Create** button from the bottom-left corner.
 1. After you select create, you'll be redirected to a new page that says Deployment in progress. After a few seconds, you'll see a message that says, Your deployment is complete, then select **Go to resource**.
