@@ -1134,7 +1134,7 @@ items:
       displayName: diu
     - name: Pricing examples     
       items:
-      - name: Overview
+      - name: Pricing overview
         href: pricing-concepts.md
         displayName: diu 
       - name: Copy data from AWS S3 to Azure Blob storage
