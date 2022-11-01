@@ -2,12 +2,23 @@
 title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
-ms.date: 03/07/2022
+ms.date: 11/01/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Geo-code mapping
 
 This sample XML provides you an insight about the geo-codes mapped with the respective regions. Use these geo-codes to create and add custom DNS zones for private endpoint for Recovery Services vault.
+
+## Fetch mapping details
+
+To fetch the geo-code mapping list, run the following command:
+
+```azurecli-interactive
+    az cli list-locations
+```
 
 ## Mapping details
 

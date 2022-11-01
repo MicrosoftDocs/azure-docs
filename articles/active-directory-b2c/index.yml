@@ -87,7 +87,7 @@ productDirectory:
 
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
-  title: Quickly access to Azure AD B2C documentation 
+  title: Quick access to Azure AD B2C documentation 
   summary: Get quick access to our guides and tutorials for your most common scenarios. 
   items:
     ## CARD 1 ######################

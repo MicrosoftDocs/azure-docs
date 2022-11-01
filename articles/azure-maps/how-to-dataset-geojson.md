@@ -66,7 +66,7 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 1. Copy the value of the `Resource-Location` key in the response header, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the GeoJSON package resource.
 
 ### Create a dataset
-<!-->
+<!--
 A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
 -->
 A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new create dataset API. The create dataset API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
@@ -168,6 +168,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 > [!div class="nextstepaction"]
 > [Create a feature stateset](tutorial-creator-feature-stateset.md)
 
+[Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
 [unit]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
