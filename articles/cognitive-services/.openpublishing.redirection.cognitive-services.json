@@ -5889,7 +5889,46 @@
             "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/v2.0/quickstart.md",
             "redirect_url": "/azure/cognitive-services/Translator/custom-translator/quickstart",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/customization.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/customization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/workspace-and-project.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/workspace-and-project",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-are-parallel-documents.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/parallel-documents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-is-a-dictionary.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/dictionaries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/document-formats-naming-convention.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/document-formats-naming-convention",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/sentence-alignment.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/sentence-alignment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/training-and-model.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/model-training",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-is-bleu-score.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/bleu-score",
+            "redirect_document_id": false
         }
-        
     ]
 }

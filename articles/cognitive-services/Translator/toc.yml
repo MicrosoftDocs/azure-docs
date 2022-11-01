@@ -234,29 +234,29 @@ items:
         href: custom-translator/unsupported-language-deployments.md
     - name: Concepts
       items:
-      - name: Customize and improve text translation
+      - name: Customize to improve text translation
         displayName: speech
-        href: customization.md
+        href: custom-translator/concepts/customization.md
       - name: Workspaces and projects
-        href: custom-translator/workspace-and-project.md
+        href: custom-translator/concepts/workspace-and-project.md
       - name: Parallel documents
-        href: custom-translator/what-are-parallel-documents.md
-      - name: Dictionary
+        href: custom-translator/concepts/parallel-documents.md
+      - name: Dictionaries
         displayName: phrase,sentence,recommendations
-        href: custom-translator/what-is-dictionary.md
+        href: custom-translator/concepts/dictionaries.md
       - name: Document formats
-        href: custom-translator/document-formats-naming-convention.md
+        href: custom-translator/concepts/document-formats-naming-convention.md
       - name: Sentence alignment
-        href: custom-translator/sentence-alignment.md
+        href: custom-translator/concepts/sentence-alignment.md
       - name: Data filtering
         displayName: deduplication,white space,punctuation,tags,invalid
-        href: custom-translator/data-filtering.md
-      - name: Training and modeling
+        href: custom-translator/concepts/data-filtering.md
+      - name: Model training
         displayName: tuning
-        href: custom-translator/training-and-model.md
+        href: custom-translator/concepts/model-training.md
       - name: BLEU score
-        href: custom-translator/what-is-bleu-score.md
-      - name: Customer-managed keys
+        href: custom-translator/concepts/bleu-score.md
+      - name: Encrypt data at rest
         displayName: encryption,key vault,revoke
         href: encrypt-data-at-rest.md
   - name: Reference
