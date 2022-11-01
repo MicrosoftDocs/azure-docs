@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 # Prepare your data and upload to Storage Account
 
-Multivariate Anomaly Detection requires training to process on your data, and an Azure Storage Account is the place to store your data for further training and inference steps.
+Multivariate Anomaly Detection requires training to process your data, and an Azure Storage Account to store your data for further training and inference steps.
 
 ## Data preparation
 
@@ -42,7 +42,7 @@ Multivariate Anomaly Detection supports two types of data schemas: **OneTable** 
 
 #### Schema 2: MultiTable
 
-**MultiTable** is multiple CSV files in one file folder, and each CSV file contains only two columns of one variable, with exact the column names of: **timestamp** and **value**.  Download [Multiple Tables sample data](https://mvaddataset.blob.core.windows.net/public-sample-data/sample_data_5_3000.zip) and unzip it.
+**MultiTable** is multiple CSV files in one file folder, and each CSV file contains only two columns of one variable, with the exact column names of: **timestamp** and **value**.  Download [Multiple Tables sample data](https://mvaddataset.blob.core.windows.net/public-sample-data/sample_data_5_3000.zip) and unzip it.
 
 * The `timestamp` values should conform to *ISO 8601*; the `value` could be *integers* or *decimals* with any number of decimal places.
 
@@ -62,9 +62,9 @@ Multivariate Anomaly Detection supports two types of data schemas: **OneTable** 
 
 ## Upload your data to Storage Account
 
-Once you prepare your data with either of the two schemas above, you could upload your CSV file (OneTable) or your data folder (MultiTable) to Storage Account.
+Once you prepare your data with either of the two schemas above, you could upload your CSV file (OneTable) or your data folder (MultiTable) to your Storage Account.
 
-1. [Create a Storage Account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM), fill out the fields, which is similar to the steps when creating Anomaly Detector resource.
+1. [Create a Storage Account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM), fill out the fields, which are similar to the steps when creating Anomaly Detector resource.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Azure Storage account setup page](../media/prepare-data/create-blob.png)
@@ -86,7 +86,7 @@ Once you prepare your data with either of the two schemas above, you could uploa
 
     Go to the container that you created, and select **Upload**, then select **Advanced**, and initiate a folder name in **Upload to folder**, and select all the variables in separate CSV files and upload.
 
-    Once your data is uploaded, go into the folder, and select one CSV file in the folder, copy the **blob URL** and only kept the part before the name of this CSV file, so the final blob URL should ***link to the folder***. (Please paste the URL somewhere convenient for further steps.)
+    Once your data is uploaded, go into the folder, and select one CSV file in the folder, copy the **blob URL** and only keep the part before the name of this CSV file, so the final blob URL should ***link to the folder***. (Please paste the URL somewhere convenient for further steps.)
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of copy blob url for multi table](../media/prepare-data/multitable-copyurl.png)
