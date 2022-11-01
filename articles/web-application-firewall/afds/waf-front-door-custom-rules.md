@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 03/22/2022
+ms.date: 11/01/2022
 ms.author: victorh
 ---
 
@@ -19,17 +19,23 @@ For more information on rate limiting, see [What is rate limiting for Azure Fron
 
 You can control access with a custom WAf rule that defines a priority number, a rule type, an array of match conditions, and an action. 
 
-- **Priority:** is a unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule evaluation stops on any rule action except for *Log*. Priority numbers must be unique among all custom rules.
+- **Priority**
 
-- **Action:** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
+    A unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule evaluation stops on any rule action except for *Log*. Priority numbers must be unique among all custom rules.
+
+- **Action**
+
+  Defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
 
     - *Allow* - WAF allows the request to process, logs an entry in WAF logs, and exits.
     - *Block* - Request is blocked. WAF sends response to client without forwarding the request further. WAF logs an entry in WAF logs and exits.
     - *Log* -  WAF logs an entry in WAF logs, and continues to evaluate the next rule in the priority order.
     - *Redirect* - WAF redirects the request to a specified URI, logs an entry in WAF logs, and exits.
 
-- **Match condition:** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on geo location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
-  - **Match variable:**
+- **Match condition** 
+
+  Defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on geo location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
+  - **Match variable**
     - RequestMethod
     - QueryString
     - PostArgs
@@ -37,8 +43,8 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - RequestHeader
     - RequestBody
     - Cookies
-  - **Operator:**
-    - Any: is often used to define default action if no rules are matched. Any is a match all operator.
+  - **Operator**
+    - Any - is often used to define default action if no rules are matched. Any is a match all operator.
     - Equal
     - Contains
     - LessThan: size constraint
@@ -49,7 +55,10 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - EndsWith
     - Regex
   
-  - **Regex** does not support the following operations: 
+  - **Regex**
+
+    Does not support the following operations:
+
     - Backreferences and capturing subexpressions
     - Arbitrary zero-width assertions
     - Subroutine references and recursive patterns
@@ -61,10 +70,12 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - Callouts and embedded code
     - Atomic grouping and possessive quantifiers
 
-  - **Negate [optional]:**
+  - **Negate [optional]**
+
     You can set the *negate* condition to true if the result of a condition should be negated.
       
-  - **Transform [optional]:**
+  - **Transform [optional]**
+
     A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
      - Uppercase 
      - Lowercase
@@ -73,7 +84,8 @@ You can control access with a custom WAf rule that defines a priority number, a 
      - UrlDecode
      - UrlEncode
      
-   - **Match value:**
+   - **Match value**
+   
      Supported HTTP request method values include:
      - GET
      - POST
@@ -89,6 +101,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
      - MKCOL
      - COPY
      - MOVE
+     - PATCH
 
 ## Examples
 
