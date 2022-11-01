@@ -23,8 +23,7 @@ Creating project is the first step toward building a model.
 
 1. In the [Custom Translator](https://legacy.portal.customtranslator.azure.ai/) legacy portal, select **Create project**.
 
-    ![Create project](media/how-to/how-to-create-project.png)
-
+ 
 1. Enter the following details about your project in the dialog:
 
     a.  Project name (required): Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
@@ -56,8 +55,7 @@ Creating project is the first step toward building a model.
         and not helpful to distinguish between language pairs. You can use the
         same label for multiple projects.
 
-    ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
-
+   
 1. Select **Create**
 
 ## View project details
@@ -77,7 +75,6 @@ After selecting a project, you'll see the following text on the project page:
 - Filter documents button: Use this button to filter and search for specific
     document(s).
 
-    ![View project details](media/how-to/how-to-view-project.png)
 
 ## Next steps
 

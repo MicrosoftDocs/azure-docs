@@ -31,7 +31,7 @@ The test tab shows you:
 
     **Status:** Indicates if the test process is complete or in progress.
 
-    ![System test results](media/how-to/how-to-system-test-results.png)
+
 
 2.  Select the System test results, and that will take you to test result details page. This page shows the machine translation of sentences that were part of the test dataset.
 
@@ -44,14 +44,14 @@ The test tab shows you:
 
     **MT:** This sentence is the automatic translation of the source sentence done by the model built after the training was conducted.
 
-    ![System test results compare](media/how-to/how-to-system-test-results-2.png)
+
 
 ## Download test
 
 Select the **Download Translations** link to download a zip file. The zip contains the
 machine translations of source sentences in the test data set.
 
-![Download test](media/how-to/how-to-system-test-download.png)
+
 
 This downloaded zip archive contains three files.
 
@@ -63,7 +63,7 @@ This downloaded zip archive contains three files.
 
 1. **source.txt:** This file contains sentences in the source language.
 
-    ![Downloaded system test results](media/how-to/how-to-download-system-test.png)
+
 
 ## Deploy a model
 
@@ -73,12 +73,12 @@ To request a deployment:
 
 1. For a successfully trained model, it shows "Deploy" button, if not deployed.
 
-    ![Screenshot that highlights the Deploy button for deploying a model.](media/how-to/how-to-deploy-model.png)
+
 
 1. Select **Deploy**.
 1. Select **Deployed** for the region(s) where you want your model to be deployed, and select **Save**. You can select **Deployed** for multiple regions.
 
-    ![Screenshot that shows where you can deploy or undeploy a model.](media/how-to/how-to-deploy-model-regions.png)
+
 
 1. You can view the status of your model in the "Status" column.
 
@@ -93,13 +93,13 @@ To update deployment settings:
 
 1. For a successfully deployed model, it shows an **Update** button.
 
-    ![Screenshot that highlights the Update button for updating deployment settings.](media/how-to/how-to-update-undeploy-model.png)
+
 
 1. Select **Update**.
 
 1. Select **Deployed** or **Undeployed** for the region(s) where you want your model deployed or undeployed, then select **Save**.
 
-    ![Deploy model](media/how-to/how-to-undeploy-model.png)
+
 
 >[!Note]
 >If you select **Undeployed** for all regions, the model is undeployed from all regions, and put into an undeployed state. It's now unavailable for use.
