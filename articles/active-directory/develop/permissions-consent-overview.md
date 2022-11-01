@@ -56,8 +56,8 @@ There are other ways in which applications can be granted authorization for app-
 |--|--|--|
 | Types of apps | Web / Mobile / single-page app (SPA) | Web / Daemon |
 | Access context | Get access on behalf of a user | Get access without a user |
-| Who can consent | <li> Users can consent for their data <li> Admins can consent for all users | Only admin can consent |
-| Other names | <li> Scopes <li>OAuth2 permission scopes | <li> App roles <li>App-only permissions |
+| Who can consent | - Users can consent for their data <br> - Admins can consent for all users | Only admin can consent |
+| Other names | - Scopes <br> - OAuth2 permission scopes | - App roles <br> - App-only permissions |
 | Result of consent (specific to Microsoft Graph)  | [oAuth2PermissionGrant](/graph/api/resources/oauth2permissiongrant) | [appRoleAssignment](/graph/api/resources/approleassignment) |
 
 ## Consent
