@@ -15,7 +15,7 @@ Azure Web Application Firewall (WAF) with Front Door allows you to control acces
 
 For more information on rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
-## Priority, match conditions, and action types
+## Priority, action types, and match conditions
 
 You can control access with a custom WAf rule that defines a priority number, a rule type, an array of match conditions, and an action. 
 
@@ -57,7 +57,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
   
   - **Regex**
 
-    Does not support the following operations:
+    Doesn't support the following operations:
 
     - Backreferences and capturing subexpressions
     - Arbitrary zero-width assertions
