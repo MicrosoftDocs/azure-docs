@@ -10,7 +10,6 @@ ms.author: v-szuber
 
 <!-- Used in plan-private-cloud-deployment.md and concepts-private-cloud-clusters.md -->
 
-
 Azure VMware Solution clusters are based upon hyper-converged infrastructure. The following table shows the CPU, memory, disk and network specifications of the host.
 
 | Host Type | CPU (GHz)   | RAM (GB)  | vSAN Cache Tier (TB, raw)  | vSAN Capacity Tier (TB, raw)  | Network Interface Cards | Regional availability |
