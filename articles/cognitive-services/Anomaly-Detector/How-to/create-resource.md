@@ -23,7 +23,7 @@ Anomaly Detector service is a cloud-based Cognitive Service that uses machine-le
 1. Once you have your Azure subscription, [create an Anomaly Detector resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal, and fill out the following fields:
 
     - **Subscription**: Select your current subscription.
-    - **Resource group**: The [Azure resource group](https://learn.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
+    - **Resource group**: The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
     - **Region**: Select your local region, see supported [Regions](../regions.md).
     - **Name**: Enter a name for your resource. We recommend using a descriptive name, for example *multivariate-msft-test*.
     - **Pricing tier**: The cost of your resource depends on the pricing tier you choose and your usage. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
