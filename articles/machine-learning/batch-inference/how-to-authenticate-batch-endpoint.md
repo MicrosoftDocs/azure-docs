@@ -62,7 +62,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
     ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -85,7 +85,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
     ```python
     job = ml_client.batch_endpoints.invoke(
             endpoint_name, 
-            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
 
@@ -111,7 +111,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/
     ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -139,7 +139,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
     ```python
     job = ml_client.batch_endpoints.invoke(
             endpoint_name, 
-            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+            input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
         )
     ```
 
@@ -153,7 +153,7 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     
     ```http
     POST /{TENANT_ID}/oauth2/token HTTP/1.1
-    Host: https://login.microsoftonline.com
+    Host: login.microsoftonline.com
     ```
     
     __Body__:
@@ -183,7 +183,7 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     	    "InputData": {
     		"mnistinput": {
     		    "JobInputType" : "UriFolder",
-    		    "Uri":  "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
+    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
     	        }
             }
         }
@@ -198,13 +198,17 @@ You can use managed identities to invoke batch endpoint and deployments. Please 
 
 # [Azure ML CLI](#tab/cli)
 
-On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag.
+On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```bash
 az login --identity
 ```
 
-For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+Once authenticated, use the following command to run a batch deployment job:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
+```
 
 # [Azure ML SDK for Python](#tab/sdk)
 
@@ -227,7 +231,7 @@ Once authenticated, use the following command to run a batch deployment job:
 ```python
 job = ml_client.batch_endpoints.invoke(
         endpoint_name, 
-        input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+        input=Input(path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci")
     )
 ```
 
