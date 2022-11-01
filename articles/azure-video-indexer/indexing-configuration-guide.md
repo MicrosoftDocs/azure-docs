@@ -7,7 +7,7 @@ ms.author: juliako
 author: DavidDyckman
 ---
 
-# Indexing configuration guide
+# The indexing configuration guide
 
 It's important to understand the configuration options to index efficiently while ensuring you meet your indexing objectives. When indexing videos, users can use the default settings or adjust many of the settings. Azure Video Indexer allows you to choose between a range of language, indexing, custom models, and streaming settings that have implications on the insights generated, cost, and performance.  
 
@@ -15,11 +15,11 @@ This article explains each of the options and the impact of each option to enabl
 
 The initial upload screen presents options to define the video name, source language, and privacy settings.  
 
-:::image type="content" source="./media/indexing-configuration-guide/configuration.png" alt-text="The screen presents options to define the video name, source language, and privacy settings.":::  
+:::image type="content" source="./media/indexing-configuration-guide/configuration.png" alt-text="Screenshot shows options to define the video name, source language, and privacy settings.":::  
 
 All the other setting options appear if you select Advanced options. 
 
-:::image type="content" source="./media/indexing-configuration-guide/advanced-configuration.png" alt-text="The screen presents advanced options to define the video name, source language, and privacy settings."::: 
+:::image type="content" source="./media/indexing-configuration-guide/advanced-configuration.png" alt-text="Screenshot shows advanced options to define the video name, source language, and privacy settings."::: 
 
 ## Default settings 
 
@@ -105,7 +105,7 @@ When indexing a video, default streaming settings are applied. Below are the str
 - **Single bitrate**: With Single Bitrate, the standard Media Services encoder cost will apply for the output. If the video height is greater than or equal to 720p HD, Azure Video Indexer encodes it with a resolution of 1280 x 720. Otherwise, it's encoded as 640 x 468. The default setting is content-aware encoding. 
 - **Adaptive bitrate**: With Adaptive Bitrate, if you upload a video in 720p HD single bitrate to Azure Video Indexer and select Adaptive Bitrate, the encoder will use the [AdaptiveStreaming](/rest/api/media/transforms/create-or-update?tabs=HTTP#encodernamedpreset) preset. An output of 720p HD (no output exceeding 720p HD is created) and several lower quality outputs are created (for playback on smaller screens/low bandwidth environments). Each output will use the Media Encoder Standard base price and apply a multiplier for each output. The multiplier is 2x for HD, 1x for non-HD, and 0.25 for audio and billing is per minute of the input video. 
 
-    **Example**: If you index a video in the US East region that is 40 minutes in length and is 720p HP and have selecting the streaming option of Adaptive Bitrate, 3 outputs will be created - 1 HD (multiplied by 2), 1 SD (multiplied by 1) and 1 audio track (multiplied by 0.25). This will total to (2+1+0.25) * 40 = 130 billable output minutes.  
+    **Example**: If you index a video in the US East region that is 40 minutes in length and is 720p HP and have selected the streaming option of Adaptive Bitrate, 3 outputs will be created - 1 HD (multiplied by 2), 1 SD (multiplied by 1) and 1 audio track (multiplied by 0.25). This will total to (2+1+0.25) * 40 = 130 billable output minutes.  
 
     Output minutes (standard encoder): 130 x $0.015/minute = $1.95. 
 - **No streaming**: Insights are generated but no streaming operation is performed and the video isn't available on the Azure Video Indexer website.  When No streaming is selected, you aren't billed for encoding. 
