@@ -87,7 +87,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure cross-tenant customer-managed keys for a new storage account with Azure CLI, first install the Azure CLI, version 2.42.0 or later. For more information about installing Azure CLI, see see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+To configure cross-tenant customer-managed keys for a new storage account with Azure CLI, first install the Azure CLI, version 2.42.0 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 Next, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
 
