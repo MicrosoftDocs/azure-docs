@@ -68,7 +68,7 @@ The "semanticConfiguration" parameter is crucial to returning a high-quality ans
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#searchfields) for details. 
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Configure semantic ranking](semantic-how-to-query-request.md#searchfields) for details. 
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -158,7 +158,7 @@ Within @search.answers:
 
 + **"score"** is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions within each array.
 
-Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Create a semantic query](semantic-how-to-query-request.md) for details.
+Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Configure semantic ranking](semantic-how-to-query-request.md) for details.
 
 ## Tips for producing high-quality answers
 
@@ -175,4 +175,4 @@ For best results, return semantic answers on a document corpus having the follow
 + [Semantic search overview](semantic-search-overview.md)
 + [Semantic ranking algorithm](semantic-ranking.md)
 + [Similarity ranking algorithm](index-ranking-similarity.md)
-+ [Create a semantic query](semantic-how-to-query-request.md)
++ [Configure semantic ranking](semantic-how-to-query-request.md)

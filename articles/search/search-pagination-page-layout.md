@@ -53,7 +53,7 @@ Occasionally, the substance and not the structure of results are unexpected. For
 
 ## Counting matches
 
-The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There is no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
+The count parameter returns the number of documents in the index that are considered a match for the query. To return the count, add **`$count=true`** to the query request. There's no maximum value imposed by the search service. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
 Count is accurate when the index is stable. If the system is actively adding, updating, or deleting documents, the count will be approximate, excluding any documents that aren't fully indexed.
 
@@ -74,7 +74,7 @@ To control the paging of all documents returned in a result set, add `$top` and 
 
 + Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Repeat for the third set of 15: `$top=15&$skip=30`
 
-The results of paginated queries aren't guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
+The results of paginated queries aren't guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there's no caching or snapshot of results, such as those found in a general purpose database).
 
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
@@ -103,9 +103,9 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-In a full text search query, results can be ranked by a search score, a semantic re-ranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
+In a full text search query, results can be ranked by a search score, a semantic reranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
 
-A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
+A @search.score equal to 1.00 indicates an unscored or unranked result set, where the 1.0 score is uniform across all results. Unscored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over unscored results, an **`$orderby`** expression will help you achieve that objective.
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
@@ -129,7 +129,7 @@ Another approach that promotes order consistency is using a [custom scoring prof
 
 Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
 
-Notice that highlighting is applied to individual terms. There is no highlight capability for the contents of an entire field. If you want highlighting over a phrase, you'll have to provide the matching terms (or phrase) in a quote-enclosed query string. This technique is described further on in this section.
+Notice that highlighting is applied to individual terms. There's no highlight capability for the contents of an entire field. If you want to highlight over a phrase, you'll have to provide the matching terms (or phrase) in a quote-enclosed query string. This technique is described further on in this section.
 
 Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents). Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
 
@@ -166,7 +166,7 @@ In a keyword search, each term is scanned for independently. A query for "divine
 
 ### Keyword search highlighting 
 
-Within a highlighted field, formatting is applied to whole terms. For example, on a match against "The Divine Secrets of the Ya-Ya Sisterhood", formatting is applied to each term separately, even though they are consecutive. 
+Within a highlighted field, formatting is applied to whole terms. For example, on a match against "The Divine Secrets of the Ya-Ya Sisterhood", formatting is applied to each term separately, even though they're consecutive. 
 
 ```json
 "@odata.count": 39,

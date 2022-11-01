@@ -135,4 +135,4 @@ To re-enable semantic search, rerun the above request, setting "semanticSearch" 
 
 ## Next steps
 
-[Enable semantic search](#enable-semantic-search) for your search service and follow the documentation on how to [create a semantic query](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
+[Enable semantic search](#enable-semantic-search) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.

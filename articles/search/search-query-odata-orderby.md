@@ -79,7 +79,6 @@ Sort hotels in descending order by search.score and rating, and then in ascendin
 
 ## See also 
 
-- [Configure a sort order](search)
 - [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
