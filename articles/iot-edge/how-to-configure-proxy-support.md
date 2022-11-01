@@ -286,7 +286,10 @@ This step takes place once on the IoT Edge device during initial device setup.
    [agent]
    name = "edgeAgent"
    type = "docker"
-   
+
+   [agent.config]
+   image = "mcr.microsoft.com/azureiotedge-agent:1.4" // or 1.3
+
    [agent.env]
    # "RuntimeLogLevel" = "debug"
    # "UpstreamProtocol" = "AmqpWs"
@@ -296,6 +299,9 @@ This step takes place once on the IoT Edge device during initial device setup.
 4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
 
    ```toml
+   [agent.config]
+   image = "mcr.microsoft.com/azureiotedge-agent:1.4" // or 1.3
+
    [agent.env]
    # "RuntimeLogLevel" = "debug"
    "UpstreamProtocol" = "AmqpWs"
