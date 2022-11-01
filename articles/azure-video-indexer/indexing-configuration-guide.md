@@ -9,7 +9,7 @@ author: DavidDyckman
 
 # Indexing configuration guide
 
-When indexing videos, users can use the default settings or adjust many of the settings. It's important to understand the configuration options to index efficiently while ensuring you meet your indexing objectives. Azure Video Indexer allows you to choose between a range of language, indexing, custom models, and streaming settings that have implications on the insights generated, cost, and performance.  
+It's important to understand the configuration options to index efficiently while ensuring you meet your indexing objectives. When indexing videos, users can use the default settings or adjust many of the settings. Azure Video Indexer allows you to choose between a range of language, indexing, custom models, and streaming settings that have implications on the insights generated, cost, and performance.  
 
 This article explains each of the options and the impact of each option to enable informed decisions when indexing. The article discusses the [Azure Video Indexer website](https://www.videoindexer.ai/) experience but the same options apply when submitting jobs through the API (see the [API guide](video-indexer-use-apis.md)). When indexing large volumes, follow the [at-scale guide](considerations-when-use-at-scale.md).  
 
