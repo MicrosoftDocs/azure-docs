@@ -41,7 +41,7 @@ This section describes languages supported by Azure Video Indexer API.
 
 | **Language**                   | **Code**       | **Transcription** | **LID**\*   | **MLID**\*  | **Translation** | **Customization** (language model)  |
 |:------------------------------:|:--------------:|:-----------------:|:-----------:|:-----------:|:-------------:|:---------------:|
-| Afrikaans                        | `af-ZA`      | [Overview](video-indexer-overview.md)  |      |    |  | ✔ |
+| Afrikaans                        | `af-ZA`      |   |      |    |  | ✔ |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |      |   |  | ✔ |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔   | ✔  | ✔ | ✔ |
 | Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔   | ✔  | ✔ | ✔ |
@@ -72,17 +72,17 @@ This section describes languages supported by Azure Video Indexer API.
 | Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
 | Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
 | Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| French                           | `fr-FR`      | ✔ |  ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔ | ✔ |
+| French                           | `fr-FR`      | ✔ |  ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| German                           | `de-DE`      | ✔ |  ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔ | ✔ |
+| German                           | `de-DE`      | ✔ |  ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Greek                            | `el-GR`      |   |       |   | ✔ |   |
 | Haitian                          | `fr-HT`      |   |       |   | ✔ |   |
 | Hebrew                           | `he-IL`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hindi                            | `hi-IN`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
 | Hungarian                        | `hu-HU`      |   |       |   | ✔ |  |
 | Indonesian                       | `id-ID`      |   |       |   | ✔ |  |
-| Italian                          | `it-IT`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid) |  ✔ | ✔ | ✔ |
-| Japanese                         | `ja-JP`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid) |  ✔ | ✔ | ✔ |
+| Italian                          | `it-IT`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
+| Japanese                         | `ja-JP`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
 | Kiswahili                        | `sw-KE`      |   |       |   | ✔ |  |
 | Korean                           | `ko-KR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Latvian                          | `lv-LV`      |   |       |   | ✔ |  |
@@ -93,16 +93,16 @@ This section describes languages supported by Azure Video Indexer API.
 | Norwegian                        | `nb-NO`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
 | Persian                          | `fa-IR`      | ✔ |      |   | ✔ | ✔ |
 | Polish                           | `pl-PL`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Portuguese                       | `pt-BR`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid) |  ✔ | ✔ | ✔ |
+| Portuguese                       | `pt-BR`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
 | Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
 | Romanian                         | `ro-RO`      |   |       |   | ✔ |  |
-| Russian                          | `ru-RU`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)  |  ✔ | ✔ | ✔ |
+| Russian                          | `ru-RU`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)  |  ✔ | ✔ | ✔ |
 | Samoan                           | `en-WS`      |   |       |   | ✔ |  |
 | Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |       |   | ✔ |  |
 | Serbian (Latin)                  | `sr-Latn-RS` |   |       |   | ✔ |  |
 | Slovak                           | `sk-SK`      |   |       |   | ✔ |  |
 | Slovenian                        | `sl-SI`      |   |       |   | ✔ |  |
-| Spanish                          | `es-ES`      | ✔ | ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔ | ✔ |
+| Spanish                          | `es-ES`      | ✔ | ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Spanish (Mexico)                 | `es-MX`      | ✔ |       |   | ✔ | ✔ |
 | Swedish                          | `sv-SE`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
 | Tamil                            | `ta-IN`      |   |        |  | ✔ | |
