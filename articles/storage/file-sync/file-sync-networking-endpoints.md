@@ -32,7 +32,7 @@ Additionally:
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create the private endpoints
-When you creating a private endpoint for an Azure resource, the following resources are deployed:
+When you are creating a private endpoint for an Azure resource, the following resources are deployed:
 
 - **A private endpoint**: An Azure resource representing either the private endpoint for the storage account or the Storage Sync Service. You can think of this as a resource that connects your Azure resource and a network interface.
 - **A network interface (NIC)**: The network interface that maintains a private IP address within the specified virtual network/subnet. This is the exact same resource that gets deployed when you deploy a virtual machine, however instead of being assigned to a VM, it's owned by the private endpoint.
@@ -138,7 +138,7 @@ The **Configuration** blade allows you to select the specific virtual network an
 
 Click **Review + create** to create the private endpoint.
 
-You can test that your private endpoint has been setup correctly by running the following commands from PowerShell. 
+You can test that your private endpoint has been set up correctly by running the following commands from PowerShell. 
 
 ```powershell
 $privateEndpointResourceGroupName = "<your-private-endpoint-resource-group>"
@@ -319,7 +319,7 @@ if ($null -eq $dnsZone) {
             -ErrorAction Stop
 }
 ```
-Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
+Now that you have a reference to the private DNS zone, you must create an A record for your Storage Sync Service.
 
 ```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
@@ -488,7 +488,7 @@ then
 fi
 ```
 
-Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
+Now that you have a reference to the private DNS zone, you must create an A record for your Storage Sync Service.
 
 ```bash
 privateEndpointNIC=$(az network private-endpoint show \
