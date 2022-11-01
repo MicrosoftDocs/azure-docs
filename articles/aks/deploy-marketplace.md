@@ -93,7 +93,7 @@ To monitor billing and usage information for the offer that you deployed:
 
 ## Remove an offer
 
-You can delete a purchased a plan for an Azure container offer by deleting the extension instance on the cluster. For example:
+You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster. For example:
 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
