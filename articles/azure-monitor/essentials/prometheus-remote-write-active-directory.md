@@ -1,6 +1,6 @@
 ---
 title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory (preview)
-description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication. 
+description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
 author: bwren 
 ms.topic: conceptual
 ms.date: 11/01/2022
@@ -9,7 +9,7 @@ ms.date: 11/01/2022
 # Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)
 Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into our managed service.
 
-This article describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication. You either use an existing identity created by AKS or [create one of your own](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Both options are described here.
+This article describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication.
 
 ## Architecture
 Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
@@ -20,11 +20,15 @@ This article applies to the following cluster configurations:
 
 - Azure Kubernetes service (AKS)
 - Azure Arc-enabled Kubernetes cluster
+- Kubernetes cluster running in another cloud or on-premises
+
+> [!NOTE]
+> For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, see [Azure Monitor managed service for Prometheus remote write - managed identity  (preview)](prometheus-remote-write-managed-identity.md).
 
 ## Prerequisites
 
-- You must have self-managed Prometheus running on your AKS cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
-- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you set up Prometheus on your AKS cluster.
+- You must have self-managed Prometheus running on your Kubernetes cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
+- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you set up Prometheus on your cluster.
 
 
 ## Create Azure Monitor workspace
@@ -82,10 +86,14 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
 
-## Add CSI driver and storage for AKS cluster
+## Add CSI driver and storage for cluster
+
+> [!NOTE]
+> Azure Key Vault CSI driver configuration is just one of the ways to get certificate mounted on the pod. The remote write container only needs a local path to a certificate in the pod for the setting `AZURE_CLIENT_CERTIFICATE_PATH` value in the [Deploy Side car and configure remote write on the Prometheus server](#deploy-side-car-and-configure-remote-write-on-the-prometheus-server) step below.
+
 This step is only required if you didn't enable Azure Key Vault Provider for Secrets Store CSI Driver when you created your AKS cluster.
 
-1. Run the following Azure CLI command to enable Azure Key Vault Provider for Secrets Store CSI Driver for your AKS cluster.
+1. Run the following Azure CLI command to enable Azure Key Vault Provider for Secrets Store CSI Driver for your cluster.
 
     ```azurecli
     az aks enable-addons --addons azure-keyvault-secrets-provider --name <aks-cluster-name> --resource-group <resource-group-name>
@@ -133,7 +141,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
             objectVersion: ""
         tenantId: <tenant-id> # The tenant ID of the key vault
     ```
-4. Apply the SecretProviderClass by running the following command on your AKS cluster.
+4. Apply the SecretProviderClass by running the following command on your cluster.
 
     ```
     kubectl apply -f secretproviderclass.yml
@@ -147,7 +155,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     prometheus:
     prometheusSpec:
         externalLabels:
-        cluster: <AKS-CLUSTER-NAME>
+        cluster: <CLUSTER-NAME>
 
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
         ##
@@ -218,7 +226,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
 
     | Value | Description |
     |:---|:---|
-    | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
+    | `<CLUSTER-NAME>` | Name of your AKS cluster |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
