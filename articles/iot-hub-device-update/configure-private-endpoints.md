@@ -103,7 +103,7 @@ You can use either the Azure portal or the Azure CLI to create private endpoints
 1. Fill all the required fields on the **Resource** tab
 
    * **Connection method**: Select **Connect to an Azure resource by resource ID or alias**.
-   * **Resource ID or alias**: Enter the Resource ID of the Device Update account. You can retrieve the resource ID of a Device Update account from the Azure portal by selecting **JSON View** on the **Overview** page. Or, you can retrieve it by using the [az iot device-update account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot device-update account show -n <account_name> --query id`.
+   * **Resource ID or alias**: Enter the Resource ID of the Device Update account. You can retrieve the resource ID of a Device Update account from the Azure portal by selecting **JSON View** on the **Overview** page. Or, you can retrieve it by using the [az iot du account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot du account show -n <account_name> --query id`.
    * **Target sub-resource**: Value must be **DeviceUpdate**
 
    :::image type="content" source="./media/configure-private-endpoints/private-endpoint-manual-create.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint tab in Private Link Center.":::
@@ -130,7 +130,7 @@ Replace the following placeholders with your own information:
 * **PRIVATE_LINK_CONNECTION_NAME**: Name of the private link service connection.
 * **VIRTUAL_NETWORK_NAME**: Name of an existing virtual network associated with the subnet.
 * **SUBNET_NAME**: Name or ID of an existing subnet. If you use a subnet name, then you also need to include the virtual network name. If you use a subnet ID, you can omit the `--vnet-name` parameter.
-* **DEVICE_UPDATE_RESOURCE_ID**: You can retrieve the resource ID of a Device Update account from the Azure portal by selecting **JSON View** on the **Overview** page. Or, you can retrieve it by using the [az iot device-update account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot device-update account show -n <account_name> --query id`.
+* **DEVICE_UPDATE_RESOURCE_ID**: You can retrieve the resource ID of a Device Update account from the Azure portal by selecting **JSON View** on the **Overview** page. Or, you can retrieve it by using the [az iot du account show](/cli/azure/iot/device-update/account#az-iot-device-update-account-show) command and querying for the ID value: `az iot du account show -n <account_name> --query id`.
 * **LOCATION**: Name of the Azure region. Your private endpoint must be in the same region as your virtual network, but can in a different region from the Device Update account.
 
 ```azurecli-interactive
@@ -192,7 +192,7 @@ There are four provisioning states:
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot device-update account private-endpoint-connection set](/cli/azure/iot/device-update/account/private-endpoint-connection#az-iot-device-update-account-private-endpoint-connection-set) command to manage private endpoint connection.
+Use the [az iot du account private-endpoint-connection set](/cli/azure/iot/device-update/account/private-endpoint-connection#az-iot-device-update-account-private-endpoint-connection-set) command to manage private endpoint connection.
 
 Replace the following placeholders with your own information:
 
@@ -201,7 +201,7 @@ Replace the following placeholders with your own information:
 * **STATUS**: Either `Approved` or `Rejected`.
 
 ```azurecli-interactive
-az iot device-update account private-endpoint-connection set \
+az iot du account private-endpoint-connection set \
     --name <ACCOUNT_NAME> \
     --connection-name <PRIVATE_LINK_CONNECTION_NAME> \
     --status <STATUS> \

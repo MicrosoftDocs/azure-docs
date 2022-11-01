@@ -25,7 +25,7 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: Visual Studio Code 
+  - name: Visual Studio Code (preview - retired)
     href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
