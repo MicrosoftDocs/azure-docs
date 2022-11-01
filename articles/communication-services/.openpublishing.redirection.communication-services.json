@@ -64,6 +64,11 @@
         "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/call-recording-unmixed-audio-private-preview-quickstart.md",
         "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording",
         "redirect_document_id": false
-      }  
+      },
+      {
+          "source_path_from_root": "/articles/communication-services/quickstarts/telephony/manage-inbound-calls.md",
+          "redirect_url": "/articles/communication-services/how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md",
+          "redirect_document_id": false
+      }
     ]
 }
