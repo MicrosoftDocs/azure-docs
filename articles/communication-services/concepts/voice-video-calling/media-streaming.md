@@ -34,7 +34,7 @@ Audio streams can be used in many ways, below are some examples of how developer
 
 ## Sample architecture for subscribing to audio streams from an ongoing call
 
-![Screenshot of flow for play action.](./media/media_streaming.png)
+![Screenshot of flow for play action.](./media/media-streaming-flow.png)
 
 ## Supported formats
 
