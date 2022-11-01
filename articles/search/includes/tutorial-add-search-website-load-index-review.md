@@ -14,4 +14,4 @@ Once the upload completes, the search index is ready to use. Review your new ind
 
 1. Expand Indexes, then Documents, then `good-books`, then select a doc to see all the document-specific data.
  
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="../media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expandable screenshot Visual Studio Code showing documents listed in an index in Visual Studio Code..":::
+    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="../media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expandable screenshot of Visual Studio Code showing documents listed in an index.":::
