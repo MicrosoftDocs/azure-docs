@@ -20,7 +20,7 @@
     - name: Manage tenants
       href: manage-tenants.md    
     - name: Find or create a company work account
-      href: company-work-accounts.md
+      href: /partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context
     - name: Notifying Microsoft
       href: submit-legal-notice.md
   - name: Manage users
@@ -39,8 +39,14 @@
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
-  - name: License management
-    href: isv-app-license.md
+  - name: ISV app license management
+    items:
+      - name: About ISV app license management
+        href: isv-app-license-management.md
+      - name: License management for Dynamics 365 apps on Dataverse and Power Apps
+        href: isv-app-license.md
+      - name: License management for Power BI visual
+        href: isv-app-license-power-bi-visual.md  
   - name: Private plans
     href: private-plans.md
   - name: Private plans troubleshooting
@@ -111,8 +117,12 @@
       href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
     - name: Payment thresholds and time frames
       href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
-    - name: Payout statements
-      href: /partner-center/payout-statement?context=/azure/marketplace/context/context
+    - name: Payouts overview
+      href: /partner-center/payouts-overview?context=/azure/marketplace/context/context
+    - name: Payments
+      href: /partner-center/payments?context=/azure/marketplace/context/context
+    - name: Transaction history
+      href: /partner-center/transaction-history?context=/azure/marketplace/context/context
     - name: Payout schedules and processes
       href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
@@ -175,8 +185,10 @@
       items:
       - name: Plan the offer
         href: marketplace-containers.md
-      - name: Prepare technical assets
+      - name: Prepare technical assets for a container image
         href: azure-container-technical-assets.md
+      - name: Prepare technical assets for a Kubernetes application
+        href: azure-container-technical-assets-kubernetes.md
     - name: Create the offer
       items:
       - name: Create the offer
@@ -195,10 +207,14 @@
           href: azure-container-plan-setup.md
         - name: Plan listing
           href: azure-container-plan-listing.md
-        - name: Plan availability
+        - name: Plan pricing and availability
           href: azure-container-plan-availability.md
-        - name: Plan technical configuration
+        - name: Plan technical configuration for container images
           href: azure-container-plan-technical-configuration.md
+        - name: Plan technical configuration for Kubernetes applications
+          href: azure-container-plan-technical-configuration-kubernetes.md
+        - name: Container certification troubleshooting
+          href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
@@ -251,7 +267,7 @@
         href: azure-vm-plan-reorder-plans.md
       - name: Deprecate or restore a VM
         href: deprecate-vm.md
-  - name: Consulting services offer
+  - name: Consulting service offer
     items: 
     - name: Plan the offer
       href: plan-consulting-service-offer.md
@@ -393,6 +409,8 @@
         href: power-bi-visual-availability.md
       - name: Technical configuration
         href: power-bi-visual-technical-configuration.md
+      - name: Plans
+        href: power-bi-visual-plans.md  
       - name: Manage offer names
         href: power-bi-visual-manage-names.md
     - name: FAQs on migrating to the commercial marketplace
@@ -441,6 +459,50 @@
       href: create-new-saas-offer-marketing.md 
     - name: Go live
       href: test-publish-saas-offer.md
+  - name: Office store apps
+    items: 
+    - name: Why publish an Office store app? 
+      href: why-publish.md
+    - name: Submit to AppSource via Partner Center
+      href: submit-to-appsource-via-partner-center.md
+    - name: Create and manage a Partner Center account
+      items:
+        - name: Open an account
+          href: open-a-developer-account.md
+        - name: Manage account settings and profile
+          href: manage-account-settings-and-profile.md
+    - name: Prepare to publish
+      href: checklist.md
+    - name: Store step-by-step submission guide
+      href: add-in-submission-guide.md
+    - name: App submission FAQ
+      href: appsource-submission-faq.yml
+    - name: Reserve app name
+      href: reserve-solution-name.md
+    - name: Manage your submitted app
+      items:
+        - name: Manage app name
+          href: manage-solution-names.md
+        - name: Create or update client IDs and secrets
+          href: create-or-update-client-ids-and-secrets.md
+        - name: Find Store product GUID
+          href: find-office-guid.md  
+    - name: Create and market your app
+      items: 
+        - name: Create effective Store listings
+          href: create-effective-office-store-listings.md
+        - name: Craft effective Store images
+          href: craft-effective-appsource-store-images.md
+        - name: Optimize add-in placement and ranking
+          href: optimize-for-store-discovery.md
+        - name: Prepare localized solutions
+          href: prepare-localized-solutions.md
+        - name: Promote your solution
+          href: promote-your-office-store-solution.md
+        - name: Monetize your add-in as an SaaS offer
+          href: monetize-addins-through-microsoft-commercial-marketplace.md
+        - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
+          href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offer
@@ -497,6 +559,16 @@
     href: ratings-reviews.md
   - name: Customer retention dashboard
     href: customer-retention-dashboard.md
+  - name: Analyze your Office store app
+    items:
+    - name: Analyze performance
+      href: view-acquisitions-report.md
+    - name: Analyze usage
+      href: view-usage-report.md
+    - name: Teams apps usage report
+      href: teams-apps-usage.md
+    - name: Ratings and reviews
+      href: ratings-reviews.md
   - name: Programmatic access to analytics
     items:
     - name: Get started
@@ -629,12 +701,20 @@
       href: partner-center-portal/saas-fulfillment-apis-faq.yml
     - name: SaaS Fulfillment APIs v1 (deprecated)
       href: partner-center-portal/pc-saas-fulfillment-api-v1.md    
+  - name: Private Offer APIs
+    items:
+    - name: Private Offer APIs
+      href: private-offers-api.md
+  - name: Product Ingestion API
+    href: product-ingestion-api.md
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
+  - name: GitHub commercial marketplace project template 
+    href: https://aka.ms/marketplace-template
   - name: Marketplace Office Hours
     href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
@@ -650,7 +730,7 @@
   - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
-    href: sell-from-countries.md  
+    href: supported-countries-regions.md  
   - name: Co-sell country, region, state, and province codes
     href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories

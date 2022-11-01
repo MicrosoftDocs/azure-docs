@@ -5,11 +5,11 @@ description: Set up a SharePoint indexer to automate indexing of document librar
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 09/08/2022
 ---
 
 # Index data from SharePoint document libraries
@@ -17,7 +17,7 @@ ms.date: 01/19/2022
 > [!IMPORTANT] 
 > SharePoint indexer support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
-Configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. This article explains the configuration steps, followed by a deeper exploration of behaviors and scenarios you are likely to encounter.
+This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
 
 > [!NOTE]
 > SharePoint supports a granular authorization model that determines per-user access at the document level. The SharePoint indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) of unauthorized content. 
@@ -45,9 +45,9 @@ The SharePoint indexer can extract text from the following document formats:
 
 ## Configure the SharePoint indexer
 
-To set up the SharePoint indexer, you will need to perform some tasks in the Azure portal, and other tasks through the preview REST API.
+To set up the SharePoint indexer, you'll need to perform some tasks in the Azure portal and others through the preview REST API.
 
-The following video shows how to set up the SharePoint indexer.
+The following video shows you how to set up the SharePoint indexer.
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
@@ -55,11 +55,11 @@ The following video shows how to set up the SharePoint indexer.
 
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in.
 
-If the SharePoint site is in the same tenant as the search service, you will need to enable the system-assigned managed identity for the search service in the Azure portal. If the SharePoint site is in a different tenant from the search service, skip this step.
+If the SharePoint site is in the same tenant as the search service, you'll need to enable the system-assigned managed identity for the search service in the Azure portal. If the SharePoint site is in a different tenant from the search service, skip this step.
 
 :::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Enable system assigned managed identity":::
 
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
+After selecting **Save** you'll see an Object ID that has been assigned to your search service.
 
 :::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::
 
@@ -67,9 +67,11 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 The SharePoint indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
 
-+ Delegated permissions, where the indexer runs under the identity of the user or app that sent the request. Data access is limited to the sites and files to which the user has access. To support deleted permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to log in on behalf of the user.
++ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the user has access. To support deleted permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
+
+If your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [SharePoint Conditional Access policies](./search-indexer-troubleshooting.md#sharepoint-conditional-access-policies).
 
 ### Step 3: Create an Azure AD application
 
@@ -108,7 +110,7 @@ The SharePoint indexer will use this Azure Active Directory (Azure AD) applicati
 
 1. Give admin consent.
 
-    Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these are the case, you’ll need to have a tenant admin grant consent for this Azure AD application before creating the indexer.
+    Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these conditions apply, you’ll need to have a tenant admin grant consent for this Azure AD application before creating the indexer.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png" alt-text="Azure AD app grant admin consent":::
 
@@ -126,7 +128,7 @@ The SharePoint indexer will use this Azure Active Directory (Azure AD) applicati
     
         :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret.png" alt-text="New client secret":::
     
-    + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires it will need to be recreated and the indexer needs to be updated with the new secret.
+    + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires, it will need to be recreated and the indexer needs to be updated with the new secret.
     
         :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-setup.png" alt-text="Setup client secret":::
     
@@ -213,7 +215,7 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
 
-During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
+During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
 
 There are a few steps to creating the indexer:
 
@@ -247,7 +249,8 @@ There are a few steps to creating the indexer:
               "mappingFunction" : { 
                 "name" : "base64Encode" 
               } 
-          }
+             }
+        ]
     }
     ```
 
@@ -262,11 +265,11 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. Provide the code that was provided in the error message.
+1. Provide the code that was included in the error message.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Enter device code":::
 
-1. The SharePoint indexer will access the SharePoint content as the signed-in user. The user that logs in during this step will be that signed-in user. So, if you log in with a user account that doesn’t have access to a document in the Document Library that you want to index, the indexer won’t have access to that document.
+1. The SharePoint indexer will access the SharePoint content as the signed-in user. The user that logs in during this step will be that signed-in user. So, if you sign in with a user account that doesn’t have access to a document in the Document Library that you want to index, the indexer won’t have access to that document.
 
     If possible, we recommend creating a new user account and giving that new user the exact permissions that you want the indexer to have.
 
@@ -291,9 +294,9 @@ There are a few steps to creating the indexer:
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
         "configuration:" {
-            "indexedFileNameExtensions" : null,
-            "excludedFileNameExtensions" : null,
-            "dataToExtract": "contentAndMetadata"
+            "dataToExtract": "contentAndMetadata",
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpg"
           }
         },
         "schedule" : { },
@@ -304,7 +307,8 @@ There are a few steps to creating the indexer:
               "mappingFunction" : { 
                 "name" : "base64Encode" 
               } 
-          }
+            }
+        ]
     }
     ```
 
@@ -324,7 +328,7 @@ api-key: [admin key]
 
 ## Updating the data source
 
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
 
 Once the data source has been updated, follow the below steps:
 
@@ -356,7 +360,7 @@ If you have set the indexer to index document metadata (`"dataToExtract": "conte
 
 | Identifier | Type | Description | 
 | ------------- | -------------- | ----------- |
-| metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID and item ID which uniquely identifies an item in a document library for a site. |
+| metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID, and item ID which uniquely identifies an item in a document library for a site. |
 | metadata_spo_site_id | Edm.String | The ID of the SharePoint site. |
 | metadata_spo_library_id | Edm.String | The ID of document library. |
 | metadata_spo_item_id | Edm.String | The ID of the (document) item in the library. |
@@ -405,9 +409,9 @@ The "name" property is required and must be one of three values:
 
 | Value | Description |
 |-|-|
-| defaultSiteLibrary | Index all the content from the sites default document library. |
-| allSiteLibraries | Index all the content from all the document libraries in a site. This will not index document libraries from a subsite. Those can be specified in the "query" though. |
-| useQuery | Only index content defined in the "query". |
+| defaultSiteLibrary | Index all content from the site's default document library. |
+| allSiteLibraries | Index all content from all document libraries in a site. Document libraries from a subsite are out of scope/ If you need content from subsites, choose "useQuery" and specify "includeLibrariesInSite". |
+| useQuery | Only index the content defined in the "query". |
 
 <a name="query"></a>
 
@@ -421,14 +425,14 @@ The "query" parameter of the data source is made up of keyword/value pairs. The 
 | Keyword | Value description and examples |
 | ------- | ------------------------ |
 | null | If null or empty, index either the default document library or all document libraries depending on the container name.	<br><br>Example: <br><br>``` "container" : { "name" : "defaultSiteLibrary", "query" : null } ``` |
-| includeLibrariesInSite | Index content from all libraries under the specified site in the connection string. These are limited to subsites of your site. The value should be the URI of the site or subsite. <br><br>Example: <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" }``` |
-| includeLibrary | Index all content from this library. The value is the fully-qualified path to the library, which can be copied from your browser: <br><br>Example 1 (fully-qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" }``` <br><br>Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
-| excludeLibrary | Do not index content from this library. The value is the fully-qualified path to the library, which can be copied from your browser: <br><br> Example 1 (fully-qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" }``` <br><br> Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
+| includeLibrariesInSite | Index content from all libraries under the specified site in the connection string. The scope includes any subsites of your site. The value should be the URI of the site or subsite. <br><br>Example: <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" }``` |
+| includeLibrary | Index all content from this library. The value is the fully qualified path to the library, which can be copied from your browser: <br><br>Example 1 (fully qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" }``` <br><br>Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
+| excludeLibrary | Don't index content from this library. The value is the fully qualified path to the library, which can be copied from your browser: <br><br> Example 1 (fully qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" }``` <br><br> Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
 | additionalColumns | Index columns from the document library. The value is a comma-separated list of column names you want to index. Use a double backslash to escape semicolons and commas in column names: <br><br> Example 1 (additionalColumns=MyCustomColumn,MyCustomColumn2):  <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary;additionalColumns=MyCustomColumn,MyCustomColumn2" }``` <br><br> Example 2 (escape characters using double backslash): <br><br> ```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx;additionalColumns=MyCustomColumnWith\\,,MyCustomColumnWith\\;" }``` |
 
 ## Handling errors
 
-By default, the SharePoint indexer stops as soon as it encounters a document with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index documents without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to false:
+By default, the SharePoint indexer stops as soon as it encounters a document with an unsupported content type (for example, an image). You can use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index documents without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to false:
 
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30-Preview

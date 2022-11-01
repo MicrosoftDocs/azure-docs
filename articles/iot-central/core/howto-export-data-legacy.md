@@ -4,13 +4,13 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/06/2022
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
 # Export IoT data to cloud destinations using data export (legacy)
 
-The legacy data export (classic) feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-data.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
+The legacy data export (classic) feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-to-blob-storage.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
 
 | Capability  | Legacy data export (classic) | New data export |
 | :------------- | :---------- | :----------- |
@@ -53,7 +53,7 @@ instanceOf: .device.templateId,
 properties: .device.properties.reported | map({ key: .name, value: .value }) | from_entries 
 ```
 
-Device templates: If you're currently using legacy data exports with the device templates data type, then you can obtain the same data using the [Device Templates - Get API call](/rest/api/iotcentral/1.0dataplane/device-templates/get).
+Device templates: If you're currently using legacy data exports with the device templates data type, then you can obtain the same data using the [Device Templates - Get API call](/rest/api/iotcentral/2022-07-31dataplane/device-templates/get).
 
 ### Destination migration considerations
 
@@ -69,7 +69,7 @@ In the new data export, you can create a destination and reuse it across differe
 >
 > - Legacy data exports (classic) are scheduled to be retired. Migrate any legacy data exports to new exports
 > 
-> - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
+> - For information about the latest data export features, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
@@ -139,8 +139,8 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 4. Enter a name for the export. In the drop-down list box, select your **namespace**, or **Enter a connection string**.
 
-    - You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
-    - For apps created using the free pricing plan, the only way to configure data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.
+    > [!Tip]
+    > You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
 
     ![Create new Event Hub](media/howto-export-data-legacy/export-event-hub.png)
 
@@ -605,7 +605,7 @@ This example snapshot shows a message that contains device and properties data i
 
 If you have an existing data export in your preview application with the *Devices* and *Device templates* streams turned on, update your export by **30 June 2020**. This requirement applies to exports to Azure Blob storage, Azure Event Hubs, and Azure Service Bus.
 
-Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/1.0dataplane/devices/get), [device property](/rest/api/iotcentral/1.0dataplane/devices/get-properties),  and [device template](/rest/api/iotcentral/1.0dataplane/device-templates/get) objects in the IoT Central public API.
+Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/2022-07-31dataplane/devices/get), [device property](/rest/api/iotcentral/2022-07-31dataplane/devices/get-properties),  and [device template](/rest/api/iotcentral/2022-07-31dataplane/device-templates/get) objects in the IoT Central public API.
 
 For **Devices**, notable differences between the old data format and the new data format include:
 - `@id` for device is removed, `deviceId` is renamed to `id` 

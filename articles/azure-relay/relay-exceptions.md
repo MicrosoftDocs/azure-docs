@@ -2,7 +2,7 @@
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
 description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 # Azure Relay exceptions
 

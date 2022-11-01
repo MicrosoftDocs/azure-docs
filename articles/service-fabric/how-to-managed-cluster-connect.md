@@ -2,7 +2,11 @@
 title: Connect to a Service Fabric managed cluster
 description: Learn how to connect to a Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Connect to a Service Fabric managed cluster
 
@@ -36,7 +40,7 @@ To navigate to SFX for your managed cluster
 
 ## Use PowerShell Modules
 
-There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
+The following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 

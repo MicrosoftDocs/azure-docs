@@ -21,6 +21,8 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
+You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
+
 > [!NOTE]
 > We have added GitHub public support on Azure Gov, Azure China. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
 

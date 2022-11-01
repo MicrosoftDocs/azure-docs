@@ -394,6 +394,11 @@
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/playback-recordings-how-to.md", 
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to",
       "redirect_document_id": false      
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/index.yml", 
+      "redirect_url": "/azure/azure-video-indexer/index",
+      "redirect_document_id": false      
     }
   ]
 }

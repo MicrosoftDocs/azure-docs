@@ -36,40 +36,40 @@ Before you create the `ALIAS` record, you first need to validate that you own th
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your static web app.
+1. Go to your static web app.
 
 1. From the *Overview* window, copy the generated **URL** of your site and set it aside in a text editor for future use.
 
 1. Under *Settings*, select **Custom domains**.
 
-1. Select the **+ Add** button.
+2. Select **+ Add**.
 
-1. In the *Enter domain* tab, enter your apex domain name.
+3. In the *Enter domain* tab, enter your apex domain name.
 
     For instance, if your domain name is `example.com`, enter `example.com` into this box (without any subdomains).
 
-1. Select the **Next** button.
+4. Select **Next**.
 
-1. In the *Validate + Configure* tab, enter the following values.
+5. In the *Validate + Configure* tab, enter the following values.
 
     | Setting | Value |
     |---|---|
     | Domain name | This value should match the domain name you entered in the previous step. |
     | Hostname record type | Select **TXT**. |
 
-1. Select the **Generate code** button.
+6. Select **Generate code**.
 
     Wait as the code is generated. It make take a minute or so to complete.
 
-1. Once the `TXT` record value is generated, select the **copy button** (next to the generated value) to copy the code to the clipboard.
+7. Once the `TXT` record value is generated, **copy** (next to the generated value) the code to the clipboard.
 
-1. Select the **Close** button.
+8. Select **Close**.
 
-1. Open a new browser tab and sign in to your domain registrar account.
+9. Open a new browser tab and sign in to your domain registrar account.
 
-1. Navigate to your domain name's DNS configuration settings.
+10. Go to your domain name's DNS configuration settings.
 
-1. Add a new `TXT` record with the following values.
+11. Add a new `TXT` record with the following values.
 
     | Setting | Value |
     |--|--|
@@ -78,7 +78,7 @@ Before you create the `ALIAS` record, you first need to validate that you own th
     | Value | Paste the generated code value you copied from the Azure portal. |
     | TTL (if applicable) | Leave as default value. |
 
-1. Save changes to your DNS record.
+12. Save changes to your DNS record.
 
 ### Set up an ALIAS record
 
@@ -90,14 +90,14 @@ Before you create the `ALIAS` record, you first need to validate that you own th
     |--|--|
     | Type | `ALIAS` |
     | Host | Enter **@** |
-    | Value | Paste the generated code value you copied from the Azure portal. Make sure to remove the `https://` prefix from your URL. |
+    | Value | Paste the generated URL you copied from the Azure portal. Make sure to remove the `https://` prefix from your URL. |
     | TTL (if applicable) | Leave as default value. |
 
 1. Save changes to your DNS record.
 
     Since DNS settings need to propagate, this process can take some time to complete.
 
-1. Open a new browser tab and navigate to your apex domain.
+1. Open a new browser tab and go to your apex domain.
 
     After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 

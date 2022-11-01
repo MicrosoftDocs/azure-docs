@@ -3,11 +3,10 @@ title: Configure a solution template plan
 description: Configure a solution template plan for your Azure application offer in Partner Center (Azure Marketplace). 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/05/2021
+ms.date: 9/14/2022
 ---
 
 # Configure a solution template plan
@@ -75,6 +74,8 @@ On the **Technical configuration** tab, you’ll upload the deployment package t
 In the **Version** box provide the current version of the technical configuration. Increment this version each time you publish a change to this page. The version number must be in the format: integer.integer.integer. For example, `1.0.2`.
 
 ### Upload a package file
+
+Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before uploading the package file.
 
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 

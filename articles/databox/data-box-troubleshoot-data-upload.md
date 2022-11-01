@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: alkohli
 ---
 
@@ -240,4 +240,4 @@ Other REST API errors might occur during data uploads. For more information, see
 ## Next steps
 
 - [Review common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
-- [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure)
+- [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure)

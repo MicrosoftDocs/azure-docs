@@ -38,7 +38,7 @@ If you are developing for HoloLens or Android please follow the additional setup
 # [HoloLens](#tab/ExtraConfigurationsHoloLens)
 
 #### Configure your Unity project XR settings
-When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
+When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/new-openxr-project-without-mrtk) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
 
 Azure Spatial Anchors SDK versions 2.9.0 or earlier only provide support for the Windows XR plugin (`com.unity.xr.windowsmr`), so the Azure Spatial Anchors windows package has an explicit dependency on the Windows XR Plugin.
 

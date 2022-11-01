@@ -1,55 +1,54 @@
 ---
 title: SSH authentication with Azure Active Directory
-description: Architectural guidance on achieving SSH integration with Azure Active Directory   
+description: Get architectural guidance on achieving SSH integration with Azure Active Directory.   
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: baselden
+ms.date: 06/22/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
+# SSH authentication with Azure Active Directory  
 
-# SSH  
+Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. It's commonly used in Unix-based systems such as Linux. SSH replaces the Telnet protocol, which doesn't provide encryption in an unsecured network. 
 
-Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign in, executes remote commands, and securely transfer files. It is commonly used in Unix-based systems such as Linux®. SSH replaces the Telnet protocol, which does not provide encryption in an unsecured network. 
+Azure Active Directory (Azure AD) provides a virtual machine (VM) extension for Linux-based systems that run on Azure. It also provides a client extension that integrates with the [Azure CLI](/cli/azure/) and the OpenSSH client.
 
-Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for Linux®-based systems running on Azure. 
+You can use SSH authentication with Active Directory when you're:
 
-## Use when 
+* Working with Linux-based VMs that require remote command-line sign-in.
 
-* Working with Linux®-based VMs that require remote sign in
+* Running remote commands in Linux-based systems.
 
-* Executing remote commands in Linux®-based systems
+* Securely transferring files in an unsecured network.
 
-* Securely transfer files in an unsecured network
+## Components of the system 
 
-![diagram of Azure AD with SSH protocol](./media/authentication-patterns/ssh-auth.png)
+The following diagram shows the process of SSH authentication with Azure AD: 
 
-SSH with Azure AD
+![Diagram of Azure AD with the SSH protocol.](./media/authentication-patterns/ssh-auth.png)
 
-## Components of system 
+The system includes the following components:
 
-* **User**: Starts SSH client to set up a connection with the Linux® VMs and provides credentials for authentication.
+* **User**: The user starts the Azure CLI and the SSH client to set up a connection with the Linux VMs. The user also provides credentials for authentication.
 
-* **Web browser**: The component that the user interacts with. It communicates with the Identity Provider (Azure AD) to securely authenticate and authorize the user.
+* **Azure CLI**: The user interacts with the Azure CLI to start a session with Azure AD, request short-lived OpenSSH user certificates from Azure AD, and start the SSH session.
 
-* **SSH Client**: Drives the connection setup process.
+* **Web browser**: The user opens a browser to authenticate the Azure CLI session. The browser communicates with the identity provider (Azure AD) to securely authenticate and authorize the user.
 
-* **Azure AD**: Authenticates the identity of the user using device flow, and issues token to the Linux VMs.
+* **OpenSSH client**: The Azure CLI (or the user) uses the OpenSSH client to start a connection to the Linux VM.
 
-* **Linux VM**: Accepts token and provides successful connection.
+* **Azure AD**: Azure AD authenticates the identity of the user and issues short-lived OpenSSH user certificates to the Azure CLI client.
 
-## Implement SSH with Azure AD 
+* **Linux VM**: The Linux VM accepts the OpenSSH user certificate and provides a successful connection.
 
-* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](../devices/howto-vm-sign-in-azure-ad-linux.md) 
+## Next steps
 
-* [OAuth 2.0 device code flow - Microsoft identity platform ](../develop/v2-oauth2-device-code.md)
-
-* [Integrate with Azure Active Directory (akamai.com)](https://learn.akamai.com/en-us/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
+* To implement SSH with Azure AD, see [Log in to a Linux VM by using Azure AD credentials](../devices/howto-vm-sign-in-azure-ad-linux.md). 

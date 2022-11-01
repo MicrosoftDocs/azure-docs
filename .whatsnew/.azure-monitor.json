@@ -1,0 +1,77 @@
+{
+  "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+  "docSetProductName": "Azure Monitor",
+  "rootDirectory": "articles/azure-monitor/",
+  "docLinkSettings": {
+    "linkFormat": "relative",
+    "relativeLinkPrefix": "/azure/azure-monitor/"
+  },
+  "inclusionCriteria": {
+    "labels": [
+      "label:whats-new"
+    ],
+    "minAdditionsToFile": 1
+  },
+  "areas": [
+    {
+      "names": ["."],
+      "heading": "General"
+    },
+    {
+      "names":["agents"],
+      "heading": "Agents"
+    },
+    {
+      "names":["alters"],
+      "heading": "Alerts"
+    },
+    {
+      "names":["app"],
+      "heading": "Application Insights"
+    },
+    {
+      "names":["autoscale"],
+      "heading": "Autoscale"
+    },
+    {
+      "names":["change"],
+      "heading": "Change Analysis"
+    },
+    {
+      "names":["containers"],
+      "heading": "Containers"
+    },
+    {
+      "names":["essentials"],
+      "heading": "Essentials"
+    },
+    {
+      "names":["insights"],
+      "heading": "Insights"
+    },
+    {
+      "names":["logs"],
+      "heading": "Logs"
+    },
+    {
+      "names":["media"],
+      "heading": "Media"
+    },
+    {
+      "names":["profiler"],
+      "heading": "Profiler"
+    },
+    {
+      "names":["snapshot-debugger"],
+      "heading": "Snapshot Debugger"
+    },
+    {
+      "names":["visualize"],
+      "heading": "Visualize"
+    },
+    {
+      "names":["vm"],
+      "heading": "VMs"
+    }
+  ]
+}

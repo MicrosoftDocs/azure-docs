@@ -16,26 +16,28 @@
       href: whats-new-azure-monitor.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
+    - name: WebRTC Redirector Service
+      href: whats-new-webrtc.md
     - name: Remote Desktop clients
       items:
       - name: Windows (Desktop)
-        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?context=/azure/virtual-desktop/context/context
+        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Windows (Microsoft Store)
-        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?context=/azure/virtual-desktop/context/context
+        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: macOS
-        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: iOS
-        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: Android
-        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?context=/azure/virtual-desktop/context/context
+        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: iOS/iPadOS
+        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Android/Chrome OS
+        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Web
-        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?context=/azure/virtual-desktop/context/context
+        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure Virtual Desktop
+  - name: Getting started feature
     href: getting-started-feature.md
 - name: Tutorials
   items:
@@ -49,28 +51,28 @@
     href: set-up-service-alerts.md
 - name: Concepts
   items:
-  - name: Azure Virtual Desktop environment
+  - name: Azure Virtual Desktop terminology
     href: environment-setup.md
+  - name: Disaster recovery concepts 
+    href: disaster-recovery-concepts.md
   - name: Azure Virtual Desktop Agent
     href: agent-overview.md
   - name: Example architecture scenarios
     items:
     - name: Azure Virtual Desktop for the enterprise
-      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=/azure/virtual-desktop/context/context
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
     - name: Multiple identity sources
       items:
       - name: AD DS and Azure AD
-        href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: AD DS, Azure AD, and Azure AD DS
-        href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Network connectivity
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
-      - name: RDP Shortpath for managed networks
-        href: shortpath.md
-      - name: RDP Shortpath for public networks (preview)
-        href: shortpath-public.md
+      - name: RDP Shortpath
+        href: rdp-shortpath.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
       - name: Required URL list
@@ -82,7 +84,7 @@
       - name: Determine user connection quality
         href: connection-latency.md
   - name: Virtual machine sizing guidance
-    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Identity and access management
     items:
     - name: Identities and authentication
@@ -95,10 +97,30 @@
     href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
-  - name: FSLogix profile containers and Azure files
+  - name: FSLogix profile containers and Azure Files
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
+  - name: Scale session hosts
+    items:
+    - name: Autoscale
+      items:
+      - name: How autoscale works
+        href: autoscale-scenarios.md
+      - name: Autoscale glossary
+        href: autoscale-glossary.md
+      - name: Autoscale FAQ
+        href: autoscale-faq.yml
+    - name: Azure Automation and Azure Logic Apps
+      items:
+      - name: How the scaling tool works
+        href: scaling-automation-logic-apps.md
+  - name: Remote Desktop clients
+    items: 
+    - name: Compare the clients
+      href: compare-remote-desktop-clients.md
+    - name: Supported RDP properties
+      href: rdp-properties.md
   - name: Azure Virtual Desktop FAQ
     href: faq.yml
   - name: Windows 10 Enterprise multi-session FAQ
@@ -119,24 +141,22 @@
         href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
+  - name: Multimedia redirection (preview)
+    href: multimedia-redirection-intro.md
   - name: Security
     items:
       - name: Security best practices
         href: security-guide.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
-      - name: Screen capture protection
-        href: screen-capture-protection.md
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
-    items:
-      - name: Overview (preview)
-        href: azure-stack-hci-overview.md
-      - name: Azure Stack HCI FAQ (preview)
-        href: azure-stack-hci-faq.yml
+  - name: Azure Virtual Desktop for Azure Stack HCI
+    href: azure-stack-hci-overview.md
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
-  - name: Fair Share technologies enabled by default
+  - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: Supported features for Teams
+    href: teams-supported-features.md
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -145,37 +165,51 @@
         href: automatic-migration.md
       - name: Migrate manually
         href: manual-migration.md
-  - name: Connect to Azure Virtual Desktop resources
+  - name: Connect to Azure Virtual Desktop
     items:
+    - name: Windows Desktop client
+      href: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Web client
+      href: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: macOS client
+      href: ./users/connect-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: iOS/iPadOS client
+      href: ./users/connect-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Android/Chrome OS client
+      href: ./users/connect-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Windows Microsoft Store client
+      href: ./users/connect-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Thin clients
+      href: ./users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+  - name: Remote Desktop clients
+    items: 
+    - name: Use client features
+      items:
       - name: Windows Desktop client
-        href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Microsoft Store client
-        href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: macOS client
-        href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        href: ./users/client-features-windows.md
       - name: Web client
-        href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: iOS client
-        href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Android client
-        href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Thin clients
-        href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Configure device redirections
-        href: configure-device-redirections.md
-      - name: Supported RDP file settings
-        href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+        href: ./users/client-features-web.md
+      - name: macOS client
+        href: ./users/client-features-macos.md
+      - name: iOS/iPadOS client
+        href: ./users/client-features-ios-ipados.md
+      - name: Android/Chrome OS client
+        href: ./users/client-features-android-chrome-os.md
+      - name: Windows Microsoft Store client
+        href: ./users/client-features-microsoft-store.md
+    - name: Configure device redirections
+      href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
       - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
-      - name: Deploy an Azure AD joined session host
+      - name: Deploy an Azure AD-joined session host
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
-      - name: Deploy Windows Server based machine
+      - name: Deploy a Windows Server-based virtual machine
         href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
@@ -187,7 +221,7 @@
     href: delete-host-pool.md
   - name: Set up email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
-  - name: Create a profile container
+  - name: FSLogix Profile Container
     items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
@@ -195,16 +229,12 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure NetApp Files and MSIX app attach
         href: create-netapp-files.md
-      - name: Use Azure Files and Azure AD DS
-        href: create-profile-container-adds.md
-      - name: Use Azure Files and AD DS
-        href: create-file-share.md
+      - name: Use Azure Files and Active Directory
+        href: fslogix-profile-container-configure-azure-files-active-directory.md
       - name: Use Azure Files and Azure AD
         href: create-profile-container-azure-ad.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
-      - name: Authorize an account to use Azure Files
-        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -213,8 +243,12 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
+  - name: Move resources between regions
+    href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
+  - name: Screen capture protection
+    href: screen-capture-protection.md
   - name: Customize session host image
     items:
       - name: Set up golden image in Azure
@@ -223,27 +257,23 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts with Azure Automation
+  - name: Scale session hosts 
     items:
-      - name: Set up a scaling script
-        href: set-up-scaling-script.md
-  - name: Autoscale (preview)
-    items:
-      - name: Use the autoscale feature (preview)
-        href: autoscale-scaling-plan.md
-      - name: Autoscale session hosts (preview)
-        href: autoscale-new-existing-host-pool.md
-      - name: Autoscale diagnostics (preview)
-        href: autoscale-diagnostics.md
-      - name: Autoscale glossary (preview)
-        href: autoscale-glossary.md
-      - name: Autoscale scenarios (preview)
-        href: autoscale-scenarios.md
-      - name: Autoscale feature FAQ (preview)
-        href: autoscale-faq.yml
+      - name: Autoscale
+        items:
+        - name: Create a scaling plan
+          href: autoscale-scaling-plan.md
+        - name: Assign a scaling plan
+          href: autoscale-new-existing-host-pool.md
+        - name: Set up diagnostics
+          href: autoscale-diagnostics.md
+      - name: Azure Automation and Azure Logic Apps
+        items:
+        - name: Set up a runbook and logic app
+          href: set-up-scaling-script.md
   - name: Manage agent updates
     items:
-      - name: Scheduled Agent Updates (preview)
+      - name: Scheduled Agent Updates
         href: scheduled-agent-updates.md
       - name: Set up diagnostics to monitor agent updates
         href: agent-updates-diagnostics.md
@@ -271,11 +301,17 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Set up Azure AD multifactor authentication
-    href: set-up-mfa.md
-  - name: Configure AD FS single sign-on
-    href: configure-adfs-sso.md
-  - name: Configure automatic updates
+  - name: Identity and access management
+    items:
+      - name: Enforce Azure AD MFA
+        href: set-up-mfa.md
+      - name: Configure single sign-on using Azure AD
+        href: configure-single-sign-on.md
+      - name: Configure single sign-on using AD FS
+        href: configure-adfs-sso.md
+      - name: Set up the KDC proxy
+        href: key-distribution-center-proxy.md
+  - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
@@ -291,8 +327,6 @@
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
-  - name: Set up the KDC proxy
-    href: key-distribution-center-proxy.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
@@ -303,10 +337,18 @@
     href: drain-mode.md
   - name: Network connectivity
     items:
+    - name: Check access to required URLs
+      href: required-url-check-tool.md
+    - name: Configure RDP Shortpath
+      href: configure-rdp-shortpath.md
+    - name: Limit RDP Shortpath port range
+      href: configure-rdp-shortpath-limit-ports-public-networks.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     href: azure-stack-hci.md
+  - name: Set up Windows Sandbox
+    href: sandbox.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -317,6 +359,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Session host statuses and health checks
+    href: troubleshoot-statuses-checks.md
   - name: Management issues
     href: troubleshoot-management-issues.md
   - name: Azure Virtual Desktop PowerShell
@@ -331,24 +375,30 @@
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs
     href: troubleshoot-azure-ad-connections.md
+  - name: Device redirections
+    href: troubleshoot-device-redirections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
   - name: Connection quality issues
     href: troubleshoot-connection-quality.md
+  - name: RDP Shortpath
+    href: troubleshoot-rdp-shortpath.md
+  - name: Sign-in screen is blank
+    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
+  - name: Multimedia redirection (preview)
+    href: troubleshoot-multimedia-redirection.md
+  - name: Teams on Azure Virtual Desktop
+    href: troubleshoot-teams.md
 - name: Reference
   items:
-  - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure
-    href: /azure/cloud-adoption-framework/scenarios/wvd
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization
   - name: REST API
     href: /rest/api/desktopvirtualization/
-  - name: Terraform
-    href: /azure/developer/terraform/configure-azure-virtual-desktop
 - name: Resources
   items:
   - name: User experience estimator
@@ -356,14 +406,22 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
-    href: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+    href: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+  - name: Framework and architectures
+    items:
+    - name: Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/scenarios/wvd
+    - name: Azure Architecture Center
+      href: /azure/architecture/browse/?expanded=azure&products=azure-virtual-desktop
   - name: How-to videos
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
-  - name: Microsoft Tech Community - Azure Virtual Desktop
+  - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
   - name: Azure Virtual Desktop roadmap
     href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
-    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
+  - name: Terraform samples
+    href: /azure/developer/terraform/configure-azure-virtual-desktop
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

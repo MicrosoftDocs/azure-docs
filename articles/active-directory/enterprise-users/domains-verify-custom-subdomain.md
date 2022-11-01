@@ -3,15 +3,14 @@ title: Change subdomain authentication type using PowerShell and Graph - Azure A
 description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
-
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2022
-ms.author: curtand
+ms.date: 06/23/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 
 ms.custom: it-pro
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Change subdomain authentication type in Azure Active Directory
 
-After a root domain is added to Azure Active Directory (Azure AD), all subsequent subdomains added to that root in your Azure AD organization automatically inherit the authentication setting from the root domain. However, if you want to manage domain authentication settings independently from the root domain settings, you can now with the Microsoft Graph API. For example, if you have a federated root domain such as contoso.com, this article can help you verify a subdomain such as child.contoso.com as managed instead of federated.
+After a root domain is added to Azure Active Directory (Azure AD), part of Microsoft Entra, all subsequent subdomains added to that root in your Azure AD organization automatically inherit the authentication setting from the root domain. However, if you want to manage domain authentication settings independently from the root domain settings, you can now with the Microsoft Graph API. For example, if you have a federated root domain such as contoso.com, this article can help you verify a subdomain such as child.contoso.com as managed instead of federated.
 
 In the Azure AD portal, when the parent domain is federated and the admin tries to verify a managed subdomain on the **Custom domain names** page, you'll get a 'Failed to add domain' error with the reason "One or more properties contains invalid values." If you try to add this subdomain from the Microsoft 365 admin center, you will receive a similar error. For more information about the error, see [A child domain doesn't inherit parent domain changes in Office 365, Azure, or Intune](/office365/troubleshoot/administration/child-domain-fails-inherit-parent-domain-changes).
 
@@ -64,7 +63,7 @@ Because subdomains inherit the authentication type of the root domain by default
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
+POST https://graph.windows.net/{tenant-id}/domains/foo.contoso.com/promote
 ```
 
 ### Promote command error conditions

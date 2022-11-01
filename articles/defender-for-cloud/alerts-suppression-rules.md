@@ -46,7 +46,7 @@ There are a few ways you can create rules to suppress unwanted security alerts:
 - To suppress alerts at the subscription level, you can use the Azure portal or the REST API as explained below
 
 > [!NOTE]
-> Suppression rules don't work retroactively - they'll only suppress alerts triggered _after_ the rule is created. Also, if a specific alert type has never been generated on a specific subscription, future alerts of that type wonn't be suppressed. For a rule to suppress an alert on a specific subscription, that alert type has to have been triggered at leaast once before the rule is created.
+> Suppression rules don't work retroactively - they'll only suppress alerts triggered _after_ the rule is created. Also, if a specific alert type has never been generated on a specific subscription, future alerts of that type won't be suppressed. For a rule to suppress an alert on a specific subscription, that alert type has to have been triggered at least once before the rule is created.
 
 To create a rule directly in the Azure portal:
 
@@ -115,7 +115,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For full details and usage examples, see the [API documentation](/rest/api/securitycenter/). 
+For full details and usage examples, see the [API documentation](/rest/api/defenderforcloud/). 
 
 
 ## Next steps

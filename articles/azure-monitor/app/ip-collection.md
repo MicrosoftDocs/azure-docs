@@ -4,6 +4,7 @@ description: Understand how Application Insights handles IP addresses and geoloc
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
+ms.reviewer: saars
 ---
 
 # Geolocation and IP address handling
@@ -14,22 +15,26 @@ This article explains how geolocation lookup and IP address handling work in App
 
 By default, IP addresses are temporarily collected but not stored in Application Insights. The basic process is as follows:
 
-When telemetry is sent to Azure, Application Insights uses the IP address to do a geolocation lookup by using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Application Insights uses the results of this lookup to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field. 
+When telemetry is sent to Azure, Application Insights uses the IP address to do a geolocation lookup. Application Insights uses the results of this lookup to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field. 
 
-> [!NOTE] 
-> Application Insights uses an older version of the GeoLite2 database. If you experience accuracy issues with IP to geolocation mappings, then as a workaround you can disable IP masking and utilize another geomapping service to convert the client_IP field of the underlying telemetry to a more accurate geolocation. We are currently working on an update to improve the geolocation accuracy.
+Geolocation data can be removed in the following ways.
+
+* [Remove the client IP initializer](../app/configuration-with-applicationinsights-config.md)
+* [Use a custom initializer](../app/api-filtering-sampling.md)
 
 The telemetry types are:
 
 * Browser telemetry: Application Insights collects the sender's IP address. The ingestion endpoint calculates the IP address.
 * Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. The IP address isn't collected locally when the `X-Forwarded-For` header is set. When the incoming list of IP address has more than one item, the last IP address is used to populate geolocation fields.
 
-This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
+This behavior is by design to help avoid unnecessary collection of personal data and ip address location information. Whenever possible, we recommend avoiding the collection of personal data. 
 
 > [!NOTE]
-> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations. 
+> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations.  
 >
 > To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
+
+While not collecting ip addresses will also not collect city and other geolocation attributes are populated by our pipeline by using the IP address, you can also mask IP collection at the source. This can be done by either removing the client IP initializer [Configuration with Applications Insights Configuration](configuration-with-applicationinsights-config.md), or providing your own custom initializer. For more information, see [API Filtering example.](api-filtering-sampling.md).
 
 
 ## Storage of IP address data

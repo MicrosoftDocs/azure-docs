@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 08/08/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -31,6 +31,13 @@ The first enrollment administrator that is set up during the enrollment provisio
 For example, if the initial authentication type is set to Mixed, the EA will be added as a Microsoft account and the Bill-to contact will have read-only EA admin privileges. If the EA admin doesn’t approve Microsoft account authorization for an existing Bill-to contact, the EA admin may delete the user in question and ask the customer to add the user back as a read-only administrator with a Work or School account Only set at enrollment level in the EA portal.
 
 These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 ## Azure Enterprise portal hierarchy
 
@@ -85,7 +92,13 @@ Users with this role have the highest level of access. They can:
 - View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
   - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
 
-You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
+You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. 
+
+The EA administrator role automatically inherits all access and privilege of the department administrator role. So there’s no need to manually give an EA administrator the department administrator role. Avoid giving the EA administrator the department administrator role because, as a department administrator, the EA administrator:
+
+- Won't have access to the Enrollment tab in the EA portal
+- Won't have access to the Usage Summary Page under the Reports tab
+
 
 The enterprise administrator role can be assigned to multiple accounts.
 

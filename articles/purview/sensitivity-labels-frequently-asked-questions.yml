@@ -7,7 +7,7 @@ metadata:
   ms.service: purview
   ms.subservice: purview-insights
   ms.topic: faq
-  ms.date: 09/17/2021
+  ms.date: 10/11/2022
   ms.author: ajaykar
 title: Sensitivity labels in the Microsoft Purview Data Map FAQ
 summary: |
@@ -42,37 +42,9 @@ sections:
           Extending the labels to the data map doesn't affect your existing setup for Microsoft Purview Information Protection or modify your assets in any way, including files and databases.  
           
           * When you extend sensitivity labels to the Microsoft Purview Data Map, your Microsoft Purview Information Protection setup will continue to work in the same way as before.
-          * Extending the sensitivity labels to the data map allows Microsoft Purview to apply those labels to your Azure and multi-cloud assets in the Microsoft Purview Data Map. The data map is a metadata store and can be deleted by you at any time, and you can browse it using the Microsoft Purview data catalog. 
+          * Extending the sensitivity labels to the data map allows Microsoft Purview to apply those labels to your Azure and multicloud assets in the Microsoft Purview Data Map. The data map is a metadata store and can be deleted by you at any time, and you can browse it using the Microsoft Purview Data Catalog. 
           * Sensitivity labels are applied only to the asset metadata in the Microsoft Purview Data Map and aren't applied to the actual files and database columns. These sensitivity labels don't modify your files and databases in any way.</br></br>
 
-  - name: Classifications vs sensitivity labels
-    questions:
-      
-      - question: What is the difference between classifications and sensitivity labels? 
-        answer: |
-          The following table lists the differences between classifications and sensitivity labels:
-
-          |Comparison|Classifications|Sensitivity labels|
-          |---|---|---|
-          |**Definition**| Classifications are regular expressions or patterns that can help identify data types that exist inside an asset. | Sensitivity labels are tags that allow organizations to categorize data based on business impact, while abstracting the type of data from the user. |
-          |**Examples**| Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
-          | **Scope** | The scope of classifications applied to an asset is limited to the Microsoft Purview Data Map where the classifications were applied. If the data moves to an asset managed by another Microsoft Purview Data Map, classifications applied in the original location aren't visible in the new location. | Sensitivity labels applied on an asset travel with the data no matter where the data goes. For example, this means that sensitivity labels applied to a file in Microsoft Purview Information Protection are automatically visible and remain applied to the file, even if it moves to Azure, SharePoint, or Teams. |
-          | **Scan Process** | Scanning an asset in the Microsoft Purview Data Map looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Microsoft Purview map for the scanned asset. | If you have sensitivity labels extended to the Microsoft Purview Data Map and autolabeling rules defined, scanning an asset in the Microsoft Purview Data Map applies the labels to assets in the catalog based on the classifications found in the scan. |
-          | **Authoring environment** | Custom classifications and classification rules can be created in the Microsoft Purview Governance Portal. You can also create custom classifications in Microsoft Purview Information Protection. However, we don't yet support importing them to the Microsoft Purview Data Map. | Manage sensitivity labels using the [Microsoft Purview compliance portal](/microsoft-365/compliance/create-sensitivity-labels). |
-          | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
-          | **Asset application workflow** | You can use the Microsoft Purview data catalog to manually add or modify classifications that are assigned to an asset. | In the Microsoft Purview Data Map, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in the Microsoft Purview Data Map isn't currently supported. | 
-          | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels).|
-          ||||
-          
-      - question: Are classifications and Sensitive Information Types (SITs) the same thing? 
-        answer: While classifications and SITs are fundamentally the same things, classifications are a Microsoft Purview Data Map concept and SITs are a Microsoft Purview Information Protection concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
-
-      - question: I've created a custom Sensitive Information Type (SIT) in Microsoft Purview Information Protection and used it in my autolabeling rules for schematized data assets. Can I use this custom SIT in the Microsoft Purview Data Map? 
-        answer: |
-          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) are not supported in the Microsoft Purview Data Map at this time. The Microsoft Purview Data Map currently only supports Microsoft Purview Information Protection [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
-    
-  - name: Labeling capabilities in the Microsoft Purview Data Map
-    questions:
       - question: How can I determine if consent has been granted to extend labeling to the Microsoft Purview Data Map?
         answer: |
           Only compliance administrators, global administrators of the tenant, or a custom role that has access to the [Set-PolicyConfig](/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for the Microsoft Purview Data Map](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to the Microsoft Purview Data Map, connect to Exchange Online PowerShell and run the [Get-PolicyConfig](/powershell/module/exchange/get-policyconfig) cmdlet.  For example:
@@ -107,11 +79,43 @@ sections:
 
           For more information, see [Search the audit log](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) in the Microsoft Purview compliance portal.
 
+  - name: Classifications vs sensitivity labels
+    questions:
+      
+      - question: What is the difference between classifications and sensitivity labels? 
+        answer: |
+          The following table lists the differences between classifications and sensitivity labels:
+
+          |Comparison|Classifications|Sensitivity labels|
+          |---|---|---|
+          |**Definition**| Classifications are regular expressions or patterns that can help identify data types that exist inside an asset. | Sensitivity labels are tags that allow organizations to categorize data based on business impact, while abstracting the type of data from the user. |
+          |**Examples**| Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
+          | **Scope** | The scope of classifications applied to an asset is limited to the Microsoft Purview Data Map where the classifications were applied. If the data moves to an asset managed by another Microsoft Purview Data Map, classifications applied in the original location aren't visible in the new location. | Sensitivity labels applied on an asset travel with the data no matter where the data goes. For example, this means that sensitivity labels applied to a file in Microsoft Purview Information Protection are automatically visible and remain applied to the file, even if it moves to Azure, SharePoint, or Teams. |
+          | **Scan Process** | Scanning an asset in the Microsoft Purview Data Map looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Microsoft Purview map for the scanned asset. | If you have sensitivity labels extended to the Microsoft Purview Data Map and autolabeling rules defined, scanning an asset in the Microsoft Purview Data Map applies the labels to assets in the catalog based on the classifications found in the scan. |
+          | **Authoring environment** | Custom classifications and classification rules can be created in the Microsoft Purview Governance Portal. You can also create custom classifications in Microsoft Purview Information Protection. However, we don't yet support importing them to the Microsoft Purview Data Map. | Manage sensitivity labels using the [Microsoft Purview compliance portal](/microsoft-365/compliance/create-sensitivity-labels). |
+          | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
+          | **Asset application workflow** | You can use the Microsoft Purview Data Catalog to manually add or modify classifications that are assigned to an asset. | In the Microsoft Purview Data Map, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in the Microsoft Purview Data Map isn't currently supported. | 
+          | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels).|
+          ||||
+          
+      - question: Are classifications and Sensitive Information Types (SITs) the same thing? 
+        answer: While classifications and SITs are fundamentally the same things, classifications are a Microsoft Purview Data Map concept and SITs are a Microsoft Purview Information Protection concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
+
+  - name: Labeling capabilities in the Microsoft Purview Data Map
+    questions:
 
       - question: Which data sources can I apply sensitivity labels to in the Microsoft Purview Data Map? 
         answer: |
           You can apply sensitivity labels to all the data sources listed under [Supported data sources for sensitivity labels in the Microsoft Purview Data Map](create-sensitivity-label.md#supported-data-sources). 
-          
+
+      - question: Which file types can I apply sensitivity labels to in the Microsoft Purview Data Map?
+        answer: |
+          You can apply sensitivity labels to all [Microsoft Purview Data Map supported file types](sources-and-scans.md).
+
+      - question: I've created a custom Sensitive Information Type (SIT) in Microsoft Purview Information Protection and used it in my autolabeling rules for schematized data assets. Can I use this custom SIT in the Microsoft Purview Data Map? 
+        answer: |
+          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) are not supported in the Microsoft Purview Data Map at this time. The Microsoft Purview Data Map currently only supports Microsoft Purview Information Protection [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).
+
       - question: Can I manually label an asset, or manually modify or remove a label in the Microsoft Purview Data Map? 
         answer: |
           The Microsoft Purview Data Map supports automatic labeling only. Labels are automatically applied to assets in the data map based on the classifications found on the assets and the autolabeling rules for the labels. 
@@ -123,10 +127,6 @@ sections:
 
       - question: Can I apply encryption and/or content marking to files in the Microsoft Purview Data Map, as I can for Office documents and emails?
         answer: No, although the sensitivity label might be configured for these protection actions, we don't currently support encryption and content marking for files in the Microsoft Purview Data Map.
-
-      - question: Which file types can I apply sensitivity labels to in the Microsoft Purview Data Map?
-        answer: |
-          You can apply sensitivity labels to all [Microsoft Purview Data Map supported data sources and file types](sources-and-scans.md).
 
       - question: Does the Microsoft Purview Data Map support data loss prevention?
         answer: |
@@ -153,23 +153,16 @@ sections:
       - question: Who can search and browse assets with sensitivity labels in the Microsoft Purview Data Catalog? 
         answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to search and browse assets with sensitivity labels in the data catalog. 
 
-      - question: Who can view the sensitivity label insights report in Microsoft Purview Insights? 
-        answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to view sensitivity label insights reports in Microsoft Purview Insights. </br></br>
+      - question: Who can view the sensitivity label insights report in Microsoft Purview Data Estate Insights? 
+        answer: All users with the [insights reader role](catalog-permissions.md#roles) and at least [data reader](catalog-permissions.md#roles) permissions on applicable collections will have permissions to view sensitivity label insights reports in Microsoft Purview Data Estate Insights.
 
   - name: Technical details
     questions:
-      
-      - question: Do the Microsoft Purview Data Map and Microsoft Purview Information Protection use the same classification engine? 
-        answer: Yes, both Microsoft Purview Data Map and Microsoft Purview Information Protection use the same classification engine. 
 
       - question: Does the Microsoft Purview Data Map scan an entire asset when applying automatic labels to the database columns? 
         answer: |
-          The Microsoft Purview scanner samples files as follows: 
-          
-          * **For structured file types**, the Microsoft Purview Data Map samples 128 rows in each column or 1 MB, whichever is lower. 
-          * **For document file formats**, the Microsoft Purview Data Map samples 20 MB of each file. 
-          * **If a document file is larger than 20 MB**, the document isn't subject to a deep scan or classification. In such cases, the Microsoft Purview Data Map captures only basic meta-data like file names and fully qualified names. 
-          
+          The Microsoft Purview scanner samples the data. For more information, see [sampling data for classification and autolabeling](microsoft-purview-connector-overview.md#sampling-data-for-classification).
+                  
       - question: If there are multiple sensitivity labels that meet the classification criteria, which label is applied?  
         answer: |
           Sensitivity labels have a priority 'order' and the Microsoft Purview Data Map uses this order to assign labels. If there are multiple labels meeting the classification criteria, the Microsoft Purview Data Map selects the label with the highest order.  

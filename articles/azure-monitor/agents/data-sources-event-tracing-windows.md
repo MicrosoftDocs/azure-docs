@@ -6,10 +6,13 @@ ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 02/07/2022
+ms. reviewer: shseth
 ---
 # Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs
 
 *Event Tracing for Windows (ETW)* provides a mechanism for instrumentation of user-mode applications and kernel-mode drivers. The Log Analytics agent is used to [collect Windows events](./data-sources-windows-events.md) written to the Administrative and Operational [ETW channels](/windows/win32/wes/eventmanifestschema-channeltype-complextype). However, it is occasionally necessary to capture and analyze other events, such as those written to the Analytic channel.  
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Event flow
 

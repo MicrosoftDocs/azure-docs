@@ -2,11 +2,11 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
-ms.author: allensu
+ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
@@ -40,7 +40,7 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | Resource Group   | Select **Create new**. </br> In **Name** enter **CreatePubLBQS-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
+    | Region           | Select **East US** |
 
 4. Select the **IP Addresses** tab or select **Next: IP Addresses** at the bottom of the page.
 
@@ -68,7 +68,7 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 11. Select the **Review + create** tab or select the **Review + create** button.
@@ -102,7 +102,7 @@ During the creation of the load balancer, you'll configure:
     | Resource group         | Select **CreatePubLBQS-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **East US**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
@@ -115,10 +115,7 @@ During the creation of the load balancer, you'll configure:
 
 6. Enter **myFrontend** in **Name**.
 
-7. Select **IPv4** or **IPv6** for the **IP version**.
-
-    > [!NOTE]
-    > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
+7. Select **IPv4** for the **IP version**.
 
 8. Select **IP address** for the **IP type**.
 
@@ -148,15 +145,13 @@ During the creation of the load balancer, you'll configure:
 
 18. Select **myVNet** in **Virtual network**.
 
-19. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+19. Select **IP Address** for **Backend Pool Configuration**.
 
-20. Select **IPv4** or **IPv6** for **IP version**.
-
-21. Select **Add**.
+21. Select **Save**.
 
 22. Select **Next: Inbound rules** at the bottom of the page.
 
-23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+23. Under **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
 24. In **Add load balancing rule**, enter or select the following information:
 
@@ -164,7 +159,7 @@ During the creation of the load balancer, you'll configure:
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **myFrontend**. |
+    | Frontend IP address | Select **myFrontend (To be created)**. |
     | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
@@ -183,12 +178,12 @@ During the creation of the load balancer, you'll configure:
 27. Select **Create**.
 
     > [!NOTE]
-    > In this example we'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example we'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
 ## Create NAT gateway
 
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -203,7 +198,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | Resource group | Select **CreatePubLBQS-rg**. |
     | **Instance details** |    |
     | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West Europe**. |
+    | Region | Select **East US**. |
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
@@ -233,7 +228,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
+2. In **Virtual machines**, select **+ Create** > **Azure virtual machine**.
    
 3. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
@@ -244,7 +239,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(Europe) West Europe** |
+    | Region | Select **((US) East US)** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **Zone 1** |
     | Security type | Select **Standard**. |
@@ -269,15 +264,15 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | Select **myBackendSubnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced** |
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.|
     | Delete NIC when VM is deleted | Leave the default of **unselected**. |
     | Accelerated networking | Leave the default of **selected**. |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
-    | **Load balancing settings** |
+    | **Load balancing options** |
     | Load-balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
    
 6. Select **Review + create**. 
   
@@ -305,7 +300,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 5. Select **Connect**.
 
-6. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+6. On the server desktop, navigate to **Start** > **Windows PowerShell** > **Windows PowerShell**.
 
 7. In the PowerShell Window, run the following commands to:
 

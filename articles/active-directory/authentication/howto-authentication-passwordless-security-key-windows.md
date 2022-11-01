@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 07/06/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
-| [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
+| [Azure AD Hybrid Authentication Management module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/2.1.1.0) |   | X |
 | [Microsoft Endpoint Manager](/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
@@ -99,7 +99,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ### Enable with a provisioning package
 
-For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
+For devices not managed by Microsoft Endpoint Manager, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.

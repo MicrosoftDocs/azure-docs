@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/11/2022
+ms.date: 08/24/2022
 ms.service: vpn-gateway
 ms.topic: include
 
@@ -9,7 +9,7 @@ ms.topic: include
 ---
 1. Download the latest version of the Azure VPN Client install files using one of the following links:
    
-   * Install using client install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
+   * Install using Client Install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
    * Install directly, when signed in on a client computer: [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 1. Install the Azure VPN Client to each computer.

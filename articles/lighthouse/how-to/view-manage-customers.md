@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 09/17/2021
+ms.date: 07/08/2022
 ms.topic: how-to
 ---
 
@@ -12,9 +12,9 @@ Service providers using [Azure Lighthouse](../overview.md) can use the **My cust
 > [!TIP]
 > While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
-To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
+To access the **My customers** page in the Azure portal, enter "My customers" in the search box near the top of the Azure portal. You can also select **All services**, then search for **Azure Lighthouse**, or search for "Azure Lighthouse". From the Azure Lighthouse page, select **Manage your customers**.
 
-Keep in mind that the top **Customers** section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups to your Azure Active Directory (Azure AD) tenant through Azure Lighthouse. If you work with other customers (such as through the [Cloud Solution Provider (CSP) program](/partner-center/csp-overview)), you won’t see info about those customers in the **Customers** section unless you have [onboarded their resources to Azure Lighthouse](onboard-customer.md) (though you may see details about certain CSP customers in the [Cloud Solution Provider (Preview) section](#cloud-solution-provider-preview) lower on the page).
+Keep in mind that the top **Customers** section of the **My customers** page only shows info about customers who have delegated subscriptions or resource groups to your Azure Active Directory (Azure AD) tenant through Azure Lighthouse. If you work with other customers (such as through the [Cloud Solution Provider (CSP) program](/partner-center/csp-overview)), you won’t see info about those customers in the **Customers** section unless you have [onboarded their resources to Azure Lighthouse](onboard-customer.md), though you may see details about certain CSP customers in the [Cloud Solution Provider (Preview) section](#cloud-solution-provider-preview) lower on the page.
 
 > [!NOTE]
 > Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
@@ -80,13 +80,13 @@ You can change the default subscription at any time by following the steps above
 > [!IMPORTANT]
 > Checking the **Select all** box sets the filter to show all of the subscriptions to which you *currently* have access. If you later gain access to additional subscriptions—for example, after you've onboarded a new customer to Azure Lighthouse—these subscriptions will not automatically be added to your filter. You'll need to return to **Directories + subscriptions** and select the additional subscriptions (or uncheck and then recheck **Select all** again).
 
-You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within an individual service.
+You can also work on delegated subscriptions or resource groups by selecting the subscription or resource group from within an individual service (as long as that service supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md#enhanced-services-and-scenarios)).
 
 ## Cloud Solution Provider (Preview)
 
 A separate **Cloud Solution Provider (Preview)** section of the **My customers** page shows billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started). For more information, see [Get started with your Microsoft Partner Agreement billing account](../../cost-management-billing/understand/mpa-overview.md).
 
-Such CSP customers will appear in this section whether or not you have also onboarded them to Azure Lighthouse. Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
+These CSP customers appear in this section whether or not you have also onboarded them to Azure Lighthouse. Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of **My customers** in order for you to onboard them to Azure Lighthouse.
 
 ## Next steps
 

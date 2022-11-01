@@ -7,11 +7,11 @@ metadata:
   title: Azure Backup Documentation 
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
   ms.service: backup
+  ms.custom: ignite-2022
   ms.topic: landing-page 
   author: v-amallick
   ms.author: v-amallick 
   ms.date: 12/01/2019 
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -59,24 +59,22 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Blobs backup
-            url: blob-backup-overview.md
-          - text: Azure Disk Backup
-            url: disk-backup-overview.md
-          - text: Backup Center
-            url: backup-center-overview.md
-          - text: Backup Azure Database for PostgreSQL 
+          - text: Backup Azure Database for PostgreSQL
             url: backup-azure-database-postgresql.md
           - text: Selective disk backup and restore for Azure VMs
             url: selective-disk-backup-restore.md
-          - text: Cross Region Restore for SQL Server databases on Azure VMs
-            url: restore-sql-database-azure-vm.md#cross-region-restore
           - text: Support for backup of VM with up to 32 disks
             url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
-          - text: SQL Server on Azure VMs restore as files
-            url: restore-sql-database-azure-vm.md#restore-as-files
+          - text: Enhanced soft delete for Azure Backup (preview)
+            url: backup-azure-enhanced-soft-delete-about.md
+          - text: Multi-user authorization (MUA) for Recovery Services vault
+            url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
+          - text: Multi-user authorization (MUA) for Backup vault
+            url: ./multi-user-authorization-concept.md?tabs=backup-vault
+          - text: Immutable vault (preview)
+            url: backup-azure-immutable-vault-concept.md
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -123,8 +121,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Back up SAP HANA databases in Azure VMs
+          - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
+          - text: Back up SAP HSR databases on Azure VMs (preview)
+            url: sap-hana-database-with-hana-system-replication-backup.md
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+            url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
           - text: FAQ - Back up SAP HANA databases on Azure VMs

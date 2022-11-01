@@ -2,7 +2,7 @@
 title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 ms.topic: article
-ms.date: 01/03/2022 
+ms.date: 06/21/2022 
 ---
 
 # Get an Event Hubs connection string
@@ -10,9 +10,9 @@ To communicate with an event hub in a namespace, you need a connection string fo
 
 The connection string for a namespace has the following components embedded within it,
 
-* FQDN = the FQDN of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
-* SharedAccessKeyName = the name you chose for your application's SAS keys
-* SharedAccessKey = the generated value of the key.
+* Fully qualified domain name of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
+* Name of the shared access key 
+* Value of the shared access key
 
 The connection string for a namespace looks like:
 

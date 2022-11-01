@@ -2,8 +2,9 @@
 title: Azure Arc-enabled Open Service Mesh
 description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
 ms.service: azure-arc
-ms.date: 05/02/2022
-ms.topic: article
+ms.custom: ignite-2022
+ms.date: 10/12/2022
+ms.topic: tutorial
 author: mayurigupta13
 ms.author: mayg
 ---
@@ -26,10 +27,11 @@ Azure Arc-enabled Open Service Mesh can be deployed through Azure portal, Azure 
 ### Current support limitations
 
 - Only one instance of Open Service Mesh can be deployed on an Azure Arc-connected Kubernetes cluster.
-- Support is available for Azure Arc-enabled Open Service Mesh version v1.0.0-1 and above. Find the latest version [here](https://github.com/Azure/osm-azure/releases). Supported release versions are appended with notes. Ignore the tags associated with intermediate releases.
+- Support is available for the two most recently released minor versions of Arc-enabled Open Service Mesh. Find the latest version [here](https://github.com/Azure/osm-azure/releases). Supported release versions are appended with notes. Ignore the tags associated with intermediate releases.
 - The following Kubernetes distributions are currently supported:
-  - AKS Engine
-  - AKS on HCI
+  - AKS (Azure Kubernetes Service) Engine
+  - AKS clusters on Azure Stack HCI
+  - AKS hybrid clusters provisioned from Azure
   - Cluster API Azure
   - Google Kubernetes Engine
   - Canonical Kubernetes Distribution
@@ -38,6 +40,9 @@ Azure Arc-enabled Open Service Mesh can be deployed through Azure portal, Azure 
   - Amazon Elastic Kubernetes Service
   - VMware Tanzu Kubernetes Grid
 - Azure Monitor integration with Azure Arc-enabled Open Service Mesh is available [in preview with limited support](#monitoring-application-using-azure-monitor-and-applications-insights-preview).
+
+> [!TIP]
+> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Basic installation using Azure portal
 

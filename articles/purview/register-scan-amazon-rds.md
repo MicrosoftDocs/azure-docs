@@ -29,9 +29,9 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 - **Supported database engines**: Amazon RDS structured data storage supports multiple database engines. Microsoft Purview supports Amazon RDS with/based on Microsoft SQL and PostgreSQL.
 
-- **Maximum columns supported**: Scanning RDS tables with more than 300 columns is not supported.
+- **Maximum columns supported**: Scanning RDS tables with more than 300 columns isn't supported.
 
-- **Public access support**: Microsoft Purview supports scanning only with VPC Private Link in AWS, and does not include public access scanning.
+- **Public access support**: Microsoft Purview supports scanning only with VPC Private Link in AWS, and doesn't include public access scanning.
 
 - **Supported regions**: Microsoft Purview only supports Amazon RDS databases that are located in the following AWS regions:
 
@@ -49,7 +49,7 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 - **IP address requirements**: Your RDS database must have a static IP address. The static IP address is used to configure AWS PrivateLink, as described in this article.
 
-- **Known issues**: The following functionality is not currently supported:
+- **Known issues**: The following functionality isn't currently supported:
 
     - The **Test connection** button. The scan status messages will indicate any errors related to connection setup.
     - Selecting specific tables in your database to scan.
@@ -139,7 +139,7 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
     Define your settings as needed for your environment. For more information, select the **Learn more** links to access the AWS documentation. When you're done, select **Next** to continue.
 
-1. On the **Review** page, check to make sure that the values you selected are correct for your environment. Make any changes needed, and then select **Create stack** when you're done.
+1. On the **Review** page, check to make sure that the values you selected are correct for your environment. Make any changes needed and then select **Create stack** when you're done.
 
 1. Watch for the resources to be created. When complete, relevant data for this procedure is shown on the following tabs:
 
@@ -151,7 +151,7 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
 1. In the **Outputs** tab, copy the **ServiceName** key value to the clipboard.
 
-    You'll use the value of the **ServiceName** key in the Microsoft Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Microsoft Purview data source. There, enter the **ServiceName** key in the **Connect to private network via endpoint service** field.
+    You'll use the value of the **ServiceName** key in the Microsoft Purview governance portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Microsoft Purview data source. There, enter the **ServiceName** key in the **Connect to private network via endpoint service** field.
 
 ## Register an Amazon RDS data source
 
@@ -254,7 +254,7 @@ Use the other areas of Microsoft Purview to find out details about the content i
 
     All Microsoft Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an **Amazon RDS** asset type is added to the report filtering options.
 
-    For more information, see the [Understand Insights in Microsoft Purview](concept-insights.md).
+    For more information, see the [Understand Data Estate Insights in Microsoft Purview](concept-insights.md).
 
 - **View RDS data in other Microsoft Purview features**, such as the **Scans** and **Glossary** areas. For more information, see:
 
@@ -469,7 +469,7 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 
 <a name="service-name"></a>**To copy the service name for use in Microsoft Purview**:
 
-After you’ve created your endpoint service, you can copy the **Service name** value in the Microsoft Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Microsoft Purview data source.
+After you’ve created your endpoint service, you can copy the **Service name** value in the Microsoft Purview governance portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Microsoft Purview data source.
 
 Locate the **Service name** on the **Details** tab for your selected endpoint service.
 
@@ -521,4 +521,4 @@ The following errors may appear in Microsoft Purview:
 Learn more about Microsoft Purview Insight reports:
 
 > [!div class="nextstepaction"]
-> [Understand Insights in Microsoft Purview](concept-insights.md)
+> [Understand Data Estate Insights in Microsoft Purview](concept-insights.md)

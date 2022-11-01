@@ -2,15 +2,15 @@
 title: Change feed in Blob Storage
 titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
-author: tamram
+author: normesta
 
-ms.author: tamram
-ms.date: 04/13/2022
+ms.author: normesta
+ms.date: 10/28/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Change feed support in Azure Blob Storage
@@ -132,10 +132,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 ## Consume the change feed
 
-The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account.
-
-> [!NOTE]
-> In the current release, the $blobchangefeed container is visible only in Azure portal but not visible in Azure Storage Explorer. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs
+The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. The **$blobchangefeed** container can be viewed either via the Azure portal or via Azure Storage Explorer.
 
 Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
 
@@ -544,22 +541,15 @@ The following example shows a change event record in JSON format that uses event
 
 This section describes known issues and conditions in the current release of the change feed.
 
-- Change event records for any single change might appear more than once in your change feed.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
-- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
+- You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
+- [Storage account failover](../common/storage-disaster-recovery-guidance.md) is not supported on accounts with the change feed enabled. Disable the change feed before initiating a failover.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | 
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## FAQ
 

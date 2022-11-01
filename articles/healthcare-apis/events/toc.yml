@@ -9,20 +9,30 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Events in the Azure portal
+  - name: Deploy Events using the Azure portal
     href: events-deploy-portal.md
 - name: Tutorials
   expanded: true
   items:
-  - name: Display Events metrics
-    href: events-display-metrics.md 
+  - name: Consume events with Logic Apps
+    href: events-consume-logic-apps.md 
 - name: How-to guides
   expanded: true
   items:
-  - name: Configure Events diagnostic settings
-    href: events-export-logs-metrics.md
+  - name: Monitor
+    expanded: true
+    items:
+    - name: Use metrics
+      href: events-use-metrics.md 
+    - name: Enable diagnostic settings
+      href: events-enable-diagnostic-settings.md
   - name: Disable Events and delete workspaces
-    href: events-disable-delete-workspace.md   
+    href: events-disable-delete-workspace.md 
+  - name: Troubleshoot and problem solve
+    expanded: true
+    items:
+    - name: Events troubleshooting guide  
+      href: events-troubleshooting-guide.md
 - name: Concepts
   expanded: true
   items:
@@ -33,8 +43,3 @@ items:
   items:
     - name: FAQs
       href: events-faqs.md
-    - name: Troubleshooting
-      expanded: true
-      items:
-      - name: Events troubleshooting guide  
-        href: events-troubleshooting-guide.md

@@ -1,6 +1,6 @@
 ---
-title: Things to consider when using Azure Video Indexer (formerly Azure Video Analyzer for Media) at scale - Azure
-description: This topic explains what things to consider when using Azure Video Indexer (formerly Azure Video Analyzer for Media) at scale.
+title: Things to consider when using Azure Video Indexer at scale - Azure
+description: This topic explains what things to consider when using Azure Video Indexer at scale.
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Things to consider when using Azure Video Indexer at scale
 
-When using Azure Video Indexer (formerly Azure Video Analyzer for Media) to index videos and your archive of videos is growing, consider scaling.
+When using Azure Video Indexer to index videos and your archive of videos is growing, consider scaling.
 
 This article answers questions like:
 
@@ -43,7 +43,7 @@ To see an example of how to upload videos using URL, check out [this example](up
 
 ## Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Indexer enabled [Reserved Units](/azure/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Reserved Units](/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## Respect throttling
 

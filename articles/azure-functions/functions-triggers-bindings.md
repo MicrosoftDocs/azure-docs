@@ -1,18 +1,17 @@
 ---
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
-author: craigshoemaker
 
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.author: cshoe
+ms.date: 05/25/2022
+ms.custom: devdivchpfy22, ignite-2022
 ---
 
 # Azure Functions triggers and bindings concepts
 
-In this article you learn the high-level concepts surrounding functions triggers and bindings.
+In this article, you learn the high-level concepts surrounding functions triggers and bindings.
 
-Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
+Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
 
 Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
 
@@ -25,13 +24,13 @@ Consider the following examples of how you could implement different functions.
 | Example scenario | Trigger | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
 | A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
-|A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Blob Storage | Cosmos DB |
-|The Event Grid is used to read an image from Blob Storage and a document from Cosmos DB to send an email. | Event Grid | Blob Storage and  Cosmos DB | SendGrid |
+|A scheduled job reads Blob Storage contents and creates a new Azure Cosmos DB document. | Timer | Blob Storage | Azure Cosmos DB |
+|The Event Grid is used to read an image from Blob Storage and a document from Azure Cosmos DB to send an email. | Event Grid | Blob Storage and Azure Cosmos DB | SendGrid |
 | A webhook that uses Microsoft Graph to update an Excel sheet. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> Represents different queues
 
-These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
+These examples aren't meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
 
 ###  Trigger and binding definitions
 

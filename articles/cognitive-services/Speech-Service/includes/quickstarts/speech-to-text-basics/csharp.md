@@ -18,7 +18,11 @@ ms.author: eur
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -28,11 +32,11 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 Follow these steps to create a new console application and install the Speech SDK.
 
 1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet new console
     ```
 1. Install the Speech SDK in your new project with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of `Program.cs` with the following code. 
@@ -46,8 +50,9 @@ Follow these steps to create a new console application and install the Speech SD
 
     class Program 
     {
-        static string YourSubscriptionKey = "YourSubscriptionKey";
-        static string YourServiceRegion = "YourServiceRegion";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
+        static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
 
         static void OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
         {
@@ -75,7 +80,7 @@ Follow these steps to create a new console application and install the Speech SD
 
         async static Task Main(string[] args)
         {
-            var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
+            var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
 
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
@@ -88,14 +93,16 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
-1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start speech recognition from a microphone:
 
 ```console
 dotnet run
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 
@@ -107,7 +114,8 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
-Here are some additional considerations:
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 - This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
@@ -119,3 +127,4 @@ Here are some additional considerations:
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

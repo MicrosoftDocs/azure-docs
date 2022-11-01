@@ -3,11 +3,11 @@ title: Azure Internet peering for Communications Services walkthrough
 titleSuffix: Azure
 description: Azure Internet peering for Communications Services walkthrough
 services: internet-peering
-author: gthareja
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/30/2021
-ms.author: gatharej
+ms.date: 10/10/2022
+ms.author: halkazwini
 ---
 
 # Azure Internet peering for Communications Services walkthrough
@@ -74,21 +74,64 @@ Use for Peering Services: 	**Enabled**
 > Ignore the following message while selecting for activating for Peering Services.
 > *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
 
-
-
-
-
 **3.	Register your prefixes for Optimized Routing**
 
 For optimized routing for your Communication services infrastructure prefixes, you should register all your prefixes with your peering interconnects.
-[Register Azure Peering Service - Azure portal | Microsoft Docs](../peering-service/azure-portal.md)
 
-The Prefix key is auto populated for Communications Service Partners, so the partner need not use any prefix key to register. 
+Please ensure that the prefixes registered are being announced over the direct interconnects established in that location.
+If the same prefix is announced in multiple peering locations, it is sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
 
-Please ensure that the prefixes being registered are being announced over the direct interconnects established for the region.
+> [!NOTE] 
+> The Connection State of your peering connections must be Active before registering any prefixes.
 
+**Prefix Registration**
+
+1. If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+
+   :::image type="content" source="media/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
+
+2. Register prefixes to access the activation keys.
+
+   :::image type="content" source="media/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
+
+   :::image type="content" source="media/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
+
+   :::image type="content" source="media/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
+
+**Prefix Activation**
+
+In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and will not even accept <\/24 prefixes) and it requires prefix activation and alignment to the right partner (In this case the OC partner) and the appropriate interconnect location (to ensure cold potato routing).
+
+Below are the steps to activate the prefix.
+
+1. Look for “Peering Services” resource 
+
+  :::image type="content" source="media/peering-service-search.png" alt-text="Screenshot on searching for Peering Service on Azure portal." :::
+  
+  :::image type="content" source="media/peering-service-list.png" alt-text="Screenshot of a list of existing peering services." :::
+
+2. Create a new Peering Service resource
+
+  :::image type="content" source="media/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service." :::
+
+3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
+
+    If you are an Operator Connect partner, you would be able to see yourself as the provider. 
+    The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
+
+  :::image type="content" source="media/peering-service-properties.png" alt-text="Screenshot of the fields to be filled to create a peering service." :::
+
+  :::image type="content" source="media/peering-service-deployment.png" alt-text="Screenshot showing the validation of peering service resource before deployment." :::
 
 ## FAQs:
+
+**Q.**   When will my BGP peer come up?
+
+**A.**   After the LAG comes up, our automated process configures BGP with BFD. Peer must configure BGP with BFD. Note, BFD must be configured and up on the non-MSFT peer to start route exchange.
+
+**Q.**   When will peering IP addresses be allocated and displayed in the Azure portal?
+
+**A.**   Our automated process allocates addresses and sends the information via email after the port is configured on our side.
 
 **Q.**	I have smaller subnets (</24) for my Communications services. Can I get the smaller subnets also routed?
 
@@ -97,6 +140,10 @@ Please ensure that the prefixes being registered are being announced over the di
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
 **A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This will ensure not only Communications but other cloud services are accessible from the same interconnect.
+
+**Q.**   Are there any AS path constraints?
+
+**A.**   Yes, a private ASN cannot be in the AS path. For registered prefixes smaller than /24, the AS path must be less than four.
 
 **Q.**	I need to set the prefix limit, how many routes Microsoft would be announcing?
 
@@ -125,6 +172,10 @@ Please ensure that the prefixes being registered are being announced over the di
 **Q.** How does it take to complete the onboarding process?
 
 **A.** Time will be variable depending on number and location of sites, and if Peer is migrating existing private peerings or establishing new cabling. Carrier should plan for 3+ weeks.
+
+**Q.** How is progress communicated outside of the portal status?
+
+**A.** Automated emails are sent at varying milestones
 
 **Q.** Can we use APIs for onboarding?
 

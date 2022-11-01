@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/27/2019
 ms.author: wiassaf
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
@@ -26,9 +26,6 @@ The status of your dedicated SQL pool  (formerly SQL DW) will be shown here. If 
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-If your Resource health shows that your dedicated SQL pool (formerly SQL DW) instance is paused or scaling, follow the guidance to resume your instance.
-
-![Screenshot shows an instance of dedicated SQL pool that is paused or scaling.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Additional information about Resource Health can be found here.
 
 ## Check for paused or scaling operation

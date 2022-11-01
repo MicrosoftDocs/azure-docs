@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
+ms.reviewer: Xema Pathak
 
 ---
 
@@ -42,7 +43,7 @@ You require at least one Log Analytics workspace to support VM insights and to c
 
 Many environments use a single workspace for all their virtual machines and other Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. If you're getting started with Azure Monitor, start with a single workspace and consider creating more workspaces as your requirements evolve.
 
-For complete details on logic that you should consider for designing a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+For complete details on logic that you should consider for designing a workspace configuration, see Design a Log Analytics workspace configuration(../logs/workspace-design.md).
 
 ### Multihoming agents
 Multihoming refers to a virtual machine that connects to multiple workspaces. Typically, there's little reason to multihome agents for Azure Monitor alone. Having an agent send data to multiple workspaces most likely creates duplicate data in each workspace, which increases your overall cost. You can combine data from multiple workspaces by using [cross-workspace queries](../logs/cross-workspace-query.md) and [workbooks](../visualizations/../visualize/workbooks-overview.md).

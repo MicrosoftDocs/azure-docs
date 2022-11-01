@@ -27,7 +27,8 @@
     - name: 7 - Activate
       href: azure-stack-edge-pro-2-deploy-activate.md 
     - name: 8 - Configure compute
-      href: azure-stack-edge-pro-2-deploy-configure-compute.md  
+      href: azure-stack-edge-pro-2-deploy-configure-compute.md 
+
       
   - name: Concepts
     items:
@@ -86,8 +87,7 @@
       href: azure-stack-edge-gpu-deploy-configure-certificates.md
     - name: 7 - Activate
       href: azure-stack-edge-gpu-deploy-activate.md 
-    - name: 8 - Configure compute
-      href: azure-stack-edge-gpu-deploy-configure-compute.md 
+ 
       
   - name: Concepts
     items:
@@ -349,6 +349,8 @@
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
         href: azure-stack-edge-gpu-kubernetes-workload-management.md
+      - name: Configure Kubernetes
+        href: azure-stack-edge-gpu-deploy-configure-compute.md  
       - name: Deploy Kubernetes workloads
         items:
         - name: Via kubectl
@@ -378,9 +380,7 @@
           - name: Enable Arc on Kubernetes cluster
             href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
           - name: Deploy stateless app via GitOps
-            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
-          - name: Deploy Azure Arc Data Controller
-            href: azure-stack-edge-gpu-deploy-arc-data-controller.md 
+            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
       - name: How to
         items:
         - name: Configure MetalLB
@@ -388,8 +388,14 @@
 
     - name: IoT Edge
       items:
-        - name: Deploy IoT Edge samples
-          items:
+      - name: Deploy IoT Edge samples (Self-serve)
+        items:
+          - name: IoT Edge on VM
+            href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
+          - name: Nvidia DeepStream module
+            href: azure-stack-edge-deploy-nvidia-deepstream-module.md
+      - name: Deploy IoT Edge samples (Managed)
+        items:
           - name: Module from Nvidia gallery
             href: azure-stack-edge-gpu-configure-gpu-modules.md 
           - name: GPU module from Git repo
@@ -400,8 +406,10 @@
             href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
           - name: Module via Azure portal 
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
-        - name: Troubleshoot IoT Edge issues
-          href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
+          - name: Sync data from local share
+            href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
+      - name: Troubleshoot IoT Edge issues
+        href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
         
     - name: Cloud storage gateway
       items:
@@ -429,13 +437,16 @@
     - name: What is GPU sharing?
       href: azure-stack-edge-gpu-sharing.md 
     - name: Understand data residency
-      href: azure-stack-edge-gpu-data-residency.md 
+      href: azure-stack-edge-gpu-data-residency.md
+    - name: Understand data resiliency
+      href: azure-stack-edge-gpu-data-resiliency.md 
     - name: View key vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Understand disconnected use
       href: azure-stack-edge-gpu-disconnected-scenario.md
-    - name: Understand data resiliency
-      href: azure-stack-edge-gpu-data-resiliency.md
+    - name: FAQ - Operational guidelines
+      href: azure-stack-edge-operational-guidelines-faq.yml
+      
   - name: Shared security
     items:
     - name: Security overview
@@ -446,6 +457,8 @@
     items:         
     - name: Check network readiness 
       href: azure-stack-edge-deploy-check-network-readiness.md
+    - name: Deploy via config file
+      href: azure-stack-edge-zero-touch-provisioning.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -496,7 +509,13 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2203 - Current
+    - name: 2209 - Current
+      href: azure-stack-edge-gpu-2209-release-notes.md
+    - name: 2207
+      href: azure-stack-edge-gpu-2207-release-notes.md
+    - name: 2205 
+      href: azure-stack-edge-gpu-2205-release-notes.md
+    - name: 2203 
       href: azure-stack-edge-gpu-2203-release-notes.md
     - name: 2202 
       href: azure-stack-edge-gpu-2202-release-notes.md
@@ -519,7 +538,7 @@
   - name: Shared reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/#stack_edge
+      href: https://azure.microsoft.com/products/azure-stack/edge/
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
@@ -626,3 +645,5 @@
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
+  - name: Azure Stack Edge Hardware Additional Terms
+    href: azure-stack-edge-add-hardware-terms.md

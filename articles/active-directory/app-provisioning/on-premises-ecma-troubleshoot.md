@@ -3,7 +3,7 @@ title: 'Troubleshooting issues with provisioning to on-premises applications'
 description: Describes how to troubleshoot various issues you might encounter when you install and use the ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

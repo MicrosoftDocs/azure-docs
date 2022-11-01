@@ -3,13 +3,13 @@ title: Configure managed identities on an Azure VM using PowerShell - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell, mode-api
@@ -35,7 +35,7 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 ## System-assigned managed identity
 
-In this section, you will learn how to enable and disable the system-assigned managed identity using Azure PowerShell.
+In this section, you'll learn how to enable and disable the system-assigned managed identity using Azure PowerShell.
 
 ### Enable system-assigned managed identity during creation of an Azure VM
 
@@ -129,7 +129,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
 
-1. Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Note the `Id` in the output because you will need this in the next step.
+1. Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Note the `Id` in the output because you'll need this information in the next step.
 
    > [!IMPORTANT]
    > Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information, see [FAQs and known issues](known-issues.md)
@@ -157,7 +157,7 @@ If your VM has multiple user-assigned managed identities, you can remove all but
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID <USER ASSIGNED IDENTITY NAME>
 ```
-If your VM does not have a system-assigned managed identity and you want to remove all user-assigned managed identities from it, use the following command:
+If your VM doesn't have a system-assigned managed identity and you want to remove all user-assigned managed identities from it, use the following command:
 
 ```azurepowershell-interactive
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm

@@ -1,26 +1,26 @@
 ---
 title: Query on Azure IoT Hub message routing | Microsoft Docs
 description: Learn about the IoT Hub message routing query language that you can use to apply rich queries to messages to receive the data that matters to you. 
-author: ash2017
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.author: asrastog
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
 # IoT Hub message routing query syntax
 
-Message routing enables users to route different data types namely, device telemetry messages, device lifecycle events, and device twin change events to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns.
+Message routing enables users to route different data types, namely device telemetry messages, device lifecycle events, and device twin change events, to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed which routes all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes) logs in case of a failure. The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not JSON, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true makes the query succeed and route all the incoming data, and Boolean false fails the query and no data is routed. If the expression evaluates to null or undefined, it is treated as false and an error will be generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes). The query syntax must be correct for the route to be saved and evaluated.  
 
-## Message routing query based on message properties 
+## Message routing query based on message properties
 
-The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub message assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names as IoT Hub device-to-cloud messaging is not case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
+IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names as IoT Hub device-to-cloud messaging is not case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
 
 ```json
 { 
@@ -44,19 +44,19 @@ The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) fo
 
 ### System properties
 
-System properties help identify contents and source of the messages. 
+System properties help identify the contents and source of the messages.
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| contentType | string | The user specifies the content type of the message. To allow query on the message body, this value should be set application/JSON. |
-| contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
+| contentType | string | The user specifies the content type of the message. To allow querying on the message body, this value should be set to `application/JSON`. |
+| contentEncoding | string | The user specifies the encoding type of the message. Allowed values are `UTF-8`, `UTF-16`, and `UTF-32` if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-connection-module-id | string | This value is set by IoT Hub and identifies the ID of the edge module. To query, use `$connectionModuleId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
-| dt-dataschema | string |  This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
+| dt-dataschema | string |  This value is set by IoT Hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
 | dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |
 
-As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to above properties in the previous table, you can also query **connectionDeviceId**, **connectionModuleId**.
+As described in [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to above properties in the previous table, you can also query **connectionDeviceId**, **connectionModuleId**.
 
 ### Application properties
 
@@ -140,7 +140,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> This shows how to handle the encoding of the body in javascript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
+> This shows how to handle the encoding of the body in JavaScript. If you want to see a sample in C#, download the [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
 
 ### Query expressions
 

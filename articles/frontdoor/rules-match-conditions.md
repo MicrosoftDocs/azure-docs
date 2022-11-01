@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 06/09/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -155,7 +155,7 @@ In this example, we match all requests that have been detected as coming from a 
 Use the **HTTP version** match condition to identify requests that have been made by using a specific version of the HTTP protocol.
 
 > [!NOTE]
-> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+> The **HTTP version** match condition is only available on Azure Front Door Standard/Premium.
 
 ### Properties
 
@@ -1130,11 +1130,25 @@ The **request path** match condition identifies requests that include the specif
 
 ### Properties
 
+::: zone pivot="front-door-standard-premium"
+
+| Property | Supported values |
+|-|-|
+| Operator | <ul><li>Any operator from the [standard operator list](#operator-list).</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
+| Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
+
+::: zone-end
 
 ### Example
 
@@ -1735,6 +1749,33 @@ In this example, we match all requests with a server port of 443.
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
+::: zone pivot="front-door-classic"
+
+| Operator                   | Description                                                                                                                    | ARM template support                                            |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Any                        | Matches when there's any value, regardless of what it is.                                                                     | `operator`: `Any`                                               |
+| Equal                      | Matches when the value exactly matches the specified string.                                                                   | `operator`: `Equal`                                             |
+| Contains                   | Matches when the value contains the specified string.                                                                          | `operator`: `Contains`                                          |
+| Less Than                  | Matches when the length of the value is less than the specified integer.                                                       | `operator`: `LessThan`                                          |
+| Greater Than               | Matches when the length of the value is greater than the specified integer.                                                    | `operator`: `GreaterThan`                                       |
+| Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer.                                           | `operator`: `LessThanOrEqual`                                   |
+| Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer.                                        | `operator`: `GreaterThanOrEqual`                                |
+| Begins With                | Matches when the value begins with the specified string.                                                                       | `operator`: `BeginsWith`                                        |
+| Ends With                  | Matches when the value ends with the specified string.                                                                         | `operator`: `EndsWith`                                          |
+| Not Any                    | Matches when there's no value.                                                                                                | `operator`: `Any` and `negateCondition` : `true`                |
+| Not Equal                  | Matches when the value doesn't match the specified string.                                                                    | `operator`: `Equal` and `negateCondition` : `true`              |
+| Not Contains               | Matches when the value doesn't contain the specified string.                                                                  | `operator`: `Contains` and `negateCondition` : `true`           |
+| Not Less Than              | Matches when the length of the value isn't less than the specified integer.                                                   | `operator`: `LessThan` and `negateCondition` : `true`           |
+| Not Greater Than           | Matches when the length of the value isn't greater than the specified integer.                                                | `operator`: `GreaterThan` and `negateCondition` : `true`        |
+| Not Less Than or Equal     | Matches when the length of the value isn't less than or equal to the specified integer.                                       | `operator`: `LessThanOrEqual` and `negateCondition` : `true`    |
+| Not Greater Than or Equals | Matches when the length of the value isn't greater than or equal to the specified integer.                                    | `operator`: `GreaterThanOrEqual` and `negateCondition` : `true` |
+| Not Begins With            | Matches when the value doesn't begin with the specified string.                                                               | `operator`: `BeginsWith` and `negateCondition` : `true`         |
+| Not Ends With              | Matches when the value doesn't end with the specified string.                                                                 | `operator`: `EndsWith` and `negateCondition` : `true`           |
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
 | Operator                   | Description                                                                                                                    | ARM template support                                            |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Any                        | Matches when there's any value, regardless of what it is.                                                                     | `operator`: `Any`                                               |
@@ -1757,6 +1798,8 @@ For rules that accept values from the standard operator list, the following oper
 | Not Begins With            | Matches when the value doesn't begin with the specified string.                                                               | `operator`: `BeginsWith` and `negateCondition` : `true`         |
 | Not Ends With              | Matches when the value doesn't end with the specified string.                                                                 | `operator`: `EndsWith` and `negateCondition` : `true`           |
 | Not RegEx                  | Matches when the value doesn't match the specified regular expression. [See below for further details.](#regular-expressions) | `operator`: `RegEx` and `negateCondition` : `true`              |
+
+::: zone-end
 
 > [!TIP]
 > For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that specifies the length you want to compare.

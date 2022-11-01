@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/04/2022
+ms.date: 04/26/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Tutorial: Enrich a Cognitive Search index with custom entities from your data
@@ -30,23 +30,80 @@ In this tutorial, you learn how to:
 * [An Azure Cognitive Search service](../../../../search/search-create-service-portal.md) in your current subscription
     * You can use any tier, and any region for this service.
 * An [Azure function app](../../../../azure-functions/functions-create-function-app-portal.md)
-* Download this [sample data](https://go.microsoft.com/fwlink/?linkid=2175226).
 
-## Create a custom NER project through Language studio
+## Upload sample data to blob container
 
-[!INCLUDE [Create custom NER project](../includes/create-project.md)]
+[!INCLUDE [Uploading sample data for custom NER](../includes/quickstarts/blob-storage-upload.md)]
 
-Select the container where you’ve uploaded your data. For this tutorial we’ll use the tags file you downloaded from the sample data. Review the data you entered and select **Create Project**.
+# [Language Studio](#tab/Language-studio)
+
+## Create a custom named entity recognition project
+
+Once your resource and storage account are configured, create a new custom NER project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+
+[!INCLUDE [Create custom NER project](../includes/language-studio/create-project.md)]
 
 ## Train your model
 
-[!INCLUDE [Train a model using Language Studio](../includes/train-model-language-studio.md)]
+Typically after you create a project, you go ahead and start [tagging the documents](../how-to/tag-data.md) you have in the container connected to your project. For this tutorial, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+
+[!INCLUDE [Train a model using Language Studio](../includes/language-studio/train-model.md)]
 
 ## Deploy your model
 
-[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
-If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+[!INCLUDE [Deploy a model using Language Studio](../includes/language-studio/deploy-model.md)]
+
+# [REST APIs](#tab/REST-APIs)
+
+### Get your resource keys and endpoint
+
+[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+
+## Create a custom NER project
+
+Once your resource and storage account are configured, create a new custom NER project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+
+Use the tags file you downloaded from the [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) in the previous step and add it to the body of the following request. 
+
+### Trigger import project job 
+
+[!INCLUDE [Import a project using the REST API](../includes/rest-api/import-project.md)]
+
+### Get import job status
+
+ [!INCLUDE [get import project status](../includes/rest-api/get-import-status.md)]
+
+## Train your model
+
+Typically after you create a project, you go ahead and start [tagging the documents](../how-to/tag-data.md) you have in the container connected to your project. For this tutorial, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+
+### Start training job
+
+After your project has been imported, you can start training your model. 
+
+[!INCLUDE [train model](../includes/rest-api/train-model.md)]
+
+### Get training job status
+
+Training could take sometime between 10 and 30 minutes for this sample dataset. You can use the following request to keep polling the status of the training job until it's successfully completed.
+
+ [!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
+
+## Deploy your model
+
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/view-model-evaluation.md) if necessary. In this tutorial, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+
+### Start deployment job
+
+[!INCLUDE [deploy model](../includes/rest-api/deploy-model.md)]
+
+### Get deployment job status
+
+[!INCLUDE [get deployment status](../includes/rest-api/get-deployment-status.md)]
+
+---
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  
@@ -82,22 +139,17 @@ If you deploy your model through Language Studio, your `deployment-name` will be
 
 5. Get your resource keys endpoint
 
-    1. Navigate to your resource in the [Azure portal](https://portal.azure.com/#home).
-    2. From the menu on the left side, select **Keys and Endpoint**. You’ll need the endpoint and one of the keys for the API requests.
-
-        :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
+   [!INCLUDE [Get resource keys and endpoint](../includes/get-keys-endpoint-azure.md)]
 
 6. Get your custom NER project secrets
 
-    1. You’ll need your **project-name**, project names are case-sensitive.
+    1. You will need your **project-name**, project names are case-sensitive. Project names can be found in **project settings** page.
 
-    2. You’ll also need the **deployment-name**. 
-        * If you’ve deployed your model via Language Studio, your deployment name will be `prod` by default. 
-        * If you’ve deployed your model programmatically, using the API, this is the deployment name you assigned in your request.
+    2. You will also need the **deployment-name**. Deployment names can be found in **Deploying a model** page.
 
 ### Run the indexer command
 
-After you’ve published your Azure function and prepared your configs file, you can run the indexer command.
+After you've published your Azure function and prepared your configs file, you can run the indexer command.
 ```cli
     indexer index --index-name <name-your-index-here> --configs <absolute-path-to-configs-file>
 ```

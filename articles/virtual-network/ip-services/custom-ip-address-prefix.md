@@ -48,17 +48,17 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * A custom IP prefix must be associated with a single Azure region.
 
-* The minimum size of an IP range is /24.
+* An IPv4 range can be equal or between /21 to /24.  An IPv6 range can be equal or between /46 to /48.
 
-* IPv6 is currently not supported for custom IP prefixes.
+* Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
-* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom IPv6 prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
 
-* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](create-custom-ip-address-prefix-powershell.md).
 
-* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required.
+* IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
 
 ## Pricing
 
@@ -68,8 +68,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Next steps
 
-- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
+- To create a custom IP address prefix using the Azure portal, see [Create custom IPv4 address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
 
-- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).
+- To create a custom IP address prefix using PowerShell, see [Create a custom IPv4 address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).
 
 - For more information about the management of a custom IP address prefix, see [Manage a custom IP address prefix](create-custom-ip-address-prefix-powershell.md).

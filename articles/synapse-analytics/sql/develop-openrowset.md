@@ -29,7 +29,7 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
     ```sql
     SELECT *
     FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -40,7 +40,7 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 
@@ -109,7 +109,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 ## Arguments
 
-You have two choices for input files that contain the target data for querying. Valid values are:
+You have three choices for input files that contain the target data for querying. Valid values are:
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
@@ -348,8 +348,11 @@ Parquet and Delta Lake files contain type descriptions for every column. The fol
 | INT64 |INT(64, true) |bigint |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS) |time - TIME(NANOS) is not supported |
-|INT64 |TIMESTAMP (MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS) is not supported |
+| INT64 |TIME (MICROS) | time |
+| INT64 |TIME (NANOS) | Not supported |
+| INT64 |TIMESTAMP ([normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#instant-semantics-timestamps-normalized-to-utc)) (MILLIS / MICROS) | datetime2 |
+| INT64 |TIMESTAMP ([not normalized to utc](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#local-semantics-timestamps-not-normalized-to-utc)) (MILLIS / MICROS) | bigint - make sure that you explicitly adjust `bigint` value with the timezone offset before converting it to a datetime value. |
+| INT64 |TIMESTAMP (NANOS) | Not supported |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(8000), serialized into JSON |
 |[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serialized into JSON |
 

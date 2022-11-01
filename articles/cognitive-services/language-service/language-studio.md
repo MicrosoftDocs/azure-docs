@@ -1,5 +1,5 @@
 ---
-title: What is Language Studio
+title: "Quickstart: Get started with Language Studio"
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn about Language Studio, and testing features of Azure Cognitive Service for Language
 author: aahill
@@ -7,7 +7,7 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.date: 11/02/2021
+ms.date: 07/21/2022
 ms.topic: quickstart
 ms.custom: ignite-fall-2021
 ---

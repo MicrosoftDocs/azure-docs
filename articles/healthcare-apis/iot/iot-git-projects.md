@@ -5,12 +5,15 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 05/25/2022
 ms.author: jasteppe
 ---
 # Open-source projects
 
-Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with the MedTech service. 
+Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with the MedTech service.
+
+> [!IMPORTANT]
+> Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.  
 
 ## MedTech service GitHub projects
 
@@ -34,9 +37,9 @@ HealthKit
 
 * [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
 
-Google Fit on FHIR
+Fit on FHIR
 
-* [microsoft/googlefit-on-fhir](https://github.com/microsoft/googlefit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
+* [microsoft/fit-on-fhir](https://github.com/microsoft/fit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
 
 Health Data Sync
 
@@ -48,4 +51,4 @@ Learn how to deploy the MedTech service in the Azure portal
 >[!div class="nextstepaction"]
 >[Deploy the MedTech service managed service](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

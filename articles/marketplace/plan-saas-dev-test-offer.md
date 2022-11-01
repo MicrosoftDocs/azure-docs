@@ -3,7 +3,6 @@ title: Plan a test and development SaaS offer in the Microsoft commercial market
 description: Plan a separate development offer for testing your offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -54,7 +53,7 @@ The following sections describe the configuration differences between the DEV an
 
 We recommend that you use the same alias in the **Alias** box of both offers but append “_test” to the alias of the DEV offer. For example, if the alias of your PROD offer is “contososolution” then the alias of the DEV offer should be “contososolution_test”. This way, you can easily identify which your DEV offer from your PROD offer.
 
-In the **Customer leads** section, use an Azure table or a test CRM environment for the DEV offer. Use the intended lead management system for the PROD offer.
+In the **Customer leads** section, use an Azure table or a test CRM environment for the DEV offer. Use the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center or your CRM system for the PROD offer.
 
 ### Properties page
 
@@ -82,7 +81,6 @@ This table describes the differences between the settings for DEV offers and PRO
 | Connection webhook | Enter your dev/test endpoint. | Enter your production endpoint. |
 | Azure Active Directory tenant ID | Enter your test app registration tenant ID (Azure AD directory ID). | Enter your production app registration tenant ID. |
 | Azure Active Directory application ID | Enter your test app registration application ID (client ID). | Enter your production app registration application ID. |
-||||
 
 ### Plan visibility
 
@@ -130,7 +128,6 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | $0.00 - $0.01 | Set a total transaction cost of zero to have no financial impact or one cent to have a low cost. Use this price when making calls to the metering APIs, or to test purchasing plans in your offer while developing your solution. |
 | $0.01 | Use this price range to test analytics, reporting, and the purchase process. |
 | $50.00 - $100.00 | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
-|||
 
 > [!IMPORTANT]
 >  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.

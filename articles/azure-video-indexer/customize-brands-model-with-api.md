@@ -1,7 +1,6 @@
 ---
-title: Customize a Brands model with Azure Video Indexer (formerly Azure Video Analyzer for Media) API
-description: Learn how to customize a Brands model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) API.
-services: azure-video-analyzer
+title: Customize a Brands model with Azure Video Indexer API
+description: Learn how to customize a Brands model with the Azure Video Indexer API.
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -11,7 +10,7 @@ ms.author: kumud
 
 # Customize a Brands model with the Azure Video Indexer API
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
+Azure Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
 
 > [!NOTE]
 > If your video was indexed prior to adding a brand, you need to reindex it.

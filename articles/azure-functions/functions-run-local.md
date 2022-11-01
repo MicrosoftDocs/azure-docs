@@ -26,8 +26,11 @@ Developing functions on your local computer and publishing them to Azure using C
 
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
-This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+The specific prerequisites for Core Tools depend on the features you plan to use:
+
+**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+
+**[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
 ## <a name="v2"></a>Core Tools versions
 
@@ -63,7 +66,7 @@ Starting with version 2.x, Core Tools runs on [Windows](?tabs=windows#v2), [macO
 
 # [Windows](#tab/windows/v4)
 
-The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#windows).
 
 Download and run the Core Tools installer, based on your version of Windows:
 
@@ -251,21 +254,17 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, Functions triggers and bindings are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
 
-To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file.
+To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file. 
 
-Extension bundles is the recommended approach for functions projects other than C# complied projects. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If this works for you, you can skip this entire section.  
-
-### Use extension bundles
+Extension bundles is the recommended approach for functions projects other than C# complied projects, as well as C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
- When supported by your language, extension bundles should already be enabled after you call `func init`. You should add extension bundles to the host.json before you add bindings to the function.json file. To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
+To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
 
-### Explicitly install extensions
-
-There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to install locally the specific extension packages required by your project. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to locally install the specific extension packages required by your project. To learn more, see [Install extensions](#install-extensions).
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -280,13 +279,13 @@ The function app settings values can also be read in your code as environment va
 * [PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
-When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
+When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
-Even when using the Microsoft Azure Storage Emulator for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
+Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
 
 # [Portal](#tab/portal)
 
@@ -347,7 +346,7 @@ func new --template "Http Trigger" --name MyHttpTrigger
 This example creates a Queue Storage trigger named `MyQueueTrigger`:
 
 ```
-func new --template "Queue Trigger" --name MyQueueTrigger
+func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 ```
 
 To learn more, see the [`func new` command](functions-core-tools-reference.md#func-new).
@@ -550,6 +549,45 @@ func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME>
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
 
+## Install extensions
+
+If you aren't able to use [extension bundles](functions-bindings-register.md#extension-bundles), you can use Azure Functions Core Tools locally to install the specific extension packages required by your project.
+
+> [!IMPORTANT]
+> You can't explicitly install extensions in a function app with extension bundles enabled. First, remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
+
+The following items describe some reasons you might need to install extensions manually:
+
+* You need to access a specific version of an extension not available in a bundle.
+* You need to access a custom extension not available in a bundle.
+* You need to access a specific combination of extensions not available in a single bundle.
+
+When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit this C# project file.
+
+There are several ways to use Core Tools to install the required extensions in your local project. 
+
+### Install all extensions 
+
+Use the following command to automatically add all extension packages used by the bindings in your local project:
+
+```command
+func extensions install
+```
+
+The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but doesn't update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
+
+If your function app uses bindings or NuGet packages that Core Tools does not recognize, you must manually install the specific extension.
+
+### Install a specific extension
+
+Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
+
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+```
+
+You can use this command to install any compatible NuGet package. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
+
 ## Monitoring functions
 
 The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. You can also stream execution logs to your local computer. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
@@ -569,9 +607,7 @@ This type of streaming logs requires that Application Insights integration be en
 
 ## Next steps
 
-Learn how to develop, test, and publish Azure Functions by using Azure Functions Core Tools [Microsoft learn module](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)
-Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
-To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
+Learn how to [develop, test, and publish Azure functions by using Azure Functions core tools](/training/modules/develop-test-deploy-azure-functions-with-core-tools/). Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 

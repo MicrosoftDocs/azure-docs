@@ -1,11 +1,11 @@
 ---
 title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 05/27/2021
 ---
 

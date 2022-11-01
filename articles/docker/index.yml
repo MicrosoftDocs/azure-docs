@@ -7,7 +7,7 @@ metadata:
   title: Docker on Azure documentation
   description: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.
   services: multiple
-  ms.service: multiple
+  ms.service: container-instances
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace

@@ -2,16 +2,15 @@
 title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
-author: ajburnle
-manager: karenhoran
-
+author: barclayn
+manager: amycolannino
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -19,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign or remove licenses in the Azure Active Directory portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and do not transfer to other tenants. 
+Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
 ## Available license plans
 
@@ -33,7 +32,7 @@ There are several license plans available for the Azure AD service, including:
 
 For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
 
-Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
+Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
 
 ## View license plans and plan details
 
@@ -81,7 +80,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     > [!NOTE]
-    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
+    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
 
 1. Select **Assign**.
 

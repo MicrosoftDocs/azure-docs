@@ -5,7 +5,7 @@ description: Learn how to perform administrative tasks for the Apache Hadoop clu
 ms.service: hdinsight
 ms.custom: "hdinsightactive, devx-track-csharp"
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/30/2022
 
 
 ---

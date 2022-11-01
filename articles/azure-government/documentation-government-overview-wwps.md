@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 04/06/2022
+ms.date: 07/29/2022
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -47,7 +47,7 @@ This article addresses common data residency, security, and isolation concerns p
 
 Established privacy regulations are silent on **data residency and data location**, and permit data transfers in accordance with approved mechanisms such as the EU Standard Contractual Clauses (also known as EU Model Clauses). Microsoft commits contractually in the Microsoft Products and Services [Data Protection Addendum](https://aka.ms/DPA) (DPA) that all potential transfers of customer data out of the EU, European Economic Area (EEA), and Switzerland shall be governed by the EU Model Clauses. Microsoft will abide by the requirements of the EEA and Swiss data protection laws regarding the collection, use, transfer, retention, and other processing of personal data from the EEA and Switzerland. All transfers of personal data are subject to appropriate safeguards and documentation requirements. However, many customers considering cloud adoption are seeking assurances about customer and personal data being kept within the geographic boundaries corresponding to customer operations or location of customer’s end users.
 
-**Data sovereignty** implies data residency; however, it also introduces rules and requirements that define who has control over and access to customer data stored in the cloud. In many cases, data sovereignty mandates that customer data be subject to the laws and legal jurisdiction of the country or region in which data resides. These laws can have direct implications on data access even for platform maintenance or customer-initiated support requests. You can use Azure public multi-tenant cloud in combination with Azure Stack products for on-premises and edge solutions to meet your data sovereignty requirements, as described later in this article. These other products can be deployed to put you solely in control of your data, including storage, processing, transmission, and remote access.
+**Data sovereignty** implies data residency; however, it also introduces rules and requirements that define who has control over customer data stored in the cloud. In many cases, data sovereignty mandates that customer data be subject to the laws and legal jurisdiction of the country or region in which data resides. These laws can have direct implications on data access even for platform maintenance or customer-initiated support requests. You can use Azure public multi-tenant cloud in combination with Azure Stack products for on-premises and edge solutions to meet your data sovereignty requirements, as described later in this article. These other products can be deployed to put you solely in control of your data, including storage, processing, transmission, and remote access.
 
 Among several [data categories and definitions](https://www.microsoft.com/trust-center/privacy/customer-data-definitions) that Microsoft established for cloud services, the following four categories are discussed in this article:
 
@@ -162,7 +162,7 @@ Proper protection and management of encryption keys is essential for data securi
 Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. With Azure Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. **Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM.
 
 > [!NOTE]
-> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
+> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys. For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 For more information, see [Azure Key Vault](./azure-secure-isolation-guidance.md#azure-key-vault).
 
@@ -208,9 +208,11 @@ Based on customer feedback, Microsoft has started to invest in higher-level [sce
 
 #### *Homomorphic encryption*
 
-[Homomorphic encryption](https://www.microsoft.com/research/project/homomorphic-encryption/) refers to a special type of encryption technology that allows for computations to be performed on encrypted data, without requiring access to a key needed to decrypt the data. The results of the computation are encrypted and can be revealed only by the owner of the encryption key. In this manner, only the encrypted data are processed in the cloud and only you can reveal the results of the computation.
+[Homomorphic encryption](https://homomorphicencryption.org/introduction/) refers to a special type of encryption technology that allows for computations to be performed on encrypted data, without requiring access to a key needed to decrypt the data. The results of the computation are encrypted and can be revealed only by the owner of the encryption key. In this manner, only the encrypted data are processed in the cloud and only you can reveal the results of the computation.
 
 To help you adopt homomorphic encryption, [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) provides a set of encryption libraries that allow computations to be performed directly on encrypted data. This approach enables you to build end-to-end encrypted data storage and compute services where you never need to share your encryption keys with the cloud service. Microsoft SEAL aims to make homomorphic encryption easy to use and available to everyone. It provides a simple and convenient API and comes with several detailed examples demonstrating how the library can be used correctly and securely.
+
+We also announced a [multi-year collaboration with Intel and the Defense Advanced Research Projects Agency (DARPA)](https://www.intel.com/content/www/us/en/newsroom/news/intel-collaborate-microsoft-darpa-program.html) to lead the commercialization of fully homomorphic encryption (FHE). This technology will enable computation on always-encrypted data or cryptograms. With FHE, the data never needs to be decrypted, reducing the potential for cyber threats.
 
 Data encryption in the cloud is an important risk mitigation requirement expected by government customers worldwide. As described in this section, Azure helps you protect your data through its entire lifecycle whether at rest, in transit, or even in use. Moreover, Azure offers comprehensive encryption key management to help you control your keys in the cloud, including key permissions, rotation, deletion, and so on. End-to-end data encryption using advanced ciphers is fundamental to ensuring confidentiality and integrity of your data in the cloud. However, many customers also expect assurances regarding any potential customer data access by Microsoft engineers for service maintenance, customer support, or other scenarios. These controls are described in the next section.
 
@@ -305,7 +307,7 @@ Microsoft has implemented extensive protections for the Azure cloud platform and
 
 ## Private and hybrid cloud with Azure Stack
 
-[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (previously Azure Stack), and Azure Stack Edge (previously Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
+[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (formerly Azure Stack), and Azure Stack Edge (formerly Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
 
 :::image type="content" source="./media/wwps-azure-stack-portfolio.jpg" alt-text="Azure Stack portfolio" border="false":::
 **Figure 4.**  Azure Stack portfolio
@@ -435,7 +437,7 @@ For most of these scenarios, Microsoft and its partners offer a customer-managed
 
 ### Machine learning model training
 
-[Artificial intelligence](/learn/modules/azure-artificial-intelligence/1-introduction-to-azure-artificial-intelligence) (AI) holds tremendous potential for governments. [Machine learning](/learn/modules/azure-artificial-intelligence/3-machine-learning) (ML) is a data science technique that allows computers to learn to use existing data, without being explicitly programmed, to forecast future behaviors, outcomes, and trends. Moreover, [ML technologies](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) can discover patterns, anomalies, and predictions that can help governments in their missions. As technical barriers continue to fall, decision-makers face the opportunity to develop and explore transformative AI applications. There are five main vectors that can make it easier, faster, and cheaper to adopt ML:
+[Artificial intelligence](/training/modules/azure-artificial-intelligence/1-introduction-to-azure-artificial-intelligence) (AI) holds tremendous potential for governments. [Machine learning](/training/modules/azure-artificial-intelligence/3-machine-learning) (ML) is a data science technique that allows computers to learn to use existing data, without being explicitly programmed, to forecast future behaviors, outcomes, and trends. Moreover, [ML technologies](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) can discover patterns, anomalies, and predictions that can help governments in their missions. As technical barriers continue to fall, decision-makers face the opportunity to develop and explore transformative AI applications. There are five main vectors that can make it easier, faster, and cheaper to adopt ML:
 
 - Unsupervised learning
 - Reducing need for training data
@@ -470,7 +472,7 @@ Synthetic data can exist in several forms, including text, audio, video, and hyb
 
 ### Knowledge mining
 
-The exponential growth of unstructured data gathering in recent years has created many analytical problems for government agencies. This problem intensifies when data sets come from diverse sources such as text, audio, video, imaging, and so on. [Knowledge mining](/learn/modules/azure-artificial-intelligence/2-knowledge-mining) is the process of discovering useful knowledge from a collection of diverse data sources. This widely used data mining technique is a process that includes data preparation and selection, data cleansing, incorporation of prior knowledge on data sets, and interpretation of accurate solutions from the observed results. This process has proven to be useful for large volumes of data in different government agencies.
+The exponential growth of unstructured data gathering in recent years has created many analytical problems for government agencies. This problem intensifies when data sets come from diverse sources such as text, audio, video, imaging, and so on. [Knowledge mining](/training/modules/azure-artificial-intelligence/2-knowledge-mining) is the process of discovering useful knowledge from a collection of diverse data sources. This widely used data mining technique is a process that includes data preparation and selection, data cleansing, incorporation of prior knowledge on data sets, and interpretation of accurate solutions from the observed results. This process has proven to be useful for large volumes of data in different government agencies.
 
 For instance, captured data from the field often includes documents, pamphlets, letters, spreadsheets, propaganda, videos, and audio files across many disparate structured and unstructured formats. Buried within the data are [actionable insights](https://www.youtube.com/watch?v=JFdF-Z7ypQo) that can enhance effective and timely response to crisis and drive decisions. The objective of knowledge mining is to enable decisions that are better, faster, and more humane by implementing proven commercial algorithm-based technologies.
 

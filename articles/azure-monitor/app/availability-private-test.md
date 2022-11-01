@@ -3,13 +3,14 @@ title: Private availability testing - Azure Monitor Application Insights
 description: Learn how to use availability tests on internal servers that run behind a firewall with private testing.
 ms.topic: conceptual
 ms.date: 05/14/2021
+ms.reviewer: shyamala
 ---
 
 # Private testing
 
-If you want to use availability tests on internal servers that run behind a firewall, there are two possible solutions: public ping test enablement and disconnected/no ingress scenarios.
+If you want to use availability tests on internal servers that run behind a firewall, there are two possible solutions: public availability test enablement and disconnected/no ingress scenarios.
 
-## Public ping test enablement
+## Public availability test enablement
 
 > [!NOTE]
 > If you don’t want to allow any ingress to your environment, then use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
@@ -18,7 +19,7 @@ If you want to use availability tests on internal servers that run behind a fire
 
 Configure your firewall to permit incoming requests from our service.
 
-- [Service tags](../../virtual-network/service-tags-overview.md) are a simple way to enable Azure services without having to authorize individual IPs or maintain an up-to-date list. Service tags can be used across Azure Firewall and Network Security Groups to allow our service access. **ApplicationInsightsAvailability** is the Service tag dedicated to our ping testing service.
+- [Service tags](../../virtual-network/service-tags-overview.md) are a simple way to enable Azure services without having to authorize individual IPs or maintain an up-to-date list. Service tags can be used across Azure Firewall and Network Security Groups to allow our service access. **ApplicationInsightsAvailability** is the Service tag dedicated to our ping testing service, covering both URL ping tests and Standard availability tests.
     1. If you are using [Azure Network Security Groups](../../virtual-network/network-security-groups-overview.md), go to your Network Security group resource and select **inbound security rules** under *Settings* then select **Add**.
 
          :::image type="content" source="media/availability-private-test/add.png" alt-text="Screenshot of the inbound security rules tab in the network security group resource.":::

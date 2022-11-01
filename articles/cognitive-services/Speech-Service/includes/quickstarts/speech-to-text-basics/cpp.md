@@ -18,10 +18,14 @@ ms.author: eur
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&SectionSet-up-the-environment" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a microphone
 
@@ -36,27 +40,35 @@ Follow these steps to create a new console application and install the Speech SD
     
     ```cpp
     #include <iostream> 
+    #include <stdlib.h>
     #include <speechapi_cxx.h>
-
+    
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
-
-    auto YourSubscriptionKey = "YourSubscriptionKey";
-    auto YourServiceRegion = "YourServiceRegion";
-
+    
+    std::string GetEnvironmentVariable(const char* name);
+    
     int main()
     {
-        auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
+        
+        if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
+            std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
+            return -1;
+        }
+    
+        auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
+    
         speechConfig->SetSpeechRecognitionLanguage("en-US");
-
-        // To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-        // auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
+    
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
-
+    
         std::cout << "Speak into your microphone.\n";
         auto result = recognizer->RecognizeOnceAsync().get();
-
+    
         if (result->Reason == ResultReason::RecognizedSpeech)
         {
             std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
@@ -69,7 +81,7 @@ Follow these steps to create a new console application and install the Speech SD
         {
             auto cancellation = CancellationDetails::FromResult(result);
             std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
-
+    
             if (cancellation->Reason == CancellationReason::Error)
             {
                 std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
@@ -78,12 +90,33 @@ Follow these steps to create a new console application and install the Speech SD
             }
         }
     }
+    
+    std::string GetEnvironmentVariable(const char* name)
+    {
+    #if defined(_MSC_VER)
+        size_t requiredSize = 0;
+        (void)getenv_s(&requiredSize, nullptr, 0, name);
+        if (requiredSize == 0)
+        {
+            return "";
+        }
+        auto buffer = std::make_unique<char[]>(requiredSize);
+        (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+        return buffer.get();
+    #else
+        auto value = getenv(name);
+        return value ? value : "";
+    #endif
+    }
     ```
 
-1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
-Build and run your new console application to start speech recognition from a microphone.
+
+[Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 
@@ -95,7 +128,8 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
-Here are some additional considerations:
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 - This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
@@ -107,3 +141,4 @@ Here are some additional considerations:
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

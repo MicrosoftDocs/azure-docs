@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 08/15/2022
 ---
 
 # Use the "simple" search syntax in Azure Cognitive Search
@@ -22,7 +22,7 @@ In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) inv
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client.
 
 Request headers must have the following values:
 

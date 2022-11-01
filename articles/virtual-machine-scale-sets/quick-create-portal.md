@@ -14,6 +14,9 @@ ms.custom: mimckitt, mode-ui
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
+> [!NOTE]
+> The following article is for Uniform virtual machine scale sets. We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
+
 A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -65,8 +68,8 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
     :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Image shows create options for scale sets in the Azure portal.":::
 
 1. Select **Next** to move the the other pages. 
-1. Leave the defaults for the **Instance** and **Disks** pages.
-1. On the **Networking** page, under **Load balancing**, select **Yes** to put the scale set instances behind a load balancer. 
+1. Leave the defaults for the **Disks** page.
+1. On the **Networking** page, under **Load balancing**, select the **Use a load balancer** option to put the scale set instances behind a load balancer. 
 1. In **Load balancing options**, select **Azure load balancer**.
 1. In **Select a load balancer**, select *myLoadBalancer* that you created earlier.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.

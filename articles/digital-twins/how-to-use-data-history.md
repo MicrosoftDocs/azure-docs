@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use data history with Azure Data Explorer (preview)
+title: Use data history with Azure Data Explorer
 titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 03/23/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,9 +16,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins data history (preview)
+# Use Azure Digital Twins data history
 
-[Data history (preview)](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
@@ -27,7 +28,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. 
+>Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the rest APIs.
 
 ## Prerequisites
 
@@ -154,7 +155,7 @@ Next, create the Kusto cluster. The command below requires 5-10 minutes to execu
 az kusto cluster create --cluster-name $clustername --sku name="Dev(No SLA)_Standard_E2a_v4" tier="Basic" --resource-group $resourcegroup --location $location --type SystemAssigned
 ```
 
-Create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
+Create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az-kusto-database-create).
 
 ```azurecli-interactive
 az kusto database create --cluster-name $clustername --database-name $databasename --resource-group $resourcegroup --read-write-database soft-delete-period=P365D hot-cache-period=P31D location=$location
@@ -174,8 +175,11 @@ Now that you've created the required resources, use the command below to create 
 
 # [CLI](#tab/cli) 
 
-Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`.
-The command uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Use the command in this section to create a data history connection. 
+
+By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history connection create adx -h`. You can also see the full list of optional parameters, including how to specify a table name and more, in its reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
+
+The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
@@ -251,13 +255,17 @@ You can set up a sample graph for this scenario using the **Azure Digital Twins 
 
 You can use the **Azure Digital Twins Data Simulator** to provision a sample twin graph and push property updates to it. The twin graph created here models pasteurization processes for a dairy company.
 
-Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) web application in your browser.
+Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) in your browser. Set these fields:
+* **Instance URL**: Enter the host name of your Azure Digital Twins instance. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. 
+* **Simulation Type**: Select *Dairy facility* from the dropdown menu.
 
-:::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The screen shows configuration fields for Instance URL, Live stream data, and buttons to Generate environment and Start simulation.":::
+Select **Generate Environment**. 
 
-Enter the host name of your Azure Digital Twins instance in the Instance URL field. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. Select **Generate Environment**. 
+:::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator.":::
 
-You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
+You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. 
+
+When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
 
 To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 

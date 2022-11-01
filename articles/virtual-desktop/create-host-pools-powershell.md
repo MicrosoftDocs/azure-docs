@@ -16,6 +16,25 @@ manager: femila
 
 Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
 
+You can create host pools in the following Azure regions:
+
+- Australia East
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+
 ## Create a host pool
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -25,7 +44,7 @@ If you haven't already done so, follow the instructions in [Set up the PowerShel
 Run the following cmdlet to sign in to the Azure Virtual Desktop environment:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> -PreferredAppGroupType <appgrouptype>
 ```
 
 This cmdlet will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.

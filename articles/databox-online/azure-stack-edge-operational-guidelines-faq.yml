@@ -1,0 +1,73 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Stack Edge operational guidelines FAQ 
+  description: Contains frequently asked questions and answers about Azure Stack Edge operations.
+  services: databox
+  author: alkohli
+  
+  ms.service: databox
+  ms.topic: faq
+  ms.date: 05/26/2022
+  ms.author: alkohli
+
+title: "Azure Stack Edge operations: frequently asked questions"
+summary: |
+  Use the following guidelines to learn about operating the Azure Stack Edge Hardware-as-a-service offering.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Who is responsible for the initial delivery of the device to the customer location?
+        answer: |
+          Microsoft will deliver your device using the contact details and shipping address provided in the order.
+
+      - question: |
+          Who is responsible for the ongoing operation of the device?
+        answer: |
+          The customer is responsible for the day-to-day operation of the device, including:
+          - Power, network, storage, and peripheral device operation.
+          - Software operations, like application deployment, Kubernetes cluster operations, clustering, and virtual machine management.
+          
+          The device will be located on the customer's premises during regular operation, while the subscription is active.
+          To create a support ticket with Microsoft, see the section below to [open a support ticket](#how-do-i-open-a-support-ticket-with-microsoft-).
+          
+      - question: |
+          What if the device is lost, damaged, or stolen while it's on-premises?
+        answer: |
+          If your device is lost, damaged, or stolen, you're responsible for promptly informing Microsoft and paying a fee. For more information, see the frequently asked questions on the [Azure Stack Edge pricing page](https://azure.microsoft.com/pricing/details/azure-stack/edge/). Once you submit a new order in the Azure portal, Microsoft may deliver a replacement device to you.
+
+      - question: |
+          Who manages regular updates to enhance and improve the Azure Stack Edge platform?
+        answer: |
+          Microsoft releases periodic updates for firmware, BIOS, drivers, Kubernetes service, and other software-related updates. Software patches may be made available by Microsoft to address vulnerabilities and bug fixes, etc. When updates are available, you initiate installation at a time that's convenient for you.
+          For more information about updates for your device, see [Update your Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-install-update.md?tabs=version-2106-and-later).
+
+      - question: |
+          Who fixes software issues on my applications that run on Azure Stack Edge? 
+        answer: |
+          You're responsible for fixing issues in the applications that you deploy on the Azure Stack Edge platform, even if you're consuming services like Kubernetes that are provided by the platform. To create a support ticket with Microsoft, see the section below to [open a support ticket](#how-do-i-open-a-support-ticket-with-microsoft-).
+
+      - question: |
+          How do I replace an Azure Stack Edge device if there's a hardware failure?
+        answer: |
+          If Microsoft determines the device is faulty, Microsoft will arrange for replacement and delivery of devices. If you [Return your Azure Stack Edge device](azure-stack-edge-return-device.md?tabs=azure-edge-hardware-center), Microsoft will process the return of your device.
+          
+      - question: |
+          How do I open a support ticket with Microsoft?
+        answer: |
+          For issues that you can't address in-house, [open a support ticket](azure-stack-edge-contact-microsoft-support.md), and Microsoft will assess your questions.
+
+          - For Azure Stack Edge and Azure Data Box Gateway issues like network interfaces, disk drives, or firmware, the ticket is assigned to Microsoft Support.
+          - If the device is faulty, damaged, or lost, and loss isn't the customer's fault, Microsoft may:
+            - Send a field support person to address the issue, or 
+            - Replace the device. For more information, see the frequently asked questions section on the [Azure Stack Edge pricing page](https://azure.microsoft.com/pricing/details/azure-stack/edge/).
+          - If you have a software issue with your Kubernetes service that you can't fix yourself, or if you have a virtual machine management question that isn't already documented, the Microsoft support team may consult with you to triage the issue and debug it remotely.
+          - To address software issues in the Azure Stack Edge platform or services that run on it, Microsoft may work with you directly to provide a workaround or a fix available via a software update.
+          - For information about software updates for your device, see [Update your Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-install-update.md?tabs=version-2106-and-later).
+
+additionalContent: |
+
+  ## Next steps
+
+   - Learn about [troubleshooting Azure Stack Edge device issues](azure-stack-edge-gpu-troubleshoot.md).

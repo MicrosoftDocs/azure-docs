@@ -67,8 +67,8 @@
         href: configuration-overview.md
       - name: Infrastructure
         href: configuration-infrastructure.md
-      - name: Front-end IP address
-        href: configuration-front-end-ip.md
+      - name: Frontend IP address
+        href: configuration-frontend-ip.md
       - name: Listeners
         href: configuration-listeners.md
       - name: Request routing rules
@@ -93,6 +93,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+    - name: Private Link
+      href: private-link.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -298,7 +300,9 @@
   - name: Configure alerts
     href: configure-alerts-with-templates.md
   - name: Classic to Resource Manager
-    href: classic-to-resource-manager.md  
+    href: classic-to-resource-manager.md
+  - name: Configure Private Link
+    href: private-link-configure.md
 - name: Reference
   items:
   - name: Monitoring data

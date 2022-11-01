@@ -2,6 +2,8 @@
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
-ms.date: 01/29/2022
+ms.date: 04/30/2022
 ---
-Select the runtime stack for the application. In this example, select **Python 3.9**.
+Enter the name *msdocs-python-webapp-quickstart-XYZ* for this web app, where *XYZ* is any three unique characters.<br>
+<br>
+When deployed, this name is used as your app name in the form `https://<app-name>.azurewebsites.net`.

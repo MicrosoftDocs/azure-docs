@@ -1,5 +1,5 @@
 ---
-title: Configure the minimum TLS version for an Event Hubs namespace using ARM
+title: Configure the minimum TLS version for an Event Hubs namespace
 titleSuffix: Event Hubs
 description: Configure an Azure Event Hubs namespace to use a minimum version of Transport Layer Security (TLS).
 services: event-hubs
@@ -7,20 +7,33 @@ author: EldertGrootenboer
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 04/25/2022
+ms.date: 07/06/2022
 ms.author: egrootenboer
 ---
 
-# Configure the minimum TLS version for an Event Hubs namespace using ARM (Preview)
+# Configure the minimum TLS version for an Event Hubs namespace
 
-To configure the minimum TLS version for an Event Hubs namespace, set the  `MinimumTlsVersion`  version property. When you create an Event Hubs namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
+Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md).
+
+You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
+
+## Specify the minimum TLS version in the Azure portal
+You can specify the minimum TLS version when creating an Event Hubs namespace in the Azure portal on the **Advanced** tab. 
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating a namespace.":::
+
+You can also specify the minimum TLS version for an existing namespace on the **Configuration** page.
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing namespace.":::
+
+## Create a template to configure the minimum TLS version
+
+To configure the minimum TLS version for an Event Hubs namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. When you create an Event Hubs namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
 
 > [!NOTE]
 > Namespaces created using an api-version prior to 2022-01-01-preview will have 1.0 as the value for `MinimumTlsVersion`. This behavior was the prior default, and is still there for backwards compatibility.
 
-## Create a template to configure the minimum TLS version
-
-To configure the minimum TLS version for an Event Hubs namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
+The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose  **Create a resource**.
 2. In  **Search the Marketplace** , type  **custom deployment** , and then press  **ENTER**.
@@ -59,24 +72,61 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
 
 Configuring the minimum TLS version requires api-version 2022-01-01-preview or later of the Azure Event Hubs resource provider.
 
-## Check the minimum required TLS version for multiple namespaces
+## Check the minimum required TLS version for a namespace
 
-To check the minimum required TLS version across a set of Event Hubs namespaces with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
+To check the minimum required TLS version for your Event Hubs namespace, you can query the Azure Resource Manager API. You'll need a Bearer token to query against the API, which you can retrieve using the [ARMClient](https://github.com/projectkudu/ARMClient) app by executing the following commands.
 
-Running the following query in the Resource Graph Explorer returns a list of Event Hubs namespaces and displays the minimum TLS version for each namespace:
+```powershell
+.\ARMClient.exe login
+.\ARMClient.exe token <your-subscription-id>
+```
 
-```kusto
-resources 
-| where type =~ 'Microsoft.EventHub/namespaces'
-| extend minimumTlsVersion = parse\_json(properties).minimumTlsVersion
-| project subscriptionId, resourceGroup, name, minimumTlsVersion
+Once you have your bearer token, you can use the script below in combination with something like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to query the API.
+
+```http
+@token = Bearer <Token received from ARMClient>
+@subscription = <your-subscription-id>
+@resourceGroup = <your-resource-group-name>
+@namespaceName = <your-namespace-name>
+
+###
+GET https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.EventHub/namespaces/{{namespaceName}}?api-version=2022-01-01-preview
+content-type: application/json
+Authorization: {{token}}
+```
+
+The response should look something like the below, with the minimumTlsVersion set under the properties.
+
+```json
+{
+  "sku": {
+    "name": "Premium",
+    "tier": "Premium",
+    "capacity": 1
+  },
+  "id": "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.EventHub/namespaces/<your-namespace-name>",
+  "name": "<your-namespace-name>",
+  "type": "Microsoft.EventHub/Namespaces",
+  "location": "West Europe",
+  "properties": {
+    "minimumTlsVersion": "1.2",
+    "publicNetworkAccess": "Enabled",
+    "disableLocalAuth": false,
+    "zoneRedundant": true,
+    "isAutoInflateEnabled": false,
+    "maximumThroughputUnits": 0,
+    "kafkaEnabled": true,
+    "provisioningState": "Succeeded",
+    "status": "Active"
+  }
+}
 ```
 
 ## Test the minimum TLS version from a client
 
 To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
+When a client accesses an Event Hubs namespace using a TLS version that doesn't meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used isn't permitted for making requests against this Event Hubs namespace.
 
 > [!NOTE]
 > Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.
@@ -86,7 +136,7 @@ When a client accesses an Event Hubs namespace using a TLS version that does not
 
 ## Next steps
 
-See the following documentation for more information.
+For more information, see the following articles.
 
 - [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md)
 - [Configure Transport Layer Security (TLS) for an Event Hubs client application](transport-layer-security-configure-client-version.md)

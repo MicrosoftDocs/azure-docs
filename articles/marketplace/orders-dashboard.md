@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/28/2022
+ms.date: 08/17/2022
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -252,7 +252,7 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | Marketplace Subscription ID |
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. The format is yyyy-mm-dd. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>[Cloud Solution Provider](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
@@ -266,9 +266,11 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
 | Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. The format is yyyy-mm-dd. | OrderPurchaseDate |
 | Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
-| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li</ul> | Is Private Offer |
-| Term Start Date | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
-| Term End Date | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
+| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>**Note:** [Private plans are different from Private offers](isv-customer-faq.yml).  | Is Private Offer |
+| Not available | BillingTerm | Indicates the term duration of the offer purchased by the customer | BillingTerm |
+| Not available | BillingPlan | Indicates the billing frequency of the offer purchased by the customer | BillingPlan |
+| Term Start Date | TermStartDate | Indicates the start date of a term for an order | TermStartDate |
+| Term End Date | TermEndDate | Indicates the end date of a term for an order | TermEndDate |
 | Not available | purchaseRecordId | The identifier of the purchase record for an order purchase | purchaseRecordId |
 | Not available | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
 | Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax-inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
@@ -280,7 +282,11 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerID |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| Reference ID | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for Reference ID key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
 | PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. | PlanId |
+| Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product does not support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
+| Not available | Event Timestamp | Indicates the timestamp of an order management event, such as an order purchase, cancelation, renewal, and so on | EventTimestamp |
+| Not available | OrderVersion | A key to indicate updated versions of an order purchase. The highest value indicates latest key | OrderVersion |
 
 ### Orders page filters
 

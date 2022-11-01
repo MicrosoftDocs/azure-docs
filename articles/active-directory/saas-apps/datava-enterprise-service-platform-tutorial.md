@@ -52,6 +52,8 @@ To configure the integration of Datava Enterprise Service Platform into Azure AD
 1. In the **Add from the gallery** section, type **Datava Enterprise Service Platform** in the search box.
 1. Select **Datava Enterprise Service Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Datava Enterprise Service Platform
 
 Configure and test Azure AD SSO with Datava Enterprise Service Platform using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Datava Enterprise Service Platform.
@@ -77,14 +79,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Reply URL** textbox, type the URL:
-    `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
+    a. In the **Identifier** textbox, enter this value:
+    `https://samlsp.datava.com`
 
-    b. In the **Sign-on URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type the URL:
+    `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/<TENANT_NAME>-sp`
+
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://go.datava.com/<TENANT_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Datava Enterprise Service Platform Client support team](mailto:support@datava.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Contact [Datava Enterprise Service Platform Client support team](mailto:support@datava.com) to get the TENANT_NAME value.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

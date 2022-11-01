@@ -2,14 +2,18 @@
 title: Upgrade from Basic Internal to Standard Internal - Azure Load Balancer
 description: This article shows you how to upgrade Azure Internal Load Balancer from Basic SKU to Standard SKU
 services: load-balancer
-author: irenehua
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required
+
+>[!Important]
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
 This article introduces a PowerShell script that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
@@ -27,7 +31,7 @@ This article introduces a PowerShell script that creates a Standard Load Balance
 * The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](https://docs.microsoft.com/azure/load-balancer/update-load-balancer-with-vm-scale-set) to complete the migration.
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
 
 ## Change IP allocation method to Static for frontend IP Configuration (Ignore this step if it's already static)
 

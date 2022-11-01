@@ -27,6 +27,8 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -59,6 +61,8 @@
       href: about-virtual-hub-routing.md
     - name: Routing scenarios
       items:
+      - name: Virtual hub routing preference
+        href: about-virtual-hub-routing-preference.md
       - name: Any-to-any
         href: scenario-any-to-any.md
       - name: Isolating VNets
@@ -81,6 +85,8 @@
         href: scenario-secured-hub-app-gateway.md
       - name: Microsoft 365 - ExpressRoute private peering
         href: scenario-365-expressroute-private.md
+    - name: Virtual WAN routing deep dive
+      href: routing-deep-dive.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -89,16 +95,22 @@
       href: path-selection-multiple-links.md
   - name: Point-to-site
     items:
-    - name: About P2S IPsec policies
+    - name: P2S IPsec policies
       href: point-to-site-ipsec.md
-    - name: About P2S client address pools
+    - name: P2S client address pools
       href: about-client-address-pools.md
-    - name: About P2S global and hub-based profiles
+    - name: P2S global and hub profiles
       href: global-hub-profile.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+    - name: User groups - assign client-specific addresses 
+      href: user-groups-about.md
+  - name: Virtual hub settings
+    href: hub-settings.md
+  - name: Gateway settings
+    href: gateway-settings.md
   - name: Secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing explained
     href: pricing-concepts.md
 - name: How-to guides
@@ -108,13 +120,21 @@
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
   - name: Connect a VNet to a virtual hub
-    href: howto-connect-vnet-hub.md
+    items:
+    - name: Azure portal
+      href: howto-connect-vnet-hub.md
+    - name: Azure PowerShell
+      href: howto-connect-vnet-hub-powershell.md
   - name: Create a cross-tenant VNet connection
     href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
-    - name: Create an ExpressRoute connection
-      href: virtual-wan-expressroute-portal.md
+    - name: Create an ExpressRoute association
+      items:
+      - name: Azure portal
+        href: virtual-wan-expressroute-portal.md
+      - name: Azure PowerShell
+        href: expressroute-powershell.md
     - name: Configure ExpressRoute encryption
       href: vpn-over-expressroute.md
   - name: Site-to-site
@@ -137,40 +157,56 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create User VPN
-      items: 
-        - name: Certificate or RADIUS - portal
-          href: virtual-wan-point-to-site-portal.md
-        - name: Certificate or RADIUS - PowerShell
-          href: virtual-wan-point-to-site-powershell.md
-        - name: Azure AD authentication
+    - name: P2S server configuration
+      items:
+      - name: Certificate or RADIUS authentication
+        items:
+        - name: Configure a P2S VPN
+          items: 
+          - name: Azure portal
+            href: virtual-wan-point-to-site-portal.md
+          - name: PowerShell
+            href: virtual-wan-point-to-site-powershell.md
+        - name: Generate self-signed certificates
+          href: certificates-point-to-site.md
+      - name: Azure AD authentication
+        items:
+        - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
-    - name: Generate certificates
-      href: certificates-point-to-site.md
-    - name: Configure Azure AD tenant
-      href: openvpn-azure-ad-tenant.md
-    - name: VPN client profiles
+        - name: Configure a tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure Multi-Factor Authentication(MFA)
+          href: openvpn-azure-ad-mfa.md   
+    - name: P2S client configuration
       items:
-      - name: Download global and hub-based profiles
-        href: global-hub-profile.md
-      - name: Extract and view profile information
-        href: about-vpn-profile-download.md
-      - name: Deploy profiles using Intune
-        href: vpn-profile-intune.md
-    - name: VPN clients
-      items:
-        - name: OpenVPN
-          href: howto-openvpn-clients.md?
-        - name: Azure AD authentication
-          items:
-            - name: Windows 10
-              href: openvpn-azure-ad-client.md
-            - name: macOS
-              href: openvpn-azure-ad-client-mac.md
-    - name: Multi-Factor Authentication(MFA)
-      href: openvpn-azure-ad-mfa.md   
-    - name: Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Azure AD authentication clients
+        items:
+        - name: Windows clients
+          href: openvpn-azure-ad-client.md
+        - name: macOS clients
+          href: openvpn-azure-ad-client-mac.md
+        - name: Multi-application Azure AD authentication
+          href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Certificate authentication clients
+        items:
+        - name: Windows clients
+          href: vpn-client-certificate-windows.md
+        - name: macOS and iOS clients
+          href: point-to-site-vpn-client-cert-mac.md    
+        - name: Install client certificates
+          href: install-client-certificates.md
+      - name: VPN client profiles
+        items:
+        - name: Download global and hub profiles
+          href: global-hub-profile.md
+        - name: Extract and view profile information
+          href: about-vpn-profile-download.md
+        - name: Intune- Deploy VPN client profile
+          href: vpn-profile-intune.md
+      - name: Azure VPN client optional settings
+        href: azure-vpn-client-optional-configurations-windows.md
+      - name: OpenVPN client software configuration
+        href: howto-openvpn-clients.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
@@ -179,12 +215,26 @@
         href: howto-always-on-device-tunnel.md
     - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
-    - name: Configure High Availability VPN client
-      href: high-availability-vpn-client.md
+    - name: Configure user groups for address pools
+      items:
+      - name: Configure a user group
+        href: user-groups-create.md
+      - name: RADIUS - configure NPS vendor-specific attributes
+        href: user-groups-radius.md
   - name: Routing
     items:
     - name: Configure virtual hub routing
-      href: how-to-virtual-hub-routing.md
+      items:
+      - name: Azure portal
+        href: how-to-virtual-hub-routing.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-powershell.md
+    - name: Configure virtual hub routing preference
+      items:
+      - name: Azure portal
+        href: howto-virtual-hub-routing-preference.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-preference-powershell.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
     - name: How to configure routing intent and policies
@@ -195,8 +245,12 @@
           href: virtual-wan-route-table-nva-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
-    - name: Configure BGP peering with virtual hub
-      href: create-bgp-peering-hub-portal.md
+    - name: Configure BGP peering to an NVA
+      items:
+      - name: Azure portal
+        href: create-bgp-peering-hub-portal.md
+      - name: Azure PowerShell
+        href: create-bgp-peering-hub-powershell.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub
@@ -213,6 +267,8 @@
       href: monitor-virtual-wan.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
+    - name: BGP dashboard
+      href: monitor-bgp-dashboard.md
     - name: Configure S2S VPN packet captures
       items:
       - name: Azure portal
@@ -223,6 +279,8 @@
       href: monitor-point-to-site-connections.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-virtual-wan-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#networking
   - name: REST

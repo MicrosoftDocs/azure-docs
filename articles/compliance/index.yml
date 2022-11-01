@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 03/22/2022
+  ms.date: 06/12/2022
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -374,6 +374,9 @@ conceptualContent:
         - url: /compliance/regulatory/offering-bir-2012-netherlands
           itemType: concept
           text: Netherlands BIR 2012
+        - url: /azure/compliance/offerings/offering-qatar-nia
+          itemType: concept
+          text: Qatar NIA
 
     # Card
     - title: Regional - EMEA

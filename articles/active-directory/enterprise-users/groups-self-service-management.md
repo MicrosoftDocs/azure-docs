@@ -3,15 +3,15 @@ title: Set up self-service group management - Azure Active Directory | Microsoft
 description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2022
-ms.author: curtand
+ms.date: 08/01/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Set up self-service group management in Azure Active Directory 
 
-You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
+You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD), part of Microsoft Entra. The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
 
 ## Self-service group membership defaults
 
@@ -40,7 +40,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Privileged Role Administrator role for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
 1. Select **Groups**, and then select **General** settings.
 

@@ -89,7 +89,7 @@ The following diagram shows the projected end result:
 
 1. Ensure the site-to-site VPN gateway is able to peer with the on-premises BGP peer.
 
-   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 127.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (127.30.0.132). 
+   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 127.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (127.30.0.132).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to change the BGP peering IP."lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
@@ -102,7 +102,7 @@ The following diagram shows the projected end result:
    For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 127.30.0.0/24, the VPN site's **Link Connection BGP Address** must be configured to be the translated address (127.30.0.133).
 * In Dynamic NAT, on-premises BGP peer IP can't be part of the pre-NAT address range (**Internal Mapping**) as IP and port translations aren't fixed. If there is a need to translate the on-premises BGP peering IP, please create a separate **Static NAT Rule** that translates BGP Peering IP address only.
 
-   For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premise BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/32, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.02/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping).
+   For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premises BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/32, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.02/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping).
 
 ### Ingress SNAT (VPN site with statically configured routes)
 

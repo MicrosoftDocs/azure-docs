@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/06/2021
+ms.date: 07/29/2022
 ---
 
 # Azure Marketplace listing guidelines
 
-This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the [listing requirements](#listing-requirements-for-all-offers) listed below. Use the links on the right to navigate to additional requirements and checklists for specific listing types.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace. All offers must meet the listing requirements described in this article. Use the links on the right to navigate to additional requirements and checklists for specific offer types.
 
-## Listing requirements for all offers
+## Listing requirements for most offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
@@ -25,21 +25,23 @@ This article explains the requirements and guidelines for listing new offers and
 | 6 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, the length is 3 min. or more.</li><li>The solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
 | 7 | List status (listing options) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
 | 8 | Solution pricing | Must have solution pricing tab/details, and pricing must be in the local currency of the partner solution offering. | Multiple billing options should be available with tier pricing to give customer options. |
-| 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
-| 10 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
+| 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. |
+| 10 | Solution support and help | Provide at least one of the following: <br>- Telephone numbers [1]<br>- Email support [2] |- All support methods are listed.<br>- Paid support is offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal | Policies or terms are available via a public URL. |  |
-|||
 
-## Trial offer requirements
+[1] Doesn’t apply to Consulting service and Power BI app offers
 
-| No. | Listing element | Base requirement | Optimal requirement | 
+[2] Doesn’t apply to Consulting service offers
+
+## Listing requirements for trial offers
+
+| No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
-|  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. | 
-|||
+|  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. |
 
-## SaaS application requirements
+## Listing requirements for SaaS applications
 
-| No. | Listing element | Base requirement | Optimal requirement | 
+| No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<ul><li>Must consist only of lowercase letters, alphanumeric characters, dashes, or underscores. The title can't be modified after it's published.</li><li>Describes solution offering.</li><li>Matches online promotion of solution on partner's website. | Contains key search words. |
 | 2 | Technical information: Configuration |<ul><li>For software as a service (SaaS) apps, choose whether you want only to list your app or to enable customers to purchase your app through Azure.</li><li>Select the text that you want on your offer's acquisition button: *Free*, *Free Trial*, or *Contact Me*.</li><li>In the pop-up window, select only one applicable product if your app utilizes the technology: Cortana Intelligence, Power BI Solution Templates, or Power Apps. |  |
@@ -52,9 +54,8 @@ This article explains the requirements and guidelines for listing new offers and
 | 9 | Lead management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal |<ul><li>Privacy policy URL: The URL for your app's privacy policy in the Privacy policy URL field in the CPP.</li><li>Terms of use: The terms of use of your app. Customers are required to accept these terms before they can try your app. |    Policies or terms are available via a public URL site. |
-|||
 
-## Container offer requirements
+## Listing requirements for Container offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
@@ -62,9 +63,8 @@ This article explains the requirements and guidelines for listing new offers and
 | 2 | Plans | The partner selects new plans.| The title mirrors the title style already available in the description. Avoid using long titles.  |
 | 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional), and Large (from 216 x 216 to 350 x 350 px, required).</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
 | 4 | Lead management |<ul><li>Lead management: Select the system where your leads will be stored.</li><li>See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. | |
-|||
 
-## Consulting offer requirements
+## Listing requirements for Consulting service offers
 
 | No. | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
@@ -80,7 +80,6 @@ This article explains the requirements and guidelines for listing new offers and
 | 10 | Products | Must be Azure products. | |
 | 11 | Country/region | Ensure that the country/region matches the selected currency. | |
 | 12 | Learn more  | <ul><li>Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and being displayed correctly.</li><li>Links must have a "friendly name" and are not displayed as the file name of any downloads. | |
-||||
 
 ## Next steps
 

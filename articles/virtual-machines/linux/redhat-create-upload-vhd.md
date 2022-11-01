@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Prepare a Red Hat-based virtual machine for Azure
 
@@ -96,7 +96,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 1. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/boot/grub/menu.lst` in a text editor, and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    console=ttyS0 earlyprintk=ttyS0 
     ```
 
     This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
@@ -202,7 +202,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
     
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
@@ -393,7 +393,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     1. Edit `/etc/default/grub` in a text editor, and add the following paramters:
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
@@ -621,7 +621,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 1. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/boot/grub/menu.lst` in a text editor, and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    console=ttyS0 earlyprintk=ttyS0 
     ```
 
     This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
@@ -816,7 +816,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 1. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    This command also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. The command also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
@@ -1007,7 +1007,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 1. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+    GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0"
     ```
 
    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, we recommend that you remove the following parameters:
@@ -1153,7 +1153,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 1. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    This configuration also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
@@ -1371,10 +1371,6 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     # Disable the root account
     usermod root -p '!!'
 
-    # Disabke swap in WALinuxAgent
-    ResourceDisk.Format=n
-    ResourceDisk.EnableSwap=n
-
     # Configure swap using cloud-init
     echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
     cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
@@ -1396,7 +1392,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     EOF
 
     # Set the cmdline
-    sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+    sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0"/g' /etc/default/grub
 
     # Enable SSH keepalive
     sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config

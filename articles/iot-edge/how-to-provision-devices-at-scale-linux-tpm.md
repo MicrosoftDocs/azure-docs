@@ -4,14 +4,14 @@ description: Use a simulated TPM on a Linux device to test the Azure IoT Hub dev
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 10/28/2021
+ms.date: 05/13/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale with a TPM on Linux
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -51,6 +51,8 @@ The tasks are as follows:
 # [Physical device](#tab/physical-device)
 
 A physical Linux device to be the IoT Edge device.
+
+If you are a device manufacturer then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
 
 # [Virtual machine](#tab/virtual-machine)
 
@@ -141,6 +143,8 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
+<!-- 1.1 -->
+:::moniker range="<iotedge-1.4"
 In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
 
 1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
@@ -157,10 +161,73 @@ In this section, you build a tool that you can use to retrieve the registration 
 
 1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
-> [!TIP]
-> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+
+> [!NOTE]
+> This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you relied on that tool previously, then be aware the steps below generate a different registration ID for the same public endorsement key. If you need to recreate the registration ID as before then refer to how the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision) generates it. Be sure the registration ID for the individual enrollment in DPS matches the regisration ID the IoT Edge device is configured to use.
+
+In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID. This section corresponds with [Step 3: Device has firmware and software installed](../iot-dps/concepts-device-oem-security-practices.md#step-3-device-has-firmware-and-software-installed) in the process for [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
+
+### Install the TPM2 Tools
+Sign in to your device, and install the `tpm2-tools` package.
+
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+
+
+   ```bash
+   sudo apt-get install tpm2-tools
+   ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+
+   ```bash
+   sudo yum install tpm2-tools
+   ```
+
+---
+
+Run the following script to read the endorsement key, creating one if it does not already exist.
+
+   ```bash
+   #!/bin/sh
+   if [ "$USER" != "root" ]; then
+     SUDO="sudo "
+   fi
+
+   $SUDO tpm2_readpublic -Q -c 0x81010001 -o ek.pub 2> /dev/null
+   if [ $? -gt 0 ]; then
+     # Create the endorsement key (EK)
+     $SUDO tpm2_createek -c 0x81010001 -G rsa -u ek.pub
+
+     # Create the storage root key (SRK)
+     $SUDO tpm2_createprimary -Q -C o -c srk.ctx > /dev/null
+
+     # make the SRK persistent
+     $SUDO tpm2_evictcontrol -c srk.ctx 0x81000001 > /dev/null
+
+     # open transient handle space for the TPM
+     $SUDO tpm2_flushcontext -t > /dev/null
+   fi
+
+   printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
+   $SUDO rm ek.pub srk.ctx 2> /dev/null
+
+   ```
+
+The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
+
+:::moniker-end
+<!-- end iotedge-1.4 -->
 
 After you have your registration ID and endorsement key, you're ready to continue.
+
+> [!TIP]
+> If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, as shown above you can create an SHA-256 hash of the endorsement key.
 
 <!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
@@ -196,6 +263,7 @@ After the runtime is installed on your device, configure the device with the inf
      attestation:
        method: "tpm"
        registration_id: "REGISTRATION_ID_HERE"
+
    # always_reprovision_on_startup: true
    # dynamic_reprovisioning: false
    ```
@@ -209,7 +277,7 @@ After the runtime is installed on your device, configure the device with the inf
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
@@ -234,20 +302,33 @@ After the runtime is installed on your device, configure the device with the inf
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "SCOPE_ID_HERE"
+
+   # Uncomment to send a custom payload during DPS registration
+   # payload = { uri = "PATH_TO_JSON_FILE" }
    
    [provisioning.attestation]
    method = "tpm"
    registration_id = "REGISTRATION_ID_HERE"
+
+   # auto_reprovisioning_mode = Dynamic
    ```
 
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
-1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior to either `Dynamic`, `AlwaysOnStartup`, or `OnErrorOnly`. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+:::moniker-end
 
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+:::moniker-end
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 1. Save and close the file.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Give IoT Edge access to the TPM
 
@@ -310,7 +391,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 The IoT Edge runtime relies on a TPM service that brokers access to a device's TPM. This service needs to access the TPM to automatically provision your device.
@@ -367,7 +448,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -401,7 +482,7 @@ Or, try restarting your VM to see if the changes take effect on a fresh start.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 If you didn't already, apply the configuration changes that you made on the device.
 
@@ -429,7 +510,7 @@ If you see provisioning errors, it might be that the configuration changes haven
 
 Or, try restarting your VM to see if the changes take effect on a fresh start.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 If the runtime started successfully, you can go into your IoT hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
 

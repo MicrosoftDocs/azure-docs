@@ -5,17 +5,16 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 10/05/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
 Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-
 ## Default rule sets
 
-Azure-managed Default Rule Set includes rules against the following threat categories:
+The Azure-managed Default Rule Set (DRS) includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks
@@ -27,40 +26,46 @@ Azure-managed Default Rule Set includes rules against the following threat categ
 - SQL injection protection
 - Protocol attackers
 
-The version number of the Default Rule Set increments when new attack signatures are added to the rule set.
-Default Rule Set is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions (ALLOW/BLOCK/REDIRECT/LOG) per rule.
+The version number of the DRS increments when new attack signatures are added to the rule set.
 
-Sometimes you may need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set.  
+DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions per rule. The available actions are: [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
 
-The Default action is to BLOCK. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
+Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set. For more information, see [Web Application Firewall (WAF) with Front Door exclusion lists](./waf-front-door-exclusion.md).
+
+By default, DRS blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
 ### Microsoft Threat Intelligence Collection rules
 
-The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-### Anomaly Scoring mode
+Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection. For example, rule ID 942440, *SQL Comment Sequence Detected.*, has been disabled, and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
-OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.
+### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
-In Traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules match a specific request is a limitation. So, Anomaly Scoring mode was introduced. It's the default for OWASP 3.*x*.
+When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
 
-In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a certain severity: *Critical*, *Error*, *Warning*, or *Notice*. That severity affects a numeric value for the request, which is called the Anomaly Score. For example, one *Warning* rule match contributes 3 to the score. One *Critical* rule match contributes 5.
+| Rule severity | Value contributed to anomaly score |
+|-|-|
+| Critical | 5 |
+| Error | 4 |
+| Warning | 3 |
+| Notice | 2 |
 
-|Severity  |Value  |
-|---------|---------|
-|Critical     |5|
-|Error        |4|
-|Warning      |3|
-|Notice       |2|
+If the anomaly score is 5 or greater, WAF blocks the request.
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
+For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
 
+When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
+
+The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
 ### DRS 2.0
 
-DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+DRS 2.0 rules offer better protection than earlier versions of the DRS. It also supports transformations beyond just URL decoding.
+
+DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can disable individual rules as well as entire rule groups.
 
 > [!NOTE]
 > DRS 2.0 is only available on Azure Front Door Premium.
@@ -111,15 +116,12 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
 |**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
 |**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
-|**[CROSS-SITE-SCRIPTING](#drs941-10)**|XSS - Cross-site Scripting|
+|**[APPLICATION-ATTACK-XSS](#drs941-10)**|Protect against cross-site scripting attacks|
 |**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
 |**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
 |**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
 |**[MS-ThreatIntel-WebShells](#drs9905-10)**|Protect against Web shell attacks|
 |**[MS-ThreatIntel-CVEs](#drs99001-10)**|Protect against CVE attacks|
-
-
-
 
 ### Bot rules
 
@@ -129,10 +131,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[GoodBots](#bot200)**|Identify good bots|
 |**[UnknownBots](#bot300)**|Identify unknown bots|
 
-
-
-The following rule groups and rules are available when using Web Application Firewall on Azure 
-Front Door.
+The following rule groups and rules are available when using Web Application Firewall on Azure Front Door.
 
 # [DRS 2.0](#tab/drs20)
 
@@ -223,7 +222,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -238,12 +237,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 |933200|PHP Injection Attack: Wrapper scheme detected|
@@ -258,7 +255,7 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -269,7 +266,7 @@ Front Door.
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -291,14 +288,12 @@ Front Door.
 >[!NOTE]
 > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
-
 ### <a name="drs942-20"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
-|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
@@ -336,7 +331,6 @@ Front Door.
 |942480|SQL Injection Attack|
 |942500|MySQL in-line comment detected.|
 |942510|SQLi bypass attempt by ticks or backticks detected.|
-
 
 ### <a name="drs943-20"></a> SESSION-FIXATION
 |RuleId|Description|
@@ -385,6 +379,13 @@ Front Door.
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 
+> [!NOTE]
+> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
+>
+> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](#anomaly-scoring-mode).
+> 
+> When you tune your WAF policies, you need to investigate the other rules that were triggered by the request so that you can adjust your WAF's configuration. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md).
+
 # [DRS 1.1](#tab/drs11)
 
 ## <a name="drs11"></a> 1.1 rule sets
@@ -424,7 +425,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |931120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Shellshock (CVE-2014-6271)|
@@ -450,7 +451,7 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -461,7 +462,7 @@ Front Door.
 |941180|Node-Validator Blacklist Keywords|
 |941190|IE XSS Filters - Attack Detected.|
 |941200|IE XSS Filters - Attack Detected.|
-|941210|IE XSS Filters - Attack Detected.|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) found.|
 |941220|IE XSS Filters - Attack Detected.|
 |941230|IE XSS Filters - Attack Detected.|
 |941240|IE XSS Filters - Attack Detected.|
@@ -535,8 +536,8 @@ Front Door.
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944200|Magic bytes Detected, probable Java serialization in use|
+|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
@@ -607,7 +608,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -622,12 +623,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
@@ -635,7 +634,7 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -646,7 +645,7 @@ Front Door.
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -762,7 +761,7 @@ Front Door.
 |Bot300300|General purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
-|Bot300600|Unknown bots detected by threat intelligence|
+|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
 |Bot300700|Other bots|
 
 ---

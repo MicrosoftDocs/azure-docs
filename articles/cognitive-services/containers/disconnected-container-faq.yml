@@ -40,7 +40,7 @@ sections:
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
       - question: How do I get access to disconnected container?
         answer: |
-          Fill out and submit the request form to request access to the container. Access is limited to customers that meet the following requirements:
+          Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the container. Access is limited to customers that meet the following requirements:
 
             * Your organization must have an enterprise agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
@@ -157,11 +157,11 @@ sections:
               * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Language Detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
-          *	[Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#the-host-computer)
+          *	[Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#host-computer-requirements)
           *	[Form Recognizer - Custom/Invoice](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#host-computer-requirements)
       - question: Are these containers currently supported on Windows?
         answer: |
-          Cognitive Services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://www.docker.com/blog/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
       - question: What compliance certifications do containers have?
         answer: |
           Cognitive Services containers don't have any compliance certifications.

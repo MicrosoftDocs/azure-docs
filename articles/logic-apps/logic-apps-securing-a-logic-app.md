@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 10/12/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -29,13 +29,13 @@ For more information about security in Azure, review these topics:
 
 * [Azure encryption overview](../security/fundamentals/encryption-overview.md)
 * [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
-* [Azure Security Benchmark](../security/benchmarks/overview.md)
+* [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 <a name="secure-operations"></a>
 
 ## Access to logic app operations
 
-On Consumption logic apps only, you can set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles:
+For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles:
 
 * [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
 
@@ -45,7 +45,7 @@ On Consumption logic apps only, you can set up permissions so that only specific
 
   For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encyrption).
+To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encryption).
 
 <a name="secure-run-history"></a>
 
@@ -447,18 +447,17 @@ This example template that has multiple secured parameter definitions that use t
 
 <a name="authentication-types-supported-triggers-actions"></a>
 
-## Authentication types for triggers and actions that support authentication
+## Authentication types for connectors that support authentication
 
-The following table identifies the authentication types that are available on the triggers and actions where you can select an authentication type:
+The following table identifies the authentication types that are available on the connector operations where you can select an authentication type:
 
-| Authentication type | Supported triggers and actions |
-|---------------------|--------------------------------|
+| Authentication type | Logic app & supported connectors |
+|---------------------|----------------------------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | - **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Consumption logic app**: <br><br>- **Built-in**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p><p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, Azure Event Hubs, Azure Service Bus, SQL Server <p><p>___________________________________________________________________________________________<p><p>**Standard logic app**: <p><p>- **Built-in**: HTTP, HTTP Webhook <p><p>- **Managed connector** (preview): <p>--- **Single-authentication**: Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, HTTP with Azure AD <p><p>--- **Multi-authentication**: Azure Blob Storage, Azure Event Hubs, Azure Service Bus, SQL Server |
-|||
+| [Managed identity](#managed-identity-authentication) | **Built-in connectors**: <br><br>- **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server <br><br>**Managed connectors**: Azure AD Identity Protection, Azure App Service, Azure Automation, Azure Blob Storage, Azure Container Instance, Azure Cosmos DB, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Event Hubs, Azure IoT Central V2, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Queues, Azure Resource Manager, Azure Service Bus, Azure Sentinel, Azure VM, HTTP with Azure AD, SQL Server |
 
 <a name="secure-inbound-requests"></a>
 
@@ -663,10 +662,10 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
    ![Provide information for authorization policy](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <p><p>At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | Property | Required | Type | Description |
+   |----------|----------|------|-------------|
+   | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
+   | **Claims** | Yes | String | The claim types and values that your workflow accepts from inbound calls. Here are the available claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. <br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
@@ -928,7 +927,7 @@ This list includes information about TLS/SSL self-signed certificates:
 
 * For Consumption logic apps in the multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
 
-* For Standard logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TSL/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
+* For Standard logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
   If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
@@ -1036,7 +1035,7 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. You can manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Note**: Custom connectors don't support certificate-based authentication for both inbound and outbound calls. |
-| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
+| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell 7 by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = [System.IO.File]::ReadAllBytes('c:\certificate.pfx')` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
 | **Password** | `password`| No | <*password-for-pfx-file*> | The password for accessing the PFX file |
 |||||
 

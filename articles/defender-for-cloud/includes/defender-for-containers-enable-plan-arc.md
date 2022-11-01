@@ -1,40 +1,48 @@
 ---
-author: bmansheim
 ms.author: benmansheim
+author: bmansheim
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/28/2022
+ms.date: 07/14/2022
 
 ---
 ## Enable the plan
 
+**To enable the plan**:
+
 1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
 
-1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**
+1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**.
 
     > [!TIP]
-    > If the subscription already has Defender for Kubernetes and/or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
+    > If the subscription already has Defender for Kubernetes or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, when enabling the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan.
+1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-    You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. The Advanced options will appear, and you can disable auto provisioning for each component.
+
+   In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
     > [!NOTE]
     > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
 
+    You can [assign a custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#assign-a-custom-workspace) through Azure Policy.
+
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
     - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
 ## Prerequisites
 
 Before deploying the extension, ensure you:
+
 - [Connect the Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
 
@@ -68,12 +76,11 @@ A dedicated Defender for Cloud recommendation provides:
 
     :::image type="content" source="../media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Defender extension for Azure Arc with Defender for Cloud's 'fix' option.":::
 
-
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
 ### Use Azure CLI to deploy the Defender extension
 
-1. Log in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login
@@ -115,12 +122,13 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### [**REST API**](#tab/k8s-deploy-api)
 
-### Use REST API to deploy the Defender extension 
+### Use REST API to deploy the Defender extension
 
 To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > The simplest way to use the API to deploy the Defender extension is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
+
 - To modify the Postman Collection JSON, or to manually deploy the extension with the REST API, run the following PUT command:
 
     ```rest
@@ -135,12 +143,11 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
     |Resource Group   | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
     | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource                               |
 
-
-
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
     `az account get-access-token --subscription <your-subscription-id>`
     Use the following structure for the body of your message:
+
     ```json
     { 
     "properties": { 
@@ -158,10 +165,10 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
 
     Description of the properties is given below:
 
-    | Property | Description | 
+    | Property | Description |
     | -------- | ----------- |
     | logAnalytics.workspaceId | Workspace ID of the Log Analytics resource |
-    | logAnalytics.key         | Key of the Log Analytics resource | 
+    | logAnalytics.key         | Key of the Log Analytics resource |
     | auditLogPath             | **Optional**. The full path to the audit log files. The default value is ``/var/log/kube-apiserver/audit.log`` |
 
 ---
@@ -182,7 +189,6 @@ To verify that your cluster has the Defender extension installed on it, follow t
 
 1. Check that the cluster on which you deployed the extension is listed as **Healthy**.
 
-
 ### [**Azure portal - Azure Arc**](#tab/k8s-verify-arc)
 
 ### Use the Azure Arc pages to verify the status of your extension
@@ -196,7 +202,6 @@ To verify that your cluster has the Defender extension installed on it, follow t
 1. For more details, select the extension.
 
     :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-details-page.png" alt-text="Full details of an Azure Arc extension on a Kubernetes cluster.":::
-
 
 ### [**Azure CLI**](#tab/k8s-verify-cli)
 
@@ -212,9 +217,9 @@ To verify that your cluster has the Defender extension installed on it, follow t
 
     > [!NOTE]
     > It might show "installState": "Pending" for the first few minutes.
-    
+
 1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
-    
+
     ```console
     kubectl get pods -n azuredefender
     ```
@@ -243,5 +248,3 @@ To confirm a successful deployment, or to validate the status of your extension 
     ```
 
 ---
-
-

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -62,6 +62,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) helps you manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. |
 | [Reporting and Monitoring](../reports-monitoring/plan-monitoring-and-reporting.md)| The design of your Azure AD reporting and monitoring solution depends on your legal, security, and operational requirements as well as your existing environment and processes. This article presents the various design options and guides you to the right deployment strategy. |
 | [Access Reviews](../governance/deploy-access-reviews.md) | Access Reviews are an important part of your governance strategy, enabling you to know and manage who has access, and to what they have access. This article helps you plan and deploy access reviews to achieve your desired security and collaboration postures. |
+| [Identity governance for applications](../governance/identity-governance-applications-prepare.md) | As part of your organization's controls to meet your compliance and risk management objectives for managing access for critical applications, you can use Azure AD features to set up and enforce appropriate access.|
 
 ## Include the right stakeholders
 

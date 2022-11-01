@@ -47,6 +47,7 @@ Currently, the default environment variables include:
 | Environment variable | Description |
 | -------------------- | ----------- |
 | `PROXY_CONFIG_ENV_VAR_LIST` | List all the variables that you intend to update in a comma-separated list. This step prevents accidentally modifying the wrong configuration settings.
+| `NGINX_DEFAULT_TLS` | Specifies the list of TLS protocol(s) to be enabled. See NGINX's [ssl_protocols](https://nginx.org/docs/http/ngx_http_ssl_module.html#ssl_protocols).<br><br>Default is 'TLSv1.2'. |
 | `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile and declared as a port binding in the deployment manifest.<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
 | `DOCKER_REQUEST_ROUTE_ADDRESS` | Address to route docker requests. Modify this variable on the top layer device to point to the registry module.<br><br>Default is the parent hostname. |
 | `BLOB_UPLOAD_ROUTE_ADDRESS` | Address to route blob registry requests. Modify this variable on the top layer device to point to the blob storage module.<br><br>Default is the parent hostname. |
@@ -175,7 +176,7 @@ Configure the following modules at the **top layer**:
 
     | Name | Value |
     | ---- | ----- |
-    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:1102`. |
+    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:11002`. |
     | `NGINX_DEFAULT_PORT` | The port that the nginx proxy listens on for requests from downstream devices. For example, `8000`. |
 
   * Configure the following createOptions:

@@ -2,11 +2,11 @@
 title: Migrate WAF policies for Azure Application Gateway
 description: Learn how to migrate Azure Web Application Firewall policies using Azure PowerShell.
 services: web-application-firewall
-ms.topic: conceptual
-author: KumudD
+ms.topic: how-to
+author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/30/2021
-ms.author: kumud 
+ms.date: 07/26/2022
+ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -20,10 +20,10 @@ For more information about creating a new WAF policy, see [Create Web Applicatio
 
 Use the following steps to run the migration script: 
 
-1. Open the following  cloud shell window, or open one from within the portal.
-2. Copy the script into the cloud shell window and run it.
+1. Open the following  Cloud Shell window, or open one from within the portal.
+2. Copy the script into the Cloud Shell window and run it.
 3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that to create. Once you enter these inputs, the script  runs and creates your new WAF policy
-4. Associate the new WAF policy with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Select **Associate an Application Gateway** and then select the Application Gateway to associate the WAF policy to.
+4. Verify the new WAF policy is associated with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Verify the Application Gateway associated with the WAF policy.
 
 > [!NOTE]
 > The script does not complete a migration if the following conditions exist:
@@ -199,6 +199,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
         return
     }
 
+    $appgw.WebApplicationFirewallConfiguration = $null
     $appgw.FirewallPolicy = $wafPolicy
     $appgw = Set-AzApplicationGateway -ApplicationGateway $appgw
     Write-Host " firewallPolicy: $wafPolicyName has been created/updated successfully and applied to applicationGateway: $applicationGatewayName!"

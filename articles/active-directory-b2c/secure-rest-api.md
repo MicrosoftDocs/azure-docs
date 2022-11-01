@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -303,7 +303,7 @@ For a client credentials flow, you need to create an application secret. The cli
 
 #### Create Azure AD B2C policy keys
 
-You need to store the client ID and the client secret that you previously recorded in your Azure AD B2C tenant.
+You need to store the client ID and the client secret value that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -484,8 +484,21 @@ The following XML snippet is an example of a RESTful technical profile configure
 </ClaimsProvider>
 ```
 
-::: zone-end
+Add the validation technical profile reference to the sign up technical profile, which calls the `REST-AcquireAccessToken`.  This behavior means that Azure AD B2C moves on to create the account in the directory only after successful validation.
 
+
+
+For example:
+    ```XML
+    <ValidationTechnicalProfiles>
+       ....
+       <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+       ....
+    </ValidationTechnicalProfiles>
+    ```
+    
+
+::: zone-end
 
 ## API key authentication
 

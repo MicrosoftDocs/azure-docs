@@ -51,12 +51,12 @@ You can use the Azure portal, PowerShell, or the invitation API to send a B2B in
 1. Select the **Azure Active Directory** service.
 1. Select **Users**.
 1. Find the user in the list or use the search box. Then select the user.
-1. On the user's profile page, in the **Identity** section, select **Manage B2B collaboration**. 
+1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**. 
 
-   ![Screenshot of the user profile](media/invite-internal-users/manage-b2b-collaboration-link.png)
+   ![Screenshot of user profile Overview tab with B2B collaboration card](media/invite-internal-users/manage-b2b-collaboration-link.png)
 
-   > [!NOTE]
-   > If you see **Invitation accepted** instead of **Manage B2B collaboration**, the user has already been invited to use external credentials for B2B collaboration.
+   > [!NOTE] 
+   > If the card says “Resend this B2B user's invitation or reset their redemption status.” the user has already been invited to use external credentials for B2B collaboration.
 
 1. Next to **Invite internal user to B2B collaboration?** select **Yes**, and then select **Done**. 
 

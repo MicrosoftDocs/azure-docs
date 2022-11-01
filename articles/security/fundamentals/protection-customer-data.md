@@ -4,7 +4,7 @@ description: Learn how Azure protects customer data through data segregation, da
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/8/2022
+ms.date: 05/10/2022
 ms.author: terrylan
 
 ---
@@ -26,8 +26,6 @@ Access to customer data by Microsoft operations and support personnel is denied 
 - Grant the least privilege that's required to complete task; audit and log access requests.
 
 Azure support personnel are assigned unique corporate Active Directory accounts by Microsoft. Azure relies on Microsoft corporate Active Directory, managed by Microsoft Information Technology (MSIT), to control access to key information systems. Multi-factor authentication is required, and access is granted only from secure consoles.
-
-All access attempts are monitored and can be displayed via a basic set of reports.
 
 ## Data protection
 Azure provides customers with strong data security, both by default and as customer options.

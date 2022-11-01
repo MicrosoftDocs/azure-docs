@@ -10,11 +10,13 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
+
+This article describes the collection of Windows Security Events. For Windows DNS events, learn about the [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md).
+
+## Types of connections
 
 This article discusses the following types of connectors:
 
@@ -131,6 +133,10 @@ You can find and query the data for each resource type using the table name that
 
 ## Windows agent-based connections
 
+> [!NOTE]
+>
+> The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also uses the Azure Monitor Agent. This connector streams and filter events from Windows Domain Name System (DNS) server logs.
+
 # [Azure Monitor Agent](#tab/AMA)
 
 > [!IMPORTANT]
@@ -171,7 +177,7 @@ See below how to create data collection rules.
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
     Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 

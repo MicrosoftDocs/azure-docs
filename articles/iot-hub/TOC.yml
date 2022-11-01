@@ -1,203 +1,278 @@
-﻿- name: IoT Hub documentation
+- name: IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
     - name: IoT concepts and Azure IoT Hub
+      displayName: integrations, IoT Central, IoT devices, device ID, device data, built-in endpoint, message routing, Transport Layer Security (TLS)
       href: iot-concepts-and-iot-hub.md
 - name: Quickstarts
   expanded: true
   items:
     - name: Codeless quickstart using CLI
+      displayName: Azure CLI, telemetry, monitor
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
+      displayName: IoT Plug and Play, Azure IoT Explorer, SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
+      displayName: direct method, telemetry, Azure IoT Explorer
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: Resource Manager, Azure Quickstart Templates, storage
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager, storage, arm-read-write
       href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
-    - name: Routing messages
-      items:
-        - name: Part 1 - Configure message routing
-          items:
-            - name: Portal
-              href: tutorial-routing.md
-            - name: Azure RM template
-              href: tutorial-routing-config-message-routing-RM-template.md
-            - name: Azure CLI
-              href: tutorial-routing-config-message-routing-CLI.md
-            - name: PowerShell
-              href: tutorial-routing-config-message-routing-PowerShell.md
-        - name: Part 2 - View message routing results
-          href: tutorial-routing-view-message-routing-results.md
+    - name: Route device messages to storage
+      displayName: message routing, telemetry, Azure IoT Explorer
+      href: tutorial-routing.md
     - name: Message enrichments
+      displayName: device twin tag, device twin API calls
       href: tutorial-message-enrichments.md
     - name: Use metrics and logs
+      displayName: telemetry, Azure CLI, az iot hub, az monitor, monitoring, metric alert
       href: tutorial-use-metrics-and-diags.md
     - name: Perform manual failover
+      displayName: disaster recovery, failback
       href: tutorial-manual-failover.md
     - name: Configure your devices
+      displayName: back-end service, identity registry, reported properties, desired properties
       href: tutorial-device-twins.md
     - name: Manage device updates
+      displayName:
       href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Test device connectivity
+      displayName: device twin synchronization, device key, SAS token, protocols
       href: tutorial-connectivity.md
     - name: Data visualization in Power BI
+      displayName: sensor data, Azure Stream Analytics, consumer group, Stream Analytics job, 
       href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Using X.509 certificates
       items:
         - name: Introduction
+          displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
           href: tutorial-x509-introduction.md
         - name: Certificate fields
+          displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
           href: tutorial-x509-certificates.md
         - name: Using the supplied scripts
+          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
           href: tutorial-x509-scripts.md
         - name: Using OpenSSL
+          displayName: test certificate hierarchy, root CA, subordinate CA, X.509 CA Signed, device certificate, certificate signing request (CSR), client device certificate
           href: tutorial-x509-openssl.md
         - name: Creating self-signed certificates
+          displayName: OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
         - name: Proving possession
+          displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
         - name: Testing authentication
+          displayName: certificate authentication, X.509 device, SimulateX509Device, Azure IoT device SDK
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
     - name: Develop
       items:
       - name: Device-to-cloud feature guide
+        displayName: Device-to-cloud messages, device twins, device-to-cloud communication, device twin tags, device twin reported properties
         href: iot-hub-devguide-d2c-guidance.md
       - name: Cloud-to-device feature guide
+        displayName: one-way notifications, direct methods, cloud-to-device communication options
         href: iot-hub-devguide-c2d-guidance.md
       - name: Understand device twins
+        displayName: store device state information, desired properties, reported properties, lifecycle, device identity, device twin tags, back-end operations
         href: iot-hub-devguide-device-twins.md
       - name: Understand module twins
+        displayName: synchronize module conditions and configuration, desired properties, reported properties, synchronize the telemetry configuration, module operations
         href: iot-hub-devguide-module-twins.md
       - name: Invoke direct methods on a device
+        displayName: service connect permissions, method lifecycle, method invocation, invoke module method, MQTT, AMQP
         href: iot-hub-devguide-direct-methods.md
       - name: Schedule jobs on multiple devices
+        displayName: track progress, job lifecycle, status of running jobs, update device twin properties, querying for jobs, jobs properties
         href: iot-hub-devguide-jobs.md
       - name: IoT Hub endpoints
+        displayName: multi-tenant service, resource provider, device identity management, device identities, device twin management, jobs management, device endpoints, service endpoints, custom endpoints, endpoint health
         href: iot-hub-devguide-endpoints.md
-      - name: Query language
-        href: iot-hub-devguide-query-language.md
+      - name: Queries
+        items:
+        - name: Query language overview
+          href: iot-hub-devguide-query-language.md
+        - name: Device and module twin queries
+          href: query-twins.md
+        - name: Job queries
+          href: query-jobs.md
       - name: Quotas and throttling
+        displayName: jobs device operations, traffic shaping, device identity registry operations, device connections throttle, latency
         href: iot-hub-devguide-quotas-throttling.md
       - name: Compare IoT Hub and Event Hubs
+        displayName: connect IoT devices, cloud gateway, IoT capabilities, device-to-cloud data ingestion
         href: iot-hub-compare-event-hubs.md
       - name: React to IoT Hub events with Event Grid
+        displayName: trigger actions, trigger downstream processes, critical events, work ticket, event schema, device connected schema, telemetry schema, filter events, state events, MQTT, AMQP
         href: iot-hub-event-grid.md
       - name: Upload files from a device
+        displayName: large media files, shared access signature (SAS), SAS token, Azure storage, SAS URI, blob storage API, file upload quota, file upload notifications, initialize file upload
         href: iot-hub-devguide-file-upload.md
       - name: Overview of IoT Hub device streams (preview)
+        displayName: network firewall ports, outbound TCP connections, TLS-enabled connections, private network setup, device stream workflows, handshake process, connectivity, device streams resource logs
         href: iot-hub-device-streams-overview.md
     - name: Manage
       items:
       - name: Choose the right IoT Hub tier
+        displayName: basic tier, standard tier, partitions, tier upgrade, IoT Hub REST API, message throughput
         href: iot-hub-scaling.md
       - name: Pricing examples
+        displayName: charges per operation, twin updates, SKU
         href: iot-hub-devguide-pricing.md
     - name: Messaging
       items:
       - name: Send and receive messages
+        displayName: device-to-cloud, cloud-to-device, bi-directional communication
         href: iot-hub-devguide-messaging.md
       - name: Create and read IoT Hub messages
+        displayName: streaming messaging pattern, system properties, application properties, D2C IoT Hub messages, system property names, message size, device spoofing
         href: iot-hub-devguide-messages-construct.md
+      - name: Non-telemetry event schemas
+        displayName: lifecycle changes, state events, lifecycle events, device twin change events
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Send cloud-to-device messages from IoT Hub
+        displayName: service-facing endpoint, message life cycle, MQTT, dead lettered, message expiration, ExpiryTimeUtc, iothub-ack, endpoints
         href: iot-hub-devguide-messages-c2d.md
       - name: Choose a device communication protocol
+        displayName: field gateways, MQTT, AMQP, HTTPS, port numbers
         href: iot-hub-devguide-protocols.md
       - name: Read device-to-cloud messages from the built-in endpoint
+        displayName: partition count, retention time, AMQP-WS event hubs
         href: iot-hub-devguide-messages-read-builtin.md
       - name: Message enrichments overview
-        href: iot-hub-message-enrichments-overview.md    
+        displayName: downstream processing, device twin API calls, endpoints, device twin change notifications, device life-cycle events, pricing
+        href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
       - name: Use message routing to send device-to-cloud messages
+        displayName: device telemetry messages, filtering data, routing endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback route, device connection state events, latency
         href: iot-hub-devguide-messages-d2c.md
       - name: Use custom endpoints and routing rules for device-to-cloud messages
+        displayName: message routing, routing query
         href: iot-hub-devguide-messages-read-custom.md
       - name: Add queries to message routes
+        displayName: device telemetry messages, device lifecycle events, device twin change events, query expressions, device twin tags
         href: iot-hub-devguide-routing-query-syntax.md
       - name: Compare message and event routing
+        displayName: integration with Event Grid, alert configuration, filtering, endpoints, IoT Hub message routing
         href: iot-hub-event-grid-routing-comparison.md
     - name: Device management
       items:
       - name: Overview of device management
+        displayName: device lifecycle, provision, configure, monitor, device management patterns, reboot, factory reset, device updates 
         href: iot-hub-device-management-overview.md
       - name: Manage device identities
+        displayName: identity registry, throttling rates, disable devices, import device identities, export device identities, device provisioning, device heartbeat, lifecycle notifications
         href: iot-hub-devguide-identity-registry.md
+      - name: Monitor device connection status
+        displayName: heartbeat, Event Grid
+        href: monitor-device-connection-state.md
       - name: Device configuration best practices
+        displayName: device management, IoT hardware manufacturer, automatic device management, IoT solution developer, IoT solution operator, rollbacks
         href: iot-hub-configuration-best-practices.md
     - name: Connectivity
       items:
       - name: Understanding IoT hub IP address
+        displayName: AzureIoTHub tag, service tags discovery API, firewall rules, IoT Hub IP filter feature
         href: iot-hub-understand-ip-address.md
     - name: Scaling and availability
       items:
+      - name: Best practices for large-scale IoT device deployments
+        displayName: device provisioning, staggered provisioning schedule, reprovisioning devices, monitoring devices
+        href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       - name: High availability and disaster recovery
+        displayName: High Availability (HA), Disaster Recovery (DR), intra-region HA, Availability Zone, cross region DR, failover, failback, time to recover
         href: iot-hub-ha-dr.md
       - name: How to clone an IoT Hub to another region
+        displayName: original hub, update keys, routing resources, new region, copy
         href: iot-hub-how-to-clone.md
 
     - name: Control access to IoT Hub
       items:
         - name: Overview
+          displayName: permissions, Azure Active Directory (Azure AD) integration, shared access signatures, signed security tokens, per-device security credentials, identity registry
           href: iot-hub-devguide-security.md
         - name: Control access with Azure AD
+          displayName: Azure Active Directory, controlling permissions, Azure AD security principal, OAuth 2.0 access token, authentication, authorization, Azure RBAC role assignment, shared access policies
           href: iot-hub-dev-guide-azure-ad-rbac.md
         - name: Control access with SAS
+          displayName: Shared Access Signatures, access control, permissions, shared access policies, SAS tokens, protocols, MQTT, AMQP, HTTPS, SASL PLAIN, token service
           href: iot-hub-dev-guide-sas.md
     - name: IoT Hub SDKs
       items:
         - name: SDK overview
+          displayName: telemetry, embedded device SDKs, service SDKs, management SDKs, SDK compatibility
           href: iot-hub-devguide-sdks.md
         - name: Develop without the SDK
-          href: iot-hub-devguide-no-sdk.md   
+          displayName: MQTT, IoT Hub endpoints, choosing a protocol, X.509 certificate authority (CA)
+          href: iot-hub-devguide-no-sdk.md
         - name: Manage connectivity and reliable messaging
+          displayName: device SDKs, network connection, resiliency, re-connection, retry, connection failures, network errors, error filter, exponential back-off, custom retry
           href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
       items:
         - name: MQTT support
+          displayName: port 8883, port 443, device SDKs, keep-alive, ping interval, AMQP to MQTT, Eclipse Mosquitto library, MQTT protocol, Azure IoT Tools, TLS/SSL configuration, direct method
           href: iot-hub-mqtt-support.md
         - name: MQTT 5 support (preview)
           items:
             - name: MQTT 5 overview
+              displayName: data plane API, connection lifecycle, CONNACK, Authentication Method, SAS, X509, reauthentication, disconnection, Send Telemetry operation, interactions, Request-Response
               href: iot-hub-mqtt-5.md
             - name: MQTT 5 API reference
+              displayName: IoT Hub data plane API, Direct Method, Twin Desired State Changes, telemetry, target timeout, target failed
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
+          displayName: service client, cloud-to-device message exchange, uAMQP library, telemetry messages, device client, cloud-to-device commands
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
+          displayName: gateway, downstream devices, multiplexing, parent and child relationships, cloud identities, IoT Hub capabilities, protocol translation, identity translation
           href: ../iot-edge/iot-edge-as-gateway.md
     - name: Security
       items:
         - name: TLS support
+          displayName: Transport Layer Security, TLS certificate, Elliptic Curve Cryptography (ECC) server, TLS handshake, cipher suites, TLS configuration, TLS maximum fragment length negotiation
           href: iot-hub-tls-support.md
         - name: Virtual networks support
+          displayName: Private Link, Managed Identity, network isolation, ingress connectivity, private endpoint, egress connectivity, 
           href: virtual-network-support.md
         - name: Security baseline
+          displayName: Azure Security Benchmark, Azure Policy Definitions, network security, legacy insecure protocols, private networks, external network attacks, network security rules, identity management
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: Recommendations
+          displayName: IoT deployment, security, identity management, access management, data protection, networking, monitoring
           href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security from the ground up
+          displayName: secure provisioning, Security Development Lifecycle (SDL), Operational Security Assurance (OSA), compliance concerns, secure infrastructure, Security Development Lifecycle (SDL), connectivity
           href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security best practices
+          displayName: security-in-depth strategy, IoT solution developer, software security flaws, IoT solution deployer, IoT solution operator, cloud credentials, authentication keys
           href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security architecture
+          displayName: threat model, enumerate threats, mitigate threats, STRIDE, device control, device data, Trust Boundary, device zone, field gateway zone, cloud gateway zone, communication, storage
           href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Secure your IoT deployment
+          displayName: IoT Hub security tokens, SAS tokens, claims-based security, root certificate, X.509 certificate, DeviceConnect permissions
           href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security controls by Azure Policy
-          displayName: regulatory, compliance, standards, domains
+          displayName: regulatory, compliance, standards, domains, Azure Security Benchmark, Azure Foundations Benchmark, CMMC Level 3, FedRAMP High, FedRAMP Moderate, HIPAA HITRUST 9.2
           href: ./security-controls-policy.md
-        - name: Secure using X.509 CA certificates
           items:
-            - name: X.509 CA certificate security overview
-              href: iot-hub-x509ca-overview.md
             - name: X.509 CA certificate security concepts
+              displayName: certificate-based authentication, cryptographic chain of trust, Device Provisioning Service (DPS), Hardware Secure Modules (HSM), self-signed certificate, Public Key Infrastructure (PKI)
               href: iot-hub-x509ca-concept.md
+            - name: X.509 CA certificates for IoT Hub
+              displayName: device authentication, certificate chain of trust, signing keys, authenticate device
+              href: iot-hub-x509ca-overview.md
 
 - name: How-to guides
   items:
@@ -206,300 +281,423 @@
         - name: Use device and service SDKs
           items:
             - name: Azure IoT Embedded C SDK
+              displayName: bring your own network (BYON), MQTT, TLS, TCP/IP stacks, custom networking stack
               href: iot-hub-device-embedded-c-sdk.md
             - name: Azure IoT C SDK
               items:
                 - name: Use the Azure IoT C SDK
+                  displayName: MQTT client, TLS, ANSI C (C99), IoTHubClient library, send messages, receive messages, lower-level APIs, LL APIs, alternate device credentials
                   href: iot-hub-device-sdk-c-intro.md
                   items:
                     - name: Use the IoTHubClient
+                      displayName: lower-level APIs, LL APIs, IoTHubMessage_Properties, Event Hubs, IOTHUB_CLIENT_HANDLE
                       href: iot-hub-device-sdk-c-iothubclient.md
                 - name: Azure IoT C SDK resource information
+                  displayName: disk binary size, C SDK memory allocation, network packets, constrained devices
                   href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
                 - name: Develop for constrained devices
+                  displayName: MQTT, MQTT over WebSocket, AMQPs, AMQP over WebSocket, HTTPS, logging capability, blob capability, lower layer (LL)
                   href: iot-hub-devguide-develop-for-constrained-devices.md
                 - name: Develop for mobile devices
+                  displayName: Azure IoT SDKs, native iOS platform, C99, Objective-C, Swift
                   href: iot-hub-how-to-develop-for-mobile-devices.md
                 - name: Develop for Android Things platform
+                  displayName: Azure IoT SDKs, telemetry, create IoT hub
                   href: iot-hub-how-to-android-things.md
         - name: Control a device on Android
+          displayName: port 8883, create IoT hub, service connection string, direct method
           href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
+          displayName: Azure Data Lake Analytics, message routing, export to CSV, Azure Data Lake Store,  U-SQL Avro example, U-SQL project, U-SQL script
           href: iot-hub-query-avro-data.md
         - name: Send cloud-to-device messages
           items:
             - name: .NET
+              displayName: SimulatedDevice, ReceiveAsync, cloud-to-device messages, request delivery acknowledgment, delivery feedback
               href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
             - name: Python
+              displayName: SimulatedDevice.py, SendCloudToDeviceMessage.py, Azure IoT Python SDK, cloud-to-device messages, request delivery acknowledgment, delivery feedback
               href: iot-hub-python-python-c2d.md
+            - name: Node.js
+              displayName: SimulatedDevice.js, SendCloudToDeviceMessage.js, cloud-to-device messages, request delivery acknowledgment, delivery feedback
+              href: iot-hub-node-node-c2d.md
+            - name: Java
+              displayName: AppMessageCallback, send-c2d-messages, cloud-to-device messages, request delivery acknowledgment, delivery feedback
+              href: iot-hub-java-java-c2d.md
             - name: iOS
+              displayName: CocoaPods, Swift, XCode, cloud-to-device messages, request delivery acknowledgment, delivery feedback
               href: iot-hub-ios-swift-c2d.md
         - name: Upload files from devices
           items:
             - name: .NET
+              displayName: FileUploadSample, ReadFileUploadNotification, Azure Storage, file upload notification
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
             - name: Python
+              displayName: SAS URI, Azure Storage, azure-iot-device package, IoTHubDeviceClient
               href: iot-hub-python-python-file-upload.md
+            - name: Node.js
+              displayName: Azure Storage, Azure IoT Node.js SDK, upload_to_blob_advanced.js, azure-iot-device-mqtt, file upload notification
+              href: iot-hub-node-node-file-upload.md
+            - name: Java
+              displayName: Azure Storage, Maven, file upload notification, IotHubClientProtocol.MQTT
+              href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
+              displayName: device twins, store device metadata, direct method, Microsoft.Azure.Devices.Client, ReportConnectivity, trigger a reboot
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
             - name: Python
+              displayName: device twins, store device metadata, desired properties, reported properties, AddTagsAndQuery.py, ReportConnectivity.py, direct method, trigger a reboot
               href: iot-hub-python-twin-getstarted.md
+            - name: Node.js
+              displayName: device twins, store device metadata, AddTagsAndQuery.js, TwinSimulatedDevice.js, direct method, trigger a reboot
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: Java
+              displayName: device twins, store device metadata, desired properties, reported properties, add-tags-query, simulated-device, direct method, trigger a reboot
+              href: iot-hub-java-java-twin-getstarted.md
         - name: Get started with module twins
           items:
             - name: Portal
+              displayName: module twins, module identity, .NET device SDK, Visual Studio project, UpdateModuleTwinReportedProperties
               href: iot-hub-portal-csharp-module-twin-getstarted.md
             - name: .NET
+              displayName: module twins, module identity, AddDeviceAsync, AddModuleAsync, .NET device SDK
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
             - name: Python
+              displayName: module twins, module identity, CreateModule.py, Python service SDK, UpdateModuleTwinDesiredProperties.py, module twin desired properties update
               href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
             - name: Node.js
+              displayName: module twins, module identity, azure-iothub@modules-preview, Node.js device SDK
               href: iot-hub-node-node-module-twin-getstarted.md
+            - name: C
+              displayName: module twins, module identity, CreateIdentities, UpdateModuleTwinReportedProperties, C device SDK, twin update message
+              href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
-            - name: Node.js
-              href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
+              displayName: SimulateManagedDevice, TriggerReboot, device management, status updates, SimulateManagedDevice, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: Java
-              href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
+              displayName: dmpatterns_getstarted_device.py, dmpatterns_getstarted_service.py, device management, status updates, SimulateManagedDevice, device maintenance windows
               href: iot-hub-python-python-device-management-get-started.md
+            - name: Node.js
+              displayName: dmpatterns_getstarted_device.js, dmpatterns_getstarted_service.js, device management, status updates, SimulateManagedDevice, device maintenance windows
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: Java
+              displayName: simulated-device, trigger-reboot, device management, status updates, SimulateManagedDevice, device maintenance windows
+              href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
+              displayName: jobs, SimulateDeviceMethods, ScheduleJob, update desired properties, direct method, device twin updates
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
             - name: Python
+              displayName: jobs, simDevice.py, scheduleJobService.py, update desired properties, direct method, device twin updates
               href: iot-hub-python-python-schedule-jobs.md
+            - name: Node.js
+              displayName: jobs, simDevice.js, scheduleJobService.js, update desired properties, direct method, device twin updates
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: Java
+              displayName: jobs, simulated-device, schedule-jobs, update desired properties, direct method, device twin updates
+              href: iot-hub-java-java-schedule-jobs.md
     - name: Manage
       items:
         - name: Create an IoT hub
           items:
             - name: Use Azure portal
+              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub
               href: iot-hub-create-through-portal.md
             - name: Use Azure IoT Tools for VS Code
+              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub
               href: iot-hub-create-use-iot-toolkit.md
             - name: Use Azure PowerShell
+              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, Azure Cloud Shell
               href: iot-hub-create-using-powershell.md
             - name: Use Azure CLI
+              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, az iot hub create
               href: iot-hub-create-using-cli.md
             - name: Use the REST API
+              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, cmdlets, Azure Resource Manager, token
               href: iot-hub-rm-rest.md
             - name: Use a template from Azure PowerShell
-              displayName: Azure Resource Manager
+              displayName: create IoT Hub,  change settings, shared access policies, register device, message routing, delete IoT hub, Azure Resource Manager, PowerShell script
               href: iot-hub-rm-template-powershell.md
-            - name: Use a template from .NET
-              href: iot-hub-rm-template.md
         - name: Configure managed identities
+          displayName: Azure AD, egress connectivity, ARM template, user-assigned identity, message routing, file upload, bulk device import export, REST API SDK
           href: iot-hub-managed-identity.md
         - name: Configure file upload
           items:
             - name: Use Azure portal
+              displayName: file upload, storage, notifications, SAS TTL, authentication type
               href: iot-hub-configure-file-upload.md
             - name: Use Azure PowerShell
+              displayName: file upload, storage, notifications, SAS TTL, authentication type, Azure Cloud Shell
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
+              displayName: file upload, storage, notifications, SAS TTL, authentication type, az iot hub update
               href: iot-hub-configure-file-upload-cli.md
         - name: Upgrade an IoT hub
+          displayName: scale up, size, tier
           href: iot-hub-upgrade.md
         - name: Configure IP filtering
+          displayName: IP addresses, IP Filter grid, IP Filter rule, Event Hub compatible endpoint, REST
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
+          displayName: private endpoint, IP Filter, Event Hubs compatible endpoint, turn on network access, check IoT hub access, troubleshooting access
           href: iot-hub-public-network-access.md
         - name: Restrict outbound network access
+          displayName: restrictOutboundNetworkAccess, FQDN, built-in endpoint
           href: iot-hub-restrict-outbound-network-access.md
         - name: Automatic device management at scale
           items:
             - name: Use Azure portal
+              displayName: automatic device management, target condition, target content, target devices, metrics, tags, monitor, modify a configuration
               href: iot-hub-automatic-device-management.md
             - name: Use Azure CLI
+              displayName: automatic device management, target condition, target content, target devices, metrics, tags, monitor, modify a configuration
               href: iot-hub-automatic-device-management-cli.md
         - name: Bulk import and export IoT devices
+          displayName: identity registry, virtual network support, RegistryManager, JobProperties, jobs, job limits, import behavior, import troubleshooting, bulk device provisioning, bulk deletion, SAS URI
           href: iot-hub-bulk-identity-mgmt.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
+          displayName: Azure Monitor, monitoring data, collection, routing, metrics, logs, analyze metrics, connectivity errors, throttling errors, dead endpoints, connection events, Azure Event Hubs, alerts, per-device disconnects, Event Grid
           href: monitor-iot-hub.md
         - name: Monitoring data reference
+          displayName: metrics, aggregations, direct methods, daily quota, telemetry, Event Grid, jobs, routing, twin query, metric dimensions, resource logs, file upload operations, distributed tracing, ingress logs, egress logs
           href: monitor-iot-hub-reference.md
         - name: Enable message tracing
+          displayName: distributed tracing, trace context, Azure Monitor Logs, message flow, message latency, Azure IoT device SDK for C, tracing attributes, log analytics, update device twin, bulk update, microservice architecture
           href: iot-hub-distributed-tracing.md
         - name: IoT Hub service and resource health
+          displayName: alerts, Azure Resource Health, Azure Service Health, Azure status page
           href: iot-hub-azure-service-health-integration.md
         - name: Order device connection state events from Event Grid
+          displayName: Cosmos DB, database collection, stored procedure, LatestDeviceConnectionState, Logic App, trigger, logic app workflow, Logic Apps Designer, IoT Hub events
           href: iot-hub-how-to-order-connection-state-events.md
     - name: Deploy updates
       items:
         - name: Create a device update account
+          displayName: access control roles, query accounts
           href: ../iot-hub-device-update/create-device-update-account.md
         - name: Import an update
+          displayName: importing with APIs, storage container, upload blob
           href: ../iot-hub-device-update/import-update.md
         - name: Create an update group
+          displayName: device update, tag, programmatically update Device Twin, Device Update Tag Format, jobs, Direct Twin Updates, device details
           href: ../iot-hub-device-update/create-update-group.md
         - name: Deploy an update
+          displayName: device update, deployment details, compliance chart, monitor update deployment, retry update deployment
           href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
+          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
           href: iot-hub-raspberry-pi-web-simulator-get-started.md
         - name: Use a physical device
+          displayName: IoT scenarios, Node.js, C
           href: iot-hub-get-started-physical.md
           items:
             - name: Raspberry Pi with Node.js
+              displayName: connect devices, BME280 sensor, collect sensor data, create IoT hub, register device, SSH, I2C, connect sensor to Pi
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: Raspberry Pi with C
+              displayName: connect devices, BME280 sensor, collect sensor data, create IoT hub, register device, SSH, I2C, connect sensor to Pi
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
         - name: Manage cloud device messaging with Azure IoT Tools for VS Code
+          displayName: send and receive messages, device-to-cloud messages, cloud-to-device messages, sensor data
           href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
         - name: Data Visualization in a web app
+          displayName: real-time sensor data, Node.js,  Azure Cloud Shell, consumer group, App Service, Web Sockets protocol, Azure App Service
           href: iot-hub-live-data-visualization-in-web-apps.md
         - name: Weather forecast using Azure Machine Learning
+          displayName: sensor data, Machine Learning Studio, ML Studio, data science, weather prediction model, Azure AI Gallery, R-script module, temperature and humidity data, predictive web service, Stream Analytics job, Azure Storage Explorer
           href: iot-hub-weather-forecast-machine-learning.md
         - name: Device management with Azure IoT Tools for VS Code
+          displayName: device twins, Azure Az PowerShell module, direct methods, cloud-to-device messages
           href: iot-hub-device-management-iot-toolkit.md
         - name: Device management with IoT extension for Azure CLI
+          displayName: Azure Resource Manager, direct methods, twin desired properties, twin reported properties, device twin tags, device twin queries
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-        - name: Remote monitoring and notifications with ​Logic ​Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
+        - name: Remote monitoring and notifications with Logic Apps
+          displayName: mailbox, trigger, IoT monitoring scenarios, Service Bus, custom endpoint, routing rule
+          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution
       items:
         - name: Troubleshoot device connectivity
+          displayName: monitor, diagnose, Azure Monitor, Azure Event Grid, connect events, route events, metric alerts, connectivity error logs, MQTT device
           href: iot-hub-troubleshoot-connectivity.md
         - name: Troubleshoot message routing
+          displayName: monitoring message routing, routing metrics, resource logs, built-in endpoint, fallback, transient error, unauthorized, timeout, error codes
           href: troubleshoot-message-routing.md
         - name: Resolve error codes
+          displayName: ConnectionForcefullyClosedOnNewConnection, IoTHubUnauthorized, IoTHubQuotaExceeded, DeviceMaximumQueueDepthExceeded, DeviceMaximumActiveFileUploadLimitExceeded, DeviceNotFound, DeviceNotOnline, DeviceConnectionClosedRemotely, DeviceAlreadyExists, LinkCreationConflict, DeviceMessageLockLost, ThrottlingException, PartitionNotFound, GatewayTimeout
           href: troubleshoot-error-codes.md
 - name: Reference
   items:
     - name: Azure CLI
+      displayName: reference commands, CRUD, az extension add, az iot hub
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
+      displayName: Az.IotHub, commands, managing
       href: /powershell/module/az.iothub#iothub
     - name: .NET (Device)
+      displayName: Microsoft.Azure.Devices.Client, namespace, classes, interfaces, enums, delegates
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
+      displayName: Microsoft.Azure.Devices, namespace, classes, interfaces, enums
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
+      displayName: namespaces, Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
       href: /dotnet/api/overview/azure/iot/management
     - name: Java (Device)
+      displayName: com.microsoft.azure.sdk.iot.device, classes, interfaces, enums
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
+      displayName: com.microsoft.azure.sdk.iot.service, classes, enums
       href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Java (Management)
+      displayName: Azure Resource Manager, IotHub Management SDK, Java Development Kit (JDK), TokenCredential, HttpClient, token authentication,  API design
+      href: /java/api/overview/azure/resourcemanager-iothub-readme
     - name: Node.js (Device)
+      displayName: azure-iot-device package, classes, interfaces, type aliases, functions, function details
       href: /javascript/api/azure-iot-device/
     - name: Node.js (Service)
+      displayName: azure-iothub package, classes, interfaces, type aliases, functions, function details
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
+      displayName: JavaScript, npm, management package, samples
       href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
+      displayName: azure-iot-device, package, Azure IoT Device Library, Azure IoT services
       href: /python/api/azure-iot-device
     - name: Python (Service)
+      displayName: azure-iot-hub, package, Azure IoTHub Service Library, Azure IoTHub services
       href: /python/api/azure-iot-hub
     - name: Python (Management)
+      displayName: azure-mgmt-iothub, package
       href: /python/api/azure-mgmt-iothub
     - name: C device SDK
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      displayName: maps, buffers, batch, transport protocols, HTTP, AMQP, serialization, ANSI C (C99)
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: REST (Device)
+      displayName: Abandon Device Bound Notification, Complete Device Bound Notification, Create File Upload Sas Uri, Get Device And Module In Scope, Get Devices And Modules In Scope, Receive Device Bound Notification, Send Device Event, Update File Upload Status
       href: /rest/api/iothub/device
     - name: REST (Service)
+      displayName: configuration, Apply On Edge Device, Create Or Update, Delete, Get, Get Configurations, Test Queries
       href: /rest/api/iothub/service/configuration
     - name: REST (IoT Hub Resource)
+      displayName: operations, Create Or Update, Get Endpoint Health, Get Job, Import Devices, List Jobs, Test All Routes, List By Subscription, Get Keys For Key Name, Get Quota Metrics
       href: /rest/api/iothub/iothubresource
     - name: REST (Certificates)
+      displayName: operations, Create Or Update, Delete, Generate Verification Code, Get, List By Iot Hub, Verify
       href: /rest/api/iothub/certificates
     - name: Resource Manager template
+      displayName: Microsoft.Devices, resource types, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
+      displayName: samples, policies, definitions, IoT scenarios, encryption, service-managed keys, customer-managed keys, authentication, Azure Active Directory, private endpoint, Azure Private Link, public network access, resource logs
       href: ./policy-reference.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
+          displayName: Transport Layer Security (TLS) 1.2, ciphers, cipher suites, TLS 1.2 enforcement 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
         - name: Classic IP filter
+          displayName: upgrade, built-in endpoint, IP addresses, IP ranges, networking, diagnostic logs, IP filter rule
           href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
+      displayName: support request, Microsoft Q&A, question, problem, Stack Overflow, new release, roadmap
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: IoT Glossary
+      displayName: common terms, definitions
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
-      items:
+      items: 
       - name: IoT Hub
+        displayName: documentation, learn, collect, process data, manage, monitor, security, develop with SDKs
         href: ../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
+        displayName: DPS, roles, operations, auto-provisioning, SDKs, symmetric key, geolatency, allocation policies, device manufacturers, CA certificates. X.509
         href: ../iot-dps/index.yml
       - name: IoT Central
+        displayName: documentation, central architecture, device management, dashboard, scale limits, aPaaS, PaaS, demo, connectivity, implementation, REST API, data integration
         href: ../iot-central/index.yml
       - name: IoT Edge
+        displayName: documentation, EFLOW, gateway, Linux devices, module, Linux on Windows, provision, debug modules, IoT Edge runtime
         href: ../iot-edge/index.yml
       - name: Azure Maps
+        displayName: documentation, coverage, localization, map styles, web map, samples, point of interest, store locator, drawing tools, SDK, GeoJSON, Android map control, IO module, layer, polygon, bubble, symbol, heat map, cluster point, indoor map
         href: ../azure-maps/index.yml
       - name: Time Series Insights
+        displayName: documentation, Gen2, explorer, time series model, Event Hubs, data ingestion, TSID, provision, manage, REST APIs
         href: ../time-series-insights/index.yml
     - name: IoT device developer
+      displayName: documentation, device types, connection options, sample device, cloud, plug and play, MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
       href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
+        displayName: samples, azure-iot-samples-csharp
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
+        displayName: client libraries, MCU-based devices, embedded device SDKs, RTOS, FreeRTOS, Bare Metal
         href: ../iot-develop/about-iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        displayName: samples, azure-iot-samples-csharp, .NET Core SDK
+        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
+        displayName: samples, azure-iot-samples-node, Node.js LTS, npm
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        displayName: samples, azure-iot-samples-java, Java SE 8, Maven 3, mvn
+        href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
+        displayName: samples, azure-iot-samples-python, Azure IoT Python SDK, 
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
       - name: iOS Platform
+        displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
     - name: Azure Certified Device catalog
+      displayName: bundles, Edge managed, IoT Plug and Play, gateway, sensor, connectivity, 
       href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
+      displayName: secure, scalable, edge-to-cloud, connect, monitor, automate, model devices, Microsoft Cloud
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests
+      displayName: Azure IoT Hub devices, GDPR, REST APIs, Azure Event Grid, deleting customer data, exporting customer data, export operations, tenant administrators
       href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
+      displayName: cloud, future plans, RSS feed, Azure products, updates
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
+      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench, command palette
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
     - name: Azure IoT Explorer tool
+      displayName: azure-iot-explorer, Chocolatey, IoT Hub connection, device CRUD, Plug and Play, contributing
       href: https://github.com/Azure/azure-iot-explorer
     - name: iothub-diagnostics tool
+      displayName: archived, execution
       href: https://github.com/Azure/iothub-diagnostics
     - name: Pricing
+      displayName: connect, monitor, manage, enhance security, device authentication, telemetry, custom pricing
       href: https://azure.microsoft.com/pricing/details/iot-hub/
     - name: Pricing calculator
+      displayName: calculate, estimated, costs, agreement pricing
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates
+      displayName: latest, features, Azure products, cloud investment, monthly
       href: https://azure.microsoft.com/updates/?product=iot-hub
     - name: Technical case studies
+      displayName: technical articles, search case studies, filter case studies
       href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
     - name: Videos
+      displayName: Azure videos, on-demand videos, designed for developers, technical skills, learn, Azure experts, innovative technologies, best practices, Azure engineers
       href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub

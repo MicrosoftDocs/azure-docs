@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/20/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---
@@ -19,46 +19,107 @@ Orchestration workflow allows you to create projects that connect your applicati
 * Custom Language Understanding
 * Question Answering
 * LUIS
-* QnA maker
+
+## Prerequisites
+
+Before you start using orchestration workflow, you will need several things:
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* An Azure Language resource 
+
+### Create a Language resource 
+
+Before you start using orchestration workflow, you will need an Azure Language resource.
+
+> [!NOTE]
+>  * You need to have an **owner** role assigned on the resource group to create a Language resource.
+>  * If you are planning to use question answering, you have to enable question answering in resource creation
+
+[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
+
+[!INCLUDE [create a new resource from Language Studio](../includes/resource-creation-language-studio.md)]
 
 ## Sign in to Language Studio
 
-To get started, you have to first sign in to [Language Studio](https://aka.ms/languageStudio) and create a Language resource. Select **Done** once selection is complete.
+To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering, or Conversational Language Understanding) projects, or choose the **no** option.
 
-In language studio, find the **Understand questions and conversational language** section, and select **Orchestration workflow**.
-
-You will see the orchestration workflow projects page.
-
-<!--:::image type="content" source="../media/projects-page.png" alt-text="A screenshot showing the Conversational Language Understanding projects page." lightbox="../media/projects-page.png":::-->
 
 ## Create an orchestration workflow project
 
-Select **Create new project**. When creating your workflow project, you need to provide the following details:
-- Name: Project name
-- Description: Optional project description
-- Utterances primary language: The primary language of your utterances.
+Once you have a Language resource created, create an orchestration workflow project. 
 
-## Building schema and adding intents
+### [Language Studio](#tab/language-studio)
 
-Once you're done creating a project, you can connect it to the other projects and services you want to orchestrate to. Each connection is represented by its type and relevant data. 
+[!INCLUDE [Create project](../includes/language-studio/create-project.md)]
 
-To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering (QnA), or Conversational Language Understanding) projects, or choose the **no** option. 
+### [REST APIs](#tab/rest-api)
 
-> [!NOTE]
-> The list of projects you can connect to are only projects that are owned by the same Language resource you are using to create the orchestration project.
+[!INCLUDE [create project](../includes/rest-api/create-project.md)]
 
+---
+## Import an orchestration workflow project
 
-:::image type="content" source="../media/quickstart-intent.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/quickstart-intent.png":::
+### [Language Studio](#tab/language-studio)
 
-In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the data from the connected service (such as connected LUIS applications, Conversational Language Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
+You can export an orchestration workflow project as a JSON file at any time by going to the orchestration workflow projects page, selecting a project, and from the top menu, clicking on **Export**.
 
-## Export and import a project
-
-You can export an orchestration workflow project as a JSON file at any time by going to the projects page, selecting a project, and pressing **Export**.
 That project can be reimported as a new project. If you import a project with the exact same name, it replaces the project's data with the newly imported project's data.
 
-To import a project, select the arrow button on the projects page next to **Create a new project** and select **Import**. Then select the orchestration workflow JSON file.
+To import a project, click on the arrow button next to **Create a new project** and select **Import**, then select the JSON file.
+
+:::image type="content" source="../media/import-export.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import-export.png":::
+
+### [REST APIs](#tab/rest-api)
+
+You can import an orchestration workflow JSON into the service
+
+[!INCLUDE [Import project](../includes/rest-api/import-project.md)]
+
+---
+
+## Export project
+
+### [Language Studio](#tab/language-studio)
+
+You can export an orchestration workflow project as a JSON file at any time by going to the orchestration workflow projects page, selecting a project, and pressing **Export**.
+
+### [REST APIs](#tab/rest-api)
+
+You can export an orchestration workflow project as a JSON file at any time.
+
+[!INCLUDE [Export project](../includes/rest-api/export-project.md)]
+
+---
+## Get orchestration project details
+
+### [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
+
+### [REST APIs](#tab/rest-api)
+
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
+
+---
+
+## Delete project 
+
+### [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Delete project](../includes/language-studio/delete-project.md)]
+
+### [REST APIs](#tab/rest-api)
+
+When you don't need your project anymore, you can delete your project using the APIs.
+
+[!INCLUDE [Delete project](../includes/rest-api/delete-project.md)]
+
+---
+
+
+
+:::image type="content" source="../media/quickstart-intent.png" alt-text="A screenshot showing how to import orchestration project." lightbox="../media/quickstart-intent.png":::
 
 ## Next Steps
 
-[Build schema](./train-model.md)
+[Build schema](./build-schema.md)

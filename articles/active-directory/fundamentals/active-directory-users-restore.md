@@ -2,21 +2,22 @@
 title: Restore or permanently remove recently deleted user - Azure AD
 description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.author: ajburnle 
+ms.date: 08/17/2022
+ms.author: barclayn 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory
+
 After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started.
 
 You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD) in the Azure portal.
@@ -25,6 +26,7 @@ You can view your restorable users, restore a deleted user, or permanently delet
 >Neither you nor Microsoft customer support can restore a permanently deleted user.
 
 ## Required permissions
+
 You must have one of the following roles to restore and permanently delete users.
 
 - Global administrator
@@ -36,9 +38,11 @@ You must have one of the following roles to restore and permanently delete users
 - User administrator
 
 ## View your restorable users
+
 You can see all the users that were deleted less than 30 days ago. These users can be restored.
 
 ### To view your restorable users
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
@@ -49,9 +53,9 @@ You can see all the users that were deleted less than 30 days ago. These users c
 
 ## Restore a recently deleted user
 
-When a user account is deleted from the organization, the account is in a suspended state and all the related organization information is preserved. When you restore a user, this organization information is also restored.
+When a user account is deleted from the organization, the account is in a suspended state. All of the account's organization information is preserved. When you restore a user, this organization information is also restored.
 
-> [!Note]
+> [!NOTE]
 > Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are no seats available for those licenses. If you are then consuming more licenses more than you purchased, your organization could be temporarily out of compliance for license usage.
 
 ### To restore a user

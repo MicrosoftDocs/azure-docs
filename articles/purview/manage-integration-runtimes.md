@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 10/27/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -15,7 +15,20 @@ The integration runtime (IR) is the compute infrastructure that Microsoft Purvie
 
 A self-hosted integration runtime (SHIR) can be used to scan data source in an on-premises network or a virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.
 
-This article describes how to create and manage a self-hosted integration runtime.
+This article covers both set up of a self-hosted integration runtime, and troubleshooting and management.
+
+
+|Topic | Section|
+|----|----|
+|Set up a new self-hosted integration runtime|[Machine requirements](#prerequisites)|
+||[Source-specific machine requirements are listed under prerequisites in each source article](azure-purview-connector-overview.md)|
+||[Set up guide](#setting-up-a-self-hosted-integration-runtime)|
+|Networking|[Networking requirements](#networking-requirements)|
+||[Proxy servers](#proxy-server-considerations)|
+||[Private endpoints](catalog-private-link.md)|
+||[Troubleshoot proxy and firewall](#possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server)|
+||[Troubleshoot connectivity](troubleshoot-connections.md)|
+|Management|[General](#manage-a-self-hosted-integration-runtime)|
 
 > [!NOTE]
 > The Microsoft Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
@@ -40,6 +53,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 > Any requirements will be listed in the **Prerequisites** section.
 
 - Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+
+- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
@@ -100,23 +116,23 @@ You can edit a self-hosted integration runtime by navigating to **Integration ru
 
 You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
 
-## Service account for Self-hosted integration runtime
+### Notification area icons and notifications
 
-The default sign in service account of self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
+If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
+
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+
+### Service account for Self-hosted integration runtime
+
+The default sign-in service account of self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for self-hosted integration runtime":::
 
-Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
+Make sure the account has the permission of Log-on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Screenshot of Local Security Policy - User Rights Assignment":::
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Screenshot of Log on as a service user rights assignment":::
-
-## Notification area icons and notifications
-
-If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
-
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ## Networking requirements
 
@@ -124,8 +140,7 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
-* The Azure Key Vault used to store credentials.
+* The managed Storage account and optional Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 
 There are two firewalls to consider:
 
@@ -154,7 +169,6 @@ Depending on the sources you want to scan, you also need to allow other domains 
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `<your_key_vault_name>.vault.azure.net` | 443 | Required if any credentials are stored in Azure Key Vault. |
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |
@@ -259,6 +273,31 @@ Then go to path C:\Program Files\Microsoft Integration Runtime\5.0\Gateway\DataS
 </configuration>
 ```
 
+Local traffic must be excluded from proxy, for example if your Microsoft Purview account is behind private endpoints. In such cases, update the following four files under the path to include bypass list C:\Program Files\Microsoft Integration Runtime\5.0\ with required bypass list:
+
+- .\Shared\diahost.exe.config
+- .\Shared\diawp.exe.config
+- .\Gateway\DataScan\Microsoft.DataMap.Agent.exe.config
+- .\Gateway\DataScan\DataTransfer\Microsoft.DataMap.Agent.Connectors.Azure.DataFactory.ServiceHost.exe.config
+
+An example for bypass list for scanning an Azure SQL Database and ADLS gen 2 Storage:
+
+ ```xml
+  <system.net>
+    <defaultProxy>
+      <bypasslist>
+        <add address="scaneastus4123.blob.core.windows.net" />
+        <add address="scaneastus4123.queue.core.windows.net" />
+        <add address="Atlas-abc12345-1234-abcd-a73c-394243a566fa.servicebus.windows.net" />
+        <add address="contosopurview123.purview.azure.com" />
+        <add address="contososqlsrv123.database.windows.net" />
+        <add address="contosoadls123.dfs.core.windows.net" />
+        <add address="contosoakv123.vault.azure.net" />
+      </bypasslist>
+      <proxy proxyaddress=http://proxy.domain.org:8888 bypassonlocal="True" />
+    </defaultProxy>
+  </system.net>
+  ```
 Restart the self-hosted integration runtime host service, which picks up the changes. To restart the service, use the services applet from Control Panel. Or from Integration Runtime Configuration Manager, select the **Stop Service** button, and then select **Start Service**. If the service doesn't start, you likely added incorrect XML tag syntax in the application configuration file that you edited.
 
 > [!IMPORTANT]
@@ -293,4 +332,3 @@ When scanning Parquet files using the self-hosted IR, the service locates the Ja
 - [Microsoft Purview network architecture and best practices](concept-best-practices-network.md)
 
 - [Use private endpoints with Microsoft Purview](catalog-private-link.md)
-

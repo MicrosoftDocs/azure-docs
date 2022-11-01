@@ -2,10 +2,10 @@
 title: Implement Quality of Service (QoS) for Azure Virtual Desktop
 titleSuffix: Azure
 description: How to set up QoS for Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.author: denisgun
+ms.author: femila
 ---
 # Implement Quality of Service (QoS) for Azure Virtual Desktop
 

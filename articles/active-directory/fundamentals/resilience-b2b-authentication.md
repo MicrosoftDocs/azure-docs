@@ -2,14 +2,14 @@
 title: Build resilience in external user authentication with Azure Active Directory
 description: A guide for IT admins and architects to building resilient authentication for external users
 services: active-directory
-author: BarbaraSelden
-manager: karenhoran
+author: janicericketts
+manager: rkarlin
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.author: baselden
+ms.date: 09/13/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

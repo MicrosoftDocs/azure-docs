@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -22,10 +22,10 @@ The targets listed here might be affected by other variables in your deployment.
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Azure Files scale targets
-Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and files.
+Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and individual files.
 
 ### Storage account scale targets
-There are two main types of storage accounts for Azure Files: 
+Storage account scale targets apply at the storage account level. There are two main types of storage accounts for Azure Files: 
 
 - **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. File shares can be deployed into the transaction optimized (default), hot, or cool tiers.
 
@@ -49,6 +49,8 @@ There are two main types of storage accounts for Azure Files:
 <sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
+Azure file share scale targets apply at the file share level.
+
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
 |-|-|-|
 | Minimum size of a file share | No minimum | 100 GiB (provisioned) |
@@ -56,10 +58,10 @@ There are two main types of storage accounts for Azure Files:
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
-| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
+| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
-| Maximum object name length (total pathname including all directories and filename) | 2,048 characters | 2,048 characters |
-| Maximum individual pathname component length (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
+| Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
+| Maximum length of individual pathname component<sup>3</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
 | Hard link limit (NFS only) | N/A | 178 |
 | Maximum number of SMB Multichannel channels | N/A | 4 |
 | Maximum number of stored access policies per file share | 5 | 5 |
@@ -68,17 +70,24 @@ There are two main types of storage accounts for Azure Files:
 
 <sup>2</sup> Default on standard file shares is 5 TiB, see [Create an Azure file share](./storage-how-to-create-file-share.md) for the details on how to create file shares with 100 TiB size and increase existing standard file shares up to 100 TiB. To take advantage of the larger scale targets, you must change your quota so that it is larger than 5 TiB.
 
+<sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
+
 ### File scale targets
+File scale targets apply to individual files stored in Azure file shares.
+
 | Attribute | Files in standard file shares  | Files in premium file shares  |
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
-| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup>|
+| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles | 2,000 handles | 2,000 handles  |
+| Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
 
 <sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+
 <sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
+
+<sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
 
 ## Azure File Sync scale targets
 The following table indicates which target are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:

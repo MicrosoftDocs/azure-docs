@@ -21,6 +21,52 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
+1. Install [Apache Maven](https://maven.apache.org/install.html)
+1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.cognitiveservices.speech.samples</groupId>
+        <artifactId>quickstart-eclipse</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                </configuration>
+            </plugin>
+            </plugins>
+        </build>
+        <repositories>
+            <repository>
+            <id>maven-cognitiveservices-speech</id>
+            <name>Microsoft Cognitive Services Speech Maven Repository</name>
+            <url>https://azureai.azureedge.net/maven/</url>
+            </repository>
+        </repositories>
+        <dependencies>
+            <dependency>
+            <groupId>com.microsoft.cognitiveservices.speech</groupId>
+            <artifactId>client-sdk</artifactId>
+            <version>1.23.0</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+1. Install the Speech SDK and dependencies.
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
@@ -28,7 +74,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Create a new file named `SpeechRecognition.java` in the same project root directory.
 1. Copy the following code into `SpeechRecognition.java`:
 
     ```java
@@ -39,11 +85,12 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.concurrent.Future;
 
     public class SpeechRecognition {
-        private static String YourSubscriptionKey = "YourSubscriptionKey";
-        private static String YourServiceRegion = "YourServiceRegion";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        private static String speechKey = System.getenv("SPEECH_KEY");
+        private static String speechRegion = System.getenv("SPEECH_REGION");
 
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
             speechConfig.setSpeechRecognitionLanguage("en-US");
             recognizeFromMicrophone(speechConfig);
         }
@@ -78,14 +125,17 @@ Follow these steps to create a new console application for speech recognition.
     }
     ```
 
-1. In `SpeechRecognition.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java SpeechRecognition
+javac SpeechRecognition.java -cp ".;target\dependency\*"
+java -cp ".;target\dependency\*" SpeechRecognition
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 
@@ -97,7 +147,8 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
-Here are some additional considerations:
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 - This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 - To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:

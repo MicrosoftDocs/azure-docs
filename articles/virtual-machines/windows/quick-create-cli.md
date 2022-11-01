@@ -46,7 +46,7 @@ Using the example below, you will be prompted to enter a password at the command
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Win2019Datacenter \
+    --image Win2022AzureEditionCore \
     --public-ip-sku Standard \
     --admin-username azureuser 
 ```
@@ -69,6 +69,14 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
 
+## Install web server
+
+To see your VM in action, install the IIS web server.
+
+```azurecli-interactive
+az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunPowerShellScript --scripts "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+```
+
 ## Open port 80 for web traffic
 
 By default, only RDP connections are opened when you create a Windows VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the IIS web server:
@@ -76,24 +84,6 @@ By default, only RDP connections are opened when you create a Windows VM in Azur
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
-
-## Connect to virtual machine
-
-Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. When prompted, enter the credentials used when the VM was created:
-
-```powershell
-mstsc /v:publicIpAddress
-```
-
-## Install web server
-
-To see your VM in action, install the IIS web server. Open a PowerShell prompt on the VM and run the following command:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-When done, close the RDP connection to the VM.
 
 ## View the web server in action
 

@@ -2,12 +2,13 @@
 title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.service: azure-vmware
+ms.date: 08/23/2022
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
 
-Azure Backup Server contributes to your business continuity and disaster recovery (BCDR) strategy. With Azure VMware Solution, you can only configure a virtual machine (VM)-level backup using Azure Backup Server. 
+Azure Backup Server contributes to your business continuity and disaster recovery (BCDR) strategy. With Azure VMware Solution, you can only configure a virtual machine (VM)-level backup using Azure Backup Server.
 
 Azure Backup Server can store backup data to:
 
@@ -28,17 +29,18 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 - **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter Server or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware vCenter Server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
-- **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter Server or ESXi hosts. Azure Backup Server also detects VMs managed by vCenter Server so that you can protect large deployments.
-- **Folder-level auto protection:** vCenter Server lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
-- **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
+- **Detect and protect VMs managed by vCenter Server:** Azure Backup Server detects and protects VMs deployed on a vCenter Server or ESXi hosts. Azure Backup Server also detects VMs managed by vCenter Server so that you can protect large deployments.
+- **Folder-level auto protection:** vCenter Server lets you organize your VMs into Virtual Machine folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
+- **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for dynamic resource load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 - **Recover necessary files faster:** Azure Backup Server can recover files or folders from a Windows VM without recovering the entire VM.
+- **Application Consistent Backups:** If VMware Tools is not installed, a crash consistent backup will be executed. When VMware Tools is installed with Microsoft Windows virtual machines, all applications that support VSS freeze and thaw operations will support application consistent backups. When VMware Tools is installed with Linux virtual machines, application consistent snapshots are supported by calling the pre and post scripts.
 
 ## Limitations
 
 - Update Rollup 1 for Azure Backup Server v3 must be installed.
-- You can't back up user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
-- Azure Backup Server can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDMs).
-- Azure Backup Server can't detect or protect VMware vApps.
+- You can't backup user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
+- Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
+- Azure Backup Server can't detect or protect VMware vSphere vApps.
 
 To set up Azure Backup Server for Azure VMware Solution, you must finish the following steps:
 

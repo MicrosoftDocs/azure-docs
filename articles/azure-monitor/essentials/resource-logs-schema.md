@@ -3,6 +3,7 @@ title: Azure resource logs supported services and schemas
 description: Understand the supported services and event schemas for Azure resource logs.
 ms.topic: reference
 ms.date: 05/10/2021
+ms.reviewer: lualderm
 ---
 
 # Common and service-specific schemas for Azure resource logs
@@ -78,6 +79,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
 | Azure Kubernetes Service |[Azure Kubernetes Service logging](../../aks/monitor-aks-reference.md#resource-logs) |
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
+| Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |
 | Azure Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |
@@ -89,6 +91,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
 | Azure Virtual Network | Schema not available |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|
 

@@ -1,13 +1,12 @@
 ---
-title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
-description: Plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
+title: Plan a SaaS offer for the Microsoft commercial marketplace | Azure Marketplace
+description: Plan a new software as a service (SaaS) offer for selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 08/02/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -29,7 +28,6 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*``<br>You can change to a different listing option after publishing the offer. |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*``<br>You can change to a different listing option after publishing the offer. |
 | Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.<br><br>**Note**: You cannot change this option once your offer is published.  |
-|||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -43,7 +41,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 The technical requirements differ depending on the listing option you choose for your offer.
 
-The _Contact me_ listing option has no technical requirements. You have the option to connect a customer relationship management (CRM) system to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
+The _Contact me_ listing option has no technical requirements. When a customer expresses interest in or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You also have the option to connect a customer relationship management (CRM) system to your offer to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
@@ -77,7 +75,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
   > [!NOTE]
   > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (Azure AD) app registration](../active-directory/develop/howto-create-service-principal-portal.md). Use the app registration details to authenticate your solution when calling the marketplace APIs. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (Azure AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
 - **Azure Active Directory application ID**: You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). To get its value, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
@@ -94,7 +92,9 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
 [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
@@ -106,17 +106,16 @@ When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure M
 If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal and AppSource.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are only available through the Azure portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal and AppSource |
-|||||
+| No              | No          | Yes          | Azure portal only |
 
-&#42; The private plan of the offer will only be available via the Azure portal and AppSource.
+&#42; The private plan of the offer will only be available via the Azure portal.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -134,9 +133,9 @@ If you choose to use the standard contract, you have the option to add universal
 ## Microsoft 365 integration
 
 Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
-  - If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the AAD App ID and grant access if advanced admin permission is needed at deployment time. 
+  - If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (Azure AD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the Azure AD App ID and grant access if advanced admin permission is needed at deployment time. 
     
-     If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
+     If you choose to sell your offer through Microsoft, then this is the same Azure AD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
 	
    -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on Microsoft AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
     
@@ -149,11 +148,11 @@ IT admins can review and deploy both the SaaS and linked add-ins within the same
 
 Discovery as a single E2E solution is supported on AppSource for all cases, however, simplified deployment of the E2E solution as described above via the Microsoft 365 admin center is not supported for the following scenarios:
 
-   - “Contact me” list-only offers. 
+   - “Contact me” list-only offers.
    - The same add-in is linked to more than one SaaS offer.
-   - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no AAD App ID is provided.
-  - The SaaS offer is linked to add-ins, but AAD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
- 
+   - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no Azure AD App ID is provided.
+  - The SaaS offer is linked to add-ins, but Azure AD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
+
 ## Offer listing details
 
 When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.
@@ -251,11 +250,34 @@ SaaS offers can use one of two pricing models with each plan: either _flat rate_
 > [!IMPORTANT]
 > After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
 
+### SaaS billing terms and payment options
+
+The _billing term_ is the plan duration the customer is committing to, and the payment option is the payment schedule that the customer follows to pay for the entire term. SaaS apps support 1-month, 1-year, 2-year, and 3-year billing terms with options to pay one-time upfront, or with equal payments (if applicable).
+
+This table shows the payment options for SaaS offers in the commercial marketplace.
+
+| Billing term | One-time upfront payment | Monthly equal payments | Annual equal payments |
+| ------------ | ------------- | ------------- | ------------- |
+| 1-month | Yes | NA | NA |
+| 1-year | Yes | Yes | NA |
+| 2-year | Yes | Yes | Yes |
+| 3-year | Yes | Yes | Yes |
+
+> [!IMPORTANT]
+> If you choose to configure a 2-year or 3-year billing term, or a 1-year billing term with a monthly payment option, your offer will be published to Azure Marketplace only. If you update an offer that is currently published live on AppSource with a multi-year billing term, the offer will be delisted from AppSource and published to Azure Marketplace only.
+
+You can choose to configure one or more billing terms on a plan. For each billing term you define, you can select one payment option (monthly or annual payments) and set the price for each payment option. For example, to encourage a potential customer to subscribe to a longer billing term, you could offer a 2-year billing term for $100.00 and a 3-year billing term for $90.00.
+
+> [!NOTE]
+> Only one payment option is supported for a billing term on a given plan. To offer an additional payment option for the same term, you can create another plan.
+
+For billing terms with equal payments, payment collection will be enforced for the entire term and the [standard refund policy](/marketplace/refund-policies) applies. For more information about SaaS subscription management, see [SaaS subscription lifecycle management](/marketplace/saas-subscription-lifecycle-management).
+
 ### SaaS billing
 
 For SaaS apps that run in your (the publisher’s) Azure subscription, infrastructure usage is billed to you directly; customers do not see actual infrastructure usage fees. You should bundle Azure infrastructure usage fees into your software license pricing to compensate for the cost of the infrastructure you deployed to run the solution.
 
-SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
+SaaS app offers that are sold through Microsoft support one-time upfront, monthly, or annual billing (payment options) based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
 
 The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $97.00 to the publisher.
 
@@ -265,9 +287,10 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
 | Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
-|
 
-A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
+## Preview audience
+
+A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live.
 
 On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
@@ -297,3 +320,17 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 - [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
 - [Create a SaaS offer](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [SaaS offer overview](https://go.microsoft.com/fwlink/?linkid=2196417)
+- [SaaS Offer Technical Overview](https://go.microsoft.com/fwlink/?linkid=2196315)
+- [Publishing a SaaS offer](https://go.microsoft.com/fwlink/?linkid=2196318)
+- [Configuring SaaS Pricing in Partner Center: Publisher Overview](https://go.microsoft.com/fwlink/?linkid=2201523)
+- [Configuring SaaS Pricing in Partner Center: Publisher Demo](https://go.microsoft.com/fwlink/?linkid=2201524)
+- [A SaaS Accelerator Hands-on Tour - The Basics](https://go.microsoft.com/fwlink/?linkid=2196164)
+- [SaaS Accelerator Architecture](https://go.microsoft.com/fwlink/?linkid=2196167)
+- [Installing the SaaS Accelerator With the Install Script](https://go.microsoft.com/fwlink/?linkid=2196326)
+- [Invoking Metered Billing with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196161)
+- [Configuring Email in the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196165)
+- [Custom Landing Page Fields with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196166)

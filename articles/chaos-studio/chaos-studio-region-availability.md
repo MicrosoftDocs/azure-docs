@@ -1,8 +1,8 @@
 ---
 title: Regional availability of Chaos Studio
 description: Understand how Azure Chaos Studio makes chaos experiments and chaos targets available in Azure regions.
-author: johnkemnetz
-ms.author: johnkem
+author: prasha-microsoft 
+ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 4/29/2022

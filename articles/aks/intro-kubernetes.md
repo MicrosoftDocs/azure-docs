@@ -4,8 +4,7 @@ description: Learn the features and benefits of Azure Kubernetes Service to depl
 services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
-
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ---
 
 # Azure Kubernetes Service
@@ -83,6 +82,12 @@ AKS supports the creation of Intel SGX-based, confidential computing node pools 
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
+### Mariner nodes
+
+Mariner is an open-source Linux distribution created by Microsoft, and it’s now available for preview as a container host on Azure Kubernetes Service (AKS). The Mariner container host provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Mariner node pools in a new cluster, add Mariner node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Mariner nodes.
+
+For more information, see [Use the Mariner container host on Azure Kubernetes Service (AKS)](use-mariner.md)
+
 ### Storage volume support
 
 To support application workloads, you can mount static or dynamic storage volumes for persistent data. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by either:
@@ -149,7 +154,6 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 > [Deploy an AKS Cluster using Azure CLI][aks-quickstart-cli]
 
 <!-- LINKS - external -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 [compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 

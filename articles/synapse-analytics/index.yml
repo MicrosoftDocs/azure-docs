@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/01/2020 #Required; mm/dd/yyyy format.
+  ms.date: 08/09/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -45,7 +45,10 @@ landingContent:
             url: quickstart-sql-on-demand.md
           - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
-
+      - linkListType: deploy
+        links:
+          - text: Migration guides
+            url: migration-guides/index.yml
 
   - title: Get started with Azure Synapse Analytics
     linkLists:
@@ -162,7 +165,7 @@ landingContent:
   #         - text: Dedicated SQL pool (formerly SQL DW) architecture
   #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
   #         - text: Reference Architecture
-  #           url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #           url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 

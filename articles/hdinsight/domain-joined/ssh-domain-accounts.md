@@ -3,7 +3,7 @@ title: Manage SSH access for domain accounts in Azure HDInsight
 description: Steps to manage SSH access for Azure AD accounts in HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 06/30/2022
 ---
 
 # Manage SSH access for domain accounts in Azure HDInsight

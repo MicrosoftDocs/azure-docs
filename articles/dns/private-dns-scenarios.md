@@ -2,11 +2,11 @@
 title: Scenarios for Private Zones - Azure DNS
 description: In this article, learn about common scenarios for using Azure DNS Private Zones.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/27/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Azure DNS private zones scenarios
@@ -17,7 +17,7 @@ Azure DNS Private Zones provide name resolution within a virtual network and bet
 
 In this scenario, you have a virtual network in Azure that has many resources in it, including virtual machines. Your requirement is to resolve any resources in the virtual network using a specific domain name (DNS zone). You also need the naming resolution to be private and not accessible from the internet. Lastly, you need Azure to automatically register VMs into the DNS zone.
 
-This scenario is shown below. We have a virtual network named "A" containing two VMs (VNETA-VM1 and VNETA-VM2). Each VM has a private IP associated. Once you've create a private zone, for example `contoso.com` and link virtual network "A" as a registration virtual network. Azure DNS will automatically create two A records in the zone referencing the two VMs. DNS queries from VNETA-VM1 can now resolve `VNETA-VM2.contoso.com` and will receive a DNS response that contains the private IP address of VNETA-VM2.
+This scenario is shown below. We have a virtual network named "A" containing two VMs (VNETA-VM1 and VNETA-VM2). Each VM has a private IP associated. Once you've created a private zone, for example, `contoso.com`, and link virtual network "A" as a registration virtual network, Azure DNS will automatically create two A records in the zone referencing the two VMs. DNS queries from VNETA-VM1 can now resolve `VNETA-VM2.contoso.com` and will receive a DNS response that contains the private IP address of VNETA-VM2.
 You can also do a reverse DNS query (PTR) for the private IP of VNETA-VM1 (10.0.0.1) from VNETA-VM2. The DNS response will contain the name VNETA-VM1, as expected. 
 
 ![Single Virtual network resolution](./media/private-dns-scenarios/single-vnet-resolution.png)

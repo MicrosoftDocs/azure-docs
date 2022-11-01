@@ -1,12 +1,12 @@
 ---
 title: Copy data in Azure API for FHIR to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse in Azure API for FHIR
-author: ginalee-dotcom
+author: irenejoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/16/2022
-ms.author: ginle
+ms.date: 06/03/2022
+ms.author: irenejoseph
 ---
 
 # Copy data from Azure API for FHIR to Azure Synapse Analytics
@@ -196,3 +196,5 @@ In this article, you learned three different ways to copy your FHIR data into Sy
 Next, you can learn about how you can de-identify your FHIR data while exporting it to Synapse in order to protect PHI.
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

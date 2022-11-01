@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to build and modify a Blazor Server
 author: vicancy
 ms.service: signalr
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 05/22/2022
 ms.author: lianwei
 ms.devlang: csharp
 ---
@@ -18,6 +18,14 @@ This tutorial shows you how to build and modify a Blazor Server app. You'll lear
 > * Use event handling and data binding in Razor components.
 > * Quick-deploy to Azure App Service in Visual Studio.
 > * Migrate from local SignalR to Azure SignalR Service.
+
+Ready to start?
+
+> [!div class="nextstepaction"]
+> [Step by step build](#prerequisites)
+
+> [!div class="nextstepaction"]
+> [Try Blazor demo now](https://asrs-blazorchat-live-demo.azurewebsites.net/chatroom)
 
 ## Prerequisites
 

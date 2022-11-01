@@ -42,10 +42,10 @@ The following sections walk you through the process of implementing labeling for
 - When you configure sensitivity labels for the Microsoft Purview Data Map, you might define autolabeling rules for files, database columns, or both within the label properties. Microsoft Purview labels files within the Microsoft Purview Data Map. When the autolabeling rule is configured, Microsoft Purview automatically applies the label or recommends that the label is applied.
 
    > [!WARNING]
-   > If you haven't configured autolabeling for files and emails on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
+   > If you haven't configured autolabeling for items on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
 
 - If you're defining new autolabeling rules for files when you configure labels for the Microsoft Purview Data Map, make sure that you have the condition for applying the label set appropriately.
-- You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for files and emails page of the label properties.
+- You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for items page of the label properties.
 - The default setting for detection criteria is **All of these**. This setting means that the asset must contain all the specified sensitive information types for the label to be applied. While the default setting might be valid in some instances, many customers want to use **Any of these**. Then if at least one asset is found, the label is applied.
 
    :::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::
@@ -62,7 +62,7 @@ The following sections walk you through the process of implementing labeling for
 - Capture all test cases for your labels. Test your label policies with all applications you want to secure.
 - Promote sensitivity label policies to the Microsoft Purview Data Map.
 - Run test scans from the Microsoft Purview Data Map on different data sources like hybrid cloud and on-premises to identify sensitivity labels.
-- Gather and consider insights, for example, by using Microsoft Purview Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
+- Gather and consider insights, for example, by using Microsoft Purview Data Estate Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
 
 By using sensitivity labels with Microsoft Purview Data Map, you can extend information protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
 

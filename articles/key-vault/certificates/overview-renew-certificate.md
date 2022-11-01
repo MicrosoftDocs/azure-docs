@@ -71,22 +71,7 @@ For more information about creating a new CSR, see [Create and merge a CSR in Ke
 
 Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
-## Troubleshoot
-* If the issued certificate is in *disabled* status in the Azure portal, go to **Certificate Operation** to view the certificate's error message.
-* Error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
-  Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
-
-
-## Frequently asked questions
-
-**How can I test the autorotation feature of the certificate?**
-
-Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
-  
-**Will the tags be replicated after autorenewal of the certificate?**
-
-Yes, the tags are replicated after autorenewal.
-
 ## Next steps
-*    [Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
-*    [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)
+- [Azure Key Vault certificate renewal frequently as questions](faq.yml)
+- [Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
+- [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)

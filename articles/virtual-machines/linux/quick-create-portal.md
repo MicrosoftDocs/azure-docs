@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/29/2022
+ms.date: 08/01/2022
 ms.author: cynthn
 ms.custom: mvc, mode-ui
 ---
@@ -25,15 +25,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual machine
 
-1. Type **virtual machines** in the search.
+1. Enter *virtual machines* in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.*. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*. 
 
 	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name**, and choose *Ubuntu 18.04 LTS - Gen2* for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
+1. Under **Instance details**, enter *myVM* for the **Virtual machine name**, and choose *Ubuntu 18.04 LTS - Gen2* for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
 
     :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
 
@@ -44,9 +44,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Under **Administrator account**, select **SSH public key**.
 
-1. In **Username** type *azureuser*.
+1. In **Username** enter *azureuser*.
 
-1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
+1. For **SSH public key source**, leave the default of **Generate new key pair**, and then enter *myKey* for the **Key pair name**.
 
     ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/quick-create-portal/administrator-account.png)
 
@@ -58,7 +58,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded; you will need the path to it in the next step.
 
 1. When the deployment is finished, select **Go to resource**.
 
@@ -72,12 +72,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create an SSH connection with the VM.
 
-1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt. 
+1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt. 
 
 1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myKey.pem azureuser@10.111.12.123
+ssh -i ~/Downloads/myKey.pem azureuser@10.111.12.123
 ```
 
 > [!TIP]

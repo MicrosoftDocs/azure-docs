@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/22/2022
+ms.date: 06/13/2022
 
 ---
 
@@ -72,9 +72,9 @@ A gateway can take 45 minutes or more to fully create and deploy. You can see th
 
 You can view the gateway public IP address on the **Overview** page for your gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page.":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page used to view the Public IP address field." lightbox="./media/tutorial-create-gateway-portal/address.png":::
 
-To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
+To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 
 ## <a name="resize"></a>Resize a gateway SKU
 

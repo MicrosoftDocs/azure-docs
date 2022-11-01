@@ -9,7 +9,7 @@ ms.date: 03/28/2022
 
 This article explains how to solve potential problems in the security agent start-up process.
 
-Microsoft Defender for IoT agent self-starts immediately after installation. The agent start up process includes reading local configuration, connecting to Azure IoT Hub, and retrieving the remote twin configuration. Failure in any one of these steps may cause the security agent to fail.
+Microsoft Defender for IoT agent self-starts immediately after installation. The agent start-up process includes reading local configuration, connecting to Azure IoT Hub, and retrieving the remote twin configuration. Failure in any one of these steps may cause the security agent to fail.
 
 In this troubleshooting guide you'll learn how to:
 
@@ -19,7 +19,7 @@ In this troubleshooting guide you'll learn how to:
 
 ## Validate if the security agent is running
 
-1. To validate is the security agent is running, wait a few minutes after installing the agent and and run the following command.
+1. To validate that the security agent is running, wait a few minutes after installing the agent and run the following command.
      <br>
 
     **C agent**
@@ -78,10 +78,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 | Error Code | Error sub code | Error details | Remediate C | Remediate C# |
 |--|--|--|--|--|
 | Local Configuration | Missing configuration | A configuration is missing in the local configuration file. The error message should state which key is missing. | Add the missing key to the /var/LocalConfiguration.json file, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details. | Add the missing key to the General.config file, see the [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) for details. |
-| Local Configuration | Cant Parse Configuration | A configuration value can't be parsed. The error message should state which key can't be parsed. A configuration value cannot be parsed either because the value is not in the expected type, or the value is out of range. | Fix the value of the key in /var/LocalConfiguration.json file so that it matches the LocalConfiguration schema, see the [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) for details. | Fix the value of the key in General.config file so that it matches the schema, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details. |
+| Local Configuration | Cant Parse Configuration | A configuration value can't be parsed. The error message should state which key can't be parsed. A configuration value cannot be parsed either because the value isn't in the expected type, or the value is out of range. | Fix the value of the key in /var/LocalConfiguration.json file so that it matches the LocalConfiguration schema, see the [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) for details. | Fix the value of the key in General.config file so that it matches the schema, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details. |
 | Local Configuration | File Format | Failed to parse configuration file. | The configuration file is corrupted, download the agent and re-install. | - |
-| Remote Configuration | Timeout | The agent could not fetch the azureiotsecurity module twin within the timeout period. | Make sure authentication configuration is correct and try again. | The agent could not fetch the azureiotsecurity module twin within timeout period. Make sure authentication configuration is correct and try again. |
-| Authentication | File Not Exist | The file in the given path does not exist. | Make sure the file exists in the given path or go to the **LocalConfiguration.json** file and change the **FilePath** configuration. | Make sure the file exists in the given path or go to the **Authentication.config** file and change the **filePath** configuration. |
+| Remote Configuration | Timeout | The agent could not fetch the azureiotsecurity module twin within the timeout period. | Make sure authentication configuration is correct and try again. | The agent couldn't fetch the azureiotsecurity module twin within timeout period. Make sure authentication configuration is correct and try again. |
+| Authentication | File Not Exist | The file in the given path doesn't exist. | Make sure the file exists in the given path or go to the **LocalConfiguration.json** file and change the **FilePath** configuration. | Make sure the file exists in the given path or go to the **Authentication.config** file and change the **filePath** configuration. |
 | Authentication | File Permission | The agent does not have sufficient permissions to open the file. | Give the **asciotagent** user read permissions on the file in the given path. | Make sure the file is accessible. |
 | Authentication | File Format | The given file is not in the correct format. | Make sure the file is in the correct format. The supported file types are .pfx and .pem. | Make sure the file is a valid certificate file. |
 | Authentication | Unauthorized | The agent was not able to authenticate against IoT Hub with the given credentials. | Validate authentication configuration in LocalConfiguration file, go through the authentication configuration and make sure all the details are correct, validate that the secret in the file matches the authenticated identity. | Validate authentication configuration in Authentication.config, go through the authentication configuration and make sure all the details are correct, then validate that the secret in the file matches the authenticated identity. |

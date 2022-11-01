@@ -1,18 +1,18 @@
 ---
 title: Reservation discounts for Azure App Service
-description: Learn how reservation discounts apply to Azure App Service Premium v3 and Premium v2 instances and Isolated Stamps.
+description: Learn how reservation discounts apply to Azure App Service Premium v3 instances and Isolated Stamps.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 05/12/2022
 ms.author: banders
 ---
 
 # How reservation discounts apply to Azure App Service
 
-This article helps you understand how discounts apply to Azure App Service Premium v3 and Premium v2 instances and Isolated Stamps.
+This article helps you understand how discounts apply to Azure App Service Premium v3 instances and Isolated Stamps.
 
 ## How reservation discounts apply to Premium v3 instances
 
@@ -42,7 +42,11 @@ After you buy an Azure App Service Isolated v2 Reserved Instance, the reservatio
 
 ### How the discount is applied to Azure App Service
 
-A reservation discount is _use-it-or-lose-it_. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours. When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+A reservation discount is _use-it-or-lose-it_. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours. 
+
+When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads.
 
 ### Reservation discount for Isolated v2 Instances
 

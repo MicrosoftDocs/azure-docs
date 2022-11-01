@@ -1,10 +1,10 @@
 ---
-title: Microsoft commercial marketplace transact capabilities
+title: Microsoft commercial marketplace transact capabilities | Azure Marketplace
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 08/05/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -34,12 +34,24 @@ The transact publishing option is currently supported for the following offer ty
 
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
-| Azure Virtual Machine | Monthly* | No | Usage-based, BYOL |
-| Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-|||||
+| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based and flat rate |
+| Azure Container | Monthly [1] | No | Usage-based, BYOL |
+| Azure Virtual Machine | Monthly [2] | No | Usage-based, BYOL |
+| Software as a service (SaaS) | One-time upfront monthly, annual [3,4] | Yes | Flat rate, per user, usage-based. |
+| Dynamics 365 apps on Dataverse and Power Apps [5] | Monthly and annual | No | Per user |
+| Power BI visual [6] | Monthly and annual | No | Per user |
 
-\* Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+[1] Azure Container offers support usage-based billing plans. These plans are billed monthly for hourly use of the usage based on per core, or per every core in cluster.
+
+[2] Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
+
+[3] SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+
+[4] If you choose to configure a 2-year or 3-year billing term, or a 1-year billing term with a monthly payment option, your offer will be published to Azure Marketplace only. If you update an offer that is currently published live on AppSource with a multi-year billing term, the offer will be delisted from AppSource and published to Azure Marketplace only.
+
+[5] Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Dynamics 365 apps on Dataverse and Power Apps](isv-app-license.md).
+
+[6] Power BI visual offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management for Power BI visual offers](isv-app-license-power-bi-visual.md).
 
 ### Metered billing
 
@@ -47,7 +59,7 @@ The *Marketplace metering service* lets you specify pay-as-you-go (consumption-b
 
 ### Billing infrastructure costs
 
-For **virtual machines** and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
+For **virtual machines**, **containers**, and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
 For **SaaS Apps**, the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item. It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
 
@@ -55,9 +67,12 @@ For **SaaS Apps**, the publisher must account for Azure infrastructure usage fee
 
 Depending on the transaction option used, subscription charges are as follows:
 
-- **Subscription pricing**: Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
-- **Usage-based pricing**: For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
-- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour of occurrence. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
+- **Subscription pricing**: Software license fees are presented as a recurring subscription fee billed as a flat rate or per-seat:
+    -  SaaS plans support monthly, 1-year, 2-year, and 3-year terms that can be billed either monthly or for the entire term upfront. See [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+    - Azure virtual machine plans support monthly, 1-year, and 3-year plans that are billed monthly. See [Plan a virtual machine offer](marketplace-virtual-machines.md#plans-pricing-and-trials).
+    - Azure application (Managed application) plans are billed monthly. See [Plan a managed application](plan-azure-app-managed-app.md#define-pricing).
+- **Usage-based pricing**: For Azure Virtual Machine and Container offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images and Container offers, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines and containers deployed from the VM images and Container offers, respectively. Partial hours are charged by the minute. Plans are billed monthly. The hourly fee may be uniform or varied across virtual machine sizes.
+- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to the flat rate charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour of occurrence. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
@@ -70,12 +85,17 @@ Use this flowchart to determine the appropriate *transactable* offer type and pr
 
 Generally, SaaS offers are a good fit if your customers just want to subscribe to your service and use it online. With SaaS, the publisher (you) host the software in your cloud infrastructure, managing technical infrastructure, app software, and data management responsibilities.
 
-Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
+Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own Azure cloud infrastructure.
 
-[![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).<br>
-&nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
-&nbsp;&nbsp;&nbsp;<sup>(3)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
+[![Illustration showing a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+
+[1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
+
+[2] VM offer images can be included in the Azure App offer to increase pricing and deployment flexibility.
+
+[3] This can include your own VM offers.
+
+[4] Customer pays additional infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
 ### Usage-based and subscription pricing
 
@@ -97,7 +117,6 @@ Usage-based pricing has the following cost structure:
 |---------|---------|
 | Azure usage cost (D1/1-Core) | $0.14 per hour |
 | *Customer is billed by Microsoft* | *$1.14 per hour* |
-||
 
 In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
 
@@ -106,7 +125,6 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 | Microsoft pays you 97% of your license cost | $0.97 per hour |
 | Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-||
 
 **Bring Your Own License (BYOL)**
 
@@ -116,7 +134,6 @@ BYOL has the following cost structure:
 |---------|---------|
 |Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
 | *Customer is billed by Microsoft* | *$0.14 per hour* |
-||
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
 
@@ -124,17 +141,15 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 |---------|---------|
 | Microsoft keeps the Azure usage cost | $0.14 per hour |
 | Microsoft keeps 0% of your license cost | $0.00 per hour |
-||
 
 **SaaS app subscription**
 
-SaaS subscriptions can be priced at a flat rate or per user on a monthly or annual basis. If you enable the  **Sell through Microsoft** option for a SaaS offer, you have the following cost structure:
+SaaS subscriptions can be priced at a flat rate or per user. If you enable the  **Sell through Microsoft** option for a SaaS offer, you have the following cost structure:
 
 | **Your license cost** | **$100.00 per month** |
 |--------------|---------|
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | *Customer is billed by Microsoft* | *$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)* |
-||
 
 In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 
@@ -191,9 +206,15 @@ The ability to transact through Microsoft is available for the following commerc
 
 - **Azure application (solution template and managed application plans**: In some cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement. However, if you configure a managed app plan for ISV infrastructure charges, the Azure resources are billed to the publisher, and the customer receives a flat fee that includes the cost of infrastructure, software licenses, and management services.
 
+- **Azure Container**: If you are publishing container images, you can choose free or BYOL pricing options. If you are publishing Kubernetes apps, then you can choose free, BYOL, per core, or per every core in cluster as the pricing options. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher’s software. These plans are billed monthly for hourly use of the usage-based pricing specified by the publisher.
+
 - **Azure Virtual Machine**: Select from free, BYOL, or usage-based pricing models. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher’s software.
 
 - **SaaS application**: Must be a multitenant solution, use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for authentication, and integrate with the [SaaS Fulfillment APIs](partner-center-portal/pc-saas-fulfillment-apis.md). Azure infrastructure usage is managed and billed directly to you (the publisher), so you must account for Azure infrastructure usage fees and software licensing fees as a single cost item. For detailed guidance, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+
+- **Dynamics 365 Dataverse apps and Power Apps**: Select “Per user” pricing to enable Dynamics 365 Dataverse apps and Power Apps to be sold in AppSource marketplace. Customers can manage licenses of these offers in Microsoft Admin Center.
+
+- **Power BI visual**: Select "Managing license and selling with Microsoft" to enable your offer to be transactable in Microsoft AppSource and get license management. Customers can manage licenses of these offers in Microsoft Admin Center.
 
 ## Private plans
 

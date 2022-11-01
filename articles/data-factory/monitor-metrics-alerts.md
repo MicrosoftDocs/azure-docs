@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Data Factory metrics and alerts
@@ -47,7 +47,12 @@ Here are some of the metrics emitted by Azure Data Factory version 2.
 | IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percetange of CPU utilization for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeAverageTaskPickupDelay      | Queue duration for integration runtime | Seconds    | Total                | The queue duration for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeQueueLength     | Queue length for integration runtime | Count    | Total                | The total queue length for the self-hosted integration runtime within a minute window. |
+| Maximum allowed entities count | Maxixum number of entities | Count | Total | The maximum number of entities in the Azure Data Factory instance. |
+| Maximum allowed factory size (GB unit) | Maximum size of entities | Gigabyte | Total | The maximum size of entities in the Azure Data Factory instance. |
+| Total entities count | Total number of entities | Count | Total | The total number of entities in the Azure Data Factory instance. |
+| Total factory size (GB unit) | Total size of entities | Gigabyte | Total | The total size of entities in the Azure Data Factory instance. |
 
+For service limits and quotas please see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
@@ -81,6 +86,9 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Screenshot that shows alert details.":::
 
 1. Define the action group.
+
+   > [!NOTE]
+   > The action group must be created within the same resource group as the data factory instance in order to be available for use from the data factory.
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with New action group highlighted.":::
 

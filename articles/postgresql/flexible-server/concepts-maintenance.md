@@ -4,16 +4,17 @@ description: This article describes the scheduled maintenance feature in Azure D
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: nlarin
-author: niklarin
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
 ms.date: 11/30/2021
 ---
 
 # Scheduled maintenance in Azure Database for PostgreSQL – Flexible server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
  
 Azure Database for PostgreSQL - Flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
- 
-
  
 ## Selecting a maintenance window
  

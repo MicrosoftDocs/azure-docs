@@ -1,16 +1,16 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
+description: How to use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -18,17 +18,24 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data. 
+>[!TIP]
+>
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
+
+> [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Prerequisites
 
-To complete this quickstart, you must have:
+ You'll need the following resources to complete this project:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
@@ -43,7 +50,7 @@ Try out the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azureweb
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-2-1.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
+You'll need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
 ## Set up the Sample Labeling tool
 
@@ -140,19 +147,19 @@ In the Sample Labeling tool, projects store your configurations and settings. Cr
 
 When you create or open a project, the main tag editor window opens. The tag editor consists of three parts:
 
-* A resizable preview pane that contains a scrollable list of forms from the source connection.
+* A resizable v3.0 pane that contains a scrollable list of forms from the source connection.
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags.
 
-### Identify text and tables 
+### Identify text and tables
 
-Select **Run OCR on all files** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
+Select **Run Layout on unvisited documents** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
-The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
+The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we won't be labeling the table content, but rather rely on the automated extraction.
 
 :::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
-In v2.1, if your training document does not have a value filled in, you can draw a box where the value should be. Use **Draw region** on the upper left corner of the window to make the region taggable.
+In v2.1, if your training document doesn't have a value filled in, you can draw a box where the value should be. Use **Draw region** on the upper left corner of the window to make the region taggable.
 
 ### Apply labels to text
 
@@ -195,16 +202,16 @@ The following value types and variations are currently supported:
 
 * `number`
   * default, `currency`
-  * Formatted as a Floating point value. 
-  * Example:1234.98 on the document will be formatted into 1234.98 on the output
+  * Formatted as a Floating point value.
+  * Example: 1234.98 on the document will be formatted into 1234.98 on the output
 
 * `date`
   * default, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
-  * Formatted as a Integer value. 
-  * Example:1234.98 on the document will be formatted into 123498 on the output
+  * Formatted as an integer value.
+  * Example: 1234.98 on the document will be formatted into 123498 on the output.
 * `selectionMark`
 
 > [!NOTE]
@@ -236,11 +243,11 @@ The following value types and variations are currently supported:
 
 ### Label tables (v2.1 only)
 
-At times, your data might lend itself better to being labeled as a table rather than key-value pairs. In this case, you can create a table tag by clicking on "Add a new table tag," specify whether the table will have a fixed number of rows or variable number of rows depending on the document, and define the schema.
+At times, your data might lend itself better to being labeled as a table rather than key-value pairs. In this case, you can create a table tag by selecting **Add a new table tag**. Specify whether the table will have a fixed number of rows or variable number of rows depending on the document and define the schema.
 
 :::image type="content" source="media/label-tool/table-tag.png" alt-text="Configuring a table tag.":::
 
-Once you have defined your table tag, tag the cell values.
+Once you've defined your table tag, tag the cell values.
 
 :::image type="content" source="media/table-labeling.png" alt-text="Labeling a table.":::
 
@@ -248,8 +255,8 @@ Once you have defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](./quickstarts/try-sdk-rest-api.md).
-* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api).
+* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
 
@@ -280,7 +287,7 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 
 ## Improve results
 
-Depending on the reported accuracy, you may want to do further training to improve the model. After you've done a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value was high, but the confidence scores are low (or the results are inaccurate), you should add the prediction file to the training set, label it, and train again.
+Depending on the reported accuracy, you may want to do further training to improve the model. After you've done a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value is high, but the confidence scores are low (or the results are inaccurate), add the prediction file to the training set, label it, and train again.
 
 The reported average accuracy, confidence scores, and actual accuracy can be inconsistent when the analyzed documents differ from documents used in training. Keep in mind that some documents look similar when viewed by people but can look distinct to the AI model. For example, you might train with a form type that has two variations, where the training set consists of 20% variation A and 80% variation B. During prediction, the confidence scores for documents of variation A are likely to be lower.
 
@@ -294,11 +301,11 @@ Go to your project settings page (slider icon) and take note of the security tok
 
 ### Restore project credentials
 
-When you want to resume your project, you first need to create a connection to the same blob storage container. To do so, repeat the steps above. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Select **Save** to retain your settings..
+When you want to resume your project, you first need to create a connection to the same blob storage container. To do so, repeat the steps above. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Select **Save** to retain your settings.
 
 ### Resume a project
 
-Finally, go to the main page (house icon) and select **Open Cloud Project**. Then select the blob storage connection, and select your project's **.fott** file. The application will load all of the project's settings because it has the security token.
+Finally, go to the main page (house icon) and select **Open Cloud Project**. Then select the blob storage connection, and select your project's `.fott` file. The application will load all of the project's settings because it has the security token.
 
 ## Next steps
 
@@ -308,4 +315,4 @@ In this quickstart, you've learned how to use the Form Recognizer Sample Labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)

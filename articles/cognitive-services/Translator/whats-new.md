@@ -1,25 +1,67 @@
 ---
-title: What's new in Translator?
+title: What's new in Azure Cognitive Services Translator?
 titleSuffix: Azure Cognitive Services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
+ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 04/25/2022
+ms.date: 06/14/2022
 ms.author: lajanuar
-
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Azure Cognitive Services Translator
+<!-- markdownlint-disable MD001 -->
+
+# What's new in Azure Cognitive Services Translator?
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-* Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
+Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
-* Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## June 2022
+
+### Document Translation stable GA 1.0.0 release
+
+Document Translation .NET and Python client-library SDKs are now generally available and ready for use in production applications!
+
+### [**C#**](#tab/csharp)
+
+**Version 1.0.0 (GA)** </br>
+**2022-06-07**
+
+##### [README](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/README.md)
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md)
+
+##### [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.Translation.Document)
+
+##### [**SDK reference documentation**](/dotnet/api/overview/azure/AI.Translation.Document-readme)
+
+### [Python](#tab/python)
+
+**Version 1.0.0 (GA)** </br>
+**2022-06-07**
+
+##### [README](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/README.md)
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md)
+
+##### [**Package (PyPI)**](https://pypi.org/project/azure-ai-translation-document/1.0.0/)
+
+##### [**SDK reference documentation**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)
+
+---
+
+## May 2022
+
+### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
+
+* Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
 
 ## April 2022
 
@@ -53,7 +95,7 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 * The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
 
-* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
+* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2.0/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 
@@ -68,8 +110,8 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
   * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
   * **Tatar**. A Turkic language used by speakers in modern Tatarstan. It's closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
   * **Tibetan**. It has nearly 6 million speakers and can be found in many Tibetan Buddhist publications.
-  * **Turkmen**. The official language of Turkmenistan. It's very similar to Turkish and Azerbaijani.
-  * **Uyghur**. A Turkic language with nearly 15 million speakers. It is spoken primarily in Western China.
+  * **Turkmen**. The official language of Turkmenistan. It's similar to Turkish and Azerbaijani.
+  * **Uyghur**. A Turkic language with nearly 15 million speakers. It's spoken primarily in Western China.
   * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It's spoken by 34 million native speakers.
 
 These additions bring the total number of languages supported in Translator to 103.
@@ -78,7 +120,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for literary Chinese](https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)
 
-* Azure Cognitive Services Translator has [text and document language support](language-support.md) for  literary Chinese, a traditional style of written Chinese used by classical Chinese poets and in ancient Chinese poetry.
+* Azure Cognitive Services Translator has [text and document language support](language-support.md) for  literary Chinese. Classical or literary Chinese is a traditional style of written Chinese used by traditional Chinese poets and in ancient Chinese poetry.
 
 ## June 2021
 

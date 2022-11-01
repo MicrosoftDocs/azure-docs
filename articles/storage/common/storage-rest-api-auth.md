@@ -356,7 +356,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 ### Canonicalized resource
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
-`<http://contosorest.blob.core.windows.net/?comp=list>`, with the actual account name (`contosorest` in this case). In this example, this is returned:
+`http://contosorest.blob.core.windows.net/?comp=list`, with the actual account name (`contosorest` in this case). In this example, this is returned:
 
 ```
 /contosorest/\ncomp:list

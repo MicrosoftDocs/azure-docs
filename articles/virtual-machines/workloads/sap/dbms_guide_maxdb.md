@@ -1,21 +1,15 @@
 ---
 title: SAP MaxDB, liveCache, and Content Server deployment on Azure VMs | Microsoft Docs
 description: SAP MaxDB, liveCache, and Content Server deployment on Azure
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP MaxDB, liveCache, and Content Server deployment on Azure VMs
@@ -309,10 +303,9 @@ This document covers several different areas to consider when deploying MaxDB, l
 
 ## Specifics for the SAP MaxDB deployments on Windows
 ### SAP MaxDB Version Support on Azure
-SAP currently supports SAP MaxDB version 7.9 or higher for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the SAP Service Marketplace at <https://support.sap.com/swdc>.
-General information on running SAP NetWeaver on SAP MaxDB can be found at <https://www.sap.com/community/topic/maxdb.html>.
+SAP currently supports SAP MaxDB version 7.9 or higher for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the [SAP Service Marketplace](https://support.sap.com/en/my-support/software-downloads.html). For more information about running SAP NetWeaver on SAP MaxDB, see [SAP MaxDB](https://www.sap.com/community/topic/maxdb.html).
 
-### Supported Microsoft Windows Versions and Azure VM types for SAP MaxDB DBMS
+### Supported Microsoft Windows versions and Azure VM types for SAP MaxDB DBMS
 To find the supported Microsoft Windows version for SAP MaxDB DBMS on Azure, see:
 
 * [SAP Product Availability Matrix (PAM)][sap-pam]
@@ -468,5 +461,5 @@ If you configure the SAP Content Server to store files in the file system, one o
 #### Other
 Other SAP Content Server-specific settings are transparent to Azure VMs and are described in various documents and SAP Notes:
 
-* <https://service.sap.com/contentserver> 
-* SAP Note [1619726]  
+* [SAP NetWeaver](https://service.sap.com/contentserver)
+* SAP Note [1619726]

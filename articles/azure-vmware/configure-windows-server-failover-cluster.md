@@ -2,15 +2,13 @@
 title: Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 description: Learn how to configure Windows Server Failover Cluster (WSFC) on Azure VMware Solution vSAN with native shared disks.
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.service: azure-vmware
+ms.date: 10/07/2022
 ---
 
 # Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 
 In this article, you'll learn how to configure [Failover Clustering in Windows Server](/windows-server/failover-clustering/failover-clustering-overview) on Azure VMware Solution vSAN with native shared disks. 
-
->[!IMPORTANT]
->The implementation in this article is for proof of concept and pilot purposes. We recommend using a Cluster-in-a-Box (CIB) configuration until placement policies become available.
 
 Windows Server Failover Cluster, previously known as Microsoft Service Cluster Service (MSCS), is a Windows Server Operating System (OS) feature. WSFC is a business-critical feature, and for many applications is required. For example, WSFC is required for the following configurations:
 
@@ -22,9 +20,9 @@ Windows Server Failover Cluster, previously known as Microsoft Service Cluster S
   - Scale-Out File Server (SOFS), which stores files in cluster shared volumes (CSV).
   - Storage Spaces Direct (S2D); local disks used to create storage pools across different cluster nodes.
 
-You can host the WSFC cluster on different Azure VMware Solution instances, known as Cluster-Across-Box (CAB). You can also place the WSFC cluster on a single Azure VMware Solution node. This configuration is known as Cluster-in-a-Box (CIB). We don't recommend using a CIB solution for a production implementation. Were the single Azure VMware Solution node to fail, all WSFC cluster nodes would be powered off, and the application would experience downtime. Azure VMware Solution requires a minimum of three nodes in a private cloud cluster.
+You can host the WSFC cluster on different Azure VMware Solution instances, known as Cluster-Across-Box (CAB). You can also place the WSFC cluster on a single Azure VMware Solution node. This configuration is known as Cluster-in-a-Box (CIB). We don't recommend using a CIB solution for a production implementation, use CAB instead with placement policies. Were the single Azure VMware Solution node to fail, all WSFC cluster nodes would be powered off, and the application would experience downtime. Azure VMware Solution requires a minimum of three nodes in a private cloud cluster.
 
-It's important to deploy a supported WSFC configuration. You'll want your solution to be supported on vSphere and with Azure VMware Solution. VMware provides a detailed document about WSFC on vSphere 6.7, [Setup for Failover Clustering and Microsoft Cluster Service](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf).
+It's important to deploy a supported WSFC configuration. You'll want your solution to be supported on VMware vSphere and with Azure VMware Solution. VMware provides a detailed document about WSFC on vSphere 7.0, [Setup for Failover Clustering and Microsoft Cluster Service](https://docs.vmware.com/en/VMware-vSphere/7.0/vsphere-esxi-vcenter-server-703-setup-wsfc.pdf).
 
 This article focuses on WSFC on Windows Server 2016 and Windows Server 2019. Unfortunately, older Windows Server versions are out of [mainstream support](https://support.microsoft.com/lifecycle/search?alpha=windows%20server), so we don't consider them here.
 
@@ -83,7 +81,7 @@ Currently, the configurations supported are:
 
 | **Component** | **Requirements** |
 | --- | --- |
-| SCSI Controller Type | VMware Paravirtualize (PVSCSI) |
+| SCSI Controller Type | VMware Paravirtualized (PVSCSI) |
 | Disk mode | Independent - Persistent (step 2 in illustration below). By using this setting, you ensure that all disks are excluded from snapshots. Snapshots aren't supported for WSFC-based VMs. |
 | SCSI bus sharing | Physical (step 1 in illustration below) |
 | Multi-writer flag | Not used |
@@ -141,10 +139,7 @@ The following activities aren't supported and might cause WSFC node failover:
         
       - **Validate Network Communication**. The Cluster Validation test displays a warning indicating that only one network interface per cluster node is available. You can ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T Data Center segments. However, keep this item as part of the Cluster Validation test, as it validates other aspects of network communication.
 
-16. Create a Placement Policy to situate the WSFC VMs on the same Azure VMware Solution nodes. To do so, you need a host-to-VM affinity rule. This way, cluster nodes will run on the same Azure VMware Solution host.
-
-    >[!NOTE]
-    > For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.
+16. Create the relevant Placement Policies to situate the WSFC VMs on the correct Azure VMware Solution nodes depending upon the WSFC CIB or CAB configuration. To do so, you need a host-to-VM affinity rule. This way, cluster nodes will run on the same or separate Azure VMware Solution host(s) respectively.
 
 ## Related information
 

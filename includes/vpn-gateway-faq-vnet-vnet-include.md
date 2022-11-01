@@ -1,5 +1,4 @@
 ---
- description: include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
@@ -80,6 +79,3 @@ No. You can't have overlapping IP address ranges.
 ### Can there be overlapping address spaces among connected virtual networks and on-premises local sites?
 
 No. You can't have overlapping IP address ranges.
-
-
-

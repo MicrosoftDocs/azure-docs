@@ -6,21 +6,20 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/20/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage Db2 in Microsoft Purview (Preview)
+# Connect to and manage Db2 in Microsoft Purview
 
 This article outlines how to register Db2, and how to authenticate and interact with Db2 in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)| No |
+
 
 The supported IBM Db2 versions are Db2 for LUW 9.7 to 11.x. Db2 for z/OS (mainframe) and iSeries (AS/400) aren't supported now. 
 
@@ -45,18 +44,18 @@ When setting up scan, you can choose to scan an entire Db2 database, or scope th
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * Manually download a Db2 JDBC driver from [here](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) onto your virtual machine where self-hosted integration runtime is running.
+    * Download the [Db2 JDBC driver](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 
         > [!Note]
-        > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+        > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
 
 * The Db2 user must have the CONNECT permission. Microsoft Purview connects to the syscat tables in IBM Db2 environment when importing metadata.
 
@@ -91,7 +90,7 @@ On the **Register sources (Db2)** screen, do the following:
 
 ## Scan
 
-Follow the steps below to scan Db2 to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan Db2 to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 
@@ -132,10 +131,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
-
-        > [!Note]
-        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\Db2`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Db2 source to be scanned.
 
@@ -162,6 +158,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

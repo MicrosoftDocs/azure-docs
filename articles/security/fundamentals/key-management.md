@@ -24,7 +24,7 @@ Customer-managed keys (CMK), on the other hand, are those that can be read, crea
 
 A specific kind of customer-managed key is the "key encryption key" (KEK). A KEK is a master key, that controls access to one or more encryption keys that are themselves encrypted.   
 
-Customer-managed keys can be stored on-premise or, more commonly, in a cloud key management service.
+Customer-managed keys can be stored on-premises or, more commonly, in a cloud key management service.
 
 ## Azure key management services
 
@@ -38,7 +38,7 @@ Azure offers several options for storing and managing your keys in the cloud, in
 
 **Azure Dedicated HSM**: A FIPS 140-2 Level 3 validated bare metal HSM offering, that lets customers lease a general-purpose HSM appliance that resides in Microsoft datacenters. The customer has complete and total ownership over the HSM device and is responsible for patching and updating the firmware when required. Microsoft has no permissions on the device or access to the key material, and Dedicated HSM is not integrated with any Azure PaaS offerings. Customers can interact with the HSM using the PKCS#11, JCE/JCA, and KSP/CNG APIs. This offering is most useful for legacy lift-and-shift workloads, PKI, SSL Offloading and Keyless TLS (supported integrations include F5, Nginx, Apache, Palo Alto, IBM GW and more), OpenSSL applications, Oracle TDE, and Azure SQL TDE IaaS. For more information, see [What is Azure Key Vault Managed HSM?](../../dedicated-hsm/overview.md) 
 
-**Azure Payments HSM**: A FIPS 140-2 Level 3, PCI HSM v3, validated bare metal offering that lets customers lease a payment HSM appliance in Microsoft datacenters for payments operations, including payment processing, payment credential issuing, securing keys and authentication data, and sensitive data protection. The service is currently undergoing PCI DSS and PCI 3DS audits. Azure Payment HSM offers single-tenant HSMs for customers to have complete administrative control and exclusive access to the HSM. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released, to ensure complete privacy and security is maintained. This offering is currently in public preview. For more information, see [About Azure Key Vault](../../payment-hsm/overview.md).
+**Azure Payments HSM** (in public preview): A FIPS 140-2 Level 3, PCI HSM v3, validated bare metal offering that lets customers lease a payment HSM appliance in Microsoft datacenters for payments operations, including payment processing, payment credential issuing, securing keys and authentication data, and sensitive data protection. The service is PCI DSS and PCI 3DS compliant. Azure Payment HSM offers single-tenant HSMs for customers to have complete administrative control and exclusive access to the HSM. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released, to ensure complete privacy and security is maintained. This offering is currently in public preview. For more information, see [About Azure Payment HSM](../../payment-hsm/overview.md).
 
 ### Pricing 
 

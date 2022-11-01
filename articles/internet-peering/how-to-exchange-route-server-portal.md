@@ -3,11 +3,11 @@ title: Peering Connection for Exchange partners with route server by using the P
 titleSuffix: Azure
 description: Create or modify an Exchange peering with route server by using the Azure portal
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Create or modify an Exchange peering with route server in Azure portal

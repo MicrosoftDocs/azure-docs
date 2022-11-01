@@ -3,7 +3,7 @@ title: 'Selective Password Hash Synchronization for Azure AD Connect'
 description: This article describes how to setup and configure selective password hash synchronization to use with Azure AD Connect.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -52,13 +52,13 @@ This attribute can be set either:
 ### Disable the synchronization scheduler:
 
 Before you start either scenario, you must disable the synchronization scheduler while making changes to the sync rules.
- 1. Start Windows PowerShell enter.
+ 1. Start Windows PowerShell and enter.
 
-     `set-adsyncscheduler-synccycleenabled$false`
+     `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 2. Confirm the scheduler is disabled by running the following cmdlet:
 
-    `get-adsyncscheduler`
+    `Get-ADSyncScheduler`
 
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
@@ -118,7 +118,7 @@ the attribute **adminDescription** populated in Active Directory with the value 
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
  1. In Windows PowerShell run:
 
-     `set-adsyncscheduler-synccycleenabled$true`
+     `set-adsyncscheduler -synccycleenabled:$true`
 
  2. Then confirm it has been successfully enabled by running:
 

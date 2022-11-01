@@ -2,11 +2,12 @@
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: overview
-author: savjani
-ms.author: pariks
-ms.custom: mvc, references_regions
-ms.date: 03/23/2022
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, references_regions, event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Azure Database for MySQL - Flexible Server
@@ -26,7 +27,7 @@ In this article, we'll provide an overview and introduction to core concepts of 
 
 Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](overview.md#azure-regions).
 
-The Flexible Server deployment option offers three compute tiers: Burstable, General Purpose, and Memory Optimized. Each tier offers different compute and memory capacity to support your database workloads. You can build your first app on a burstable tier for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Compute and Storage](concepts-compute-storage.md) for details.
+The Flexible Server deployment option offers three compute tiers: Burstable, General Purpose, and Business Critical. Each tier offers different compute and memory capacity to support your database workloads. You can build your first app on a burstable tier for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Compute and Storage](concepts-compute-storage.md) for details.
 
 Flexible servers are best suited for
 - Ease of deployments, simplified scaling, and low database management overhead for functions like backups, high availability, security, and monitoring
@@ -91,7 +92,7 @@ See [Networking concepts](concepts-networking.md) to learn more.
 
 ## Adjust performance and scale within seconds
 
-The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full-compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20 K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
+The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Business Critical. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full-compute capacity continuously. The General Purpose and Business Critical are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20 K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
@@ -171,26 +172,30 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| China North 3 |:heavy_check_mark:  | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: 
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -199,6 +204,8 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Qatar Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 
 ## Contacts
 

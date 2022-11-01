@@ -3,7 +3,7 @@ title: Apache Ambari Tez View loads slowly in Azure HDInsight
 description: Apache Ambari Tez View may load slowly or may not load at all in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/06/2020
+ms.date: 05/26/2022
 ---
 
 # Scenario: Apache Ambari Tez View loads slowly in Azure HDInsight

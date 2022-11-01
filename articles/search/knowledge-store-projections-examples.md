@@ -268,7 +268,7 @@ You can process projections by following these steps:
 
 1. [Monitor indexer execution](search-howto-monitor-indexers.md) to check progress and catch any errors.
 
-1. [Use Storage Browser](knowledge-store-view-storage-explorer.md) to verify object creation in Azure Storage.
+1. Use Azure portal to verify object creation in Azure Storage.
 
 1. If you are projecting tables, [import them into Power BI](knowledge-store-connect-power-bi.md) for table manipulation and visualization. In most cases, Power BI will auto-discover the relationships among tables.
 

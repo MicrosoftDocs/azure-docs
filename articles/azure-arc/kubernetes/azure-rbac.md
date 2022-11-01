@@ -3,13 +3,11 @@ title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
-ms.topic: article
-author: shashankbarsin
-ms.author: shasb
+ms.topic: how-to
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Integrate Azure Active Directory with Azure Arc-enabled Kubernetes clusters
+# Use Azure RBAC for Azure Arc-enabled Kubernetes clusters
 
 Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
 
@@ -19,9 +17,9 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 ## Prerequisites
 
-- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to version 2.16.0 or later.
+- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-- Install the `connectedk8s` Azure CLI extension, version 1.1.0 or later:
+- Install the latest version of `connectedk8s` Azure CLI extension:
 
     ```azurecli
     az extension add --name connectedk8s
@@ -35,10 +33,10 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 - Connect an existing Azure Arc-enabled Kubernetes cluster:
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. This feature isn't supported on AKS on Azure Stack HCI.
 
 ## Set up Azure AD applications
 
@@ -59,7 +57,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster.
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
 
     ```azurecli
     az ad sp create --id "${SERVER_APP_ID}"
@@ -531,6 +529,19 @@ NAME      STATUS   ROLES    AGE      VERSION
 node-1    Ready    agent    6m36s    v1.18.14
 node-2    Ready    agent    6m42s    v1.18.14
 node-3    Ready    agent    6m33s    v1.18.14
+```
+
+## Refresh the secret of the server application
+
+If the secret for the server application's service principal has expired, you will need to rotate it.
+
+```azurecli
+SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+```
+
+Update the secret on the cluster. Please add any optional parameters you configured when this command was originally run.
+```azurecli
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
 ## Next steps

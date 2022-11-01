@@ -103,7 +103,7 @@ aks-osm-webhook-osm   1      102m
 ### Check for the service and the CA bundle of the Validating webhook
 
 ```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+kubectl get ValidatingWebhookConfiguration aks-osm-validator-mesh-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
 A well configured Validating Webhook Configuration would look exactly like this:

@@ -17,7 +17,7 @@ Security is an important aspect of any IoT solution. Sometimes you need to expli
 
 There are two specific use-cases where it is useful to block connections to a DPS endpoint from certain IP addresses:
 
-* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS and your devices.
+* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS instance and your devices.
 
 * You need to reject traffic from IP addresses that have been identified as suspicious by the DPS administrator.
 

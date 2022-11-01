@@ -5,14 +5,14 @@ description: Provides you with information that will appear in the Azure Active 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/22/2020
+ms.date: 08/26/2022
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---

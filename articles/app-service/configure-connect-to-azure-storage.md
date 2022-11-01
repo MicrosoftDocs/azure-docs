@@ -12,9 +12,9 @@ zone_pivot_groups: app-service-containers-code
 
 ::: zone pivot="code-windows"
 > [!NOTE]
-> Mounting Azure Storage as a local share for App Service on Windows code is currently in preview.
+> Mounting Azure Storage as a local share for App Service on Windows code (non-container) is currently in preview.
 >
-This guide shows how to mount Azure Storage Files as a network share in Windows code in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
@@ -37,7 +37,7 @@ This guide shows how to mount Azure Storage Files as a network share in a Window
 - Make static content like video and images readily available for your App Service app. 
 - Write application log files or archive older application log to Azure File shares.  
 - Share content across multiple apps or with other Azure services.
-- Mount Azure Storage in a Windows container in a Standard tier or higher plan, including Isolated ([App Service environment v3](environment/overview.md)).
+- Mount Azure Storage in a Windows container, including Isolated ([App Service environment v3](environment/overview.md)).
 
 The following features are supported for Windows containers:
 
@@ -50,7 +50,7 @@ The following features are supported for Windows containers:
 
 ::: zone pivot="container-linux"
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). For using Azure Storage in an ARM template, see [Bring your own storage](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json). The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
@@ -117,7 +117,7 @@ The following features are supported for Linux containers:
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage is not supported.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
-- Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 
 > [!NOTE]
 > Ensure ports 80 and 445 are open when using Azure Files with VNET integration.
@@ -133,6 +133,7 @@ The following features are supported for Linux containers:
 - Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Only Azure Files [SMB](../storage/files/files-smb-protocol.md) are supported.  Azure Files [NFS](../storage/files/files-nfs-protocol.md) is not currently supported for Linux App Services.
 
 > [!NOTE]
 > When VNET integration is used, ensure the following ports are open:
@@ -157,6 +158,16 @@ The following features are supported for Linux containers:
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 
+    ::: zone pivot="code-windows"
+    | Setting | Description |
+    |-|-|
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
+    | **Configuration options** | Select **Basic** if the storage account is not using [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
+    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
+    | **Share name** | Files share to mount. |
+    | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
+    | **Mount path** | Directory inside your app service that you want to mount. Only `/mounts/pathname` is supported.|
+    ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
     |-|-|
@@ -165,7 +176,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside your file/blob storage that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
+    | **Mount path** | Directory inside your Windows container that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`) as it's not supported.|
     ::: zone-end
     ::: zone pivot="container-linux"
     | Setting | Description |
@@ -199,12 +210,6 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 Verify your storage is mounted by running the following command:
 
 ```azurecli-interactive
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
-Verify your configuration by running the following command:
-
-```azurecli
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 

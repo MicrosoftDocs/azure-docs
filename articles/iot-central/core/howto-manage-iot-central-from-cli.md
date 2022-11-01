@@ -1,11 +1,11 @@
 ---
 title: Manage IoT Central from Azure CLI or PowerShell | Microsoft Docs
-description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools. You can also configure a managed system identity that can you can use to setup secure data export.
+description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools. You can also configure a managed system identity that can you can use to set up secure data export.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/20/2022
 ms.topic: how-to 
 ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 ---
@@ -176,20 +176,41 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 ## Configure a managed identity
 
-An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-data.md#connection-options).
+An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-to-blob-storage.md#connection-options).
 
-To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the [REST API](howto-manage-iot-central-with-rest-api.md):
+To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the CLI. You can enable the managed identity when you create an IoT Central application:
 
-:::image type="content" source="media/howto-manage-iot-central-from-cli/managed-identity.png" alt-text="Screenshot showing managed identity in Azure portal.":::
+```azurecli-interactive
+# Create an IoT Central application with a managed identity
+az iot central app create \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --name "myiotcentralapp" --subdomain "mysubdomain" \
+  --sku ST1 --template "iotc-pnp-preview" \
+  --display-name "My Custom Display Name" \
+  --mi-system-assigned
+```
+
+Alternatively, you can enable a managed identity on an existing IoT Central application:
+
+```azurecli-interactive
+# Enable a system-assigned managed identity
+az iot central app identity assign --name "myiotcentralapp" \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --system-assigned
+```
 
 After you enable the managed identity, you can use the CLI to configure the role assignments.
 
 Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to create a role assignment. For example, the following commands first retrieve the principal ID of the managed identity. The second command assigns the `Azure Event Hubs Data Sender` role to the principal ID in the scope of the `MyIoTCentralResourceGroup` resource group:
 
 ```azurecli-interactive
-spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
+scope=$(az group show -n "MyIoTCentralResourceGroup" --query "id" --output tsv)
+spID=$(az iot central app identity show \
+  --name "myiotcentralapp" \
+  --resource-group "MyIoTCentralResourceGroup" \
+  --query "principalId" --output tsv)
 az role assignment create --assignee $spID --role "Azure Event Hubs Data Sender" \
-  --scope /subscriptions/<your subscription id>/resourceGroups/MyIoTCentralResourceGroup
+  --scope $scope
 ```
 
 To learn more about the role assignments, see:

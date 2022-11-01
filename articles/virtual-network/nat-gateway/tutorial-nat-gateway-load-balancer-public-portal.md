@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial
 ---
 
@@ -35,7 +35,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 In this section, you'll create a virtual network and subnet.
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. In **Virtual networks**, select **+ Create**.
 
@@ -69,7 +69,7 @@ In this section, you'll create a virtual network and subnet.
 
 8. Select **Save**.
 
-9. Select the **Security** tab.
+9. Select the **Security** tab or select the **Next: Security** button at the bottom of the page.
 
 10. Under **BastionHost**, select **Enable**. Enter this information:
 
@@ -108,14 +108,14 @@ During the creation of the load balancer, you'll configure:
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(US) East US**.                                        |
-    | Type          | Select **Public**.                                        |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
 
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter **LoadBalancerFrontend** in **Name**.
 
@@ -169,10 +169,10 @@ During the creation of the load balancer, you'll configure:
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
@@ -290,25 +290,23 @@ In this section, you'll create a NAT gateway and assign it to the subnet in the 
 
 In this section, we'll test the NAT gateway. We'll first discover the public IP of the NAT gateway. We'll then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
     
-1. Find the public IP address for the NAT gateway on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
+1. Select **Resource groups** in the left-hand menu, select the **TutorPubLBNAT-rg** resource group, and then from the resources list, select **myNATgatewayIP**.
 
 2. Make note of the public IP address:
 
     :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Screenshot discover public IP address of NAT gateway." border="true":::
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBNAT-rg** resource group.
+3. Select **Resource groups** in the left-hand menu, select the **TutorPubLBNAT-rg** resource group, and then from the resources list, select **myVM1**.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+5. Enter the username and password entered during VM creation.
 
-6. Enter the username and password entered during VM creation.
+6. Open **Internet Explorer** on **myVM1**.
 
-7. Open **Internet Explorer** on **myVM1**.
+7. Enter **https://whatsmyip.com** in the address bar.
 
-8. Enter **https://whatsmyip.com** in the address bar.
-
-9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
+8. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
     :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Screenshot Internet Explorer showing external outbound IP." border="true":::
 

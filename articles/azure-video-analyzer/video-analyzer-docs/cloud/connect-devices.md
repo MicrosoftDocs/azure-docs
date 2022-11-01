@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](../terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an [Azure IoT Plug and Play](../../../iot-develop/overview-iot-plug-and-play.md) device implementation, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server.
 
 ## Overview 

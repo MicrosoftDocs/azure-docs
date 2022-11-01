@@ -1,14 +1,16 @@
 ---
 title: Using SQL Database DACPAC and BACPAC packages - Azure SQL Edge
 description: Learn about using dacpacs and bacpacs in Azure SQL Edge
-keywords: SQL Edge, sqlpackage
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/03/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/03/2020
+keywords:
+  - SQL Edge
+  - sqlpackage
+services: sql-edge
 ---
 
 # SQL Database DACPAC and BACPAC packages in SQL Edge
@@ -28,9 +30,26 @@ SQL Database dacpac and bacpac packages can be deployed to SQL Edge using the `M
 
 To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `(*.bacpac)` using Azure Blob storage and a zip file, follow the steps below. 
 
-1. Create/Extract a DAC package or Export a Bacpac File using the mechanism mentioned below. 
+1. Create/Extract a DAC package or Export a Bacpac File using one of the mechanism mentioned below. 
+    - Use [SQL Database Project Extension - Azure Data Studio](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started) to [create a new database project or export an existing database](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started)
     - Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
     - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a bacpac file for an existing SQL Server database.
+
+> [!NOTE]
+> If you are using external streaming jobs as part of the database, please ensure the following:
+> 
+> - The generated dacpac will capture all the SQL Server Objects corresponding to the inputs/output streams and the streaming jobs. But the jobs will not be automatically started. In order to have the external streaming job automatically started after deployment, add a post-deployment script that restarts the jobs as follows:
+>   
+>   ```
+>   exec sys.sp_stop_streaming_job @name=N'<JOB NAME>';
+>   GO
+>   exec sys.sp_start_streaming_job @name=N'<JOB NAME>';
+>   GO
+>   ```
+>   
+> - Ensure any credentials required by the external streaming jobs to access input or output streams are provided as part of the dacpac.
+
+
 
 2. Zip the `*.dacpac` or the `*.bacpac` file and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

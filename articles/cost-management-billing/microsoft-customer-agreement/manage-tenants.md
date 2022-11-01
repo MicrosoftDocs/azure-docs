@@ -21,25 +21,26 @@ A tenant is a digital representation of your organization and is primarily assoc
 
 Each tenant is distinct and separate from other tenants, yet you can allow guest users from other tenants to access your tenant to track your costs and manage billing.
 
+## What's an associated tenant? 
+An associated tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 365 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants. Read more about associated tenants [Manage billing across multiple tenants using associated billing tenants](../manage/manage-billing-across-tenants.md). 
+
 ## How tenants and subscriptions relate to billing account
 
 You use your Microsoft Customer Agreement (billing account) to track costs and manage billing. Each billing account has at least one billing profile. The billing profile allows you to manage your invoice and payment method. Each billing profile includes one invoice section, by default. You can create more invoice sections to group, track, and manage costs at a more granular level if needed.
 
-- Your billing account is associated with a single tenant. It means only users who are part of the tenant can access your billing account.
-- When you create a new Azure subscription for your billing account, it's always created in your billing account tenant. However, you can move subscriptions to other tenants. You can also link existing subscriptions from other tenants to your billing account. It allows you to centrally manage billing through one tenant while keeping resources and subscriptions in other tenants based on your needs.
+- Your billing account is associated with a single, primary tenant. Users who are part of the primary tenant or who are part of associated tenants can access your billing account if they have the appropriate billing role assigned. 
+- When you create a new Azure subscription for your billing account, it's created in your tenant or one of the other tenants you have access to. You can choose the tenant while creating the subscription.  
+- You can move subscriptions to other tenants. You can also link existing subscriptions from other tenants to your billing account. This flexibility allows you to centrally manage billing through one tenant while keeping resources and subscriptions in other tenants based on your needs. 
 
-The following diagram shows how billing account and subscriptions are linked to tenants. The Contoso MCA billing account is associated with Tenant 1 while Contoso PAYG account is associated with Tenant 2. Let's assume Contoso wants to pay for their PAYG subscription through their MCA billing account, they can use a billing ownership transfer to link the subscription to their MCA billing account. The subscription and its resources will still be associated with Tenant 2, but they're paid for using the MCA billing account.
+The following diagram shows how billing account and subscriptions are linked to tenants. Let's assume Contoso would like to streamline their billing management through an MCA. The Contoso MCA billing account is in Tenant 1 while Contoso PAYG account is in Tenant 2. They can use a billing ownership transfer to link the subscription to their MCA billing account. The subscription and its resources will still be associated with Tenant 2, but they're paid for using the MCA billing account.
 
 :::image type="content" source="./media/manage-tenants/billing-hierarchy-example.png" alt-text="Diagram showing an example billing hierarchy." border="false" lightbox="./media/manage-tenants/billing-hierarchy-example.png":::
 
 ## Manage subscriptions under multiple tenants in a single Microsoft Customer Agreement
 
-Billing owners can create subscriptions when they have the [appropriate permissions](../manage/understand-mca-roles.md#subscription-billing-roles-and-tasks) to the billing account. By default, any new subscriptions created under the Microsoft Customer Agreement are in the Microsoft Customer Agreement tenant.
+Billing owners can create subscriptions when they have the [appropriate permissions](../manage/understand-mca-roles.md#subscription-billing-roles-and-tasks) to the billing account. By default, any new subscriptions created under the Microsoft Customer Agreement are in the current user’s tenant. Different tenants can be selected from the list of tenants to which the user has access to create subscriptions. 
 
 - You can link subscriptions from other tenants to your Microsoft Customer Agreement billing account. Taking billing ownership of a subscription only changes the invoicing arrangement. It doesn't affect the service tenant or Azure RBAC roles.
-- To change the subscription owner in the service tenant, you must transfer the [subscription to a different Azure Active Directory directory](../../role-based-access-control/transfer-subscription.md).
-
-An MCA billing account is managed by a single tenant/directory. The billing account only controls billing for the subscriptions in its tenant. However, you can use a billing ownership transfer to link a subscription to a billing account in a different tenant.
 
 ### Billing ownership transfer
 
@@ -56,6 +57,13 @@ Billing ownership transfer doesn’t affect:
 - Resources
 - Azure RBAC permissions
 
+## Assign roles to users to your Microsoft Customer Agreement 
+
+There are three ways users with billing owner access can assign roles to users to MCA 
+
+- Assign billing roles to users in the primary tenant 
+- Assign billing roles to external users (outside of your primary tenant) if they are part of an associated tenant 
+- If tenants are not associated, [create guest users in primary tenant and assign roles](#add-guest-users-to-your-microsoft-customer-agreement-tenant). 
 
 ## Add guest users to your Microsoft Customer Agreement tenant
 
@@ -79,7 +87,7 @@ After they accept, they can [view the Microsoft Customer Agreement billing accou
 
 :::image type="content" source="./media/manage-tenants/billing-microsoft-customer-agreement-in-list.png" alt-text="Screenshot showing the Microsoft Customer Agreement in the list of billing accounts." lightbox="./media/manage-tenants/billing-microsoft-customer-agreement-in-list.png" :::
 
-Authorization to invite guest users is controlled by your Azure AD settings. The value of the settings is shown under **Settings** on the **Organizational relationships** page. Ensure that the setting is selected, otherwise the invitation fails.For more information, see [Restrict guest user access permissions](../../active-directory/enterprise-users/users-restrict-guest-permissions.md).
+Authorization to invite guest users is controlled by your Azure AD settings. The value of the settings is shown under **Settings** on the **Organizational relationships** page. Ensure that the setting is selected, otherwise the invitation fails. For more information, see [Restrict guest user access permissions](../../active-directory/enterprise-users/users-restrict-guest-permissions.md).
 
 :::image type="content" source="./media/manage-tenants/external-collaboration-settings.png" alt-text="Screenshot showing External collaboration settings." lightbox="./media/manage-tenants/external-collaboration-settings.png" :::
 

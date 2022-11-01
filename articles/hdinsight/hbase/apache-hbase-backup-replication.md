@@ -4,7 +4,7 @@ description: Set up Backup and replication for Apache HBase and Apache Phoenix i
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/19/2019
+ms.date: 05/30/2022
 ---
 
 # Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight

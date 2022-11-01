@@ -1,10 +1,11 @@
 ---
 title: 'Tutorial: Configure audit logs by using Azure Database for MySQL Flexible Server'
 description: 'This tutorial shows you how to configure audit logs by using Azure Database for MySQL Flexible Server.'
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 
@@ -159,7 +160,7 @@ In the workbook, you can view the following visualizations:
 :::image type="content" source="./media/tutorial-configure-audit/audit-summary.png" alt-text="Screenshot of workbook template 'Audit Connection Events'.":::
 
 >[!Note]
-> * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of the [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+> * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 > * For a quick view, you can also pin the workbooks or Log Analytics query to your dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
 The *Administrative Actions on the service* view gives you details on activity performed on the service. It helps to determine the *what, who, and when* for any write operations (PUT, POST, DELETE) that are performed on the resources in your subscription. 

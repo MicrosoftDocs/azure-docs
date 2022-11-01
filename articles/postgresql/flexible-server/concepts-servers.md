@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Flexible Server.
 

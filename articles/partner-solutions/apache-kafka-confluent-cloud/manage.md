@@ -1,8 +1,10 @@
 ---
-title: Manage a Confluent Cloud - Azure partner solutions
+title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.topic: conceptual
 ms.date: 06/07/2021
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # Manage the Confluent Cloud resource

@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot SAML-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for SAML-based single sign-on.
-titleSuffix: Azure AD
 services: active-directory
 author: AllisonAm
 manager: CelesteDG
@@ -43,7 +42,7 @@ To know the patterns pre-configured for the application:
 8. Select **SAML-based Sign-on** from the **Mode** dropdown.
 9. Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
 10. There are three ways to know the supported patterns for the application:
-    - In the textbox, you see the supported pattern(s) as a placeholder *Example:* <https://contoso.com>.
+    - In the textbox, you see the supported pattern(s) as a placeholder, for example: `https://contoso.com`.
     - if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
     - In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Azure AD single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
 

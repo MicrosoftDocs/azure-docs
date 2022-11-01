@@ -5,11 +5,12 @@ description: 'Learn how to improve data security with Azure Machine Learning by 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 03/17/2022
+ms.date: 06/24/2022
 ---
 # Use customer-managed keys with Azure Machine Learning
 
@@ -39,6 +40,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * The customer-managed key for resources the workspace depends on can’t be updated after workspace creation.
 * Resources managed by Microsoft in your subscription can’t transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
+* The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -46,6 +48,9 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 ## Create Azure Key Vault
 
 To create the key vault, see [Create a key vault](../key-vault/general/quick-create-portal.md). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+
+> [!IMPORTANT]
+> The key vault must be in the same Azure subscription that will contain your Azure Machine Learning workspace.
 
 ### Create a key
 
@@ -57,7 +62,7 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 > For more information, see the following articles:
 > * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
 > * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
-> * [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md)
+> * [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
 1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
@@ -83,6 +88,9 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 
 Create an Azure Machine Learning workspace. When creating the workspace, you must select the __Azure Key Vault__ and the __key__. Depending on how you create the workspace, you specify these resources in different ways:
 
+> [!WARNING]
+> The key vault that contains your customer-managed key must be in the same Azure subscription as the workspace.
+
 * __Azure portal__: Select the key vault and key from a dropdown input box when configuring the workspace.
 * __SDK, REST API, and Azure Resource Manager templates__: Provide the Azure Resource Manager ID of the key vault and the URL for the key. To get these values, use the [Azure CLI](/cli/azure/install-azure-cli) and the following commands:
 
@@ -103,7 +111,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | Creation method | Article |
 | ----- | ----- |
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 | REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
@@ -119,9 +127,12 @@ Once the workspace has been created, you'll notice that Azure resource group is 
 > [!WARNING]
 > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group or Microsoft-managed services in it, you must delete the Azure Machine Learning workspace that uses it. The resource group resources are deleted when the associated workspace is deleted.
 
-For more information on customer-managed keys with Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
+For more information on customer-managed keys with Azure Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
 ### Azure Container Instance
+
+> [!IMPORTANT]
+> Deploying to Azure Container Instances is not available in SDK or CLI v2. Only through SDK & CL v1.
 
 When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
@@ -134,10 +145,10 @@ To use the key when deploying a model to Azure Container Instance, create a new 
 For more information on creating and using a deployment configuration, see the following articles:
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-* [Where and how to deploy](how-to-deploy-and-where.md)
-* [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
+* [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
@@ -152,6 +163,6 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
 * [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 * [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 * [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |

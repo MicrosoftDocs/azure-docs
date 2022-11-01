@@ -67,7 +67,7 @@ This article explains how to install, and authenticate the Defender micro agent 
         systemctl status defender-iot-micro-agent.service
         ```
 
-    1. Ensure that the service is stable by making sure it is `active` and that the uptime of the process is appropriate
+    1. Ensure that the service is stable by making sure it's `active` and that the uptime of the process is appropriate
     
         :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
  
@@ -94,4 +94,4 @@ This article explains how to install, and authenticate the Defender micro agent 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md)

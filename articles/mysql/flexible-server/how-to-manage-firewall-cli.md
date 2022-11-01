@@ -1,11 +1,12 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for MySQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for MySQL - Flexible Server using Azure CLI command line.
-author: savjani
-ms.author: pariks
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: how-to
+author: vivgk
+ms.author: vivgk
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
 ---

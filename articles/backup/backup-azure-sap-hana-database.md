@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 08/09/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -23,7 +23,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
-Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Azure Active Directory*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.   |
 | [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
 | Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
@@ -236,11 +236,16 @@ Specify the policy settings as follows:
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
 1. In the vault menu, select **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
-4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+1. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+1. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**.
 
-By default, the retention of on-demand backups is 45 days.
+   The retention period of this backup is determined by the type of on-demand backup you have run.
+
+   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
+   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
+   - *On-demand incremental backups* aren't currently supported.
+
+1. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled
 

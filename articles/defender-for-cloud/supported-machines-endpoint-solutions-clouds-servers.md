@@ -2,15 +2,17 @@
 title: Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 03/08/2022
-ms.custom: references_regions
+author: bmansheim
+ms.author: benmansheim
+ms.date: 10/23/2022
+ms.custom: references_regions, ignite-2022
 ---
 
 # Feature coverage for machines
 
 The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
-## Supported features for virtual machines and servers <a name="vm-server-features"></a>
+## Supported features for virtual machines and servers<a name="vm-server-features"></a>
 
 ### [**Windows machines**](#tab/features-windows)
 
@@ -22,7 +24,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Network-based security alerts](other-threat-protections.md#network-layer)                                                        | ✔                                                                                                              | ✔                                    | -                              | Yes                                     |
 | [Just-in-time VM access](just-in-time-access-usage.md)                                                                            | ✔                                                                                                              | -                                    | -                              | Yes                                     |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
-| [File integrity monitoring](file-integrity-monitoring-overview.md)                                                                | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md)                                                                | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
 | [Adaptive application controls](adaptive-application-controls.md)                                                                 | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
 | [Network map](protect-network-resources.md#network-map)                                                                           | ✔                                                                                                              | ✔                                    | -                              | Yes                                     |
 | [Adaptive network hardening](adaptive-network-hardening.md)                                                                       | ✔                                                                                                              | -                                    | -                              | Yes                                     |
@@ -30,7 +32,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](./harden-docker-hosts.md)                                                                                 | -                                                                                                               | -                                    | -                              | Yes                                     |
 | Missing OS patches assessment                                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-)        | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions)        | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
@@ -46,7 +48,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Network-based security alerts](other-threat-protections.md#network-layer)                                                        | ✔                                                                                                              | ✔                                    | -                              | Yes                                     |
 | [Just-in-time VM access](just-in-time-access-usage.md)                                                                            | ✔                                                                                                              | -                                    | -                              | Yes                                     |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
-| [File integrity monitoring](file-integrity-monitoring-overview.md)                                                                | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md)                                                                | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
 | [Adaptive application controls](adaptive-application-controls.md)                                                                 | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
 | [Network map](protect-network-resources.md#network-map)                                                                           | ✔                                                                                                              | ✔                                    | -                              | Yes                                     |
 | [Adaptive network hardening](adaptive-network-hardening.md)                                                                       | ✔                                                                                                              | -                                    | -                              | Yes                                     |
@@ -54,14 +56,14 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](./harden-docker-hosts.md)                                                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
 | Missing OS patches assessment                                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-)        | -                                                                                                               | -                                    | -                              | No                                      |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions)        | -                                                                                                               | -                                    | -                              | No                                      |
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
 
 
 
-### [**Multi-cloud machines**](#tab/features-multi-cloud)
+### [**Multicloud machines**](#tab/features-multicloud)
 
 | **Feature** | **Availability in AWS** | **Availability in GCP** |
 |--|:-:|
@@ -69,9 +71,9 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
 | [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
-| [Just-in-time VM access](just-in-time-access-usage.md) | - | - |
+| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |
-| [File integrity monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ |
 | [Network map](protect-network-resources.md#network-map) | - | - |
 | [Adaptive network hardening](adaptive-network-hardening.md) | - | - |
@@ -79,7 +81,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Docker host hardening](harden-docker-hosts.md) | ✔ | ✔ |
 | Missing OS patches assessment | ✔ | ✔ |
 | Security misconfigurations assessment | ✔ | ✔ |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions-) | ✔ | ✔ |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) | ✔ | ✔ |
 | Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
@@ -91,7 +93,9 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 >To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 
-## Supported endpoint protection solutions <a name="endpoint-supported"></a>
+<a name="endpoint-supported"></a>
+
+## Supported endpoint protection solutions
 
 The following table provides a matrix of supported endpoint protection solutions and whether you can use Microsoft Defender for Cloud to install each solution for you.
 
@@ -124,16 +128,15 @@ For information about when recommendations are generated for each of these solut
 | - [Recommendation exemption rules](./exempt-resource.md)                                                                                                      | Public Preview | Not Available                  | Not Available                  |
 | - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [Email notifications for security alerts](./configure-email-notifications.md)                                                                               | GA             | GA                             | GA                             |
-| - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                                                  | GA             | GA                             | GA                             |
+| - [Deployment of agents and extensions](monitoring-components.md)                                                                                  | GA             | GA                             | GA                             |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
-| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                | GA             | Not Available                  | Not Available                  |
+| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | GA                  | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
-| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[10](#footnote4)</sup>                                                  | GA             | GA                             | GA                             |
 | - [Defender extension for Azure Arc-enabled Kubernetes clusters, servers or data services](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup> | Public Preview | Not Available                  | Not Available                  |
@@ -148,9 +151,9 @@ For information about when recommendations are generated for each of these solut
 | - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                          | Public Preview | Not Available                  | Not Available                  |
 | **Microsoft Defender for Servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |                                |
 | - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
-| - [File integrity monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
+| - [File Integrity Monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
 | - [Adaptive application controls](./adaptive-application-controls.md)                                                                                         | GA             | GA                             | GA                             |
-| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | Not Available                  | Not Available                  |
+| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | GA                 | Not Available                  |
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                           | GA             | GA                             | GA                             |
 | - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                                          | GA             | Not Available                  | Not Available                  |
 | - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                                | GA             | GA                             | GA                             |
@@ -181,6 +184,6 @@ For information about when recommendations are generated for each of these solut
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

@@ -4,7 +4,7 @@ titleSuffix: Azure Functions
 ms.service: azure-functions
 description: Learn how to connect Azure SQL bindings through managed identity.
 ms.topic: tutorial
-ms.date: 1/28/2022
+ms.date: 6/13/2022
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: cachai
@@ -36,6 +36,14 @@ Enabling Azure AD authentication can be completed via the Azure portal, PowerShe
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
+
+    For Azure CLI 2.37.0 and newer:
+
+    ```azurecli-interactive
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
+    ```
+
+    For older versions of Azure CLI:
 
     ```azurecli-interactive
     azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -71,6 +79,9 @@ To enable system-assigned managed identity in the Azure portal:
 
 For information on enabling system-assigned managed identity through Azure CLI or PowerShell, check out more information on [using managed identities with Azure Functions](../app-service/overview-managed-identity.md?tabs=dotnet&toc=%2fazure%2fazure-functions%2ftoc.json#add-a-system-assigned-identity).
 
+> [!TIP]
+> For user-assigned managed identity, switch to the User Assigned tab. Click Add and select a Managed Identity. For more information on creating user-assigned managed identity, see the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+ 
 
 ## Grant SQL database access to the managed identity
 
@@ -98,13 +109,16 @@ In this step we'll connect to the SQL database with an Azure AD user account and
 
 In the final step we'll configure the Azure Function SQL connection string to use Azure AD managed identity authentication.
 
-The connection string setting name is identified in our Functions code as the binding attribute "ConnectionStringSetting", as seen in the SQL input binding [attributes and annotations](./functions-bindings-azure-sql-input.md?tabs=csharp#attributes-and-annotations). 
+The connection string setting name is identified in our Functions code as the binding attribute "ConnectionStringSetting", as seen in the SQL input binding [attributes and annotations](./functions-bindings-azure-sql-input.md?pivots=programming-language-csharp#attributes). 
 
 In the application settings of our Function App the SQL connection string setting should be updated to follow this format:
 
 `Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Database=testdb`
 
 *testdb* is the name of the database we're connecting to and *demo.database.windows.net* is the name of the server we're connecting to.
+
+>[!TIP]
+>For user-assigned managed identity, use `Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; User Id=ClientIdOfManagedIdentity; Database=testdb`.
 
 ## Next steps
 

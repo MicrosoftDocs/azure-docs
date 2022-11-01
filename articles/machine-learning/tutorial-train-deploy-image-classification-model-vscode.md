@@ -9,8 +9,7 @@ ms.topic: tutorial
 author: ssalgadodev
 ms.author: ssalgado
 ms.date: 05/25/2021
-ms.custom: contperf-fy20q4, cliv2
-
+ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
@@ -33,7 +32,7 @@ In this tutorial, you learn the following tasks:
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/). If you're using the free subscription, only CPU clusters are supported.
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
-- CLI (v2) (preview). For installation instructions, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md)
+- CLI (v2). For installation instructions, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md)
 -  Clone the community driven repository
     ```bash
         git clone https://github.com/Azure/azureml-examples.git
@@ -62,7 +61,7 @@ The first thing you have to do to build an application in Azure Machine Learning
     $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
     name: TeamWorkspace
     location: WestUS2
-    friendly_name: team-ml-workspace
+    display_name: team-ml-workspace
     description: A workspace for training machine learning models
     tags:
       purpose: training
@@ -71,7 +70,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 
     The specification file creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the specification file provide friendly naming, descriptions, and tags for the workspace.
 
-1. Right-click the specification file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the CLI (v2). At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
+1. Right-click the specification file and select **Azure ML: Execute YAML**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the CLI (v2). At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
 1. Set `TeamWorkspace` as your default workspace. Doing so places resources and jobs you create in the workspace by default. Select the **Set Azure ML Workspace** button on the Visual Studio Code status bar and follow the prompts to set `TeamWorkspace` as your default workspace.
 
 For more information on workspaces, see [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
@@ -103,7 +102,7 @@ A compute target is the computing resource or environment where you run training
 
     For more information on VM sizes, see [sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md).
 
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
@@ -115,13 +114,11 @@ Like workspaces and compute targets, training jobs are defined using resource te
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: 
-    local_path: src
+code: src
 command: >
     python train.py
-environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
-compute:
-    target: azureml:gpu-cluster
+environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:48
+compute: azureml:gpu-cluster
 experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```
@@ -131,12 +128,9 @@ This specification file submits a training job called `tensorflow-mnist-example`
 To submit the training job:
 
 1. Open the *job.yml* file.
-1. Right-click the file in the text editor and select **Azure ML: Create Resource**.
+1. Right-click the file in the text editor and select **Azure ML: Execute YAML**.
 
-> [!div class="mx-imgBorder"]
-> ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
-
-At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Job in Azure portal**.
 
 When the dialog requesting to open an external website appears, select **Open**.
 

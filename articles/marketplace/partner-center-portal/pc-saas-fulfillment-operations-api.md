@@ -4,7 +4,7 @@ description: Learn how to use the Operations APIs, which are part of the SaaS Fu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 08/24/2022
 author: arifgani
 ms.author: argani
 ---
@@ -12,6 +12,10 @@ ms.author: argani
 # SaaS fulfillment operations APIs v2 in the Microsoft commercial marketplace
 
 This article describes version 2 of the SaaS fulfillment operations APIs.
+
+Operations are useful to respond to any requests that come through the webhook as part of ChangePlan, ChangeQuantity, and ReInstate actions. This provides an opportunity to accept or reject a request by patch that webhook operation with Success or Failure by using the below APIs.
+
+This only applies to webhook events such as ChangePlan, ChangeQuantity, and ReInstate that need an ACK. No action is needed from the independent software vendor (ISV) on Renew, Suspend, and Unsubscribe events because they are notify-only events.
 
 ## List outstanding operations
 

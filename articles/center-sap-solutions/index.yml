@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Azure Center for SAP solutions documentation (preview)
+summary:  Azure Center for SAP solutions is a service to make SAP a top-level workload in Azure.
+metadata:
+  title: Azure Center for SAP solutions
+  description: Learn about Azure Center for SAP solutions. This offering makes SAP a top-level workload in Azure.
+  ms.service: azure-center-sap-solutions
+  ms.topic: landing-page
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 10/19/2022
+
+landingContent:
+  - title: About Azure Center for SAP solutions
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Center for SAP solutions?
+            url: overview.md
+          - text: Frequently asked questions (FAQ)
+            url: faq.yml
+
+  - title: Deploy
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare network for deployment
+            url: prepare-network.md
+          - text: Deploy S/4HANA infrastructure
+            url: deploy-s4hana.md
+          - text: Install SAP software in Azure Center for SAP solutions
+            url: install-software.md
+          - text: Register existing SAP system
+            url: register-existing-system.md
+
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Start and stop SAP systems
+            url: start-stop-sap-systems.md
+          - text: Manage Virtual Instance for SAP solutions
+            url: manage-virtual-instance.md
+          - text: Get quality checks and insights
+            url: get-quality-checks-insights.md
+          - text: View cost analysis for SAP system
+            url: view-cost-analysis.md
+
+  - title: Monitor
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor SAP system in Azure portal
+            url: monitor-portal.md
+          

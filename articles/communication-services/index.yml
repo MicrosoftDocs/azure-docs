@@ -77,6 +77,10 @@ landingContent:
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+      - linkListType: get-started
+        links:
+          - text: Cross-platform samples
+            url: samples/ui-library-cross-platform.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
@@ -102,7 +106,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+            url: /training/modules/communication-service-send-sms-console-app/
   - title: Chat
     linkLists:
       - linkListType: quickstart
@@ -115,6 +119,32 @@ landingContent:
             url: concepts/chat/concepts.md
           - text: Chat SDK overview
             url: concepts/chat/sdk-features.md
+  - title: Email
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Email Communication Services resource
+            url: quickstarts/email/create-email-communication-resource.md
+          - text: Add Azure Managed domain
+            url: quickstarts/email/add-azure-managed-domains.md
+          - text: Add Custom domain
+            url: quickstarts/email/add-custom-verified-domains.md
+          - text: Connect domain to send Email
+            url: quickstarts/email/connect-email-communication-resource.md
+          - text: Send an Email
+            url: quickstarts/email/send-email.md
+      - linkListType: concept
+        links:
+          - text: Email concepts
+            url: concepts/email/email-overview.md
+          - text: What is Email Communication Service
+            url: concepts/email/prepare-email-communication-resource.md
+          - text: Email domains and sender authentication
+            url: concepts/email/email-domain-and-sender-authentication.md
+          - text: Best practices for sender authentication support
+            url: concepts/email/email-authentication-best-practice.md
+          - text: Email client library
+            url: concepts/email/sdk-features.md   
   - title: Samples
     linkLists:
       - linkListType: get-started

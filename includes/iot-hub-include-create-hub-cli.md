@@ -55,7 +55,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
 
 To create a device identity:
 
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This creates the device identity.
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This command creates the device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 

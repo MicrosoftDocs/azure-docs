@@ -17,7 +17,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 
 > [!NOTE]  
-> This feature currently works for all Windows and Linux virtual network-supported SKUs in the Dedicated (App Service) plan and for Windows Elastic Premium plans. ASEv3 is not supported yet. Consumption tier isn't supported. 
+> This feature currently works for all Windows and Linux virtual network-supported SKUs in the Dedicated (App Service) plan and for Windows Elastic Premium plans. Consumption tier isn't supported. 
 
 To set up a function with a storage account restricted to a private network:
 

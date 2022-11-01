@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 05/17/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -208,7 +208,7 @@ Before you start cabling your device, you need the following things:
 - Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
 - One power cable (included in the device package).
 - At least one 1-GbE RJ-45 network cable to connect to the Port 1. Port 1 and Port 2 the two 10/1-GbE network interfaces on your device.
-- One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured. Here is an example of the QSFP28 DAC connector: 
+- One 100-GbE QSFP28 passive direct attached cable (Microsoft validated) for each data network interface Port 3 and Port 4 to be configured. Here is an example of the QSFP28 DAC connector: 
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
 
@@ -227,7 +227,7 @@ Before you start cabling your device, you need the following things:
 - One power cable for each device node (included in the device package).
 - Access to one power distribution unit for each device node.
 - At least two 1-GbE RJ-45 network cables per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
-- A 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured on each device. The total number needed would depend on the network topology you will deploy. Here is an example QSFP28 DAC connector: 
+- A 100-GbE QSFP28 passive direct attached cable (Microsoft validated) for each data network interface Port 3 and Port 4 to be configured on each device. The total number needed would depend on the network topology you will deploy. Here is an example QSFP28 DAC connector: 
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
 
@@ -243,25 +243,25 @@ Before you start cabling your device, you need the following things:
 
 ### Device front panel
 
-The front panel on Azure Stack Edge Pro 2 device:
+On your device:
 
-- The front panel has disk drives and a power button.
+- The front panel has disk drives and a power button. The front panel has:
 
     - Has six disk slots in the front of your device.
-    - Slots 0 to Slot 3 contain data disks. Slots 4 and 5 are empty.
+    - Has 2, 4, or 6 data disks in the 6 available slots depending on the specific hardware configuration.
 
     ![Disks and power button on the front plane of a device](./media/azure-stack-edge-pro-2-deploy-install/front-plane-labeled-1.png)
 
 ### Device back plane
 
-- The back plane of Azure Stack Edge Pro 2 device has:
+On your device:
 
-    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
+- The back plane has:
 
     -  Four network interfaces:
 
         - Two 10/1-Gbps interfaces, Port 1 and Port 2.
-        - Two 100-Gbps interfaces, PORT 3 and PORT 4.
+        - Two 100-Gbps interfaces, Port 3 and Port 4.
     
     - A baseboard management controller (BMC).      
 
@@ -272,6 +272,9 @@ The front panel on Azure Stack Edge Pro 2 device:
         
     - Two Wi-Fi Sub miniature version A (SMA) connectors located on the faceplate of PCIe card slot located below Port 3 and Port 4. The Wi-Fi antennas are installed on these connectors.
     
+    - Two, one, or no Graphical Processing Units (GPUs).
+
+    ![Diagram that shows ports on the back plane of a device.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)  
     
 
 ### Power cabling
@@ -334,6 +337,9 @@ Follow these steps to cable your device for network:
 
     ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
 
+    > [!NOTE]
+    > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
+
 ::: zone-end
 
 ::: zone pivot="two-node"
@@ -358,6 +364,8 @@ Cable your device as shown in the following diagram:
 1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
 1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection. 
 
+   > [!NOTE]
+   > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
 
 #### Using external switches
 

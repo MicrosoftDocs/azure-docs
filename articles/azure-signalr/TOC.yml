@@ -21,6 +21,9 @@
     href: signalr-quickstart-azure-functions-java.md
   - name: Azure Functions - Python
     href: signalr-quickstart-azure-functions-python.md
+  - name: Azure SignalR Service deployment - Bicep
+    href: signalr-quickstart-azure-signalr-service-bicep.md
+    displayName: ARM, Resource Manager, Template
   - name: Azure SignalR Service deployment - ARM template
     href: signalr-quickstart-azure-signalr-service-arm-template.md
     displayName: deploy azure resource manager template
@@ -116,6 +119,8 @@
       href: howto-network-access-control.md
     - name: Secure outbound traffic through Shared Private Endpoints
       href: howto-shared-private-endpoints.md
+    - name: Access Key Vault in private network through Shared Private Endpoints
+      href: howto-shared-private-endpoints-key-vault.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
     - name: Authorize from Azure Application
@@ -130,6 +135,12 @@
       href: signalr-concept-azure-functions.md
     - name: Event Grid integration
       href: signalr-howto-event-grid-integration.md
+    - name: Integrate with reverse proxies
+      items:
+        - name: Overview
+          href: signalr-howto-reverse-proxy-overview.md
+        - name: Use SignalR Service with Application Gateway
+          href: signalr-howto-work-with-app-gateway.md
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor SignalR Service
@@ -152,7 +163,18 @@
   - name: Azure CLI
     href: /cli/azure/signalr
   - name: REST API
-    href: /rest/api/signalr
+    items:
+    - name: Control plane
+      href: /rest/api/signalr
+    - name: Data plane
+      href: signalr-reference-data-plane-rest-api.md
+      items:
+      - name: Versions
+        items:
+          - name: v1
+            href: swagger/signalr-data-plane-rest-v1.md
+          - name: v1-preview
+            href: swagger/signalr-data-plane-rest-v1-preview.md
   - name: ASP.NET Core SignalR
     href: /aspnet/core/signalr/introduction
   - name: Azure SignalR Service Protocol

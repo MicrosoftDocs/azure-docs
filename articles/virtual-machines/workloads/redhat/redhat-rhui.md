@@ -89,7 +89,6 @@ Use the following instructions to lock a RHEL 7.x VM to a particular minor relea
 
 >[!NOTE]
 > This only applies for RHEL 7.x versions for which EUS is available. At the time of this writing, this includes RHEL 7.2-7.7. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
-
 1. Disable non-EUS repos:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel7'
@@ -107,7 +106,6 @@ Use the following instructions to lock a RHEL 7.x VM to a particular minor relea
 
     >[!NOTE]
     > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5.
-
 1. Update your RHEL VM
     ```bash
     sudo yum update
@@ -118,7 +116,6 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
 
 >[!NOTE]
 > This only applies for RHEL 8.x versions for which EUS is available. At the time of this writing, this includes RHEL 8.1-8.2. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
-
 1. Disable non-EUS repos:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel8'
@@ -141,10 +138,8 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
 
     >[!NOTE]
     > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1.
-
     >[!NOTE]
     > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x').  
-
 1. Update your RHEL VM
     ```bash
     sudo yum update
@@ -194,7 +189,7 @@ Run the following as root:
     ```bash
     yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
     ```
-    
+
 1. Update your RHEL VM
     ```bash
     sudo yum update
@@ -220,9 +215,6 @@ If you're using a network configuration to further restrict access from RHEL PAY
 13.72.14.155
 52.244.249.194
 
-# Azure Germany
-51.5.243.77
-51.4.228.145
 ```
 >[!NOTE]
 >The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
@@ -304,6 +296,6 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 
 ## Next steps
-* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
+* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux610).
 * To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

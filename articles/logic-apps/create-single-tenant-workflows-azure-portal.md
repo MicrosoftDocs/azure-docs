@@ -5,13 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 10/26/2022
 ms.custom: ignite-fall-2021
 
 #Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
@@ -60,6 +62,16 @@ As you progress, you'll complete these high-level tasks:
 
 * To deploy your **Logic App (Standard)** resource to an [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
 <a name="create-logic-app-resource"></a>
 
 ## Create a Standard logic app resource
@@ -79,15 +91,18 @@ As you progress, you'll complete these high-level tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Fabrikam-Workflows-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app named **Fabrikam-Workflows**. |
-   |||||
 
-1. Before you continue making selections, under **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type. The **Plan type** property specifies the hosting plan and billing model to use for your logic app. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md).
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
    | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   |||
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
+   | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
 
 1. Now continue making the following selections:
 
@@ -95,7 +110,14 @@ As you progress, you'll complete these high-level tasks:
    |----------|----------|-------|-------------|
    | **Publish** | Yes | **Workflow** | This option appears and applies only when **Plan type** is set to the **Standard** logic app type. By default, this option is set to **Workflow** and creates an empty logic app resource where you add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Standard)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region to use for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <br><br>- If you previously chose **Docker Container**, select your custom location from the **Region** list. <br><br>- If you want to deploy your app to an existing [App Service Environment v3 resource](../app-service/environment/overview.md), you can select that environment from the **Region** list. |
-   |||||
+
+   > [!NOTE]
+   >
+   > If you select an Azure region that supports availability zone redundancy, the **Zone redundancy** 
+   > section is enabled. This section offers the choice to enable availability zone redundancy 
+   > for your logic app. However, currently supported Azure regions don't include **West US**, 
+   > so you can ignore this section for this example. For more information, see 
+   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
    When you're done, your settings look similar to this version:
 
@@ -105,12 +127,8 @@ As you progress, you'll complete these high-level tasks:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | - **SQL and Azure Storage** <br>- **Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To deploy only to Azure, select **Azure Storage**. <p><p>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To deploy only to Azure, select **Azure Storage**. <p><p>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <p><p>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
-   | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
-   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
-   | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
-   |||||
 
 1. Next, if your creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app.
 
@@ -122,10 +140,13 @@ As you progress, you'll complete these high-level tasks:
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
-   > [!TIP]
-   > If you get a validation error after this step, open and review the error details. For example, 
-   > if your selected region reaches a quota for resources that you're trying to create, you might 
-   > have to try a different region.
+   > [!NOTE]
+   >
+   > The read-only **Runtime stack** property is automatically set at creation.
+   >
+   > If you get a validation error during this step, open and review the error details. 
+   > For example, if your selected region reaches a quota for resources that you're 
+   > trying to create, you might have to try a different region.
 
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 
@@ -237,7 +258,6 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
    | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, `sophiaowen@fabrikam.com`. |
    | **Subject** | Yes | `An email from your example workflow` | The email subject |
    | **Body** | Yes | `Hello from your example workflow!` | The email body content |
-   ||||
 
    > [!NOTE]
    > When making any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tabs, 
@@ -359,7 +379,6 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <p><p>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-   |||
 
 1. To review the status for each step in a run, select the run that you want to review.
 
@@ -380,7 +399,6 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | **Succeeded with retries** | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
-   |||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
    [canceled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
@@ -460,6 +478,23 @@ To debug a stateless workflow more easily, you can enable the run history for th
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
 1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
+
+<a name="view-connections"></a>
+
+## View connections
+
+When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions.
+
+1. From your logic app's menu, under **Workflows**, select **Connections**.
+
+1. Based on the connection type, you want to view, select one of the following options:
+
+   | Option | Description |
+   |--------|-------------|
+   | **API Connections** | Connections created by managed connectors |
+   | **Service Provider Connections** | Connections created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the selected connection's underlying resource definition, select **JSON View**. |
+   | **JSON View** | The underlying resource definitions for all connections in the logic app |
+   |||
 
 <a name="delete-from-designer"></a>
 
@@ -669,7 +704,6 @@ If you use source control, you can seamlessly redeploy a deleted **Logic App (St
    | `AzureWebJobsStorage` | Replace the existing value with the previously copied connection string from your storage account. |
    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Replace the existing value with the previously copied string from your storage account. |
    | `WEBSITE_CONTENTSHARE` | Replace the existing value with the previously copied file share name. |
-   |||
 
 1. On your logic app menu, under **Workflows**, select **Connections**.
 

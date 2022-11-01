@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central | Microsoft Docs
 description: Learn how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central 
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 11/09/2021
+author: eross-msft
+ms.author: lizross
+ms.date: 06/16/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -33,7 +33,7 @@ To complete the steps in this article, you need:
   * Minimum free disk space: 10 GB
   * <sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.
 
-To follow the steps in this article, download the [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json) file to your computer.
+To follow the steps in this article, download the [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/iotedge/EnvironmentalSensorManifest.json) file to your computer.
 
 ## Add device template
 
@@ -107,15 +107,11 @@ To enable an operator to view the telemetry from the device, define a view in th
 
 1. Select **Save** to save the **View IoT Edge device telemetry** view.
 
-:::image type="content" source="media/howto-connect-eflow/template-telemetry-view.png" alt-text="Device template with telemetry view.":::
-
 ### Publish the template
 
 Before you can add a device that uses the **Environmental Sensor Edge Device** template, you must publish the template.
 
-Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. On the **Publish this device template to the application** panel, select **Publish** to publish the template:
-
-:::image type="content" source="media/howto-connect-eflow/publish-template.png" alt-text="Publish the device template.":::
+Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. On the **Publish this device template to the application** panel, select **Publish** to publish the template
 
 ## Add an IoT Edge device
 

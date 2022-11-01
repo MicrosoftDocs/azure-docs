@@ -7,13 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 10/20/2022
 ms.author: bemabonsu
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
 ---
 
 # Create a Form Recognizer resource
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
 
@@ -61,7 +64,7 @@ Let's get started:
 
 1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
-1. If your overview page does not have the keys and endpoint visible, you can select the **Keys and Endpoint** button on the left navigation bar and retrieve them there.
+1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button, on the left navigation bar, and retrieve them there.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
@@ -71,4 +74,9 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
 
-* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a document processing app in the development language of your choice.
+* Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
+
+  * [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Java](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [JavaScript](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

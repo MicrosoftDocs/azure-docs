@@ -3,8 +3,8 @@ title: "Known issues: Online migrations from PostgreSQL to Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
 services: database-migration
-author: rothja
-ms.author: jroth
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -42,13 +42,22 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 ## Size limitations
 
 - You can migrate up to 1 TB of data from PostgreSQL to Azure Database for PostgreSQL, using a single DMS service.
-- **pg_dump** command offers the ability to pick a few tables inside a database as a part of its dump operation. 
-```
-pg_dump -h hostname.postgres.com -U myusername -d database1 -t "\"public\".\"table_1\"" -t "\"public\".\"table_2\""
-```
-In the above example, the user has picked just the tables **table_1, table_2** under the **public** schema as a part the dump. 
+- DMS allows the users to pick tables inside a database that they want to migrate.
+:::image type="content" source="./media/known-issues-azure-postgresql-online/dms-table-selection-screen.png" alt-text="Screenshot of D M S screen that shows the option to pick tables."::: 
 
-A maximum of **8191** characters can be included as a part of the **pg_dump** command. In scenarios where the users wants to include many tables, care should be taken that the length of the **pg_dump** does not exceed this limit. If exceeded, the command will error out.
+Behind the scenes, there is a **pg_dump** command that is used to take the dump of the selected tables using one of the following options:
+ - **-T** to include the table names picked in the UI
+ - **-t** to exclude the table names not picked by the user
+ 
+There is a max limit of 7500 characters that can be included as part of the pg_dump command following the **-t** or **-T** option. The pg_dump command uses the count of the characters for selected or unselected tables , whichever is lower. If the count of characters for the selected and unselected tables exceed 7500, the pg_dump command fails with an error.
+
+For the previous example, the pg_dump command would be:
+
+```
+pg_dump -h hostname -u username -d databasename -T "\"public\".\"table_1\"" -T "\"public\".\"table_2\""
+```
+
+In the previous command, the number of characters is 55 (includes double quotes, spaces, -T and slash)
  
 ## Datatype limitations
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Build, deploy, and use a custom model"
+title: "Legacy: Quickstart - Build, deploy, and use a custom model"
 titleSuffix: Azure Cognitive Services
 description: A step-by-step guide to building a translation system using the Custom Translator Legacy.
 author: laujan
@@ -9,7 +9,7 @@ ms.subservice: translator-text
 ms.date: 04/26/2022
 ms.author: lajanuar
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
@@ -54,8 +54,6 @@ On the Custom Translator portal landing page, select **New Project**. On the dia
 your project. For more details, visit [Create Project](how-to-create-project.md).
 
 ![Create project](media/how-to/how-to-create-project.png)
-
-
 ## Upload documents
 
 Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).

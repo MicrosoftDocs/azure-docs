@@ -290,4 +290,4 @@ There are several data errors that can only be detected after making a call to t
 
 * [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md)
 
-* [Understand Stream Analytics job monitoring and how to monitor queries](stream-analytics-monitoring.md)
+* [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)

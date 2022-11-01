@@ -3,7 +3,8 @@ title: Save costs with reserved capacity
 description: Learn how to buy Azure Arc-enabled SQL Managed Instance reserved capacity to save costs.
 services: sql-database
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 author: anosov1960 
 ms.author: sashan
@@ -33,16 +34,16 @@ The size of reservation should be based on the total amount of compute resources
 The following list demonstrates a scenario to project how you would reserve resources: 
 
 * **Current**: 
-  - One general purpose, 16 vCore managed instance
-  - Two business critical, 8-vCore managed instances
+  - One General Purpose, 16 vCore managed instance
+  - Two Business Critical, 8-vCore managed instances
 
 * **In the next year you will add**: 
-  - One more general purpose, 16 vCore managed instance
-  - One more business critical, 32 vCore managed instance
+  - One more General Purpose, 16 vCore managed instance
+  - One more Business Critical, 32 vCore managed instance
 
 * **Purchase a reservations for**:
-  - 32 (2x16) vCore one year reservation for general purpose managed instance
-  - 48 (2x8 + 32) vCore one year reservation for business critical managed instance 
+  - 32 (2x16) vCore one year reservation for General Purpose managed instance
+  - 48 (2x8 + 32) vCore one year reservation for Business Critical managed instance 
 
 ## Buy reserved capacity
 

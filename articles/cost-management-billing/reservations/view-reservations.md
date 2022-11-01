@@ -26,8 +26,6 @@ By default, the following users can view and manage reservations:
 - A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory)
 - A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
 
-Currently, the reservation administrator and reservation reader roles are are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
-
 The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
 ## View and manage reservations
@@ -39,7 +37,7 @@ If you're a billing administrator, use following steps to view and manage all re
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, clicking on **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
 
 ### Add billing administrators
 
@@ -133,9 +131,17 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-[User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can add the users to Reservation Administrator and Reservation Reader roles.
+## Tenant-level access
+[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservation Administrator and Reservation Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
-## Add a Reservation Administrator role at the tenant level
+## Add a Reservation Administrator role or Reservation Reader role at the tenant level
+You can assign these roles from [Azure portal](https://portal.azure.com).
+
+1. Sign in to the Azure portal and navigate to **Reservations**.
+2. At the top of the page, select **Role Assignment**.
+3. To make modifications, add user as a Reservation Administrator or Reservation Reader using Access control.
+
+## Add a Reservation Administrator role at the tenant level using Azure PowerShell script
 
 Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level with PowerShell.
 
@@ -163,7 +169,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-## Assign a Reservation Reader role at the tenant level
+## Assign a Reservation Reader role at the tenant level using Azure PowerShell script
 
 Use the following Azure PowerShell script to assign the Reservation Reader role at the tenant level with PowerShell.
 

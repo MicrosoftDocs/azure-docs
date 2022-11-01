@@ -4,11 +4,13 @@ description: Describes critical open issues and resolutions for the StorSimple V
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # StorSimple Virtual Array Update 1.0 release notes
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

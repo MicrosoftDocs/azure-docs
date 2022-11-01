@@ -363,7 +363,7 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp"  
 
-The usage of the Blob trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The usage of the Queue trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
 # [In-process class library](#tab/in-process)
 

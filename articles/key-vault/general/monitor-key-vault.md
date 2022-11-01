@@ -40,7 +40,7 @@ You can select "additional metrics" (or the "Metrics" tab in the left-hand sideb
 
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 
-Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md).
+Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../key-vault-insights-overview.md).
 
 ## Monitoring data
 
@@ -168,7 +168,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
     AzureDiagnostics
     | where TimeGenerated > ago(30d) // Time range specified in the query. Overrides time picker in portal.
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
-    | where OperationName == "VaultPut" or OperationName = "VaultPatch"
+    | where OperationName == "VaultPut" or OperationName == "VaultPatch"
     | sort by TimeGenerated desc
     ```
 
@@ -182,7 +182,7 @@ If you are creating or running an application which runs on Azure Key Vault, [Az
 Here are some common and recommended alert rules for Azure Key Vault -
 
 - Key Vault Availability drops below 100% (Static Threshold)
-- Key Vault Latency is greater than 500ms (Static Threshold)
+- Key Vault Latency is greater than 1000ms (Static Threshold)
 - Overall Vault Saturation is greater than 75% (Static Threshold)
 - Overall Vault Saturation exceeds average (Dynamic Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)

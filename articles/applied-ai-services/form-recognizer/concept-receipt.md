@@ -1,22 +1,30 @@
 ---
-title: Form Recognizer receipt model
+title: Receipt data extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using the prebuilt receipt model
+description: Use machine learning powered receipt data extraction model to digitize receipts.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer receipt model
+# Receipt data extraction
 
-The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+## What is receipt digitization
+
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. OCR powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
+
+## Form Recognizer receipt model
+
+The Form Recognizer receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
 
 ***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -24,21 +32,21 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 ## Development options
 
-The following tools are supported by Form Recognizer v2.1:
-
-| Feature | Resources |
-|----------|-------------------------|
-|**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
 The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
 
-### Try Form Recognizer
+The following tools are supported by Form Recognizer v2.1:
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+| Feature | Resources |
+|----------|-------------------------|
+|**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+### Try receipt data extraction
+
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -46,10 +54,10 @@ See how data, including time and date of transactions, merchant information, and
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Form Recognizer studio is available with the v3.0 API.
 
 1. On the Form Recognizer Studio home page, select **Receipts**
 
@@ -62,29 +70,9 @@ See how data, including time and date of transactions, merchant information, and
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-#### Sample Labeling tool (API v2.1)
-
-You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
-
-1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-1. Select **Receipt** from the **Form Type** dropdown menu:
-
-      :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-      > [!div class="nextstepaction"]
-      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
-
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
-* The total size of the training data is 500 pages or less.
-* If your PDFs are password-locked, you must remove the lock before submission.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales v2.1
 
@@ -107,17 +95,17 @@ You will need a receipt document. You can use our [sample receipt document](http
 | TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | Number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
+ | Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). **Renamed to "TotalTax" in 2022-06-30 version**. | Two-decimal float |
 | Tip | Number (USD) | Tip included by buyer | Two-decimal float|
 | Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | String | Item name | |
-| Quantity | Number | Quantity of each item | Integer |
+| Name | String | Item description. **Renamed to "Description" in 2022-06-30 version**. | |
+| Quantity | Number | Quantity of each item | Two-decimal float |
 | Price | Number | Individual price of each item unit| Two-decimal float |
-| Total Price | Number | Total price of line item | Two-decimal float |
+| TotalPrice | Number | Total price of line item | Two-decimal float |
 
-## Form Recognizer preview v3.0
+## Form Recognizer v3.0
 
- The Form Recognizer preview introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
+ Form Recognizer v3.0 introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
 
 ### Hotel receipt field extraction
 
@@ -130,8 +118,7 @@ You will need a receipt document. You can use our [sample receipt document](http
 | Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
 | Items.*.Date | Date | Item date | yyyy-mm-dd |
 | Items.*.Description | String | Item description | |
-| Items.*.TotalPrice |  Number | Item total price | Integer |
-| Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
+| Items.*.TotalPrice |  Number | Item total price | Two-decimal float |
 | MerchantAddress | String | Listed address of merchant | |
 | MerchantAliases | Array| | |
 | MerchantAliases.* | String | Alternative name of merchant |  |
@@ -148,18 +135,18 @@ You will need a receipt document. You can use our [sample receipt document](http
 
 ### Migration guide and REST API v3.0
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+  > [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
 
 * Explore our REST API:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)
+  > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

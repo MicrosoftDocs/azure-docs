@@ -26,7 +26,7 @@ This article describes version 0.2.x of the network normalization schema. [Versi
 
 ## Parsers
 
-For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 
 ### Unifying parsers
 
@@ -38,21 +38,7 @@ For more information, see [built-in ASIM parsers and workspace-deployed parsers]
 
 ### Out-of-the-box, source-specific parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
-
-| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
-| --- | --------------------------- | ------------------------------ | 
-| **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
-| **Azure Network Security Groups (NSG) logs** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_AzureNSG` (regular)<br> `_Im_NetworkSession_AzureNSG` (filtering)  | `ASimNetworkSessionAzureNSG` (regular)<br> `vimNetworkSessionAzureNSG` (filtering)  |
-| **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
-| **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
-| **Palo Alto PanOS traffic logs** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
-| **Sysmon for Linux**  (event 3)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent |`_ASim_NetworkSession_LinuxSysmon` (regular)<br><br>`_Im_NetworkSession_LinuxSysmon` (filtering) | `ASimNetworkSessionLinuxSysmon` (regular)<br><br> `vimNetworkSessionLinuxSysmon` (filtering) |
-| **Windows Firewall logs**<br>Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. |`_ASim_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br>`_Im_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (filtering) | `ASimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br> `vimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (filtering) |
-| **Zscaler ZIA firewall logs** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
-
+For the list of the Network Session parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#network-session-parsers) 
 
 ### Add your own normalized parsers
 
@@ -65,7 +51,7 @@ Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -75,8 +61,9 @@ The following filtering parameters are available:
 | **endtime** | datetime | Filter only network sessions that *started* running at or before this time. |
 | **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) or [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
 | **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
-| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
+| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. The length of the list is limited to 10,000 items.<br><br> The field [ASimMatchingHostname](normalization-common-fields.md#asimmatchinghostname) is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. |
 | **dvcaction** | dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 
@@ -84,7 +71,7 @@ The following filtering parameters are available:
 For example, to filter only network sessions for a specified list of domain names, use:
 
 ```kql
-let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_NetworkSession (hostname_has_any = torProxies)
 ```
 
@@ -96,7 +83,7 @@ _Im_NetworkSession (hostname_has_any = torProxies)
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-Network session events use the descriptors `Src` and `Dst` to denote the roles of the devices and related users and applications involved in the session. So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`. Note that other ASIM schemas typically use `Target` instead of `Dst`.
+Network session events use the descriptors `Src` and `Dst` to denote the roles of the devices and related users and applications involved in the session. So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`. Other ASIM schemas typically use `Target` instead of `Dst`.
 
 For events reported by an endpoint and for which the event type is `EndpointNetworkSession`, the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively.
 
@@ -117,12 +104,13 @@ The following list mentions fields that have specific guidelines for Network Ses
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, the allowed values are:<br> - `EndpointNetworkSession`: for sessions reported by endpoint systems, including clients and servers. For such systems, the schema supports the `remote` and `local` alias fields. <br> - `NetworkSession`: for sessions reported by intermediary systems and network taps. <br> - `Flow`: for `NetFlow` type aggregated flows which group multiple similar sessions together. For such records, [EventSubType](#eventsubtype) should be left empty. |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, the allowed values are:<br> - `EndpointNetworkSession`: for sessions reported by endpoint systems, including clients and servers. For such systems, the schema supports the `remote` and `local` alias fields. <br> - `NetworkSession`: for sessions reported by intermediary systems and network taps. <br> - `L2NetworkSession`: for sessions reported by intermediary systems and network taps, but which for which only layer 2 information is available. Such events will include MAC addresses but not IP addresses.  <br> - `Flow`: for `NetFlow` type aggregated flows, which group multiple similar sessions together. For such records, [EventSubType](#eventsubtype) should be left empty. |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
-| **EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
+| <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
+| **EventResultDetails** | Recommended | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Supported values are:<br> - Failover <br> - Invalid TCP <br> - Invalid Tunnel <br> - Maximum Retry <br> - Reset <br> - Routing issue <br> - Simulation <br> - Terminated <br> - Timeout <br> - Unknown <br> - NA.<br><br>The original, source specific, value is stored in the [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) field. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`.        |
-| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.4`.        |
+| <a name="dvcaction"></a>**DvcAction** | Recommended | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
 | **Dvc** fields|        |      | For Network Session events, device fields refer to the system reporting the Network Session event.  |
@@ -130,13 +118,13 @@ The following list mentions fields that have specific guidelines for Network Ses
 
 #### All common fields
 
-Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For more information on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
 
 | **Class** | **Fields** |
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
 | Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
 
 
 ### Network session fields
@@ -146,11 +134,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **NetworkApplicationProtocol** | Optional | String | The application layer protocol used by the connection or session. If the [DstPortNumber](#dstportnumber) value is provided, we recommend that you include **NetworkApplicationProtocol** too. If the value isn't available from the source, derive the value from the [DstPortNumber](#dstportnumber) value.<br><br>Example: `FTP` |
 | <a name="networkprotocol"></a> **NetworkProtocol** | Optional | Enumerated | The IP protocol used by the connection or session as listed in [IANA protocol assignment](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml), which is typically `TCP`, `UDP`, or `ICMP`.<br><br>Example: `TCP` |
 | **NetworkProtocolVersion** | Optional | Enumerated | The version of [NetworkProtocol](#networkprotocol). When using it to distinguish between IP version, use the values `IPv4` and `IPv6`. |
-| <a name="networkdirection"></a>**NetworkDirection** | Optional | Enumerated | The direction of the connection or session:<br><br> - For the [EventType](#eventtype) `NetworkSession`, **NetworkDirection** represents the direction relative to the organization or cloud environment boundary. Supported values are `Inbound`, `Outbound`, `Local` (to the organization), `External` (to the organization) or `NA` (Not Applicable).<br><br> - For the [EventType](#eventtype) `EndpointNetworkSession`, **NetworkDirection** represents the direction relative to the endpoint. Supported values are `Inbound`, `Outbound`, `Local` (to the system), `Listen` or `NA` (Not Applicable). The `Listen` value indicates that a device has started accepting network connections but isn't actually, necessarily, connected. |
+| <a name="networkdirection"></a>**NetworkDirection** | Optional | Enumerated | The direction of the connection or session:<br><br> - For the [EventType](#eventtype) `NetworkSession`, `Flow` or `L2NetworkSession`, **NetworkDirection** represents the direction relative to the organization or cloud environment boundary. Supported values are `Inbound`, `Outbound`, `Local` (to the organization), `External` (to the organization) or `NA` (Not Applicable).<br><br> - For the [EventType](#eventtype) `EndpointNetworkSession`, **NetworkDirection** represents the direction relative to the endpoint. Supported values are `Inbound`, `Outbound`, `Local` (to the system), `Listen` or `NA` (Not Applicable). The `Listen` value indicates that a device has started accepting network connections but isn't actually, necessarily, connected. |
 | <a name="networkduration"></a>**NetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the network session or connection.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [NetworkDuration](#networkduration). |
-| **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP message type numeric value as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. If a [NetworkIcmpType](#networkicmptype) value is provided, this field is mandatory. If the value isn't available from the source, derive the value from the [NetworkIcmpType](#networkicmptype) field instead.<br><br>Example: `34` |
-|<a name="networkicmptype"></a> **NetworkIcmpType** | Optional | String | For an ICMP message, the ICMP message type text representation, as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections.<br><br>Example: `Destination Unreachable` |
+|<a name="networkicmptype"></a> **NetworkIcmpType** | Optional | String | For an ICMP message, the ICMP message type number, as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. |
+| **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP code number as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. |
 | **NetworkConnectionHistory** | Optional | String | TCP flags and other potential IP header information. |
 | **DstBytes** | Recommended | Long | The number of bytes sent from the destination to the source for the connection or session. If the event is aggregated, **DstBytes** should be the sum over all aggregated sessions.<br><br>Example: `32455` |
 | **SrcBytes** | Recommended | Long | The number of bytes sent from the source to the destination for the connection or session. If the event is aggregated, **SrcBytes** should be the sum over all aggregated sessions.<br><br>Example: `46536` |
@@ -160,6 +148,15 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **NetworkPackets** | Optional | Long | The number of packets sent in both directions. If both **PacketsReceived** and **PacketsSent** exist, **BytesTotal** should equal their sum. The meaning of a packet is defined by the reporting device. If the event is aggregated, **NetworkPackets** should be the sum over all aggregated sessions.<br><br>Example: `6924` |
 |<a name="networksessionid"></a>**NetworkSessionId** | Optional | string | The session identifier as reported by the reporting device. <br><br>Example: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid). |
+| **TcpFlagsAck** | Optional | Boolean | The TCP ACK Flag reported. The acknowledgment flag is used to acknowledge the successful receipt of a packet. As we can see from the diagram above, the receiver sends an ACK and a SYN in the second step of the three way handshake process to tell the sender that it received its initial packet. |
+| **TcpFlagsFin** | Optional | Boolean | The TCP FIN Flag reported. The finished flag means there is no more data from the sender. Therefore, it is used in the last packet sent from the sender. |
+| **TcpFlagsSyn** | Optional | Boolean | The TCP SYN Flag reported. The synchronization flag is used as a first step in establishing a three way handshake between two hosts. Only the first packet from both the sender and receiver should have this flag set. |
+| **TcpFlagsUrg** | Optional | Boolean | The TCP URG Flag reported. The urgent flag is used to notify the receiver to process the urgent packets before processing all other packets. The receiver will be notified when all known urgent data has been received. See [RFC 6093](https://tools.ietf.org/html/rfc6093) for more details. |
+| **TcpFlagsPsh** | Optional | Boolean | The TCP PSH Flag reported. The push flag is similar to the URG flag and tells the receiver to process these packets as they are received instead of buffering them. |
+| **TcpFlagsRst** | Optional | Boolean | The TCP RST Flag reported. The reset flag gets sent from the receiver to the sender when a packet is sent to a particular host that was not expecting it. |
+| **TcpFlagsEce** | Optional | Boolean | The TCP ECE Flag reported. This flag is responsible for indicating if the TCP peer is [ECN capable](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification). See [RFC 3168](https://tools.ietf.org/html/rfc3168) for more details. |
+| **TcpFlagsCwr** | Optional | Boolean | The TCP CWR Flag reported. The congestion window reduced flag is used by the sending host to indicate it received a packet with the ECE flag set. See [RFC 3168](https://tools.ietf.org/html/rfc3168) for more details. |
+| **TcpFlagsNs** | Optional | Boolean | The TCP NS Flag reported. The nonce sum flag is still an experimental flag used to help protect against accidental malicious concealment of packets from the sender. See [RFC 3540](https://tools.ietf.org/html/rfc3540) for more details |
 
 
 ### Destination system fields
@@ -167,15 +164,15 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="dst"></a>**Dst** | Recommended       | Alias     |    A unique identifier of the server receiving the DNS request. <br><br>This field might alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
-|<a name="dstipaddr"></a> **DstIpAddr** | Recommended | IP address | The IP address of the connection or session destination. If the session uses network address translation, this is the publicly visible address, and not the original address of the source which is stored in [DstNatIpAddr](#dstnatipaddr)<br><br>Example: `2001:db8::ff00:42:8329`<br><br>**Note**: This value is mandatory if [DstHostname](#dsthostname) is specified. |
+|<a name="dstipaddr"></a> **DstIpAddr** | Recommended | IP address | The IP address of the connection or session destination. If the session uses network address translation, `DstIpAddr` is the publicly visible address, and not the original address of the source, which is stored in [DstNatIpAddr](#dstnatipaddr)<br><br>Example: `2001:db8::ff00:42:8329`<br><br>**Note**: This value is mandatory if [DstHostname](#dsthostname) is specified. |
 | <a name="dstportnumber"></a>**DstPortNumber** | Optional | Integer | The destination IP port.<br><br>Example: `443` |
 | <a name="dsthostname"></a>**DstHostname** | Recommended | Hostname | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="dstdomain"></a>**DstDomain** | Recommended | String | The domain of the destination device.<br><br>Example: `Contoso` |
-| <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [DstDomain](#dstdomain) is used. |
+| <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [DstDomain](#dstdomain) is used. |
 | **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device. If multiple IDs are available, use the most important one, and store the others in the fields `DstDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **DstDeviceId** is used.|
-| **DstDeviceType** | Optional | Enumerated | The type of the destination device.  For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **DstDeviceId** is used.|
+| **DstDeviceType** | Optional | Enumerated | The type of the destination device.  For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **DstZone** | Optional | String | The network zone of the destination, as defined by the reporting device.<br><br>Example: `Dmz` |
 | **DstInterfaceName** | Optional | String | The network interface used for the connection or session by the destination device.<br><br>Example: `Microsoft Hyper-V Network Adapter` |
 | **DstInterfaceGuid** | Optional | String | The GUID of the network interface used on the destination device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
@@ -195,11 +192,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="dstuserid"></a>**DstUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the destination user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
-| <a name="dstuseridtype"></a>**DstUserIdType** | Optional | UserIdType | The type of the ID stored in the [DstUserId](#dstuserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| <a name="dstuseridtype"></a>**DstUserIdType** | Optional | UserIdType | The type of the ID stored in the [DstUserId](#dstuserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="dstusername"></a>**DstUsername** | Optional | String | The destination username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [DstUsernameType](#dstusernametype) field. If other username formats are available, store them in the fields `DstUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="user"></a>**User** | Alias | | Alias to [DstUsername](#dstusername). |
-| <a name="dstusernametype"></a>**DstUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [DstUsername](#dstusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
-| **DstUserType** | Optional | UserType | The type of destination user. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [DstOriginalUserType](#dstoriginalusertype) field. |
+| <a name="dstusernametype"></a>**DstUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [DstUsername](#dstusername) field. For a list of allowed values and further information, refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
+| **DstUserType** | Optional | UserType | The type of destination user. For a list of allowed values and further information, refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [DstOriginalUserType](#dstoriginalusertype) field. |
 | <a name="dstoriginalusertype"></a>**DstOriginalUserType** | Optional | String | The original destination user type, if provided by the source. |
 
 
@@ -208,8 +205,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="dstappname"></a>**DstAppName** | Optional | String | The name of the destination application.<br><br>Example: `Facebook` |
-| <a name="dstappid"></a>**DstAppId** | Optional | String | The ID of the destination application, as reported by the reporting device.<br><br>Example: `124` |
-| **DstAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [DstAppName](#dstappname) or [DstAppId](#dstappid) are used. |
+| <a name="dstappid"></a>**DstAppId** | Optional | String | The ID of the destination application, as reported by the reporting device.If [DstAppType](#dstapptype) is `Process`, `DstAppId` and `DstProcessId` should have the same value.<br><br>Example: `124` |
+| <a name="dstapptype"></a>**DstAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [DstAppName](#dstappname) or [DstAppId](#dstappid) are used. |
+| <a name="dstprocessname"></a>**DstProcessName**              | Optional     | String     |   The file name of the process that terminated the network session. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
+| <a name="process"></a>**Process**        | Alias        |            | Alias to the [DstProcessName](#dstprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
+| **DstProcessId**| Optional    | String  | The process ID (PID) of the process that terminated the network session.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **DstProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that terminated the network session.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 
 
 ### Source system fields
@@ -217,15 +218,15 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="src"></a>**Src** | Recommended       | Alias     |    A unique identifier of the source device. <br><br>This field might alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
-| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. This value is mandatory if **SrcHostname** is specified. If the session uses network address translation, this is the publicly visible address, and not the original address of the source which is stored in [SrcNatIpAddr](#srcnatipaddr)<br><br>Example: `77.138.103.108` |
+| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. This value is mandatory if **SrcHostname** is specified. If the session uses network address translation, `SrcIpAddr` is the publicly visible address, and not the original address of the source, which is stored in [SrcNatIpAddr](#srcnatipaddr)<br><br>Example: `77.138.103.108` |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. Might not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
 | <a name="srchostname"></a> **SrcHostname** | Recommended | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
+| <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String |  The ID of the source device. If multiple IDs are available, use the most important one, and store the others in the fields `SrcDvc<DvcIdType>`.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
-| **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
+| **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **SrcZone** | Optional | String | The network zone of the source, as defined by the reporting device.<br><br>Example: `Internet` |
 | **SrcInterfaceName** | Optional | String | The network interface used for the connection or session by the source device. <br><br>Example: `eth01` |
 | **SrcInterfaceGuid** | Optional | String | The GUID of the network interface used on the source device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
@@ -245,11 +246,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
-| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | UserIdType | The type of the ID stored in the [SrcUserId](#srcuserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | UserIdType | The type of the ID stored in the [SrcUserId](#srcuserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The source username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other username formats are available, store them in the fields `SrcUsername<UsernameType>`.<br><br>Example: `AlbertE` |
-| <a name="srcusernametype"></a>**SrcUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
-| **SrcUserType** | Optional | UserType | The type of source user. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
-| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting decice. |
+| <a name="srcusernametype"></a>**SrcUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information, refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
+| **SrcUserType** | Optional | UserType | The type of source user. For a list of allowed values and further information, refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 
 ### Source application fields
@@ -257,8 +258,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="srcappname"></a>**SrcAppName** | Optional | String | The name of the source application. <br><br>Example: `filezilla.exe` |
-| <a name="srcappid"></a>**SrcAppId** | Optional | String | The ID of the source application, as reported by the reporting device.<br><br>Example: `124` |
-| **SrcAppType** | Optional | AppType | The type of the source application. For a list of allowed values and further information refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [SrcAppName](#srcappname) or [SrcAppId](#srcappid) are used. |
+| <a name="srcappid"></a>**SrcAppId** | Optional | String | The ID of the source application, as reported by the reporting device. If [SrcAppType](#srcapptype) is `Process`, `SrcAppId` and `SrcProcessId` should have the same value.<br><br>Example: `124` |
+| <a name="srcapptype"></a>**SrcAppType** | Optional | AppType | The type of the source application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [SrcAppName](#srcappname) or [SrcAppId](#srcappid) are used. |
+| <a name="srcprocessname"></a>**SrcProcessName**              | Optional     | String     |   The file name of the process that initiated the network session. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
+| **SrcProcessId**| Optional    | String | The process ID (PID) of the process that initiated the network session.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **SrcProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the network session. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 
 
 
@@ -274,8 +278,8 @@ For example, for an inbound event, the field `LocalIpAddr` is an alias to `DstIp
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="hostname"></a>**Hostname** | Alias | | - If the event type is `NetworkSession`, Hostname is an alias to [DstHostname](#dsthostname).<br> - If the event type is `EndpointNetworkSession`, Hostname is an alias to `RemoteHostname`, which can alias either [DstHostname](#dsthostname) or [SrcHostName](#srchostname), depending on [NetworkDirection](#networkdirection) |
-| <a name="ipaddr"></a>**IpAddr** | Alias | | - If the event type is `NetworkSession`, Hostname is an alias to [SrcIpAddr](#srcipaddr).<br> - If the event type is `EndpointNetworkSession`, Hostname is an alias to `LocalIpAddr`, which can alias either [SrcIpAddr](#srcipaddr) or [DstIpAddr](#dstipaddr), depending on [NetworkDirection](#networkdirection). |
+| <a name="hostname"></a>**Hostname** | Alias | | - If the event type is `NetworkSession`, `Flow` or `L2NetworkSession`, Hostname is an alias to [DstHostname](#dsthostname).<br> - If the event type is `EndpointNetworkSession`, Hostname is an alias to `RemoteHostname`, which can alias either [DstHostname](#dsthostname) or [SrcHostName](#srchostname), depending on [NetworkDirection](#networkdirection) |
+| <a name="ipaddr"></a>**IpAddr** | Alias | | - If the event type is `NetworkSession`, `Flow` or `L2NetworkSession`, IpAddr is an alias to [SrcIpAddr](#srcipaddr).<br> - If the event type is `EndpointNetworkSession`, IpAddr is an alias to `LocalIpAddr`, which can alias either [SrcIpAddr](#srcipaddr) or [DstIpAddr](#dstipaddr), depending on [NetworkDirection](#networkdirection). |
 
 
 ### <a name="Intermediary"></a>Intermediary device and Network Address Translation (NAT) fields
@@ -300,14 +304,21 @@ The following fields are used to represent that inspection which a security devi
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| **NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
-| **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
-| **Rule** | Mandatory | Alias | Either `NetworkRuleName` or `NetworkRuleNumber`. |
+| <a name="networkrulename"></a>**NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
+| <a name="networkrulenumber"></a>**NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
+| **Rule** | Mandatory | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). If the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |
-| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the session. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatriskleveloriginal). |
-| <a name="threatriskleveloriginal"></a>**ThreatRiskLevelOriginal** | Optional | String | The risk level as reported by the reporting device. |
+| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the session. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatoriginalriskleveloriginal). |
+| <a name="threatoriginalriskleveloriginal"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
+| **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. |
+| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr` or `DstIpAddr`. |
+| **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
+| **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
+| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
+| **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 
 
 ### Other fields
@@ -316,13 +327,13 @@ If the event is reported by one of the endpoints of the network session, it migh
 
 ### Schema updates
 
-These are the changes in version 0.2.1 of the schema:
+The following are the changes in version 0.2.1 of the schema:
 
 - Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
-- Added the fields `**`NetworkConnectionHistory`**`, `**`SrcVlanId`**`, `**`DstVlanId`**`, `InnerVlanId`, and `OuterVlanId`.
+- Added the fields `NetworkConnectionHistory`, `SrcVlanId`, `DstVlanId`, `InnerVlanId`, and `OuterVlanId`.
 
  
-These are the changes in version 0.2.2 of the schema:
+The following are the changes in version 0.2.2 of the schema:
 
 - Added `Remote` and `Local` aliases.
 - Added the event type `EndpointNetworkSession`.
@@ -331,6 +342,18 @@ These are the changes in version 0.2.2 of the schema:
 - Changed the type of the following fields from Integer to Long: `SrcBytes`, `DstBytes`, `NetworkBytes`, `SrcPackets`, `DstPackets`, and `NetworkPackets`.
 - Added the fields `NetworkProtocolVersion`, `SrcSubscriptionId`, and `DstSubscriptionId`.
 - Deprecated `DstUserDomain` and `SrcUserDomain`.
+
+The following are the changes in version 0.2.3 of the schema:
+- Added the `ipaddr_has_any_prefix` filtering parameter.
+- The `hostname_has_any` filtering parameter now matches either source or destination hostnames.
+- Added the fields `ASimMatchingHostname` and `ASimMatchingIpAddr`.
+
+The following are the changes in version 0.2.4 of the schema:
+- Added the `TcpFlags` fields.
+- Updated `NetworkIcpmType` and `NetworkIcmpCode` to reflect the number value for both. 
+- Added additional inspection fields.
+- The field 'ThreatRiskLevelOriginal' was renamed to `ThreatOriginalRiskLevel` to alighn with ASIM convensions. Existing Microsoft parsers will maintain `ThreatRiskLevelOriginal` until May 1st 2023.
+- Marked `EventResultDetails` as recommended, and specified the allowed values.
 
 ## Next steps
 

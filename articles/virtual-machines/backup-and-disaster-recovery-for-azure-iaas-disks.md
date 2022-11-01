@@ -74,7 +74,7 @@ Consider a production database server, like SQL Server or Oracle, that can suppo
 - The data must be protected and recoverable.
 - The server must be available for use.
 
-The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server AlwaysOn Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) for high availability.
+The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) for high availability.
 
 NoSQL databases, like MongoDB, also support [replicas](https://docs.mongodb.com/manual/replication/) for redundancy. The replicas for high availability are used.
 
@@ -136,7 +136,7 @@ Creation of the snapshots alone might not be sufficient for disaster recovery. Y
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use). In addition to back up and restore, [SQL Server AlwaysOn availability groups](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use). In addition to back up and restore, [SQL Server Always On availability groups](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Next steps
 

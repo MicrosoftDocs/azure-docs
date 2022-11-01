@@ -95,13 +95,13 @@ Bicep provides the following advantages:
 To start with Bicep:
 
 1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Or, you can use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
-2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
+2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Learn modules for Bicep](./learn-bicep.md)**.
 
 To decompile an existing ARM template to Bicep, see [Decompiling ARM template JSON to Bicep](./decompile.md). You can use the [Bicep Playground](https://aka.ms/bicepdemo) to view Bicep and equivalent JSON side by side.
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
-Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
+Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
 
 ## About the language
 

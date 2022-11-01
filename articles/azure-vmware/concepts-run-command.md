@@ -2,13 +2,16 @@
 title: Concepts - Run command in Azure VMware Solution (Preview) 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
-ms.date: 09/17/2021
+ms.service: azure-vmware
+ms.date: 10/25/2022
+ms.custom: engagement-fy23
 ---
 
 
-# Run command in Azure VMware Solution 
 
-In Azure VMware Solution, vCenter Server has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter Server [privileges](concepts-identity.md#view-the-vcenter-privileges) that differ from other VMware cloud solutions and on-premises deployments. The Run command feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets. 
+# Run command in Azure VMware Solution
+
+In Azure VMware Solution, vCenter Server has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter Server [privileges](concepts-identity.md#vcenter-server-access-and-identity) that differ from other VMware cloud solutions and on-premises deployments. The Run command feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets.
 
 Azure VMware Solution supports the following operations:
 
@@ -17,7 +20,6 @@ Azure VMware Solution supports the following operations:
 - [View and set storage policies](configure-storage-policy.md) 
 
 - [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
-
 
 >[!NOTE]
 >Run commands are executed one at a time in the order submitted.
@@ -46,23 +48,19 @@ You can view the status of any executed run command, including the output, error
 
       :::image type="content" source="media/run-command/run-execution-status-example-output.png" alt-text="Screenshot showing the output of a run execution.":::
 
-   - **Error** - Error messages generated in the execution of the cmdlet. This is in addition to the terminating error message on the details pane.    
+   - **Error** - Error messages generated in the execution of the cmdlet. This is in addition to the terminating error message on the details pane.
 
       :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Screenshot showing the errors detected during the execution of an execution.":::
 
-   - **Warning** - Warning messages generated during the execution. 
+   - **Warning** - Warning messages generated during the execution.
 
       :::image type="content" source="media/run-command/run-execution-status-example-warning.png" alt-text="Screenshot showing the warnings detected during the execution of an execution.":::
 
-   - **Information** - Progress and diagnostic generated messages during the execution of a cmdlet. 
+   - **Information** - Progress and diagnostic generated messages during the execution of a cmdlet.
 
       :::image type="content" source="media/run-command/run-execution-status-example-information.png" alt-text="Screenshot showing the overall real-time progress of the cmdlet as it runs.":::
 
-
-
 ## Cancel or delete a job
-
-
 
 ### Method 1
 
@@ -77,8 +75,6 @@ This method attempts to cancel the execution, and then deletes it upon completio
 
 2. Select **Yes** to cancel and remove the job for all users.
 
-
-
 ### Method 2
 
 1. Select **Run command** > **Packages** > **Run execution status**.
@@ -89,8 +85,6 @@ This method attempts to cancel the execution, and then deletes it upon completio
 
 3. Select **Yes** to cancel and remove the job for all users.
 
-
-
 ## Next steps
 
 Now that you've learned about the Run command concepts, you can use the Run command feature to:
@@ -99,4 +93,4 @@ Now that you've learned about the Run command concepts, you can use the Run comm
 
 - [Configure external identity source for vCenter (Run command)](configure-identity-source-vcenter.md) - Configure Active Directory over LDAP or LDAPS for vCenter Server, which enables the use of an external identity source as an Active Directory. Then, you can add groups from the external identity source to the CloudAdmin role.
 
-- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform.

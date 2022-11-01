@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -223,7 +223,7 @@ If the type of authentication is set to `ApiKeyHeader`, the **CryptographicKeys*
 | The name of the HTTP header, such as `x-functions-key`, or `x-api-key`. | Yes | The key that is used to authenticate. |
 
 > [!NOTE]
-> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret, you will need to proxy the request in some manner.
+> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret value, you will need to proxy the request in some manner.
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -259,7 +259,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | version | Yes | Your REST API version. For example: 1.0.1 |
-| status | Yes | Must be 409 |
+| status | Yes | An HTTP response status codes-like number, and must be 409 |
 | code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | userMessage | Yes | An error message that is shown to the user. |

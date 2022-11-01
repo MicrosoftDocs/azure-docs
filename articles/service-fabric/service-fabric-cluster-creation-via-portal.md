@@ -1,10 +1,14 @@
 ---
 title: Create a Service Fabric cluster in the Azure portal 
 description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
-
-ms.topic: conceptual
-ms.date: 09/06/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a Service Fabric cluster in Azure using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
@@ -38,6 +42,7 @@ To serve these purposes, the certificate must meet the following requirements:
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 * The certificate's **subject name must match the domain** used to access the Service Fabric cluster. This is required to provide TLS for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. Acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+* The certificate's list of DNS names must include the Fully Qualified Domain Name (FQDN) of the cluster.
 
 #### Client authentication certificates
 Additional client certificates authenticate administrators for cluster management tasks. Service Fabric has two access levels: **admin** and **read-only user**. At minimum, a single certificate for administrative access should be used. For additional user-level access, a separate certificate must be provided. For more information on access roles, see [role-based access control for Service Fabric clients][service-fabric-cluster-security-roles].

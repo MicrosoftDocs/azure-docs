@@ -2,11 +2,11 @@
 title: Network Function Manager FAQ
 titleSuffix: Azure Network Function Manager
 description: Learn FAQs about Network Function Manager.
-author: prmitt
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
-ms.author: prmitt
+ms.author: tobiaw
 ms.custom: references_regions, ignite-fall-2021
 ---
 # Azure Network Function Manager FAQ
@@ -46,6 +46,10 @@ You can register the Azure Stack Edge device and Network Function Manager resour
 ### When I delete the managed application for my network function running on Azure Stack Edge, will the billing for network functions automatically stop?
 
 Check with your network function partner on the billing cycle for network functions deployed using Network Function Manager. Each partner will have a different billing policy for their network function offerings.
+
+### Does Network Function Manager support move of resources? 
+
+Network Function Manager supports moving resources across resource groups and subscriptions in the same region. Moving network function resources cross-region is not supported due to dependencies on other regional resources. 
 
 ## Next steps
 

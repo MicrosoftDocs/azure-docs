@@ -46,7 +46,7 @@ You can set up your deployment manually by following these tutorials:
 
 If you'd prefer an automatic process, you can use the getting started feature to set up your deployment for you. For more information, check out these articles:
 
-- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions in [For subscriptions with Azure AD DS or AD DS](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds). This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
+- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions for existing Azure AD DS or AD DS. This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
 - [Troubleshoot the getting started feature](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Customize and manage Azure Virtual Desktop

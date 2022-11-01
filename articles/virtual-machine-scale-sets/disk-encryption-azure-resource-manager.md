@@ -14,8 +14,6 @@ ms.custom: mimckitt
 
 # Encrypt virtual machine scale sets with Azure Resource Manager
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 You can encrypt or decrypt Linux virtual machine scale sets using Azure Resource Manager templates.
 
 ## Deploying templates
@@ -39,6 +37,9 @@ Then follow these steps:
 1. Click **Deploy to Azure**.
 2. Fill in the required fields then agree to the terms and conditions.
 3. Click **Purchase** to deploy the template.
+
+> [!NOTE]
+> Virtual machine scale set encryption is supported with API version `2017-03-30` onwards. If you are using templates to enable scale set encryption, update the API version for virtual machine scale sets and the ADE extension inside the template. See this [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/encrypt-running-vmss-windows/azuredeploy.json) for more information.
 
 ## Next steps
 

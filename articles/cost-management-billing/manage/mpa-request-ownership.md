@@ -194,7 +194,9 @@ Azure support doesn't transfer with the subscriptions. If the user transfers all
 
 ### Charges for transferred subscription
 
-The original billing owner of the subscriptions is responsible for any charges that were reported up to the point that the transfer is completed. You're  responsible for charges reported from the time of transfer onwards. There may be some charges that took place before transfer but was reported afterwards. These charges show up on your invoice.
+Any charges after the time of transfer appear on the new account's invoice. Charges before the time of transfer appear on the previous account's invoice.
+
+The original billing owner of the subscriptions is responsible for any charges that were reported up to the time that the transfer completes. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that happened before the transfer but were reported afterward. The charges appear on your invoice section.
 
 ### Cancel a transfer request
 

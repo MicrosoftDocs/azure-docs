@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Connect using C# - Azure Database for MySQL Flexible Server'
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL Flexible Server."
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-csharp, mode-other
-ms.devlang: csharp
+ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal 
+ms.author: shaithal 
+ms.devlang: csharp
+ms.custom: mvc, devx-track-csharp, mode-other
 ms.date: 01/16/2021
 ---
 

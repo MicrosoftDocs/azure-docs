@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 02/10/2022
+ms.date: 06/15/2022
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -12,7 +12,150 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 - **SNMP**: Sensor health is monitored through SNMP. Microsoft Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
 - **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
+## Check system health
+
+Check your system health from the sensor or on-premises management console.
+
+**To access the system health tool**:
+
+1. Sign in to the sensor or on-premises management console with the **Support** user credentials.
+
+1. Select **System Statistics** from the **System Settings** window.
+
+    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
+
+1. System health data appears. Select an item on the left to view more details in the box. For example:
+
+    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+
+System health checks include the following:
+
+|Name  |Description  |
+|---------|---------|
+|**Sanity**     |         |
+|- Appliance     | Runs the appliance sanity check. You can perform the same check by using the CLI command `system-sanity`.        |
+|- Version     | Displays the appliance version.        |
+|- Network Properties     | Displays the sensor network parameters.        |
+|**Redis**     |         |
+|- Memory     |   Provides the overall picture of memory usage, such as how much memory was used and how much remained.      |
+|- Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
+|**System**     |         |
+|- Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
+|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cache layer (SQL) |
+|- Network Statistics     | Displays your network statistics.        |
+|- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
+|- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
+|- ifconfig     | Displays the parameters for the appliance's physical interfaces.        |
+|- CyberX nload     | Displays network traffic and bandwidth by using the six-second tests.        |
+|- Errors from Core, log     |  Displays errors from the core log file.       |
+
+### Check system health by using the CLI
+
+Verify that the system is up and running prior to testing the system's sanity.
+
+**To test the system's sanity**:
+
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+
+1. Enter `system sanity`.
+
+1. Check that all the services are green (running).
+
+    :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Screenshot that shows running services.":::
+
+1. Verify that **System is UP! (prod)** appears at the bottom.
+
+Verify that the correct version is used:
+
+**To check the system's version**:
+
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+
+1. Enter `system version`.
+
+1. Check that the correct version appears.
+
+Verify that all the input interfaces configured during the installation process are running:
+
+**To validate the system's network status**:
+
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the **Support** user.
+
+1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
+
+1. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
+
+    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
+
+Verify that you can access the console web GUI:
+
+**To check that management has access to the UI**:
+
+1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
+
+1. Define the laptop NIC address to be in the same range as the appliance.
+
+    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI." border="false":::
+
+1. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
+
+1. Open the Chrome browser in the laptop and enter the appliance's IP address.
+
+1. In the **Your connection is not private** window, select **Advanced** and proceed.
+
+1. The test is successful when the Defender for IoT sign-in screen appears.
+
+   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
+
 ## Troubleshoot sensors
+
+
+### You can't connect by using a web interface
+
+1. Verify that the computer that you're trying to connect is on the same network as the appliance.
+
+1. Verify that the GUI network is connected to the management port.
+
+1. Ping the appliance's IP address. If there is no ping:
+
+   1. Connect a monitor and a keyboard to the appliance.
+
+   1. Use the **Support** user and password to sign in.
+
+   1. Use the command `network list` to see the current IP address.
+
+1. If the network parameters are misconfigured, use the following procedure to change them:
+
+   1. Use the command `network edit-settings`.
+
+   1. To change the management network IP address, select **Y**.
+
+   1. To change the subnet mask, select **Y**.
+
+   1. To change the DNS, select **Y**.
+
+   1. To change the default gateway IP address, select **Y**.
+
+   1. For the input interface change (sensor only), select **N**.
+
+   1. To apply the settings, select **Y**.
+
+1. After restart, connect with the **Support** user credentials and use the `network list` command to verify that the parameters were changed.
+
+1. Try to ping and connect from the GUI again.
+
+### The appliance isn't responding
+
+1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
+
+1. Use the **Support** user credentials to sign in.
+
+1. Use the `system sanity` command and check that all processes are running. For example:
+
+    :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
+
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+
 
 
 ### Investigate password failure at initial sign in
@@ -23,7 +166,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Navigate to the Azure portal and select **Sites and Sensors**.  
+1. Navigate to the Azure portal and select **Sites and Sensors**.
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
@@ -40,11 +183,11 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+    > When you sign in to a sensor or on-premises management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
-An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.  
+An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.
 
 
 ### Check system performance
@@ -53,19 +196,19 @@ When a new sensor is deployed or a sensor is working slowly or not showing any a
 
 1. In the Defender for IoT dashboard > **Overview**, make sure that `PPS > 0`.
 1. In *Devices** check that devices are being discovered.
-1. In **Data Mining**, generate a report. 
+1. In **Data Mining**, generate a report.
 1. In **Trends & Statistics** window, create a dashboard.
 1. In **Alerts**, check that the alert was created.
 
 
-### Investigate a lack of expected alerts 
+### Investigate a lack of expected alerts
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
 1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
 1. Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console.
 
-### Investigate dashboard that show no data
+### Investigate dashboard that shows no data
 
 When the dashboards in the **Trends & Statistics** window show no data, do the following:
 1. [Check system performance](#check-system-performance).
@@ -94,26 +237,43 @@ To connect a sensor controlled by the management console to NTP:
 
 Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
-1. Right-click the cloud icon on the device map and select **Export IP Addresses**. 
+1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
 1. Copy the public ranges that are private, and add them to the subnet list. Learn more about [configuring subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
-## On-premises management console troubleshooting tools
+### Clearing sensor data to factory default
 
-### Investigate a lack of expected alerts on the management console
+In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
 
-If an expected alert is not shown in the **Alerts** window, verify the following:
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
 
-- Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.
+**To clear system data**:
+1. Sign in to the sensor as the **cyberx** user.
+1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
 
-- Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.  
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
+
+All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
+
+
+
+## Troubleshoot an on-premises management console
+
+### Investigate a lack of expected alerts
+
+If you don't see an expected alert on the on-premises **Alerts** page, do the following to troubleshoot:
+
+- Verify whether the alert is already listed as a reaction to a different security instance. If it has, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
+
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
 ### Tweak the Quality of Service (QoS)
 
 To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
 
-The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems. 
+The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems.
 
 To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
 
@@ -149,55 +309,33 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
+### Export audit logs for troubleshooting
 
+Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
-## Export audit log from the management console
-
-Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who. Audit logs can be exported in the management console, and contain the following information:
-
-| Action | Information logged |
-|--|--|
-| **Learn, and remediation of alerts** | Alert ID |
-| **Password changes** | User, User ID |
-| **Login** | User |
-| **User creation** | User, User role |
-| **Password reset** | User name |
-| **Exclusion rules-Creation**| Rule summary |
-| **Exclusion rules-Editing**| Rule ID, Rule Summary |
-| **Exclusion rules-Deletion** | Rule ID |
-| **Management Console Upgrade** | The upgrade file used |
-| **Sensor upgrade retry** | Sensor ID |
-| **Uploaded TI package** | No additional information recorded. |
-
-**To export the audit log**:
-
-1. In the management console, in the left pane, select **System Settings**.
-
-1. Select **Export**.
-
-1. In the File Name field, enter the file name that you want to use for the exported log. If no name is entered, the default file name will be the current date.
-
-1. Select **Audit Logs**.
-
-1. Select **Export**.
-
-The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
-
-## Clearing sensor data to factory default
-
-In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
+You may also want to export your audit logs to send them to the support team for extra troubleshooting.
 
 > [!NOTE]
-> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+> New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
+>
 
-**To clear system data**:
-1. Sign in to the sensor as the **cyberx** user.
-1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
+**To export audit log data**:
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
+1. In the on-premises management console, select **System Settings > Export**.
 
-All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
+1. In the **Export Troubleshooting Information** dialog:
 
+    1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
+
+    1. Select **Audit Logs**.
+
+    1. Select **Export**.
+
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
+
+1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
+
+For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
 
 ## Next steps
 
