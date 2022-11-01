@@ -63,7 +63,7 @@ Replace the following placeholders with your own information:
 
 * *\<role>*: The Device Update role that you're assigning.
 * *\<user_group>*: The user or group that you want to assign the role to.
-* *\<account_id>*: The resource ID for the Device Update account that the user or group will get access to. You can retrieve the resource ID by using the [az iot device-update account show](/cli/azure/iot/du/account#az-iot-du-account-show) command and querying for the ID value: `az iot device-update account show -n <account_name> --query id`.
+* *\<account_id>*: The resource ID for the Device Update account that the user or group will get access to. You can retrieve the resource ID by using the [az iot du account show](/cli/azure/iot/du/account#az-iot-du-account-show) command and querying for the ID value: `az iot du account show -n <account_name> --query id`.
 
 ```azurecli-interactive
 az role assignment create --role '<role>' --assignee <user_group> --scope <account_id>
