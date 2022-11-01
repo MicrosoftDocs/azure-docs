@@ -184,52 +184,27 @@ private void onSignInClicked()
 
 ### Globally sign out a user
 
-The following removes the signed-in account and clears cached tokens from not only the app but also from the device that is in shared device mode:
+To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about Context, [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers)  
+
+When an account change broadcast is received, immediately get the signed in user and determine if a user has changed on the device. If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.  
+
+The following code snippet shows how you could register a broadcast receiver.  
 
 ```java
-private void onSignOutClicked()
-{
-  mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback()
-  {
-    @Override
-    public void onSignOut()
-    {
-      updateSignedOutUI();
-    }
-    @Override
-    public void onError(@NonNull MsalException exception)
-    {
-      /*failed to remove account with an exception*/
-    }
-  });
-}
-```
+private static final String CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER = "com.microsoft.identity.client.sharedmode.CURRENT_ACCOUNT_CHANGED";  
+private BroadcastReceiver mAccountChangedBroadcastReceiver; 
+private void registerAccountChangeBroadcastReceiver(){ 
+    mAccountChangedBroadcastReceiver = new BroadcastReceiver() { 
+        @Override 
+        public void onReceive(Context context, Intent intent) { 
+            //INVOKE YOUR PRIOR ACCOUNT CLEAN UP LOGIC HERE        
+        } 
+    }; 
+    IntentFilter filter = new 
 
-#### Broadcast receiver
-
-To receive the account change broadcast, you will need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about context, see [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers).
-
-When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](tutorial-v2-shared-device-mode.md#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
-
-The following code snippet shows how you could register a broadcast receiver.
-
-```java
-private static final String CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER = "com.microsoft.identity.client.sharedmode.CURRENT_ACCOUNT_CHANGED";
-
-private BroadcastReceiver mAccountChangedBroadcastReceiver;
-
-private void registerAccountChangeBroadcastReceiver(){
-    mAccountChangedBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //INVOKE YOUR PRIOR ACCOUNT CLEAN UP LOGIC HERE      
-        }
-    };
-    IntentFilter filter = new
-
-    IntentFilter(CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER);
-    this.registerReceiver(mAccountChangedBroadcastReceiver, filter);
-}
+    IntentFilter(CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER); 
+    this.registerReceiver(mAccountChangedBroadcastReceiver, filter); 
+} 
 ```
 
 ## Administrator guide
