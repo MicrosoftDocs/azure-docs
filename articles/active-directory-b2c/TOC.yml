@@ -250,7 +250,6 @@
               href: enable-authentication-in-node-web-app-with-api-options.md
           - name: Secure access to Web API (ASP.NET Core and Node.js)
             displayName: REST API
-          - name: Enable authentication in your web API
             href: enable-authentication-web-api.md
           - name: Secure API Management API
             href: secure-api-management.md
