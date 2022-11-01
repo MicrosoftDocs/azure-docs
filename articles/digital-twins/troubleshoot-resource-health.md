@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Monitor resource health
+title: Troubleshoot resource health
 titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/10/2022
+ms.date: 11/1/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
@@ -16,7 +16,7 @@ ms.custom: contperf-fy22q1
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Monitor Azure Digital Twins resource health
+# Troubleshoot Azure Digital Twins resource health
 
 [Azure Service Health](../service-health/index.yml) is a suite of experiences that can help you diagnose and get support for service problems that affect your Azure resources. It contains resource health, service health, and status information, and reports on both current and past health information.
 
@@ -30,7 +30,7 @@ To check the health of your instance, follow these steps:
 
 2. From your instance's menu, select **Resource health** under **Support + troubleshooting**. This will take you to the page for viewing resource health history. 
 
-    :::image type="content" source="media/how-to-monitor-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
 
 In the image above, this instance is showing as **Available**, and has been for the past nine days. To learn more about the Available status and the other status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 

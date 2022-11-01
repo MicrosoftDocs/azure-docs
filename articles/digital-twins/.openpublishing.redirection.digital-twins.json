@@ -46,8 +46,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "troubleshoot-resource-health.md",
-      "redirect_url": "/azure/digital-twins/how-to-monitor-resource-health",
+      "source_path": "how-to-monitor-resource-health.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-resource-health",
       "redirect_document_id": true
     },
     {

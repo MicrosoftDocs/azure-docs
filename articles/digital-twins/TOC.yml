@@ -139,8 +139,8 @@
     items:
     - name: Monitor your instance
       href: how-to-monitor.md
-    - name: Resource health
-      href: how-to-monitor-resource-health.md
+    - name: Troubleshoot resource health
+      href: troubleshoot-resource-health.md
     - name: Troubleshoot performance
       href: troubleshoot-performance.md
     - name: Known issues
