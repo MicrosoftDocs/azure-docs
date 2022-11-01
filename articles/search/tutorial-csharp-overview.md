@@ -29,7 +29,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/m
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
-|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/client)|
+|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/client)|
 |Server|Azure .NET Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/api)|
 |Bulk insert|.NET file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/bulk-insert)|
 
@@ -53,7 +53,25 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
     Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App. 
 
-[!INCLUDE [tutorial-fork-and-clone](includes/tutorial-add-search-website-fork-and-clone.md)]
+1. At a Bash terminal, download your forked sample application to your local computer. 
+
+    Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
+
+    ```bash
+    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-dotnet-samples
+    ```
+
+1. At the same Bash terminal, go into your forked repository for this website search example:
+
+    ```bash
+    cd azure-search-dotnet-samples
+    ```
+
+1. Use the Visual Studio Code command, `code .` to open your forked repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
+
+    ```bash
+    code .
+    ```
 
 ## Create a resource group for your Azure resources
 

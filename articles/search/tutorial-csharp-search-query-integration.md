@@ -31,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a local.settings.json file
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js":::
+:::code language="json" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/local.settings.json":::
 
 ## Azure Function: Search the catalog
 
@@ -39,13 +39,13 @@ The `Search` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/
 
 The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Search.cs" highlight="22-24, 55" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Search.cs" highlight="18-20, 40-44, 57" :::
 
 ## Client: Search from the catalog
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="40-51" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="41-52" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -53,7 +53,7 @@ The `Suggest` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples
 
 The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/bulk-insert/BookSearchIndex.cs) used during bulk upload.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Suggest.cs" highlight="21-23, 50-52" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Suggest.cs" highlight="16-18, 39-44, 52" :::
 
 ## Client: Suggestions from the catalog
 
@@ -65,7 +65,7 @@ The Suggest function API is called in the React app at `\client\src\components\S
 
 The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/api/Lookup.cs) takes an ID and returns the document object from the Search Index. 
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Lookup.cs" highlight="19-21, 42" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Lookup.cs" highlight="16-18, 41-46, 48" :::
 
 ## Client: Get specific document 
 
