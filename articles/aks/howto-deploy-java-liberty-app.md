@@ -131,7 +131,7 @@ In directory *liberty/config*, the *server.xml* FILE is used to configure the DB
 
 ### Build the project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are used to also populate `JavaEECafeDB` properties in `server.xml` and in yaml files located in `src/main/aks`
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are used to also populate `JavaEECafeDB` properties in *server.xml* and in yaml files located in *src/main/aks*.
 
 ```bash
 cd <path-to-your-repo>/java-app
