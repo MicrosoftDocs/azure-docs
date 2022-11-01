@@ -37,7 +37,7 @@ In single revision mode, Container Apps automatically ensures your app does not 
 > [!NOTE]
 > A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
 
-In multiple revision mode, you control when revisions are activated or deactivated and which revisions are receiving ingress traffic.
+In multiple revision mode, you control when revisions are activated or deactivated and which revisions are receiving ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, its traffic will not switch to the latest revision until it is ready.
 
 ## Deactivate
 
