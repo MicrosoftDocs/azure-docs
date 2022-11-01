@@ -25,7 +25,7 @@ In MSAL, logging is set at application creation using the `.WithLogging` builder
 
 - `IIdentityLogger` is the logging implementation used by MSAL.NET to produce logs for debugging or health check purposes. Logs are only sent if logging is enabled.
 - `Level` enables you to decide which level of logging you want. Setting it to Errors will only get errors
-- `PiiLoggingEnabled` enables you to log personal and organizational data (PII) if set to true. By default, this is set to false, so that your application doesn't log personal data.
+- `PiiLoggingEnabled` enables you to log personal and organizational data (PII) if set to true. By default, this parameter is set to false, so that your application doesn't log personal data.
 - `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive messages that can have PII, in which case the `containsPii` flag will be set to true.
 - `DefaultLoggingEnabled` enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
@@ -61,11 +61,11 @@ namespace Microsoft.IdentityModel.Abstractions
 
 ### IIdentityLogger Implementation
 
-The following code are examples of such an implementations. Note that if you use .NET core configuration, environment variable driven logs levels can be provided for free, in addition to the configuration file based log levels.
+The following code snippets are examples of such an implementation. If you use the .NET core configuration, environment variable driven logs levels can be provided for free, in addition to the configuration file based log levels.
 
 #### Log level from configuration file
 
-It is highly recommended to configure your code to use a configuration file in your environment to set the log level as it will enable your code to change the MSAL logging level without needing to rebuild or restart the application. This is critical for diagnostic purposes, enabling us to quickly gather the required logs from the application that is currently deployed and in production. Verbose logging can be costly so it is best to use the *Information* level by default and enable verbose logging when a issue is encountered. [See JSON configuration provider](https://docs.microsoft.com/aspnet/core/fundamentals/configuration#json-configuration-provider) for an example on how to load data from a configuration file without restarting the application.
+It's highly recommended to configure your code to use a configuration file in your environment to set the log level as it will enable your code to change the MSAL logging level without needing to rebuild or restart the application. This is critical for diagnostic purposes, enabling us to quickly gather the required logs from the application that is currently deployed and in production. Verbose logging can be costly so it's best to use the *Information* level by default and enable verbose logging when an issue is encountered. [See JSON configuration provider](https://docs.microsoft.com/aspnet/core/fundamentals/configuration#json-configuration-provider) for an example on how to load data from a configuration file without restarting the application.
 
 #### Log Level as Environment Variable
 
