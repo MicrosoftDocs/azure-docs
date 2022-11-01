@@ -60,6 +60,14 @@ Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity
    :::image type="content" source="media/howto-develop-eventlistener/configure-event-hub-listener.png" alt-text="Screenshot of configuring Event Hubs Listener":::
 
 
+## Test your configuration with live demo
+
+1. Open this [Event Hubs Consumer Client](https://awpseventlistenerdemo.blob.core.windows.net/eventhub-consumer/index.html) web app, input the Event Hubs connection string to connect to an event hub as a consumer. If you get the Event Hubs connection string from an Event Hubs namespace resource instead of an event hub instance, then you need to specify the event hub name. This event hub consumer client is connected with the mode that only reads new events; the events published before aren't seen here. You can change the consumer client connection mode to read all the available events in the production environment.
+1. Use this [WebSocket Client](https://awpseventlistenerdemo.blob.core.windows.net/webpubsub-client/websocket-client.html) web app to generate client events. If you've configured to send system event `connected` to that event hub, you should be able to see a printed `connected` event in the Event Hubs consumer client after connecting to Web PubSub service successfully.
+       :::image type="content" source="media/howto-develop-eventlistener/eventhub-consumer-connected-event.png" alt-text="Screenshot of a printed connected event in the Event Hubs consumer client app":::
+    If you've configured to send user events to that event hub, you can also generate a user event with the app:
+       :::image type="content" source="media/howto-develop-eventlistener/web-pubsub-client-specify-event-name.png" alt-text="The area of the WebSocket client app to generate a user event":::
+
 ## Next steps
 
 In this article, you learned how event listeners work and how to configure an event listener with an event hub endpoint. To learn the data format sent to Event Hubs, read the following specification.
