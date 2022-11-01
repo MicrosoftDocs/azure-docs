@@ -15,7 +15,7 @@ ms.custom:
 
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-This how-to guide covers how to provision access from Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This how-to guide covers how to provision access from Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
