@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2022
+ms.date: 11/02/2022
 ms.author: jodowns
 ---
 
@@ -61,22 +61,22 @@ When you deploy a solution that uses Azure Front Door, you should consider how y
 The following diagram illustrates a generic solution architecture using Front Door:
 
 :::image type="content" source="./media/scenarios/general-architecture-small.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/scenarios/general-architecture-full.png" border="false":::
-<!-- TODO redo this diagram -->
 
 > [!WARNING]
-> **Note to reviewers:** The diagram above is a draft, and will be redrawn by the Azure Docs illustrator.
+> **Note to reviewers:** The diagram above is a draft, and will be redrawn by the Azure Docs illustrator. <!-- TODO -->
 
 ### Client to Front Door
 
-Traffic from your clients first arrives at a Front Door point of presence (PoP). Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide.
+Traffic from the client first arrives at a Front Door point of presence (PoP). Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide, and [Anycast](TODO) routes the clients to their closest PoP.
 
-Requests to your application are received by Front Door's PoP, and the clients' TCP and TLS connections terminate. The PoP performs many functions based on the configuration you specify in your Front Door profile, including:
+When the request is received by Front Door's PoP, Front Door uses your [custom domain name](front-door-custom-domain.md) to serve the request. Front Door performs [TLS offload](end-to-end-tls.md) by using either a Front Door-managed TLS certificate or a custom TLS certificate.
+
+The PoP performs many functions based on the configuration you specify in your Front Door profile, including:
 - Protecting your solution against many types of [DDoS attacks](front-door-ddos.md).
-- Using your [custom domain name](front-door-custom-domain.md).
-- Terminating the [TLS connection](end-to-end-tls.md), and using either a Front Door-managed TLS certificate or a custom TLS certificate.
 - Scanning the request for known vulnerabilties, by using the [Front Door WAF](web-application-firewall.md).
-- Returning [cached responses](front-door-caching.md), if they're stored at the Front Door PoP and are valid for the request.
-- Returning [HTTP redirect responses](front-door-url-redirect.md).
+- Returning [cached responses](front-door-caching.md) to improve performance, if they're stored at the Front Door PoP and are valid for the request.
+- [Compressing responses](TODO) to improve performance. 
+- Returning [HTTP redirect responses](front-door-url-redirect.md) directly from Front Door.
 - Selecting the best origin to receive the traffic based on the [routing architecture](front-door-routing-architecture.md).
 - Modifying a request by using the [rules engine](front-door-rules-engine.md).
 
@@ -97,6 +97,13 @@ Whichever approach you use to send traffic to your origin, it's usually a good p
 Front Door's PoP also processes the outbound response. Response processing might include the following steps:
 - Saving a response to the PoP's cache to accelerate later requests.
 - Modifying a response header by using the [rules engine](front-door-rules-engine-actions.md#modify-response-header).
+
+## Analytics and reporting
+
+Because Front Door processes all incoming requests, it has visibility of all traffic flowing through your solution. You can use Front Door's [reports](standard-premium/how-to-reports.md), as well as [metrics](standard-premium/how-to-monitor-metrics.md) and [logs](standard-premium/how-to-logs.md), to understand your traffic patterns.
+
+> [!TIP]
+> When you use Front Door, some requests might not be processed by your origin server. For example, Front Door's WAF might block some requests, and it might return cached responses for other requests. Use Front Door's telemetry to understand your solution's traffic patterns.
 
 ## Next steps
 
