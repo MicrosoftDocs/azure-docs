@@ -130,7 +130,9 @@ udp_collection = self.try_create_document_collection(
 
 ## Create a custom conflict resolution policy using a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example. This policy is supported on NoSQL Api only.
+These samples show how to set up a container with a custom conflict resolution policy. This policy uses the logic in a stored procedure to resolve the conflict. If a stored procedure is designated to resolve conflicts, conflicts won't show up in the conflict feed unless there's an error in the designated stored procedure.
+
+After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example of this workflow. This policy is supported in the API for NoSQL  only.
 
 ### Sample custom conflict resolution stored procedure
 
@@ -327,7 +329,7 @@ After your container is created, you must create the `resolver` stored procedure
 
 ## Create a custom conflict resolution policy
 
-These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
+These samples show how to set up a container with a custom conflict resolution policy. With this implementation, each conflict will show up in the conflict feed. It's up to you to handle the conflicts individually from the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
 
@@ -431,7 +433,11 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ## Read from conflict feed
 
-These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically or if using a custom conflict policy.
+These samples show how to read from a container's conflict feed. Conflicts may show up in the conflict feed only for a couple of reasons:
+
+- The conflict was not resolved automatically
+- The conflict caused an error with the designated stored procedure
+- The conflict resolution policy is set to **custom** and does not designate a stored procedure to handle conflicts
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 

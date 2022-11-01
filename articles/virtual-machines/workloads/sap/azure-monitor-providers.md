@@ -1,11 +1,11 @@
 ---
 title: What are providers in Azure Monitor for SAP solutions? (preview)
-description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions providers.
+description: This article provides answers to frequently asked questions about Azure Monitor for SAP solutions providers.
 author: rdeltcheva
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 10/19/2022
 ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 ---
@@ -14,57 +14,43 @@ ms.author: radeltch
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In the context of *Azure Monitor for SAP solutions (AMS)*, a *provider* contains the connection information for a corresponding component and helps to collect data from there. There are multiple provider types. For example, an SAP HANA provider is configured for a specific component within the SAP landscape, like an SAP HANA database. You can configure an AMS resource (also known as SAP monitor resource) with multiple providers of the same type or multiple providers of multiple types.
+In the context of *Azure Monitor for SAP solutions*, a *provider* contains the connection information for a corresponding component and helps to collect data from there. There are multiple provider types. For example, an SAP HANA provider is configured for a specific component within the SAP landscape, like an SAP HANA database. You can configure an Azure Monitor for SAP solutions resource (also known as SAP monitor resource) with multiple providers of the same type or multiple providers of multiple types.
 
-This content applies to both versions of the service, *AMS* and *AMS (classic)*.
+This content applies to both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
    
 You can choose to configure different provider types for data collection from the corresponding component in their SAP landscape. For example, you can configure one provider for the SAP HANA provider type, another provider for high availability cluster provider type, and so on.  
 
 You can also configure multiple providers of a specific provider type to reuse the same SAP monitor resource and associated managed group. For more information, see [Manage Azure Resource Manager resource groups by using the Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-![Diagram showing AMS connection to available providers.](./media/azure-monitor-providers/providers.png)
+![Diagram showing Azure Monitor for SAP solutions connection to available providers.](./media/azure-monitor-providers/providers.png)
 
-It's recommended to configure at least one provider when you deploy an AMS resource. By configuring a provider, you start data collection from the corresponding component for which the provider is configured.   
+It's recommended to configure at least one provider when you deploy an Azure Monitor for SAP solutions resource. By configuring a provider, you start data collection from the corresponding component for which the provider is configured.   
 
-If you don't configure any providers at the time of deployment, the AMS resource is still deployed, but no data is collected. You can add providers after deployment through the SAP monitor resource within the Azure portal. You can add or delete providers from the SAP monitor resource at any time.
+If you don't configure any providers at the time of deployment, the Azure Monitor for SAP solutions resource is still deployed, but no data is collected. You can add providers after deployment through the SAP monitor resource within the Azure portal. You can add or delete providers from the SAP monitor resource at any time.
 
 ## Provider type: SAP NetWeaver
 
-You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. AMS NetWeaver provider uses the existing [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information.
-
-For the current release, the following SOAP web methods are the standard, out-of-box methods invoked by AMS.
-
-| Web method | ABAP support | Java support | Metrics |
-| ---------- | ------------ | ------------ | ------- |
-| **GetSystemInstanceList** | Yes | Yes | Instance availability, message server, gateway, ICM, ABAP availability |
-| **GetProcessList** | Yes | Yes | If instance list is red, you can find what process caused the issue |
-| **GetQueueStatistic** | Yes | Yes | Queue statistics (DIA, BATCH, UPD) |
-| **ABAPGetWPTable** | Yes | No | Work process utilization |
-| **EnqGetStatistic** | Yes | Yes | Locks |
+You can configure one or more providers of provider type SAP NetWeaver to enable data collection from SAP NetWeaver layer. Azure Monitor for SAP solutions NetWeaver provider uses the existing 
+- [**SAPControl** Web service](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) interface to retrieve the appropriate information (also available in Azure Monitor for SAP Solutions classic) 
+- SAP RFC - ability to collect additional information from the SAP system leveraging Standard SAP RFC. (available only in Azure Monitor for SAP solution)
 
 You can get the following data with the SAP NetWeaver provider: 
 
-- SAP system and application server availability
-    - Instance process availability of dispatcher
-    - ICM
-    - Gateway
-    - Message server
-    - Enqueue Server
-    - IGS Watchdog
-- Work process usage statistics and trends
-- Enqueue Lock statistics and trends
-- Queue usage statistics and trends
-- SMON Metrics (**/SDF/SMON**)
-- SWNC Workload, Memory, Transaction, User, RFC Usage (St03n)
-- Short Dumps (**ST22**)
-- Object Lock (**SM12**)
-- Failed Updates (**SM13**)
-- System Logs Analysis (**SM21**)
-- Batch Jobs Statistics (**SM37**)
-- Outbound Queues (**SMQ1**)
-- Inbound Queues (**SMQ2**)
-- Transactional RFC (**SM59**)
-- STMS Change Transport System Metrics (**STMS**)
+- SAP system and application server availability (e.g Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAPOsControl)
+- Work process usage statistics and trends (SAPOsControl)
+- Enqueue Lock statistics and trends (SAPOsControl)
+- Queue usage statistics and trends (SAPOsControl)
+- SMON Metrics (**Tcode - /SDF/SMON**) (RFC)
+- SWNC Workload, Memory, Transaction, User, RFC Usage (**Tcode - St03n**) (RFC)
+- Short Dumps (**Tcode - ST22**) (RFC)
+- Object Lock (**Tcode - SM12**) (RFC)
+- Failed Updates (**Tcode - SM13**) (RFC)
+- System Logs Analysis (**Tcode - SM21**) (RFC)
+- Batch Jobs Statistics (**Tcode - SM37**) (RFC)
+- Outbound Queues (**Tcode - SMQ1**) (RFC)
+- Inbound Queues (**Tcode - SMQ2**) (RFC)
+- Transactional RFC (**Tcode - SM59**) (RFC)
+- STMS Change Transport System Metrics (**Tcode - STMS**) (RFC)
 
 ![Diagram showing the NetWeaver provider architecture.](./media/azure-monitor-providers/netweaver-architecture.png)
 
@@ -78,6 +64,17 @@ You can see the following data with the SAP HANA provider:
 - SAP HANA host status
 - SAP HANA system replication
 - SAP HANA Backup data
+- Fetching Services
+- Network throughput between the nodes in a scaleout system
+- SAP HANA Long Idling Cursors
+- SAP HANA Long Running Transactions
+- Checks for configuration parameter values
+- SAP HANA Uncommitted Write Transactions
+- SAP HANA Disk Fragmentation
+- SAP HANA Statistics Server Health
+- SAP HANA High Memory Usage Service
+- SAP HANA Blocking Transactions
+
 
 Configuring the SAP HANA provider requires:
 - The host IP address,
@@ -109,7 +106,7 @@ Configuring Microsoft SQL Server provider requires:
 
 ## Provider type: High-availability cluster
 
-You can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE** based clusters and by using [Performance co-pilot](https://access.redhat.com/articles/6139852) for **RHEL** based clusters. AMS then pulls data from the database and pushes it to Log Analytics workspace in your subscription. The High-availability cluster provider collects data every 60 seconds from Pacemaker.  
+You can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE** based clusters and by using [Performance co-pilot](https://access.redhat.com/articles/6139852) for **RHEL** based clusters. Azure Monitor for SAP solutions then pulls data from the database and pushes it to Log Analytics workspace in your subscription. The High-availability cluster provider collects data every 60 seconds from Pacemaker.  
 
 In public preview, you can expect to see the following data with the High-availability cluster provider:   
  - Cluster status represented as a roll-up of node and resource status 
@@ -157,7 +154,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 
 1. Configure an OS (Linux) provider for each BareMetal or VM node instance in your environment. 
    To configure the OS (Linux) provider, the following information is required: 
-      - **Name**: a name for this provider, unique to the AMS instance. 
+      - **Name**: a name for this provider, unique to the Azure Monitor for SAP solutions instance. 
       - **Node Exporter endpoint**: usually `http://<servername or ip address>:9100/metrics`. 
 
 Port 9100 is exposed for the **Node_Exporter** endpoint.

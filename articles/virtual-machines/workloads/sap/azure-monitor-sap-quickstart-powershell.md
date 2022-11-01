@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: quickstart
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.date: 07/21/2022
+ms.date: 10/19/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions with PowerShell so that I can create resources with PowerShell.
@@ -16,10 +16,10 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-Get started with Azure Monitor for SAP solutions (AMS) by using the 
-[Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module to create AMS resources. You'll create a resource group, set up monitoring, and create a provider instance.
+Get started with Azure Monitor for SAP solutions by using the 
+[Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module to create Azure Monitor for SAP solutions resources. You'll create a resource group, set up monitoring, and create a provider instance.
 
-This content only applies to the AMS (classic) version of the service.
+This content only applies to the Azure Monitor for SAP solutions (classic) version of the service.
 
 ## Prerequisites
 

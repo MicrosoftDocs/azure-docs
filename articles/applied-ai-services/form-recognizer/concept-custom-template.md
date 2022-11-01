@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer custom template model
+title: Custom template document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about the custom template model type, its features and how you train a model with high accuracy to extract data from structured or templated forms
+description: Use the custom template document model to train a model to extract data from structured or templated forms.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,12 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom template model
+# Custom template document model
 
-Custom template (formerly custom form) is an easy-to-train model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+Custom template (formerly custom form) is an easy-to-train document model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
 
 Custom template models share the same labeling format and strategy as custom neural models, with support for more field types and languages.
 

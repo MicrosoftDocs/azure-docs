@@ -530,7 +530,7 @@ productDirectory:
       url: batch/index.yml
     # Card
     - title: Cloud Services
-      summary: Create highly-available, infinitely-scalable cloud applications and APIs
+      summary: Create highly available, infinitely scalable cloud applications and APIs
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
@@ -1198,7 +1198,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /azure/media-services/latest/player-use-azure-media-player-how-to
+      url: /azure/media-services/latest/player-media-players-concept
     # Card
     - title: Content Delivery Network
       summary: Ensure secure, reliable content delivery with broad global reach
@@ -1297,7 +1297,7 @@ productDirectory:
       url: bastion/index.yml
     # Card
     - title: Microsoft Defender for Cloud
-      summary: Security posture management and advanced threat protection across Azure, hybrid, and multi-cloud workloads
+      summary: Security posture management and advanced threat protection across Azure, hybrid, and multicloud workloads
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security

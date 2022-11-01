@@ -5,9 +5,9 @@ services: network-watcher
 author: damendo
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 11/16/2021
+ms.date: 10/28/2022
 ms.author: damendo
-ms.custom: mvc
+ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ---
 
@@ -31,27 +31,31 @@ In this tutorial, you learn how to:
 > * Download logged data
 > * View logged data
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual machine
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines**.
 
-2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+2. In **Virtual machines**, select **+ Create** then **+ Azure virtual machine**.
 
-3. In **Virtual machines**, select **+ Create** then **+ Virtual machine**.
-
-4. Enter or select the following information in **Create a virtual machine**.
+3. Enter or select the following information in **Create a virtual machine**.
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. | 
+    | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. | 
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM**. |
+    | Virtual machine name | Enter *myVM*. |
     | Region | Select **(US) East US**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Leave the default of **Standard**. |
@@ -59,7 +63,6 @@ In this tutorial, you learn how to:
     | Azure Spot instance | Leave the default. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
     | Confirm password | Confirm password. |
@@ -67,9 +70,9 @@ In this tutorial, you learn how to:
     | Public inbound ports | Leave the default of **Allow selected ports**. |
     | Select inbound ports | Leave the default of **RDP (3389)**. |
 
-5. Select **Review + create**. 
+4. Select **Review + create**. 
 
-6. Select **Create**.
+5. Select **Create**.
 
 The virtual machine takes a few minutes to create. Don't continue with the remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVM-nsg** and associates it with the network interface for the VM.
 
@@ -77,7 +80,7 @@ The virtual machine takes a few minutes to create. Don't continue with the remai
 
 If you already have a network watcher enabled in the East US region, skip to [Register Insights provider](#register-insights-provider).
 
-1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
 2. In the **Overview** page of **Network Watcher**, select **+ Add**.
 
@@ -91,21 +94,23 @@ If you already have a network watcher enabled in the East US region, skip to [Re
 
 NSG flow logging requires the **Microsoft.Insights** provider. To register the provider, complete the following steps:
 
-1. In the search box at the top of the portal, enter **Subscriptions**. Select **Subscriptions** in the search results.
+1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
 
 2. Select the subscription you want to enable the provider for in **Subscriptions**.
 
 3. Select **Resource providers** in **Settings** of your subscription.
 
-4. Enter **Microsoft.Insights** in the filter box.
+4. Enter *Microsoft.Insights* in the filter box.
 
 5. Confirm the status of the provider displayed is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
+
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/microsoft-insights-registered.png" alt-text="Screenshot of registering microsoft insights provider.":::
 
 ## Enable NSG flow log
 
 NSG flow log data is written to an Azure Storage account. Complete the following steps to create a storage account for the log data.
 
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
 
 2. In **Storage accounts**, select **+ Create**.
 
@@ -117,18 +122,18 @@ NSG flow log data is written to an Azure Storage account. Complete the following
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
-    | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
-    | Region | Select **(US)East US**. |
+    | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters long, and can contain only lowercase letters and numbers, and must be unique across all Azure Storage. |
+    | Region | Select **(US) East US**. |
     | Performance | Leave the default of **Standard**. |
     | Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
 
-4. Select **Review + create**.
+4. Select **Review**.
 
 5. Select **Create**.
 
 The storage account may take around a minute to create. Don't continue with the remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
 
-1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
 2. Select **NSG flow logs** in **Logs**.
 
@@ -156,7 +161,7 @@ The storage account may take around a minute to create. Don't continue with the 
 
 ## Download flow log
 
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
 
 2. Select the storage account you created in the previous steps.
 
@@ -182,7 +187,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
     "time": "2018-05-01T15:00:02.1713710Z",
     "systemId": "<Id>",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
@@ -191,7 +196,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "UserRule_default-allow-rdp",
                 "flows": [
                     {
-                        "mac": "000D3A170C69",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
                         ]
@@ -206,9 +211,9 @@ The following example JSON displays data that you'll see in the PT1H.json file f
 ```json
 {
     "time": "2018-11-13T12:00:35.3899262Z",
-    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "systemId": "<Id>",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 2,
@@ -217,7 +222,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "DefaultRule_DenyAllInBound",
                 "flows": [
                     {
-                        "mac": "000D3AF87856",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
                             "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
@@ -230,7 +235,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "DefaultRule_AllowInternetOutBound",
                 "flows": [
                     {
-                        "mac": "000D3AF87856",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
                             "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",

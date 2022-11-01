@@ -5,8 +5,9 @@ description: Learn how to use Visual Studio Code to test and debug online endpoi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: ssalgadodev
-ms.author:  ssalgado
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
 ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, ignite-2022
@@ -108,7 +109,7 @@ from azure.ai.ml.entities import (
     CodeConfiguration,
     Environment,
 )
-from azure.identity import DefaultAzureCredential, AzureCliCredential
+from azure.identity import DefaultAzureCredential
 ``` 
 
 Set up variables for the workspace and endpoint: 
@@ -163,7 +164,7 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 Get a handle to the workspace: 
 
 ```python 
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 ml_client = MLClient(
     credential,
     subscription_id=subscription_id,
@@ -178,7 +179,7 @@ To debug online endpoints locally in VS Code, set the `vscode-debug` and `local`
 deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=endpoint_name,
-    model=Model(path="../model-1/model"),
+    model=Model(path="../model-1/model/sklearn_regression_model.pkl"),
     code_configuration=CodeConfiguration(
         code="../model-1/onlinescoring", scoring_script="score.py"
     ),
@@ -191,9 +192,7 @@ deployment = ManagedOnlineDeployment(
 )
 
 deployment = ml_client.online_deployments.begin_create_or_update(
-    deployment,
-    local=True,
-    vscode_debug=True,
+    deployment, local=True, vscode_debug=True
 )
 ```
 
@@ -313,7 +312,7 @@ endpoint = ml_client.online_endpoints.get(name=endpoint_name, local=True)
 
 request_file_path = "../model-1/sample-request.json"
 
-endpoint.invoke(endpoint_name, request_file_path, local=True)
+ml_client.online_endpoints.invoke(endpoint_name, request_file_path, local=True)
 ```
 
 In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples for the model to make predictions on similar to the following JSON:
@@ -329,8 +328,7 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 > The scoring URI is the address where your endpoint listens for requests. The `as_dict` method of endpoint objects returns information similar to `show` in the Azure CLI. The endpoint object can be obtained through `.get`. 
 >
 >    ```python 
->    endpoint = ml_client.online_endpoints.get(endpoint_name, local=True)
->    endpoint.as_dict()
+>    print(endpoint)
 >    ```
 >
 > The output should look similar to the following:
@@ -397,7 +395,7 @@ For more extensive changes involving updates to your environment and endpoint co
 new_deployment = ManagedOnlineDeployment(
     name="green",
     endpoint_name=endpoint_name,
-    model=Model(path="../model-2/model"),
+    model=Model(path="../model-2/model/sklearn_regression_model.pkl"),
     code_configuration=CodeConfiguration(
         code="../model-2/onlinescoring", scoring_script="score.py"
     ),
@@ -409,7 +407,9 @@ new_deployment = ManagedOnlineDeployment(
     instance_count=2,
 )
 
-ml_client.online_deployments.update(new_deployment, local=True, vscode_debug=True)
+deployment = ml_client.online_deployments.begin_create_or_update(
+    new_deployment, local=True, vscode_debug=True
+)
 ```
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
@@ -420,5 +420,5 @@ Once the updated image is built and your development container launches, use the
 
 ## Next steps
 
-- [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using a managed online endpoint)](how-to-deploy-managed-online-endpoints.md)
+- [Troubleshooting managed online endpoints deployment and scoring)](how-to-troubleshoot-managed-online-endpoints.md)
