@@ -384,8 +384,13 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
       - name: Remote-write
-        displayName: Prometheus
-        href: essentials/prometheus-remote-write-managed-identity.md
+        items:
+        - name: Managed identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-managed-identity.md
+        - name: Azure Active Directory
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-active-directory.md
       - name: Configure Grafana
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
