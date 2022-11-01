@@ -12,27 +12,26 @@ ms.author: dayshen
 
 # Access Key Vault in a private network through shared private endpoints
 
-Through Shared Private Endpoints, Azure SignalR Service can access your Key Vault in a private network. This way, your Key Vault is not exposed on a public network.
+Through Shared Private Endpoints, Azure SignalR Service can access your Key Vault in a private network. This way, your Key Vault isn't exposed on a public network.
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
-You can create private endpoints through Azure SignalR Service APIs for shared access to a resource integrated with [Azure Private Link service](https://azure.microsoft.com/services/private-link/).   These endpoints, called *shared private link resources*, are created inside the SignalR execution environment and are not accessible outside this environment.
+You can create private endpoints through Azure SignalR Service APIs for shared access to a resource integrated with [Azure Private Link service](https://azure.microsoft.com/services/private-link/).   These endpoints, called *shared private link resources*, are created inside the SignalR execution environment and aren't accessible outside this environment.
 
 In this article, you learn how to create a shared private endpoint to Key Vault.
 
 ## Prerequisites
 
-QUESTION: Do we need to add any prerequisites here?
-- You will need an Azure SignalR Service instance.
-- You will need an Azure Key Vault instance.
+- You'll need an Azure SignalR Service instance.
+- You'll need an Azure Key Vault instance.
 
 
-QUESTION:  Does it matter what the user calls the Key Vault, SignalR and endpoints?  I'm assuming they can be named anything, but I'm not sure.
-> [!NOTE]
-> The examples in this article are based on the following assumptions:
-> * The resource ID of this Azure SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
-> * The resource ID of Azure Key Vault is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv_.
-> * The rest of the examples show how the *contoso-signalr* service can be configured so that its outbound calls to Key Vault go through a private endpoint rather than public network.
+The examples in this article use the following naming convention.  You can use your own names instead.
+
+- The resource ID of this Azure SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
+- The resource ID of Azure Key Vault is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv_.
+- The rest of the examples show how the *contoso-signalr* service can be configured so that its outbound calls to Key Vault go through a private endpoint rather than public network.
+
 
 ## Create a shared private link resource to the Key Vault
 
@@ -54,21 +53,20 @@ QUESTION:  Does it matter what the user calls the Key Vault, SignalR and endpoin
     | **Resource** | Enter the name of your Key Vault resource. |
     | **Request Message** | Enter "please approve" |
     
-    1. Select **Add**.
+1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
+When the private endpoint is added successfully, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until the endpoint is approved on the Key Vault side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
 
-QUESTION:  Why is this article using dotnetcli instead of azurecli? These are all Azure CLI commands.
 ### [Azure CLI](#tab/azure-cli)
 
 Make the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource:
 
-```dotnetcli
+```azurecli
 az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/sharedPrivateLinkResources/kv-pe?api-version=2021-06-01-preview --body @create-pe.json
 ```
 
@@ -85,7 +83,7 @@ The contents of the *create-pe.json* file, which represent the request body to t
 }
 ```
 
-The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following:
+The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following text:
 
 ```plaintext
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview"
@@ -95,7 +93,7 @@ You can poll this URI periodically to obtain the status of the operation.
 
 If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
 
-```dotnetcli
+```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview
 ```
 
@@ -114,7 +112,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
 
-1. Select the private endpoint that Azure SignalR Service created. Click **Approve**.
+1. Select the private endpoint that Azure SignalR Service created. Select **Approve**.
 :::image type="content" source="media/howto-shared-private-endpoints-key-vault/portal-keyvault-private-endpoint-approve-connection.png" alt-text="Screenshot of Approve connection dialog for private endpoint in Azure Key Vault.":::
 1. Select **Yes** to approve the connection. 
 
@@ -126,7 +124,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 1. List private endpoint connections.
 
-    ```dotnetcli
+    ```azurecli
     az network private-endpoint-connection list -n <key-vault-resource-name>  -g <key-vault-resource-group-name> --type 'Microsoft.KeyVault/vaults'
     ```
 
@@ -151,7 +149,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 1. Approve the private endpoint connection.
 
-    ```dotnetcli
+    ```azurecli
     az network private-endpoint-connection approve --id <private-endpoint-connection-id>
     ```
 
@@ -159,7 +157,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 ## Verify the private endpoint is functional 
 
-It takes a few minutes for the approval to be propagated to Azure SignalR Service. You can check the state using either Azure portal or Azure CLI.
+After a few minutes,  the approval is propagated to the Azure SignalR Service and the connection state is set to *Approved*.  You can check the state using either Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -167,11 +165,11 @@ It takes a few minutes for the approval to be propagated to Azure SignalR Servic
 
 ### [Azure CLI](#tab/azure-cli)
 
-```dotnetcli
+```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview
 ```
 
-This would return a JSON, where the connection state would show up as "status" under the "properties" section.
+The command will return a JSON object, where the connection state is shown as "status" in the "properties" section.
 
 ```json
 {
@@ -187,16 +185,17 @@ This would return a JSON, where the connection state would show up as "status" u
 
 ```
 
-When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional and Azure SignalR Service can communicate over the private endpoint.
+When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and Azure SignalR Service can communicate over the private endpoint.
 
 -----
 
-At this point, the private endpoint between Azure SignalR Service and Azure Key Vault is established.
+When the provisioning state is set to **Succeeded** and the connection state is set to **Approved**, the private endpoint between Azure SignalR Service and Azure Key Vault is established.
 
-Now you can configure features like custom domain as usual. **You don't have to use a special domain for Key Vault**. DNS resolution is automatically handled by Azure SignalR Service.
+QUESTION: Do we need the paragraph below?  Is the information closely related to the topic?  Is it mentioned in another article? 
+
+    Now you can configure features like custom domain. **You don't have to use a special domain for Key Vault**. DNS resolution is automatically handled by Azure SignalR Service.        
 
 ## Next steps
-
 
 + [What are private endpoints?](../private-link/private-endpoint-overview.md)
 + [Configure custom domain](howto-custom-domain.md)

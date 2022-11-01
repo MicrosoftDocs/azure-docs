@@ -12,8 +12,7 @@ ms.author: lianwei
 
 # Secure Azure SignalR outbound traffic through Shared Private Endpoints
 
-If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to an upstream service. Upstream services such as
-Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
+If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to an upstream service. Upstream services such as Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints\shared-private-endpoint-overview.png" :::
 
@@ -21,19 +20,18 @@ This outbound method is subject to the following requirements:
 
 + The upstream service must be Azure Web App or Azure Function.
 
-+ The Azure SignalR service must be on the Standard tier.
++ The Azure SignalR service not must be on the free tier.
 
 + The Azure Web App or Azure Function must be on certain SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 
 ## Shared Private Link Resources Management
 
-Private endpoints of secured resources that are created through Azure SignalR Service APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as an Azure Function, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure SignalR Service execution environment and aren't accessible outside this environment.
+Private endpoints of secured resources that are created through Azure SignalR Service APIs. They're referred to as *shared private link resources* because you're sharing access to a resource, such as an Azure Function that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure SignalR Service execution environment and aren't accessible outside this environment.
 
 ## Prerequisites
 
-QUESTION: are there any links that we can add to show how to create the Azure Function and or SignalR instance in the portal (I couldn't find one)?
 - A Resource Group
-- An Azure SignalR Service instance
+- An Azure SignalR Service instance (must not be in free tier)
 - An Azure Function instance
 
 - > [!NOTE]
@@ -63,11 +61,11 @@ QUESTION: are there any links that we can add to show how to create the Azure Fu
     | **Resource** | Enter the name of your Function app. |
     | **Request Message** | Enter "please approve" |
     
-    1. Select **Add**.
+1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-add.png" :::
 
-1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
+The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints\portal-shared-private-endpoints-added.png" :::
 
@@ -124,7 +122,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-shared-private-endpoints\portal-function-approve-private-endpoint.png" :::
 
-   Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
+   Make sure that the private endpoint connection appears as shown in the following screenshot. It could take a few minutes for the status to be updated.
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-shared-private-endpoints\portal-function-approved-private-endpoint.png" :::
 
