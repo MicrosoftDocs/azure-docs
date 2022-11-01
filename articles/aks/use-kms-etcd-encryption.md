@@ -3,12 +3,12 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 11/01/2022
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to enable encryption at rest for your Kubernetes data in etcd using Azure Key Vault with the Key Management Service (KMS) plugin. The KMS plugin allows you to:
+This article shows you how to enable encryption at rest for your Kubernetes secrets in etcd using Azure Key Vault with the Key Management Service (KMS) plugin. The KMS plugin allows you to:
 
 * Use a key in Key Vault for etcd encryption.
 * Bring your own keys.
@@ -23,7 +23,7 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * Azure CLI version 2.39.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> KMS only supports Konnectivity and Vnet Integration. 
+> KMS only supports Konnectivity and [Vnet Integration][azure-cli-install]. 
 > You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks cluster show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
 
 ## Limitations
