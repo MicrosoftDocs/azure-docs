@@ -31,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/config.js" highlight="3,4" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/config.js":::
 
 ## Azure Function: Search the catalog
 
@@ -41,13 +41,13 @@ Routing for the Search API is contained in the [function.json](https://github.co
 
 The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Search/index.js" highlight="4-9, 75" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/Search/index.js" highlight="4-9, 75" :::
 
 ## Client: Search from the catalog
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/pages/Search/Search.js" highlight="40-51" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="41-52" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -57,13 +57,13 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Suggest/function.json) bindings.
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Suggest/index.js" highlight="4-9, 21" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/Suggest/index.js" highlight="4-9, 21" :::
 
 ## Client: Suggestions from the catalog
 
 The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 
 ## Azure Function: Get specific document 
 
@@ -71,13 +71,13 @@ The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samp
 
 Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Lookup/function.json) bindings.
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Lookup/index.js" highlight="4-9, 17" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/Lookup/index.js" highlight="4-9, 17" :::
 
 ## Client: Get specific document 
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/pages/Details/Details.js" highlight="19-29" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="20-30" :::
 
 ## Next steps
 
