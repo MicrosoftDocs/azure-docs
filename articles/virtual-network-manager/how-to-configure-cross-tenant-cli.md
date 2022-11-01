@@ -51,7 +51,7 @@ az login --tenant "79686033-97a2-4ebd-8e7d-0cae2c7df00e"
 ```
 You'll be required to complete authentication with your organization based on your organizations policies.
 
-1. Enter the following
+1. Enter the following command to create the cross tenant connection on the central management
 Set the subscription (note it’s the same as the one the connection references in step 1)
 ```azurecli
 # Set the Azure subscription
@@ -69,7 +69,7 @@ az network manager connection subscription create --connection-name "toCentralMa
 az network manager connection subscription show --name "toCentralManagementTenant"
 ```
 
-Switch back to the Contoso tenant, and performing a get on the network manager shows the subscription added via the cross tenant scopes property.
+1. Switch back to the central management tenant, and performing a get on the network manager shows the subscription added via the cross tenant scopes property.
 
 ```azurecli
 # View subscription added to network manager
@@ -83,8 +83,9 @@ In this task, you'll add a cross-tenant virtual network to your network group wi
 # Create network group with static member from target managed tenant
 az network manager group static-member create --network-group-name "CrossTenantNetworkGroup" --network-manager-name "myAVNM" --resource-group "myAVNMResourceGroup" --static-member-name "targetVnet01" --resource-id="/subscriptions/dec492d3-4f4e-493b-aa47-7bdf2f96a6fc/resourceGroups/myScopeAVNM/providers/Microsoft.Network/virtualNetworks/targetVnet01"
 ```
+## Delete virtual network manager configurations
 
-5.	Now that the virtual network is in the network group, configurations will be applied. To remove the static member or cross-tenant resources, use the corresponding delete commands.
+Now that the virtual network is in the network group, configurations will be applied. To remove the static member or cross-tenant resources, use the corresponding delete commands.
 
 ```azurecli
 
