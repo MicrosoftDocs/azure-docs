@@ -42,7 +42,7 @@ When regional virtual network integration is enabled, your app makes outbound ca
 
 When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the virtual network, and outbound traffic to the internet will go through the same channels as normal.
 
-The feature supports only one virtual interface per worker. One virtual interface per worker means one regional virtual network integration per App Service plan. All the apps in the same App Service plan can only use the same virtual network integration to a specific subnet. If you need an app to connect to another virtual network or another subnet in the same virtual network, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
+The feature supports two virtual interface per worker. Two virtual interfaces per worker means two regional virtual network integrations per App Service plan. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet. If you need an app to connect to additional virtual networks or additional subnets in the same virtual network, you need to create another App Service plan. The virtual interfaces used isn't a resource that customers have direct access to.
 
 Because of the nature of how this technology operates, the traffic that's used with virtual network integration doesn't show up in Azure Network Watcher or NSG flow logs.
 
@@ -164,7 +164,7 @@ There are some limitations with using regional virtual network integration:
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same virtual network.
+* You can have two regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
 ## Gateway-required virtual network integration
