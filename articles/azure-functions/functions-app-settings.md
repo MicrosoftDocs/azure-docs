@@ -310,7 +310,7 @@ Valid values:
 | Value | Language |
 |---|---|
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
-| `dotnet-isolated` | [C# (isolated process)](dotnet-isolated-process-guide.md) |
+| `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
 | `java` | [Java](functions-reference-java.md) |
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |

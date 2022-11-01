@@ -127,7 +127,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
+You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
 
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
@@ -139,7 +139,7 @@ You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if yo
 <AzureFunctionsVersion>v3</AzureFunctionsVersion>
 ```
 
-You can also choose `net5.0` as the target framework if you're using [.NET isolated process functions](dotnet-isolated-process-guide.md).
+You can also choose `net5.0` as the target framework if you're using [.NET isolated worker process functions](dotnet-isolated-process-guide.md).
 
 > [!NOTE]
 > Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
