@@ -23,7 +23,7 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * Azure CLI version 2.39.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> KMS only supports Konnectivity and [Vnet Integration][azure-cli-install]. 
+> KMS only supports Konnectivity and [API Server Vnet Integration][api-server-vnet-integration]. 
 > You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks cluster show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
 
 ## Limitations
@@ -359,3 +359,4 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [Enable-KMS-with-private-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
 [changing-associated-key-vault-mode]: use-kms-etcd-encryption.md#update-key-vault-mode
 [install-azure-cli]: /cli/azure/install-azure-cli
+[api-server-vnet-integration]: api-server-vnet-integration.md
