@@ -24,27 +24,22 @@ All HBv4-series VMs feature 400 Gb/sec NDR InfiniBand from NVIDIA Networking to 
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) about performance and potential issues) <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported at preview<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 <br>
 
-|Size |vCPU |Processor |Memory (GiB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (GiB) |Max data disks |Max Ethernet vNICs |
+|Size |vCPU |Processor |Memory (GB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|
-|Standard_HB176rs_v4    |176 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8TB |32 |8 |
-|Standard_HB176-144rs_v4|144 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8TB |32 |8 |
-|Standard_HB176-96rs_v4 |96  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8TB |32 |8 |
-|Standard_HB176-48rs_v4 |48  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8TB |32 |8 |
-|Standard_HB176-24rs_v4 |24  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8TB |32 |8 |
-
-Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hbv3-series-overview.md)
-- Supported [software stack](./workloads/hpc/hbv3-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv3-performance.md) of the HBv3-series VM
+|Standard_HB176rs_v4    |176 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-144rs_v4|144 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-96rs_v4 |96  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-48rs_v4 |48  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-24rs_v4 |24  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
 ## Get Started 
 
 - [Overview](./workloads/hpc/overview.md) of HPC on InfiniBand-enabled H-series and N-series VMs. 
-- [Configuring](./workloads/hpc/configure.md) VMs and supported OS and VM Images. 
+- [Configuring](./workloads/hpc/configure.md) VMs and supported [OS and VM Images](./workloads/hpc/configure.md#vm-images). 
 - [Enabling InfiniBand](./workloads/hpc/enable-infiniband.md) with HPC VM images, VM extensions or manual installation. 
 - [Setting up MPI](./workloads/hpc/setup-mpi.md), including code snippets and recommendations. 
 - [Cluster configuration options](./sizes-hpc.md#cluster-configuration-options). 
