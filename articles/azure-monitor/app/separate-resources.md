@@ -2,7 +2,7 @@
 title: How to design your Application Insights deployment - One vs many resources?
 description: Direct telemetry to different resources for development, test, and production stamps.
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 11/01/2022
 ms.reviewer: rijolly
 ---
 
