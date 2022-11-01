@@ -186,7 +186,7 @@ To create an access policy on an entire Azure subscription or resource group, fo
 ## Next steps
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [Devops policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
