@@ -170,10 +170,26 @@ kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ### Prerequisites
 * [Azure CLI][install-azure-cli] and the `aks-preview` 0.5.111 or later CLI extension installed.
 
+### Limitation
+* Updating SSH key is supported for VMSS AKS clusters.
+
 Use `az aks update` to update new SSH key on AKS cluster. Note that the SSH key of all nodepools will be updated.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value>
+```
+
+Example:
+You can attach the new SSH key value directly to `--ssh-key-value`.
+
+```azurecli
+az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
+```
+
+Attaching SSH key file is also supported.
+
+```azurecli
+az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value .ssh/id_rsa.pub
 ```
 
 > [!IMPORTANT]
