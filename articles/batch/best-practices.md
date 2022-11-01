@@ -115,8 +115,8 @@ Delete tasks when they're no longer needed, or set a [retentionTime](/dotnet/api
 
 Deleting tasks accomplishes two things:
 
-1. Ensures that you don't have a build-up of tasks in the job. This action will help avoid difficulty in finding the task you're interested in as you'll have to filter through the Completed tasks.
-1. Cleans up the corresponding task data on the node (provided `retentionTime` hasn't already been hit). This action helps ensure that your nodes don't fill up with task data and run out of disk space.
+- Ensures that you don't have a build-up of tasks in the job. This action will help avoid difficulty in finding the task you're interested in as you'll have to filter through the Completed tasks.
+- Cleans up the corresponding task data on the node (provided `retentionTime` hasn't already been hit). This action helps ensure that your nodes don't fill up with task data and run out of disk space.
 
 ### Submit large numbers of tasks in collection
 
