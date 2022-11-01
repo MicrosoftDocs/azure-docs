@@ -1,6 +1,6 @@
 ---
-title: Manage the Azure Monitor agent
-description: Options for managing the Azure Monitor agent on Azure virtual machines and Azure Arc-enabled servers.
+title: Manage Azure Monitor Agent
+description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -10,13 +10,13 @@ ms.reviewer: shseth
 
 ---
 
-# Manage the Azure Monitor agent
+# Manage Azure Monitor Agent
 
-This article provides the different options currently available to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md). This agent extension can be installed on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling the Azure Monitor agent won't require you to restart your server.
+This article provides the different options currently available to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md). This agent extension can be installed on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling Azure Monitor Agent won't require you to restart your server.
 
 ## Virtual machine extension details
 
-The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions including the methods described in this article.
+Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. You can install it by using any of the methods to install virtual machine extensions including the methods described in this article.
 
 | Property | Windows | Linux |
 |:---|:---|:---|
@@ -30,7 +30,7 @@ View [Azure Monitor agent extension versions](./azure-monitor-agent-extension-ve
 
 ## Prerequisites
 
-The following prerequisites must be met prior to installing the Azure Monitor agent.
+The following prerequisites must be met prior to installing Azure Monitor Agent.
 
 - **Permissions**: For methods other than using the Azure portal, you must have the following role assignments to install the agent:  
 
@@ -40,7 +40,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
    | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy Azure Resource Manager templates |  
 - **Non-Azure**: To install the agent on physical servers and virtual machines hosted *outside* of Azure (that is, on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first, at no added cost.
 - **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both user-assigned and system-assigned managed identities are supported.
-  - **User-assigned**: This managed identity is recommended for large-scale deployments, configurable via [built-in Azure policies](#use-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs, which means it's more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to the Azure Monitor agent via extension settings:
+  - **User-assigned**: This managed identity is recommended for large-scale deployments, configurable via [built-in Azure policies](#use-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs, which means it's more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to Azure Monitor Agent via extension settings:
   
     ```json
     {
@@ -63,21 +63,21 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
 
 > [!NOTE]
-> This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *The Azure Monitor agents can't function without being associated with data collection rules.*
+> This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *Azure Monitor Agents can't function without being associated with data collection rules.*
 
 ## Install
 
 #### [Portal](#tab/azure-portal)
 
-To install the Azure Monitor agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process creates the rule, associates it to the selected resources, and installs the Azure Monitor agent on them if it's not already installed.
+To install Azure Monitor Agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process creates the rule, associates it to the selected resources, and installs Azure Monitor Agent on them if it's not already installed.
 
 #### [PowerShell](#tab/azure-powershell)
 
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension.
+You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension.
 
 ### Install on Azure virtual machines
 
-Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
+Use the following PowerShell commands to install Azure Monitor Agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
 
 #### User-assigned managed identity
 
@@ -105,7 +105,7 @@ Use the following PowerShell commands to install the Azure Monitor agent on Azur
 
 ### Install on Azure Arc-enabled servers
 
-Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
+Use the following PowerShell commands to install Azure Monitor Agent on Azure Arc-enabled servers.
 
 - Windows
   ```powershell
@@ -119,11 +119,11 @@ Use the following PowerShell commands to install the Azure Monitor agent on Azur
 
 #### [Azure CLI](#tab/azure-cli)
 
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers by using the Azure CLI command for adding a virtual machine extension.
+You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-enabled servers by using the Azure CLI command for adding a virtual machine extension.
 
 ### Install on Azure virtual machines
 
-Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
+Use the following CLI commands to install Azure Monitor Agent on Azure virtual machines. Choose the appropriate command based on your chosen authentication method.
 
 #### User-assigned managed identity
 
@@ -151,7 +151,7 @@ Use the following CLI commands to install the Azure Monitor agent on Azure virtu
 
 ### Install on Azure Arc-enabled servers
 
-Use the following CLI commands to install the Azure Monitor agent on Azure Arc-enabled servers.
+Use the following CLI commands to install Azure Monitor Agent on Azure Arc-enabled servers.
 
 - Windows
   ```azurecli
@@ -165,7 +165,7 @@ Use the following CLI commands to install the Azure Monitor agent on Azure Arc-e
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
-You can use Resource Manager templates to install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers and to create an association with data collection rules. You must create any data collection rule prior to creating the association.
+You can use Resource Manager templates to install Azure Monitor Agent on Azure virtual machines and on Azure Arc-enabled servers and to create an association with data collection rules. You must create any data collection rule prior to creating the association.
 
 Get sample templates for installing the agent and creating the association from the following resources:
 
@@ -190,13 +190,13 @@ Install the templates by using [any deployment method for Resource Manager templ
 
 #### [Portal](#tab/azure-portal)
 
-To uninstall the Azure Monitor agent by using the Azure portal, go to your virtual machine, scale set, or Azure Arc-enabled server. Select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Uninstall**.
+To uninstall Azure Monitor Agent by using the Azure portal, go to your virtual machine, scale set, or Azure Arc-enabled server. Select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Uninstall**.
 
 #### [PowerShell](#tab/azure-powershell)
 
 ### Uninstall on Azure virtual machines
 
-Use the following PowerShell commands to uninstall the Azure Monitor agent on Azure virtual machines.
+Use the following PowerShell commands to uninstall Azure Monitor Agent on Azure virtual machines.
 
 - Windows
   ```powershell
@@ -210,7 +210,7 @@ Use the following PowerShell commands to uninstall the Azure Monitor agent on Az
 
 ### Uninstall on Azure Arc-enabled servers
 
-Use the following PowerShell commands to uninstall the Azure Monitor agent on Azure Arc-enabled servers.
+Use the following PowerShell commands to uninstall Azure Monitor Agent on Azure Arc-enabled servers.
 
 - Windows
   ```powershell
@@ -226,7 +226,7 @@ Use the following PowerShell commands to uninstall the Azure Monitor agent on Az
 
 ### Uninstall on Azure virtual machines
 
-Use the following CLI commands to uninstall the Azure Monitor agent on Azure virtual machines.
+Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual machines.
 
 - Windows
   ```azurecli
@@ -240,7 +240,7 @@ Use the following CLI commands to uninstall the Azure Monitor agent on Azure vir
 
 ### Uninstall on Azure Arc-enabled servers
 
-Use the following CLI commands to uninstall the Azure Monitor agent on Azure Arc-enabled servers.
+Use the following CLI commands to uninstall Azure Monitor Agent on Azure Arc-enabled servers.
 
 - Windows
   ```azurecli
@@ -367,7 +367,7 @@ N/A
 Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule every time you create a virtual machine, scale set, or Azure Arc-enabled server.
 
 > [!NOTE]
-> As per Microsoft Identity best practices, policies for installing the Azure Monitor agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
+> As per Microsoft Identity best practices, policies for installing Azure Monitor Agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
 > For Azure Arc-enabled servers, policies rely on system-assigned managed identity as the only supported option today.
 
 ### Built-in policy initiatives
@@ -378,7 +378,7 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
 
 - (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).
    - `Bring Your Own User-Assigned Identity`: If set to `true`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that *you must assign* to the machines beforehand.
-- Install the Azure Monitor agent extension on the machine, and configure it to use user-assigned identity as specified by the following parameters.
+- Install Azure Monitor Agent extension on the machine, and configure it to use user-assigned identity as specified by the following parameters.
   - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the preceding policy. If set to `true`, it configures the agent to use an existing user-assigned identity that *you must assign* to the machines in scope beforehand.
   - `User-Assigned Managed Identity Name`: If you use your own identity (selected `true`), specify the name of the identity that's assigned to the machines.
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
@@ -386,7 +386,7 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
-   ![Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)
+   ![Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)
 
 #### Known issues
 
@@ -399,15 +399,15 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
 
 You can choose to use the individual policies from the preceding policy initiative to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative, as shown.
 
-![Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)
+![Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)
 
 ### Remediation
 
-The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can configure the Azure Monitor agent for any resources that were already created.
+The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can configure Azure Monitor Agent for any resources that were already created.
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 
-![Screenshot that shows initiative remediation for the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+![Screenshot that shows initiative remediation for Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
 
 ## Next steps
 
