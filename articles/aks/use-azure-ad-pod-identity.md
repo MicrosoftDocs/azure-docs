@@ -303,7 +303,7 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 ```
 
 ```azurecli
-az role assignment delete --role "Managed Identity Operator" --assignee "$IDENTITY_CLIENT_ID" --scope "IDENTITY_RESOURCE_ID"
+az role assignment delete --role "Managed Identity Operator" --assignee "$IDENTITY_CLIENT_ID" --scope "$IDENTITY_RESOURCE_ID"
 ```
 
 ## Next steps
