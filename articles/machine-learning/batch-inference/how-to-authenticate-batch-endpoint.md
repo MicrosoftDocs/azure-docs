@@ -101,7 +101,8 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure ML CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```bash
     az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
