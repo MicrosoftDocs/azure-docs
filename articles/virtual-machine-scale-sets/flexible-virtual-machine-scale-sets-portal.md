@@ -1,6 +1,6 @@
 ---
 title: Create virtual machines in a Flexible scale set using Azure portal
-description: Learn how to create a virtual machine scale set in Flexible orchestration mode in the Azure portal.
+description: Learn how to create a Virtual Machine Scale Set in Flexible orchestration mode in the Azure portal.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
@@ -13,17 +13,17 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 # Create virtual machines in a scale set using Azure portal
 
-This article steps through using Azure portal to create a virtual machine scale set. 
+This article steps through using Azure portal to create a Virtual Machine Scale Set. 
 ## Log in to Azure
 Log in to the Azure portal at https://portal.azure.com.
 
 
-## Create a virtual machine scale set
+## Create a Virtual Machine Scale Set
 
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
-1. In the Azure portal search bar, search for and select **Virtual machine scale sets**.
-1. Select **Create** on the **Virtual machine scale sets** page.
+1. In the Azure portal search bar, search for and select **Virtual Machine Scale Sets**.
+1. Select **Create** on the **Virtual Machine Scale Sets** page.
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and create a new resource group called *myVMSSResourceGroup*.   
 1. Under **Scale set details**, set *myScaleSet* for your scale set name and select a **Region** that is close to your area.
@@ -34,7 +34,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, we will have Azure generate a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-1.png" alt-text="Create a virtual machine scale set using the Azure portal. Basics tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-1.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Basics tab.":::
 
 1. Select **Next: Disks** to move the disk configuration options. For this quickstart, leave the default disk configurations. 
 
@@ -45,14 +45,14 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-2.png" alt-text="Create a virtual machine scale set using the Azure portal. Networking tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-2.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Networking tab.":::
 
 1. Select **Next: Scaling** to move to the scaling configurations.
 
 1. On the **Scaling** page, set the **initial instance count** field to *5*. You can set this number up to 1000. 
 1. For the **Scaling policy**, keep it *Manual*. 
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-3.png" alt-text="Create a virtual machine scale set using the Azure portal. Scaling tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-3.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Scaling tab.":::
 
 1. When you're done, select **Review + create**. 
 1. After it passes validation, select **Create** to deploy the scale set.
