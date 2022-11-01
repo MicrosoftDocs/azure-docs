@@ -426,18 +426,14 @@
       href: search-query-simple-examples.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
-    - name: Semantic search
-      items:
-      - name: Create a semantic query
-        href: semantic-how-to-query-request.md
-      - name: Return a semantic answer
-        href: semantic-answers.md
     - name: Search results 
       items:
       - name: Paging and formatting
         href: search-pagination-page-layout.md
       - name: Sorting results
         href: search-sort-results.md
+      - name: Return a semantic answer
+        href: semantic-answers.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -470,6 +466,8 @@
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
+    - name: Configure semantic search
+      href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:
     - name: Performance analysis

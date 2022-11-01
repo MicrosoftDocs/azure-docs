@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/01/2022
 ---
 
-# Configure a sort order in Azure Cognitive Search
+# Configure a sort order for search results
 
 <!-- This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
 
