@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 11/01/2022
 ms.reviewer: cynthn
 ---
 

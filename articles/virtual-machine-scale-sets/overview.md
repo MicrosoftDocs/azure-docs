@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice:
-ms.date: 06/30/2020
+ms.date: 11/01/2022
 ms.reviewer: mimckitt
 
 ---
