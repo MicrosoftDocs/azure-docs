@@ -12,11 +12,19 @@ ms.custom: template-how-to
 
 # Modify the packet core instance in a site
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core and access network configuration.
+Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core and access network configuration. You'll also learn how to modify the data network attached to the packet core instance.
 
 ## Prerequisites
 
-- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format. Note that you can't change a packet core instance's **Technology type** field.
+- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format.
+
+    > [!NOTE]
+    > You can't update a packet core instance's **Technology type** or **Version** field.
+    >
+    > - To change the technology type, [recreate the site](create-a-site.md).
+    > - To change the version, [upgrade the packet core instance](upgrade-packet-core-azure-portal.md).
+
+- If you want to make changes to the attached data network, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Modify the packet core instance
