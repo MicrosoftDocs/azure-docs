@@ -29,7 +29,7 @@ Developers can use Azure AD business-to-business APIs to customize the invitatio
 
 ## Collaborate with any partner using their identities
 
-With Azure AD B2B, the partner uses their own identity management solution, so there is no external administrative overhead for your organization. Guest users sign in to your apps and services with their own work, school, or social identities.
+With Azure AD B2B, the partner uses their own identity management solution, so there's no external administrative overhead for your organization. Guest users sign in to your apps and services with their own work, school, or social identities.
 
 - The partner uses their own identities and credentials, whether or not they have an Azure AD account.
 - You don't need to manage external accounts or passwords.
