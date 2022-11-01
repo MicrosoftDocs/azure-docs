@@ -72,6 +72,31 @@ With support for computer vision tasks, you can control the model algorithm and 
 Please note that the `training_parameters` object can have properties from [Model specific hyperparameters](#model-specific-hyperparameters), [Model agnostic hyperparameters](#model-agnostic-hyperparameters) and [Image classification (multi-class and multi-label) specific hyperparameters](#image-classification-multi-class-and-multi-label-specific-hyperparameters), 
 
 #### Model specific hyperparameters
+This table summarizes hyperparameters specific to the `yolov5` algorithm.
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `validation_metric_type` | string | Metric computation method to use for validation metrics. |  `none`, `coco`, `voc`, or `coco_voc` | `voc` |
+| `validation_iou_threshold` | float | IOU threshold for box matching when computing validation metrics.  | A value in the range [0.1, 1]. | 0.5 |
+| `image_size` | integer | Image size for train and validation. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | | 640 |
+| `model_size` | Model size. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*. | `small`, `medium`, `large`, `extra_large` | `medium` |
+| `multi_scale` | integer | Enable multi-scale image by varying image size by +/- 50%. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0, 1 | 0 |
+| `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
+| `nms_iou_threshold` | float | IOU threshold used during inference in non-maximum suppression post processing.| A value in the range [0, 1] | 0.5 |
+| `tile_grid_size` | integer | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' |  | No Default |
+| `tile_overlap_ratio` | float | Overlap ratio between adjacent tiles in each dimension. | A value in the range of [0, 1) | 0.25 |
+| `tile_predictions_nms_threshold` | float | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. | A value in the range of [0, 1] | 0.25 |
+
+This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `mask_pixel_score_threshold` | float | Score cutoff for considering a pixel as part of the mask of an object. | | 0.5 |
+| `max_number_of_polygon_points` | integer | Maximum number of (x, y) coordinate pairs in polygon after converting from a mask. | | 100 |
+| `export_as_image` | bool | Export masks as images. | `True`, `False` | False |
+| `image_type` | string | Type of image to export mask as.  | `jpg`, `png`, `bmp` | `jpg` |
+
+
 
 #### Model agnostic hyperparameters
 The following table describes the hyperparameters that are model agnostic.
