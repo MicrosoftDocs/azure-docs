@@ -67,7 +67,7 @@ To view Service Health events...
 
     :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page with the 'Issue updates' tab highlighted. The tab displays the status of entries." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
-The information displayed in this tool isn't specific to one Azure Digital instance. After using Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, you can take monitoring a step further by using [Azure Resource Health](how-to-monitor-resource-health.md) to drill down into specific instances and see whether they're affected.
+The information displayed in this tool isn't specific to one Azure Digital instance. After using Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, you can take monitoring a step further by using [Azure Resource Health](troubleshoot-health-performance.md#use-azure-resource-health) to drill down into specific instances and see whether they're affected.
 
 ## Next steps 
 
