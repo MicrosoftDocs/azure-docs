@@ -55,6 +55,8 @@ By default, the following users can view and manage reservations:
 
 - The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
 -  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
+-  A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory).
+-  A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory).
 
 To allow other people to manage reservations, you have two options:
 
