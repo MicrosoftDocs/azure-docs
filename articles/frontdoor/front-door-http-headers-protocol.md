@@ -26,7 +26,7 @@ Azure Front Door accepts most headers for the incoming request without modifying
 
 The debug request header, "X-Azure-DebugInfo", provides extra debugging information about the Front Door. You'll need to send "X-Azure-DebugInfo: 1" request header from the client to the AzureFront Door to receive [optional response headers](#optional-debug-response-headers) when Front Door response to the client. 
 
-## From the Front Door to backend
+## From the Front Door to the backend
 
 Azure Front Door includes headers for an incoming request unless they're removed because of restrictions. Front Door also adds the following headers:
 
