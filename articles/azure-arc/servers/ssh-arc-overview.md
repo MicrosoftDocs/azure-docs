@@ -19,7 +19,7 @@ allowing existing management tools to have a greater impact on Azure Arc-enabled
 SSH access to Arc-enabled servers provides the following key benefits:
  - No public IP address or open SSH ports required
  - Access to Windows and Linux machines
- - Ability to log-in as a local user or an [Azure user (Linux only)](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
+ - Ability to log in as a local user or an [Azure user (Linux only)](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
@@ -66,13 +66,13 @@ View your current incoming connections:
 
 ```azcmagent config list```
 
-If you have existing ports, you will need to include them in the following command.
+If you have existing ports, you'll need to include them in the following command.
 
 To add access to SSH connections, run the following:
 
 ```azcmagent config set incomingconnections.ports 22<,other open ports,...>```
 
-If you are using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
+If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 > [!NOTE]
 > The following steps will not need to be run for most users.
@@ -85,7 +85,7 @@ Check if the HybridConnectivity resource provider (RP) has been registered:
 
 ```az provider show -n Microsoft.HybridConnectivity```
 
-If the RP has not been registered, run the following:
+If the RP hasn't been registered, run the following:
 
 ```az provider register -n Microsoft.HybridConnectivity```
 
