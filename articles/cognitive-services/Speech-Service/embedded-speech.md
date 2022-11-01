@@ -83,13 +83,13 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
 // For speech-to-text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
-"Microsoft Speech Recognizer en-US FP Model V8", 
-Environment.GetEnvironmentVariable("MODEL_KEY"));
+    "Microsoft Speech Recognizer en-US FP Model V8", 
+    Environment.GetEnvironmentVariable("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
-"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-Environment.GetEnvironmentVariable("VOICE_KEY"));
+    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    Environment.GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
@@ -105,17 +105,17 @@ embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 vector<string> paths;
 paths.push_back("C:\\dev\\embedded-speech\\stt-models");
 paths.push_back("C:\\dev\\embedded-speech\\tts-voices");
-var embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
+auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
 // For speech-to-text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
-"Microsoft Speech Recognizer en-US FP Model V8", 
-GetEnvironmentVariable("MODEL_KEY"));
+    "Microsoft Speech Recognizer en-US FP Model V8", 
+    GetEnvironmentVariable("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
-"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-GetEnvironmentVariable("VOICE_KEY"));
+    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
@@ -132,13 +132,13 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
 // For speech-to-text
 embeddedSpeechConfig.setSpeechRecognitionModel(
-"Microsoft Speech Recognizer en-US FP Model V8", 
-System.getenv("MODEL_KEY"));
+    "Microsoft Speech Recognizer en-US FP Model V8", 
+    System.getenv("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
-"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-System.getenv("VOICE_KEY"));
+    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    System.getenv("VOICE_KEY"));
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
