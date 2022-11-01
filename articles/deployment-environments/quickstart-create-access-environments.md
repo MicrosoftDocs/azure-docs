@@ -1,8 +1,8 @@
 ---
 title: Create and access Environments
 description: This quickstart shows you how to create and access environments in an Azure Deployment Environments Project.
-author: anandmeg
-ms.author: meghaanand
+author: RoseHJM
+ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
