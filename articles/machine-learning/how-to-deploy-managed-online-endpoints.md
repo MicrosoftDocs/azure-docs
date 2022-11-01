@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/06/2022
+ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -435,7 +435,7 @@ ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
 
 # [ARM template](#tab/arm)
 
-The template doesn't support local endpoints.
+The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -459,7 +459,7 @@ The `local=True` flag directs the SDK to deploy the endpoint in the Docker envir
 
 # [ARM template](#tab/arm)
 
-The template doesn't support local endpoints.
+The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -503,7 +503,7 @@ ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Suc
 
 # [ARM template](#tab/arm)
 
-The template doesn't support local endpoints.
+The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -548,7 +548,7 @@ scoring_uri = endpoint.scoring_uri
 
 # [ARM template](#tab/arm)
 
-The template doesn't support local endpoints.
+The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -574,7 +574,7 @@ ml_client.online_deployments.get_logs(
 
 # [ARM template](#tab/arm)
 
-The template doesn't support local endpoints.
+The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -905,6 +905,8 @@ To understand how `begin_create_or_update` works:
 The `begin_create_or_update` method also works with local deployments. Use the same method with the `local=True` flag.
 
 # [ARM template](#tab/arm)
+
+There currently is not an option to update the deployment using an ARM template.
 
 ---
 
