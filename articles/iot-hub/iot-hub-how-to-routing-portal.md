@@ -93,7 +93,7 @@ If you need to create a Service Bus queue, see [Use Azure portal to create a Ser
 
 1. Leave all other values in their default states and choose **Create** at the bottom.
 
-   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-service-bus-endpoint.jpg" alt-text="Screenshot that shows the new route you created on the 'Message routing' page.":::
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-service-bus-endpoint.jpg" alt-text="Screenshot that shows the 'Add a service bus endpoint' page with correct options selected.":::
 
 1. Leave all the other values as their defaults on the **Add a route** page.
 
@@ -102,11 +102,34 @@ If you need to create a Service Bus queue, see [Use Azure portal to create a Ser
    > [!NOTE]
    > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create an additional new route with an **events** endpoint if needed.
 
-   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-service-bus-endpoint.jpg" alt-text="Screenshot that shows the new route you created on the 'Message routing' page.":::
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-service-bus-route.jpg" alt-text="Screenshot that shows the new service bus queue route you created on the 'Message routing' page.":::
 
 # [Service Bus topic](#tab/servicebustopic)
 
+If you need to create a Service Bus topic (with subscription), see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
+1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-topic-route**.
+
+1. For **Endpoint**, select the **+ Add endpoint** dropdown list and choose **Service bus topic**.
+
+1. A new page appears called **Add a service bus endpoint**. Think of a unique name for the **Endpoint name** field.
+
+1. Select the dropdown list for **Service bus namespace** and select your service bus.
+
+1. Select the dropdown list for **Service Bus Topic** and select your service bus topic.
+
+1. Leave all other values in their default states and choose **Create** at the bottom.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-service-bus-topic-endpoint.jpg" alt-text="Screenshot that shows the 'Add a service bus endpoint' page with correct options selected.":::
+
+1. Leave all the other values as their defaults on the **Add a route** page.
+
+1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** page. 
+
+   > [!NOTE]
+   > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create an additional new route with an **events** endpoint if needed.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-service-bus-topic-route.jpg" alt-text="Screenshot that shows your new service bus topic route on the 'Message routing' page.":::
 
 # [Azure Storage](#tab/azurestorage)
 
