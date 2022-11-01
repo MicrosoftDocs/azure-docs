@@ -44,7 +44,9 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `validation_data` | object |  The validation data to be used within the job. It should contain both training features and label column (optionally a sample weights column). If 'validation_data' is specified, then 'training_data' and 'target_column_name' parameters must be specified. Refer to [Training or Validation Data](#training-or-validation-data) for further details on how to write this object.| |  |
 | `validation_data_size` | float |  What fraction of the data to hold out for validation when user validation data is not specified. This should be between 0.0 and 1.0 non-inclusive. | |  |
 | `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If you want to specify a different mode for the output, provide an object containing the [Limits](#limits). | | |
-| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [Training Parameters](#training-parameters). | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [Training Parameters](#training-parameters) section. | | |
+| `sweep` | object | Dictionary containing sweep parameters for the job. Provide an object which has keys as listed in [Sweep Parameters](#sweep-parameters) section. | | |
+| `search_space` | object | Dictionary containing search space parameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
 
 ### Limits
 
@@ -138,6 +140,34 @@ The following table describes the hyperparameters that are model agnostic.
 | `validation_crop_size` | integer | Image crop size that's input to your neural network for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.| | 224 |
 | `validation_resize_size` | integer | Image size to which to resize before cropping for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- Training run may get into CUDA OOM if the size is too big. | | 256 |
 | `weighted_loss` | integer | - `0` for no weighted loss. <br>- `1` for weighted loss with sqrt (class_weights). <br>- `2` for weighted loss with class_weights. | `0`, `1`, `2`| `0` |
+
+### Sweep Parameters
+When using AutoML for Images, we can perform a hyperparameter sweep over a defined parameter space to find the optimal model. If hyperparameter values are not specified, then default values are used for the specified algorithm. 
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `sampling_algorithm` | string | When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. <br> Notes: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
+| `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the sections below. |  | |
+
+#### Bandit Early Termination Policy
+Bandit Policy is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job. 
+
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string |Type of early termination policy. | `bandit` | `bandit` |
+| `slack_factor` or `slack_amount` | float | The slack allowed with respect to the best performing training job. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio. | | |
+| `evaluation_interval` | integer | The frequency for applying the policy. | | |
+| `delay_evaluation` | integer | Delays the first policy evaluation for a specified number of intervals. | | |
+
+For further details on Bandit policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy)
+
+
+#### Median Stopping Early Termination Policy
+
+#### Truncation Selection Early Termination Policy
+
+
+### Search Space Parameters
+This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments.
 
 
 ## Remarks
