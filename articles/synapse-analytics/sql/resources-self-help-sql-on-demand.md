@@ -178,11 +178,11 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 
 ### String or binary data would be truncated
 
-This error happens if the length of your string or binary type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the type:
-- If your column is defined as VARCHAR(32) and the text is 60 characters, use `VARCHAR(60)` in your schema.
-- If you are using schema inference (no `WITH` schema) all string columns are automatically defined as `VARCHAR(8000)` explicitly define the schema with the larger VARCHAR(MAX) to resolve this error.
-- If your table is in the Lake database, try to set the string column size in Spark pool.
-- Try to `SET ANSI_WARNINGS OFF` to enable serverless to automatically truncate VARCHAR values.
+This error happens if the length of your string or binary column type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the column type:
+- If your string column is defined as the `VARCHAR(32)` type and the text is 60 characters, use the `VARCHAR(60)` type (or longer) in your column schema.
+- If you are using the schema inference (withtout the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
+- If your table is in the Lake database, try to increase the string column size in the Spark pool.
+- Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this will not impact your functionalities.
 
 ### Unclosed quotation mark after the character string
 
