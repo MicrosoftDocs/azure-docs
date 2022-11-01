@@ -99,7 +99,7 @@ To view the sign-in logs, use:
 
 `Get-MgAuditLogSignIn`
 
-For more information about this cmdlet, see [Get-MgAuditLogSignIn](https://learn.microsoft.com/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-1.0).
+For more information about this cmdlet, see [Get-MgAuditLogSignIn](/powershell/module/microsoft.graph.reports/get-mgauditlogsignin).
 
 The Azure AD Graph PowerShell module doesn't support viewing applied Conditional Access policies. Only the Microsoft Graph PowerShell module returns applied Conditional Access policies.  
 
