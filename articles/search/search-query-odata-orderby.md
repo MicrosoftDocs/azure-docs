@@ -15,7 +15,7 @@ ms.date: 07/18/2022
 
 In Azure Cognitive Search, the **$orderby** parameter specifies custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
 
-Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting logic and set up, see [Configure a sort order in Azure Cognitive Search](search-sort-results.md).
+Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting algorithms, see [Ordering results](search-pagination-page-layout.md#ordering-results).
 
 ## Syntax
 

@@ -428,10 +428,8 @@
       href: speller-how-to-add.md
     - name: Search results 
       items:
-      - name: Paging and formatting
+      - name: Paging, sorting, and formatting
         href: search-pagination-page-layout.md
-      - name: Sorting results
-        href: search-sort-results.md
       - name: Return a semantic answer
         href: semantic-answers.md
     - name: Advanced queries
