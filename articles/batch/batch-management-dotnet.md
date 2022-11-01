@@ -129,7 +129,7 @@ The Batch Management .NET library is an Azure resource provider client, and is u
 
 To see Batch Management .NET in action, check out the [AccountManagement](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement) sample project on GitHub. The AccountManagement sample application demonstrates the following operations:
 
-1. Acquire a security token from Azure AD by using [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-acquire-token-silently.md). If the user is not already signed in, they are prompted for their Azure credentials.
+1. Acquire a security token from Azure AD by using [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-net-acquire-token-silently.md). If the user is not already signed in, they are prompted for their Azure credentials.
 2. With the security token obtained from Azure AD, create a [SubscriptionClient](/dotnet/api/microsoft.azure.management.resourcemanager.subscriptionclient) to query Azure for a list of subscriptions associated with the account. The user can select a subscription from the list if it contains more than one subscription.
 3. Get credentials associated with the selected subscription.
 4. Create a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanager.resourcemanagementclient) object by using the credentials.
