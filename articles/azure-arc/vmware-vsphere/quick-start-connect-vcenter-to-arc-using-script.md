@@ -145,10 +145,21 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge VM. |
 | **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |
 | **VM template Name** | Provide a name for the VM template that will be created in your vCenter Server instance based on the downloaded OVA file. For example: **arc-appliance-template**. |
-| **Control Plane IP** address | Provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. Control Plane IP must have internet access. |
+| **Control Plane IP** address | Provide a static IP address that's outside the DHCP range but still in the same subnet as the DHCP scope for virtual machines and must be excluded from the DHCP scope to avoid IP address conflicts. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. Control Plane IP must have internet access. |
 | **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have a proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
 
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
+
+> [!IMPORTANT]
+      > If the Azure Arc resource bridge deployment fails, clean up the installation and retry the deployment. Run the following cmdlet in Azure Command Line Interface(CLI) to clean up the installation:
+      >
+      >```powershell
+      >az arcappliance delete hci --config-file $csv_path\ResourceBridge\hci-appliance.yaml --yes
+      >```
+      > While there can be a number of reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../manage/troubleshoot-arc-enabled-vms.md#kva-timeout-error).
+
+> [!IMPORTANT]
+      > After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands on the resource bridge.
 
 ## Next steps
 
