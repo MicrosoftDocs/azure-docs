@@ -153,7 +153,7 @@ New-AzNetworkInterface @nic
 
 In this example, you'll create an Azure Public IP address and associate it with the network interface. 
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)to create a primary public IP address.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a primary public IP address.
 
 ```azurecli-interactive
   az network public-ip create \

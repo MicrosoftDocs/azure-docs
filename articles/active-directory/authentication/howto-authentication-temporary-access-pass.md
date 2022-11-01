@@ -63,7 +63,7 @@ To configure the Temporary Access Pass authentication method policy:
    |---|---|---|---|
    | Minimum lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Minimum number of minutes that the Temporary Access Pass is valid. |
    | Maximum lifetime | 8 hours | 10 – 43,200 Minutes (30 days) | Maximum number of minutes that the Temporary Access Pass is valid. |
-   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy. |
+   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be overridden by the individual passes, within the minimum and maximum lifetime configured by the policy. |
    | One-time use | False | True / False | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |
    | Length | 8 | 8-48 characters | Defines the length of the passcode. |
 
