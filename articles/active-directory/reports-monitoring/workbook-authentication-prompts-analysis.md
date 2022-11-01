@@ -3,17 +3,14 @@
 title: Authentication prompts analysis workbook in Azure AD | Microsoft Docs
 description: Learn how to use the authentication prompts analysis workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: sarbar 
 
 ms.collection: M365-identity-device-management
@@ -33,7 +30,7 @@ This article provides you with an overview of this workbook.
 
 Have you recently heard of complaints from your users about getting too many authentication prompts?
 
-Over prompting users impacts your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
+Overprompting users can effect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
 
 Typically, this scenario is caused by:
 
@@ -77,7 +74,7 @@ In many environments, the most used apps are business productivity apps. Anythin
 
 ![Authentication prompts by application](./media/workbook-authentication-prompts-analysis/authentication-prompts-by-application.png)
 
-The prompts by application list-view shows additional information such as timestamps, and request IDs that help with investigations.
+The prompts by application list view shows additional information such as timestamps, and request IDs that help with investigations.
 
 Additionally, you get a summary of the average and median prompts count for your tenant. 
 
@@ -106,7 +103,7 @@ Filtering for a specific user that has many authentication requests or only show
 ## Best practices
 
 
-If data isn't showing up or seems to be showing up incorrectly, please confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
+If data isn't showing up or seems to be showing up incorrectly, confirm that you have set the **Log Analytics Workspace** and **Subscriptions** on the proper resources.
 
 
 ![Set workspace and subscriptions](./media/workbook-authentication-prompts-analysis/workspace-and-subscriptions.png)
@@ -120,9 +117,9 @@ If the visuals are taking too much time to load, try reducing the Time filter to
 
 ## Next steps
 
-- To understand more about the different policies that impact MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
+- To understand more about the different policies that effect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
 
-- To learn more about the different vulnerabilities of different MFA methods, see [All your creds are belong to us!](https://aka.ms/allyourcreds).
+- To learn more about the different vulnerabilities of different MFA methods, see [All your creds belong to us!](https://aka.ms/allyourcreds).
 
 - To learn how to move users from telecom-based methods to the Authenticator app, see [How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app](../authentication/how-to-mfa-registration-campaign.md).
 
