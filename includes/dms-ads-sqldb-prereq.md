@@ -14,7 +14,7 @@ ms.date: 09/30/2022
   - Reader role for the Azure resource group that contains the target instance of Azure SQL Database
   - Owner or Contributor role for the Azure subscription (required if you create a new instance of Azure Database Migration Service)
   
-  As an alternative to using one of these built-in roles, you can [assign a custom role](resource-custom-roles-sql-database-ads.md).
+  As an alternative to using one of these built-in roles, you can [assign a custom role](../articles/dms/resource-custom-roles-sql-database-ads.md).
   
   > [!IMPORTANT]
   > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or to view Azure recommendations in the migration wizard in Azure Data Studio.
@@ -25,4 +25,4 @@ ms.date: 09/30/2022
 
 - Migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio.
 
-- If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
+- If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](../articles/dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider).

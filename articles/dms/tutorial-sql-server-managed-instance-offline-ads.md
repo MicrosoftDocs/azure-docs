@@ -226,7 +226,7 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
 ## Monitor the database migration
 
-1. In Azure Data Studio, in the server menu under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL Database migrations.
+1. In Azure Data Studio, in the server menu under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL migrations.
 
    Under **Database migration status**, you can track migrations that are in progress, completed, and failed (if any), or you can view all database migrations.  
 

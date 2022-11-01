@@ -228,7 +228,7 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
 ## Monitor the database migration
 
-1. In Azure Data Studio, in the server menu under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL Database migrations.
+1. In Azure Data Studio, in the server menu under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL migrations.
 
    Under **Database migration status**, you can track migrations that are in progress, completed, and failed (if any), or you can view all database migrations.  
 
@@ -254,6 +254,6 @@ After all database backups are restored on the instance of SQL Server on Azure V
 
 ## Next steps
 
-- Complete a quickstart that [migrates a database to SQL Managed Instance by using the T-SQL RESTORE command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+- Complete a quickstart to [migrate a database to SQL Server on Azure Virtual Machines by using the T-SQL RESTORE command](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide?view=azuresql).
 - Learn more about [SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
 -Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
