@@ -40,8 +40,8 @@ This section describes languages supported by Azure Video Indexer API.
 - Language customization
 
 | **Language**                   | **Code**       | **Transcription** | **LID**\*   | **MLID**\*  | **Translation** | **Customization** (language model)  |
-|:------------------------------:|:--------------:|:--------------------:|:-------:|:-------:|:-------------:|:---------------:|
-| Afrikaans                        | `af-ZA`      |   |      |    |  | ✔ |
+|:------------------------------:|:--------------:|:-----------------:|:-----------:|:-----------:|:-------------:|:---------------:|
+| Afrikaans                        | `af-ZA`      | [Overview](video-indexer-overview.md)  |      |    |  | ✔ |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |      |   |  | ✔ |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔   | ✔  | ✔ | ✔ |
 | Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔   | ✔  | ✔ | ✔ |
@@ -59,7 +59,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Bulgarian                        | `bg-BG`      |   |      |   | ✔ |   |
 | Catalan                          | `ca-ES`      |   |      |   | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔   | ✔ | ✔ | ✔ |
-| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)|   | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)|   | ✔ | ✔ |
 | Chinese (Traditional)            | `zh-Hant`    |   |      |   | ✔ |  |
 | Croatian                         | `hr-HR`      |   |      |   | ✔ |  |
 | Czech                            | `cs-CZ`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
@@ -67,7 +67,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Dutch                            | `nl-NL`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English Australia                | `en-AU`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
 | English United Kingdom           | `en-GB`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United States            | `en-US`      | ✔ |  ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid) | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported by-lid-and-mlid)| ✔ | ✔ |
+| English United States            | `en-US`      | ✔ |  ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
 | Estonian                         | `et-EE`      |   |       |   | ✔ |   |
 | Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
 | Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
