@@ -18,7 +18,7 @@ Do you want to keep your telemetry for longer than the standard retention period
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * The **Export** button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
-* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* [Log Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](../logs/log-powerbi.md), you can do that without using continuous export if you've [migrated to a workspace-based resource](convert-classic-resource.md).
 * The [Data Access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup for [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
