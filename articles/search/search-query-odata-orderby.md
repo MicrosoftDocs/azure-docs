@@ -41,6 +41,8 @@ Each clause has sort criteria, optionally followed by a sort direction (`asc` fo
 
 The sort criteria can either be the path of a `sortable` field or a call to either the [`geo.distance`](search-query-odata-geo-spatial-functions.md) or the [`search.score`](search-query-odata-search-score-function.md) functions.
 
+For string fields, the default [ASCII sort order](https://en.wikipedia.org/wiki/ASCII#Printable_characters) and default [Unicode sort order](https://en.wikipedia.org/wiki/List_of_Unicode_characters) will be used. By default, sorting is case sensitive but you can use a [normalizer](search-normalizer.md) to preprocess the text before sorting to change this behavior. You can also use an `asciifolding` normalizer to convert non-ASCII characters to their ASCII equivalent, if one exists. 
+
 If multiple documents have the same sort criteria and the `search.score` function isn't used (for example, if you sort by a numeric `Rating` field and three documents all have a rating of 4), ties will be broken by document score in descending order. When document scores are the same (for example, when there's no full-text search query specified in the request), then the relative ordering of the tied documents is indeterminate.
 
 You can specify multiple sort criteria. The order of expressions determines the final sort order. For example, to sort descending by score, followed by Rating, the syntax would be `$orderby=search.score() desc,Rating desc`.
