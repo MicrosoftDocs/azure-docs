@@ -5906,7 +5906,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-is-a-dictionary.md",
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-is-dictionary.md",
             "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/dictionaries",
             "redirect_document_id": false
         },
