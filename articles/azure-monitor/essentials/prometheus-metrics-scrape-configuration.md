@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 # Customize scraping of Prometheus metrics in Azure Monitor (preview)
 
-This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](../containers/container-insights-prometheus-metrics-addon.md) in Azure Monitor.
+This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](prometheus-metrics-enable.md) in Azure Monitor.
 
 ## Configmaps
 

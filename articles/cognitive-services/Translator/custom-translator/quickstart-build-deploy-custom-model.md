@@ -54,8 +54,6 @@ On the Custom Translator portal landing page, select **New Project**. On the dia
 your project. For more details, visit [Create Project](how-to-create-project.md).
 
 ![Create project](media/how-to/how-to-create-project.png)
-
-
 ## Upload documents
 
 Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
