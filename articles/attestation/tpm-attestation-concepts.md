@@ -245,7 +245,7 @@ issuancerules
 
 ## Next steps
 
-- [Try out TPM attestation](azure-TPM-VBS-attestation-usage.md)
+- [Try out TPM attestation](azure-tpm-vbs-attestation-usage.md)
 - [Device Health Attestation on Windows and interacting with Azure Attestation](/windows/client-management/mdm/healthattestation-csp#windows-11-device-health-attestation)
 - [Learn more about claim rule grammar](claim-rule-grammar.md)
 - [Attestation policy claim rule functions](claim-rule-functions.md)

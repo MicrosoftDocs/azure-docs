@@ -28,7 +28,7 @@
   - name: Azure Diagnostic Monitoring
     href: azure-diagnostic-monitoring.md
   - name: How to perform TPM and VBS attestation
-    href: azure-TPM-VBS-attestation-usage.md
+    href: azure-tpm-vbs-attestation-usage.md
   - name: How to perform SGX attestation
     href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
