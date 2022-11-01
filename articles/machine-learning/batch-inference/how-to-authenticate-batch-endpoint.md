@@ -152,8 +152,8 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     __Request__:
     
     ```http
-    POST /{TENANT_ID}/oauth2/token
-    Host:https://login.microsoftonline.com
+    POST /{TENANT_ID}/oauth2/token HTTP/1.1
+    Host: https://login.microsoftonline.com
     ```
     
     __Body__:
