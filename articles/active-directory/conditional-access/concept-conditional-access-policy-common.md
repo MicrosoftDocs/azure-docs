@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/05/2021
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

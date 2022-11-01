@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/20/2022
 ---
 
 # Set up a single IP address for one or more integration service environments in Azure Logic Apps

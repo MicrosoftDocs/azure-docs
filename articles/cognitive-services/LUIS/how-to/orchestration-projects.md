@@ -12,6 +12,9 @@ ms.date: 05/23/2022
 
 # Combine LUIS and question answering capabilities
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Cognitive Services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they complement each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users' natural language.

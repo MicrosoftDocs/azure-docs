@@ -137,7 +137,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
     ```
 
-    <!-- If above is not run then it takes a whole day for references to update? https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#rotation -->
+    <!-- If above is not run then it takes a whole day for references to update? https://learn.microsoft.com/azure/app-service/app-service-key-vault-references#rotation -->
 
     > [!NOTE]
     > Again, you can observe the behavior change in the sample app. You can no longer load the app because it can no longer access the key vault references. The app has lost its connectivity to the key vault through the shared networking.

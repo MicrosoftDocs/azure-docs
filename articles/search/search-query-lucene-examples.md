@@ -26,7 +26,7 @@ The Lucene parser supports complex query formats, such as field-scoped queries, 
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client.
 
 Request headers must have the following values:
 

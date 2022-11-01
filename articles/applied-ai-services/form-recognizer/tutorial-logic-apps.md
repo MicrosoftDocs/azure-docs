@@ -7,18 +7,20 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/11/2022
+ms.date: 08/22/2022
 ms.author: bemabonsu
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
 ---
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer
 
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+
 > [!IMPORTANT]
 >
-> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1. 
-
+> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1 and must be used in conjuction with the [FOTT sample labeling tool](https://fott-2-1.azurewebsites.net/).
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
@@ -38,7 +40,7 @@ For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-ov
 
 ## Prerequisites
 
-To complete this tutorial, You'll need the following resources:
+To complete this tutorial, you'll need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -46,12 +48,12 @@ To complete this tutorial, You'll need the following resources:
 
   1. After the resource deploys, select **Go to resource**.
 
-  1. Copy the **Keys and Endpoint** values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For further guidance, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
+    > For more information, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
 
 * A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
 
@@ -106,11 +108,11 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
 1. A short validation check should run. After it completes successfully, select **Create** in the bottom-left corner.
 
-1. You will be redirected to a screen that says **Deployment in progress**. Give Azure some time to deploy; it can take a few minutes. After the deployment is complete, you should see a banner that says, **Your deployment is complete**. When you reach this screen, select **Go to resource**.
+1. You'll be redirected to a screen that says **Deployment in progress**. Give Azure some time to deploy; it can take a few minutes. After the deployment is complete, you should see a banner that says, **Your deployment is complete**. When you reach this screen, select **Go to resource**.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-seven.gif" alt-text="GIF showing how to get to newly created Logic App resource.":::
 
-1. You'll be redirected to the **Logic Apps Designer** page. There is a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button.
+1. You'll be redirected to the **Logic Apps Designer** page. There's a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eight.png" alt-text="Image showing how to enter the Logic App Designer.":::
 
@@ -120,7 +122,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
 ## Create automation flow
 
-Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
+Now that you have the Logic App connector resource set up and configured, the only thing left is to create the automation flow and test it out!
 
 1. Search for and select **OneDrive** or **OneDrive for Business** in the search bar.
 
@@ -140,9 +142,9 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
-1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice (preview)** from the list.
+1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice** from the list.
 
-1. Now, you should see a window where you will create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now, you should see a window where you'll create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.

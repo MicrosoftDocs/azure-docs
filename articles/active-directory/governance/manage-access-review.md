@@ -4,7 +4,7 @@ description: Learn how to manage user and guest access as membership of a group 
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

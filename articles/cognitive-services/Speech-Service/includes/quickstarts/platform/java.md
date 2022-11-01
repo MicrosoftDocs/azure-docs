@@ -26,7 +26,7 @@ The Speech SDK is compatible with Android devices that have 32/64-bit ARM and In
 
 You must install a Java Development Kit such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk). The [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) or your preferred JDK should also work. 
 
-## Install the Speech SDK
+## Install the Speech SDK for Java
 
 Some of the instructions use a specific SDK version such as `1.23.0`. You can check the latest version by [searching our GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk).
 

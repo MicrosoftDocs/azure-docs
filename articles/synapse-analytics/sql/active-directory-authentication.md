@@ -134,6 +134,7 @@ The following authentication methods are supported for Azure AD server principal
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently, Azure AD users aren't shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
 - The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools, for example, the **Synapse Administrator** role. Configure Synapse RBAC roles via Synapse Studio, for more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](../security/how-to-manage-synapse-rbac-role-assignments.md).
+- If a user is configured as an Azure Active Directory administrator and Synapse Administrator, and then removed from the Azure Active Directory administrator role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## Next steps
 

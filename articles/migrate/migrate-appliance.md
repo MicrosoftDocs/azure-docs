@@ -35,6 +35,9 @@ The appliance can be deployed using a couple of methods:
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
 
+> [!Note]
+> Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
+
 ## Appliance services
 
 The appliance has the following services:
@@ -128,7 +131,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
-graph.windows.net | Sign in to your Azure subscription.
+graph.windows.net <br> graph.microsoftazure.us | Sign in to your Azure subscription.
 login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
 management.usgovcloudapi.net |  Used for resource deployments and management operations.
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.

@@ -4,11 +4,13 @@ description: Learn how to create, decrypt, and edit a support package for your S
 author: alkohli
 ms.service: storsimple
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Create and manage a support package for StorSimple 8000 series
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

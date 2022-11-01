@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 10/28/2022
 ---
 
 # Move operation support for resources
@@ -120,6 +120,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LoadTestService](#microsoftloadtestservice)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
 > - [Microsoft.LocationServices](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
@@ -1131,7 +1132,7 @@ Jump to a resource provider namespace:
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!WARNING]
-> When moving a workspace-based Application Insights component to a different subscription, telemetry stored in the original subscription will not be accessible anymore. This is because telemetry is identified by the Application Insights resource ID, which changes when you move the component to a different subscription. Please notice that once moved, there is no way to retrieve telemetry from the original subscription.
+> Moving or renaming any Application Insights resource changes the resource ID. When the ID changes for a workspace-based resource, data sent for the prior ID is accessible only by querying the underlying Log Analytics workspace. The data will not be accessible from within the renamed or moved Application Insights resource.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1239,6 +1240,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | labaccounts | No | No | No |
 > | users | No | No | No |
+
+## Microsoft.LoadTestService
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | loadtests | No | No | No |
 
 ## Microsoft.LocationBasedServices
 
@@ -1479,7 +1487,7 @@ Jump to a resource provider namespace:
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | Yes - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | Yes - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes | Yes | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | Yes | Yes - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
 > | routefilters | No | No | No |
 > | routetables | Yes | Yes | No |
@@ -1490,7 +1498,7 @@ Jump to a resource provider namespace:
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | Yes | Yes | No |
+> | virtualnetworkgateways | Yes | Yes - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
 > | virtualnetworks | Yes | Yes | No |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | Yes | Yes | No |

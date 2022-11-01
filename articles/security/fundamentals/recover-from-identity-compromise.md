@@ -93,7 +93,7 @@ Implementing new updates will help identify any prior campaigns and prevent futu
 
 Therefore, we recommend also taking the following actions:
 
-- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
+- Make sure that you've applied the [Microsoft cloud security benchmark](/security/benchmark/azure), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 - Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
 
@@ -151,7 +151,7 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |Environment  |Description  |
 |---------|---------|
 |**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions<br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
-|**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
+|**All on-premises environments**     |       - Review privileged access on-premises and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  - Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
 |**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- Power Apps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options. <br>- Review ApplicationImpersonation rights and reduce any use of legacy authentication as much as possible. <br>- Validate that MFA is enforced and that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
@@ -397,7 +397,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |Activity  |Description  |
 |---------|---------|
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
-|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
+|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Azure Active Directory.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |

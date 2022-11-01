@@ -1,17 +1,20 @@
 ---
 title: About workload zone configuration in automation framework
-description: Overview of the SAP workload zone configuration process within the SAP deployment automation framework on Azure.
+description: Overview of the SAP workload zone configuration process within the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 08/13/2022
+ms.date: 09/13/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Workload zone configuration in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP deployment automation framework on Azure](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
+
+:::image type="content" source="./media/automation-deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
+
 
 ## Workload zone deployment configuration
 
@@ -187,22 +190,23 @@ use_private_endpoint      = true
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type         | Notes  |
 > | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
-> | `ANF_account_arm_id`                 | Azure resource identifier for the Azure NetApp Files Account.          | Optional     | For brown field deployments. |
 > | `ANF_account_name`                   | Name for the Azure NetApp Files Account.                               | Optional     | |
 > | `ANF_service_level`                  | Service level for the Azure NetApp Files Capacity Pool.                | Optional     | |
-> | `ANF_use_existing_pool`              | Use existing the Azure NetApp Files Capacity Pool.                     | Optional     | |
 > | `ANF_pool_size`                      | The size (in GB) of the Azure NetApp Files Capacity Pool.              | Optional     | |
+> | `ANF_qos_type`                       | The Quality of Service type of the pool (Auto or Manual).              | Optional     | |
+> | `ANF_use_existing_pool`              | Use existing the Azure NetApp Files Capacity Pool.                     | Optional     | |
 > | `ANF_pool_name`                      | The name of the Azure NetApp Files Capacity Pool.                      | Optional     | |
+> | `ANF_account_arm_id`                 | Azure resource identifier for the Azure NetApp Files Account.          | Optional     | For brown field deployments. |
 > |                                      |                                                                        |              | |
-> | `ANF_use_existing_transport_volume`  | Defines if an existing transport volume is used.                       | Optional     | |
-> | `ANF_transport_volume_name`          | Defines the transport volume name.                                     | Optional     | |
+> | `ANF_transport_volume_use_existing`  | Defines if an existing transport volume is used.                       | Optional     | |
+> | `ANF_transport_volume_name`          | Defines the transport volume name.                                     | Optional     | For brown field deployments. |
 > | `ANF_transport_volume_size`          | Defines the size of the transport volume in GB.                        | Optional     | |
 > | `ANF_transport_volume_throughput`    | Defines the throughput of the transport volume.                        | Optional     | |
 > |                                      |                                                                        |              | |
-> | `ANF_use_existing_install_volume`  | Defines if an existing install volume is used.                           | Optional     | |
-> | `ANF_install_volume_name`          | Defines the install volume name.                                         | Optional     | |
-> | `ANF_install_volume_size`          | Defines the size of the install volume in GB.                            | Optional     | |
-> | `ANF_install_volume_throughput`    | Defines the throughput of the install volume.                            | Optional     | |
+> | `ANF_install_volume_use_existing`    | Defines if an existing install volume is used.                         | Optional     | |
+> | `ANF_install_volume_name`            | Defines the install volume name.                                       | Optional     | For brown field deployments. |
+> | `ANF_install_volume_size`            | Defines the size of the install volume in GB.                          | Optional     | |
+> | `ANF_install_volume_throughput`      | Defines the throughput of the install volume.                          | Optional     | |
 
 
 **Minimum required ANF definition**
@@ -214,15 +218,25 @@ ANF_service_level         = "Ultra"
 
 ```
 
+### DNS Support   
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                             | Description                                                            | Type         | Notes  |
+> | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
+> | `use_custom_dns_a_registration`      | Should a custom DNS A record be created when using private endpoints.  | Optional     | |
+> | `management_dns_subscription_id`     | Custom DNS subscription ID.                                            | Optional     | |
+> | `management_dns_resourcegroup_name`  | Custom DNS resource group name.                                        | Optional     | |
+> |                                      |                                                                        |              | |
 ## Other Parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
-> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.  |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.  |
+> | `enable_purge_control_for_keyvaults` | Is purge control is enabled on the Key Vault.                          | Optional | Use only for test deployments         |
+> | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional |                                       |
+> | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional |                                       |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.          |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.          |
 
 
 ## ISCSI Parameters
@@ -234,7 +248,7 @@ ANF_service_level         = "Ultra"
 > | `iscsi_subnet_name`              | The name of the `iscsi` subnet.                                           | Optional  |                                        |
 > | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet.                                 | Mandatory | For green field deployments.        |
 > | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet.                     | Mandatory | For brown field deployments.   |
-> | `iscsi_subnet_nsg_name`          |  The name of the `iscsi` Network Security Group name                      | Optional  |                                        |
+> | `iscsi_subnet_nsg_name`          | The name of the `iscsi` Network Security Group name                       | Optional  |                                        |
 > | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` Network Security Group      | Mandatory | For brown field deployments.   |
 > | `iscsi_count`                    | The number of iSCSI Virtual Machines                                      | Optional  |                                        |   
 > | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
@@ -242,7 +256,20 @@ ANF_service_level         = "Ultra"
 > | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines         | Optional  |                                        |
 > | `iscsi__authentication_username` | Administrator account name                                                | Optional  |                                        |
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                               | Optional  | ignored if `iscsi_use_DHCP` is defined |
- 
+
+
+## Utility VM Parameters
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                               | Type      | Notes                                          |
+> | -------------------------------- | ------------------------------------------------------------------------- | --------- | ---------------------------------------------- |
+> | `utility_vm_count`               | Defines the number of Utility virtual machines to deploy.                 | Optional  | Use the utility virtual machine to host SAPGui |
+> | `utility_vm_size`                | Defines the SKU for the Utility virtual machines.                         | Optional  | Default: Standard_D4ds_v4                      |
+> | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used.                      | Optional  |                                                |
+> | `utility_vm_image`               | Defines the virtual machine image to use.                                 | Optional  | Default: Windows Server 2019                   |
+> | `utility_vm_nic_ips`             | Defines the IP addresses for the virtual machines.                        | Optional  |                                                |
+
 
 ## Terraform Parameters
 

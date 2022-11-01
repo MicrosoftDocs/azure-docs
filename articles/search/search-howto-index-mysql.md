@@ -39,7 +39,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 - Read permissions. A *full access* connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Reader** permissions on MySQL.
 
-- A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
+- A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
 
   You can also use the [Azure SDK for .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql). You can't use the portal for indexer creation, but you can manage indexers and data sources once they're created.
 

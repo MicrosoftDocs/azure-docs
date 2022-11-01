@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB input binding in Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -470,7 +470,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, look up ID from string
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -888,7 +888,7 @@ public class DocByIdFromQueryString {
 }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Azure Cosmos DB. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 <a id="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>
 
@@ -1087,7 +1087,7 @@ This section contains the following examples that read a single document by spec
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -1287,9 +1287,9 @@ module.exports = async function (context, input) {
 
 ### Queue trigger, look up ID from JSON
 
-The following example demonstrates how to read and update a single Cosmos DB document. The document's unique identifier is provided through JSON value in a queue message.
+The following example demonstrates how to read and update a single Azure Cosmos DB document. The document's unique identifier is provided through JSON value in a queue message.
 
-The Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
+The Azure Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
 
 <a name="queue-trigger-look-up-id-from-json-ps"></a>
 
@@ -1331,9 +1331,9 @@ Push-OutputBinding -Name InputDocumentOut -Value $Document
 
 ### HTTP trigger, look up ID from query string
 
-The following example demonstrates how to read and update a single Cosmos DB document from a web API. The document's unique identifier is provided through a querystring parameter from the HTTP request, as defined in the binding's `"Id": "{Query.Id}"` property.
+The following example demonstrates how to read and update a single Azure Cosmos DB document from a web API. The document's unique identifier is provided through a querystring parameter from the HTTP request, as defined in the binding's `"Id": "{Query.Id}"` property.
 
-The Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
+The Azure Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
 
 ```json
 { 
@@ -1368,7 +1368,7 @@ The Cosmos DB input binding is listed first in the list of bindings found in the
 } 
 ```
 
-The the _run.ps1_ file has the PowerShell code which reads the incoming document and outputs changes.
+The _run.ps1_ file has the PowerShell code which reads the incoming document and outputs changes.
 
 ```powershell
 using namespace System.Net
@@ -1400,9 +1400,9 @@ if (-not $ToDoItem) {
 
 ### HTTP trigger, look up ID from route data
 
-The following example demonstrates how to read and update a single Cosmos DB document from a web API. The document's unique identifier is provided through a route parameter. The route parameter is defined in the HTTP request binding's `route` property and referenced in the Cosmos DB `"Id": "{Id}"` binding property.
+The following example demonstrates how to read and update a single Azure Cosmos DB document from a web API. The document's unique identifier is provided through a route parameter. The route parameter is defined in the HTTP request binding's `route` property and referenced in the Azure Cosmos DB `"Id": "{Id}"` binding property.
 
-The Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
+The Azure Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
 
 ```json
 { 
@@ -1438,7 +1438,7 @@ The Cosmos DB input binding is listed first in the list of bindings found in the
 } 
 ```
 
-The the _run.ps1_ file has the PowerShell code which reads the incoming document and outputs changes.
+The _run.ps1_ file has the PowerShell code which reads the incoming document and outputs changes.
 
 ```powershell
 using namespace System.Net
@@ -1469,7 +1469,7 @@ if (-not $ToDoItem) {
 
 ### Queue trigger, get multiple docs, using SqlQuery
 
-The following example demonstrates how to read multiple Cosmos DB documents. The function's configuration file (_function.json_) defines the binding properties, which includes the `sqlQuery`. The SQL statement provided to the `sqlQuery` property selects the set of documents provided to the function.
+The following example demonstrates how to read multiple Azure Cosmos DB documents. The function's configuration file (_function.json_) defines the binding properties, which includes the `sqlQuery`. The SQL statement provided to the `sqlQuery` property selects the set of documents provided to the function.
 
 ```json
 { 
@@ -1483,7 +1483,7 @@ The following example demonstrates how to read multiple Cosmos DB documents. The
 } 
 ```
 
-The the _run1.ps_ file has the PowerShell code which reads the incoming documents.
+The _run1.ps1_ file has the PowerShell code which reads the incoming documents.
 
 ```powershell
 param($QueueItem, $Documents, $TriggerMetadata)
@@ -1507,7 +1507,7 @@ This section contains the following examples that read a single document by spec
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -1783,10 +1783,10 @@ Only JSON string inputs are currently supported.
 
 ---
 
-::: zone-end  
+::: zone-end
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
-From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), the [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotation exposes Cosmos DB data to the function. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), the [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotation exposes Azure Cosmos DB data to the function. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell"  
 Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#example) for more detail.

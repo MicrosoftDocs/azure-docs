@@ -8,16 +8,26 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/13/2022
 ms.author: pafarley
 ---
 
-# Call the Read API
+# Call the Computer Vision 3.2 GA Read API
 
-In this guide, you'll learn how to call the Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs.
+In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+[!INCLUDE [read-editions](../includes/read-editions.md)]
+
+## Input requirements
+
+The **Read** call takes images and documents as its input. They have the following requirements:
+
+* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
+* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Determine how to process the data (optional)
 
@@ -32,8 +42,8 @@ When using the Read operation, use the following values for the optional `model-
 | Not provided | Latest GA model |
 | latest | Latest GA model|
 | [2022-04-30](../whats-new.md#may-2022) | Latest GA model. 164 languages for print text and 9 languages for handwritten text along with several enhancements on quality and performance |
-| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwriitten text, adds support for Japanese and Korean. |
-| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages, For handwriitten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
+| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwritten text, adds support for Japanese and Korean. |
+| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages. For handwritten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
 | 2021-04-12 | 2021 GA model |
 
 ### Input language

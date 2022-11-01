@@ -7,11 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: blackmist
-ms.author: larryfr
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
 ---
 
 # CLI (v2) batch deployment YAML schema
@@ -36,7 +35,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `model` | string or object | **Required.** The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline, follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
 | `code_configuration` | object | Configuration for the scoring code logic. <br><br> This property is not required if your model is in MLflow format. | | |
 | `code_configuration.code` | string | The local directory that contains all the Python source code to score the model. | | |
-| `code_configuration.scoring_script` | string | The Python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation (for example, load the model in memory). `init()` will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` function should return a pandas DataFrame or an array. Each returned element indicates one successful run of input element in the `mini_batch`. For more information on how to author scoring script, see [Understanding the scoring script](how-to-use-batch-endpoint.md#understanding-the-scoring-script).| | |
+| `code_configuration.scoring_script` | string | The Python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation (for example, load the model in memory). `init()` will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` function should return a pandas DataFrame or an array. Each returned element indicates one successful run of input element in the `mini_batch`. For more information on how to author scoring script, see [Understanding the scoring script](batch-inference/how-to-use-batch-endpoint.md#understanding-the-scoring-script).| | |
 | `environment` | string or object | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> This property is not required if your model is in MLflow format. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `compute` | string | **Required.** Name of the compute target to execute the batch scoring jobs on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | | |
 | `resources.instance_count` | integer | The number of nodes to use for each batch scoring job. | | `1` |
@@ -61,11 +60,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
 
 ## Next steps
 

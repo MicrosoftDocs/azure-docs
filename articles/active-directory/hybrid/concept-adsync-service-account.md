@@ -4,7 +4,7 @@ description: This topic describes the ADSync service account and provides best p
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

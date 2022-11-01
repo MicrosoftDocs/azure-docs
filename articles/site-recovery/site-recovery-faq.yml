@@ -3,7 +3,7 @@ metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
-  ms.service: azure
+  ms.service: site-recovery
   ms.date: 05/27/2021
 
 
@@ -147,6 +147,9 @@ sections:
          How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
         answer: |
               Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
+              
+              >[!Note]
+              >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
 
       - question: |
          How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
@@ -167,6 +170,12 @@ sections:
               - Classic storage accounts:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
+      - question: |
+         Can Azure Site Recovery track source VM changes outside the Source OS?
+        answer: |
+              Azure Site Recovery doesn't track source VM changes outside the Source OS.
+              For example, If you are using Azure to Azure replication and change the size of the source VM, the change in size of source VM is not replicated to the target VM.
 
   - name: Disaster recovery
     questions:

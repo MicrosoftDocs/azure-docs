@@ -22,7 +22,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
@@ -168,7 +168,7 @@ Two inputs are needed: a text input for the callee ID, and a button for placing 
 
 ### Create the main activity scaffolding and bindings
 
-With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the call button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This will occur only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -276,7 +276,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With a user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. 
+With a user token, an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
 
 For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
@@ -322,6 +322,6 @@ private void startCall() {
 
 ## Launch the app and call the echo bot
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you're able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
 :::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::

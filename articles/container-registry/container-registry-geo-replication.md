@@ -1,14 +1,15 @@
 ---
 title: Geo-replicate a registry
-description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas. Geo-replication is a feature of the Premium service tier.
+description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-primary regional replicas. Geo-replication is a feature of the Premium service tier.
 author: stevelas
 ms.topic: article
-ms.date: 06/28/2021
-ms.author: stevelas
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+
 ---
 # Geo-replication in Azure Container Registry
 
-Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries. 
+Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. 
 
 A geo-replicated registry provides the following benefits:
 
@@ -21,6 +22,15 @@ A geo-replicated registry provides the following benefits:
 > [!NOTE]
 > * If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
 > * If you want to move a registry to a different Azure region, instead of geo-replicating the registry, see [Manually move a container registry to another region](manual-regional-move.md).
+
+## Prerequisites
+
+* The user will require following permissions (at registry level) to create/delete replications:
+
+    | Permission | Description |
+    |---|---|
+    | Microsoft.ContainerRegistry/registries/write | Create a replication |
+    | Microsoft.ContainerRegistry/registries/replications/write | Delete a replication |
 
 ## Example use case
 Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs [Azure Kubernetes Service](../aks/index.yml) (AKS) clusters in West US, East US, Canada Central, and West Europe. The website application, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database.
@@ -102,7 +112,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 * For high availability and resiliency, we recommend creating a registry in a region that supports enabling [zone redundancy](zone-redundancy.md). Enabling zone redundancy in each replica region is also recommended.
 * If an outage occurs in the registry's home region (the region where it was created) or one of its replica regions, a geo-replicated registry remains available for data plane operations such as pushing or pulling container images. 
 * If the registry's home region becomes unavailable, you may be unable to carry out registry management operations including configuring network rules, enabling availability zones, and managing replicas.
-* To plan for high availablity of a geo-replicated registry encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
+* To plan for high availablity of a geo-replicated registry encrypted with a [customer-managed key](tutorial-enable-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
 
 ## Delete a replica
 

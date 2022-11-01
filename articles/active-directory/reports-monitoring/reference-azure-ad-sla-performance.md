@@ -3,8 +3,8 @@ title: Azure Active Directory SLA performance | Microsoft Docs
 description: Learn about the Azure AD SLA performance
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
+author: shlipsey3
+manager: amycolannino
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,8 +13,8 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/15/2022
-ms.author: markvi
+ms.date: 09/08/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -53,15 +53,15 @@ For each month, we truncate the SLA attainment at three places after the decimal
 
 | Month     | 2021    | 2022    |
 | ---       | ---     | ---     |
-| January   |         | 99.999% |
+| January   |         | 99.998% |
 | February  | 99.999% | 99.999% |
-| March     | 99.568% | 99.999% |
+| March     | 99.568% | 99.998% |
 | April     | 99.999% | 99.999% |
 | May       | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% |
-| July      | 99.999% |         |
-| August    | 99.999% |         |
-| September | 99.999% |         |
+| July      | 99.999% | 99.999% |
+| August    | 99.999% | 99.999% |
+| September | 99.999% | 99.998% |
 | October   | 99.999% |         |
 | November  | 99.998% |         |
 | December  | 99.978% |         |

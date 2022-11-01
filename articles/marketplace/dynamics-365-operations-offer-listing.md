@@ -4,8 +4,8 @@ description: Configure Dynamics 365 for Operations Apps offer listing details on
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: JasonWHowell
-ms.author: jasonh
+author: trkeya
+ms.author: trkeya
 ms.date: 12/03/2021
 ---
 

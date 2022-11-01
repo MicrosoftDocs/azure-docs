@@ -95,7 +95,7 @@ Reset-StorageSyncServer
 ```
 
 > [!Note]  
-> If the server is part of a cluster, you can use the optional *Reset-StorageSyncServer -CleanClusterRegistration* parameter to also remove the cluster registration.
+> If the server is part of a cluster, use the Reset-StorageSyncServer -CleanClusterRegistration parameter to remove the server from the Azure File Sync cluster registration detail.
 
 <a id="web-site-not-trusted"></a>**When I register a server, I see numerous "web site not trusted" responses. Why?**  
 This issue occurs when the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information about how to correctly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Server to use with Azure File Sync](file-sync-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).

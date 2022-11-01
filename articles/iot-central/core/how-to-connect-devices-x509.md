@@ -3,7 +3,7 @@ title: Connect devices with X.509 certificates in an Azure IoT Central applicati
 description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/15/2022
+ms.date: 09/13/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -35,7 +35,7 @@ This guide builds on the samples shown in the [Create and connect a client appli
 
 ## Prerequisites
 
-Complete the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial. This includes installing the prerequisites for your choice of programming language.
+To complete the steps in this how-to guide, you should first complete the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
 
 In this how-to guide, you generate some test X.509 certificates. To be able to generate these certificates, you need:
 
@@ -89,33 +89,39 @@ Make a note of the location of these files. You need it later.
 
 1. Open your IoT Central application and navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-1. Select **+ New**, and create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
+1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
 
-1. Open the enrollment group you created and select **Manage Primary**.
+1. In the enrollment group you created, select **Manage primary**.
 
-1. Select file option to upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously:
+1. In the **Primary certificate** panel, select **Add certificate**.
 
-    ![Certificate Upload](./media/how-to-connect-devices-x509/certificate-upload.png)
+1. Upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously.
 
-1. To complete the verification, generate the verification code, copy it, and then use it to create an X.509 verification certificate at the command prompt:
+1. If you're using an intermediate or root certificate authority that you trust and know you have full ownership of the certificate, you can self-attest that you've verified the certificate by setting certificate status verified on upload to **On**. Otherwise, set certificate status verified on upload to **Off**.
+
+1. If you set certificate status verified on upload to **Off**, select **Generate verification code**.
+
+1. Copy the verification code, copy it, and then create an X.509 verification certificate. For example, at the command prompt:
 
     ```cmd/sh
     node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
     ```
 
-1. Select **Verify** to upload the signed verification certificate _verification_cert.pem_ to complete the verification:
+1. Select **Verify** to upload the signed verification certificate _verification_cert.pem_ to complete the verification.
+
+1. The status of the primary certificate is now **Verified**:
 
     ![Verified Certificate](./media/how-to-connect-devices-x509/verified.png)
 
 You can now connect devices that have an X.509 certificate derived from this primary root certificate.
 
-After you save the enrollment group, make a note of the ID Scope.
+After you save the enrollment group, make a note of the ID scope.
 
 ### Run sample device code
 
 :::zone pivot="programming-language-csharp"
 
-If you're using Windows, the X.509 certificates must be in the Windows certificate store for the sample to work. In Windows Explorer, double-click on each PFX files generated previously - `mytestrootcert.pfx` and `sampleDevice01.pfx`. In the **Certificate Import Wizard**, select **Current User** as the store location, enter `1234` as the password, and let the wizard choose the certificate store automatically. The wizard imports the certificates to the current user's personal store.
+If you're using Windows, the X.509 certificates must be in the Windows certificate store for the sample to work. In Windows Explorer, double-click on the PFX files you generated previously - `mytestrootcert.pfx` and `sampleDevice01.pfx`. In the **Certificate Import Wizard**, select **Current User** as the store location, enter `1234` as the password, and let the wizard choose the certificate store automatically. The wizard imports the certificates to the current user's personal store.
 
 [!INCLUDE [iot-central-x509-csharp-code](../../../includes/iot-central-x509-csharp-code.md)]
 
@@ -239,27 +245,25 @@ These commands produce the following device certificates:
 
 ### Create individual enrollment
 
-1. In the Azure IoT Central application, select **Devices**, and create a new device with **Device ID** as _mytestselfcertprimary_ from the thermostat device template. Make a note of the **ID Scope**, you use it later.
+1. In the Azure IoT Central application, select **Devices**, and create a new device with **Device ID** as _mytestselfcertprimary_ from the thermostat device template. Make a note of the **ID scope**, you use it later.
 
 1. Open the device you created and select **Connect**.
 
-1. Select **Individual Enrollments** as the **Connect Method** and **Certificates (X.509)** as the mechanism:
+1. Select **Individual enrollment** as the **Authentication type** and **Certificates (X.509)** as the **Authentication method**.
 
-    ![Individual enrollment](./media/how-to-connect-devices-x509/individual-device-connect.png)
+1. Upload the _mytestselfcertprimary_cert.pem_ file that you generated previously as the primary certificate.
 
-1. Select file option under primary and upload the certificate file called _mytestselfcertprimary_cert.pem_ that you generated previously.
+1. Upload the _mytestselfcertsecondary_cert.pem_ file that you generated previously as the secondary certificate. Then select **Save**.
 
-1. Select the file option for the secondary certificate and upload the certificate file called _mytestselfcertsecondary_cert.pem._ Then select **Save**:
+1. The device now has an individual enrollment with X.509 certificates.
 
-    ![Individual enrollment Certificate Upload](./media/how-to-connect-devices-x509/individual-enrollment.png)
-
-The device is now provisioned with X.509 certificate.
+    ![Individual enrollment certificates](./media/how-to-connect-devices-x509/individual-enrollment.png)
 
 ### Run a sample individual enrollment device
 
 :::zone pivot="programming-language-csharp"
 
-If you're using Windows, the X.509 certificates must be in the Windows certificate store for the sample to work. In Windows Explorer, double-click on each PFX files generated previously - `mytestselfcertprimary.pfx` and `mytestselfcertsecondary.pfx`. In the **Certificate Import Wizard**, select **Current User** as the store location, enter `1234` as the password, and let the wizard choose the certificate store automatically. The wizard imports the certificates to the current user's personal store.
+If you're using Windows, the X.509 certificates must be in the Windows certificate store for the sample to work. In Windows Explorer, double-click on the PFX files you generated previously - `mytestselfcertprimary.pfx` and `mytestselfcertsecondary.pfx`. In the **Certificate Import Wizard**, select **Current User** as the store location, enter `1234` as the password, and let the wizard choose the certificate store automatically. The wizard imports the certificates to the current user's personal store.
 
 [!INCLUDE [iot-central-x509-csharp-code](../../../includes/iot-central-x509-csharp-code.md)]
 
@@ -451,9 +455,9 @@ To handle certificate expirations, use the following approach to update the curr
 
 ### Individual enrollments and certificate expiration
 
-If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
+If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision in your application.
 
-When the secondary certificate nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
+When the secondary certificate nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision in your application.
 
 1. Select **Devices**, and select the device.
 

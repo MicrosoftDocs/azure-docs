@@ -1,30 +1,35 @@
 ---
 title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
-description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
+description: Audio Content Creation is an online tool that allows you to run text-to-speech synthesis without writing any code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 09/25/2022
 ms.author: eur
 ---
 
-# Improve synthesis with the Audio Content Creation tool
+# Speech synthesis with the Audio Content Creation tool
 
-[Audio Content Creation](https://aka.ms/audiocontentcreation) is an easy-to-use and powerful tool that lets you build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can fine-tune text-to-speech voices and design customized audio experiences in an efficient and low-cost way.
+You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+
+Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-You have easy access to a broad portfolio of [languages and voices](language-support.md#text-to-speech). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+- No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
+- Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
 
-To learn more, view the [Audio Content Creation tutorial video](https://youtu.be/ygApYuOOG6w).
+You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=stt-tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+
+To learn more, view the Audio Content Creation tutorial video [on YouTube](https://youtu.be/ygApYuOOG6w).
 
 ## Get started
 
-Audio Content Creation is a free tool, but you'll pay for the Speech service that you consume. To work with the tool, you need to sign in with an Azure account and create a Speech resource. For each Azure account, you have free monthly speech quotas, which include 0.5 million characters for prebuilt neural voices (referred to as *Neural* on the [pricing page](https://aka.ms/speech-pricing)). The monthly allotted amount is usually enough for a small content team of around 3-5 people. 
+The Audio Content Creation tool in Speech Studio is free to access, but you'll pay for Speech service usage. To work with the tool, you need to sign in with an Azure account and create a Speech resource. For each Azure account, you have free monthly speech quotas, which include 0.5 million characters for prebuilt neural voices (referred to as *Neural* on the [pricing page](https://aka.ms/speech-pricing)). The monthly allotted amount is usually enough for a small content team of around 3-5 people. 
 
 The next sections cover how to create an Azure account and get a Speech resource.
 
@@ -70,7 +75,7 @@ Each step in the preceding diagram is described here:
 1. Choose the Speech resource you want to work with.
 
 1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
-1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use prebuilt neural voices or a custom neural voice.
+1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=stt-tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
@@ -187,7 +192,7 @@ Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocont
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
 
-Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
+Users who are in the same Speech resource will see each other's work in the Audio Content Creation tool. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 
 ### Remove users from a Speech resource
 

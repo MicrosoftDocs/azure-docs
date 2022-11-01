@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 06/07/2022
+ms.date: 09/09/2022
 ms.author: danlep
 ---
 
@@ -79,7 +79,7 @@ The following table shows the schema formats and request or response content typ
 The policy validates the following content in the request or response against the schema:
 
 * Presence of all required properties. 
-* Absence of additional properties, if the schema has the `additionalProperties` field set to `false`.
+* Presence or absence of additional properties, if the schema has the `additionalProperties` field set. May be overriden with the `allow-additional-properties` attribute.
 * Types of all properties. For example, if a schema specifies a property as an integer, the request (or response) must include an integer and not another type, such as a string.
 * The format of the properties, if specified in the schema - for example, regex (if the `pattern` keyword is specified), `minimum` for integers, and so on.
 
@@ -93,7 +93,7 @@ The policy validates the following content in the request or response against th
     <content-type-map any-content-type-value="content type string" missing-content-type-value="content type string">
         <type from|when="content type string" to="content type string" />
     </content-type-map>
-    <content type="content type string" validate-as="json|xml|soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore|prevent|detect" />
+    <content type="content type string" validate-as="json|xml|soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore|prevent|detect" allow-additional-properties="true|false" />
 </validate-content>
 ```
 
@@ -101,14 +101,14 @@ The policy validates the following content in the request or response against th
 
 #### JSON schema validation
 
-In the following example, API Management interprets requests with an empty content type header or requests with a content type header `application/hal+json` as requests with the content type `application/json`. Then, API Management performs the validation in the detection mode against a schema defined for the `application/json` content type in the API definition. Messages with payloads larger than 100 KB are blocked. 
+In the following example, API Management interprets requests with an empty content type header or requests with a content type header `application/hal+json` as requests with the content type `application/json`. Then, API Management performs the validation in the detection mode against a schema defined for the `application/json` content type in the API definition. Messages with payloads larger than 100 KB are blocked. Requests containing additional properties are blocked, even if the schema's `additionalProperties` field is configured to allow additional properties.
 
 ```xml
 <validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent" errors-variable-name="requestBodyValidation">
     <content-type-map missing-content-type-value="application/json">
         <type from="application/hal+json" to="application/json" />
     </content-type-map>
-    <content type="application/json" validate-as="json" action="detect" />
+    <content type="application/json" validate-as="json" action="detect" allow-additional-properties="false" />
 </validate-content>
 ```
 
@@ -147,6 +147,7 @@ In the following example, API Management interprets any request as a request wit
 | schema-id | Name of an existing schema that was [added](#schemas-for-content-validation) to the API Management instance for content validation. If not specified, the default schema from the API definition is used. | No | N/A |
 | schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`. The attribute should return a JSON object that API Management handles as a valid JSON schema.<br/><br/> For an XML schema, `schema-ref` isn't supported, and any top-level schema element can be used as the root of the XML request or response payload. The validation checks that all elements starting from the XML request or response payload root adhere to the provided XML schema. | No | N/A |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
+| allow-additional-properties |  Boolean. For a JSON schema, specifies whether to implement a runtime override of the `additionalProperties` value configured in the schema: <br> - `true`: allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to not allow additional properties. <br> - `false`: do not allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to allow additional properties.<br/><br/>If the attribute isn't specified, the policy validates additional properties according to configuration of the `additionalProperties` field in the schema. | No |   N/A  |
 
 ### Schemas for content validation
 

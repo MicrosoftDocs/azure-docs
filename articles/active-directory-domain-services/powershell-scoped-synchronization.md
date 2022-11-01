@@ -3,7 +3,7 @@ title: Scoped synchronization using PowerShell for Azure AD Domain Services | Mi
 description: Learn how to use Azure AD PowerShell to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

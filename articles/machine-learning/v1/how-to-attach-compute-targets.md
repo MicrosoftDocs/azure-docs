@@ -3,8 +3,8 @@ title: Train models with the Azure ML Python SDK (v1) (preview)
 titleSuffix: Azure Machine Learning
 description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference with SDK v1.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-attach-compute-targets.md)
-> * [v2 (preview)](../how-to-train-sdk.md)
+> * [v2 (current version)](../how-to-train-model.md)
 	 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
@@ -59,13 +59,13 @@ With Azure Machine Learning, you can train your model on various resources or en
 
 ## Local computer
 
-When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
+When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
 When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Remote virtual machines
 
-Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](../how-to-configure-environment.md#dsvm).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](how-to-configure-environment-v1.md).
 
 > [!TIP]
 > Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
@@ -367,7 +367,7 @@ See these notebooks for examples of training with various compute targets:
 
 ## Next steps
 
-* Use the compute resource to [configure and submit a training run](../how-to-set-up-training-targets.md).
+* Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).

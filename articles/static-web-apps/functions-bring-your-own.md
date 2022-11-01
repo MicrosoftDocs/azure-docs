@@ -1,17 +1,18 @@
 ---
 title: Bring your own functions to Azure Static Web Apps
 description: Use an existing Azure Functions app with your Azure Static Web Apps site.
+ms.custom: engagement-fy23
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 10/13/2022
 ms.author: cshoe
 ---
 
 # Bring your own functions to Azure Static Web Apps
 
-Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [overview](apis-functions.md) for details between the two configurations.
+Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. For more information on the differences in configurations, see the [overview](apis-functions.md).
 
 This article demonstrates how to link an existing Azure Functions app to an Azure Static Web Apps resource.
 
@@ -32,7 +33,7 @@ Once linked, you can access that same endpoint through the `api` path from your 
 https://red-sea-123.azurestaticapps.net/api/getProducts
 ```
 
- Both endpoint URLs point to the same function.
+Both endpoint URLs point to the same function.
 
 ## Link an existing Azure Functions app
 
@@ -54,12 +55,12 @@ Before you associate an existing Functions app, you first need to adjust to conf
     | Subscription | Select your Azure subscription name. |
     | Resource name | Select the Azure Functions app name. |
 
-1. Select the **Link** button.
+2. Select **Link**.
 
 The Azure Functions app is now mapped to the `/api` route of your static web app.
 
 > [!IMPORTANT]
-> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file before you link an existing Functions application.
+> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file before you link an existing Functions application. Also, calls assume that the external function app retains the default `api` route prefix. Many apps remove this prefix in the *host.json*. Make sure the prefix is in place in the configuration, otherwise the call fails.
 
 ## Deployment
 

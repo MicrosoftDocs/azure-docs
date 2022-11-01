@@ -2,7 +2,7 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/24/2022
 ms.custom: references_regions
 ms.reviewer: mmcc
 ---
@@ -20,7 +20,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
+* If you're looking to [explore your data in Power BI](../logs/log-powerbi.md), you can do that without using Continuous Export if you've [migrated to a workspace-based resource](convert-classic-resource.md).
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
@@ -271,7 +271,9 @@ To migrate to diagnostic settings export:
 > [!CAUTION]
 > If you want to store diagnostic logs in a Log Analytics workspace, there are two things to consider to avoid seeing duplicate data in Application Insights:
 > * The destination can't be the same Log Analytics workspace that your Application Insights resource is based on.
-> * The Application Insights user can't have access to both the Application Insights resource and the workspace created for diagnostic logs. This can be done with [Azure role-based access control (Azure RBAC)](./resources-roles-access-control.md).
+> * The Application Insights user can't have access to both workspaces. This can be done by setting the Log Analytics [Access control mode](../logs/log-analytics-workspace-overview.md#permissions) to **Requires workspace permissions** and ensuring through [Azure role-based access control (Azure RBAC)](./resources-roles-access-control.md) that the user only has access to the Log Analytics workspace the Application Insights resource is based on.
+> 
+> These steps are necessary because Application Insights accesses telemetry across Application Insight resources (including Log Analytics workspaces) to provide complete end-to-end transaction operations and accurate application maps. Because diagnostic logs use the same table names, duplicate telemetry can be displayed if the user has access to multiple resources containing the same data.
 
 <!--Link references-->
 

@@ -125,6 +125,7 @@ The route config definition includes the following parts:
 
 - OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app.
+- protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -142,6 +143,7 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
    "open_api": {
       "uri": "<OpenAPI-URI>"
    },
+   "protocol": "<protocol-of-routed-app>",
    "routes": [
       {
          "title": "<title-of-route>",
@@ -193,7 +195,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
 
    You can also use CLI to do it, as shown in the following command:
 
@@ -214,7 +216,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    You can also view those properties in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
 
 1. Configure routing rules to apps.
 
@@ -224,6 +226,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    ```json
    {
+      "protocol": "HTTP",
       "routes": [
          {
             "title": "Customers service",
@@ -254,7 +257,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    You can also view the routes in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
+   :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
 
 1. Use the following command to access the `customers service` and `owners` APIs through the gateway endpoint:
 

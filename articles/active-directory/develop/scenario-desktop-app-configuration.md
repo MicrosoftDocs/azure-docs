@@ -176,7 +176,7 @@ Before the call to the `.Build()` method, you can override your configuration wi
 
 # [Java](#tab/java)
 
-Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples/public-client/).
 
 ```Java
 PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)

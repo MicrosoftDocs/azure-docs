@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 09/06/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -137,10 +137,11 @@ The steps below will set permissions for all three.
 
 ### Apply permissions to scan the contents of the workspace
 
-You can set up authentication for an Azure Synapse source in either of two ways. Select your scenario below for steps to apply permissions.
+You can set up authentication for an Azure Synapse source any of the following options. Select your scenario below for steps to apply permissions.
 
 - Use a managed identity
 - Use a service principal
+- Use SQL Authentication
 
 > [!IMPORTANT]
 > These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-isnt-allowed-for-a-replicated-database).
@@ -229,6 +230,45 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
+# [SQL Authentication](#tab/SQLAuth)
+
+#### Use SQL Authentication for dedicated SQL databases
+
+> [!NOTE]
+> You must first set up a new *credential* of type *SQL Authentication* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
+
+1. Go to your **Azure Synapse workspace**.
+1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
+1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
+1. Add the **SQL Authentication login name** as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
+
+    ```sql
+    CREATE USER [SQLUser] FROM LOGIN [SQLUser];
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [SQLUser]; 
+    GO
+    ```
+
+> [!NOTE]
+> Repeat the previous step for all dedicated SQL databases in your Synapse workspace. 
+
+#### Use SQL Authentication for serverless SQL databases
+
+1. Go to your Azure Synapse workspace.
+1. Go to the **Data** section, and then look for one of your serverless SQL databases.
+1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
+1. Add the **SQL Authentication login name** on the serverless SQL databases. You do so by running the following command in your SQL script:
+    ```sql
+    CREATE USER [SQLUser] FROM LOGIN [SQLUser];
+    GO
+    ```
+    
+1. Add **Service Principal ID** as **db_datareader** on each of the serverless SQL databases you want to scan. You do so by running the following command in your SQL script:
+   ```sql
+   ALTER ROLE db_datareader ADD MEMBER [SQLUser];
+   GO
+    ```
 ---
 
 ### Set up Azure Synapse workspace firewall access

@@ -415,7 +415,7 @@ class MainActivity : AppCompatActivity() {
                   var options: Options? = null)
 
     // Only includes Immersive Reader options relevant to Android apps.
-    // For a complete list, visit https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference
+    // For a complete list, visit https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference
     class Options(var uiLang: String? = null, // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
                   var timeout: Int? = null, // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
                   var uiZIndex: Int? = null, // Z-index of the iframe that will be created (default is 1000)
@@ -545,7 +545,7 @@ Licensed under the MIT License. -->
             if (!message) {
                 Android.showToast('Message is null or undefined!');
             } else {
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                 var data = {
                     title: message.content.title,
                     chunks: message.content.chunks
@@ -556,7 +556,7 @@ Licensed under the MIT License. -->
                     Android.immersiveReaderExit();
                 }
 
-                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                 var options = {
                     onExit: exitCallback,
                     uiZIndex: 2000

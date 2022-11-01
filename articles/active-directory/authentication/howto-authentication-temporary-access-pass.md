@@ -10,7 +10,7 @@ ms.date: 08/08/2022
 
 ms.author: justinha
 author: tilarso 
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -23,7 +23,8 @@ Users can bootstrap Passwordless methods in one of two ways:
 - Using existing Azure AD Multi-Factor Authentication methods 
 - Using a Temporary Access Pass (TAP) 
 
-A Temporary Access Pass is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones such as Microsoft Authenticator or even Windows Hello. 
+A Temporary Access Pass is a time-limited passcode that can be configured for multi or single use to allow users to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
+
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
 
 This article shows you how to enable and use a Temporary Access Pass in Azure AD using the Azure portal. 
@@ -62,7 +63,7 @@ To configure the Temporary Access Pass authentication method policy:
    |---|---|---|---|
    | Minimum lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Minimum number of minutes that the Temporary Access Pass is valid. |
    | Maximum lifetime | 8 hours | 10 – 43,200 Minutes (30 days) | Maximum number of minutes that the Temporary Access Pass is valid. |
-   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy. |
+   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be overridden by the individual passes, within the minimum and maximum lifetime configured by the policy. |
    | One-time use | False | True / False | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |
    | Length | 8 | 8-48 characters | Defines the length of the passcode. |
 
@@ -71,9 +72,9 @@ To configure the Temporary Access Pass authentication method policy:
 After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
-- Global Administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
-- Privileged Authentication Administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
-- Authentication Administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
+- Global Administrators can create, delete, and view a Temporary Access Pass on any user (except themselves)
+- Privileged Authentication Administrators can create, delete, and view a Temporary Access Pass on admins and members (except themselves)
+- Authentication Administrators can create, delete, and view a Temporary Access Pass on members  (except themselves)
 - Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
 1. Sign in to the Azure portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 
@@ -113,7 +114,7 @@ c5dbd20a-8b8f-4791-a23f-488fcbde3b38 5/22/2022 11:19:17 PM False    True        
 
 ```
 
-For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod&preserve-view=true) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta&preserve-view=true).
+For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta&preserve-view=true).
 
 ## Use a Temporary Access Pass
 

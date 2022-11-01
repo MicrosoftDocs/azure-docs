@@ -380,7 +380,7 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](./hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well.
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](./hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premises SAP scenarios can be run in Azure as well.
 
 For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md).
 
@@ -567,7 +567,7 @@ By building up an Azure Virtual Network, you can define the address range of the
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](https://azure.microsoft.com/documentation/services/virtual-network/).
+More details can be found in [this article][resource-groups-networking] and on [this page](../../../virtual-network/index.yml).
 
 
 > [!NOTE]
@@ -640,7 +640,7 @@ Microsoft Azure ExpressRoute allows the creation of private connections between 
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* [ExpressRoute documentation](https://azure.microsoft.com/documentation/services/expressroute/)
+* [ExpressRoute documentation](../../../expressroute/index.yml)
 * [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
 * [ExpressRoute FAQ](../../../expressroute/expressroute-faqs.md)
 

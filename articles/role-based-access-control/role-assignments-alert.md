@@ -3,11 +3,11 @@ title: Alert on privileged Azure role assignments
 description: Alert on privileged Azure role assignments by creating an alert rule using Azure Monitor.
 services: role-based-access-control
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/29/2022
+ms.date: 10/30/2022
 ms.author: rolyon
 ---
 
@@ -49,9 +49,9 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
     ```kusto
     AzureActivity
-    | where CategoryValue == "Administrative" and
-        OperationNameValue == "Microsoft.Authorization/roleAssignments/write" and
-        (ActivityStatusValue == "Start" or ActivityStatus == "Started")
+    | where CategoryValue =~ "Administrative" and
+        OperationNameValue =~ "Microsoft.Authorization/roleAssignments/write" and
+        (ActivityStatusValue =~ "Start" or ActivityStatus =~ "Started")
     | extend RoleDefinition = extractjson("$.Properties.RoleDefinitionId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalId = extractjson("$.Properties.PrincipalId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalType = extractjson("$.Properties.PrincipalType",tostring(Properties_d.requestbody),typeof(string))
@@ -59,9 +59,9 @@ To get notified of privileged role assignments, you create an alert rule in Azur
     | where Scope !contains "resourcegroups"
     | extend RoleId = split(RoleDefinition,'/')[-1]
     | extend RoleDisplayName = case(
-        RoleId == 'b24988ac-6180-42a0-ab88-20f7382dd24c', "Contributor",
-        RoleId == '8e3af657-a8ff-443c-a75c-2fe8c4bcb635', "Owner",
-        RoleId == '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9', "User Access Administrator",
+        RoleId =~ 'b24988ac-6180-42a0-ab88-20f7382dd24c', "Contributor",
+        RoleId =~ '8e3af657-a8ff-443c-a75c-2fe8c4bcb635', "Owner",
+        RoleId =~ '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9', "User Access Administrator",
         "Irrelevant")
     | where RoleDisplayName != "Irrelevant"
     | project TimeGenerated,Scope, PrincipalId,PrincipalType,RoleDisplayName

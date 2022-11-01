@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 10/20/2022
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -47,7 +47,7 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) from HDInsight 4.0 to upgrade the metastore schema.
 
 > [!WARNING]
-> This step is not reversible. Run this only on a copy of the metastore.
+> This step isn't reversible. Run this only on a copy of the metastore.
 
 1. Create a temporary HDInsight 4.0 cluster to access the 4.0 Hive `schematool`. You can use the [default Hive metastore](../hdinsight-use-external-metadata-stores.md#default-metastore) for this step.
 
@@ -65,7 +65,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
    > [!NOTE]
    > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
    >
-   > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
+   > SQL Syntax in these scripts isn't necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
    >
    > If any script fails due to resource capacity or transaction timeouts, scale up the SQL Database.
 
@@ -85,7 +85,7 @@ Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](../h
 
 * The new cluster doesn't require having the same default filesystem.
 
-* If the metastore contains tables residing in multiple Storage Accounts, you need to add those Storage Accounts to the new cluster to access those tables. See [add additional Storage Accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
+* If the metastore contains tables residing in multiple Storage Accounts, you need to add those Storage Accounts to the new cluster to access those tables. See [add extra Storage Accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
 
 * If Hive jobs fail due to storage inaccessibility, verify that the table location is in a Storage Account added to the cluster.
 
@@ -104,20 +104,53 @@ sudo su - hive
 STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
 /usr/hdp/$STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
+### 6. Class not found error with `MultiDelimitSerDe`
+
+**Problem**
+
+In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class isn't found. This error occurs when customer migrates from HDInsight 3.6 to HDInsight 4.0. The SerDe class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe`, which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we're using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class, which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
+
+**STEPS TO TROUBLESHOOT**
+
+1. Check if any JAR under a folder (likely that it supposed to be under Hive libraries folder, which is `/usr/hdp/current/hive/lib` in HDInsight) contains this class or not. 
+1. Check for the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` as mentioned in the solution.
+
+**Solution**
+
+1. Although a JAR file is a binary file, you can still use `grep` command with `-Hrni` switches as below to search for a particular class name
+     ```
+     grep -Hrni "org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe" /usr/hdp/current/hive/lib
+     ```
+1. If it couldn't find the class, it will return no output. If it finds the class in a JAR file, it will return the output
+
+1. Below is the example took from HDInsight 4.x cluster
+
+    ```
+    sshuser@hn0-alters:~$ grep -Hrni "org.apache.hadoop.hive.serde2.MultiDelimitSerDe" /usr/hdp/4.1.9.7/hive/lib/
+    Binary file /usr/hdp/4.1.9.7/hive/lib/hive-exec-3.1.0.4.1-SNAPSHOT.jar matches
+    ```
+1. From the above output, we can confirm that no jar contains the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and hive-exec jar contains `org.apache.hadoop.hive.serde2.MultiDelimitSerDe`.
+1. Try to create the table with row format DerDe as `ROW FORMAT SERDE org.apache.hadoop.hive.serde2.MultiDelimitSerDe`
+1. This command will fix the issue. If you've already created the table, you can rename it using the below commands
+    ```
+    Hive => ALTER TABLE TABLE_NAME SET SERDE 'org.apache.hadoop.hive.serde2.MultiDelimitSerDe'
+    Backend DB => UPDATE SERDES SET SLIB='org.apache.hadoop.hive.serde2.MultiDelimitSerDe' where SLIB='org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe';
+    ```
+The update command is to update the details manually in the backend DB and the alter command is used to alter the table with the new SerDe class from beeline or Hive.
 
 ## Secure Hive across HDInsight versions
 
 HDInsight optionally integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
 1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
-2. Navigate to the policy named **HIVE** and export the policy to a json file.
-3. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but doesn't exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
-4. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
-5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
+1. Navigate to the policy named **HIVE** and export the policy to a json file.
+1. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but doesn't exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
+1. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
+1. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
 
 ## Hive changes in HDInsight 4.0 that may require application changes
 
-* See [Additional configuration using Hive Warehouse Connector](./apache-hive-warehouse-connector.md) for sharing the metastore between Spark and Hive for ACID tables.
+* See [Extra configuration using Hive Warehouse Connector](./apache-hive-warehouse-connector.md) for sharing the metastore between Spark and Hive for ACID tables.
 
 * HDInsight 4.0 uses [Storage Based Authorization](https://cwiki.apache.org/confluence/display/Hive/Storage+Based+Authorization+in+the+Metastore+Server). If you modify file permissions or create folders as a different user than Hive, you'll likely hit Hive errors based on storage permissions. To fix, grant `rw-` access to the user. See [HDFS Permissions Guide](https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 

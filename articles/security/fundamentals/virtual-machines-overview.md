@@ -9,8 +9,8 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -70,7 +70,7 @@ Learn more:
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](../../active-directory/index.yml).
 
 Learn more:
 

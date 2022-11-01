@@ -57,7 +57,7 @@ You can initialize the properties of a twin when it's created, or set them later
 You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin).
 
 >[!NOTE]
->While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#model-attributes) on the twin need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
 
 ### Create relationships
 

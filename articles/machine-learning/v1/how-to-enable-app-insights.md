@@ -37,7 +37,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 * An Azure subscription - try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](../how-to-configure-environment.md).
+* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment-v1.md).
 
 * A trained machine learning model. To learn more, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 

@@ -77,7 +77,7 @@ When the twin is created successfully, the CLI output from the command should lo
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
-1. First, create a new Azure Functions project. 
+1. First, create a new Azure Functions project of Event Grid trigger type. 
 
     You can do this using **Visual Studio** (for instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)), **Visual Studio Code** (for instructions, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#create-an-azure-functions-project)), or the **Azure CLI** (for instructions, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#create-a-local-function-project)).
 

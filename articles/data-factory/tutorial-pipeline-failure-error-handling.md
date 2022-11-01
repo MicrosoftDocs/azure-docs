@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 09/22/2022
 ---
 
 # Understanding pipeline failure

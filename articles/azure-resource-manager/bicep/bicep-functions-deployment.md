@@ -176,7 +176,7 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
+    "loginEndpoint": "https://login.microsoftonline.com/",
     "audiences": [
       "https://management.core.windows.net/",
       "https://management.azure.com/"

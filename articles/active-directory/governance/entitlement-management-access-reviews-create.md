@@ -4,7 +4,7 @@ description: Learn how to set up an access review in a policy for entitlement ma
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

@@ -135,7 +135,8 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     print(ws.name)
     ```
 
-    This code snippet connects to the linked workspace, and then prints the workspace info. In the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call. For more information on using the `ws` object, see the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) class reference.
+    > [!IMPORTANT]
+    > This code snippet connects to the linked workspace using SDK v1, and then prints the workspace info. In the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call. For more information on using the `ws` object, see the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) class reference.
 
 ## Next steps
 

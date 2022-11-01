@@ -13,6 +13,10 @@
     href: quickstart-onboard.md
 - name: Tutorials
   items:
+  - name: Forward syslog data to workspace
+    href: forward-syslog-monitor-agent.md
+  - name: Configure data retention policy
+    href: configure-data-retention.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -24,9 +28,13 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+    href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
+    items: 
+    - name: Connect Defender for IoT data with Microsoft Sentinel
+      href: iot-solution.md
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -62,13 +70,15 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find solutions and content
     items:
     - name: About Sentinel content
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: Manage custom content with repositories
+      href: ci-cd-custom-content.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -82,13 +92,13 @@
       - name: Overview
         href: kusto-overview.md
       - name: Query best practices
-        href: /azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: SQL to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Splunk to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: KQL quick reference
-        href: /azure/data-explorer/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
         href: kusto-resources.md
   - name: Normalize data
@@ -207,10 +217,12 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
-    - name: Deploy custom content from your repository
-      href: ci-cd.md
     - name: Delete out-of-the-box content
       href: sentinel-solutions-delete.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
+    - name: Customize repository deployments
+      href: ci-cd-custom-deploy.md
   - name: Collect data
     items:
     - name: Find data connector
@@ -236,6 +248,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API
@@ -251,9 +265,7 @@
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Deploy a log forwarder
-      href: connect-log-forwarder.md
-    - name: Troubleshoot CEF/Syslog data collection
-      href: troubleshooting-cef-syslog.md
+      href: connect-log-forwarder.md    
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -282,6 +294,12 @@
       href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Add entity to threat indicators
+      href: add-entity-to-threat-intelligence.md
+    - name: Use threat indicators in analytics rules
+      href: use-threat-indicators-in-analytics-rules.md
+    - name: Use matching analytics to detect threats
+      href: use-matching-analytics-to-detect-threats.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -341,9 +359,7 @@
     - name: Hunt with Jupyter notebooks
       items:
       - name: Launch Jupyter notebook
-        href: notebooks-hunt.md
-      - name: Troubleshoot Jupyter notebook
-        href: notebooks-troubleshoot.md
+        href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
       - name: Configure big data analytics settings
@@ -362,6 +378,10 @@
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -374,6 +394,8 @@
     items:
     - name: Create automation rules
       href: create-manage-use-automation-rules.md
+    - name: Add advanced conditions to automation rules
+      href: add-advanced-conditions-to-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
@@ -416,6 +438,9 @@
         href: sap/deploy-sap-security-content.md
       - name: Configure Microsoft Sentinel Solution for SAP
         href: sap/deployment-solution-configuration.md
+      - name: Disable the connector
+        displayName: disable, stop ingestion, stop
+        href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
@@ -426,12 +451,20 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
-    - name: Troubleshooting
-      items:
-      - name: Troubleshooting SAP solution deployment
-        href: sap/sap-deploy-troubleshoot.md
-      - name: Configure Transport Management System
-        href: sap/configure-transport.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md 
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot CEF/Syslog data collection
+    href: troubleshooting-cef-syslog.md
+  - name: Troubleshoot AWS S3 connector issues
+    href: aws-s3-troubleshoot.md
+  - name: Troubleshoot Jupyter notebooks
+    href: notebooks-troubleshoot.md
+  - name: Troubleshoot SAP solution deployment
+    href: sap/sap-deploy-troubleshoot.md
+  - name: Configure SAP Transport Management System
+    href: sap/configure-transport.md  
 - name: Reference
   items:
   - name: SAP solution
@@ -508,6 +541,8 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
@@ -553,8 +588,8 @@
     - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
     - name: Learn modules for Microsoft Sentinel
-      href: /learn/browse/?expanded=azure&products=azure-sentinel
+      href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
-      href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
+      href: /training/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

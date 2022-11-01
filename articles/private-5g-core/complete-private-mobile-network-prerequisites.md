@@ -16,7 +16,7 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Get access to Azure Private 5G Core for your Azure subscription
 
-Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP). 
+Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
 
 Once your trials engineer has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -52,7 +52,6 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 - Default gateway.
 - One IP address for port 6 on the Azure Stack Edge Pro device.
 - One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.
-- Optionally, one or more Domain Name System (DNS) server addresses.
 
 ## Allocate user equipment (UE) IP address pools
 
@@ -73,6 +72,16 @@ For each site you're deploying, do the following:
 
 - Decide whether you want to enable Network Address and Port Translation (NAPT) for the data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.
 
+## Configure Domain Name System (DNS) servers
+
+> [!IMPORTANT]
+> If you don't configure DNS servers for a data network, all UEs using that network will be unable to resolve domain names.
+
+DNS allows the translation between human-readable domain names and their associated machine-readable IP addresses. Depending on your requirements, you have the following options for configuring a DNS server for your data network:
+
+- If you need the UEs connected to this data network to resolve domain names, you must configure one or more DNS servers. You must use a private DNS server if you need DNS resolution of internal hostnames. If you're only providing internet access to public DNS names, you can use a public or private DNS server.
+- If you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers (instead of the DNS servers signaled to them by the packet core), you can omit this configuration.
+
 ## Prepare your networks
 
 For each site you're deploying, do the following. 
@@ -84,7 +93,7 @@ For each site you're deploying, do the following.
 
 The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
-You should set these up in addition to [the ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
+You should set these up in addition to the [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
 
 | Port | ASE interface | Description|
 |--|--|--|
@@ -108,9 +117,8 @@ Do the following for each site you want to add to your private mobile network. D
 | 6. | Configure a name, DNS name, and (optionally) time settings. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md) |
 | 7. | Configure certificates for your Azure Stack Edge Pro device. | [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md) |
 | 8. | Activate your Azure Stack Edge Pro device. | [Tutorial: Activate Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-activate.md) |
-| 9. | Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify they all pass. </br></br>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</br></br>- Port 5.</br>- Port 6.</br>- The port you chose to connect to the management network in Step 3.</br></br>For all other ports, you can ignore the warning.</br></br>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](../databox-online/azure-stack-edge-gpu-troubleshoot.md) |
+| 9. | Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify they all pass. </br></br>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</br></br>- Port 5.</br>- Port 6.</br>- The port you chose to connect to the management network in Step 3.</br></br>For all other ports, you can ignore the warning. </br></br>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](../databox-online/azure-stack-edge-gpu-troubleshoot.md) |
 | 10. | Deploy an Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. At the end of this step, the Kubernetes cluster will be connected to Azure Arc and ready to host a packet core instance. During this step, you'll need to use the information you collected in [Allocate subnets and IP addresses](#allocate-subnets-and-ip-addresses). | Contact your trials engineer for detailed instructions. |
-
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 09/16/2022
 ms.author: hasshah
 ms.devlang: cpp, csharp, java
 ms.custom: devx-track-csharp, ignite-fall-2021

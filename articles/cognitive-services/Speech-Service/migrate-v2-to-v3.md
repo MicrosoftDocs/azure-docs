@@ -1,14 +1,14 @@
 ---
 title: Migrate from v2 to v3 REST API - Speech service
 titleSuffix: Azure Cognitive Services
-description: This document helps developers migrate code from v2 to v3 of in the Speech services speech-to-text REST API.
+description: This document helps developers migrate code from v2 to v3 of the Speech to text REST API.speech-to-text REST API.
 services: cognitive-services
 author: bexxx
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 09/01/2022
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
 > [!IMPORTANT]
-> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech-to-text REST API v3.1. Complete the steps in this article and then see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide for additional requirements.
 
 ## Forward compatibility
 
@@ -70,7 +70,7 @@ General changes:
 
 ### Host name changes
 
-Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
+Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech-to-text REST API v3.0](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
 >[!IMPORTANT]
 >Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
@@ -99,14 +99,14 @@ If the entity has additional functionality available through other paths, they a
 
 ```json
 {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "createdDateTime": "2019-01-07T11:34:12Z",
     "lastActionDateTime": "2019-01-07T11:36:07Z",
     "status": "Succeeded",
     "locale": "en-US", 
     "displayName": "Transcription using locale en-US",
     "links": {
-      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
+      "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     }
 }
 ```
@@ -134,7 +134,7 @@ The `values` property contains a subset of the available collection entities. Th
 This change requires calling the `GET` for the collection in a loop until all elements have been returned.
 
 >[!IMPORTANT]
->When the response of a GET to `speechtotext/v3.0/{collection}` contains a value in `$.@nextLink`, continue issuing `GETs` on `$.@nextLink` until `$.@nextLink` is not set to retrieve all elements of that collection.
+>When the response of a GET to `speechtotext/v3.1/{collection}` contains a value in `$.@nextLink`, continue issuing `GETs` on `$.@nextLink` until `$.@nextLink` is not set to retrieve all elements of that collection.
 
 ### Creating transcriptions
 
@@ -277,9 +277,9 @@ to access the content of each file. To control the validity duration of the SAS 
 
 ```json
 {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "links": {
-      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
+      "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     } 
 }
 ```
@@ -290,7 +290,7 @@ to access the content of each file. To control the validity duration of the SAS 
 {
   "values": [
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/f23e54f5-ed74-4c31-9730-2f1a3ef83ce8",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/f23e54f5-ed74-4c31-9730-2f1a3ef83ce8",
       "name": "Name",
       "kind": "Transcription",
       "properties": {
@@ -302,7 +302,7 @@ to access the content of each file. To control the validity duration of the SAS 
       }
     },
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/28bc946b-c251-4a86-84f6-ea0f0a2373ef",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/28bc946b-c251-4a86-84f6-ea0f0a2373ef",
       "name": "Name",
       "kind": "TranscriptionReport",
       "properties": {
@@ -314,14 +314,14 @@ to access the content of each file. To control the validity duration of the SAS 
       }
     }
   ],
-  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files?skip=2&top=2"
+  "@nextLink": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files?skip=2&top=2"
 }
 ```
 
 The `kind` property indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
 
 >[!IMPORTANT]
->To get the results of operations, use a `GET` on `/speechtotext/v3.0/{collection}/{id}/files`, they are no longer contained in the responses of `GET` on `/speechtotext/v3.0/{collection}/{id}` or `/speechtotext/v3.0/{collection}`.
+>To get the results of operations, use a `GET` on `/speechtotext/v3.1-preview.1/{collection}/{id}/files`, they are no longer contained in the responses of `GET` on `/speechtotext/v3.1-preview.1/{collection}/{id}` or `/speechtotext/v3.1-preview.1/{collection}`.
 
 ### Customizing models
 
@@ -332,17 +332,17 @@ With this change, the need for a `kind` in the `POST` operation has been removed
 To improve the results of a trained model, the acoustic data is automatically used internally during language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
 
 >[!IMPORTANT]
->To customize both the acoustic and language model part, pass all of the required language and acoustic datasets in `datasets[]` of the POST to `/speechtotext/v3.0/models`. This will create a single model with both parts customized.
+>To customize both the acoustic and language model part, pass all of the required language and acoustic datasets in `datasets[]` of the POST to `/speechtotext/v3.1-preview.1/models`. This will create a single model with both parts customized.
 
 ### Retrieving base and custom models
 
 To simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
-`GET /speechtotext/v3.0/models/base` and `GET /speechtotext/v3.0/models/`.
+`GET /speechtotext/v3.1-preview.1/models/base` and `GET /speechtotext/v3.1-preview.1/models/`.
 
 In v2, all models were returned together in a single response.
 
 >[!IMPORTANT]
->To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.0/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.0/models`.
+>To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.1-preview.1/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.1-preview.1/models`.
 
 ### Name of an entity
 
@@ -406,9 +406,9 @@ In v2, referenced entities were always inlined, for example the used models of a
 
 ```json
 {
-  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
   "model": {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/models/021a72d0-54c4-43d3-8254-27336ead9037"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/021a72d0-54c4-43d3-8254-27336ead9037"
   }
 }
 ```
@@ -427,9 +427,9 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
 
 ```json
 {
-  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
   "links": {
-    "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs" 
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs" 
   }
 }
 ```
@@ -440,7 +440,7 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
 {
   "values": [
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/6d72ad7e-f286-4a6f-b81b-a0532ca6bcaa/files/logs/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/6d72ad7e-f286-4a6f-b81b-a0532ca6bcaa/files/logs/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
       "name": "2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
       "kind": "Audio",
       "properties": {
@@ -452,7 +452,7 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
       }
     }    
   ],
-  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
+  "@nextLink": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
 }
 ```
 
@@ -518,5 +518,5 @@ Accuracy tests have been renamed to evaluations because the new name describes b
 
 ## Next steps
 
-* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
-* [Speech-to-text REST API v3.0 reference](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Speech-to-text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
