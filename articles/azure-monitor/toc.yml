@@ -983,13 +983,7 @@ items:
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
     - name: Prometheus metrics
-      items: 
-      - name: Overview
-        href: containers/container-insights-prometheus.md
-      - name: Send to Prometheus
-        href: containers/container-insights-prometheus-metrics-addon.md
-      - name: Send to Logs
-        href: containers/container-insights-prometheus-monitoring-addon.md
+      href: containers/container-insights-prometheus.md
     - name: Configure
       items:
       - name: Agent management
