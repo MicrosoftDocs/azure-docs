@@ -203,7 +203,7 @@ Include the following `using` statements in your code:
 ```csharp
 using Microsoft.Azure.Batch;
 using Microsoft.Azure.Batch.Auth;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 ```
 
 Reference the Azure AD endpoint in your code, including the tenant ID. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
