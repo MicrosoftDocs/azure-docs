@@ -1,12 +1,12 @@
 ---
 title: Create and access Environments
 description: This quickstart shows you how to create and access environments in an Azure Deployment Environments Project.
-author: anandmeg
-ms.author: meghaanand
+author: RoseHJM
+ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ---
 
 # Quickstart: Create and access Environments
@@ -30,9 +30,9 @@ In this quickstart, you do the following actions:
     2. Install the Deployment Environments AZ CLI extension:
 
     **Automated install**
-    Execute the script https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 directly in PowerShell to install:
+    Execute the script https://aka.ms/DevCenter/Install-DevCenterCli.ps1 directly in PowerShell to install:
     ```powershell
-    iex "& { $(irm https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 ) }"
+    iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
     ```
     
     This will uninstall any existing dev center extension and install the latest version.
@@ -41,7 +41,7 @@ In this quickstart, you do the following actions:
     
     Run the following command in the Azure CLI:
     ```azurecli
-    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
+    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
     ```
 
 >[!NOTE]

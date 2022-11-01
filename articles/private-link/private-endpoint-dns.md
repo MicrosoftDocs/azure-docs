@@ -100,8 +100,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 | Azure API Management (Microsoft.ApiManagement/service) / gateway | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
 | Microsoft PowerBI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
-| Azure Bot Service (Microsoft.BotService/botServices) / Bot | botplinks.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
-| Azure Bot Service (Microsoft.BotService/botServices) / Token | bottoken.botframework.com | token.botframework.com </br> europe.directline.botframework.com |
+| Azure Bot Service (Microsoft.BotService/botServices) / Bot | privatelink.directline.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
+| Azure Bot Service (Microsoft.BotService/botServices) / Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 

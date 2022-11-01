@@ -65,8 +65,8 @@ landingContent:
           url: concept-endpoints.md
         - text: Real-time scoring with a managed online endpoint
           url: how-to-deploy-managed-online-endpoints.md
-        - text: Batch scoring with managed endpoints 
-          url: how-to-use-batch-endpoint.md
+        - text: Batch scoring with batch endpoints 
+          url: batch-inference/how-to-use-batch-endpoint.md
 
   # Card
   - title: "Manage the ML lifecycle (MLOps)"
