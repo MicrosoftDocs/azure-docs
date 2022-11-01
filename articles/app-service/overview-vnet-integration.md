@@ -92,9 +92,7 @@ Application routing applies to traffic that is sent from your app after it has b
 * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 * When **Route All** is enabled, the source address for your outbound public traffic from your app is still one of the IP addresses that are listed in your app properties. If you route your traffic through a firewall or a NAT gateway, the source IP address will then originate from this service.
 
-Learn [how to configure application routing](./configure-vnet-integration-routing.md).
-
-We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
+Learn [how to configure application routing](./configure-vnet-integration-routing.md#configure-application-routing).
 
 > [!NOTE]
 > Outbound SMTP connectivity (port 25) is supported for App Service when the SMTP traffic is routed through the virtual network integration. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily or configure a service endpoint temporarily. For more information and troubleshooting see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
@@ -107,18 +105,19 @@ When you're using virtual network integration, you can configure how parts of th
 
 Bringing your own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
 
-To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
+To route content storage traffic through the virtual network integration, you must ensure that routing setting is configured. Learn [how to configure content storage routing](./configure-vnet-integration-routing.md#content-storage). 
+
+In addition to configuring the routing, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
 ##### Container image pull
 
-When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
+When using custom containers, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure image pull routing](./configure-vnet-integration-routing.md#container-image-pull). 
 
 ##### App settings using Key Vault references
 
 App settings using Key Vault references will attempt to get secrets over the public route. If the Key Vault is blocking public traffic and the app is using virtual network integration, an attempt will then be made to get the secrets through the virtual network integration.
 
 > [!NOTE]
-> * Windows containers don't support pulling custom container images over virtual network integration.
 > * Backup/restore to private storage accounts is currently not supported.
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
 > * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
