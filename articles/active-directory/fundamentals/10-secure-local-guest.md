@@ -75,7 +75,7 @@ If local accounts for external users were being synced from on-premises, admins 
 
 Audit log created will be as follows:
 
-![Screenshot shows the audit log attributes](./media/local-guest-to-b2b/audit-log.png)
+![Screenshot shows the audit log attributes.](./media/secure-local-guest/audit-log.png)
 
 ## Next steps
 
@@ -90,4 +90,4 @@ See the following articles on securing external access to resources. We recommen
 1. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md) 
 1. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
 1. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
-1. [Secure local guest accounts](secure-local-guest.md) (You’re here)
+1. [Secure local guest accounts](10-secure-local-guest.md) (You’re here)
