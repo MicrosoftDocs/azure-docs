@@ -184,7 +184,28 @@ private void onSignInClicked()
 
 ### Globally sign out a user
 
-To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about Context, [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers)  
+The following removes the signed-in account and clears cached tokens from not only the app but also from the device that is in shared device mode:
+
+```java
+private void onSignOutClicked()
+{
+  mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback()
+  {
+    @Override
+    public void onSignOut()
+    {
+      updateSignedOutUI();
+    }
+    @Override
+    public void onError(@NonNull MsalException exception)
+    {
+      /*failed to remove account with an exception*/
+    }
+  });
+}
+```
+
+To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about Context, see [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers)  
 
 When an account change broadcast is received, immediately get the signed in user and determine if a user has changed on the device. If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.  
 
