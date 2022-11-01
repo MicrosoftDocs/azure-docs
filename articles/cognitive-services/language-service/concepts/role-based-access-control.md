@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ---
 
@@ -69,17 +69,17 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column-end:::
     :::column span="":::
       All GET APIs under: 
-        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
-        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [Language authoring conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
         * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
       Only `TriggerExportProjectJob` POST operation under: 
-         * [Language authoring conversational language understanding export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
-         * [Language authoring text analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
+         * [Language authoring conversational language understanding export API](/rest/api/language/2022-05-01/text-analysis-authoring/export)
+         * [Language authoring text analysis export API](/rest/api/language/2022-05-01/text-analysis-authoring/export)
       Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
-         *[Language Runtime CLU APIs](/rest/api/language/conversation-analysis-runtime)
-         *[Language Runtime Text Analysis APIs](/rest/api/language/text-analysis-runtime)
+         *[Language Runtime CLU APIs](/rest/api/language/2022-05-01/conversation-analysis-runtime)
+         *[Language Runtime Text Analysis APIs](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
     :::column-end:::
 :::row-end:::
 
@@ -105,8 +105,8 @@ A user that is responsible for building and modifying an application, as a colla
     :::column span="":::
       * All APIs under Language reader
       * All POST, PUT and PATCH APIs under:
-         * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
-         * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+         * [Language conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+         * [Language text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
          * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
           Except for
           * Delete deployment
@@ -140,8 +140,8 @@ These users are the gatekeepers for the Language applications in production envi
     :::column-end:::
     :::column span="":::
       All APIs available under:
-        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
-        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [Language authoring conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
     :::column-end:::
