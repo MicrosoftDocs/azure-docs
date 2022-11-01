@@ -1360,7 +1360,7 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
-      - name: T:Create a log query alert
+      - name: Create a log query alert
         href: alerts/tutorial-log-alert.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
