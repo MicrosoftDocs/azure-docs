@@ -81,7 +81,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
     az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
     ```   
 
-1. Create an environment by using a *catalog-item* ('infra-as-code' template defined in the [manifest.yaml file](configure-catalog-item#add-a-new-catalog-item)) from the list of available catalog items.
+1. Create an environment by using a *catalog-item* ('infra-as-code' template defined in the [manifest.yaml file](configure-catalog-item.md#add-a-new-catalog-item)) from the list of available catalog items.
     ```azurecli
     az devcenter dev environment create --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
