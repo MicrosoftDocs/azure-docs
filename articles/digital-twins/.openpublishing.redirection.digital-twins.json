@@ -16,16 +16,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "troubleshoot-performance.md",
-      "redirect_url": "/azure/digital-twins/troubleshoot-health-performance",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "how-to-monitor-resource-health.md",
-      "redirect_url": "/azure/digital-twins/troubleshoot-health-performance",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "how-to-create-app-registration-portal.md",
       "redirect_url": "/azure/digital-twins/how-to-create-app-registration",
       "redirect_document_id": true
