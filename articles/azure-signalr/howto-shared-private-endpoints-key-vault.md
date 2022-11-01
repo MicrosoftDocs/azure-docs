@@ -43,7 +43,7 @@ The examples show how the *contoso-signalr* service can be configured so that it
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-   The shared private endpoint resource is now in a **Succeeded** provisioning state. The connection state is **Pending** approval at the target resource side.
+1. Confirm that the shared private endpoint resource is now in a **Succeeded** provisioning state. The connection state is **Pending** at the target resource side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
@@ -90,13 +90,13 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, select the **Networking** tab for your key vault and go to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
-
-   :::image type="content" alt-text="Screenshot of the Azure portal that shows the pane for private endpoint connections." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
+1. In the Azure portal, select the **Networking** tab for your key vault and go to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.   
 
 1. Select the private endpoint that Azure SignalR Service created. Then select **Approve**.
 
-   Make sure that the private endpoint connection appears, as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
+   :::image type="content" alt-text="Screenshot of the Azure portal that shows the pane for private endpoint connections." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
+   
+1. Make sure that the private endpoint connection appears, as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
 
    :::image type="content" alt-text="Screenshot of the Azure portal that shows an Approved status on the pane for private endpoint connections." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
 
@@ -127,7 +127,7 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
     ]
     ```
 
-1. Approve the private endpoint connection.
+1. Approve the private endpoint connection:
 
     ```dotnetcli
     az network private-endpoint-connection approve --id <private-endpoint-connection-id>
