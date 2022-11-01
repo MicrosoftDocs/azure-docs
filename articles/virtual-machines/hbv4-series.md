@@ -43,12 +43,12 @@ Learn more about the:
 
 ## Get Started 
 
-- Overview of HPC on InfiniBand-enabled H-series and N-series VMs. 
-- Configuring VMs and supported OS and VM Images. 
-- Enabling InfiniBand with HPC VM images, VM extensions or manual installation. 
-- Setting up MPI, including code snippets and recommendations. 
-- Cluster configuration options. 
-- Deployment considerations. 
+- [Overview](./workloads/hpc/overview.md) of HPC on InfiniBand-enabled H-series and N-series VMs. 
+- [Configuring](./workloads/hpc/configure.md) VMs and supported OS and VM Images. 
+- [Enabling InfiniBand](./workloads/hpc/enable-infiniband.md) with HPC VM images, VM extensions or manual installation. 
+- [Setting up MPI](./workloads/hpc/setup-mpi.md), including code snippets and recommendations. 
+- [Cluster configuration options](./sizes-hpc.md#cluster-configuration-options). 
+- [Deployment considerations](./sizes-hpc.md#deployment-considerations). 
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 
