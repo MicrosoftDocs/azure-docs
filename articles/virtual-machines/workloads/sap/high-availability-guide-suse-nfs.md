@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/20/2022
+ms.date: 10/25/2022
 ms.author: radeltch
 
 ---
@@ -322,8 +322,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    }
    common {
         handlers {
-             fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
-             after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+             fence-peer "/usr/lib/drbd/crm-fence-peer.9.sh";
+             after-resync-target "/usr/lib/drbd/crm-unfence-peer.9.sh";
              split-brain "/usr/lib/drbd/notify-split-brain.sh root";
              pri-lost-after-sb "/usr/lib/drbd/notify-pri-lost-after-sb.sh; /usr/lib/drbd/notify-emergency-reboot.sh; echo b > /proc/sysrq-trigger ; reboot -f";
         }
@@ -366,6 +366,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         disk {
              on-io-error       detach;
         }
+        net {
+            fencing  resource-and-stonith;  
+        }
         on <b>prod-nfs-0</b> {
              address   <b>10.0.0.6:7790</b>;
              device    /dev/drbd<b>0</b>;
@@ -390,6 +393,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         protocol     C;
         disk {
              on-io-error       detach;
+        }
+        net {
+            fencing  resource-and-stonith;  
         }
         on <b>prod-nfs-0</b> {
              address   <b>10.0.0.6:7791</b>;

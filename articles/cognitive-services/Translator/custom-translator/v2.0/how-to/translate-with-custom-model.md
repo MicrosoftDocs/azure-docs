@@ -10,10 +10,7 @@ ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: how-to
 ---
-# Translate text with a custom model | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Translate text with a custom model 
 
 After you publish your custom model, you can access it with the Translator API by using the `Category ID` parameter. 
 

@@ -10,7 +10,7 @@ ms.author: lajanuar
 ms.date: 02/25/2022
 ms.topic: overview
 ---
-# Custom Translator for beginners | Preview
+# Custom Translator for beginners 
 
  [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
@@ -18,7 +18,7 @@ The platform enables users to build and publish custom translation systems to an
 
 ## Is a custom translation model the right choice for me?
 
-A well-trained custom translation model provides more accurate domain-specific translations. This is because it relies on previously translated in-domain documents to learn preferred translations. Translator uses these terms and phrases in context to produce fluent translations in the target language while respecting context-dependent grammar.
+A well-trained custom translation model provides more accurate domain-specific translations because it relies on previously translated in-domain documents to learn preferred translations. Translator uses these terms and phrases in context to produce fluent translations in the target language while respecting context-dependent grammar.
 
 Training a full custom translation model requires a substantial amount of data. If you don't have at least 10,000 sentences of previously trained documents, you won't be able to train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translator API.
 
@@ -91,13 +91,13 @@ Tuning and test sentences are optimally representative of what you plan to trans
 
 ## How is training material processed by Custom Translator?
 
-When you submit documents for training a custom translation system, the documents undergo a series of processing and filtering steps to prepare for training. These steps are explained below. Knowledge of the filtering process may help with understanding the sentence count displayed as well as the steps you can take to prepare training documents for training with Custom Translator.
+To prepare for training, documents undergo a series of processing and filtering steps. These steps are explained below. Knowledge of the filtering process may help with understanding the sentence count displayed as well as the steps you can take to prepare training documents for training with Custom Translator.
 
 * ### Sentence alignment
 
   If your document isn't in XLIFF, XLSX, TMX, or ALIGN format, Custom Translator aligns the sentences of your source and target documents to each other, sentence-by-sentence. Translator doesn't perform document alignment—it follows your naming convention for the documents to find a matching document in the other language. Within the source text, Custom Translator tries to find the corresponding sentence in the target language. It uses document markup like embedded HTML tags to help with the alignment.
 
-  If you see a large discrepancy between the number of sentences in the source and target documents, your source document may not be parallel or couldn't be aligned. The document pairs with a large difference (>10%) of sentences on each side warrant a second look to make sure they're indeed parallel.
+  If you see a large discrepancy between the number of sentences in the source and target documents, your source document may not be parallel, or couldn't be aligned. The document pairs with a large difference (>10%) of sentences on each side warrant a second look to make sure they're indeed parallel.
 
 * ### Extracting tuning and testing data
 
@@ -149,7 +149,7 @@ When you submit documents for training a custom translation system, the document
 
 ## How do I evaluate the results?
 
-After your model is successfully trained, you can view the model's BLEU score and baseline model BLEU score on the model details page. We use the same set of test data to generate both the model's BLEU score and the baseline BLEU score to help you make an informed decision regarding which model would be better for your use-case.
+After your model is successfully trained, you can view the model's BLEU score and baseline model BLEU score on the model details page. We use the same set of test data to generate both the model's BLEU score and the baseline BLEU score. This data will help you make an informed decision regarding which model would be better for your use-case.
 
 ## Next steps
 

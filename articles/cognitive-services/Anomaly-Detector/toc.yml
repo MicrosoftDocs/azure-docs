@@ -52,6 +52,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: Create an Anomaly Detector Resource
+          href: how-to/create-resource.md
         - name: Train a model
           href: how-to/train-model.md
         - name: Batch inference      
@@ -80,14 +82,8 @@
       href: tutorials/multivariate-anomaly-detection-synapse.md
 - name: Responsible use of AI
   items:
-  - name: Transparency notes
-    items:
-    - name: Use cases for Anomaly Detector
-      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/anomaly-detector/context/context
-  - name: Integration and responsible use
-    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context
+  - name: Transparency note
+    href: /legal/cognitive-services/anomaly-detector/ad-transparency-note?context=/azure/cognitive-services/anomaly-detector/context/context 
   - name: Data, privacy and security
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
