@@ -652,7 +652,7 @@ The scoring results in Storage Explorer are similar to the following sample page
 
 Once you have a batch endpoint with a deployment, you can continue to refine your model and add new deployments. Batch endpoints will continue serving the default deployment while you develop and deploy new models under the same endpoint. Deployments can't affect one to another.
 
-In this example, you will learn how to add a second deployment __that solves the same problem but using a model built with Keras and TensorFlow__.
+In this example, you will learn how to add a second deployment __that solves the same MNIST problem but using a model built with Keras and TensorFlow__.
 
 ### Adding a second deployment
 
@@ -695,7 +695,7 @@ In this example, you will learn how to add a second deployment __that solves the
     > [!IMPORTANT]
     > Do not forget to include the library `azureml-core` in your deployment as it is required by the executor.
     
-1. Create a scoring script for the model
+1. Create a scoring script for the model:
    
    __batch_driver.py__
    
