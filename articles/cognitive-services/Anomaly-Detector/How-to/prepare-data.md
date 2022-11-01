@@ -89,7 +89,7 @@ Once you prepare your data with either of the two schemas above, you could uploa
     Once your data is uploaded, go into the folder, and select one CSV file in the folder, copy the **blob URL** and only kept the part before the name of this CSV file, so the final blob URL should ***link to the folder***. (Please paste the URL somewhere convenient for further steps.)
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of copy blob url for one table](../media/prepare-data/multitable-copyurl.png)
+    > ![Screenshot of copy blob url for multi table](../media/prepare-data/multitable-copyurl.png)
 
 4. Grant Anomaly Detector access to read the data in your Storage Account.
     * In your container, select **Access Control(IAM)** to the left, select **+ Add** to **Add role assignment**. If you see the add role assignment is disabled, please contact your Storage Account owner to add Owner role to your Container.
