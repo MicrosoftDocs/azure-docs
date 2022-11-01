@@ -8,11 +8,11 @@ ms.reviewer: rijolly
 
 # How many Application Insights resources should I deploy
 
-When you are developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version.
+When you're developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version.
 
 To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys).
 
-To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to [set the ikey dynamically in code](#dynamic-instrumentation-key) instead of in the configuration file. 
+To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to [set the ikey dynamically in code](#dynamic-ikey) instead of in the configuration file. 
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/azure-web-apps-net-core.md).)
 
@@ -22,18 +22,18 @@ To make it easier to change the instrumentation key as a version moves from one 
 
 When you set up Application Insights monitoring for your web app, you create an Application Insights *resource* in Microsoft Azure. You open this resource in the Azure portal in order to see and analyze the telemetry collected from your app. The resource is identified by an *instrumentation key* (ikey). When you install the Application Insights package to monitor your app, you configure it with the instrumentation key, so that it knows where to send the telemetry.
 
-Each Application Insights resource comes with metrics that are available out-of-box. If completely separate components report to the same Application Insights resource, these metrics may not make sense to dashboard/alert on.
+Each Application Insights resource comes with metrics that are available out-of-box. If separate components report to the same Application Insights resource, these metrics may not make sense to dashboard/alert on.
 
 ### When to use a single Application Insights resource
 
-- For application components that are deployed together. Usually developed by a single team, managed by the same set of DevOps/ITOps users.
+- For application components that are deployed together. These applications are usually developed by a single team and managed by the same set of DevOps/ITOps users.
 - If it makes sense to aggregate Key Performance Indicators (KPIs) such as response durations, failure rates in dashboard etc., across all of them by default (you can choose to segment by role name in the Metrics Explorer experience).
-- If there is no need to manage Azure role-based access control (Azure RBAC) differently between the application components.
+- If there's no need to manage Azure role-based access control (Azure RBAC) differently between the application components.
 - If you don't need metrics alert criteria that are different between the components.
-- If you do not need to manage continuous exports differently between the components.
-- If you do not need to manage billing/quotas differently between the components.
-- If it is okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
-- If it is okay to have the same smart detection and work item integration settings across all roles.
+- If you don't need to manage continuous exports differently between the components.
+- If you don't need to manage billing/quotas differently between the components.
+- If it's okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
+- If it's okay to have the same smart detection and work item integration settings across all roles.
 
 > [!NOTE]
 > If you want to consolidate multiple Application Insights Resources, you may point your existing application components to a new, consolidated Application Insights Resource. The telemetry stored in your old resource will not be transfered to the new resource, so only delete the old resource when you have enough telemetry in the new resource for business continuity.
@@ -41,8 +41,8 @@ Each Application Insights resource comes with metrics that are available out-of-
 ### Other things to keep in mind
 
 - You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
-- For Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these. For all other types of apps, you will likely need to set this explicitly.
-- Live Metrics experience does not support splitting by role name.
+- For Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these. For all other types of apps, you'll likely need to set this explicitly.
+- Live Metrics experience doesn't support splitting by role name.
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -123,7 +123,7 @@ There are several different methods of setting the Application Version property.
 
     This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
 
-    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
+    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it's populated with the correct version number.
 
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
 
