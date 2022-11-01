@@ -15,6 +15,17 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
+## October 2022
+
+### Updated articles
+
+- [Configure how users consent to applications](configure-user-consent.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on](f5-big-ip-ldap-header-easybutton.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-azure-ad-integration.md)
+
 ## September 2022
 
 ### New articles
@@ -32,22 +43,3 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 ### Updated articles
 
 - [Hide an enterprise application](hide-application-from-user-portal.md)
-
-## July 2022
-
-### New articles
-
-- [Create an enterprise application from a multi-tenant application in Azure Active Directory](create-service-principal-cross-tenant.md)
-- [Deletion and recovery of applications FAQ](delete-recover-faq.yml)
-- [Recover deleted applications in Azure Active Directory FAQs](recover-deleted-apps-faq.md)
-- [Restore an enterprise application in Azure AD](restore-application.md)
-- [SAML Request Signature Verification (Preview)](howto-enforce-signed-saml-authentication.md)
-- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-azure-ad-integration.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
-
-### Updated articles
-
-- [Delete an enterprise application](delete-application-portal.md)
-- [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md)
-- [Review permissions granted to applications](manage-application-permissions.md)
-- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
