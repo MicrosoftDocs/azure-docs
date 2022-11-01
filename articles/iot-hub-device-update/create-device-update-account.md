@@ -80,7 +80,7 @@ An IoT hub. It's required that you use an S1 (Standard) tier or above.
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot du account create](/cli/azure/iot/device-update/account#az-iot-device-update-account-create) command to create a new Device Update account.
+Use the [az iot du account create](/cli/azure/iot/du/account#az-iot-device-update-account-create) command to create a new Device Update account.
 
 Replace the following placeholders with your own information:
 
@@ -95,7 +95,7 @@ Replace the following placeholders with your own information:
 az iot du account create --resource-group <resource_group> --account <account_name> --location <region>
 ```
 
-Use the [az iot du instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
+Use the [az iot du instance create](/cli/azure/iot/du/instance#az-iot-device-update-instance-create) command to create a Device Update instance.
 
 An *instance* of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. When you link an IoT hub to a Device Update instance, a new shared access policy is automatically created give Device Update permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
 
