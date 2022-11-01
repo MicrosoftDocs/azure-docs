@@ -90,4 +90,4 @@ See the following articles on securing external access to resources. We recommen
 
 9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
 
-10. [Secure local guest accounts](10-local-guest-to-b2b.md)
+10. [Secure local guest accounts](10-secure-local-guest.md)
