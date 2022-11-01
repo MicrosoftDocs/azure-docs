@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 10/28/2022
+ms.date: 11/01/2022
 ---
 
 # Azure Cosmos DB for PostgreSQL functions
@@ -98,6 +98,19 @@ SELECT create_distributed_table('github_events', 'repo_id',
 This function has the same interface and purpose as
 [create_distributed_function](#create_distributed_table), but doesn't block
 writes during table distribution.
+
+However, `create_distributed_table_concurrently` has a few limitations:
+
+* You can't use the function in a transaction block, which means you can only
+  distribute one table at a time. (You *can* use the function on
+  time-partitioned tables, though.)
+* You can't use `create_distributed_table_concurrently` when the table is
+  referenced by a foreign key, or references another local table. However,
+  foreign keys to reference tables work, and you can create foreign keys to other
+  distributed tables after table distribution completes.
+* If you don't have a primary key or replica identity on your table, then
+  update and delete commands will fail during the table distribution due to
+  limitations on logical replication.
 
 ### truncate\_local\_data\_after\_distributing\_table
 
