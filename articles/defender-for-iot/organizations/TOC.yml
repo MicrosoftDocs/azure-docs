@@ -25,7 +25,6 @@
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
     items:
-
     - name: Enhance Enterprise IoT security with a network sensor
       href: eiot-sensor.md
   - name: Integrate with Microsoft Sentinel
@@ -38,6 +37,8 @@
   items:
     - name: System architecture
       href: architecture.md
+    - name: Subscription billing for Defender for IoT
+      href: billing.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
@@ -150,7 +151,7 @@
     - name: Manage OT plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
     - name: Manage Enterprise IoT plans on Azure subscriptions
-      href: tbd.md
+      href: manage-subscriptions-enterprise.md
     - name: Onboard sensors
       href: onboard-sensors.md
     - name: Activate and set up your sensor

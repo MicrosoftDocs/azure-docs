@@ -7,11 +7,9 @@ ms.topic: how-to
 
 # Manage Defender for IoT plans
 
-Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscription. For OT networks, onboard, edit, and cancel Defender for IoT plans from Defender for IoT in the Azure portal.
+Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscription. For OT networks, use Defender for IoT in the Azure portal to onboard, edit, and cancel Defender for IoT plans.
 
-For each plan, you'll be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise.
-
-For information about Enterprise IoT networks, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
+If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
 > [!NOTE]
 > If you've come to this page because you are a [former CyberX customer](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments) and have questions about your account, reach out to your account manager for guidance.
@@ -26,7 +24,7 @@ Before performing the procedures in this article, make sure that you have:
 
 ## Calculate committed devices for OT monitoring
 
-If you're adding a plan with a monthly or annual commitment, you'll be asked to enter the number of committed devices.
+If you're adding a plan with a monthly or annual commitment, you'll be asked to enter the number of [committed devices](billing.md#defender-for-iot-committed-devices), which are are the approximate number of devices that will be monitored in your enterprise.
 
 We recommend that you make an initial estimate of your committed devices when onboarding your Defender for IoT plan. You can skip this procedure if you're adding a trial plan.
 
@@ -41,7 +39,7 @@ We recommend that you make an initial estimate of your committed devices when on
     - **Broadcast groups**
     - **Inactive devices**: Devices that have no network activity detected for more than 60 days
 
-After you've set up your network sensor and have full visibility into all devices, you can [Edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
+After you've onboarded your plan, set up a network sensor and have full visibility into your devices, [Edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
 
 ## Onboard a Defender for IoT plan for OT networks
 

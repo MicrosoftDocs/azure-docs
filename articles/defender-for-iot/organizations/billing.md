@@ -42,9 +42,3 @@ For more information, see:
 - The [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/)
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
-
-
-
-
-### About Defender for IoT trials
-
