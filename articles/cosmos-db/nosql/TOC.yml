@@ -358,8 +358,10 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
@@ -392,6 +394,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Jupyter notebooks
       items:
         - name: Overview

@@ -355,9 +355,6 @@ pages have a green 'Try It' button on each operation that allows you to try it r
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
-> [!NOTE]
-> Currently "reason for non-compliance" cannot be retrieved from Command line.  We are working on mapping the reason code to the "reason for non-compliance" and at this point there is no ETA on this.
-
 ### Summarize results
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here is

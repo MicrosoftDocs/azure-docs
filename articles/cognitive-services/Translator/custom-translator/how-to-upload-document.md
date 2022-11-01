@@ -24,8 +24,6 @@ Before uploading your documents, review the [document formats and naming convent
 From [Custom Translator](https://portal.customtranslator.azure.ai) portal, Select the **Documents** tab to go to documents page.
 
 ![Document upload link](media/how-to/how-to-upload-1.png)
-
-
 1. Select the **Upload files** button on the documents page.
 
     ![Upload document page](media/how-to/how-to-upload-2.png)
@@ -68,8 +66,6 @@ From [Custom Translator](https://portal.customtranslator.azure.ai) portal, Selec
     **Upload history** tab.
 
     ![Upload document history dialog](media/how-to/how-to-upload-document-history.png)
-
-
 ## View upload history
 
 In upload history page you can view history of all document uploads details like document type, language pair, upload status etc.

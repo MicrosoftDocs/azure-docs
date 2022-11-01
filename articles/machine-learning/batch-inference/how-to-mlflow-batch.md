@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Using MLflow models in batch deployments
+# Use MLflow models in batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -43,7 +43,7 @@ The model has been trained using an `XGBBoost` classifier and all the required p
 
 ### Follow along in Jupyter Notebooks
 
-You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: `azureml-examples/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb`.
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mlflow-for-batch-tabular.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb).
 
 ## Steps
 
@@ -455,7 +455,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        model = mlflow.pyfunc.load(model_path)
 
    def run(mini_batch):
-       resultList = []
+       results = pd.DataFrame(columns=['file', 'predictions'])
 
        for file_path in mini_batch:        
            data = pd.read_csv(file_path)
@@ -463,9 +463,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
            df = pd.DataFrame(pred, columns=['predictions'])
            df['file'] = os.path.basename(file_path)
-           resultList.extend(df.values)
+           results = pd.concat([results, df])
 
-       return resultList
+       return results
    ```
 
 1. Let's create an environment where the scoring script can be executed:

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -232,7 +232,8 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubelet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> 
 > To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
 
 ### Enable developer access to the API server
