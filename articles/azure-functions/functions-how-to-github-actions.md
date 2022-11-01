@@ -48,11 +48,15 @@ To download the publishing profile of your function app:
 
 ### Add the GitHub secret
 
-1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com/), go to your repository.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Add Secret":::
+1. Select **Security > Secrets and variables > Actions**.
 
-1. Add a new secret using `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` for **Name**, the content of the publishing profile file for **Value**, and then select **Add secret**.
+1. Select **New repository secret**.
+
+1. Add a new secret with the name `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` and the value set to the contents of the publishing profile file.
+
+1. Select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 

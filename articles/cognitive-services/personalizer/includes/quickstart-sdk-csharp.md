@@ -534,7 +534,7 @@ Run the application with the dotnet `run` command from your application director
 dotnet run
 ```
 
-## Generate sample events for analysis
+## Generate sample events for analysis (Optional)
 
 You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace the `Main()` method of the above code in the `Run a Rank and Reward cycle` section with:
 

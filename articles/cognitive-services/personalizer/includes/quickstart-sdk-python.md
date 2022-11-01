@@ -350,7 +350,7 @@ Once all the above code is included in your Python file, you can run it from you
 python personalizer_quickstart.py
 ```
 
-## Generate sample events for analysis
+## Generate sample events for analysis (Optional)
 
 You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
 
