@@ -278,7 +278,7 @@ az role assignment create \
 
 ### Create an Azure Spring Apps instance with user-defined routing
 
-The following example shows how to create a user-defined route for the Azure Spring Apps instance:
+The following example shows how to create an Azure Spring Apps instance with user-defined routing:
 
 ```azurecli
 az spring create \
