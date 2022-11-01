@@ -23,7 +23,7 @@ Model ID is how smart devices advertise their capabilities to Azure IoT applicat
 
 Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
 
-Device Update has 2 PnP models defined that support DU features. The Device Update model, '**dtmi:azure:iot:deviceUpdateContractModel;2**', supports the core functionality and uses the device update core interface to to send update actions and metadata to devices and receive update status from devices. 
+Device Update has 2 PnP models defined that support DU features. The Device Update model, '**dtmi:azure:iot:deviceUpdateContractModel;2**', supports the core functionality and uses the device update core interface to send update actions and metadata to devices and receive update status from devices. 
 
 The other supported model is **dtmi:azure:iot:deviceUpdateModel;2** which extends **deviceUpdateContractModel;2** and also uses other PnP interfaces that send device properties and information and enable diagnostic features. Learn more about the [Device Update Models and Interfaces Versions] (https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot). 
 
@@ -68,7 +68,7 @@ IoT Hub device twin example:
                     "deviceProperties": {
                         "manufacturer": "contoso",
                         "model": "virtual-vacuum-v1",
-                        "interfaceId": "dtmi:azure:iot:deviceUpdateModel;1",
+                        "contractModelId": "dtmi:azure:iot:deviceUpdateContractModel;2",
                         "aduVer": "DU;agent/0.8.0-rc1-public-preview",
                         "doVer": "DU;lib/v0.6.0+20211001.174458.c8c4051,DU;agent/v0.6.0+20211001.174418.c8c4051"
                     },
