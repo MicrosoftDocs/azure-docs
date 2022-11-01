@@ -148,7 +148,7 @@ Groups are automatically created based on the tags assigned as well as the compa
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device group list](/cli/azure/iot/device-update/device/group#az-iot-du-device-group-list) to view all device groups in a Device Update instance.
+Use [az iot du device group list](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to view all device groups in a Device Update instance.
 
 ```azurecli
 az iot du device group list \
@@ -176,7 +176,7 @@ You can use the `--order-by` argument to order the groups returned based on aspe
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device group show](/cli/azure/iot/device-update/device/group#az-iot-du-device-group-show) to view details of a specific device group.
+Use [az iot du device group show](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to view details of a specific device group.
 
 The optional `--best-updates` flag returns a list of the best available updates for the device group, including a count of how many devices need each update.
 

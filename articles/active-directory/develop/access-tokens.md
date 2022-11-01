@@ -324,4 +324,4 @@ Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) 
 ## Next steps
 
 - Learn about [`id_tokens` in Azure AD](id-tokens.md).
-- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
+- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](permissions-consent-overview.md)).
