@@ -278,12 +278,27 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-cherwell.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-provance.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
@@ -2908,13 +2923,13 @@
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-connections.md",
-            "redirect_url": "/azure/azure-monitor/platform/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-overview.md",
             "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
@@ -3571,6 +3586,12 @@
             "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-proxy.md",
+            "redirect_url": "/azure/data-explorer/query-monitor-data",
+            "redirect_document_id": false
+        },
+
         {
             "source_path_from_root": "/articles/azure-monitor/platform/service-notifications.md",
             "redirect_url": "/azure/service-health/service-notifications",
@@ -5108,17 +5129,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-provance.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-provance",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-scsm.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-scsm",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
@@ -5465,17 +5486,30 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-update-metrics.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-custom-metrics",
             "redirect_document_id": false
-        }
-        ,
+        },
         {
             "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
             "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
             "redirect_document_id": false
-        }
-        ,
+        },
         {
             "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-integrations.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-metrics-addon.md",
+            "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-enable",
             "redirect_document_id": false
         }
     ]
