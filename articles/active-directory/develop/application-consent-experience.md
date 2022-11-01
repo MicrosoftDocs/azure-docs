@@ -9,7 +9,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 11/01/2022
 ms.author: jomondi
 ms.reviewer: jesakowi, asteen, jawoods
 ---
@@ -70,7 +70,7 @@ Admins will see an additional control on the traditional consent prompt that wil
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
-Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app. If admin consent workflow is enabled in the user's tenant, non-admin users are able to submit a request for admin approval from the consent prompt. For more information on admin consent workflow, see [Admin consent workflow](../manage-apps/admin-consent-workflow-overview.md)
+Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app. If admin consent workflow is enabled in the user's tenant, non-admin users are able to submit a request for admin approval from the consent prompt. For more information on admin consent workflow, see [Admin consent workflow](../manage-apps/admin-consent-workflow-overview.md).
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 

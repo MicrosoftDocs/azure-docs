@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 
@@ -32,7 +32,7 @@ In this access scenario, a user has signed into a client application. The client
 
 For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions for a given resource that represent what a client application can access on behalf of the user.For more information about scopes, see [scopes and permissions](v2-permissions-and-consent.md#scopes-and-permissions).
 
-For the user, the authorization relies on the privileges that the user has been granted for them to access the resource. For example, the user could be authorized to access directory resources by [Azure Active Directory (Azure AD) role-based access control (RBAC)](../roles/custom-overview.md) or to access mail and calendar resources by Exchange Online RBAC. For more information on RBAC for applications, see [RBAC for applications](custom-rbac-for-developers.md)
+For the user, the authorization relies on the privileges that the user has been granted for them to access the resource. For example, the user could be authorized to access directory resources by [Azure Active Directory (Azure AD) role-based access control (RBAC)](../roles/custom-overview.md) or to access mail and calendar resources by Exchange Online RBAC. For more information on RBAC for applications, see [RBAC for applications](custom-rbac-for-developers.md).
 
 ### App-only access (Access without a user)
 
@@ -75,7 +75,7 @@ User consent happens when a user attempts to sign into an application. The user 
 
 ### Administrator consent
 
-Depending on the permissions they require, some applications might require an administrator to be the one who grants consent. For example, application permissions and many high-privilege delegated permissions can only be consented to by an administrator. Administrators can grant consent for themselves or for the entire organization. For more information about user and admin consent, see [user and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
+Depending on the permissions they require, some applications might require an administrator to be the one who grants consent. For example, application permissions and many high-privilege delegated permissions can only be consented to by an administrator. Administrators can grant consent for themselves or for the entire organization. For more information about user and admin consent, see [user and admin consent overview](../manage-apps/consent-and-permissions-overview.md).
 
 ### Preauthorization
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 11/01/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
@@ -18,7 +18,7 @@ ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-a
 
 When a user signs into an app and uses it to access some other resource, like Microsoft Graph, the app will first need to ask for permission to access this resource on the user’s behalf. This common scenario is called delegated access.
 
-[!VIDEO https://learn-video.azurefd.net/vod/player?show=one-dev-minute&ep=how-do-delegated-permissions-work]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=one-dev-minute&ep=how-do-delegated-permissions-work]
 
 ## Why should I use delegated access?
 
@@ -34,7 +34,7 @@ Your app will need to ask the user to grant a specific scope, or set of scopes, 
 
 Once your app has requested a scope, a user or admin will need to grant the requested access. Consumer users with Microsoft Accounts, like Outlook.com or Xbox Live accounts, can always grant scopes for themselves. Organizational users with Azure AD accounts may or may not be able to grant scopes, depending on their organization’s settings. If an organizational user can't consent to scopes directly, they'll need to ask their organization’s administrator to consent for them.
 
-Always follow the principle of least privilege: you should never request scopes that your app doesn’t need. This principle helps limit the security risk if your app is compromised and makes it easier for administrators to grant your app access. For example, if your app only needs to list the chats a user belongs to but doesn’t need to show the chat messages themselves, you should request the more limited Microsoft Graph `Chat.ReadBasic` scope instead of `Chat.Read`. For more information about openID scopes, see [OpenID scopes](scopes-oidc.md)
+Always follow the principle of least privilege: you should never request scopes that your app doesn’t need. This principle helps limit the security risk if your app is compromised and makes it easier for administrators to grant your app access. For example, if your app only needs to list the chats a user belongs to but doesn’t need to show the chat messages themselves, you should request the more limited Microsoft Graph `Chat.ReadBasic` scope instead of `Chat.Read`. For more information about openID scopes, see [OpenID scopes](scopes-oidc.md).
 
 ## Designing and publishing scopes for a resource  service
 
@@ -58,8 +58,8 @@ For client app authorization, OneDrive will check whether the client making the 
 
 | GET /drives/{id}/files/{id} | Client app granted `Files.Read` scope for Alice | Client app not granted `Files.Read` scope for Alice |
 | ----- | ----- | ----- |
-| The document is in Alice’s OneDrive | 200 – Access granted | 403 - Unauthorized. Alice (or her admin) hasn’t allowed this client to read her files. |
-| The document is in another user’s OneDrive* | 403 - Unauthorized. Alice doesn’t have rights to read this file. Even though the client has been granted `Files.Read` it should be denied when acting on Alice’s behalf. | 403 – Unauthorized. Alice doesn’t have rights to read this file, and the client isn’t allowed to read files she has access to either. | 
+| The document is in Alice’s OneDrive. | 200 – Access granted. | 403 - Unauthorized. Alice (or her admin) hasn’t allowed this client to read her files. |
+| The document is in another user’s OneDrive*. | 403 - Unauthorized. Alice doesn’t have rights to read this file. Even though the client has been granted `Files.Read` it should be denied when acting on Alice’s behalf. | 403 – Unauthorized. Alice doesn’t have rights to read this file, and the client isn’t allowed to read files she has access to either. | 
 
 The example given is simplified to illustrate delegated authorization. The production OneDrive service supports many other access scenarios, such as shared files.
 

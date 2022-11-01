@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 11/01/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
@@ -72,7 +72,7 @@ Requesting consent for an entire tenant requires admin consent. Admin consent do
 
 When your application requests [delegated permissions that require admin consent](scopes-oidc.md#admin-restricted-permissions), the user receives an error message that says they're unauthorized to consent to your app's permissions. The user is required to ask their admin for access to the app. If the admin grants consent for the entire tenant, the organization's users don't see a consent page for the application unless the previously granted permissions are revoked or the application requests for a new permission incrementally.
 
-Administrators using the same application will see the admin consent prompt. The admin consent prompt provides a checkbox that allows them to grant the application access to the requested data on behalf of the users for the entire tenant. For more information on the user and admin consent experience, see [Application consent experience](application-consent-experience.md)
+Administrators using the same application will see the admin consent prompt. The admin consent prompt provides a checkbox that allows them to grant the application access to the requested data on behalf of the users for the entire tenant. For more information on the user and admin consent experience, see [Application consent experience](application-consent-experience.md).
 
 Examples of delegated permissions for Microsoft Graph that require admin consent are:
 
@@ -82,9 +82,9 @@ Examples of delegated permissions for Microsoft Graph that require admin consent
 
 To view the full list of Microsoft graph permissions, see [Microsoft graph permissions reference](/graph/permissions-reference).
 
-You can also configure permissions on your own resources to require admin consent. For more information on how to add scopes that require admin consent, see [Add a scope that requires admin consent](quickstart-configure-app-expose-web-apis.md#add-a-scope-requiring-admin-consent)
+You can also configure permissions on your own resources to require admin consent. For more information on how to add scopes that require admin consent, see [Add a scope that requires admin consent](quickstart-configure-app-expose-web-apis.md#add-a-scope-requiring-admin-consent).
 
-Some organizations may change the default user consent policy for the tenant. When your application requests access to permissions they're evaluated against these policies. The user may need to request admin consent even when not required by default. To learn how administrators manage consent policies for applications, see [Manage app consent policies](../manage-apps/manage-app-consent-policies.md)
+Some organizations may change the default user consent policy for the tenant. When your application requests access to permissions they're evaluated against these policies. The user may need to request admin consent even when not required by default. To learn how administrators manage consent policies for applications, see [Manage app consent policies](../manage-apps/manage-app-consent-policies.md).
 
 >[!NOTE] 
 >In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, scope=User.Read is equivalent to https://graph.microsoft.com/User.Read.

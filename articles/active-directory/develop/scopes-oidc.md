@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 11/01/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
@@ -54,7 +54,7 @@ Although a consumer user might grant an application access to this kind of data,
 
 If the application requests application permissions and an administrator grants these permissions this grant isn't done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions should only be used by daemon services and other non-interactive applications that run in the background. For more information on the direct access scenario, see [Access scenarios in the Microsoft identity platform](permissions-consent-overview.md).
 
-For a step by step guide on how to expose scopes in a web API, see [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
+For a step by step guide on how to expose scopes in a web API, see [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md).
 
 ## OpenID Connect scopes
 
