@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2022
+ms.date: 11/01/2022
 ms.author: mbaldwin
 ---
 # Data encryption models
