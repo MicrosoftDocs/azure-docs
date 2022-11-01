@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/01/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -179,7 +179,7 @@ Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [ZRS disks](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup. <br><br> You can back up and restore disks encrypted using platform-managed keys (PMKs) or customer-managed keys (CMKs). You can also assign a disk-encryption set while restoring in the same region (that is providing disk-encryption set while performing cross-region restore is currently not supported, however, you can assign the DES to the restored disk after the restore is complete).
-Disks with Write Accelerator enabled | Azure VM with WA disk backup is available in all Azure public regions starting from May 18, 2020. If WA disk backup is not required as part of VM backup, you can choose to remove with [**Selective disk** feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
+Disks with Write Accelerator enabled | Azure VM with WA disk backup is available in all Azure public regions starting from May 18, 2022. If WA disk backup is not required as part of VM backup, you can choose to remove with [**Selective disk** feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
 Disks enabled for access with private EndPoint | Unsupported.
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
