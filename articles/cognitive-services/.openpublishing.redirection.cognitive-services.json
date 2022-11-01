@@ -3506,6 +3506,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/personalizer/concept-feature-evaluation.md",
+            "redirect_url": "/azure/cognitive-services/personalizer/how-to-feature-evaluation",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/policy-samples.md",
             "redirect_url": "/azure/cognitive-services/policy-reference",
             "redirect_document_id": false

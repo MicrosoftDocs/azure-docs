@@ -265,7 +265,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 To make a Rank request, you will need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
 
-This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 ```javascript
 let rankRequest = {}

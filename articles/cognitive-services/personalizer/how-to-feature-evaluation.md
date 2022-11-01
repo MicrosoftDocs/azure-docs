@@ -18,7 +18,7 @@ You can assess how important each feature was to the underlying model during a s
 * Understand which features are most or least important to the model.
 * Brainstorm additional features that may be beneficial to learning, by deriving inspiration from what features are currently important in the model.
 * Identify potentially unimportant or non-useful features that should be considered for further analysis or removal. 
-* Troubleshoot common problems and errors that may occur when designing features and sending them to Personalizer. For example, using GUIDs, timestamps, or other features that are generally _sparse_ may be problematic. Learn more about [improving features](concepts-features#improve-feature-sets).
+* Troubleshoot common problems and errors that may occur when designing features and sending them to Personalizer. For example, using GUIDs, timestamps, or other features that are generally _sparse_ may be problematic. Learn more about [improving features](concepts-features.md).
 
 ## What is a feature evaluation?
 

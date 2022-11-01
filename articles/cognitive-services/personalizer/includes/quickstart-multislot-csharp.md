@@ -159,7 +159,7 @@ private static IList<PersonalizerRankableAction> GetActions()
 Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
-This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple slot features. In production systems, determining and [evaluating](../howto-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 private static IList<PersonalizerSlotOptions> GetSlots()
@@ -324,7 +324,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 To complete the Rank request, the program asks the user's preferences to create a `Context` of the content choices. The request contains the context, actions and slots with their respective features and a unique event ID, to receive a response.
 
-This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 string timeOfDayFeature = GetTimeOfDayForContext();
