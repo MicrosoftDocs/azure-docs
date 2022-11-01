@@ -13,10 +13,10 @@ ms.date: 10/17/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
-# Requesting for permissions through consent
+# Requesting permissions through consent
 
 
-Applications in Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. There are consent types that your application may need to know about in order to be successful. If you're defining permissions, you'll also need to understand how your users will consent to these permissions for your application or API to access their data. 
+Applications in the Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. Different types of consent are better for different application scenarios. Choosing the best approach to consent for your app will help it be more successful with users and organizations. 
 
 In this article, you'll learn about the different types of consent and how to request permissions for your application through consent.
 
@@ -26,11 +26,7 @@ In the static user consent scenario, you must specify all the permissions it nee
 
 Static permissions also enable administrators to consent on behalf of all users in the organization.
 
-While static permissions of the application defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
-
-- The application needs to request all the permissions it would ever need upon the user's first sign-in. This can lead to a long list of permissions that discourages end users from approving the app's access on initial sign-in.
-
-- The application needs to know all of the resources it would ever access ahead of time. It's difficult to create apps that could access an arbitrary number of resources.
+While relying on static consent and a single permissions list keeps the code nice and simple, it also means that your app will request all of the permissions it might ever need up front. This can discourage users and admins from approving your app's access request.
 
 ## Incremental and dynamic user consent
 
@@ -97,7 +93,7 @@ Some organizations may change the default user consent policy for the tenant. Wh
 
 Application permissions always require admin consent. Application permissions don't have a user context and the consent grant isn't done on behalf of any specific user. Instead, the client application is granted permissions directly, these types of permissions are used only by daemon services and other non-interactive applications that run in the background. Administrators need to configure the permissions upfront and [grant admin consent](../manage-apps/grant-admin-consent.md) through the Azure portal. 
 
-### Admin consent Multi-tenant applications
+### Admin consent for Multi-tenant applications
 
 In case the application requesting the permission is a multi-tenant application, its application registration only exists in the tenant where it was created, therefore permissions can't be configured in the local tenant. If the application requests permissions that require admin consent, the administrator needs to consent on behalf of the users. To consent to these permissions, the administrators need to log in to the application themselves, so the admin consent sign-in experience is triggered. To learn how to set up the admin consent experience for multi-tenant applications, see [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 

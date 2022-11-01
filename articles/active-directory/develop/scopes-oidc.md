@@ -41,7 +41,7 @@ In requests to the authorization server, for the Microsoft Identity platform, if
 
 ## Admin-restricted permissions
 
-Some high-privilege  at Microsoft resources can be set to *admin-restricted*. If your app requires scopes for admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users. The following section gives examples of these kinds of permissions:
+Permissions in the Microsoft identity platform can be set to admin restricted. For example, many higher-privilege Microsoft Graph permissions require admin approval. If your app requires admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users. The following section gives examples of these kinds of permissions:
 
 - Read all user's full profiles by using `User.Read.All`
 - Write data to an organization's directory by using `Directory.ReadWrite.All`
@@ -52,7 +52,7 @@ Some high-privilege  at Microsoft resources can be set to *admin-restricted*. If
 
 Although a consumer user might grant an application access to this kind of data, organizational users can't grant access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions.
 
-If the application requests application permissions and an administrator grants these permissions this grant isn't done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are used only by daemon services and other non-interactive applications that run in the background. For more information on the direct access scenario, see [Access scenarios in the Microsoft identity platform](permissions-consent-overview.md).
+If the application requests application permissions and an administrator grants these permissions this grant isn't done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions should only be used by daemon services and other non-interactive applications that run in the background. For more information on the direct access scenario, see [Access scenarios in the Microsoft identity platform](permissions-consent-overview.md).
 
 For a step by step guide on how to expose scopes in a web API, see [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
@@ -109,7 +109,7 @@ Clients can't combine static (`.default`) consent and dynamic consent in a singl
 
 ### .default when the user has already given consent
 
-The `.default` scope is functionally identical to the behavior of the `resource`-centric v1.0 endpoint. It carries the consent behavior of the v1.0 endpoint as well. That is, `.default` triggers a consent prompt only if consent hasn't been granted for any delegated permission between the client and the resource, on behalf of the signed-in user.
+The `.default` scope parameter only triggers a consent prompt if consent hasn't been granted for any delegated permission between the client and the resource, on behalf of the signed-in user.
 
 If consent exists, the returned token contains all scopes granted for that resource for the signed-in user. However, if no permission has been granted for the requested resource (or if the `prompt=consent` parameter has been provided), a consent prompt is shown for all required permissions configured on the client application registration, for all APIs in the list.
 
@@ -135,7 +135,10 @@ The client first performs a sign-in with `scope=https://graph.microsoft.com/.def
 
 ### Using the .default scope with the client
 
-In some cases, a client can request its own `.default` scope. The following example demonstrates this scenario.
+In some cases, a client can request its own `.default` scope. The following example demonstrates this scenario. 
+
+The scenario accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to the Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform.
+
 
 ```http
 // Line breaks are for legibility only.
@@ -149,8 +152,6 @@ GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 ```
 
 This code example produces a consent page for all registered permissions if the preceding descriptions of consent and `.default` apply to the scenario. Then the code returns an `id_token`, rather than an access token.  
-
-This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to the Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform.
 
 ### Client credentials grant flow and .default  
 

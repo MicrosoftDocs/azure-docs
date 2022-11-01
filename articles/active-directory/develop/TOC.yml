@@ -33,16 +33,16 @@
     - name: Permissions and access
       displayName: Access control
       items:
-        - name: "Authorization options: ACLs, RBAC, ABAC"
-          href: authorization-basics.md
-        - name: RBAC for app developers
-          href: custom-rbac-for-developers.md
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
         - name: Delegated access
           href: delegated-access.md
         - name: Scopes and permissions
           href: scopes-oidc.md
+        - name: "Authorization options: ACLs, RBAC, ABAC"
+          href: authorization-basics.md
+        - name: RBAC for app developers
+          href: custom-rbac-for-developers.md
         - name: Requesting permissions through consent
           href: consent-types-developer.md
         - name: Application consent experiences

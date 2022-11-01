@@ -58,8 +58,8 @@ For client app authorization, OneDrive will check whether the client making the 
 
 | GET /drives/{id}/files/{id} | Client app granted `Files.Read` scope for Alice | Client app not granted `Files.Read` scope for Alice |
 | ----- | ----- | ----- |
-| The document is in Alice’s OneDrive | 200 – Access granted | Unauthorized. Alice (or her admin) hasn’t allowed this client to read her files. |
-| The document is in another user’s OneDrive* | Unauthorized. Alice doesn’t have rights to read this file. Even though the client has been granted `Files.Read` it should be denied when acting on Alice’s behalf. | 403 – Unauthorized. Alice doesn’t have rights to read this file, and the client isn’t allowed to read files she has access to either. | 
+| The document is in Alice’s OneDrive | 200 – Access granted | 403 - Unauthorized. Alice (or her admin) hasn’t allowed this client to read her files. |
+| The document is in another user’s OneDrive* | 403 - Unauthorized. Alice doesn’t have rights to read this file. Even though the client has been granted `Files.Read` it should be denied when acting on Alice’s behalf. | 403 – Unauthorized. Alice doesn’t have rights to read this file, and the client isn’t allowed to read files she has access to either. | 
 
 The example given is simplified to illustrate delegated authorization. The production OneDrive service supports many other access scenarios, such as shared files.
 

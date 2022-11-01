@@ -50,11 +50,11 @@ The following diagram and table provide information about the building blocks of
 ## Common scenarios and consent experiences
 
 The following section describes the common scenarios and the expected consent experience for each of them.
-### App requires a permission within the user's scope of authority
+### App requires a permission that the user has the right to grant
 
 In this consent scenario, the user accesses an app that requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
 
-Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin won't see this checkbox.
+Admins will see an additional control on the traditional consent prompt that will allow to give consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin won't see this checkbox.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
@@ -62,7 +62,7 @@ Users will see the traditional consent prompt.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1b.png" alt-text="Screenshot that shows the traditional consent prompt.":::
 
-### App requires a permission outside of the user's scope of authority
+### App requires a permission that the user has no right to grant
 
 In this consent scenario, the user accesses an app that requires at least one permission that is outside the user's scope of authority.
 
@@ -70,7 +70,7 @@ Admins will see an additional control on the traditional consent prompt that wil
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
-Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app.
+Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app. If admin consent workflow is enabled in the user's tenant, non-admin users are able to submit a request for admin approval from the consent prompt. For more information on admin consent workflow, see [Admin consent workflow](../manage-apps/admin-consent-workflow-overview.md)
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
@@ -88,7 +88,7 @@ Non-admin users will be blocked from granting consent to the application, and th
 
 ### Admin consent through the Azure portal
 
-In this scenario, an administrator consents to an application's delegated permissions on behalf of all the users in the tenant. The Administrator grants consent through the **API permissions** page of the application registration in the [Azure portal](https://portal.azure.com).
+In this scenario, an administrator consents to all of the permissions that an application requests, which can include delegated permissions on behalf of all users in the tenant. The Administrator grants consent through the **API permissions** page of the application registration in the [Azure portal](https://portal.azure.com).
 
  :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Grant permissions for explicit admin consent" lightbox="./media/consent-framework/grant-consent.png":::
 
