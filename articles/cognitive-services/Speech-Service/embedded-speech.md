@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 10/31/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
@@ -83,13 +83,13 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
 // For speech-to-text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
-    Environment.GetEnvironmentVariable("MODEL_KEY"));
+"Microsoft Speech Recognizer en-US FP Model V8", 
+Environment.GetEnvironmentVariable("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
-    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    Environment.GetEnvironmentVariable("VOICE_KEY"));
+"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+Environment.GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
@@ -109,13 +109,13 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
 // For speech-to-text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
-    "Microsoft Speech Recognizer en-US FP Model V8", 
-    GetEnvironmentVariable("MODEL_KEY"));
+"Microsoft Speech Recognizer en-US FP Model V8", 
+GetEnvironmentVariable("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
-    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    GetEnvironmentVariable("VOICE_KEY"));
+"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
@@ -132,19 +132,25 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
 // For speech-to-text
 embeddedSpeechConfig.setSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
-    System.getenv("MODEL_KEY"));
+"Microsoft Speech Recognizer en-US FP Model V8", 
+System.getenv("MODEL_KEY"));
 
 // For text-to-speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
-    "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    System.getenv("VOICE_KEY"));
+"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+System.getenv("VOICE_KEY"));
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
 ::: zone-end
 
- You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/dotnetcore/embedded-speech)
+- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/embedded-speech)
+- [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/embedded-speech)
+- [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/embedded-speech)
+- [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/embedded-speech)
 
 ## Hybrid speech
 
