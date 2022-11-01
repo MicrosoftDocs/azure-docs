@@ -1,5 +1,6 @@
 ---
 title: Media streaming overview
+titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about using Media Streaming APIs with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
@@ -34,7 +35,7 @@ Audio streams can be used in many ways, below are some examples of how developer
 
 ## Sample architecture for subscribing to audio streams from an ongoing call
 
-[![Screenshot of flow for play action.](./media/media_streaming_flow.png)](./media/media_streaming_flow.png#lightbox)
+[![Screenshot of flow for play action.](./media/media-streaming-flow.png)](./media/media-streaming-flow.png#lightbox)
 
 ## Supported formats
 

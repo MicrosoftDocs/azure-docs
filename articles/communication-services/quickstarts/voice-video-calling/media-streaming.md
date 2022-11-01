@@ -1,5 +1,5 @@
 ---
-title: Media Streaming Quickstart
+title: Media streaming quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quick start for developers to get audio streams through media streaming APIs from ACS calls.
 author: kunaal
