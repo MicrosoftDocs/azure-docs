@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
 
 ## Prerequisites
 
@@ -26,14 +26,14 @@ Translator is a cloud-based neural machine translation service that is part of t
 
     :::image type="content" source="../../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-  See [how to create a Translator resource](../../how-to-create-translator-resource.md).
+  See [how to create a Translator resource](../how-to-create-translator-resource.md).
 
 Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
 
 >[!Note]
->Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
+>Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
 
 ## Process summary
 
@@ -49,7 +49,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. [**Publish (deploy) your trained model**](#publish-your-model). Your custom model is made available for runtime translation requests.
 
-1. [**Translate text**](#translate-text). Use the cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl) to make translation requests.
+1. [**Translate text**](#translate-text). Use the cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl) to make translation requests.
 
 ## Create a workspace
 
@@ -82,7 +82,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 Once the workspace is created successfully, you'll be taken to the **Projects** page.
 
-You'll create English-to-German project to train a custom model with only a [training](../training-and-model.md#training-document-type-for-custom-translator) document type.
+You'll create English-to-German project to train a custom model with only a [training](training-and-model.md#training-document-type-for-custom-translator) document type.
 
 1. Select **Create project**.
 
@@ -100,9 +100,9 @@ You'll create English-to-German project to train a custom model with only a [tra
 
 ## Upload documents
 
-In order to create a custom model, you need to upload all or a combination of [training](../training-and-model.md#training-document-type-for-custom-translator), [tuning](../training-and-model.md#tuning-document-type-for-custom-translator), [testing](../training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](../what-is-dictionary.md) document types.
+In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](what-is-dictionary.md) document types.
 
-In this quickstart, you'll upload [training](../training-and-model.md#training-document-type-for-custom-translator) documents for customization.
+In this quickstart, you'll upload [training](training-and-model.md#training-document-type-for-custom-translator) documents for customization.
 
 >[!Note]
 > You can use our sample training, phrase and sentence dictionaries dataset, [Customer sample English-to-German datasets](https://github.com/MicrosoftTranslator/CustomTranslatorSampleDatasets), for this quickstart. However, for production, it's better to upload your own training dataset.
@@ -184,7 +184,7 @@ Publishing your model makes it available for use with the Translator API. A proj
 
 ## Translate text
 
-1. Developers should use the `Category ID` when making translation requests with Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../reference/v3-0-reference.md) webpage.
+1. Developers should use the `Category ID` when making translation requests with Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../reference/v3-0-reference.md) webpage.
 
 1. Business users may want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 

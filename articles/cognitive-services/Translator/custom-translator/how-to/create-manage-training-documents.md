@@ -13,11 +13,11 @@ ms.topic: how-to
 
 # Build and manage training documents 
 
-[Custom Translator](../../overview.md) enables you to build translation models that reflect your business, industry, and domain-specific terminology and style. Training and deploying a custom model is easy and doesn't require any programming skills. Custom Translator allows you to upload parallel files, translation memory files, or zip files.
+[Custom Translator](../overview.md) enables you to build translation models that reflect your business, industry, and domain-specific terminology and style. Training and deploying a custom model is easy and doesn't require any programming skills. Custom Translator allows you to upload parallel files, translation memory files, or zip files.
 
-[Parallel documents](../../what-are-parallel-documents.md) are pairs of documents where one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
+[Parallel documents](../what-are-parallel-documents.md) are pairs of documents where one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
 
-Before uploading your documents, review the [document formats and naming convention guidance](../../document-formats-naming-convention.md) to make sure your file format is supported by Custom Translator.
+Before uploading your documents, review the [document formats and naming convention guidance](../document-formats-naming-convention.md) to make sure your file format is supported by Custom Translator.
 
 ## How to create document sets
 
@@ -33,9 +33,9 @@ Finding in-domain quality data is often a challenging task that varies based on 
 
 | Source | What it does | Rules to follow |
 |---|---|---|
-| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](../../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
+| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
 | Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translation in the future. |
-| Test documents | Calculate the [BLEU score](../beginners-guide.md#what-is-a-bleu-score).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
+| Test documents | Calculate the [BLEU score](beginners-guide.md#what-is-a-bleu-score).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
 | Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
 | Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |
 

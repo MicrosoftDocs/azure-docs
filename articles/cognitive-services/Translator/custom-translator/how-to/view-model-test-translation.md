@@ -20,7 +20,7 @@ BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the precis
 
 A BLEU score is a number between zero and 100. A score of zero indicates a low-quality translation where nothing in the translation matched the reference. A score of 100 indicates a perfect translation that is identical to the reference. It's not necessary to attain a score of 100—a BLEU score between 40 and 60 indicates a high-quality translation.
 
-[Read more](../../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma)
+[Read more](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma)
 
 ## Model details
 

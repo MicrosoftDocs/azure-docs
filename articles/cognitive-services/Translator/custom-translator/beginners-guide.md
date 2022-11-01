@@ -12,9 +12,9 @@ ms.topic: overview
 ---
 # Custom Translator for beginners 
 
- [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
+ [Custom Translator](overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
-The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../../language-support.md).
+The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
 
 ## Is a custom translation model the right choice for me?
 
@@ -64,9 +64,9 @@ Finding in-domain quality data is often a challenging task that varies based on 
 
 | Source | What it does | Rules to follow |
 |---|---|---|
-| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
+| Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
 | Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translation in the future. |
-| Test documents | Calculate the [BLEU score](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
+| Test documents | Calculate the [BLEU score](what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
 | Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
 | Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |
 
@@ -76,7 +76,7 @@ BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the precis
 
 A BLEU score is a number between zero and 100. A score of zero indicates a low quality translation where nothing in the translation matched the reference. A score of 100 indicates a perfect translation that is identical to the reference. It's not necessary to attain a score of 100 - a BLEU score between 40 and 60 indicates a high-quality translation.
 
-[Read more](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma)
+[Read more](what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma)
 
 ## What happens if I don't submit tuning or testing data?
 

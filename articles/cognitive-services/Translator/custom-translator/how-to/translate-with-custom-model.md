@@ -16,7 +16,7 @@ After you publish your custom model, you can access it with the Translator API b
 
 ## How to translate
 
-1. Use the `Category ID` when making a custom translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). The `Category ID` is created by concatenating the WorkspaceID, project label, and category code. Use the `CategoryID` with the Text Translator API to get custom translations.
+1. Use the `Category ID` when making a custom translation request via Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl). The `Category ID` is created by concatenating the WorkspaceID, project label, and category code. Use the `CategoryID` with the Text Translator API to get custom translations.
 
    ```http
    https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de&category=a2eb72f9-43a8-46bd-82fa-4693c8b64c3c-TECH
