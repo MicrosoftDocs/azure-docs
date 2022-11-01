@@ -5,8 +5,8 @@ titleSuffix: Azure Deployment Environments
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: overview
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/12/2022
 ---
 
