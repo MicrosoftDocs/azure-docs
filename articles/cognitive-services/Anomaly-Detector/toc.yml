@@ -22,7 +22,7 @@
     - name: Interactive demo
       href: https://aka.ms/adDemo
     - name: GitHub samples
-      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
+      href: https://github.com/Azure-Samples/AnomalyDetector
 - name: How-to guides
   items:
     - name: Univariate Anomaly Detection
