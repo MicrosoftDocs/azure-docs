@@ -17,7 +17,7 @@ Learn how to create an offline evaluation and interpret the results.
 
 Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior over a period of logged (historical) data, and assess how well other model configuration settings may perform for you model.
 
-When creating an offline evaluation, the _Optimization discovery_ option will run offline evaluations over a variety of learning policy values to find one that may improve the performance of your model. You can also provide additional policies to assess in the offline evaluation.
+When you create an offline evaluation, the _Optimization discovery_ option will run offline evaluations over a variety of learning policy values to find one that may improve the performance of your model. You can also provide additional policies to assess in the offline evaluation.
 
 Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
@@ -55,7 +55,7 @@ Evaluations can take a long time to run, depending on the amount of data to proc
     > [![Review evaluation results](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
 You'll see various learning policies on the chart, along with their estimated average reward, confidence intervals, and options to download or apply a specific policy.
-- "Online" - Personalzier's current policy
+- "Online" - Personalizer's current policy
 - "Baseline1" - Your application's baseline policy
 - "BaselineRand" - A policy of taking actions at random
 - "Inter-len#" or "Hyper#"  - Policies created by Optimization discovery.
