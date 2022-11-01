@@ -1,7 +1,7 @@
 ---
 title: Supported database migration scenarios
 titleSuffix: Azure Database Migration Service
-description: Learn which migration scenarios are supported by Azure Database Migration Service and their availability.
+description: Learn which migration scenarios are supported for Azure Database Migration Service and their availability.
 author: croblesm
 ms.author: roblescarlos
 manager: craigg
