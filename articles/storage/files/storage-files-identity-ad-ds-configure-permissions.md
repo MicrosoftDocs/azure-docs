@@ -45,7 +45,15 @@ The following table contains the Azure RBAC permissions related to this configur
 
 ## Supported Windows ACLs
 
-Azure Files supports the full set of basic and advanced Windows ACLs. 
+Azure Files supports the full set of basic and advanced Windows ACLs.
+
+|Users|Definition|
+|---|---|
+|`BUILTIN\Administrators`|Built-in security group representing administrators of the file server. This group is empty, and no one can be added to it.
+|`BUILTIN\Users`|Built-in security group representing users of the file server. It includes `NT AUTHORITY\Authenticated Users` by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence `BUILTIN\Users` includes the same set of users as `NT AUTHORITY\Authenticated Users`.|
+|`NT AUTHORITY\SYSTEM`|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
+|`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
+|`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
 The following permissions are included on the root directory of a file share:
 
@@ -56,14 +64,6 @@ The following permissions are included on the root directory of a file share:
 - `NT AUTHORITY\SYSTEM:(OI)(CI)(F)`
 - `NT AUTHORITY\SYSTEM:(F)`
 - `CREATOR OWNER:(OI)(CI)(IO)(F)`
-
-|Users|Definition|
-|---|---|
-|`BUILTIN\Administrators`|Built-in security group representing administrators of the file server. This group is empty, and no one can be added to it.
-|`BUILTIN\Users`|Built-in security group representing users of the file server. It includes `NT AUTHORITY\Authenticated Users` by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence `BUILTIN\Users` includes the same set of users as `NT AUTHORITY\Authenticated Users`.|
-|`NT AUTHORITY\SYSTEM`|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
-|`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
-|`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
 ## Mount the file share using your storage account key
 
