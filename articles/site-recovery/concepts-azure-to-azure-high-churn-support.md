@@ -6,7 +6,7 @@ author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/01/2022
 ms.author: v-pgaddala
 ---
 
@@ -34,14 +34,10 @@ The following table summarizes Site Recovery limits:
 
 |Target Disk Type|Avg I/O Size|Avg Churn Supported|
 |---|---|---|
-|Standard|8 KB|2 MB/s|
-|Standard|16 KB|4 MB/s|
-|Standard|24 KB|6 MB/s|
-|Standard|32 KB and above|10 MB/s|
-|P10 or P15|8 KB|2 MB/s|
-|P10 or P15|16 KB|4 MB/s|
-|P10 or P15|24 KB|6 MB/s|
-|P10 or P15|32 KB and above|10 MB/s|
+|Standard or P10 or P15 |8 KB|2 MB/s|
+|Standard or P10 or P15|16 KB|4 MB/s|
+|Standard or P10 or P15|24 KB|6 MB/s|
+|Standard or P10 or P15|32 KB and above|10 MB/s|
 |P20|8 KB|10 MB/s|
 |P20|16 KB|20 MB/s|
 |P20|24 KB and above|30 MB/s|
