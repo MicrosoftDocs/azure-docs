@@ -17,7 +17,7 @@ ms.devlang: csharp
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
 The application is available: 
-* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website)
+* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## What does the sample do? 
