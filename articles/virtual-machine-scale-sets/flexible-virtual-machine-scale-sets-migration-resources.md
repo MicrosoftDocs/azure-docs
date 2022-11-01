@@ -17,20 +17,20 @@ Like availability sets, Virtual Machine Scale Sets allows you to spread virtual 
 
 ## Update availability set deployments templates and scripts
 
-First, you need to create a virtual machine scale set with no auto scaling profile via [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). Azure portal only allows creating a virtual machine scale set with an autoscaling profile. If you don't want or need an autoscaling profile and you want to create a scale set using [Azure portal](flexible-virtual-machine-scale-sets-portal.md), you can set the initial capacity to 0. 
+First, you need to create a Virtual Machine Scale Set with no auto scaling profile via [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). Azure portal only allows creating a Virtual Machine Scale Set with an autoscaling profile. If you don't want or need an autoscaling profile and you want to create a scale set using [Azure portal](flexible-virtual-machine-scale-sets-portal.md), you can set the initial capacity to 0. 
  
-You must specify the fault domain count for the virtual machine scale set. For regional (non-zonal) deployments, Virtual Machine Scale Sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. For zonal deployments where you're spreading instances across multiple availability zones, the fault domain count must be set to 1.
+You must specify the fault domain count for the Virtual Machine Scale Set. For regional (non-zonal) deployments, Virtual Machine Scale Sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. For zonal deployments where you're spreading instances across multiple availability zones, the fault domain count must be set to 1.
 
 Update domains have been deprecated in Flexible Orchestration mode. Most platform updates with general purpose SKUs are performed with Live Migration and don't require instance reboot. On the occasion that a platform maintenance requires instances to be rebooted, updates are applied fault domain by fault domain.  
     
 Flexible orchestration for Virtual Machine Scale Sets also supports deploying instances across multiple availability zones. You may want to consider updating your VM deployments to spread across multiple availability zones. 
 
-The last step in this process is to create a virtual machine. Instead of specifying an availability set, specify the virtual machine scale set. Optionally, you can specify the availability zone or fault domain in which you wish to place the VM. 
+The last step in this process is to create a virtual machine. Instead of specifying an availability set, specify the Virtual Machine Scale Set. Optionally, you can specify the availability zone or fault domain in which you wish to place the VM. 
 
 
 ## Migrate existing availability set VMs 
 
-There's currently no automated tooling to directly move existing instances in an Availability Set to a virtual machine scale set. However, there are several strategies you can utilize to migrate existing instances to a Flexible scale set: 
+There's currently no automated tooling to directly move existing instances in an Availability Set to a Virtual Machine Scale Set. However, there are several strategies you can utilize to migrate existing instances to a Flexible scale set: 
 
 ### Blue/green or side by side migration 
 
@@ -66,7 +66,7 @@ Update Uniform Virtual Machine Scale Sets deployment templates and scripts to us
 
 ## Migrate existing Uniform scale sets 
 
-There's currently no automated tooling to directly move existing instances or upgrade a Uniform scale set to a Flexible virtual machine scale set. However, here's a strategy you can utilize to migrate existing instances to a Flexible scale set:
+There's currently no automated tooling to directly move existing instances or upgrade a Uniform scale set to a Flexible Virtual Machine Scale Set. However, here's a strategy you can utilize to migrate existing instances to a Flexible scale set:
 
 ### Blue/green or side by side migration 
 
@@ -100,7 +100,7 @@ Common scenarios that will require explicit outbound connectivity include:
 - Windows updates.
 - Access to Linux package managers. 
 
-For more details on defining  outbound connectivity, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
+For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 With single instance VMs where you explicitly create the NIC, default outbound access is provided. Virtual Machine Scale Sets in Uniform Orchestration mode also has default outbound connectivity. 
 
@@ -158,7 +158,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 ### Protect instances from delete
 
-Virtual Machine Scale Sets in Flexible orchestration mode don't currently have instance protection options. If you have autoscale enabled on a virtual machine scale set, some VMs might be at risk of deletion during the scaling in process. If you want to protect certain VM instances from deletion, use [Azure Resource Manager lock](../azure-resource-manager/management/lock-resources.md).
+Virtual Machine Scale Sets in Flexible orchestration mode don't currently have instance protection options. If you have autoscale enabled on a Virtual Machine Scale Set, some VMs might be at risk of deletion during the scaling in process. If you want to protect certain VM instances from deletion, use [Azure Resource Manager lock](../azure-resource-manager/management/lock-resources.md).
 
 
 
