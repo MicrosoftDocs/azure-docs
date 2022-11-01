@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 11/03/2022
 ---
 
 # Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps
@@ -28,7 +28,7 @@ For these capabilities, the connector supports all PIPs that are defined by RNIF
 
 ## RosettaNet concepts
 
-Here are some concepts and terms that are unique to the RosettaNet specification and are important when building RosettaNet-based integrations:
+The following concepts and terms are unique to the RosettaNet specification and are important when building RosettaNet-based integrations:
 
 * **PIP**
 
@@ -58,7 +58,7 @@ Here are some concepts and terms that are unique to the RosettaNet specification
 
 * A PIP process configuration, which is required to send or receive RosettaNet messages, in your integration account. The process configuration stores all the PIP configuration characteristics. You can then reference this configuration when you create an agreement with the partner. To create a PIP process configuration in your integration account, see [Add PIP process configuration](#add-pip).
 
-* Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you are use signing or encryption.
+* Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you use signing or encryption.
 
 <a name="add-pip"></a>
 
@@ -66,13 +66,13 @@ Here are some concepts and terms that are unique to the RosettaNet specification
 
 To add a PIP process configuration to your integration account, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), find and open your integration account.
+1. In the [Azure portal](https://portal.azure.com), go to your integration account.
 
-1. On the **Overview** pane, select the **RosettaNet PIP** tile.
+1. On the integration account navigation menu, under **Settings**, select **RosettaNet PIP**.
 
    ![Choose RosettaNet tile](media/logic-apps-enterprise-integration-rosettanet/select-rosettanet-tile.png)
 
-1. Under **RosettaNet PIP**, choose **Add**. Provide your PIP details.
+1. Under **RosettaNet PIP**, select **Add**. Under **Add Partner Interface Process**, enter your PIP details.
 
    ![Add RosettaNet PIP details](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
@@ -85,9 +85,9 @@ To add a PIP process configuration to your integration account, follow these ste
 
    For more information about these PIP properties, visit the [RosettaNet website](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
 
-1. When you're done, choose **OK**, which creates the PIP configuration.
+1. When you're done, select **OK**, which creates the PIP configuration.
 
-1. To view or edit the process configuration, select the PIP, and choose **Edit as JSON**.
+1. To view or edit the process configuration, select the PIP, and select **Edit as JSON**.
 
    All process configuration settings come from the PIP's specifications. Logic Apps populates most of the settings with the default values that are the most typically used values for these properties.
 
@@ -97,13 +97,13 @@ To add a PIP process configuration to your integration account, follow these ste
 
 ## Create RosettaNet agreement
 
-1. In the [Azure portal](https://portal.azure.com), find and open your integration account, if not already open.
+1. In the [Azure portal](https://portal.azure.com), go to your integration account.
 
-1. On the **Overview** pane, select the **Agreements** tile.
+1. On the integration account navigation menu, under **Settings**, select **Agreements**.
 
    ![Choose Agreements tile](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
 
-1. Under **Agreements**, choose **Add**. Provide your agreement details.
+1. Under **Agreements**, select **Add**. Under **Add**, enter your agreement details.
 
    ![Add agreement details](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
@@ -122,9 +122,7 @@ To add a PIP process configuration to your integration account, follow these ste
 
 1. To set up your agreement for receiving incoming messages from the guest partner, select **Receive Settings**.
 
-   ![Receive settings](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
-
-   1. To enable signing or encryption for incoming messages, under **Messages**, select **Message should be signed** or **Message should be encrypted** respectively.
+   1. To enable signing or encryption for incoming messages, under **Message**, select **Message should be signed** or **Message should be encrypted** respectively.
 
       | Property | Required | Description |
       |----------|----------|-------------|
@@ -136,9 +134,9 @@ To add a PIP process configuration to your integration account, follow these ste
 
    1. Under each selection, select the respective [certificate](./logic-apps-enterprise-integration-certificates.md), which you previously added to your integration account, to use for signing or encryption.
 
-1. To set up your agreement for sending messages to the guest partner, select **Send Settings**.
+   ![Receive settings](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
 
-   ![Send settings](media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png)
+1. To set up your agreement for sending messages to the guest partner, select **Send Settings**.
 
    1. To enable signing or encryption for outgoing messages, under **Messages**, select **Enable message signing** or **Enable message encryption** respectively. Under each selection, select the respective algorithm and [certificate](./logic-apps-enterprise-integration-certificates.md), which you previously added to your integration account, to use for signing or encryption.
 
@@ -159,6 +157,8 @@ To add a PIP process configuration to your integration account, follow these ste
       | **Action URL** |  Yes | The URL to use for sending action messages. The URL is a required field for both synchronous and asynchronous messages. |
       | **Acknowledgment URL** | Yes | The URL to use for sending acknowledgment messages. The URL is a required field for asynchronous messages. |
       ||||
+
+   ![Send settings](media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png)
 
 1. To set up your agreement with the RosettaNet PIP references for partners, select **RosettaNet PIP references**. Under **PIP Name**, select the name for your previously created PIP.
 
@@ -188,7 +188,7 @@ To accelerate development and recommend integration patterns, you can use logic 
 
    ![Add Request trigger](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
-1. In the search box, enter "rosettanet", and select this action: **RosettaNet Decode**
+1. In the search box, enter **rosettanet**, and select this action: **RosettaNet Decode**
 
    ![Find and select "RosettaNet Decode" action](media/logic-apps-enterprise-integration-rosettanet/select-decode-rosettanet-action.png)
 
