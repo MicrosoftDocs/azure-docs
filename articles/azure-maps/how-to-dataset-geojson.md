@@ -98,7 +98,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
 1. In the Header of the HTTP response, copy the value of the unique identifier contained in the `Resource-Location` key.
 
-    > https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2022-09-01-preview
+    > <https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2022-09-01-preview>
 
 See [Next steps](#next-steps) for links to articles to help you complete your indoor map.
 
