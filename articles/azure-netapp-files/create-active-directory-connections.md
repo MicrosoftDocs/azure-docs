@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/01/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -128,7 +128,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
-        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
+        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.
 
     * <a name="ldap-signing"></a>**LDAP Signing**   
 
@@ -167,6 +167,26 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
+
+    * **Encrypted SMB connections to Domain Controller**
+        
+        **Encrypted SMB connections to Domain Controller** specifies whether encryption should be used for communication between SMB server and domain controller. When enabled, only SMB3 will be used for encrypted domain controller connections.
+
+        If this is your first time using this feature, you must register it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFEncryptedSMBConnectionsToDC 
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFEncryptedSMBConnectionsToDC 
+        ```
+
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * <a name="backup-policy-users"></a> **Backup policy users**
         This option grants addition security privileges to AD DS domain users or groups that require elevated backup privileges to support backup, restore, and migration workflows in Azure NetApp Files. The specified AD DS user accounts or groups will have elevated NTFS permissions at the file or folder level.
