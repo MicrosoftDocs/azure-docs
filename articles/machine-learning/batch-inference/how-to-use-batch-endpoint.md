@@ -680,7 +680,7 @@ In this example, you will learn how to add a second deployment __that solves the
     1. Enter the name of the environment, in this case `keras-batch-env`.
     1. On __Select environment type__ select __Use existing docker image with conda__.
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
-    1. On __Customize__ section copy the content of the file `./mnist/environment/conda.yml` included in the repository into the portal. The conda file looks as follows:
+    1. On __Customize__ section copy the content of the file `./mnist-keras/environment/conda.yml` included in the repository into the portal. The conda file looks as follows:
         
         :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras/environment/conda.yml":::
     
