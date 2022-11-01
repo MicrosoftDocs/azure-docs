@@ -60,7 +60,7 @@ After the user enters their credentials, the Microsoft identity platform checks 
 
 In the following example, the `offline_access` ("Maintain access to data you have given it access to") permission and `User.Read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are required for proper application functionality. The `offline_access` permission gives the application access to refresh tokens that are critical for native apps and web apps. The `User.Read` permission gives access to the `sub` claim. It allows the client or application to correctly identify the user over time and access rudimentary user information.
 
-![Example screenshot that shows work account consent.](./media//request-permissions-through-consent.png)
+:::image type="content" source="./media/consent-types-developer/request-permissions-through-consent.png" alt-text="Example screenshot that shows work account consent." lightbox="./media/consent-framework/grant-consent.png":::
 
 When the user approves the permission request, consent is recorded. The user doesn't have to consent again when they later sign in to the application.
 
@@ -95,7 +95,7 @@ Application permissions always require admin consent. Application permissions do
 
 ### Admin consent for Multi-tenant applications
 
-In case the application requesting the permission is a multi-tenant application, its application registration only exists in the tenant where it was created, therefore permissions can't be configured in the local tenant. If the application requests permissions that require admin consent, the administrator needs to consent on behalf of the users. To consent to these permissions, the administrators need to log in to the application themselves, so the admin consent sign-in experience is triggered. To learn how to set up the admin consent experience for multi-tenant applications, see [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
+In case the application requesting the permission is a multi-tenant application, its application registration only exists in the tenant where it was created, therefore permissions can't be configured in the local tenant. If the application requests permissions that require admin consent, the administrator needs to consent on behalf of the users. To consent to these permissions, the administrators need to log in to the application themselves, so the admin consent sign-in experience is triggered. To learn how to set up the admin consent experience for multi-tenant applications, see [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 
 An administrator can grant consent for an application with the following options.
 

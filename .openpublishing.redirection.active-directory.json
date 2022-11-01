@@ -3378,17 +3378,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-scopes.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
