@@ -61,7 +61,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
+    :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
 
