@@ -36,7 +36,7 @@
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
         - name: Delegated access
-          href: delegated-access.md
+          href: delegated-access-primer.md
         - name: Scopes and permissions
           href: scopes-oidc.md
         - name: "Authorization options: ACLs, RBAC, ABAC"

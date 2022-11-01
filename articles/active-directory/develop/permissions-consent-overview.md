@@ -28,7 +28,7 @@ As an application developer, you must identify how your application will access 
 
 ### Delegated access (access on behalf of a user)
 
-In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. Delegated access requires delegated permissions. Both the client and the user must be authorized separately to make the request. For more information about the delegated access scenario, see [delegated access scenario](delegated-access.md).
+In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. Delegated access requires delegated permissions. Both the client and the user must be authorized separately to make the request. For more information about the delegated access scenario, see [delegated access scenario](delegated-access-primer.md).
 
 For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions for a given resource that represent what a client application can access on behalf of the user.For more information about scopes, see [scopes and permissions](v2-permissions-and-consent.md#scopes-and-permissions).
 
@@ -82,6 +82,6 @@ Depending on the permissions they require, some applications might require an ad
 Preauthorization allows a resource application owner to grant permissions without requiring users to see a consent prompt for the same set of permissions that have been preauthorized. This way, an application that has been preauthorized won't ask users to consent to permissions. Resource owners can preauthorize client apps in the Azure portal or by using PowerShell and APIs, like Microsoft Graph.
 
 ## Next steps
-- [Delegated access scenario](delegated-access.md)
+- [Delegated access scenario](delegated-access-primer.md)
 - [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
 - [OpenID connect scopes](scopes-oidc.md)
