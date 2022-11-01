@@ -40,6 +40,8 @@
       href: how-to-manage-dev-box-pools.md
     - name: Manage a dev box definition
       href: how-to-manage-dev-box-definitions.md
+    - name: Manage a dev box project
+      href: how-to-manage-dev-box-projects.md
     - name: Manage network connections
       href: how-to-manage-network-connection.md
     - name: Microsoft Dev Box CLI

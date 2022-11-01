@@ -28,7 +28,9 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
 
 > [!WARNING]
-> If you need to delete a resource, you should first delete its diagnostic settings. Otherwise, if you recreate this resource using the same name, the previous diagnostic settings will be included with the new resource. This will resume the collection of resource logs for the new resource as defined in a diagnostic setting and send the applicable metric and log data to the previously configured destination.
+> If you need to delete a resource, you should first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
+>
+>Also, it’s a good practice to delete the diagnostic settings for a resource you're going to delete and don't plan on using again to keep your environment clean.
 
 The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time. Be aware of the following changes:
 
