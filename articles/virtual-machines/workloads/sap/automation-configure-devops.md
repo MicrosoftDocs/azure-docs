@@ -1,6 +1,6 @@
 ---
-title: Configure Azure DevOps Services for SAP deployment automation framework
-description: Configure your Azure DevOps Services for the SAP deployment automation framework on Azure.
+title: Configure Azure DevOps Services for SAP on Azure Deployment Automation Framework
+description: Configure your Azure DevOps Services for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Use SAP deployment automation framework from Azure DevOps Services
+# Use SAP on Azure Deployment Automation Framework from Azure DevOps Services
 
 Using Azure DevOps will streamline the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
 You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application.
@@ -18,9 +18,9 @@ You can use Azure Repos to store your configuration files and Azure Pipelines to
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account.
 
-## Configure Azure DevOps Services for the SAP deployment automation framework
+## Configure Azure DevOps Services for the SAP on Azure Deployment Automation Framework
 
-You can use the following script to do a basic installation of Azure Devops Services for the SAP deployment automation framework.
+You can use the following script to do a basic installation of Azure Devops Services for the SAP on Azure Deployment Automation Framework.
 
 Log in to Azure Cloud Shell
 ```bash
@@ -74,7 +74,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/ma
 
 You can run the 'Create Sample Deployer Configuration' pipeline to create a sample configuration for the Control Plane. When running choose the appropriate Azure region.
 
-## Manual configuration of Azure DevOps Services for the SAP deployment automation framework
+## Manual configuration of Azure DevOps Services for the SAP on Azure Deployment Automation Framework
 
 ### Create a new project
 
@@ -88,11 +88,11 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 Record the URL of the project.
 ### Import the repository
 
-Start by importing the SAP deployment automation framework GitHub repository into Azure Repos.
+Start by importing the SAP on Azure Deployment Automation Framework GitHub repository into Azure Repos.
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP deployment automation framework GitHub repository to it.
+If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP on Azure Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -111,7 +111,7 @@ Clone the repository to a local folder by clicking the  _Clone_ button in the Fi
 
 ### Manually importing the repository content using a local clone
 
-You can also download the content from the SAP deployment automation framework repository manually and add it to your local clone of the Azure DevOps repository.
+You can also download the content from the SAP on Azure Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
 
 Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_.
 
@@ -126,10 +126,10 @@ Select the source control icon and provide a message about the change, for examp
 ### Create configuration root folder
 
 > [!IMPORTANT]
-   > In order to ensure that your configuration files are not overwritten by changes in the SAP deployment automation framework, store them in a separate folder hierarchy.
+   > In order to ensure that your configuration files are not overwritten by changes in the SAP on Azure Deployment Automation Framework, store them in a separate folder hierarchy.
 
 
-Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP deployment automation framework.
+Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP on Azure Deployment Automation Framework.
 
 Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you created, this will allow you to experiment with sample deployments.
 
