@@ -33,7 +33,7 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 * (Optional) A Service Bus topic resource. If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
-* (Optional) An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
+* (Optional) An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). There are lots of options (tabs) with a storage account, but you only need a new container in your account for this article.
 
 ## Create a route
 
@@ -133,4 +133,31 @@ If you need to create a Service Bus topic (with subscription), see [Use the Azur
 
 # [Azure Storage](#tab/azurestorage)
 
+If you need to create a storage account (with new container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
 
+1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-topic-route**.
+
+1. For **Endpoint**, select the **+ Add endpoint** dropdown list and choose **Storage**.
+
+1. A new page appears called **Add a storage endpoint**. Think of a unique name for the **Endpoint name** field.
+
+1. Select the button for **Pick a container**. Select your storage account and then its container. You return to the **Add a storage endpoint** page.
+
+1. Leave all other values in their default states and choose **Create** at the bottom.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-storage-endpoint.jpg" alt-text="Screenshot that shows the 'Add a storage endpoint' page with correct options selected.":::
+
+1. Leave all the other values as their defaults on the **Add a route** page.
+
+1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** page. 
+
+   > [!NOTE]
+   > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create an additional new route with an **events** endpoint if needed.
+
+   :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-storage-route.jpg" alt-text="Screenshot that shows your new storage route on the 'Message routing' page.":::
+
+## Next Steps
+
+In this how-to article you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage. 
+
+To further your exploration into message routing, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In this tutorial, you'll create a storage route and test it with a device in your IoT hub.
