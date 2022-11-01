@@ -29,7 +29,7 @@ sections:
           Subscribe to update announcements published in these locations:
           
           * [Azure API Management release notes](https://github.com/Azure/API-Management/releases).
-          * [Azure updates](https://azure.microsoft.com/en-us/updates/?query=%22API%20Management%22)
+          * [Azure updates](https://azure.microsoft.com/updates/?query=%22API%20Management%22)
           
       - question: |
           How can I secure the connection between the API Management gateway and my backend services?
@@ -64,7 +64,7 @@ sections:
           * The [API Management REST API](/rest/api/apimanagement/)
           * Azure client SDKs for [.NET](/dotnet/api/overview/azure/apimanagement), [JavaScript](/javascript/api/overview/azure/api-management), [Java](/java/api/overview/azure/api-management), and other languages
           * [Azure PowerShell](/powershell/module/az.apimanagement/) and [Azure CLI](/cli/azure/apim)
-          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?Page=2&term=api+management).
+          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/resources/templates/?Page=2&term=api+management).
           * [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
 
       - question: |
