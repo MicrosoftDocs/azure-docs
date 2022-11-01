@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 11/03/2022
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -89,3 +89,5 @@ See the following articles on securing external access to resources. We recommen
 8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
 
 9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
+
+10. [Secure local guest accounts](10-local-guest-to-b2b.md)
