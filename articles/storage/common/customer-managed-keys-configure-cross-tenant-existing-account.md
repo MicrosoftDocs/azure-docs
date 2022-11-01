@@ -97,7 +97,26 @@ Next, call [az storage account update](/cli/azure/storage/account#az-storage-acc
 Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurecli
+accountName="<storage-account>"
+kvUri="<key-vault-uri>"
+keyName="<key-name>"
+multiTenantAppId="<multi-tenant-app-id>" # appId value from multi-tenant app
 
+# Get the resource ID for the user-assigned managed identity.
+identityResourceId=$(az identity show --name $userIdentityName \
+    --resource-group $isvRgName \
+    --query id \
+    --output tsv)
+
+az storage account update --name $accountName \
+    --resource-group $isvRgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-vault $kvUri \
+    --encryption-key-name $keyName \
+    --encryption-key-source Microsoft.Keyvault \
+    --key-vault-user-identity-id $identityResourceId \
+    --key-vault-federated-client-id $multiTenantAppId
 ```
 
 ---
