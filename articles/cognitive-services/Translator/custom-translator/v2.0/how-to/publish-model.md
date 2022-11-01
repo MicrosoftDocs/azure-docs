@@ -1,7 +1,7 @@
 ---
 title: Publish a custom model
 titleSuffix: Azure Cognitive Services
-description: This article explains how to publish a custom model using the Azure Cognitive Services Custom Translator Preview.
+description: This article explains how to publish a custom model using the Azure Cognitive Services Custom Translator.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,7 @@ ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: how-to
 ---
-# Publish a custom model | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Publish a custom model 
 
 Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish  a model to one or multiple regions depending on your needs. For more information, see [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
 

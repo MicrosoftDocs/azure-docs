@@ -12,10 +12,7 @@ ms.topic: how-to
 
 ---
 
-# Create and manage a workspace | Preview
-
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
+# Create and manage a workspace 
 
  Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently, or share it with teammates to divide up the work.
 

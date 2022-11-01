@@ -12,14 +12,11 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
-
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST APIs. Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
 
 ## Prerequisites
 
- To use the [Custom Translator](https://portal.customtranslator.azure.ai/) preview portal, you'll need the resources:
+ To use the [Custom Translator](https://portal.customtranslator.azure.ai/) portal, you'll need the resources:
 
 * A [Microsoft account](https://signup.live.com).
 
@@ -31,7 +28,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
   See [how to create a Translator resource](../../how-to-create-translator-resource.md).
 
-Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) preview portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
+Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
 
@@ -59,8 +56,6 @@ You can read an overview of translation and custom translation, learn some tips,
 1. After your sign-in to Custom Translator, you'll be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
 
    :::image type="content" source="media/quickstart/first-time-user.png" alt-text="Screenshot illustrating how to create a workspace.":::
-
-
 
 1. Select **My workspaces**
 
@@ -156,7 +151,7 @@ Now you're ready to train your English-to-German model.
 
 1. After successful model training, select **Model details** from the left navigation menu.
 
-1. Select the model name *en-de with sample data* to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You'll use the `Category ID` to make translation requests.
+1. Select the model name *en-de with sample data*. Review training date/time, total training time, number of sentences used for training, tuning, testing, and dictionary. Check whether the system generated the test and tuning sets. You'll use the `Category ID` to make translation requests.
 
 1. Evaluate the model [BLEU](beginners-guide.md#what-is-a-bleu-score) score. The test set **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
 

@@ -10,12 +10,9 @@ ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: how-to
 ---
-# Train a custom model | Preview
+# Train a custom model
 
-> [!IMPORTANT]
-> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
-
-A model provides translations for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A minimum of 10,000 parallel training sentences are required to train a full model.
+A model provides translations for a specific language pair. The outcome of a successful training is a model. To train a custom model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A minimum of 10,000 parallel training sentences are required to train a full model.
 
 ## Create model
 
@@ -41,7 +38,7 @@ A model provides translations for a specific language pair. The outcome of a suc
 
 ## When to select dictionary-only training
 
-For better results, we recommended letting the system learn from your training data. However, when you don't have enough parallel sentences to meet the 10,000 minimum requirements, or sentences and compound nouns must be rendered as-is, use dictionary-only training. Your model will typically complete training much faster than with full training. The resulting models will use the baseline models for translation along with the dictionaries you have added. You won't see BLEU scores or get a test report.
+For better results, we recommended letting the system learn from your training data. However, when you don't have enough parallel sentences to meet the 10,000 minimum requirements, or sentences and compound nouns must be rendered as-is, use dictionary-only training. Your model will typically complete training much faster than with full training. The resulting models will use the baseline models for translation along with the dictionaries you've added. You won't see BLEU scores or get a test report.
 
 > [!Note] 
 >Custom Translator doesn't sentence-align dictionary files. Therefore, it is important that there are an equal number of source and target phrases/sentences in your dictionary documents and that they are precisely aligned. If not, the document upload will fail.
@@ -50,9 +47,9 @@ For better results, we recommended letting the system learn from your training d
 
 1. After successful model training, select the **Model details** blade.
 
-1. Select the **Model Name** to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You will use `Category ID` to make translation requests.
+1. Select the **Model Name** to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You'll use `Category ID` to make translation requests.
 
-1. Evaluate the model [BLEU score](../beginners-guide.md#what-is-a-bleu-score). Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
+1. Evaluate the model [BLEU score](../beginners-guide.md#what-is-a-bleu-score). Review the test set: the **BLEU score** is the custom model score and the **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
 
    :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot illustrating model details fields.":::
 
@@ -66,7 +63,7 @@ For better results, we recommended letting the system learn from your training d
 
 1. Fill in **New model name**.
 
-1. Keep **Train immediately** checked if no additional data will be selected or uploaded, otherwise, check **Save as draft**
+1. Keep **Train immediately** checked if no further data will be selected or uploaded, otherwise, check **Save as draft**
 
 1. Select **Save**
 
