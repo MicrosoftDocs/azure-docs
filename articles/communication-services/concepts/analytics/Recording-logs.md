@@ -19,7 +19,9 @@ Call recording summary logs provide details about the call duration, media conte
 Recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot) or ended  due to a system failure.
 
 [!IMPORTANT]
-Please note there is 5 minutes delay between when the log is emitted and the data ingestion to Azure monitor.
+
+Please note the call recording log will be published once the call recording in ready to be downloaded. The log will be published within the standard latency time for Azure Monitor Resource logs see [Log data ingestion time in Azure Monitor]((../../../azure-monitor/logs/data-ingestion-time#azure-metrics-resource-logs-activity-logg.md))
+
 
 ### Properties Description
 
