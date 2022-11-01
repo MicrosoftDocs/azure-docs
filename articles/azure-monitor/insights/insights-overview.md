@@ -7,7 +7,7 @@ ms.author: robb
 ms.date: 10/15/2022
 ms.reviewer: robb
 ---
-# Azure Monitor Insights Overview
+# Azure Monitor Insights overview
 
 Some services have a curated monitoring experience. That is, Microsoft provides customized functionality meant to act as a starting point for monitoring those services. These experiences are collectively known as *curated visualizations* with the larger more complex of them being called *Insights*.
 
@@ -25,10 +25,10 @@ The following table lists the available curated visualizations and information a
 |Name with docs link| State | [Azure portal link](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/more)| Description |
 |:--|:--|:--|:--|
 |Compute||||
- | [Azure VM Insights](/azure/azure-monitor/insights/vminsights-overview) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/virtualMachines) | Monitors your Azure VMs and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes.  |
+ | [Azure VM Insights](/azure/azure-monitor/insights/vminsights-overview) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/virtualMachines) | Monitors your Azure VMs and Virtual Machine Scale Sets at scale. It analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes.  |
 | [Azure Container Insights](/azure/azure-monitor/insights/container-insights-overview) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/containerInsights) | Monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service. It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. |
 |Networking||||
- | [Azure Network Insights](../../network-watcher/network-insights-overview.md) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/networkInsights) | Provides a comprehensive view of health and metrics for all your network resources. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resources that are hosting your website, by simply searching for your website name. |
+ | [Azure Network Insights](../../network-watcher/network-insights-overview.md) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/networkInsights) | Provides a comprehensive view of health and metrics for all your network resources. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resources that are hosting your website, by searching for your website name. |
 |Storage||||
  | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/storageInsights) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
 | [Azure Backup](../../backup/backup-azure-monitoring-use-azuremonitor.md) | GA | [Yes](https://portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Provides built-in monitoring and alerting capabilities in a Recovery Services vault. |

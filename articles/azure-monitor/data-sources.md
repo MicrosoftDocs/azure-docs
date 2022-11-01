@@ -76,7 +76,7 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](essentials/activity-log.md#view-the-activity-log) |
+| Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. |[Query the Activity log with the Azure portal](essentials/activity-log.md#view-the-activity-log) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](essentials/activity-log.md) |
 | Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](essentials/resource-logs.md#send-to-azure-storage)  |
 | Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs). |
@@ -148,7 +148,7 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 | Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](agents/om-agents.md) |
 
 ### Azure diagnostic extension
-Enabling the Azure diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
+Enabling the Azure diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale Sets, and Service Fabric.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -168,7 +168,7 @@ Enabling the Azure diagnostics extension for Azure Virtual machines allows you t
 
 
 ## Application Code
-Detailed application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/) which collects data from applications running on a variety of platforms. The application can be running in Azure, another cloud, or on-premises.
+Detailed application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/), which collects data from applications running on various platforms. The application can be running in Azure, another cloud, or on-premises.
 
 
 :::image type="content" source="media/data-sources/applications.png" lightbox="media/data-sources/applications.png" alt-text="Diagram that shows application data collection." border="false":::
@@ -220,12 +220,12 @@ In addition to the standard tiers of an application, you may need to monitor oth
 
 
 ## Other services
-Other services in Azure write data to the Azure Monitor data platform. This allows you to analyze data collected by these services with data collected by Azure Monitor and leverage the same analysis and visualization tools.
+Other services in Azure write data to the Azure Monitor data platform. This allows you to analyze data collected by these services with data collected by Azure Monitor and apply the same analysis and visualization tools.
 
 | Service | Destination | Description | Reference |
 |:---|:---|:---|:---|
-| [Microsoft Defender for Cloud](../security-center/index.yml) | Azure Monitor Logs | Microsoft Defender for Cloud stores the security data it collects in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Data collection in Microsoft Defender for Cloud](../security-center/security-center-enable-data-collection.md) |
-| [Microsoft Sentinel](../sentinel/index.yml) | Azure Monitor Logs | Microsoft Sentinel stores the data it collects from different data sources in a Log Analytics workspace which allows it to be analyzed with other log data collected by Azure Monitor.  | [Connect data sources](../sentinel/quickstart-onboard.md) |
+| [Microsoft Defender for Cloud](../security-center/index.yml) | Azure Monitor Logs | Microsoft Defender for Cloud stores the security data it collects in a Log Analytics workspace, which allows it to be analyzed with other log data collected by Azure Monitor.  | [Data collection in Microsoft Defender for Cloud](../security-center/security-center-enable-data-collection.md) |
+| [Microsoft Sentinel](../sentinel/index.yml) | Azure Monitor Logs | Microsoft Sentinel stores the data it collects from different data sources in a Log Analytics workspace, which allows it to be analyzed with other log data collected by Azure Monitor.  | [Connect data sources](../sentinel/quickstart-onboard.md) |
 
 
 ## Next steps

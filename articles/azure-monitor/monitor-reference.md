@@ -13,7 +13,7 @@ ms.reviewer: robb
 
 This article is a reference of the different applications and services that are monitored by Azure Monitor.
 
-Azure Monitor data is collected and stored based on resource provider namespaces. Each resource in Azure has a unique ID. The resource provider namespace is part of all unique IDs. For example, a key vault resource ID would be similiar to `/subscriptions/d03b04c7-d1d4-eeee-aaaa-87b6fcb38b38/resourceGroups/KeyVaults/providers/Microsoft.KeyVault/vaults/mysafekeys ` . *Microsoft.KeyVault* is the resource provider namespace. *Microsoft.KeyVault/vaults/* is the resource provider.
+Azure Monitor data is collected and stored based on resource provider namespaces. Each resource in Azure has a unique ID. The resource provider namespace is part of all unique IDs. For example, a key vault resource ID would be similar to `/subscriptions/d03b04c7-d1d4-eeee-aaaa-87b6fcb38b38/resourceGroups/KeyVaults/providers/Microsoft.KeyVault/vaults/mysafekeys ` . *Microsoft.KeyVault* is the resource provider namespace. *Microsoft.KeyVault/vaults/* is the resource provider.
 
 For a list of Azure resource provider namespaces, see [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
 
@@ -27,7 +27,7 @@ For a list of resource providers that support Azure Monitor
 
 ## Services that require agents
 
-Azure Monitor can't see inside a service running it's own application, operating system or container.  That type of service requires one ore more agents to be installed. The agent then runs as well to collect metrics, logs, traces and changes and forward them to Azure Monitor.   The following services require agents for this reason.
+Azure Monitor can't see inside a service running its own application, operating system or container.  That type of service requires one or more agents to be installed. The agent then runs as well to collect metrics, logs, traces and changes and forward them to Azure Monitor.   The following services require agents for this reason.
 
 - [Azure Cloud Services](../cloud-services-extended-support/index.yml)
 - [Azure Virtual Machines](../virtual-machines/index.yml)
@@ -42,7 +42,7 @@ Some services have curated monitoring experiences call "insights". Insights are 
 
 ## Product integrations
 
-The services and [older monitoring solutions](insights/solutions.md) in the following table store their data in a Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
+The services and [older monitoring solutions](insights/solutions.md) in the following table store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
 | Product/Service | Description |
 |:---|:---|
