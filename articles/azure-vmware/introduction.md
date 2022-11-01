@@ -73,6 +73,11 @@ The following table shows the high-level responsibilities between a customer and
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft which encompasses the most frequent tasks and definitions. For further questions, please contact Microsoft.
 
+| **Role** | **Task/details** |
+| -------- | ---------------- |
+| Microsoft - Azure VMware Solution | Physical infrastructure<ul><li>Azure regions</li><li>Azure availability zones</li><li>Express Route/Global reach</ul></li> Compute/Network/Storage<ul><li>Rack and power Bare Metal hosts</li><li>Rack and power network equipment</ul></li> Software defined Data Center (SDDC) deploy/lifecycle<ul><li>ESXi deploy, patch, and upgrade</li><li>VMware vCenter Server deploy, patch, and upgrade</li><li>VMware NSX-T Data Center deploy, patch, and upgrade</li><li>vSAN deploy, patch, and upgrade</ul></li> SDDC Networking - VMware NSX-T Data Center provider config<ul><li>Edge node/cluster, VMware NSX-T Data Center host preparation</li><li>Provider Tier-0 and Tenant Tier-1 Gateway</li><li>Connectivity from Tier-0 (using BGP) to Azure Network via Express Route</ul></li> SDDC Compute - VMware vCenter Server provider config<ul><li>Create default cluster</li><li>Configure virtual networking for vMotion, Management, vSAN, and others</ul></li> SDDC backup/restore<ul><li>Backup and restore VMware vCenter Server</li><li>Backup and restore VMware NSX-T Data Center NSX-T Manager</ul></li><br> SDDC health monitoring and corrective actions, for example: replace failed hosts</br><br>(optional) HCX deploy with fully configured compute profile on cloud side as add on</br><br>(optional) SRM deploy, upgrade, and scale up/down</br><br>Support - SDDC platforms and HCX      |
+| Customer | Customer | Request Azure VMware Solution host quote with Microsoft<br>Plan and create a request for SDDCs on Azure Portal with:<br><ul><li>Host count</li><li>management network range</li><li>
+
 ## Next steps
 
 The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
