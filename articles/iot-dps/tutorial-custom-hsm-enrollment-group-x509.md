@@ -173,31 +173,31 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-csharp"
 
-1. In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-node.git
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-node.git
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+```
 
 ::: zone-end
 
@@ -1011,7 +1011,7 @@ In the rest of this section, you'll use your Windows command prompt.
 
 3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in the step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
     run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234

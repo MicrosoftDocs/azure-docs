@@ -149,31 +149,31 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-node.git
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-node.git
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
-    ```
+```cmd
+git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+```
 
 ::: zone-end
 
@@ -359,11 +359,29 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
 
 ::: zone pivot="programming-language-nodejs"
 
-6. Copy the device certificate and private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
+6. The sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl rsa -in device-key.pem -out unencrypted-device-key.pem
+    ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl rsa -in device-key.pem -out unencrypted-device-key.pem
+    ```
+
+    ---
+
+7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
+
+8. Copy the device certificate and unencrytped private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
 
     ```bash
     cp device-cert.pem ./azure-iot-sdk-node/provisioning/device/samples
-    cp device-key.pem ./azure-iot-sdk-node/provisioning/device/samples
+    cp unencrypted-device-key.pem ./azure-iot-sdk-node/provisioning/device/samples
     ```
 
 You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
@@ -651,11 +669,11 @@ In this section, you'll use your Windows command prompt.
     set PROVISIONING_REGISTRATION_ID=my-x509-device
     ```
 
-1. Set the environment variables for the device certificate and device private key files.
+1. Set the environment variables for the device certificate and (unencrypted) device private key files.
 
     ```cmd
     set CERTIFICATE_FILE=.\device-cert.pem
-    set KEY_FILE=.\device-key.pem
+    set KEY_FILE=.\unencrypted-device-key.pem
     ```
 
 1. Run the sample and verify that the device was provisioned successfully.
