@@ -29,27 +29,27 @@ User properties allow you to define dynamic values and can be added to any activ
 
 As we discussed, annotations are static values that you can assign to pipelines, datasets, linked services, and triggers. Let's assume you want to filter for pipelines that belong to the same business unit or project name. We will first create the annotation. Click on the Properties icon, + New button and name your annotation appropriately. We advise being consistent with your naming.
 
-![Screenshot showing how to create an annotation.](/media/concepts-annotations-user-properties/create-annotations.png "Create Annotation")
+![Screenshot showing how to create an annotation.](./media/concepts-annotations-user-properties/create-annotations.png "Create Annotation")
 
 When you go to the Monitor tab, you can filter under Pipeline runs for this Annotation:
 
-![Screenshot showing how to monitor an annotations.](/media/concepts-annotations-user-properties/monitor-annotations.png "Monitor Annotations")
+![Screenshot showing how to monitor an annotations.](./media/concepts-annotations-user-properties/monitor-annotations.png "Monitor Annotations")
 
 If you want to monitor for dynamic values at the activity level, you can do so by leveraging the User properties. You can add these under any activity by clicking on the Activity box, User properties tab and the + New button:
 
-![Screenshot showing how to create user properties.](/media/concepts-annotations-user-properties/create-user-properties.png "Create User Properties")
+![Screenshot showing how to create user properties.](./media/concepts-annotations-user-properties/create-user-properties.png "Create User Properties")
 
 For Copy Activity specifically, you can auto-generate these:
 
-![Screenshot showing User Properties under Copy activity.](/media/concepts-annotations-user-properties/copy-activity-user-properties.png "Copy Activity User Properties")
+![Screenshot showing User Properties under Copy activity.](./media/concepts-annotations-user-properties/copy-activity-user-properties.png "Copy Activity User Properties")
 
 To monitor User properties, go to the Activity runs monitoring view. Here you will see all the properties you added.
 
-![Screenshot showing how to use User Properties in the Monitor tab.](/media/concepts-annotations-user-properties/monitor-user-properties.png "Monitor User Properties")
+![Screenshot showing how to use User Properties in the Monitor tab.](./media/concepts-annotations-user-properties/monitor-user-properties.png "Monitor User Properties")
 
 You can remove some from the view if you click on the Bookmark sign:
 
-![Screenshot showing how to remove User Properties.](/media/concepts-annotations-user-properties/remove-user-properties.png "Remove User Properties")
+![Screenshot showing how to remove User Properties.](./media/concepts-annotations-user-properties/remove-user-properties.png "Remove User Properties")
 
 ## Next steps
 
