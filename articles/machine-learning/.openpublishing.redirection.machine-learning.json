@@ -1552,7 +1552,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-safely-rollout-managed-endpoints-sdk-v2.md",
-        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-safely-rollout-managed-endpoints.md",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
         "redirect_document_id": false
     },
     {
@@ -2477,7 +2482,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-continuously-deploy.md",
-        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+        "redirect_url": "/azure/machine-learning/how-to-safely-rollout-online-endpoints",
         "redirect_document_id": false
     },
     {
