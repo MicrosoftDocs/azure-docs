@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/01/2022
 ---
 
 # Choose shard count
@@ -28,21 +28,22 @@ between **32 - 128** shards. For smaller workloads say <100 GB, you could start 
 32 shards and for larger workloads you could choose 64 or 128. This choice gives you
 the leeway to scale from 32 to 128 worker machines.
 
-### Real-time analytics use case
+## Real-time analytics use case
 
 In the Real-Time Analytics use-case, shard count should be related to the total
 number of cores on the workers. To ensure maximum parallelism, you should create
 enough shards on each node such that there is at least one shard per CPU core.
 We typically recommend creating a high number of initial shards, for example,
 **2x or 4x the number of current CPU cores**. Having more shards allows for
-*future scaling if you add more workers and CPU cores.
+future scaling if you add more workers and CPU cores.
 
-However, keep in mind that for each query Citus opens one database connection
-per shard, and these connections are limited. Be careful to keep the shard
-count small enough that distributed queries won’t often have to wait for a
-connection. Put another way, the connections needed, `(max concurrent queries *
-shard count)`, shouldn't exceed the total connections possible in the
-system, `(number of workers * max_connections per worker)`.
+Keep in mind that, for each query, Azure Cosmos DB for PostgreSQL opens one
+database connection per shard, and that these connections are limited. Be
+careful to keep the shard count small enough that distributed queries won’t
+often have to wait for a connection. Put another way, the connections needed,
+`(max concurrent queries * shard count)`, shouldn't exceed the total
+connections possible in the system, `(number of workers * max_connections per
+worker)`.
 
 ## Next steps
 
