@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 10/17/2022
 ---
 
 # Index large data sets in Azure Cognitive Search
@@ -87,6 +87,8 @@ If you partition your data, you can create multiple indexer-data-source combinat
 Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
 
 The number of indexing jobs that can run simultaneously varies for text-based and skills-based indexing. For more information, see [Indexer execution](search-howto-run-reset-indexers.md#indexer-execution).
+
+If your data source is an [Azure Blob Storage container](../storage/blobs/storage-blobs-introduction.md#containers) or [Azure Data Lake Storage Gen 2](../storage/blobs/storage-blobs-introduction.md#about-azure-data-lake-storage-gen2), enumerating a big number of blobs can take a long time (even hours) until this operation is completed. This will cause that your indexer's documents succeded count is not increased during that time and it may seem it's not making any progress, when it is. If you would like document processing to go faster for a big number of blobs, consider partitioning your data into multiple containers and create parallel indexers pointing to a single index.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
 

@@ -2,18 +2,20 @@
 title: "Form Recognizer Studio"
 titleSuffix: Azure Applied AI Services
 description: "Concept: Form and document processing, data extraction, and analysis using Form Recognizer Studio "
-author: sanjeev3
+author: laujan
 manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/14/2022
 ms.author: sajagtap
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
 # Form Recognizer Studio
+
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 

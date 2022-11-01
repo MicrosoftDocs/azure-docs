@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
@@ -21,12 +22,6 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to an [online endpoint](concept-endpoints.md) as a REST-based HTTP endpoint.
 
 ## Taxonomy 
-
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
-
-The diagram shows the following components of a workspace:
 
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 

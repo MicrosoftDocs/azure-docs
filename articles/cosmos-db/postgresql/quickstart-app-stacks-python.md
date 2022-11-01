@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 09/28/2022
+ms.date: 10/27/2022
 ---
 
 # Use Python to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -17,26 +17,15 @@ ms.date: 09/28/2022
 
 [!INCLUDE [App stack selector](includes/quickstart-selector.md)]
 
-This quickstart shows you how to use Python code on macOS, Ubuntu Linux, or Windows to connect to a cluster, and use SQL statements to create a table and insert, query, update, and delete data. The steps in this article assume that you're familiar with Python development, and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to use Python code to connect to a cluster, and use SQL statements to create a table. You'll then insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Python development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
-> [!TIP]
-> The process of creating a Python app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
+## Install PostgreSQL library
 
-## Prerequisites
-
-- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
-- [Python](https://www.python.org/downloads) 2.7 or 3.6+.
-- The latest [pip](https://pip.pypa.io/en/stable/installing) package installer. Most versions of Python already install `pip`.
-- [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) installed by using `pip` in a terminal or command prompt window. For more information, see [How to install psycopg2](https://www.psycopg.org/docs/install.html).
-- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
-
-The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-
-:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+The code examples in this article require the [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) library. You'll need to install psycopg2 with your language package manager (such as pip).
 
 ## Connect, create a table, and insert data
 
-The following code example creates a connection pool to your Postgres database by using the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library, and uses `pool.getconn()` to get a connection from the pool. The code then uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions with SQL CREATE TABLE and INSERT INTO statements to create a table and insert data.
+The following code example creates a [connection pool](https://www.psycopg.org/docs/pool.html) to your Postgres database. It then uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions with SQL CREATE TABLE and INSERT INTO statements to create a table and insert data.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 

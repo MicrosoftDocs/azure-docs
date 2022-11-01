@@ -81,7 +81,7 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Azure Data Explorer (Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Magento (Preview)](../connector-magento.md) |
 | &nbsp; |[Marketo (Preview)](../connector-marketo.md) |
-| &nbsp; |[Office 365](../connector-office-365.md) |
+| &nbsp; |[Microsoft 365](../connector-office-365.md) |
 | &nbsp; |[Oracle Eloqua (Preview)](../connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (Preview)](../connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud (Preview)](../connector-oracle-service-cloud.md) |

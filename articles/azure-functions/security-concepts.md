@@ -13,7 +13,7 @@ In many ways, planning for secure development, deployment, and operation of serv
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-For a set of security recommendations that follow the [Azure Security Benchmark](../security/benchmarks/overview.md), see [Azure Security Baseline for Azure Functions](security-baseline.md).
+For a set of security recommendations that follow the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), see [Azure Security Baseline for Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline).
 
 ## Secure operation 
 

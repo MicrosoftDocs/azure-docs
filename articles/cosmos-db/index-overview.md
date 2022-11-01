@@ -20,7 +20,7 @@ The goal of this article is to explain how Azure Cosmos DB indexes data and how 
 
 ## From items to trees
 
-Every time an item is stored in a container, its content is projected as a JSON document, then converted into a tree representation. What that means is that every property of that item gets represented as a node in a tree. A pseudo root node is created as a parent to all the first-level properties of the item. The leaf nodes contain the actual scalar values carried by an item.
+Every time an item is stored in a container, its content is projected as a JSON document, then converted into a tree representation. This means that every property of that item gets represented as a node in a tree. A pseudo root node is created as a parent to all the first-level properties of the item. The leaf nodes contain the actual scalar values carried by an item.
 
 As an example, consider this item:
 
@@ -147,7 +147,7 @@ Range indexes can be used on scalar values (string or number). The default index
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported. To use this index type, set by using the `"kind": "Range"` property when configuring the indexing policy. To learn how to configure spatial indexes, see [Spatial indexing policy examples](how-to-manage-indexing-policy.md#spatial-index)
+Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported. To learn how to configure spatial indexes, see [Spatial indexing policy examples](how-to-manage-indexing-policy.md#spatial-index)
 
 ### Composite indexes
 
@@ -201,7 +201,7 @@ Here is a table that summarizes the different ways indexes are used in Azure Cos
 | Full index scan    | Read distinct set of indexed values and load only matching items from the transactional data store                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
 | Full scan          | Load all items from the transactional data store                                          | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
 
-When writing queries, you should use filter predicate that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it will do a precise index scan instead of a full index scan.
+When writing queries, you should use filter predicate that uses the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it will do a precise index scan instead of a full index scan.
 
 ## Index usage details
 
@@ -273,7 +273,7 @@ The query predicate (filtering on items where any location has "France" as its c
 
 :::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matching a specific path within a tree" border="false":::
 
-Since this query has an equality filter, after traversing this tree, we can quickly identify the index pages that contain the query results. In this case, the query engine would read index pages that contain Item 1. An index seek is the most efficient way to use the index. With an index seek we only read the necessary index pages and load only the items in the query results. Therefore, the index lookup time and RU charge from index lookup are incredibly low, regardless of the total data volume. 
+Since this query has an equality filter, after traversing this tree, we can quickly identify the index pages that contain the query results. In this case, the query engine would read index pages that contain Item 1. An index seek is the most efficient way to use the index. With an index seek, we only read the necessary index pages and load only the items in the query results. Therefore, the index lookup time and RU charge from index lookup are incredibly low, regardless of the total data volume. 
 
 ### Precise index scan
 
@@ -345,7 +345,7 @@ FROM company
 WHERE company.headquarters.employees = 200 AND CONTAINS(company.headquarters.country, "United")
 ```
 
-To execute this query, the query engine must do an index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If, for example, only 50 items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those 50 items. A full index scan of the entire container wouldn't be necessary.
+To execute this query, the query engine must do an index seek on `headquarters/employees` and full index scan on `headquarters/country`. The query engine has internal heuristics that it uses to evaluate the query filter expression as efficiently as possible. In this case, the query engine would avoid needing to read unnecessary index pages by doing the index seek first. If for example, only 50 items matched the equality filter, the query engine would only need to evaluate `Contains` on the index pages that contained those 50 items. A full index scan of the entire container wouldn't be necessary.
 
 ## Index utilization for scalar aggregate functions
 
@@ -353,7 +353,7 @@ Queries with aggregate functions must rely exclusively on the index in order to 
 
 In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine will load all index matches, evaluate the filter on the loaded items, and return only the correct results.
 
-For the majority of queries, loading false positive index matches will not have any noticeable impact on index utilization.
+For most queries, loading false positive index matches will not have any noticeable impact on index utilization.
 
 For example, consider the following query:
 

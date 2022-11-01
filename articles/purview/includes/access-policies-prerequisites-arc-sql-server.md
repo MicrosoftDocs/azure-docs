@@ -10,21 +10,25 @@ ms.custom:
 
 
 - Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
-- Complete process to onboard that SQL server with Azure Arc [Follow this link](https://learn.microsoft.com/sql/sql-server/azure-arc/connect).
-- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this link](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
+- Complete process to onboard that [SQL server with Azure Arc](/sql/sql-server/azure-arc/connect).
+- Enable [Azure AD Authentication in SQL server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 **Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
 - East US 2
 - South Central US
+- West Central US
+- West US
 - West US3
 - Canada Central
 - Brazil South
 - North Europe
 - West Europe
 - France Central
+- Switzerland North
 - UK South
 - UAE North
+- South Africa North
 - Central India
 - Korea Central
 - Japan East

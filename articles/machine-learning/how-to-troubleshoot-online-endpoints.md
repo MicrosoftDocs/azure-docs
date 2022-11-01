@@ -5,9 +5,9 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: petrodeg
-ms.author:  petrodeg
-ms.reviewer: larryfr
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
 ms.date: 04/12/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
@@ -61,7 +61,7 @@ To use local deployment, add  `local=True` parameter in the command:
 ml_client.begin_create_or_update(online_deployment, local=True)
 ```
 
-* `ml_client` and `online_deployment` are instances for `MLClient` class and `ManagedOnlineDeployment` class, respectively.
+* `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
 ---
 
@@ -70,7 +70,9 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
+
+
 
 ## Conda installation
  
@@ -189,9 +191,9 @@ Below is a list of common image build failure scenarios:
 
 If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
 This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
-However, you can [manually call for a synchronization of keys](https://learn.microsoft.com/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
+However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
 
-Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network been set up properly.
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network has been set up properly.
 
 #### Generic image build failure
 

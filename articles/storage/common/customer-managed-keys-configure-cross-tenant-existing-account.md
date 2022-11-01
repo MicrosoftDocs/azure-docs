@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/28/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -131,7 +131,7 @@ $kvUri = "<key-vault-uri>"
 $keyName = "<key-name>"
 $multiTenantAppId = "<multi-tenant-app-id>"
 
-Set-AzStorageAccount -ResourceGroupName $rgName `
+Set-AzStorageAccount -ResourceGroupName $isvRgName `
     -Name $accountName `
     -KeyvaultEncryption `
     -UserAssignedIdentityId $userIdentity.Id `

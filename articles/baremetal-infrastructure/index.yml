@@ -28,48 +28,6 @@ landingContent:
             url: connect-baremetal-infrastructure.md
 
 # card 2
-  - title: BareMetal Infrastructure for Oracle 
-    linkLists: 
-      - linkListType: overview
-        links:
-          - text: What is BareMetal Infrastructure for Oracle? 
-            url: workloads/oracle/oracle-baremetal-overview.md 
-          - text: BareMetal SKUs for Oracle workloads
-            url: workloads/oracle/oracle-baremetal-skus.md       
-          - text: Storage on BareMetal for Oracle
-            url: workloads/oracle/oracle-baremetal-storage.md
-          - text: Patching considerations 
-            url: workloads/oracle/oracle-baremetal-patching.md
-          - text: Ethernet configuration 
-            url: workloads/oracle/oracle-baremetal-ethernet.md
-          - text: Architecture of BareMetal for Oracle
-            url: workloads/oracle/oracle-baremetal-architecture.md
-          - text: Provision BareMetal for Oracle
-            url: workloads/oracle/oracle-baremetal-provision.md
-      - linkListType: reference
-        links:
-          - text: High availability and disaster recovery
-            url: workloads/oracle/concepts-oracle-high-availability.md
-          - text: High availability features 
-            url: workloads/oracle/high-availability-features.md
-          - text: Options and considerations 
-            url: workloads/oracle/options-considerations-high-availability.md
-          - text: Choose how to recover
-            url: workloads/oracle/oracle-high-availability-recovery.md
-      - linkListType: how-to-guide
-        links:
-          - text: SnapCenter overview
-            url: workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md
-          - text: Set up SnapCenter to route traffic
-            url: workloads/oracle/set-up-snapcenter-to-route-traffic.md
-          - text: Configure SnapCenter
-            url: workloads/oracle/configure-snapcenter-oracle-baremetal.md
-          - text: Create on-demand backup
-            url: workloads/oracle/create-on-demand-backup-oracle-baremetal.md
-          - text: Restore Oracle Database
-            url: workloads/oracle/restore-oracle-database-baremetal.md
-
-# card 3
   - title: SAP HANA on Azure (Large Instances)
     linkLists:
       - linkListType: overview
@@ -149,7 +107,7 @@ landingContent:
           - text: Buy an SAP HANA Large Instances reservation
             url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 
-# card 4
+# card 3
   - title: BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
     linkLists: 
       - linkListType: overview

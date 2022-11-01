@@ -181,23 +181,17 @@ For more information, see [Integrate API Management in an internal virtual netwo
 
 Learn more about:
 
-* [Connecting a virtual network to backend using VPN Gateway](../vpn-gateway/design.md#s2smulti)
-* [Connecting a virtual network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [Virtual network frequently asked questions](../virtual-network/virtual-networks-faq.md)
-
 Virtual network configuration with API Management:
 * [Connect to an external virtual network using Azure API Management](./api-management-using-with-vnet.md).
 * [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
 * [Connect privately to API Management using a private endpoint](private-endpoint.md)
-
+* [Defend your Azure API Management instance against DDoS attacks](protect-with-ddos-protection.md)
 
 Related articles:
 
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/design.md#s2smulti)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 * [Virtual Network Frequently asked Questions](../virtual-network/virtual-networks-faq.md)
-* [Service tags](../virtual-network/network-security-groups-overview.md#service-tags)
 
 
 
