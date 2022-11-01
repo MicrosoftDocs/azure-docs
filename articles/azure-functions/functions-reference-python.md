@@ -19,7 +19,7 @@ This guide is an introduction to developing Azure Functions by using Python. The
 
 As a Python developer, you might also be interested in one of the following articles:
 
-::: zone pivot="python-mode-configuration" 
+::: zone pivot="python-mode-configuration"
 
 | Getting started | Concepts| Scenarios&nbsp;and&nbsp;samples |
 |--|--|--|
@@ -915,7 +915,7 @@ The multiple Python workers setting isn't supported in the v2 programming model 
 
 ::: zone-end
 
-## Supported Python versions
+## Python version
 
 Azure Functions supports the following Python versions:
 
@@ -995,27 +995,27 @@ We don't recommend using local builds when you're developing locally on Windows.
 
 When your project has dependencies that aren't found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The first way, the *build* method, depends on how you build the project.
 
-* **Remote build with extra index URL**:
+#### Remote build with extra index URL
 
-  When your packages are available from an accessible custom package index, use a remote build. Before you publish, be sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` by using the `--extra-index-url` option. To learn more, see the [Python `pip install` documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
+When your packages are available from an accessible custom package index, use a remote build. Before you publish, be sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` by using the `--extra-index-url` option. To learn more, see the [Python `pip install` documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
-  You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in the Python documentation.
+You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in the Python documentation.
 
-* **Install local packages**:
+#### Install local packages
 
-  If your project uses packages that aren't publicly available to our tools, you can make them available to your app by putting them in the *\_\_app\_\_/.python_packages* directory. Before you publish, run the following command to install the dependencies locally:
+If your project uses packages that aren't publicly available to our tools, you can make them available to your app by putting them in the *\_\_app\_\_/.python_packages* directory. Before you publish, run the following command to install the dependencies locally:
 
-  ```command
-  pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
-  ```
+```command
+pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
+```
 
-  When you're using custom dependencies, you should use the `--no-build` publishing option, because you've already installed the dependencies into the project folder.
+When you're using custom dependencies, you should use the `--no-build` publishing option, because you've already installed the dependencies into the project folder.
 
-  ```command
-  func azure functionapp publish <APP_NAME> --no-build
-  ```
+```command
+func azure functionapp publish <APP_NAME> --no-build
+```
 
-  Remember to replace `<APP_NAME>` with the name of your function app in Azure.
+Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit testing
 
