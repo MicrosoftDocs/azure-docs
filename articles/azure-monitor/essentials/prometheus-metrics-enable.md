@@ -11,12 +11,12 @@ ms.reviewer: aul
 This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus. When you configure your AKS cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) is installed with a metrics extension. You just need to specify the Azure Monitor workspace that the data should be sent to.
 
 > [!NOTE]
-> The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster even though the Azure Monitor agent installed in this process is the same one used by Container insights. See [Enable Container insights](..containers/../../containers/container-insights-onboard.md) for different methods to enable Container insights on your cluster. See [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md) for details on adding Prometheus collection to a cluster that already has Container insights enabled.
+> The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster even though the Azure Monitor agent installed in this process is the same one used by Container insights. See [Enable Container insights](../containers/container-insights-onboard.md) for different methods to enable Container insights on your cluster. See [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md) for details on adding Prometheus collection to a cluster that already has Container insights enabled.
 
 ## Prerequisites
 
 - You must either have an [Azure Monitor workspace](azure-monitor-workspace-overview.md) or [create a new one](azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
-- The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
+- The cluster must use [managed identity authentication](../containers/container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights
@@ -255,7 +255,7 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
 - A data collection rule and data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
 - You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
-- CPU and Memory requests and limits can't be changed for [Container insights metrics addon](../containers/container-insights-prometheus-metrics-addon.md). If changed, they'll be reconciled and replaced by original values in a few seconds.
+- CPU and Memory requests and limits can't be changed for Container insights metrics addon. If changed, they'll be reconciled and replaced by original values in a few seconds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
 
@@ -264,7 +264,7 @@ Currently, Azure CLI is the only option to remove the metrics addon and stop sen
 
 If you don't already have it, install the aks-preview extension with the following command. 
 
-The aks-preview extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
+The `aks-preview` extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 ```azurecli
 az extension add --name aks-preview
