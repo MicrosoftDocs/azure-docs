@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/12/2022
+ms.date: 10/31/2022
 ms.custom: references_regions 
 ---
 
@@ -20,54 +20,55 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 ## November 2022
 
-|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  Description |
-|------------------------------------|--------------|
-| [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md) | Feature | **Retired**. This preview feature isn't moving forward to general availability and has been removed from Visual Studio Code Marketplace. See the [documentation](search-get-started-vs-code.md) for details. |
+| [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | Sample | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
 ## October 2022
 
-|Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
-|------------------------------------|--------------|
-| [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis) | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
-| [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis) | Content | Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
+| [Beiersdorf customer story using Azure Cognitive Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search) | Content | This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |
 
 ## September 2022
 
-|Sample&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
-|------------------------------------|--------------|
-| [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md) | This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
-| [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md) | This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Azure Cognitive Search Lab](https://github.com/Azure-Samples/azure-search-lab/blob/main/README.md) | Sample | This C# sample provides the source code for building a web front-end that accesses all of the REST API calls against an index. This tool is used by support engineers to investigate customer support issues. You can try this [demo site](https://azuresearchlab.azurewebsites.net/) before building your own copy. |
+| [Event-driven indexing for Cognitive Search](https://github.com/aditmer/Event-Driven-Indexing-For-Cognitive-Search/blob/main/README.md) | Sample | This C# sample is an Azure Function app that demonstrates event-driven indexing in Azure Cognitive Search. If you've used indexers and skillsets before, you know that indexers can run on demand or on a schedule, but not in response to events. This demo shows you how to set up an indexing pipeline that responds to data update events. |
 
 ## August 2022
 
-|Tutorial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description |
-|------------------------------------|--------------|
-| [Tutorial: Index large data from Apache Spark](search-synapseml-cognitive-services.md) | This tutorial explains how to use the SynapseML open-source library to push data from Apache Spark into a search index. It also shows you how to make calls to Cognitive Services to get AI enrichment without skillsets and indexers. |
+|Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Tutorial: Index large data from Apache Spark](search-synapseml-cognitive-services.md) | Content | This tutorial explains how to use the SynapseML open-source library to push data from Apache Spark into a search index. It also shows you how to make calls to Cognitive Services to get AI enrichment without skillsets and indexers. |
 
 ## June 2022
 
-|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
-|------------------------------------|--------------|---------------|
-| [Semantic search](semantic-search-overview.md) | New support for Storage Optimized tiers (L1, L2) | Public preview. |
-| [Debug Sessions](cognitive-search-debug-session.md) | Debug sessions, a built-in editor that runs in Azure portal, is now generally available.   | Generally available. |
+|Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Semantic search (preview)](semantic-search-overview.md) | Feature | New support for Storage Optimized tiers (L1, L2). |
+| [Debug Sessions](cognitive-search-debug-session.md) | Feature | **General availability**. Debug sessions, a built-in editor that runs in Azure portal, is now generally available. |
 
 ## May 2022
 
-|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
-|------------------------------------|--------------|---------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | This indexer data source was introduced in May 2021 but won't be moving forward. Please migrate your data ingestion code by November 2022. See the feature documentation for migration guidance.  | Retired |
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
 
 ## February 2022
 
-|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
-|------------------------------------|--------------|---------------|
-| [Index aliases](search-how-to-alias.md) | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias. | Public preview REST APIs (no portal support at this time).|
+|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
+|------------------------------|------|-------------|
+| [Index aliases](search-how-to-alias.md) | Feature | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index, instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
 
 ## 2021 announcements
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. Public preview in the portal and preview REST APIs.|
+| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries. Public preview in the portal and preview REST APIs.|
 | November | [Azure Files indexer (preview)](./search-file-storage-integration.md) | Public preview in the portal and preview REST APIs.|
 | July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
 | July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |

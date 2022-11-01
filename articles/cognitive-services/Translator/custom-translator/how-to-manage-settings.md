@@ -21,8 +21,6 @@ To access the settings page:
 
 1. Sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal.
 2. On Custom Translator portal, select the gear icon in the sidebar.
-
-
     ![Setting Link](media/how-to/how-to-settings.png)
 
 ## Associating Translator Subscription
