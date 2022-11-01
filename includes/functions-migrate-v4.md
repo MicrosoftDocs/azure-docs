@@ -14,7 +14,7 @@ The easiest way is to [upgrade without slots](#upgrade-without-slots) and then r
 
 ### Upgrade without slots
 
-The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
+The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. You must follow a [different procedure](#upgrade-using-slots) on a site with slots. 
 
 # [Azure CLI](#tab/azure-cli)
 
