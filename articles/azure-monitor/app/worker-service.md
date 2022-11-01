@@ -566,21 +566,21 @@ Yes. Feature support for this SDK is the same in all platforms, with the followi
 * Performance counters are supported only in Windows except for Process CPU/Memory shown in Live Metrics.
 * Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+  ```csharp
+  using Microsoft.ApplicationInsights.Channel;
+  using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // The following will configure the channel to use the given folder to temporarily
-        // store telemetry items during network or Application Insights server issues.
-        // User should ensure that the given folder already exists
-        // and that the application has read/write permissions.
-        services.AddSingleton(typeof(ITelemetryChannel),
-                                new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-        services.AddApplicationInsightsTelemetryWorkerService();
-    }
-```
+      public void ConfigureServices(IServiceCollection services)
+      {
+          // The following will configure the channel to use the given folder to temporarily
+          // store telemetry items during network or Application Insights server issues.
+          // User should ensure that the given folder already exists
+          // and that the application has read/write permissions.
+          services.AddSingleton(typeof(ITelemetryChannel),
+                                  new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+          services.AddApplicationInsightsTelemetryWorkerService();
+      }
+  ```
 
 ## Sample applications
 
@@ -588,10 +588,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 Use this sample if you're using a console application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher).
 
 [ASP.NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService):
-Use this sample if you're in ASP.NET Core and creating background tasks as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services).
+Use this sample if you're in ASP.NET Core and creating background tasks in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services).
 
 [.NET Core Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService):
-Use this sample if you have a .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service application as per [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
+Use this sample if you have a .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
 
 ## Open-source SDK
 
