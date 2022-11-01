@@ -6,9 +6,10 @@ manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 10/31/2022
+ms.date: 11/01/2022
 ms.author: martinle
 ms.reviewer: wiassaf
+ms.custom: engagement-fy23
 ---
 
 # Azure Synapse SQL architecture
@@ -23,7 +24,7 @@ For dedicated SQL pool, the unit of scale is an abstraction of compute power tha
 
 For serverless SQL pool, being serverless, scaling is done automatically to accommodate query resource requirements. As topology changes over time by adding, removing nodes or failovers, it adapts to changes and makes sure your query has enough resources and finishes successfully. For example, the following image shows serverless SQL pool using four compute nodes to execute a query.
 
-:::image type="content" source="./media/overview-architecture/sql-architecture.png" alt-text="Synapse SQL architecture." lightbox="./media/overview-architecture/sql-architecture.png" :::
+:::image type="content" source="./media/overview-architecture/sql-architecture.png" alt-text="Screenshot of Synapse SQL architecture." lightbox="./media/overview-architecture/sql-architecture.png" :::
 
 Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL.
 
@@ -85,7 +86,7 @@ To shard data into a hash-distributed table, dedicated SQL pool uses a hash func
 
 The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table.
 
-:::image type="content" source="./media/overview-architecture/hash-distributed-table.png" alt-text="Table stored as a hash-distributed table." lightbox="./media/overview-architecture/hash-distributed-table.png" :::
+:::image type="content" source="./media/overview-architecture/hash-distributed-table.png" alt-text="Screenshot of a table stored as a hash-distribution." lightbox="./media/overview-architecture/hash-distributed-table.png" :::
 
 * Each row belongs to one distribution.
 * A deterministic hash algorithm assigns each row to one distribution.
@@ -107,7 +108,7 @@ A table that is replicated caches a full copy of the table on each compute node.
 
 The diagram below shows a replicated table that is cached on the first distribution on each compute node.
 
-:::image type="content" source="./media/overview-architecture/replicated-table.png" alt-text="Replicated table cached on the first distribution on each compute node." lightbox="./media/overview-architecture/replicated-table.png" :::
+:::image type="content" source="./media/overview-architecture/replicated-table.png" alt-text="Screenshot of the replicated table cached on the first distribution on each compute node." lightbox="./media/overview-architecture/replicated-table.png" :::
 
 ## Next steps
 
