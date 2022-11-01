@@ -25,9 +25,7 @@ First you need to prepare your data for training and inference.
 
 Multivariate Anomaly Detection supports two types of data schemas: **OneTable** and **MultiTable**. You could use either of these schemas to prepare your data and upload to Storage Account for further training and inference.
 
-
-> [!div class="mx-imgBorder"]
-> ![Diagram of two data schemas with three steps: data preparation, training, inference](../media/prepare-data/two-schemas.png)
+:::image type="content" source="./media/prepare-data/two-schemas.png" alt-text="Diagram of two data schemas with three steps: data preparation, training, inference." lightbox="./media/prepare-data/two-schemas.png":::
 
 #### Schema 1: OneTable
 **OneTable** is one CSV file that contains all the variables that you want to train a Multivariate Anomaly Detection model and one `timestamp` column. Download [One Table sample data](https://mvaddataset.blob.core.windows.net/public-sample-data/sample_data_5_3000.csv)
@@ -37,8 +35,7 @@ Multivariate Anomaly Detection supports two types of data schemas: **OneTable** 
 
     ***Example：***
 
-> [!div class="mx-imgBorder"]
-> ![Diagrma of one table schema](../media/prepare-data/one-table-schema.png)
+![Diagram of one table schema.](../media/prepare-data/onetable-schema.png)
 
 #### Schema 2: MultiTable
 
@@ -53,7 +50,7 @@ Multivariate Anomaly Detection supports two types of data schemas: **OneTable** 
     ***Example：***
    
 > [!div class="mx-imgBorder"]
-> ![Diagram of multi table schema](../media/prepare-data/multi-table.png)
+> ![Diagram of multi table schema.](../media/prepare-data/multitable.png)
 
 > [!NOTE]
 > If your timestamps have hours, minutes, and/or seconds, ensure that they're properly rounded up before calling the APIs.
@@ -67,7 +64,7 @@ Once you prepare your data with either of the two schemas above, you could uploa
 1. [Create a Storage Account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM), fill out the fields, which are similar to the steps when creating Anomaly Detector resource.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of Azure Storage account setup page](../media/prepare-data/create-blob.png)
+    > ![Screenshot of Azure Storage account setup page.](../media/prepare-data/create-blob.png)
 
 2. Select **Container** to the left in your Storage Account resource and select **+Container** to create one that will store your data.
 
@@ -80,7 +77,7 @@ Once you prepare your data with either of the two schemas above, you could uploa
     Once your data is uploaded, select your CSV file and copy the **blob URL** through the small blue button. (Please paste the URL somewhere convenient for further steps.)
 
       > [!div class="mx-imgBorder"]
-      > ![Screenshot of copy blob url for one table](../media/prepare-data/onetable-copyurl.png)
+      > ![Screenshot of copy blob url for one table.](../media/prepare-data/onetable-copy-url.png)
 
     **Upload *MultiTable* data**
 
@@ -89,17 +86,18 @@ Once you prepare your data with either of the two schemas above, you could uploa
     Once your data is uploaded, go into the folder, and select one CSV file in the folder, copy the **blob URL** and only keep the part before the name of this CSV file, so the final blob URL should ***link to the folder***. (Please paste the URL somewhere convenient for further steps.)
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of copy blob url for multi table](../media/prepare-data/multitable-copyurl.png)
+    > ![Screenshot of copy blob url for multi table.](../media/prepare-data/multitable-copy-url.png)
 
 4. Grant Anomaly Detector access to read the data in your Storage Account.
     * In your container, select **Access Control(IAM)** to the left, select **+ Add** to **Add role assignment**. If you see the add role assignment is disabled, please contact your Storage Account owner to add Owner role to your Container.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of set access control UI](../media/prepare-data/add-role-assignment.png)
+    > ![Screenshot of set access control UI.](../media/prepare-data/add-role-assignment.png)
 
     * Search role of **Storage Blob Data Reader**, **click on it** and then select **Next**. Technically, the roles highlighted below and the *Owner* role all should work.
 
-    ![Screenshot of add role assignment with reader roles selected](../media/prepare-data/add-reader-role.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of add role assignment with reader roles selected.](../media/prepare-data/add-reader-role.png)
 
     * Select assign access to **Managed identity**, and **Select Members**, then choose the anomaly detector resource that you created earlier, then select **Review + assign**.
 
