@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authentication on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it. 
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 ## How authentication works
 
-To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a security principal. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
+To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 
 > [!div class="checklist"]
 > * Read batch endpoints/deployments.
@@ -91,7 +91,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST APIs, we recommend to using either a service principal or a managed identity to interact with the API.
+When working with REST APIs, we recommend to using either a [service principal](#running-jobs-using-a-service-principal) or a [managed identity](#running-jobs-using-a-managed-identity) to interact with the API.
 
 ---
 
@@ -151,9 +151,14 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
     
     __Request__:
     
-    ```Body
+    ```http
     POST /{TENANT_ID}/oauth2/token
     Host:https://login.microsoftonline.com
+    ```
+    
+    __Body__:
+    
+    ```
     grant_type=client_credentials&client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&resource=https://ml.azure.com
     ```
     
@@ -188,6 +193,8 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
 ---
 
 ### Running jobs using a managed identity
+
+You can use managed identities to invoke batch endpoint and deployments. Please notice that this manage identity doesn't belong to the batch endpoint, but it is the identity used to execute the endpoint and hence create a batch job. Both user assigned and system assigned identities can be use in this scenario.
 
 # [Azure ML CLI](#tab/cli)
 
