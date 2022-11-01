@@ -279,6 +279,7 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
+##### Begin azure-functions    
 - id: programming-languages-set-functions-lang-workers
   title: Programming languages
   prompt: Choose a programming language
@@ -345,6 +346,15 @@ groups:
     title: Visual Studio
   - id: development-environment-cli
     title: Command line
+- id: python-mode-functions
+  title: Python mode
+  prompt: Choose a Python programming model
+  pivots:
+  - id: python-mode-configuration
+    title: v1
+  - id: python-mode-decorators
+    title: v2
+### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
@@ -747,7 +757,20 @@ groups:
   - id: programming-language-java
     title: Java
 - id: programming-languages-spark-all-minus-sql
-# Owner: euang
+# Owner: midesa
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-r
+    title: R
+- id: programming-languages-spark-all-minus-sql-r
+# Owner: midesa
   title: Programming languages
   prompt: Choose a language
   pivots:
@@ -1336,6 +1359,17 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+# Owner: mbullwin
+- id: openai-fine-tuning
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -1491,6 +1525,8 @@ groups:
   pivots:
   - id: identity-wif-mi-methods-azp
     title: Azure portal
+  - id: identity-wif-mi-methods-powershell
+    title: Azure PowerShell 
   - id: identity-wif-mi-methods-azcli
     title: Azure CLI
   - id: identity-wif-mi-methods-arm
@@ -1764,6 +1800,17 @@ groups:
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
+## template without azure AD PowerShell
+- id: enterprise-apps-minus-aad-powershell
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph API
 ## Create service principal with appId
 - id: enterprise-apps-cli
   title: Enterprise apps
@@ -1887,5 +1934,16 @@ groups:
     title: Azure portal
   - id: powershell
     title: PowerShell
+  - id: cli
+    title: Azure CLI
   - id: bicep
     title: Bicep
+# Owner: v-amallick
+- id: backup-vaults-recovery-services-vault-backup-vault
+  title: Vaults
+  prompt: Choose a vault
+  pivots:
+  - id: vaults-recovery-services-vault
+    title: Recovery Services vault
+  - id: vaults-backup-vault
+    title: Backup vault

@@ -2,14 +2,14 @@
 title: "Quickstart: Register an app in the Microsoft identity platform"
 description: In this quickstart, you learn how to register an application with the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/13/2022
-ms.author: marsma
+ms.date: 10/31/2022
+ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4, mode-other
 #Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
@@ -135,6 +135,26 @@ Client secrets are considered less secure than certificate credentials. Applicat
 1. _Record the secret's value_ for use in your client application code. This secret value is _never displayed again_ after you leave this page.
 
 For application security recommendations, see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security).
+
+
+### Add a federated credential
+
+Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Azure AD protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md).
+
+To add a federated credential, follow these steps:
+
+1. In the Azure portal, in **App registrations**, select your application.
+1. Select **Certificates & secrets** > **Federated credentials** > **Add a credential**.
+1. In the **Federated credential scenario** drop-down box, select one of the supported scenarios, and follow the corresponding guidance to complete the configuration.
+
+    - **Customer managed keys** for encrypt data in your tenant using Azure Key Vault in another tenant.
+    - **GitHub actions deploying Azure resources** to [configure a GitHub workflow](workload-identity-federation-create-trust.md#github-actions) to get tokens for your application and deploy assets to Azure.
+    - **Kubernetes accessing Azure resources** to configure a [Kubernetes service account](workload-identity-federation-create-trust.md#kubernetes) to get tokens for your application and access Azure resources.
+    - **Other issuer** to configure an identity managed by an external [OpenID Connect provider](workload-identity-federation-create-trust.md#other-identity-providers) to get tokens for your application and access Azure resources.
+    
+
+For more information, how to get an access token with a federated credential, check out the [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) article.
+
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 06/03/2022
+ms.date: 11/01/2022
 ---
 
 # What's new in Anomaly Detector
@@ -14,6 +14,14 @@ Learn what's new in the service. These items include release notes, videos, blog
 We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
+
+### Nov 2022
+
+* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with a better user experience and better model performance. Learn more about [how to use latest Multivariate Anomaly Detection](quickstarts/client-libraries-multivariate.md).
+
+### June 2022
+
+* New blog released: [4 sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
 
 ### May 2022
 

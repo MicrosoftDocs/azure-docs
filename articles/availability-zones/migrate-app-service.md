@@ -5,7 +5,7 @@ description: Learn how to migrate Azure App Service to availability zone support
 author: anaharris-ms
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 10/19/2022
 ms.author: anaharris
 ms.reviewer: jordanselig
 ms.custom: references_regions
@@ -21,7 +21,8 @@ Azure App Service can be deployed into [Availability Zones (AZ)](../availability
 An App Service lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. App Services are zonal services, which means that App Services can be deployed using one of the following methods:
 
 - For App Services that aren't configured to be zone redundant, the VM instances are placed in a single zone that is selected by the platform in the selected region.
-- For App Services that are configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a VM instance capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones.
+
+- For App Services that are configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a VM instance capacity larger than three is specified and the number of instances is a multiple of three (3 * N), the instances will be spread evenly. However, if the number of instances is not a multiple of three, the remainder of the instances will get spread across the remaining one or two zones.
 
 ## Prerequisites
 
@@ -37,16 +38,20 @@ Availability zone support is a property of the App Service plan. The following a
   - Central US
   - East US
   - East US 2
+  - South Central US
   - Canada Central
   - Brazil South
   - North Europe
   - West Europe
+  - Sweden Central
   - Germany West Central
   - France Central
   - UK South
   - Japan East
   - East Asia
   - Southeast Asia
+  - Qatar Central
+  - Central India
   - Australia East
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
 - Availability zones are only supported in the newer portion of the App Service footprint.

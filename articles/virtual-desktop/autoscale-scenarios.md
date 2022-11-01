@@ -61,9 +61,9 @@ Before you create your plan, keep the following things in mind:
 - Make sure you understand usage patterns before defining your schedule. You'll need to schedule around the following times of day:
 
     - Ramp-up: the start of the day, when usage picks up.
-    - Peak hours: the time of day when usage is highest.
+    - Peak hours: the time of day when usage is expected to be at its highest.
     - Ramp-down: when usage tapers off. This is usually when you shut down your VMs to save costs.
-    - Off-peak hours: the time with the lowest possible usage. You can define the maximum number of VMs that can be active during this time.
+    - Off-peak hours: the time of the day when usage is expected to be at its lowest.
 
 - The scaling plan will take effect as soon as you enable it.
 

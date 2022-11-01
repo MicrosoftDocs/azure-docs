@@ -93,12 +93,9 @@ You need to implement the logic for converting the data to an appropriate format
 
 Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
-Purge is a highly privileged operation. Applications and Azure users, including the resource owner, can't execute a purge operation without explicitly being granted the _Data Purger_ role in Azure Resource Manager. Grant this role cautiously due to the potential for data loss. 
+Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
-To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results. 
-
-> [!NOTE]
-> After initiating a purge request, you cannot access the related data while the [purge operation status](/rest/api/loganalytics/workspacepurge/getpurgestatus) is *pending*. 
+To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results.
 
 #### Log data
 

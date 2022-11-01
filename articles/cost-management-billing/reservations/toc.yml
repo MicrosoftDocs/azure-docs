@@ -25,16 +25,18 @@
       href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure VMware Solution
       href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: understand-cosmosdb-reservation-charges.md
+    - name: Azure Cosmos DB for PostgreSQL
+      href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Edge
+      href: discount-sql-edge.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
     - name: Database for PostgreSQL - Single Server
       href: understand-reservation-charges-postgresql.md
-    - name: Database for PostgreSQL - Hyperscale (Citus)
-      href: ../../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
       href: reservation-discount-databricks.md
     - name: Data Explorer
@@ -89,15 +91,17 @@
     - name: Azure Database for MySQL
       href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
-      href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Blob storage
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
       href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure VMware Solution
       href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Edge
+      href: prepay-sql-edge.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer

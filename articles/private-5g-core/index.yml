@@ -28,12 +28,14 @@ landingContent:
         links:
           - text: Key components of a private mobile network
             url: key-components-of-a-private-mobile-network.md
+          - text: Private mobile network design requirements
+            url: private-mobile-network-design-requirements.md
           - text: Statement of compliance
             url: statement-of-compliance.md   
       - linkListType: whats-new
         links:
-          - text: Azure Private 5G Core 2208 release notes
-            url: azure-private-5g-core-release-notes-2208.md
+          - text: Azure Private 5G Core 2209 release notes
+            url: azure-private-5g-core-release-notes-2209.md
   # Card            
   - title: Learn how to deploy a private mobile network
     linkLists:

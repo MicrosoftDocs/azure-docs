@@ -1,15 +1,15 @@
 ---
 title: Configuring the MedTech service for deployment using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to configure the MedTech service for manual deployment using the Azure portal.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2022
-ms.author: v-smcevoy
+ms.date: 10/28/2022
+ms.author: jasteppe
 ---
 
-# Configure the MedTech service for manual deployment using the Azure portal
+# Part 2: Configure the MedTech service for manual deployment using the Azure portal
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
@@ -17,11 +17,11 @@ Before you can manually deploy the MedTech service, you must complete the follow
 
 Start with these three steps to begin configuring the MedTech service so it will be ready to accept your tabbed configuration input:
 
-1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#prerequisites) section. Select the Create MedTech service box.
+1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#part-1-prerequisites) section. Select the **Create MedTech service** box.
 
-2. This will take you to the Add MedTech service button. Select the button.
+2. This step will take you to the **Add MedTech service** button. Select the button.
 
-3. This will take you to the Create MedTech service page. This page has five tabs you need to fill out:
+3. This step will take you to the **Create MedTech service** page. This page has five tabs you need to fill out:
 
 - Basics
 - Device mapping
@@ -42,7 +42,6 @@ Follow these six steps to fill in the Basics tab configuration:
     The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you previously deployed. For this example, we'll use `eh-azuredocsdemo` with our MedTech service device messages.
 
     > [!TIP]
-    >
     > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
     >
     > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
@@ -52,7 +51,6 @@ Follow these six steps to fill in the Basics tab configuration:
    The Event Hubs name is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we'll use `devicedata` with our MedTech service device messages.  
 
    > [!TIP]
-   >
    > For information about deploying an Azure event hub, see [Create an event hub](../../event-hubs/event-hubs-create.md#create-an-event-hub).
 
 4. Enter the **Consumer group**.
@@ -64,26 +62,25 @@ Follow these six steps to fill in the Basics tab configuration:
 6. By default, a consumer group named **$Default** is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
    > [!IMPORTANT]
-   >
    > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
-
+   >
    > - Two MedTech services accessing the same device message event hub.
-
+   >
    > - A MedTech service and a storage writer application accessing the same device message event hub.
 
-The Basics tab should now look like this after you have filled it out:
+The Basics tab should now look like this after you've filled it out:
 
   :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
 
-You are now ready to select the Device mapping tab and begin setting up the connection from the medical device to MedTech service.
+You're now ready to select the Device mapping tab and begin setting up the device mappings for your MedTech service.
 
 ## Configure the Device mapping tab
 
-You need to configure device mapping so that your instance of MedTech service can connect to the device you want to receive data from. This means that the data will be first sent to your event hub instance and then picked up by the MedTech service.
+You need to configure device mappings so that your instance of the MedTech service can normalize the incoming device data. The device data will first be sent to your event hub instance and then picked up by the MedTech service.
 
 The easiest way to configure the Device mapping tab is to use the Internet of Medical Things (IoMT) Connector Data Mapper tool to visualize, edit, and test your device mapping. This open source tool is available from [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
 
@@ -93,7 +90,7 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 2. Return to the Create MedTech service page. Enter the JSON code for the template you want to use into the **Device mapping** tab. After you enter the template code, the Device mapping code will be displayed on the screen.
 
-3. If the Device code is correct, select the **Next: Destination >** tab to enter the destination properties you want to use with your MedTech service. Note that your device configuration data will be saved for this session.
+3. If the Device code is correct, select the **Next: Destination >** tab to enter the destination properties you want to use with your MedTech service. Your device configuration data will be saved for this session.
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
@@ -112,10 +109,10 @@ To begin configuring destination mapping, go to the Create MedTech service page 
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-- First, enter the name of your **FHIR server** using the following four steps:
+- First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
-  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-04-new-prereq.md#deploy-the-fhir-service).
+  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-03-new-manual.md#deploy-the-fhir-service).
   1. Then select the **Properties** button. 
   1. Next, Copy and paste the **Name** string into the **FHIR Server** text field. In this example, the **FHIR Server** name is `fs-azuredocsdemo`.
 
@@ -133,11 +130,11 @@ Under the **Destination** tab, use these values to enter the destination propert
 
   - **Create**
 
-    If you selected **Create**, and device or patient resources are missing when you are reading data, new resources will be created, containing just the identifier.
+    If **Create** was selected, and device or patient resources are missing when you're reading data, new resources will be created, containing just the identifier.
 
   - **Lookup**
   
-    If you selected **Lookup**, and device or patient resources are missing, an error will occur, and the data won't be processed. The errors **DeviceNotFoundException** and/or a **PatientNotFoundException** error will be generated, depending on the type of resource not found.
+    If **Lookup** was selected, and device or patient resources are missing, an error will occur, and the data won't be processed. The errors **DeviceNotFoundException** and/or a **PatientNotFoundException** error will be generated, depending on the type of resource not found.
 
 For more information regarding destination mapping, see the FHIR service GitHub documentation at [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
@@ -150,13 +147,13 @@ Before you can complete the FHIR destination mapping, you must get a FHIR destin
 1. Go to the [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) and get the JSON template for your FHIR destination. 
 1. Go back to the Destination tab of the Create MedTech service page. 
 1. Go to the large box below the boxes for FHIR server name, Destination name, and Resolution type. Enter the JSON template request in that box.
-1. You will then receive the FHIR Destination mapping code which will be saved as part of your configuration.
+1. You'll then receive the FHIR Destination mapping code, which will be saved as part of your configuration.
 
 ## Configure the Tags tab (optional)
 
-Before you complete your configuration in the **Review + create** tab, you may want to configure tabs. You can do this by selecting the **Next: Tags >** tabs.
+Before you complete your configuration in the **Review + create** tab, you may want to configure tabs. You can do this step by selecting the **Next: Tags >** tabs.
 
-Tags are name and value pairs used for categorizing resources. This an optional step you may have a lot of resources and want to sort them. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+Tags are name and value pairs used for categorizing resources. This step is an optional step when you may have many resources and want to sort them. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
 Follow these steps if you want to create tags:
 
@@ -165,7 +162,7 @@ Follow these steps if you want to create tags:
    - Enter a **Name**.
    - Enter a **Value**.
 
-2. Once you've entered your tag(s), you are ready to do the last step of your configuration.
+2. Once you've entered your tag(s), you're ready to do the last step of your configuration.
 
 ## Select the Review + create tab to validate your deployment request
 
@@ -188,15 +185,17 @@ Your validation screen should look something like this:
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
 
-If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again. 
+If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 
-If your deployment request was successful, you are ready to go on the next step, where you will deploy your MedTech service instance.
+## Continue on to Part 3: Deployment and post-deployment
+
+After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
 
 ## Next steps
 
-In this article, you were shown how to configure MedTech service in preparation for deployment and ensure that everything has been validated. To learn about deploying a validated MedTech service instance, see
+When you're ready to begin Part 3 of Manual Deployment, see
 
->[!div class="nextstepaction"]
->[Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
+> [!div class="nextstepaction"]
+> [Part 3: Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

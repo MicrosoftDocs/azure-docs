@@ -74,10 +74,10 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
 ```Example for usage within the workflow
 {
             "category": "joiner",
+            "continueOnError": true,
             "description": "Send welcome email to new hire",
             "displayName": "Send Welcome Email",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "70b29d51-b59a-4773-9280-8841dfd3f2ea",
             "arguments": []
 }
@@ -263,7 +263,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 |---------|---------|
 |category    |  joiner,leaver      |
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
-|description     |  Run a custom Task Extension (Customizable by user)      |
+|description     |  Run a Custom Task Extension to call-out to an external system. (Customizable by user)      |
 |taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
 |argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter which is the Logic App HTTP trigger.     |
 
@@ -344,7 +344,6 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 ```Example for usage within the workflow
 {
             "category": "leaver",
-            "continueOnError": true,
             "displayName": "Remove user from selected groups",
             "description": "Remove user from membership of selected Azure AD groups",
             "isEnabled": true,
@@ -388,7 +387,6 @@ For Microsoft Graph the parameters for the **Remove users from all groups** task
             "displayName": "Remove user from all groups",
             "description": "Remove user from all Azure AD groups memberships",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "b3a31406-2a15-4c9a-b25b-a658fa5f07fc",
             "arguments": []
 }
@@ -418,7 +416,6 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
             "displayName": "Remove user from selected Teams",
             "description": "Remove user from membership of selected Teams",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "06aa7acb-01af-4824-8899-b14e5ed788d6",
             "arguments": [
                 {
@@ -453,7 +450,6 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
             "description": "Remove user from all Teams",
             "displayName": "Remove user from all Teams memberships",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
             "arguments": []
 }
@@ -485,7 +481,6 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
             "displayName": "Remove all licenses for user",
             "description": "Remove all licenses assigned to the user",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "8fa97d28-3e52-4985-b3a9-a1126f9b8b4e",
             "arguments": []
 }
@@ -516,7 +511,6 @@ For Microsoft Graph the parameters for the **Delete User** task are as follows:
             "displayName": "Delete user account",
             "description": "Delete user account in Azure AD",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
             "arguments": []
 }
@@ -550,7 +544,6 @@ For Microsoft Graph the parameters for the **Send email before user last day** t
             "displayName": "Send email before user’s last day",
             "description": "Send offboarding email to user’s manager before the last day of work",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "52853a3e-f4e5-4eb8-bb24-1ac09a1da935",
             "arguments": []
 }
@@ -583,7 +576,6 @@ For Microsoft Graph the parameters for the **Send email on user last day** task 
             "displayName": "Send email on user’s last day",
             "description": "Send offboarding email to user’s manager on the last day of work",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "9c0a1eaf-5bda-4392-9d9e-6e155bb57411",
             "arguments": []
 }
@@ -617,7 +609,6 @@ For Microsoft Graph the parameters for the **Send offboarding email to users man
             "displayName": "Send offboarding email to user’s manager after the last day of work",
             "description": "Send email after user’s last day",
             "isEnabled": true,
-            "continueOnError": true,
             "taskDefinitionId": "6f22ddd4-b3a5-47a4-a846-0d7c201a49ce",
             "arguments": []
 }

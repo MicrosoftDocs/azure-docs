@@ -1,6 +1,6 @@
 ---
-title: Connect to SAP systems
-description: Access and manage SAP resources by automating workflows with Azure Logic Apps.
+title: Connect to SAP
+description: Connect to SAP resources from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -11,7 +11,9 @@ ms.date: 08/22/2022
 tags: connectors
 ---
 
-# Connect to SAP systems from Azure Logic Apps
+# Connect to SAP from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This article explains how you can access your SAP resources from Azure Logic Apps using the [SAP connector](/connectors/sap/).
 
@@ -1579,6 +1581,19 @@ By default, strong typing is used to check for invalid values by performing XML 
 
 Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
 
+> [!NOTE]
+>
+> Schemas use base64-encoded format. To upload schemas to an integration account, you must decode them first 
+> by using the `base64ToString()` function. The following example shows the code for the `properties` element:
+>
+> ```json
+> "properties": {
+>    "Content": "@base64ToString(items('For_each')?['Content'])",
+>    "ContentType": "application/xml",
+>    "SchemaType": "Xml"
+> }
+> ```
+
 1. In the workflow designer, under the trigger, select **New step**.
 
 1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
@@ -1596,18 +1611,6 @@ Optionally, you can download or store the generated schemas in repositories, suc
    The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
 
    ![Screenshot that shows the Azure Resource Manager action with a "for each" loop.](./media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)
-
-   > [!NOTE]
-   > The schemas use base64-encoded format. To upload the schemas to an integration account, they must be decoded 
-   > by using the `base64ToString()` function. Here's an example that shows the code for the `"properties"` element:
-   >
-   > ```json
-   > "properties": {
-   >    "Content": "@base64ToString(items('For_each')?['Content'])",
-   >    "ContentType": "application/xml",
-   >    "SchemaType": "Xml"
-   > }
-   > ```
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**.
 

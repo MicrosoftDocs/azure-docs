@@ -390,9 +390,8 @@ The following table shows the PowerShell versions available to each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 4.x (recommended) | PowerShell 7.2<br/>PowerShell 7 (recommended) | .NET 6 |
-| 3.x               | PowerShell 7<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
-| 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
+| 4.x (recommended) | PowerShell 7.2 (recommended) <br/>PowerShell 7  | .NET 6 |
+| 3.x               | PowerShell 7 | .NET Core 3.1 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
 

@@ -350,7 +350,7 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
 1. Copy the PKCS12 formatted certificate file to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the sample repo.
 
     ```bash
-    cp certificate.pfx ./azure-iot-sdk-csharp/provisioning/device/samples/Getting Started/X509Sample
+    cp certificate.pfx ./azure-iot-sdk-csharp/provisioning/device/samples/"Getting Started"/X509Sample
     ```
 
 You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
@@ -572,7 +572,7 @@ In this section, you'll use your Windows command prompt.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope on Azure portal.":::
 
-3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample* directory off the directory where you cloned the samples on your computer.
+3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
 4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.
 

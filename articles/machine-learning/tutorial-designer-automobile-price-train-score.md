@@ -51,15 +51,28 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 ### Create the pipeline
 
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
-1. Select **Designer**.
+1. Select **Designer** -> **Classic prebuilt**
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot of the visual workspace showing how to access the designer.":::
 
-1. Select **Easy-to-use prebuilt components**.
+1. Select **Create a new pipeline using classic prebuilt components**.
 
-1. Open the ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) **Settings** pane to the right of the canvas, and scroll to **Draft name** text box. Rename it to *Automobile price prediction*. The name doesn't need to be unique.
+1. Click the pencil icon beside the automatically generated pipeline draft name, rename it to *Automobile price prediction*. The name doesn't need to be unique.
+
+![Screenshot of pencil icon to change pipeline draft name.](./media/tutorial-designer-automobile-price-train-score/change-pipeline-draft-name.png) 
+
 
 ## Set the default compute target
 
@@ -90,11 +103,12 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**.
 
-1. To the left of the pipeline canvas is a palette of datasets and components. Select **Data**.
+1. To the left of the pipeline canvas is a palette of datasets and components. Select **Component** -> **Sample data**.
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
-   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/drag-data.gif" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/automobile-data.png" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+
 
 ### Visualize the data
 

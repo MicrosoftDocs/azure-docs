@@ -24,9 +24,22 @@ Azure Private 5G Core requires deployment of packet core instances onto a secure
 
 ## Encryption at rest
 
-The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](../security/fundamentals/encryption-overview.md) using platform-managed encryption keys, managed by Microsoft.
+The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](../security/fundamentals/encryption-overview.md) using platform-managed encryption keys, managed by Microsoft. Encryption at rest is used by default when [creating a SIM group](manage-sim-groups.md#create-a-sim-group).
 
-Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](../databox-online/azure-stack-edge-security.md#protect-your-data). 
+Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](../databox-online/azure-stack-edge-security.md#protect-your-data).
+
+## Customer-managed key encryption at rest
+
+In addition to the default [Encryption at rest](#encryption-at-rest) using Microsoft-Managed Keys (MMK), you can optionally use Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or [when deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network) to encrypt data with your own key.
+
+If you elect to use a CMK, you will need to create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
+
+- The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+- The SIM group accesses the key via the user-assigned identity.
+- For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
+
+> [!IMPORTANT]
+> Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
 
 ## Write-only SIM credentials
 

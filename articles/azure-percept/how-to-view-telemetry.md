@@ -1,15 +1,17 @@
 ---
 title: View your Azure Percept DK's model inference telemetry
 description: Learn how to view your Azure Percept DK's vision model inference telemetry in Azure IoT Explorer
-author: nkhuyent
+author: yvonne-dq
 ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # View your Azure Percept DK's model inference telemetry
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Follow this guide to view your Azure Percept DK's vision model inference telemetry in [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
 

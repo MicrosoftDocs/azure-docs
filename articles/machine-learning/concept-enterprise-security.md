@@ -47,8 +47,6 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
-The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](v1/how-to-deploy-azure-container-instance.md).
-
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
 > [!NOTE]
@@ -85,9 +83,7 @@ For more information, see the following documents:
 * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 * [Secure workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure training environment](how-to-secure-training-vnet.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure inference environment](/azure/machine-learning/how-to-secure-inferencing-vnet)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Configure firewall](how-to-access-azureml-behind-firewall.md)
@@ -97,8 +93,6 @@ For more information, see the following documents:
 ## Data encryption
 
 Azure Machine Learning uses a variety of compute resources and data stores on the Azure platform. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
-
-When deploying models as web services, you can enable transport-layer security (TLS) to encrypt data in transit. For more information, see [Configure a secure web service](./v1/how-to-secure-web-service.md).
 
 ## Data exfiltration prevention (preview)
 
@@ -115,7 +109,6 @@ Azure Machine Learning has several inbound and outbound network dependencies. So
 ## Next steps
 
 * [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
-* [Secure Azure Machine Learning web services with TLS](./v1/how-to-secure-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-network-security-overview.md)
 * [Data encryption at rest and in transit](concept-data-encryption.md)

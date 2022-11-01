@@ -1,9 +1,10 @@
 ---
 title: ACR Transfer Troubleshooting
 description: Troubleshoot ACR Transfer
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.topic: article
-ms.date: 11/18/2021
-ms.custom:
 ---
 
 # ACR Transfer troubleshooting
@@ -11,6 +12,9 @@ ms.custom:
 * **Template deployment failures or errors**
   * If a pipeline run fails, look at the `pipelineRunErrorMessage` property of the run resource.
   * For common template deployment errors, see [Troubleshoot ARM template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problems accessing Key Vault**<a name="problems-accessing-key-vault"></a>
+  * If your pipelineRun deployment fails with a `403 Forbidden` error when accessing Azure Key Vault, verify that your pipeline managed identity has adequate permissions.
+  * A pipelineRun uses the exportPipeline or importPipeline managed identity to fetch the SAS token secret from your Key Vault. ExportPipelines and importPipelines are provisioned with either a system-assigned or user-assigned managed identity. This managed identity is required to have `secret get` permissions on the Key Vault in order to read the SAS token secret. Ensure that an access policy for the managed identity was added to the Key Vault. For more information, reference [Give the ExportPipeline identity keyvault policy access](./container-registry-transfer-cli.md#give-the-exportpipeline-identity-keyvault-policy-access) and [Give the ImportPipeline identity keyvault policy access](./container-registry-transfer-cli.md#give-the-importpipeline-identity-keyvault-policy-access).
 * **Problems accessing storage**<a name="problems-accessing-storage"></a>
   * If you see a `403 Forbidden` error from storage, you likely have a problem with your SAS token.
   * The SAS token might not currently be valid. The SAS token might be expired or the storage account keys might have changed since the SAS token was created. Verify that the SAS token is valid by attempting to use the SAS token to authenticate for access to the storage account container. For example, put an existing blob endpoint followed by the SAS token in the address bar of a new Microsoft Edge InPrivate window or upload a blob to the container with the SAS token by using `az storage blob upload`.
@@ -30,11 +34,12 @@ ms.custom:
 * **AzCopy issues**
   * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md).
 * **Artifacts transfer problems**
-  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
+  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you're transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time.
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
+  * To create ACR Transfer resources such as `exportPipelines`,` importPipelines`, and `pipelineRuns`, the user must have at least Contributor access on the ACR subscription. Otherwise, they'll see authorization to perform the transfer denied or scope is invalid errors.
 * **Problems pulling the image in a physically isolated environment**
-  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
+  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If so, you'll need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
 
   <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

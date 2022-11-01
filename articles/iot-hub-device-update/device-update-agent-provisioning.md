@@ -1,8 +1,8 @@
 ---
 title: Provisioning Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Provisioning Device Update for Azure IoT Hub Agent
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 1/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update

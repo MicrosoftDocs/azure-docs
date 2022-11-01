@@ -413,7 +413,7 @@ If you're running CLI commands with Git Bash for Windows, you might get an `Inva
 
 ---
 
-The **Appliance Resource Provider** is an Azure Enterprise application (service principal). Go to **Azure Active Directory** > **Enterprise applications** and change the search filter to **All Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
+The **Appliance Resource Provider** is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ### Deploy the managed application definition with an ARM template
 

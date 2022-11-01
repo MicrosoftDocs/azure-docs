@@ -268,7 +268,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
 
 When you visit the SaaS offer [Azure Spring Apps Enterprise Tier](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
 
-![No plans available error image](./media/enterprise/how-to-enterprise-marketplace-offer/no-enterprise-plans-available.png)
+![No plans available error image](./media/troubleshoot/no-enterprise-plans-available.png)
 
 Azure Spring Apps Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 

@@ -15,6 +15,8 @@
   items:
   - name: Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Configure data retention policy
+    href: configure-data-retention.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -215,10 +217,12 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
-    - name: Deploy custom content from your repository
-      href: ci-cd.md
     - name: Delete out-of-the-box content
       href: sentinel-solutions-delete.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
+    - name: Customize repository deployments
+      href: ci-cd-custom-deploy.md
   - name: Collect data
     items:
     - name: Find data connector
@@ -292,6 +296,10 @@
       href: work-with-threat-indicators.md
     - name: Add entity to threat indicators
       href: add-entity-to-threat-intelligence.md
+    - name: Use threat indicators in analytics rules
+      href: use-threat-indicators-in-analytics-rules.md
+    - name: Use matching analytics to detect threats
+      href: use-matching-analytics-to-detect-threats.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -430,6 +438,9 @@
         href: sap/deploy-sap-security-content.md
       - name: Configure Microsoft Sentinel Solution for SAP
         href: sap/deployment-solution-configuration.md
+      - name: Disable the connector
+        displayName: disable, stop ingestion, stop
+        href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
