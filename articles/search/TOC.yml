@@ -422,46 +422,54 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
-    - name: Create a semantic query
-      href: semantic-how-to-query-request.md
-    - name: Return a semantic answer
-      href: semantic-answers.md
-    - name: Add spell check to queries
-      href: speller-how-to-add.md
-    - name: Search results paging and formatting
-      href: search-pagination-page-layout.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene (examples)
-      href: search-query-lucene-examples.md
-    - name: Partial terms and special characters
-      href: search-query-partial-matching.md
-    - name: Fuzzy search
-      href: search-query-fuzzy.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
+    - name: Semantic search
+      items:
+      - name: Create a semantic query
+        href: semantic-how-to-query-request.md
+      - name: Return a semantic answer
+        href: semantic-answers.md
+    - name: Search results 
+      items:
+      - name: Paging and formatting
+        href: search-pagination-page-layout.md
+      - name: Sorting results
+        href: search-sort-results.md
+    - name: Advanced queries
+      items:
+      - name: Use full Lucene (examples)
+        href: search-query-lucene-examples.md
+      - name: Partial terms and special characters
+        href: search-query-partial-matching.md
+      - name: Fuzzy search
+        href: search-query-fuzzy.md
     - name: Autocomplete "Search-as-you-type"
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-add-autocomplete-suggestions.md
-  - name: Filters
-    items:
-    - name: Filter overview
-      href: search-filters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Troubleshoot collection filters
-      href: search-query-troubleshoot-collection-filters.md
-    - name: Understand collection filters
-      href: search-query-understand-collection-filters.md
-    - name: Normalize text
-      href: search-normalizers.md
-  - name: Relevance
-    items:
-    - name: Configure scoring
-      href: index-ranking-similarity.md
-    - name: Add a scoring profile
-      href: index-add-scoring-profiles.md
+    - name: Filters
+      items:
+      - name: Filter overview
+        href: search-filters.md
+      - name: Add faceted navigation
+        href: search-faceted-navigation.md
+      - name: Troubleshoot collection filters
+        href: search-query-troubleshoot-collection-filters.md
+      - name: Understand collection filters
+        href: search-query-understand-collection-filters.md
+      - name: Normalize text
+        href: search-normalizers.md
+    - name: Relevance tuning
+      items:
+      - name: Configure scoring
+        href: index-ranking-similarity.md
+      - name: Add a scoring profile
+        href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
     - name: Performance analysis

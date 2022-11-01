@@ -1,19 +1,19 @@
 ---
-title: How to work with search results
+title: Sort results
 titleSuffix: Azure Cognitive Search
-description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Cognitive Search.
+description: Explains the sort logic for strings and numeric content in search results for applications built on Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 07/22/2022
+ms.topic: how-to
+ms.date: 11/01/2022
 ---
 
-# How to work with search results in Azure Cognitive Search
+# Configure a sort order in Azure Cognitive Search
 
-This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
+<!-- This article explains how to work with a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). 
 
 Parameters on the query determine:
 
@@ -21,9 +21,9 @@ Parameters on the query determine:
 + Count of matches found in the index for the query
 + Number of results in the response (up to 50, by default)
 + Sort order of results
-+ Highlighting of terms within a result, matching on either the whole or partial term in the body
++ Highlighting of terms within a result, matching on either the whole or partial term in the body -->
 
-## Result composition
+<!-- ## Result composition
 
 Results are tabular, composed of fields of either all "retrievable" fields, or limited to just those fields specified in the **`$select`** parameters. Rows are the matching documents.
 
@@ -99,7 +99,7 @@ On the service, assume a fifth document is added to the index in between query c
 { "id": "3", "rating": 2 }
 ```
 
-Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
+Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves. -->
 
 ## Ordering results
 
@@ -125,7 +125,7 @@ Fields commonly used in an **`$orderby`** include rating, date, and location. Fi
 
 Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
-## Hit highlighting
+<!-- ## Hit highlighting
 
 Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
 
@@ -278,4 +278,4 @@ To quickly generate a search page for your client, consider these options:
 
 + [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial and code sample that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
 
-+ [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps.
++ [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps. -->
