@@ -970,7 +970,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-To learn how to enroll your X.509 device programmatically:
+To learn how to provision multiple X.509 devices using an enrollment group:
 
 > [!div class="nextstepaction"]
-> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509.md)
+> [Tutorial: Provision multiple X.509 devices using an enrollment group](tutorial-custom-hsm-enrollment-group-x509.md)
