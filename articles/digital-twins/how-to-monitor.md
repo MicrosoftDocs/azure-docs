@@ -49,7 +49,7 @@ Metrics having to do with API requests:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
-| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
+| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance that gives an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
 | ApiRequestsLatency | API Requests Latency | Milliseconds | Average | The response time for API requests. This value refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 
 ### Billing metrics
@@ -113,7 +113,7 @@ Here are more details about the categories of logs that Azure Digital Twins coll
 | --- | --- |
 | ADTModelsOperation | Log all API calls related to Models |
 | ADTQueryOperation | Log all API calls related to Queries |
-| ADTEventRoutesOperation | Log all API calls related to to Event Routes and egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs, and Service Bus |
+| ADTEventRoutesOperation | Log all API calls related to Event Routes and egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs, and Service Bus |
 | ADTDigitalTwinsOperation | Log all API calls related to individual twins |
 
 Each log category consists of operations of write, read, delete, and action. These categories map to REST API calls as follows:
