@@ -819,13 +819,15 @@ Although you can invoke a specific deployment inside of an endpoint, you will us
 
 # [Azure ML CLI](#tab/cli)
 
-```bash
-az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
 
 # [Azure ML SDK for Python](#tab/sdk)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
+```python
+endpoint = ml_client.batch_endpoints.get(endpoint_name)
+endpoint.defaults.deployment_name = deployment.name
+ml_client.batch_endpoints.begin_create_or_update(endpoint)
+```
 
 # [studio](#tab/studio)
 
