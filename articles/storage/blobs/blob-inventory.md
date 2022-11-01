@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/14/2022
+ms.date: 11/01/2022
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
