@@ -27,6 +27,10 @@
     items:
     - name: Azure portal
       href: create-cluster.md
+  - name: Build application
+    items:
+    - name: Build a streaming application with a few clicks
+      href: quick-start-build-application.md
 - name: Tutorials
   items:
   - name: Capture Event Hubs data in Parquet format
