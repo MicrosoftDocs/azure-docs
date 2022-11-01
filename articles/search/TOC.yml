@@ -184,6 +184,8 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
+  - name: Create a search service
+    href: search-create-service-portal.md
   - name: Planning
     items:
     - name: Choose a tier
@@ -200,8 +202,6 @@
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management
     items:
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
@@ -464,12 +464,12 @@
         href: search-query-understand-collection-filters.md
       - name: Normalize text
         href: search-normalizers.md
-    - name: Relevance tuning
-      items:
-      - name: Configure scoring
-        href: index-ranking-similarity.md
-      - name: Add a scoring profile
-        href: index-add-scoring-profiles.md
+  - name: Relevance
+    items:
+    - name: Configure scoring
+      href: index-ranking-similarity.md
+    - name: Add a scoring profile
+      href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
     - name: Performance analysis

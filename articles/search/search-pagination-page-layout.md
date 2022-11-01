@@ -20,8 +20,8 @@ Parameters on the query determine:
 + Selection of fields within results
 + Count of matches found in the index for the query
 + Number of results in the response (up to 50, by default)
-+ Sort order of results
 + Highlighting of terms within a result, matching on either the whole or partial term in the body
++ Sort order of results. See [Configure a sort order](search-sort-results.md) for details.
 
 ## Result composition
 
@@ -101,30 +101,6 @@ On the service, assume a fifth document is added to the index in between query c
 
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
 
-<!-- ## Ordering results
-
-In a full text search query, results can be ranked by a search score, a semantic re-ranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
-
-A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
-
-For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
-
-Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
-
-| Cause | Description |
-|-----------|-------------|
-| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
-| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
-| Identical scores | If multiple documents have the same score, any one of them might appear first.  |
-
-### How to get consistent ordering
-
-If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as "sortable" can be used to order results.
-
-Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
-
-Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
- -->
 ## Hit highlighting
 
 Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
