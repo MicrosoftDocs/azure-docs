@@ -3587,6 +3587,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-proxy.md",
+            "redirect_url": "/azure/data-explorer/query-monitor-data",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/azure-monitor/platform/service-notifications.md",
             "redirect_url": "/azure/service-health/service-notifications",
             "redirect_document_id": true
