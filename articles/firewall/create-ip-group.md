@@ -24,7 +24,7 @@ To create an IP Group by using the Azure portal:
 1. Select **Create**.
 1. Select your subscription.
 1. Select a resource group or create a new one.
-1. Enter a unique name for you IP Group, and then select a region.
+1. Enter a unique name for your IP Group, and then select a region.
 1. Select **Next: IP addresses**.
 1. Type an IP address, multiple IP addresses, or IP address ranges.
 
