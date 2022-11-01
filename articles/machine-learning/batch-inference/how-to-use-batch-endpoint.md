@@ -652,9 +652,11 @@ The scoring results in Storage Explorer are similar to the following sample page
 
 Once you have a batch endpoint with a deployment, you can continue to refine your model and add new deployments. Batch endpoints will continue serving the default deployment while you develop and deploy new models under the same endpoint. Deployments can't affect one to another.
 
+In this example, you will learn how to add a second deployment __that solves the same problem but using a model built with Keras and TensorFlow__.
+
 ### Adding a second deployment
 
-1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You will also need to add the library `azureml-core` as it is required for batch deployments to work.
+1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You will also need to add the library `azureml-core` as it is required for batch deployments to work. The following environment definition has the required libraries to run a model with TensorFlow.
 
     # [Azure ML CLI](#tab/cli)
    
@@ -680,7 +682,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
     1. On __Customize__ section copy the content of the file `./mnist/environment/conda.yml` included in the repository into the portal. The conda file looks as follows:
         
-        :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
+        :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras/environment/conda.yml":::
     
     1. Click on __Next__ and then on __Create__.
     1. The environment is ready to be used.
@@ -693,8 +695,13 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
     > [!IMPORTANT]
     > Do not forget to include the library `azureml-core` in your deployment as it is required by the executor.
     
-
-1. Create a deployment definition
+1. Create a scoring script for the model
+   
+   __batch_driver.py__
+   
+   :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist-keras/code/batch_driver.py" :::
+   
+3. Create a deployment definition
 
     # [Azure ML CLI](#tab/cli)
     
@@ -711,7 +718,7 @@ Once you have a batch endpoint with a deployment, you can continue to refine you
         endpoint_name=batch_endpoint_name,
         model=model,
         code_path="./mnist-keras/code/",
-        scoring_script="digit_identification.py",
+        scoring_script="batch_driver.py",
         environment=env,
         compute=compute_name,
         instance_count=2,
