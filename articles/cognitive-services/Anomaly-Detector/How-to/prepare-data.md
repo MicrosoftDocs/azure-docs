@@ -25,7 +25,7 @@ First you need to prepare your data for training and inference.
 
 Multivariate Anomaly Detection supports two types of data schemas: **OneTable** and **MultiTable**. You could use either of these schemas to prepare your data and upload to Storage Account for further training and inference.
 
-:::image type="content" source="./media/prepare-data/two-schemas.png" alt-text="Diagram of two data schemas with three steps: data preparation, training, inference." lightbox="./media/prepare-data/two-schemas.png":::
+:::image type="content" source="../media/prepare-data/two-schemas.png" alt-text="Diagram of two data schemas with three steps: data preparation, training, inference." lightbox="../media/prepare-data/two-schemas.png":::
 
 #### Schema 1: OneTable
 **OneTable** is one CSV file that contains all the variables that you want to train a Multivariate Anomaly Detection model and one `timestamp` column. Download [One Table sample data](https://mvaddataset.blob.core.windows.net/public-sample-data/sample_data_5_3000.csv)
