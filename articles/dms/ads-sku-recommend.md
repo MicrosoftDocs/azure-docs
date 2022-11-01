@@ -1,5 +1,5 @@
 ---
-title: Get size recommendation in SQL Server database migration to (preview)
+title: Get SKU recommendation in SQL Server database migration
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, or Azure SQL Database.
 services: database-migration
 author: croblesm
@@ -83,4 +83,4 @@ You must meet the following prerequisites to get an Azure recommendation:
 
 ## Next steps
 
-- Get an overview of the process to [migrate databases by using the Azure SQL Migration extension in Azure Data Studio](migration-using-azure-data-studio.md).
+- Learn how to [migrate databases by using the Azure SQL Migration extension in Azure Data Studio](migration-using-azure-data-studio.md).
