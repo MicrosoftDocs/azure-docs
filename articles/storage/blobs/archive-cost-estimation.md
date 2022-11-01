@@ -342,6 +342,15 @@ The following table compares the cost of archive storage with the cost of cold s
     </tr>
 </table>
 
+The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
+
+For example, the second pair of bars assumes that workloads read 100,000 files (**10%** of 1,000,000 files) and 1,024 GB (**10%** of 10,240 GB). Assuming the sample pricing, the estimated monthly costs of cool storage is **$175.99** and the estimated monthly cost of archive storage is **$90.62**.
+
+This chart shows a break-even point at or around the 25% read level. After that level, the cost of archive storage begins to rise relative to the cost of cool storage.
+
+> [!div class="mx-imgBorder"]
+> ![Cool versus archive monthly spending](./media/archive-cost-estimation/cool-versus-archive-monthly-spending.png)
+
 ## Sample prices
 
 This article uses the following fictitious prices. 
