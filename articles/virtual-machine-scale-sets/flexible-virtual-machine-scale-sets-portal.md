@@ -34,7 +34,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, we will have Azure generate a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-1.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Basics tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-1.png" alt-text="A screenshot of the Basics tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
 1. Select **Next: Disks** to move the disk configuration options. For this quickstart, leave the default disk configurations. 
 
@@ -45,14 +45,14 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-2.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Networking tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-2.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
 1. Select **Next: Scaling** to move to the scaling configurations.
 
 1. On the **Scaling** page, set the **initial instance count** field to *5*. You can set this number up to 1000. 
 1. For the **Scaling policy**, keep it *Manual*. 
 
-:::image type="content" source="media/quickstart-guides/quick-start-portal-3.png" alt-text="Create a Virtual Machine Scale Set using the Azure portal. Scaling tab.":::
+:::image type="content" source="media/quickstart-guides/quick-start-portal-3.png" alt-text="A screenshot of the Scaling tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
 1. When you're done, select **Review + create**. 
 1. After it passes validation, select **Create** to deploy the scale set.
