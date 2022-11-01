@@ -16,16 +16,22 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 # Prevent anonymous public read access to containers and blobs
 
-This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage public access for your storage accounts.
+Azure Blob Storage supports optional anonymous public read access to containers and blobs. However, anonymous access may present a security risk. Microsoft recommends that you disable anonymous access at the level of the storage account for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
 
-Anonymous public read access to containers and blobs in Azure Storage is a convenient way to share data, but may also present a security risk. It's important to manage anonymous access judiciously and to understand how to evaluate anonymous access to your data. Operational complexity, human error, or malicious attack against data that is publicly accessible can result in costly data breaches. Microsoft recommends that you enable anonymous access only when necessary for your application scenario.
+By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. You can disallow all public access to a storage account, regardless of the public access setting for an individual container, by setting the **AllowBlobPublicAccess** property on the storage account to **False**.
 
-By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. For enhanced security, you can disallow all public access to storage account, regardless of the public access setting for an individual container. Disallowing public access to the storage account prevents a user from enabling public access for a container in the account. Microsoft recommends that you disallow public access to a storage account unless your scenario requires it. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
+After you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. Disallowing public access to a storage account prevents users from subsequently configuring public access for containers in that account. Any containers that have already been configured for public access will no longer accept anonymous requests. 
 
-When you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. After public access is disallowed for an account, containers in that account cannot be subsequently configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
+???For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 > [!WARNING]
 > When a container is configured for public access, any client can read data in that container. Public access presents a potential security risk, so if your scenario does not require it, Microsoft recommends that you disallow it for the storage account.
+
+## Remediation for Azure Resource Manager versus classic storage accounts
+
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage public access for storage accounts that are using the Azure Resource Manager deployment model. All general-purpose v2 storage accounts, premium block blob storage accounts, and premium file shares use the Azure Resource Manager deployment model.
+
+If your storage account is using the classic deployment model, see [Remediate public access for classic storage accounts](#remediate-public-access-for-classic-storage-accounts). For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Detect anonymous requests from client applications
 
@@ -303,6 +309,8 @@ Be careful to restrict assignment of these roles only to those who require the a
 
 > [!NOTE]
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
+## Remediate public access for classic storage accounts
 
 ## Next steps
 
