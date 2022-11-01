@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 09/27/2022
+ms.date: 10/31/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -124,7 +124,7 @@ Outbound endpoints have the following limitations:
 
 ### Ruleset restrictions
 
-- Rulesets can have up to 1000 rules.
+- Rulesets can have up to 25 rules.
 
 ### Other restrictions
 
