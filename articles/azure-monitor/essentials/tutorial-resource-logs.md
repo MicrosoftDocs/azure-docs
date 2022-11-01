@@ -1,7 +1,7 @@
 ---
 title: Collect resource logs from an Azure resource
 description: Learn how to configure diagnostic settings to send resource logs from an Azure resource io a Log Analytics workspace where they can be analyzed with a log query.
-ms.topic: tutorial
+ms.topic: article
 author: bwren
 ms.author: bwren
 ms.date: 11/08/2021
@@ -9,9 +9,9 @@ ms.reviewer: lualderm
 ---
 
 # Collect and analyze resource logs from an Azure resource
-Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must create a diagnostic setting to collect them. This article takes you through the process of creating a diagnostic setting to send resource logs to a Log Analytics workspace where you can analyze them with log queries.
+Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must create a diagnostic setting to collect them. This tutorial takes you through the process of creating a diagnostic setting to send resource logs to a Log Analytics workspace where you can analyze them with log queries.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Log Analytics workspace in Azure Monitor
@@ -21,7 +21,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To complete the steps in this article, you need the following: 
+To complete the steps in this tutorial, you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
 
@@ -33,7 +33,7 @@ To complete the steps in this article, you need the following:
 [!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
 
 ## Create a diagnostic setting
-[Diagnostic settings](../essentials/diagnostic-settings.md) define where resource logs should be sent for a particular resource. A single diagnostic setting can have multiple [destinations](../essentials/diagnostic-settings.md#destinations), but we'll only use a Log Analytics workspace in this article.
+[Diagnostic settings](../essentials/diagnostic-settings.md) define where resource logs should be sent for a particular resource. A single diagnostic setting can have multiple [destinations](../essentials/diagnostic-settings.md#destinations), but we'll only use a Log Analytics workspace in this tutorial.
 
 Under the **Monitoring** section of your resource's menu, select **Diagnostic settings** and click **Add diagnostic setting**.
 
