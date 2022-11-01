@@ -305,8 +305,10 @@
     items:
       - name: Enforce Azure AD MFA
         href: set-up-mfa.md
-      - name: Configure single sign-on
+      - name: Configure single sign-on using Azure AD
         href: configure-single-sign-on.md
+      - name: Configure single sign-on using AD FS
+        href: configure-adfs-sso.md
       - name: Set up the KDC proxy
         href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager

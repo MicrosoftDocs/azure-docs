@@ -42,7 +42,7 @@ Download the [applicationinsights-agent-3.4.2.jar](https://github.com/microsoft/
 >
 > Starting from 3.3.0:
 >
->    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logging-level-as-a-custom-dimension)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > Starting from 3.2.0:

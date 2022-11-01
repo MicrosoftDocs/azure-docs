@@ -109,7 +109,8 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. Provide a name for your Azure Synapse Link connection, and select the number of cores for the [link connection compute](sql-database-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target.
 
    > [!NOTE]
-   > We recommend starting low and increasing the number of cores as needed.
+   > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool confiruation.
+   > * We recommend starting low and increasing the number of cores as needed.
 
 1. Select **OK**.
 
@@ -196,4 +197,4 @@ If you're using a database other than an Azure SQL database, see:
 * [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)
-* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/sql/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity.md#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)
+* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)

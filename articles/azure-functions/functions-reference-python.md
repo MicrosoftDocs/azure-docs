@@ -28,9 +28,10 @@ As a Python developer, you might also be interested in one of the following arti
 
 ::: zone pivot="python-mode-decorators" 
 
-| Getting started | Concepts| 
-|--|--|
-| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | 
+| Getting started | Concepts| Samples |
+| --- | --- | --- |
+| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <li>[Code Examples](functions-bindings-triggers-python.md)</li> | 
+
 ::: zone-end
 
 > [!NOTE]
@@ -94,18 +95,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
-
-| Type | Trigger | Input binding | Output binding |
-| --- | :---: | :---: | :---: |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus Topic | x |   | x |
-| Azure Service Bus Queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+At this time, only specific triggers and bindings are supported by the Python v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -266,12 +256,12 @@ app = func.FunctionApp()
 app.register_functions(bp) 
 ```
 
-::: zone-end 
-
-## Import behavior
+::: zone-end
 
 ::: zone pivot="python-mode-configuration"  
-You can import modules in your function code by using both absolute and relative references. Based on the previously described [folder structure](#folder-structure), the following imports work from within the function file *<project_root>\my\_first\_function\\_\_init\_\_.py*:
+## Import behavior
+
+You can import modules in your function code by using both absolute and relative references. Based on the previously described folder structure, the following imports work from within the function file *<project_root>\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -358,7 +348,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
 
-As an example, the following code demonstrates the difference between the two inputs:
+As an example, the following code demonstrates how to define a Blob Storage input binding:
 
 ```json
 // local.settings.json
@@ -366,7 +356,8 @@ As an example, the following code demonstrates the difference between the two in
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+    "AzureWebJobsStorage": "<azure-storage-connection-string>",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
   }
 }
 ```
@@ -388,20 +379,20 @@ def main(req: func.HttpRequest,
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
 
-At this time, only specific triggers and bindings are supported by the v2 programming model. Supported triggers and bindings are as follows:
+At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
 
 | Type | Trigger | Input binding | Output binding |
 | --- | :---: | :---: | :---: |
-| HTTP | x |   |   |
-| Timer | x |   |   |
-| Azure Queue Storage | x |   | x |
-| Azure Service Bus topic | x |   | x |
-| Azure Service Bus queue | x |   | x |
-| Azure Cosmos DB | x | x | x |
-| Azure Blob Storage | x | x | x |
-| Azure Event Grid | x |   | x |
+| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
+| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
+| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
+| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
+| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
+| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
-To learn more about defining triggers and bindings in the v2 model, see the [documentation on GitHub](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
+For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
 
 ::: zone-end
 
@@ -681,7 +672,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix`, as s
   "extensionBundle": 
   {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[2.*, 3.0.0)"
+    "version": "[3.*, 4.0.0)"
   },
   "extensions": 
   {
@@ -728,8 +719,41 @@ For a full example, see [Use Flask Framework with Azure Functions](/samples/azur
 ---
 
 ::: zone-end
+
 ::: zone pivot="python-mode-decorators" 
-You can use Web Server Gateway Interface (WSGI)-compatible and Asynchronous Server Gateway Interface (ASGI)-compatible frameworks, such as Flask and FastAPI, with your HTTP-triggered Python functions, as shown in the following example: 
+
+You can use Asynchronous Server Gateway Interface (ASGI)-compatible and Web Server Gateway Interface (WSGI)-compatible  frameworks, such as Flask and FastAPI, with your HTTP-triggered Python functions. You must first update the *host.json* file to include an HTTP `routePrefix`, as shown in the following example: 
+
+```json
+{
+  "version": "2.0",
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": 
+  {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
+  }
+}
+```
+
+The framework code looks like the following example:
 
 # [ASGI](#tab/asgi)
 
@@ -1237,7 +1261,7 @@ For a list of preinstalled system libraries in Python worker Docker images, see 
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Version 3.x | Buster | [Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Python worker extensions  
 

@@ -186,6 +186,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-compute-settings.png" alt-text="Screenshot that shows where to enter the link connection settings.":::
 
+   > [!NOTE]
+   > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool confiruation.
+
 1. With the new Azure Synapse Link connection open, you can now update the target table name, distribution type, and structure type.
 
    > [!NOTE]

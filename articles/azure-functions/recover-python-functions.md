@@ -21,17 +21,24 @@ Here are the troubleshooting sections for common issues in Python functions:
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
 ::: zone-end
+
 ::: zone pivot="python-mode-decorators" 
+Specifically with the v2 model, here are some known issues and their workarounds:
+
+* [Multiple Python workers not supported](#multiple-python-workers-not-supported)
+* [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
+* [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
+* [Issues with deployment](#issue-with-deployment)
+
+General troubleshooting guides for Python Functions include:
+
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
-* [Multiple Python workers not supported](#multiple-python-workers-not-supported)
-* [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
-* [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
-* [Issues with deployment](#issue-with-deployment)
 ::: zone-end
+
 
 ## Troubleshoot ModuleNotFoundError
 
