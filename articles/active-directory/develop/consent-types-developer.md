@@ -87,7 +87,7 @@ You can also configure permissions on your own resources to require admin consen
 Some organizations may change the default user consent policy for the tenant. When your application requests access to permissions they're evaluated against these policies. The user may need to request admin consent even when not required by default. To learn how administrators manage consent policies for applications, see [Manage app consent policies](../manage-apps/manage-app-consent-policies.md).
 
 >[!NOTE] 
->In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, scope=User.Read is equivalent to https://graph.microsoft.com/User.Read.
+>In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, scope=User.Read is equivalent to `https://graph.microsoft.com/User.Read`.
 
 ### Admin Consent for Application permissions
 

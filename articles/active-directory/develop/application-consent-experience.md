@@ -90,7 +90,7 @@ Non-admin users will be blocked from granting consent to the application, and th
 
 In this scenario, an administrator consents to all of the permissions that an application requests, which can include delegated permissions on behalf of all users in the tenant. The Administrator grants consent through the **API permissions** page of the application registration in the [Azure portal](https://portal.azure.com).
 
- :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Grant permissions for explicit admin consent" lightbox="./media/consent-framework/grant-consent.png":::
+ :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Screenshot of explicit admin consent through the Azure portal" lightbox="./media/consent-framework/grant-consent.png":::
 
 All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 

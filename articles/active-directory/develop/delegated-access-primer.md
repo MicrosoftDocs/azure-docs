@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform delegated access scenario.
+title: Microsoft identity platform delegated access scenario
 description: Learn about delegated access in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
