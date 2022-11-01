@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 The Custom Translator is a feature of the Translator service, which allows users to customize Microsoft Translator's advanced neural machine translation when translating text using Translator (version 3 only).
 
-The feature can also be used to customize speech translation when used with [Cognitive Services Speech](../speech-service/index.yml).
+The feature can also be used to customize speech translation when used with [Cognitive Services Speech](../../../speech-service/index.yml).
 
 ## Custom Translator
 
@@ -32,9 +32,9 @@ The customized system is then available through a regular call to Translator usi
 
 Given the appropriate type and amount of training data it isn't uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
 
-More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](./custom-translator/overview.md).
+More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](../overview.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a customized language system using Custom Translator](./custom-translator/overview.md)
+> [Set up a customized language system using Custom Translator](../overview.md)

@@ -37,24 +37,29 @@ Custom Translator removes the sentences that are present in test and tuning docu
 * Remove dictionary entries containing more than 50 words.
 
 ## White space
+
 * Replace any sequence of white-space characters including tabs and CR/LF sequences with a single space character.
 * Remove leading or trailing space in the sentence
 
 ## Sentence end punctuation
+
 Replace multiple sentence end punctuation characters with a single instance.  
 
 ## Japanese character normalization
+
 Convert full width letters and digits to half-width characters.
 
 ## Unescaped XML tags
+
 Filtering transforms unescaped tags into escaped tags:
 * `&lt;` becomes `&amp;lt;`
 * `&gt;` becomes `&amp;gt;`
 * `&amp;` becomes `&amp;amp;`
 
 ## Invalid characters
+
 Custom Translator removes sentences that contain Unicode character U+FFFD. The character U+FFFD indicates a failed encoding conversion.
 
 ## Next steps
 
-- [Train a model](how-to-train-model.md) in Custom Translator.
+* [Train a model](../how-to/train-custom-model.md) in Custom Translator.

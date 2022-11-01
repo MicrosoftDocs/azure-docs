@@ -43,7 +43,7 @@ You can use previously translated documents to build a translation system. These
 
 Custom Translator also accepts data that's parallel at the document level to make data collection and preparation more effective. If users have access to versions of the same content in multiple languages but in separate documents, Custom Translator will be able to automatically match sentences across documents.
 
-If the appropriate type and amount of training data is supplied, it's not uncommon to see [BLEU score](what-is-bleu-score.md) gains between 5 and 10 points by using Custom Translator.
+If the appropriate type and amount of training data is supplied, it's not uncommon to see [BLEU score](concepts/bleu-score.md) gains between 5 and 10 points by using Custom Translator.
 
 ## Be productive and cost effective
 

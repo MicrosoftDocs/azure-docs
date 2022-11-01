@@ -57,4 +57,4 @@ format you uploaded them.
 
 ## Next steps
 
-- Learn how to use a [dictionary](what-is-dictionary.md) in Custom Translator.
+- Learn how to use a [dictionary](concepts/dictionaries.md) in Custom Translator.

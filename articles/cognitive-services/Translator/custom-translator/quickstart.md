@@ -100,7 +100,7 @@ You'll create English-to-German project to train a custom model with only a [tra
 
 ## Upload documents
 
-In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](what-is-dictionary.md) document types.
+In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](concepts/dictionaries.md) document types.
 
 In this quickstart, you'll upload [training](training-and-model.md#training-document-type-for-custom-translator) documents for customization.
 

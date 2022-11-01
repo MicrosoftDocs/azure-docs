@@ -5929,6 +5929,11 @@
             "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/what-is-bleu-score.md",
             "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/bleu-score",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/data-filtering.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/data-filtering",
+            "redirect_document_id": false
         }
     ]
 }
