@@ -176,6 +176,14 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
     - The table has some column types that can't be represented in serverless SQL pool.
     - The table has a format that isn't supported in serverless SQL pool. Examples are Avro or ORC.
 
+### String or binary data would be truncated
+
+This error happens if the length of your string or binary type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the type:
+- If your column is defined as VARCHAR(32) and the text is 60 characters, use `VARCHAR(60)` in your schema.
+- If you are using schema inference (no `WITH` schema) all string columns are automatically defined as `VARCHAR(8000)` explicitly define the schema with the larger VARCHAR(MAX) to resolve this error.
+- If your table is in the Lake database, try to set the string column size in Spark pool.
+- Try to `SET ANSI_WARNINGS OFF` to enable serverless to automatically truncate VARCHAR values.
+
 ### Unclosed quotation mark after the character string
 
 In rare cases, where you use the LIKE operator on a string column or some comparison with the string literals, you might get the following error:
