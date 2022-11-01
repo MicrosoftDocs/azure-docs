@@ -780,8 +780,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ## Next steps
 
 Try safe rollout of your models as a next step:
-- [Safe rollout for online endpoints (CLI v2)](how-to-safely-rollout-managed-endpoints.md)
-- [Safe rollout for online endpoints (SDK v2)](how-to-safely-rollout-managed-endpoints-sdk-v2.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 
 To learn more, review these articles:
 
