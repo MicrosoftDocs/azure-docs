@@ -36,32 +36,10 @@ All HBv4-series VMs feature 400 Gb/sec NDR InfiniBand from NVIDIA Networking to 
 |Standard_HB176-48rs_v4 |48  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HB176-24rs_v4 |24  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
-## Getting started 
-
-- [Overview](./workloads/hpc/overview.md) of HPC on InfiniBand-enabled H-series and N-series VMs. 
-- [Configuring](./workloads/hpc/configure.md) VMs and supported [OS and VM Images](./workloads/hpc/configure.md#vm-images). 
-- [Enabling InfiniBand](./workloads/hpc/enable-infiniband.md) with HPC VM images, VM extensions or manual installation. 
-- [Setting up MPI](./workloads/hpc/setup-mpi.md), including code snippets and recommendations. 
-- [Cluster configuration options](./sizes-hpc.md#cluster-configuration-options). 
-- [Deployment considerations](./sizes-hpc.md#deployment-considerations). 
-
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Size definitions 
-
-- Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB. 
-
-- Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec. 
-
-- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**. For uncached data disk operation, the host cache mode is set to **None**. 
-
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](disks-performance.md). 
-
-- **Expected network bandwidth** is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../virtual-network/virtual-machine-network-throughput.md). 
-
-- Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md). To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](../virtual-network/virtual-network-bandwidth-testing.md). 
 
 ## Other sizes and information
 
