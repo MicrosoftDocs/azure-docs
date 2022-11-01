@@ -4,8 +4,6 @@ description: Symptoms, causes, and resolutions of restore point failures related
 ms.topic: troubleshooting
 ms.date: 07/13/2022
 ms.service: virtual-machines
-author: dikethir
-ms.author: dikethir
 ---
 
 # Troubleshoot restore point failures: Issues with the agent or extension

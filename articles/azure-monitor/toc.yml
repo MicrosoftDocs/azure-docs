@@ -45,8 +45,6 @@ items:
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
       href: app/tutorial-performance.md
-    - name: Alert on application health
-      href: app/tutorial-alert.md
     - name: Understand application users
       href: app/tutorial-users.md
     - name: Dashboard with application data
@@ -248,7 +246,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
+        - name: Create, validate and troubleshoot custom scrape config
           displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
@@ -740,10 +738,8 @@ items:
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
         href: alerts/alerts-non-common-schema-definitions.md
-      - name: Integrate the common alert schema with Logic Apps
-        href: alerts/alerts-common-schema-integrations.md
-      - name: Implement a Logic App action
-        href: alerts/action-groups-logic-app.md
+      - name: Customize alert notifications using Logic Apps
+        href: alerts/alerts-logic-apps.md  
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -1550,8 +1546,6 @@ items:
       items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
     - name: Dashboards
       items:
       - name: Dashboard using log data

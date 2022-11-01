@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/10/2022
+ms.date: 10/24/2022
 ms.author: cherylmc
 
 ---
@@ -79,10 +79,6 @@ To help configure your VPN device, refer to the links that correspond to the app
 ## <a name="configscripts"></a>Download VPN device configuration scripts from Azure
 
 For certain devices, you can download configuration scripts directly from Azure. For more information and download instructions, see [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md).
-
-### Devices with available configuration scripts
-
-[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Non-validated VPN devices
 

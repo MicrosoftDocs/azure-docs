@@ -82,5 +82,5 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
 
 ## Next steps
-Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](tutorial-copy-data-portal.md) tutorial.
+Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](quickstart-hello-world-copy-data-tool.md) tutorial.
 Lean how to create a data flow with Azure Data Factory[data-flow-create.md].

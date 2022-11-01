@@ -49,8 +49,6 @@ Custom Translator gives you the ability to edit the name and description of a pr
 ## Delete a project
 
 You can delete a project when you no longer need it. Make sure the project doesn't have models in an active state such as deployed, training submitted, data processing, or deploying, otherwise, the delete operation will fail. The following steps describe how to delete a project.
-
-
 1. Hover on any project record and select on the **trash bin** icon.
 
    ![Delete project](media/how-to/how-to-delete-project.png)

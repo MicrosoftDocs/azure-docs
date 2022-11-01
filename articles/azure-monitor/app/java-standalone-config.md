@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 10/24/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -56,6 +56,8 @@ Connection string is required. You can find your connection string in your Appli
 ```
 
 You can also set the connection string by using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. It then takes precedence over the connection string specified in the JSON configuration.
+
+Or you can set the connection string by using the Java system property `applicationinsights.connection.string`. It also takes precedence over the connection string specified in the JSON configuration.
 
 You can also set the connection string by specifying a file to load the connection string from.
 
@@ -127,7 +129,7 @@ Sampling is also based on trace ID to help ensure consistent sampling decisions 
 
 ### Rate-limited sampling
 
-Starting from 3.4.2, rate-limited sampling is available and is now the default.
+Starting from 3.4.0, rate-limited sampling is available and is now the default.
 
 If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
 (approximately) 5 requests per second, along with all the dependencies and logs on those requests.
@@ -245,7 +247,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 
 ## Connection string overrides (preview)
 
-This feature is in preview, starting from 3.4.2.
+This feature is in preview, starting from 3.4.0.
 
 Connection string overrides allow you to override the [default connection string](#connection-string). For example, you can:
 
@@ -396,31 +398,22 @@ You can use these valid `level` values to specify in the `applicationinsights.js
 > | project timestamp, message, itemType
 > ```
 
-### Log markers for Logback and Log4j 2 (preview)
+### Log markers (preview)
 
-Log markers are disabled by default.
-
-You can enable the `Marker` property for Logback and Log4j 2:
+Starting from 3.4.2, you can capture the log markers for Logback and Log4j 2:
 
 ```json
 {
   "preview": {
-    "captureLogbackMarker":  true
-  }
-}
-```
-
-```json
-{
-  "preview": {
+    "captureLogbackMarker":  true,
     "captureLog4jMarker":  true
   }
 }
 ```
 
-This feature is in preview, starting from 3.4.2.
+### Additional log attributes for Logback (preview)
 
-You can enable code properties, such as `FileName`, `ClassName`, `MethodName`, and `LineNumber`, for Logback:
+Starting from 3.4.2, you can capture `FileName`, `ClassName`, `MethodName`, and `LineNumber`, for Logback:
 
 ```json
 {
@@ -432,15 +425,13 @@ You can enable code properties, such as `FileName`, `ClassName`, `MethodName`, a
 
 > [!WARNING]
 >
-> This feature could add a performance overhead.
+> Capturing these additional log attributes can add a performance overhead.
 
-This feature is in preview, starting from 3.4.2.
-
-### LoggingLevel
+### Logging level as a custom dimension
 
 Starting from version 3.3.0, `LoggingLevel` isn't captured by default as part of the Traces custom dimension because that data is already captured in the `SeverityLevel` field.
 
-If needed, you can re-enable the previous behavior:
+If needed, you can temporarily re-enable the previous behavior:
 
 ```json
 {
@@ -449,8 +440,6 @@ If needed, you can re-enable the previous behavior:
   }
 }
 ```
-
-We will remove this configuration option in 4.0.0.
 
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
@@ -477,7 +466,7 @@ To disable auto-collection of Micrometer metrics and Spring Boot Actuator metric
 
 Literal values in JDBC queries are masked by default to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.2, this behavior can be disabled. For example:
+Starting from 3.4.0, this behavior can be disabled. For example:
 
 ```json
 {
@@ -495,7 +484,7 @@ Starting from 3.4.2, this behavior can be disabled. For example:
 
 Literal values in Mongo queries are masked by default to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.2, this behavior can be disabled. For example:
+Starting from 3.4.0, this behavior can be disabled. For example:
 
 ```json
 {
