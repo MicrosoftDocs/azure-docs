@@ -56,7 +56,4 @@ For more information on using the Azure status page, see [Azure status overview]
 
 ## Next steps
 
-Read about other ways to monitor your Azure Digital Twins instance in the following articles:
-* [Monitor with metrics](how-to-monitor-metrics.md)
-* [Monitor with diagnostics logs](how-to-monitor-diagnostics.md).
-* [Monitor with alerts](how-to-monitor-alerts.md)
+Read about other ways to monitor your Azure Digital Twins instance in [Monitor your Azure Digital Twins instance](how-to-monitor.md).

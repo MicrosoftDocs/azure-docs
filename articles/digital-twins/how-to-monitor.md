@@ -1,86 +1,111 @@
 ---
 # Mandatory fields.
-title: Monitor with diagnostic logs
+title: Monitor your instance
 titleSuffix: Azure Digital Twins
-description: In this article, learn how to enable logging with diagnostics settings and query the logs for immediate viewing. Also, learn about the log categories and their schemas.
+description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/10/2022
+ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q1, contentperf-fy22q3
+
+# Optional fields. Don't forget to remove # if you need a field.
+# ms.custom: can-be-multiple-comma-separated
+# ms.reviewer: MSFT-alias-of-reviewer
+# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Monitor Azure Digital Twins with diagnostics logs
+# Monitor Azure Digital Twins with metrics, alerts, and diagnostics
 
-This article shows you how to configure diagnostic settings in the [Azure portal](https://portal.azure.com), including what types of logs to collect and where to store them (such as Log Analytics or a storage account of your choice). Then, you can query the logs to quickly gather custom insights.
+Azure Digital Twins integrates with [Azure Monitor](../azure-monitor/overview.md) to provide metrics and diagnostic information that you can use to monitor your Azure Digital Twins resources. **Metrics** are enabled by default, and give you information about the state of Azure Digital Twins resources in your Azure subscription. **Alerts** can proactively notify you when certain conditions are found in your metrics data. You can also collect **diagnostic logs** for your service instance to monitor its performance, access, and other data. 
 
-Azure Digital Twins can collect *logs* for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
+These monitoring features can help you assess the overall health of the Azure Digital Twins service and the resources connected to it. You can use them to understand what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
 
-This article also contains information about all the log categories that Azure Digital Twins can collect, and their schemas.
+They can be accessed from the [Azure portal](https://portal.azure.com), grouped under the **Monitoring** heading for the Azure Digital Twins resource.
 
-## Turn on diagnostic settings 
+:::image type="content" source="media/how-to-monitor/monitoring.png" alt-text="Screenshot of the Azure portal showing the Monitoring options.":::
 
-Turn on diagnostic settings to start collecting logs on your Azure Digital Twins instance. You can also choose the destination where the exported logs should be stored. Here's how to enable diagnostic settings for your Azure Digital Twins instance.
+## Metrics and alerts
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
+For general information about viewing Azure resource **metrics**, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the Azure Monitor documentation. For general information about configuring **alerts** for Azure metrics, see [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric).
 
-2. Select **Diagnostic settings** from the menu, then **Add diagnostic setting**.
+The rest of this section describes the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
-    :::image type="content" source="media/how-to-monitor-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page in the Azure portal and button to add." lightbox="media/how-to-monitor-diagnostics/diagnostic-settings.png":::
+### Metrics for tracking service limits
 
-3. On the page that follows, fill in the following values:
-     * **Diagnostic setting name**: Give the diagnostic settings a name.
-     * **Category details**: Choose which operations you want to monitor, and check the boxes to enable diagnostics for those operations. The operations that diagnostic settings can report on are:
-        - DigitalTwinsOperation
-        - EventRoutesOperation
-        - ModelsOperation
-        - QueryOperation
-        - AllMetrics
-        
-        For more details about these categories and the information they contain, see the [Log categories](#log-categories) section below.
-     * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
-        - Send to Log Analytics
-        - Archive to a storage account
-        - Stream to an event hub
+You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
 
-        You may be asked to fill in more details if they're necessary for your destination selection.  
-    
-4. Save the new settings. 
+To set up tracking, use the [alerts](../azure-monitor/alerts/alerts-overview.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
 
-    :::image type="content" source="media/how-to-monitor-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic setting page in the Azure portal where the user has filled in a diagnostic setting information." lightbox="media/how-to-monitor-diagnostics/diagnostic-settings-details.png":::
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you're approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you're approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
+### API request metrics
 
-For more detailed information on diagnostic settings and their setup options, you can visit [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
+Metrics having to do with API requests:
 
-## View and query logs
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| ApiRequests | API Requests | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
+| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
+| ApiRequestsLatency | API Requests Latency | Milliseconds | Average | The response time for API requests. This value refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 
-After configuring storage details of your Azure Digital Twins logs, you can write *custom queries* for them to generate insights and troubleshoot issues. The service also provides a few example queries that can help you get started, by addressing common questions that customers may have about their instances.
+### Billing metrics
 
-Here's how to query the logs for your instance.
+Metrics having to do with billing:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter ID |
+| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this limit will be counted as additional messages in 1 KB increments (so a message between 1 KB and 2 KB will be counted as 2 messages, between 2 KB and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5 KB in the response body, for example, will be billed as 2 operations. | Meter ID |
+| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There's also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
 
-2. Select **Logs** from the menu to open the log query page. The page opens to a window called **Queries**.
+For more information on the way Azure Digital Twins is billed, see [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
 
-    :::image type="content" source="media/how-to-monitor-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal with the Queries window overlaid, showing prebuilt queries." lightbox="media/how-to-monitor-diagnostics/logs.png":::
+### Ingress metrics
 
-    These queries are prebuilt examples written for various logs. You can select one of the queries to load it into the query editor and run it to see these logs for your instance.
+Metrics having to do with data ingress:
 
-    You can also close the **Queries** window without running anything to go straight to the query editor page, where you can write or edit custom query code.
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| IngressEvents | Ingress Events | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+| IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it's ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
 
-3. After exiting the **Queries** window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
-    :::image type="content" source="media/how-to-monitor-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance in the Azure portal. It includes a list of logs, query code, and Queries History." lightbox="media/how-to-monitor-diagnostics/logs-query.png":::
+### Routing metrics
 
-    In the left pane, 
-    - The **Tables** tab shows the different Azure Digital Twins [log categories](#log-categories) that are available to use in your queries. 
-    - The **Queries** tab contains the example queries that you can load into the editor.
-    - The **Filter** tab lets you customize a filtered view of the data that the query returns.
+Metrics having to do with routing:
 
-For more detailed information on log queries and how to write them, you can visit [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| MessagesRouted | Messages Routed | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hubs, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingFailureRate | Routing Failure Rate | Percent | Average | The percentage of events that result in an error as they're routed from Azure Digital Twins to an endpoint Azure service such as Event Hubs, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingLatency | Routing Latency | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it's posted to the endpoint Azure service such as Event Hubs, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
 
-## Log categories
+### Metric dimensions
+
+Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. The table below lists possible values for these dimensions.
+
+| Dimension | Values |
+| --- | --- |
+| Authentication | OAuth |
+| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
+| Endpoint Type | Event Grid, <br>Event Hubs, <br>Service Bus |
+| Protocol | HTTPS |
+| Result | Success, <br>Failure |
+| Status Code | 200, 404, 500, and so on. |
+| Status Code Class | 2xx, 4xx, 5xx, and so on. |
+| Status Text | Internal Server Error, Not Found, and so on. |
+
+## Diagnostics logs
+
+For general information about Azure **diagnostics settings**, including how to enable them, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md). For information about querying diagnostic logs using **Log Analytics**, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md).
+
+The rest of this section describes the diagnostic log categories that Azure Digital Twins can collect, and their schemas.
+
+### Log categories
 
 Here are more details about the categories of logs that Azure Digital Twins collects.
 
@@ -121,13 +146,13 @@ Here's a comprehensive list of the operations and corresponding [Azure Digital T
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Digital Twins Delete, Delete Relationship |
 |  | Microsoft.DigitalTwins/digitaltwins/action | Digital Twins Send Component Telemetry, Send Telemetry |
 
-## Log schemas 
+### Log schemas 
 
 Each log category has a schema that defines how events in that category are reported. Each individual log entry is stored as text and formatted as a JSON blob. The fields in the log and example JSON bodies are provided for each log type below. 
 
 `ADTDigitalTwinsOperation`, `ADTModelsOperation`, and `ADTQueryOperation` use a consistent API log schema. `ADTEventRoutesOperation` extends the schema to contain an `endpointName` field in properties.
 
-### API log schemas
+#### API log schemas
 
 This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, except the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
@@ -160,7 +185,7 @@ Here are the field and property descriptions for API logs.
 
 Below are example JSON bodies for these types of logs.
 
-#### ADTDigitalTwinsOperation
+##### ADTDigitalTwinsOperation
 
 ```json
 {
@@ -194,7 +219,7 @@ Below are example JSON bodies for these types of logs.
 }
 ```
 
-#### ADTModelsOperation
+##### ADTModelsOperation
 
 ```json
 {
@@ -228,7 +253,7 @@ Below are example JSON bodies for these types of logs.
 }
 ```
 
-#### ADTQueryOperation
+##### ADTQueryOperation
 
 ```json
 {
@@ -262,7 +287,7 @@ Below are example JSON bodies for these types of logs.
 }
 ```
 
-#### ADTEventRoutesOperation
+##### ADTEventRoutesOperation
 
 Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
@@ -298,7 +323,7 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Micr
   },
 ```
 
-### Egress log schemas
+#### Egress log schemas
 
 The following example is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft.DigitalTwins/eventroutes/action` operation name. These contain details related to exceptions and the API operations around egress endpoints connected to an Azure Digital Twins instance.
 
@@ -319,10 +344,6 @@ The following example is the schema for `ADTEventRoutesOperation` logs specific 
 | `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, and so on. |
 | `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 | `EndpointName` | String | The name of egress endpoint created in Azure Digital Twins |
-
-Below are example JSON bodies for these types of logs.
-
-#### ADTEventRoutesOperation for Microsoft.DigitalTwins/eventroutes/action
 
 Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.DigitalTwins/eventroutes/action` type.
 
@@ -362,6 +383,4 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 
 ## Next steps
 
-* For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [Monitor with metrics](how-to-monitor-metrics.md).
-* To see how to enable alerts for your Azure Digital Twins metrics, see [Monitor with alerts](how-to-monitor-alerts.md).
+Read more about Azure Monitor and its capabilities in the [Azure Monitor documentation](../azure-monitor/overview.md).
