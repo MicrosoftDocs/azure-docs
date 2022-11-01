@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 10/03/2022
+ms.date: 11/01/2022
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
