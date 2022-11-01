@@ -1,14 +1,14 @@
 ---
 title: How to work with search results
 titleSuffix: Azure Cognitive Search
-description: Structure search result composition, get a document count, and add content navigation to search results in Azure Cognitive Search.
+description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: how-to
-ms.date: 11/01/2022
+ms.topic: conceptual
+ms.date: 07/22/2022
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -101,7 +101,7 @@ On the service, assume a fifth document is added to the index in between query c
 
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
 
-<!-- ## Ordering results
+## Ordering results
 
 In a full text search query, results can be ranked by a search score, a semantic re-ranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
 
@@ -124,7 +124,7 @@ If consistent ordering is an application requirement, you can explicitly define 
 Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
 
 Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
- -->
+
 ## Hit highlighting
 
 Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match isn't immediately obvious. 
