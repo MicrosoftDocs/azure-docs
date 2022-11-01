@@ -76,7 +76,7 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 Create a new empty folder using your preferred terminal. Or, you can fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub.
 
-Change directory to the root of the project folder. Create a *requirements.txt* file to include the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+Change directory to the root of the project folder. Make sure there is a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
 ```text
 # requirements.txt
