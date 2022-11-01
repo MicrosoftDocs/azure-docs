@@ -19,8 +19,8 @@ Workspace-based resources:
 > - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location
 > - Enable common [Azure role-based access control](../../role-based-access-control/overview.md) across your resources
 > - Eliminate the need for cross-app/workspace queries
-> - Are available in all commercial regions and [Azure US Government](https://learn.microsoft.com/en-us/azure/azure-government)
-> - Do not require changing instrumentation keys after migration
+> - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml)
+> - Do not require changing instrumentation keys after migration from a Classic resource
 
 ## New capabilities
 
