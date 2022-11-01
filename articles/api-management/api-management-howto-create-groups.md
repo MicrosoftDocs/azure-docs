@@ -98,7 +98,7 @@ Once the association is added between the developer and the group, you can view 
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management],
 * In addition to creating and managing groups in the Azure portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
-* Learn how to manage the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that asre used in notifications to developers from your API Management instance.
+* Learn how to manage the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications to developers from your API Management instance.
 
 
 [Create a group]: #create-group

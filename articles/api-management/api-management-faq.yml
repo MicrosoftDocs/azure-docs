@@ -40,7 +40,7 @@ sections:
           * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
           * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md).
           * Connect your API Management instance to an [Azure virtual network](virtual-network-concepts.md).
-          * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Managment](authentication-authorization-overview.md).        
+          * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md).        
 
       - question: |
           How do I copy my API Management service instance to a new instance?
@@ -95,7 +95,7 @@ sections:
       - question: |
           Are there restrictions on importing my API?
         answer: |
-          See [API import restrictions and known issues](api-management-api-import-restrictions.md) for Open API (Swagger), WSDL, and WADL formats.
+          See [API import restrictions and known issues](api-management-api-import-restrictions.md) for OpenAPI (Swagger), WSDL, and WADL formats.
                     
       - question: |
           Can I use CI/CD for API development?

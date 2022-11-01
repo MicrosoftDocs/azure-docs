@@ -77,8 +77,8 @@ If you use Azure Key Vault to manage a custom domain TLS certificate, make sure 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
 * When you use command-line tools or management API, these permissions must be granted manually, in two steps:
-    1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal Id on that page. 
-    1. Give the list and get secrets permissions to this principal Id on the Azure Key Vault containing the certificate.
+    1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page. 
+    1. Give the list and get secrets permissions to this principal ID on the Azure Key Vault containing the certificate.
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 
