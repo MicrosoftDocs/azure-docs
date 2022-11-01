@@ -46,7 +46,7 @@ When you're using virtual network integration, you can configure how parts of th
 
 ### Container image pull
 
-Routing Container image pull over virtual network integration can be configured using the Azure CLI.
+Routing container image pull over virtual network integration can be configured using the Azure CLI.
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --properties.vnetImagePullEnabled [true|false]
