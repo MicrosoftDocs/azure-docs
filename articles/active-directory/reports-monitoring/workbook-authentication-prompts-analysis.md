@@ -30,7 +30,7 @@ This article provides you with an overview of this workbook.
 
 Have you recently heard of complaints from your users about getting too many authentication prompts?
 
-Overprompting users can effect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
+Overprompting users can affect your user's productivity and often leads users getting phished for MFA. To be clear, MFA is essential! We are not talking about if you should require MFA but how frequently you should prompt your users.
 
 Typically, this scenario is caused by:
 
@@ -117,7 +117,7 @@ If the visuals are taking too much time to load, try reducing the Time filter to
 
 ## Next steps
 
-- To understand more about the different policies that effect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
+- To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
 
 - To learn more about the different vulnerabilities of different MFA methods, see [All your creds belong to us!](https://aka.ms/allyourcreds).
 
