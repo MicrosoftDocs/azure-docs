@@ -6,7 +6,6 @@ author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/31/2022
