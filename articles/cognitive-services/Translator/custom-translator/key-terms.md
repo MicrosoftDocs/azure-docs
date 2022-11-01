@@ -9,7 +9,6 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: reference
-#Customer intent: As a Custom Translator user, I want to review and understand the terms in multiple articles.
 ---
 
 # Custom Translator key terms

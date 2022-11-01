@@ -10,7 +10,6 @@ ms.date: 04/26/2022
 ms.author: lajanuar
 ms.topic: quickstart
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
 

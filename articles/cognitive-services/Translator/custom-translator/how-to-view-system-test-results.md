@@ -10,7 +10,6 @@ ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 
 # View system test results

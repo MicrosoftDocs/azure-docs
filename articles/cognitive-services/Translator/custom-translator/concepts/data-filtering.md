@@ -1,12 +1,12 @@
 ---
 title: "Legacy: Data Filtering - Custom Translator"
 titleSuffix: Azure Cognitive Services
-description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps to prepare for training.
+description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 11/04/2022
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-translator
 
 # Data filtering
 
-When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps to prepare for training. These steps are explained here. The knowledge of the filtering may help you understand the sentence count displayed in Custom Translator and the steps you may take yourself to prepare the documents for training with Custom Translator.
+When you submit documents to be used for training, the documents undergo a series of processing and filtering steps. These steps are explained here. The knowledge of the filtering may help you understand the sentence count displayed in Custom Translator and the steps you may take yourself to prepare the documents for training with Custom Translator.
 
 ## Sentence alignment
 

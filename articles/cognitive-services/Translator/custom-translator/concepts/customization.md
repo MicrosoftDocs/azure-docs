@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 11/04/2022
 ms.author: lajanuar
 ---
 
@@ -26,11 +26,11 @@ With Custom Translator, you can build neural translation systems that understand
 
 Use your previously translated documents (leaflets, webpages, documentation, etc.) to build a translation system that reflects your domain-specific terminology and style, better than a standard translation system. Users can upload TMX, XLIFF, TXT, DOCX, and XLSX documents.  
 
-The system also accepts data that is parallel at the document level but is not yet aligned at the sentence level. If users have access to versions of the same content in multiple languages but in separate documents Custom Translator will be able to automatically match sentences across documents.  The system can also use monolingual data in either or both languages to complement the parallel training data to improve the translations.
+The system also accepts data that is parallel at the document level but isn't yet aligned at the sentence level. If users have access to versions of the same content in multiple languages but in separate documents, Custom Translator will be able to automatically match sentences across documents.  The system can also use monolingual data in either or both languages to complement the parallel training data to improve the translations.
 
 The customized system is then available through a regular call to Translator using the category parameter.
 
-Given the appropriate type and amount of training data it is not uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
+Given the appropriate type and amount of training data it isn't uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
 
 More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](./custom-translator/overview.md).
 
