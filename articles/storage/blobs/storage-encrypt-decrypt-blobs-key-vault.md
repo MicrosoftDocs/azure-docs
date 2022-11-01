@@ -5,7 +5,7 @@ description: Learn how to encrypt and decrypt a blob using client-side encryptio
 author: pauljewellmsft
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/28/2022
+ms.date: 11/1/2022
 ms.author: pauljewell
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -16,6 +16,10 @@ ms.custom: devx-track-csharp
 # Tutorial: Encrypt and decrypt blobs using Azure Key Vault
 
 In this tutorial, you learn how to use client-side encryption to encrypt and decrypt blobs using a key stored with Azure Key Vault.
+
+Azure Blob Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use in protecting your data. To learn more about service-side encryption, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+
+The [Azure Blob Storage client library for .NET](/dotnet/api/overview/azure/storage) supports client-side data encryption within applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for key management.
 
 This tutorial shows you how to:
 
@@ -202,7 +206,7 @@ Next, we'll use the key we just added to the vault to create the cryptography cl
 ```csharp
 // Cryptography client and key resolver instances using Azure Key Vault client library
 CryptographyClient cryptoClient = keyClient.GetCryptographyClient(key.Value.Name, key.Value.Properties.Version);
-KeyResolver keyResolver = new KeyResolver(tokenCredential);
+KeyResolver keyResolver = new (tokenCredential);
 ```
 
 If you have an existing key in the vault that you'd like to encrypt with, you can create the key and key resolver instances by passing in the URI:
@@ -215,14 +219,14 @@ CryptographyClient cryptoClient = new CryptographyClient(new Uri(keyVaultKeyUri)
 
 Now we need to configure the encryption options to be used for blob upload and download. To use client-side encryption, we first create a `ClientSideEncryptionOptions` object and set it on client creation with `SpecializedBlobClientOptions`. 
 
- The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to blob storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
+ The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to Blob Storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
 
 > [!IMPORTANT]
->Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter.For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
+>Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter. To learn more about mitigating the vulnerability in your apps, see [Mitigate the security vulnerability in your applications](client-side-encryption.md#mitigate-the-security-vulnerability-in-your-applications). For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).
 
 ```csharp
 // Configure the encryption options to be used for upload and download
-ClientSideEncryptionOptions encryptionOptions = new ClientSideEncryptionOptions(ClientSideEncryptionVersion.V2_0)
+ClientSideEncryptionOptions encryptionOptions = new (ClientSideEncryptionVersion.V2_0)
 {
     KeyEncryptionKey = cryptoClient,
     KeyResolver = keyResolver,
@@ -242,7 +246,7 @@ In this example, we apply the client-side encryption configuration options to a 
 // Create a blob client with client-side encryption enabled.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
-Uri blobUri = new Uri(string.Format($"https://{accountName}.blob.core.windows.net"));
+Uri blobUri = new (string.Format($"https://{accountName}.blob.core.windows.net"));
 BlobClient blob = new BlobServiceClient(blobUri, tokenCredential, options).GetBlobContainerClient("test-container").GetBlobClient("testBlob");
 ```
 
