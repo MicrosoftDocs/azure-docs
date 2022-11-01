@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM) and a DPS enrollment group
-description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. The devices are simulated using the C device SDK and a custom Hardware Security Module (HSM).
+title: Tutorial - Provision X.509 devices to Azure IoT Hub using a DPS enrollment group
+description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. 
 author: kgremban
 ms.author: kgremban
-ms.date: 07/12/2022
+ms.date: 11/01/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
-#Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the C SDK.
+#Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the Azure IoT device SDK.
 ---
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
@@ -43,7 +43,7 @@ In this tutorial, you'll complete the following objectives:
 > * Complete proof of possession with a signing certificate used with the certificate chain.
 > * Create a new group enrollment that uses the certificate chain.
 > * Set up the development environment.
-> * Provision a device using the certificate chain using sample code in the SDK.
+> * Provision a device using the certificate chain using sample code in the Azure IoT device SDK.
 
 ## Prerequisites
 
@@ -1418,8 +1418,8 @@ In the following steps, you'll use both your Windows command prompt and your Git
 
     |   Constant        |  File to use |
     | :---------------- | :--------- |
-    | `leafPublicPem`   | *.\certs\device-02.cert.pem* |
-    | `leafPrivateKey`  | *.\private\device-02.key.pem* |
+    | `leafPublicPem`   | *./certs/device-02.cert.pem* |
+    | `leafPrivateKey`  | *./private/device-02.key.pem* |
 
 ::: zone-end
 

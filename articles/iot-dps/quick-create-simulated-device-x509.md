@@ -3,7 +3,7 @@ title: Quickstart - Provision an X.509 certificate simulated device to Microsoft
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
 author: kgremban
 ms.author: kgremban
-ms.date: 05/31/2022
+ms.date: 11/01/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -714,11 +714,11 @@ In this section, you'll use your Windows command prompt.
 
     | Variable name              | Description                                     |
     | :------------------------- | :---------------------------------------------- |
-    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS instance. |
-    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS instance. |
-    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate. |
-    | `X509_CERT_FILE`           |  Your device certificate filename. |
-    | `X509_KEY_FILE`            |  The private key filename for your device certificate. |
+    | `PROVISIONING_HOST`        |  The global endpoint used for connecting to your DPS instance. |
+    | `PROVISIONING_IDSCOPE`     |  The ID Scope for your DPS instance. |
+    | `DPS_X509_REGISTRATION_ID` |  The registration ID for your device. It must also match the subject name on the device certificate. |
+    | `X509_CERT_FILE`           |  The path to your device certificate file. |
+    | `X509_KEY_FILE`            |  The path to your device certificate private key file. |
     | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
 
 1. Add the environment variables for the global device endpoint and ID Scope.
@@ -742,9 +742,7 @@ In this section, you'll use your Windows command prompt.
     set PASS_PHRASE=1234
     ```
 
-1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
-
-1. Save your changes.
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())` and save your changes.
 
 1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
