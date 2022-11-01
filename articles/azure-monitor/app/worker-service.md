@@ -24,7 +24,7 @@ You must have a valid Application Insights connection string. This string is req
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Use Application Insights SDK for Worker Services
+## Use Application Insights SDK for Worker Service
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
    The following snippet shows the changes that must be added to your project's `.csproj` file:
@@ -127,7 +127,7 @@ The full example is shared at the [NuGet website](https://github.com/microsoft/A
 
 Alternatively, specify the connection string in the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
-Typically, `APPLICATIONINSIGHTS_CONNECTION_STRING` specifies the connection string for applications deployed to Web Apps as Web Jobs.
+Typically, `APPLICATIONINSIGHTS_CONNECTION_STRING` specifies the connection string for applications deployed to web apps as web jobs.
 
 > [!NOTE]
 > A connection string specified in code takes precedence over the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`, which takes precedence over other options.
@@ -332,7 +332,7 @@ Although the SDK automatically collects telemetry as explained, in most cases, y
 
 The default `TelemetryConfiguration` used by the worker service SDK is similar to the automatic configuration used in an ASP.NET or ASP.NET Core application, minus the telemetry initializers used to enrich telemetry from `HttpContext`.
 
-You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](/aspnet/core/fundamentals/dependency-injection). The WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed in the next section.
+You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](/aspnet/core/fundamentals/dependency-injection). The Worker Service SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed in the next section.
 
 > [!NOTE]
 > When you use this SDK, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported and changes won't be reflected.
@@ -362,7 +362,7 @@ The following table lists commonly used settings in `ApplicationInsightsServiceO
 
 |Setting | Description | Default
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | Enable/Disable the LiveMetrics feature. | True
+|EnableQuickPulseMetricStream | Enable/Disable the Live Metrics feature. | True
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling. | True
 |EnableHeartbeat | Enable/Disable the Heartbeats feature, which periodically (15-min default) sends a custom metric named "HeartBeatState" with information about the runtime like .NET version and Azure environment, if applicable. | True
 |AddAutoCollectedMetricExtractor | Enable/Disable the AutoCollectedMetrics extractor, which is a telemetry processor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | True
