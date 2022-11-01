@@ -87,7 +87,7 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 1. If you filter traffic to Azure SQL Database, Azure Synapse Analytics, or SQL Managed Instance, ensure the SQL connectivity mode is set to **Proxy**. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Settings](/azure/azure-sql/database/connectivity-settings#change-the-connection-policy-via-the-azure-cli).  
 
    > [!NOTE]
-   > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-an-network-rule).
+   > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
 1. Add the application rule with the appropriate protocol, port, and SQL FQDN and then select **Save**.
    ![application rule with SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
