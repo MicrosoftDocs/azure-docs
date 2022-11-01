@@ -193,7 +193,9 @@ items:
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
   - name: Pipeline parameters and variables
-    href: concepts-parameters-variables.md 
+    href: concepts-parameters-variables.md
+  - name: Annotations and user properties
+    href: concepts-annotations-user-properties.md 
   - name: Nested activities
     href: concepts-nested-activities.md
     displayName: nested, nesting
