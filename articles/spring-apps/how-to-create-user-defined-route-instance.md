@@ -29,7 +29,7 @@ This article describes how to secure outbound traffic from your applications hos
 
 ## Create a virtual network by using a user-defined route
 
-The following illustration shows an example of an Azure Spring Apps virtual network that was created through a user-defined route.
+The following illustration shows an example of an Azure Spring Apps virtual network that uses a user-defined route (UDR).
 
 :::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram that shows user-defined routing.":::
 
