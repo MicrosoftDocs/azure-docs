@@ -141,7 +141,7 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
 
 ```json
 {
-   "open_api": {
+   "openApi": {
       "uri": "<OpenAPI-URI>"
    },
    "protocol": "<protocol-of-routed-app>",
@@ -152,7 +152,7 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
          "predicates": [
             "<predicate-of-route>",
          ],
-         "sso_enabled": true,
+         "ssoEnabled": true,
          "filters": [
             "<filter-of-route>",
          ],
@@ -165,7 +165,7 @@ Here's a sample of the JSON file that is passed to the `--routes-file` parameter
    "predicates": [
       "<app-level-predicate-of-route>",
    ],
-   "sso_enabled": false,
+   "ssoEnabled": false,
    "filters": [
       "<app-level-filter-of-route>",
    ]
