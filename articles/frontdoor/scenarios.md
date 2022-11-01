@@ -60,8 +60,11 @@ When you deploy a solution that uses Azure Front Door, you should consider how y
 
 The following diagram illustrates a generic solution architecture using Front Door:
 
-:::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png" border="false":::
+:::image type="content" source="./media/scenarios/general-architecture-small.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/scenarios/general-architecture-full.png" border="false":::
 <!-- TODO redo this diagram -->
+
+> [!WARNING]
+> **Note to reviewers:** The diagram above is a draft, and will be redrawn by the Azure Docs illustrator.
 
 ### Client to Front Door
 
