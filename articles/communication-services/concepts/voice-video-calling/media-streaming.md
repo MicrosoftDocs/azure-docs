@@ -1,5 +1,6 @@
 ---
 title: Media streaming overview
+titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about using Media Streaming APIs with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
