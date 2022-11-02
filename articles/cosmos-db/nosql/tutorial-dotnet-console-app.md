@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > - Create a database using API for NoSQL
 > - Create a .NET console application and add the Azure SDK for .NET
 > - Add individual items into an API for NoSQL container
-> - Modify existing items in an API for NoSQL container
+> - Retrieve items efficient from an API for NoSQL container
 > - Create a transaction with batch changes for the API for NoSQL container
 >
 
@@ -51,7 +51,7 @@ First, create an empty database in the existing API for NoSQL account. You'll cr
 
 1. In the resource menu, select **Keys**.
 
-    :::image type="content" source="media/tutorial-dotnet-console-app/resource-menu-keys.png" lightbox="media/tutorial-dotnet-web-app/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
+    :::image type="content" source="media/tutorial-dotnet-console-app/resource-menu-keys.png" lightbox="media/tutorial-dotnet-console-app/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
 
 1. On the **Keys** page, observe and record the value of the **URI** and **PRIMARY KEY** fields. These values will be used throughout the tutorial.
 
@@ -86,7 +86,7 @@ Now, you'll create a new .NET console application and import the Azure SDK for .
 1. Create a new console application using the `console` built-in template
 
     ```bash
-    dotnet new console
+    dotnet new console --langVersion preview
     ```
 
 1. Add the **3.31.1-preview** version of the `Microsoft.Azure.Cosmos` package from NuGet.
@@ -138,7 +138,7 @@ Now, you'll create a new .NET console application and import the Azure SDK for .
     command.AddOption(countryOption);
     
     command.SetHandler(
-        handle: CosmosHandler.CreateCustomerAsync, 
+        handle: CosmosHandler.ManageCustomerAsync, 
         nameOption, 
         emailOption,
         stateOption,
@@ -151,13 +151,13 @@ Now, you'll create a new .NET console application and import the Azure SDK for .
     > [!NOTE]
     > For this tutorial, it's not entirely important that you understand how the command-line parser works. The parser has four options that can be specified when the application is running. Three of the options are required since they will be used to construct the ID and partition key fields.
 
-1. At this point, the project won't build since you haven't defined the static `CosmosHandler.CreateCustomerAsync` method yet.
+1. At this point, the project won't build since you haven't defined the static `CosmosHandler.ManageCustomerAsync` method yet.
 
 1. **Save** the **Program.cs** file.
 
 ## Add items to a container using the SDK
 
-Next, you'll use individual operations to add items into the API for NoSQL container. In this section, you'll define the  `CosmosHandler.CreateCustomerAsync` method.
+Next, you'll use individual operations to add items into the API for NoSQL container. In this section, you'll define the  `CosmosHandler.ManageCustomerAsync` method.
 
 1. Create a new **CosmosHandler.cs** file.
 
@@ -175,10 +175,10 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
     { }
     ```
 
-1. Just to validate this app will work, create a short implementation of the static `CreateCustomerAsync` method to print the command-line input.
+1. Just to validate this app will work, create a short implementation of the static `ManageCustomerAsync` method to print the command-line input.
 
     ```csharp
-    public static async Task CreateCustomerAsync(string name, string email, string state, string country)
+    public static async Task ManageCustomerAsync(string name, string email, string state, string country)
     {
         await Console.Out.WriteLineAsync($"Hello {name} of {state}, {country}!");
     }
@@ -267,9 +267,9 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
         );
         ```
 
-1. Delete all of the code within the `CreateCustomerAsync` method.
+1. Delete all of the code within the `ManageCustomerAsync` method.
 
-1. For the next steps, add this code within the `CreateCustomerAsync` method.
+1. For the next steps, add this code within the `ManageCustomerAsync` method.
 
     1. Asynchronously call the `GetContainerAsync` method and store the result in a variable named `container`.
 
@@ -344,9 +344,292 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
     );
     ```
 
-## Change existing items in a container using the SDK
+## Retrieve an item using the SDK
+
+Now that you've created your first item in the container, you can use the same SDK to retrieve the item. Here, you'll query and point read the item to compare the difference in request unit (RU) consumption.
+
+1. Return to or open the **CosmosHandler.cs** file.
+
+1. Delete all lines of code from the `ManageCustomerAsync` method except for the first two lines.
+
+    ```csharp
+    public static async Task ManageCustomerAsync(string name, string email, string state, string country)
+    {
+        Container container = await GetContainerAsync();
+
+        string id = name.Kebaberize();
+    }
+    ```
+
+1. For the next steps, add this code within the `ManageCustomerAsync` method.
+
+    1. Use the container's asynchronous `CreateItemAsync` method to create a new item in the container and assign the HTTP response metadata to a variable named `response`.
+
+        ```csharp
+        var response = await container.CreateItemAsync(customer);
+        ```
+
+    1. Create a new string named `sql` with a SQL query to retrieve items where a filter (`@id`) matches.
+
+        ```csharp
+        string sql = """
+        SELECT
+            *
+        FROM customers c
+        WHERE c.id = @id
+        """;
+        ```
+
+    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value of the variable `id` to the `@id` parameter.
+
+        ```csharp
+        var query = new QueryDefinition(
+            query: sql
+        )
+            .WithParameter("@id", id);
+        ```
+
+    1. Use the `GetItemQueryIterator<>` generic method and the `query` variable to create an iterator that gets data from Azure Cosmos DB. Store the iterator in a variable named `feed`. Wrap this entire expression in a using statement to dispose the iterator later.
+
+        ```csharp
+        using var feed = container.GetItemQueryIterator<dynamic>(
+            queryDefinition: query
+        );
+        ```
+
+    1. Asynchronously call the `ReadNextAsync` method of the `feed` variable and store the result in a variable named `response`.
+
+        ```csharp
+        var response = await feed.ReadNextAsync();
+        ```
+
+    1. Write the values of the `response` variable's `StatusCode` and `RequestCharge` properties to the console. Also write the value of the `id` variable.
+
+        ```csharp
+        Console.WriteLine($"[{response.StatusCode}]\t{id}\t{response.RequestCharge} RUs");
+        ```
+
+1. **Save** the **CosmosHandler.cs** file.
+
+1. Back in the terminal, run the application to read the single item using a SQL query.
+
+    ```bash
+    dotnet run -- --name 'Mica Pereira'
+    ```
+
+1. The output of the command should indicate that the query required multiple RUs.
+
+    ```output
+    [OK]    mica-pereira    2.82 RUs
+    ```
+
+1. Back in the **CosmosHandler.cs** file, delete all lines of code from the `ManageCustomerAsync` method again except for the first two lines.
+
+    ```csharp
+    public static async Task ManageCustomerAsync(string name, string email, string state, string country)
+    {
+        Container container = await GetContainerAsync();
+
+        string id = name.Kebaberize();
+    }
+    ```
+
+1. For the next steps, add this code within the `ManageCustomerAsync` method.
+
+    1. Create a new instance of `PartitionKeyBuilder` by adding the `state` and `country` parameters as a multi-part partition key value.
+
+        ```csharp
+        var partitionKey = new PartitionKeyBuilder()
+            .Add(country)
+            .Add(state)
+            .Build();
+        ```
+
+    1. Use the container's `ReadItemAsync<>` method to point read the item from the container using the `id` and `partitionKey` variables. Save the result in a variable named `response`.
+
+        ```csharp
+        var response = await container.ReadItemAsync<dynamic>(
+            id: id, 
+            partitionKey: partitionKey
+        );
+        ```
+
+    1. Write the values of the `response` variable's `StatusCode` and `RequestCharge` properties to the console. Also write the value of the `id` variable.
+
+        ```csharp
+        Console.WriteLine($"[{response.StatusCode}]\t{id}\t{response.RequestCharge} RU");
+        ```
+
+1. **Save** the **CosmosHandler.cs** file again.
+
+1. Back in the terminal, run the application one more time to point read the single item.
+
+    ```bash
+    dotnet run -- --name 'Mica Pereira' --state 'Washington' --country 'United States'
+    ```
+
+1. The output of the command should indicate that the query required a single RU.
+
+    ```output
+    [OK]    mica-pereira    1 RUs
+    ```
 
 ## Create a transaction using the SDK
+
+Finally, you'll take the item you created, read that item, and create a different related item as part of a single transaction using the Azure SDK for .NET.
+
+1. Return to or open the **CosmosHandler.cs** file.
+
+1. Delete these lines of code from the `ManageCustomerAsync` method.
+
+    ```csharp
+    var response = await container.ReadItemAsync<dynamic>(
+        id: id, 
+        partitionKey: partitionKey
+    );
+
+    Console.WriteLine($"[{response.StatusCode}]\t{id}\t{response.RequestCharge} RUs");
+    ```
+
+1. For the next steps, add this new code within the `ManageCustomerAsync` method.
+
+    1. Create a new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item will represent a real-time shopping cart for the customer that is currently empty.
+
+        ```csharp
+        var customerCart = new {
+            id = $"{Guid.NewGuid()}",
+            customerId = id,
+            items = new string[] {},
+            address = new {
+                state = state,
+                country = country
+            }
+        };
+        ```
+
+    1. Create another new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item will represent shipping and contact information for the customer.
+
+        ```csharp
+        var customerContactInfo = new {
+            id = $"{id}-contact",
+            customerId = id,
+            email = email,
+            location = $"{state}, {country}",
+            address = new {
+                state = state,
+                country = country
+            }
+        };
+        ```
+
+    1. Create a new batch using the container's `CreateTransactionalBatch` method passing in the `partitionKey` variable. Store the batch in a variable named `batch`. Use fluent methods to perform the following actions:
+
+        | Method | Parameter |
+        | --- | --- |
+        | `ReadItem` | `id` string variable |
+        | `CreateItem` | `customerCart` anonymous type variable |
+        | `CreateItem` | `customerContactInfo` anonymous type variable |
+
+        ```csharp
+        var batch = container.CreateTransactionalBatch(partitionKey)
+            .ReadItem(id)
+            .CreateItem(customerCart)
+            .CreateItem(customerContactInfo);
+        ```
+
+    1. Use the batch's `ExecuteAsync` method to start the transaction. Save the result in a variable named `response`.
+
+        ```csharp
+        using var response = await batch.ExecuteAsync();
+        ```
+
+    1. Write the values of the `response` variable's `StatusCode` and `RequestCharge` properties to the console. Also write the value of the `id` variable.
+
+        ```csharp
+        Console.WriteLine($"[{response.StatusCode}]\t{response.RequestCharge} RUs");
+        ```
+
+1. **Save** the **CosmosHandler.cs** file again.
+
+1. Back in the terminal, run the application one more time to point read the single item.
+
+    ```bash
+    dotnet run -- --name 'Mica Pereira' --state 'Washington' --country 'United States'
+    ```
+
+1. The output of the command should show the request units used for the entire transaction.
+
+    ```output
+    [OK]    16.05 RUs
+    ```
+
+    > [!NOTE]
+    > Your request charge may vary.
+
+## Validate the final data in the Data Explorer
+
+To wrap up things, you'll use the Data Explorer in the Azure portal to view the data, and container you created in this tutorial.
+
+1. Navigate to your existing API for NoSQL account in the [Azure portal](https://portal.azure.com/).
+
+1. In the resource menu, select **Data Explorer**.
+
+    :::image type="content" source="media/tutorial-dotnet-console-app/resource-menu-data-explorer.png" alt-text="Screenshot of the Data Explorer option highlighted in the resource menu.":::
+
+1. On the **Data Explorer** page, expand the `cosmicworks` database, and then select the `customers` container.
+
+    :::image type="content" source="media/tutorial-dotnet-web-app/section-data-container.png" alt-text="Screenshot of the selected container node within the database node.":::
+
+1. In the command bar, select **New SQL query**.
+
+    :::image type="content" source="media/tutorial-dotnet-console-app/page-data-explorer-new-sql-query.png" alt-text="Screenshot of the New SQL Query option in the Data Explorer command bar.":::
+
+1. In the query editor, observe this SQL query string.
+
+    ```sql
+    SELECT * FROM c
+    ```
+
+1. Select **Execute Query** to run the query and observe the results.
+
+    :::image type="content" source="media/tutorial-dotnet-console-app/page-data-explorer-execute-query.png" alt-text="Screenshot of the Execute Query option in the Data Explorer command bar.":::
+
+1. The results should include a JSON array with three items created in this tutorial. Observe that all of the items have the same hierarchical partition key value, but unique ID fields. The example output included is truncated for brevity.
+
+    ```output
+    [
+      {
+        "id": "mica-pereira",
+        "name": "Mica Pereira",
+        "address": {
+          "state": "Washington",
+          "country": "United States"
+        },
+        ...
+      },
+      {
+        "id": "33d03318-6302-4559-b5c0-f3cc643b2f38",
+        "customerId": "mica-pereira",
+        "items": [],
+        "address": {
+          "state": "Washington",
+          "country": "United States"
+        },
+        ...
+      },
+      {
+        "id": "mica-pereira-contact",
+        "customerId": "mica-pereira",
+        "email": null,
+        "location": "Washington, United States",
+        "address": {
+          "state": "Washington",
+          "country": "United States"
+        },
+        ...
+      }
+    ]
+    ```
 
 ## Clean up resources
 

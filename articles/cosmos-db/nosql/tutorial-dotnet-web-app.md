@@ -65,7 +65,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 1. In the **New Container** dialog, create a new container with the following settings:
 
-    | | Value |
+    | Setting | Value |
     | --- | --- |
     | **Database id** | `cosmicworks` |
     | **Database throughput type** | **Manual** |
@@ -100,7 +100,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
         --key <primary-key>
     ```
 
-1. Observe the output from the command line tool. It should add more than 200 items to the container. The example output included here's truncated for brevity.
+1. Observe the output from the command line tool. It should add more than 200 items to the container. The example output included is truncated for brevity.
 
     ```output
     ...
