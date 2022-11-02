@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Get started with Application Insights in a Java web project
@@ -25,14 +26,14 @@ Application Insights is an extensible analytics service for web developers that 
 
 ## Get an Application Insights instrumentation key
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=java) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
+
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Add the Application Insights SDK for Java to your project
 
@@ -283,8 +284,11 @@ Application Insights can test your website at regular intervals to check that it
 
 [Learn more about how to set up availability web tests.][availability]
 
-## Questions? Problems?
-[Troubleshooting Java](java-2x-troubleshoot.md)
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/java-2x-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 * [Monitor dependency calls](java-2x-agent.md)

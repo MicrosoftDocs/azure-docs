@@ -3,7 +3,7 @@ title: DPDK in an Azure Linux VM | Microsoft Docs
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
-author: laxmanrb
+author: asudbring
 manager: gedegrac
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: labattul
+ms.author: allensu
 
 ---
 # Set up DPDK in a Linux virtual machine
@@ -57,7 +57,7 @@ All Azure regions support DPDK.
 
 Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-On virtual machines that are using InfiniBand, ensure the appropriate `mlx4_ib` or `mlx5_ib` drivers are loaded, see [Enable InfiniBand](/azure/virtual-machines/workloads/hpc/enable-infiniband).
+On virtual machines that are using InfiniBand, ensure the appropriate `mlx4_ib` or `mlx5_ib` drivers are loaded, see [Enable InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
 ## Install DPDK via system package (recommended)
 

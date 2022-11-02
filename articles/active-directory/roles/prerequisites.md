@@ -4,12 +4,12 @@ description: Prerequisites to use PowerShell or Graph Explorer for Azure Active 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 08/06/2021
+ms.date: 03/17/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -19,6 +19,17 @@ ms.collection: M365-identity-device-management
 # Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
 
 If you want to manage Azure Active Directory (Azure AD) roles using PowerShell or Graph Explorer, you must have the required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Azure AD role features.
+
+## Microsoft Graph PowerShell
+
+To use PowerShell commands to do the following:
+
+- Add users, groups, or devices to an administrative unit
+- Create a new group in an administrative unit
+
+You must have the Microsoft Graph PowerShell SDK installed:
+
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## AzureAD module
 
@@ -30,7 +41,7 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) version 2.0.2.137 or later
+- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) (current version)
 
 
 #### Check AzureAD version
@@ -46,7 +57,7 @@ You should see output similar to the following:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.137  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
+2.0.2.140  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
 ```
 
 #### Install AzureAD
@@ -92,7 +103,7 @@ To use AzureAD, follow these steps to make sure it is imported into the current 
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.137  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
+    Binary     2.0.2.140  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
     ```
 
 ## AzureADPreview module
@@ -106,7 +117,7 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) (current version)
 
 
 #### Check AzureADPreview version
@@ -122,7 +133,7 @@ You should see output similar to the following:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.138  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
+2.0.2.149  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
 ```
 
 #### Install AzureADPreview
@@ -168,7 +179,7 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.138  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
+    Binary     2.0.2.149  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
     ```
 
 ## Graph Explorer

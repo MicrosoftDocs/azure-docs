@@ -1,8 +1,12 @@
 ---
 title: Enable managed identity in container group
 description: Learn how to enable a managed identity in Azure Container Instances that can authenticate with other Azure services
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # How to use managed identities with Azure Container Instances
@@ -17,9 +21,6 @@ In this article, you learn more about managed identities in Azure Container Inst
 > * Use the managed identity to access a key vault from a running container
 
 Adapt the examples to enable and use identities in Azure Container Instances to access other Azure services. These examples are interactive. However, in practice your container images would run code to access Azure services.
- 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently, managed identities on Azure Container Instances, are only supported with Linux containers and not yet with Windows containers.
 
 ## Why use a managed identity?
 
@@ -35,10 +36,6 @@ Azure Container Instances supports both types of managed Azure identities: user-
 
 To use a managed identity, the identity must be granted access to one or more Azure service resources (such as a web app, a key vault, or a storage account) in the subscription. Using a managed identity in a running container is similar to using an identity in an Azure VM. See the VM guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
-### Limitations
-
-* Currently you can't use a managed identity in a container group deployed to a virtual network.
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
@@ -47,13 +44,13 @@ To use a managed identity, the identity must be granted access to one or more Az
 
 The examples in this article use a managed identity in Azure Container Instances to access an Azure key vault secret. 
 
-First, create a resource group named *myResourceGroup* in the *eastus* location with the following [az group create](/cli/azure/group#az_group_create) command:
+First, create a resource group named *myResourceGroup* in the *eastus* location with the following [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Use the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command to create a key vault. Be sure to specify a unique key vault name. 
+Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a key vault. Be sure to specify a unique key vault name. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -62,7 +59,7 @@ az keyvault create \
   --location eastus
 ```
 
-Store a sample secret in the key vault using the [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command:
+Store a sample secret in the key vault using the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command:
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -77,7 +74,7 @@ Continue with the following examples to access the key vault using either a user
 
 ### Create an identity
 
-First create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group used to create the key vault, or use a different one.
+First create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group used to create the key vault, or use a different one.
 
 ```azurecli-interactive
 az identity create \
@@ -85,7 +82,7 @@ az identity create \
   --name myACIId
 ```
 
-To use the identity in the following steps, use the [az identity show](/cli/azure/identity#az_identity_show) command to store the identity's service principal ID and resource ID in variables.
+To use the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's service principal ID and resource ID in variables.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -115,7 +112,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
 
 ### Enable user-assigned identity on a container group
 
-Run the following [az container create](/cli/azure/container#az_container_create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. In this section, only the base operating system is used. For an example to use the Azure CLI in the container, see [Enable system-assigned identity on a container group](#enable-system-assigned-identity-on-a-container-group). 
+Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. In this section, only the base operating system is used. For an example to use the Azure CLI in the container, see [Enable system-assigned identity on a container group](#enable-system-assigned-identity-on-a-container-group). 
 
 The `--assign-identity` parameter passes your user-assigned managed identity to the group. The long-running command keeps the container running. This example uses the same resource group used to create the key vault, but you could specify a different one.
 
@@ -128,7 +125,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container#az_container_show) command.
+Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container#az-container-show) command.
 
 ```azurecli-interactive
 az container show \
@@ -168,7 +165,8 @@ az container exec \
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
+client_id="xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx"
+curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net&client_id=$client_id" -H Metadata:true -s
 ```
 
 Output:
@@ -200,7 +198,7 @@ The response looks similar to the following, showing the secret. In your code, y
 
 ### Enable system-assigned identity on a container group
 
-Run the following [az container create](/cli/azure/container#az_container_create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. 
+Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. 
 
 The `--assign-identity` parameter with no additional value enables a system-assigned managed identity on the group. The identity is scoped to the resource group of the container group. The long-running command keeps the container running. This example uses the same resource group used to create the key vault, which is in the scope of the identity.
 
@@ -217,7 +215,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container#az_container_show) command.
+Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container#az-container-show) command.
 
 ```azurecli-interactive
 az container show \

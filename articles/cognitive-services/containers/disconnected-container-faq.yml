@@ -32,34 +32,34 @@ sections:
 
           Commitment tier pricing is also available for the following Applied AI service:
 
-          *	Form Recognizer - Custom/Invoice
+          *	Form Recognizer
 
-          For more information about commitment tier pricing, please reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
+          For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
       - question: Will containers be available for other Cognitive Services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
       - question: How do I get access to disconnected container?
         answer: |
-          Fill out and submit the request form to request access to the container. Access is limited to customers that meet the following requirements:
+          Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the container. Access is limited to customers that meet the following requirements:
 
-            * Your organization must have an enterprise agreement or an equivalent agreement and should identified as strategic customer or partner with Microsoft.  
+            * Your organization must have an enterprise agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
               * Environment or device(s) with zero connectivity to internet. 
               *	Remote location that occasionally has internet access. 
               *	Organization under strict regulation of not sending any kind of data back to cloud. 
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
-      - question: What if my use case cannot satisfy the requirements listed above?
+      - question: What if my use case can't satisfy the requirements listed above?
         answer: |
-          If your use case cannot satisfy above requirements but you're interested in running containers on premises, you may be able to use [connected containers](../cognitive-services-container-support.md).   
+          If your use case can't satisfy above requirements but you're interested in running containers on premises, you may be able to use [connected containers](../cognitive-services-container-support.md).   
       - question: What are some reasons my application may be denied?
         answer: |
           Possible causes for a denied application are as follows: 
           *	Not being an existing Microsoft partner or enterprise agreement customer  
-          *	Invalid Azure subscription ID. your ID must belong to the applicant organization, and you cannot apply on behalf of other organizations. 
+          *	Invalid Azure subscription ID. your ID must belong to the applicant organization, and you can't apply on behalf of other organizations. 
           *	The application was submitted with a personal email address (For example: @hotmail.com, @gmail.com, @yahoo.com, etc.) 
           *	Invalid justification or business scenario provided 
           *	Other missing or inaccurate data
-      - question: How long does it take to approve my application for to access disconnected containers?
+      - question: How long does it take to approve my application to access disconnected containers?
         answer: |
           After you submit the form, the Azure Cognitive Services team will review it and email you a decision within 10 business days.
 
@@ -68,7 +68,7 @@ sections:
           If you have any questions on the application, gating process or other information needed, email csgate@microsoft.com
       - question: How do I download the disconnected containers?
         answer: | 
-          These containers are hosted on the Microsoft Container Registry and available for download on [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services). You won't be able to run the container if your Azure subscription has not been approved after completion of the request form. Once you are approved, you can follow the steps in [Use Docker containers in disconnected environments](disconnected-containers.md)
+          These containers are hosted on the Microsoft Container Registry and available for download on [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services). You won't be able to run the container if your Azure subscription has not been approved after completion of the request form. Once you're approved, you can follow the steps in [Use Docker containers in disconnected environments](disconnected-containers.md)
       - question: What is the service-level agreement (SLA) for Cognitive Services containers?
         answer: |
           Cognitive Services disconnected containers don't have an SLA, because customers control configuration of the resources used. Customers are free to deploy containers on-premises and define the host environments.
@@ -110,7 +110,7 @@ sections:
           | `Mismatch` | You've provided an API key or endpoint for a different kind of Cognitive Services resource. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Cognitive Services resource. |
           | `CouldNotConnect` | The container couldn't connect to the endpoint. |
           | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
-          | `ContainerUseUnauthorized` | The provided API key is not authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
+          | `ContainerUseUnauthorized` | The provided API key isn't authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
           | `Unknown` | The server is currently unable to process requests. |
       - question: How do I get support?
         answer: |
@@ -123,7 +123,7 @@ sections:
         answer: |
           Customers are charged based on the [commitment tier](../plan-manage-costs.md#commitment-tier) they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
           
-          Each commitment tier offers a discounted rates as compared to the pay-as-you-go pricing model. Commitment plans are charged annually starting from the day the resource was created. Additional units can be added at any time in the year and are charged pro-rated based on the number of days remaining in the billing year. For more information, see the following pricing pages:
+          Each commitment tier offers a discounted rate as compared to the pay-as-you-go pricing model. Commitment plans are charged annually starting from the day the resource was created. Additional units can be added at any time in the year and are charged pro-rated based on the number of days remaining in the billing year. For more information, see the following pricing pages:
           > [!TIP]
           > To find the pricing information for disconnected containers on these pricing pages, scroll down to **Commitment Tiers** section.
 
@@ -140,10 +140,10 @@ sections:
           *	[Form Recognizer - Custom/Invoice](https://azure.microsoft.com/pricing/details/form-recognizer/)
       - question: How do I monitor the container's usage?
         answer: | 
-          Docker containers running in a disconnected environment will write usage records to a volume where they are collected over time. These containers also provide a REST endpoint to generate a report about usage. See [Use containers in disconnected environments](disconnected-containers.md#usage-records) for more information.
+          Docker containers running in a disconnected environment will write usage records to a volume where they're collected over time. These containers also provide a REST endpoint to generate a report about usage. See [Use containers in disconnected environments](disconnected-containers.md#usage-records) for more information.
       - question: What is the current support warranty for containers?
         answer: |
-          There is no warranty for containers in preview. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as General Availability (GA).
+          There's no warranty for containers in preview. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as General Availability (GA).
       - question: What hardware is required to run these containers?
         answer: |
           Cognitive Services containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
@@ -157,11 +157,11 @@ sections:
               * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Language Detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
-          *	[Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#the-host-computer)
+          *	[Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#host-computer-requirements)
           *	[Form Recognizer - Custom/Invoice](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#host-computer-requirements)
       - question: Are these containers currently supported on Windows?
         answer: |
-          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
       - question: What compliance certifications do containers have?
         answer: |
           Cognitive Services containers don't have any compliance certifications.

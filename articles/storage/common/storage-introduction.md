@@ -6,9 +6,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 09/29/2022
 ms.author: tamram
 ms.subservice: common
+ms.custom: ignite-2022
 ---
 
 # Introduction to Azure Storage
@@ -37,13 +38,19 @@ The Azure Storage platform includes the following data services:
 
 Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
 
+Additionally, Azure provides the following specialized storage:
+
+- [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Enterprise files storage, powered by NetApp: makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change.
+
+    Azure NetApp Files is managed via NetApp accounts and can be accessed via NFS, SMB and dual-protocol volumes. To get started, see [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+
 ## Review options for storing data in Azure
 
 Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
 
 ## Sample scenarios for Azure Storage services
 
-The following table compares Files, Blobs, Disks, Queues, and Tables, and shows example scenarios for each.
+The following table compares Files, Blobs, Disks, Queues, Tables, and Azure NetApp Files, and shows example scenarios for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
@@ -51,7 +58,8 @@ The following table compares Files, Blobs, Disks, Queues, and Tables, and shows 
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
-| **Azure Tables** | Allow you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table storage versus the Azure Cosmos DB Table API, see [Developing with Azure Cosmos DB Table API and Azure Table storage](../../cosmos-db/table-support.md). |
+| **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table storage](../../cosmos-db/table-support.md). |
+| **Azure NetApp Files** | Offers a fully managed, highly available, enterprise-grade NAS service that can handle the most demanding, high-performance, low-latency workloads requiring advanced data management capabilities. | You have a difficult-to-migrate workload such as POSIX-compliant Linux and Windows applications, SAP HANA, databases, high-performance compute (HPC) infrastructure and apps, and enterprise web applications. <br></br> You require support for multiple file-storage protocols in a single service, including NFSv3, NFSv4.1, and SMB3.1.x, enables a wide range of application lift-and-shift scenarios, with no need for code changes. |
 
 ## Blob storage
 
@@ -97,7 +105,7 @@ For more information about Azure Queues, see [Introduction to Queues](../queues/
 
 ## Table storage
 
-Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../tables/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md).
+Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](../../cosmos-db/table-introduction.md).
 
 For more information about Table storage, see [Overview of Azure Table storage](../tables/table-storage-overview.md).
 
@@ -106,6 +114,14 @@ For more information about Table storage, see [Overview of Azure Table storage](
 An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure-managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
 For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md).
+
+## Azure NetApp Files
+
+[Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection.
+
+For more information about Azure NetApp Files, refer to [Introduction to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
+
+For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files and Azure NetApp Files comparison](../files/storage-files-netapp-comparison.md).
 
 ## Types of storage accounts
 
@@ -120,6 +136,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
 - **Anonymous access to containers and blobs.** A container and its blobs may be publicly available. When you specify that a container or blob is public, anyone can read it anonymously; no authentication is required. For more information, see [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md).
+- **Active Directory Domain Services with Azure NetApp Files.** Azure NetApp Files features such as SMB volumes, dual-protocol volumes, and NFSv4.1 Kerberos volumes are designed to be used with AD DS. For more information, refer to [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md) or learn how to [Configure ADDS LDAP over TLS for Azure NetApp Files](../../azure-netapp-files/configure-ldap-over-tls.md).
 
 ## Encryption
 
@@ -129,21 +146,31 @@ There are two basic kinds of encryption available for Azure Storage. For more in
 
 Azure Storage encryption protects and safeguards your data to meet your organizational security and compliance commitments. Azure Storage automatically encrypts all data prior to persisting to the storage account and decrypts it prior to retrieval. The encryption, decryption, and key management processes are transparent to users. Customers can also choose to manage their own keys using Azure Key Vault. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
 
+All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-storage-be-encrypted-at-rest).
+
 ### Client-side encryption
 
 The Azure Storage client libraries provide methods for encrypting data from the client library before sending it across the wire and decrypting the response. Data encrypted via client-side encryption is also encrypted at rest by Azure Storage. For more information about client-side encryption, see [Client-side encryption with .NET for Azure Storage](storage-client-side-encryption.md).
+
+Azure NetApp Files data traffic is inherently secure by design, as it does not provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight is not encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted).
 
 ## Redundancy
 
 To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
+
 ## Transfer data to and from Azure Storage
 
 You have several options for moving data into or out of Azure Storage. Which option you choose depends on the size of your dataset and your network bandwidth. For more information, see [Choose an Azure solution for data transfer](storage-choose-data-transfer-solution.md).
 
+Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy tool to migrate data to the service. For more information, see [Data migration and protection FAQs for Azure NetApp Files](../../azure-netapp-files/faq-data-migration-protection.md).
+
 ## Pricing
 
 When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#capacity_pools) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Storage APIs, libraries, and tools
 
@@ -154,7 +181,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Azure Storage REST API](/rest/api/storageservices/)
 - [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](/azure/storage/blobs/reference#javascript-client-libraries)
+- [Azure Storage client library for Node.js](../blobs/reference.md#javascript-client-libraries)
 - [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -165,6 +192,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Storage Resource Provider REST API](/rest/api/storagerp/)
 - [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/storage/management)
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
+- [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 
 ### Azure Storage data movement API and library references
 

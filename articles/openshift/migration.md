@@ -1,8 +1,8 @@
 ---
 title: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 description: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
@@ -100,7 +100,7 @@ If you're using external registries such as [Azure Container Registry](../contai
 
 ### Monitoring
 
-Azure Red Hat OpenShift includes a pre-configured, pre-installed, and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and includes a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. The cluster monitoring stack is only supported for monitoring Azure Red Hat OpenShift clusters. For more information, see [Cluster monitoring for Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
+Azure Red Hat OpenShift includes a pre-configured, pre-installed, and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and includes a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. The cluster monitoring stack is only supported for monitoring Azure Red Hat OpenShift clusters. For more information, see [Cluster monitoring for Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.5/monitoring/cluster_monitoring/about-cluster-monitoring.html).
 
 If you have been using [Azure Monitor for Containers for Azure Red Hat OpenShift 3.11](../azure-monitor/containers/container-insights-azure-redhat-setup.md), you can also enable Azure Monitor for Containers for [Azure Red Hat OpenShift 4 clusters](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) and continue using the same Log Analytics workspace.
 
@@ -115,12 +115,12 @@ Once you have your target cluster properly configured for your workload, [connec
 ## Delete your source cluster
 Once you've confirmed that your Azure Red Hat OpenShift 4 cluster is properly set up, delete your Azure Red Hat OpenShift 3.11 cluster.
 
+```azurecli
+az aro delete --name $CLUSTER_NAME
+              --resource-group $RESOURCE_GROUP
+              [--no-wait]
+              [--yes]
 ```
-az openshift delete --name $CLUSTER_NAME
-                    --resource-group $RESOURCE_GROUP
-                    [--no-wait]
-                    [--subscription]
-                    [--yes]
-```
+
 ## Next steps
 Check out Red Hat OpenShift documentation [here](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

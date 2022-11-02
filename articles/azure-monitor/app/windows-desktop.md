@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.devlang: csharp
 ms.custom: fasttrack-edit
+ms.reviewer: abinetabate
 ---
 
 # Monitoring usage and performance in Classic Windows Desktop apps
@@ -26,6 +27,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Use the API](./api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure portal.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## <a name="telemetry"></a>Example code
 
@@ -69,9 +72,9 @@ using Microsoft.ApplicationInsights;
 
 By default this SDK will collect and store the computer name of the system emitting telemetry.
 
-Computer name is used by Application Insights [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) for internal billing purposes. By default if you use a telemetry initializer to override `telemetry.Context.Cloud.RoleInstance`, a separate property `ai.internal.nodeName` will be sent which will still contain the computer name value. This value will not be stored with your Application Insights telemetry, but is used internally at ingestion to allow for backwards compatibility with the legacy node-based billing model.
+Computer name is used by Application Insights [Legacy Enterprise (Per Node) pricing tier](../logs/cost-logs.md#legacy-pricing-tiers) for internal billing purposes. By default if you use a telemetry initializer to override `telemetry.Context.Cloud.RoleInstance`, a separate property `ai.internal.nodeName` will be sent which will still contain the computer name value. This value will not be stored with your Application Insights telemetry, but is used internally at ingestion to allow for backwards compatibility with the legacy node-based billing model.
 
-If you are on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) and simply need to override storage of the computer name, use a telemetry Initializer:
+If you are on the Legacy Enterprise (Per Node) pricing tier and simply need to override storage of the computer name, use a telemetry Initializer:
 
 **Write custom TelemetryInitializer as below.**
 
@@ -112,7 +115,7 @@ Instantiate the initializer in the `Program.cs` `Main()` method below setting th
 
 ## Override transmission of computer name
 
-If you aren't on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
+If you aren't on the Legacy Enterprise (Per Node) pricing tier and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
 
 ### Telemetry processor
 
@@ -168,7 +171,7 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> While you can technically use a telemetry processor as described above even if you are on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier), this will result in the potential for over-billing due to the inability to properly distinguish nodes for per node pricing.
+> While you can technically use a telemetry processor as described above even if you are on the Legacy Enterprise (Per Node) pricing tier, this will result in the potential for over-billing due to the inability to properly distinguish nodes for per node pricing.
 
 ## Next steps
 * [Create a dashboard](./overview-dashboard.md)

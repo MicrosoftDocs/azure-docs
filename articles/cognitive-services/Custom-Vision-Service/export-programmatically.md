@@ -22,7 +22,7 @@ This guide shows you how to export your model to an ONNX file with the Python SD
 
 ## Create a training client
 
-You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and subscription keys, and use them to create the client object.
+You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and keys, and use them to create the client object.
 
 ```python
 ENDPOINT = "PASTE_YOUR_CUSTOM_VISION_TRAINING_ENDPOINT_HERE"
@@ -52,6 +52,9 @@ export = trainer.export_iteration(project_id, iteration_id, platform, flavor, ra
 ```
 
 For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
+
+> [!IMPORTANT]
+> If you've already exported a particular iteration, you cannot call the **export_iteration** method again. Instead, skip ahead to the **get_exports** method call to get a link to your existing exported model.
 
 ## Download the exported model
 

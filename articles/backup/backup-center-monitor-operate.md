@@ -2,7 +2,10 @@
 title: Monitor and operate backups using Backup Center
 description: This article explains how to monitor and operate backups at scale using Backup Center
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 03/21/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Monitor and operate backups using Backup center
@@ -71,7 +74,7 @@ Azure Backup provides a set of built-in metrics via Azure Monitor that allows yo
 
 Azure Backup offers the following key capabilities:
 
-* Ability to view out-of-the-box metrics related to backup and restore health of your backup items along with associated trends.
+* Ability to view out-of-the-box metrics related to back up and restore health of your backup items along with associated trends.
 * Ability to write custom alert rules on these metrics to efficiently monitor the health of your backup items.
 * Ability to route fired metric alerts to different notification channels supported by Azure Monitor, such as email, ITSM, webhook, logic apps, and so on.
 
@@ -87,14 +90,14 @@ You can also see a summary of open alerts in the last 24 hours in the **Overview
 
 Currently, the following types of alerts are displayed in Backup center:
 
-* **Default Azure Monitor alerts for Azure Backup (preview)**: This includes the built-in security alerts and configured alerts that Azure Backup provides via Azure Monitor. [Learn more about the alert scenarios supported by this solution](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
+* **Default Azure Monitor alerts for Azure Backup (preview)**: This includes the built-in security alerts and configured alerts that Azure Backup provides via Azure Monitor. [Learn more about the alert scenarios supported by this solution](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
 * **Metric alerts for Azure Backup (preview)**: This includes alerts fired based on the metric alert rules you created. [Learn more about Azure Backup metric alerts](metrics-overview.md)
 
 >[!NOTE]
 >- Currently, Backup center displays only alerts for Azure-based workloads. To view alerts for on-premises resources, go to the Recovery Services vault and click **Alerts** from the menu.
 >- Backup center displays only Azure Monitor alerts. Alerts raised by the older alerting solution (accessed under the [Backup Alerts](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) aren't displayed in Backup center.
 
-For more details about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Datasource and Global Alerts
 
@@ -102,6 +105,9 @@ The following classes of alerts are displayed:
 
 * **Datasource Alerts**: Alerts that are tied to a specific datasource being backed up (such as, backup or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section. For metric alerts, if the fired alert has a datasource ID dimension associated with it, the fired alert appears under **Datasource Alerts**.
 * **Global Alerts**: Alerts that aren't tied to a specific datasource (such as, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section. For metric alerts, if the fired alert doesn't have a datasource ID associated with it, the fired alert appears under **Global Alerts**.
+
+>[!Note]
+>Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ## Vaults
 

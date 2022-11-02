@@ -1,7 +1,7 @@
 ---
 title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
-ms.date: 08/17/2021
+ms.date: 03/20/2022
 ms.topic: overview
 ---
 # What are the Azure Management areas?
@@ -63,8 +63,7 @@ to track cloud usage and expenditures for your Azure resources and other cloud p
 
 Manage the security of your resources and data. A security program involves assessing threats,
 collecting and analyzing data, and compliance of your applications and resources. Security
-monitoring and threat analysis are provided by [Azure Security
-Center](../security-center/security-center-introduction.md), which includes unified security
+monitoring and threat analysis are provided by [Microsoft Defender for Cloud](../security-center/security-center-introduction.md), which includes unified security
 management and advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
 Security](../security/fundamentals/overview.md) for comprehensive information and guidance on
 securing Azure resources.
@@ -85,12 +84,12 @@ Migration refers to transitioning workloads currently running on-premises to the
 migration suitability of on-premises virtual machines to Azure. Azure Site Recovery migrates virtual
 machines [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon
 Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database
-Migration](../dms/dms-overview.md) assists you in migrating database sources to Azure Data
+Migration Service](../dms/dms-overview.md) assists you in migrating database sources to Azure Data
 platforms.
 
 ## Next Steps
 
 To learn more about Azure Governance, see these articles:
 
-- See the [Azure Governance hub](./index.yml).
-- See [Governance in the Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/)
+- [Azure Governance hub](./index.yml).
+- [Governance in the Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/)

@@ -3,12 +3,12 @@ title: Known issues for application provisioning in Azure Active Directory
 description: Learn about known issues when you work with automated application provisioning in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/18/2021
+ms.date: 10/20/2022
 ms.reviewer: arvinh
 ---
 

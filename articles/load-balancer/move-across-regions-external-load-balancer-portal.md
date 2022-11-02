@@ -1,11 +1,11 @@
 ---
 title: Move an Azure external load balancer to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move an external load balancer from one Azure region to another by using the Azure portal.
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Move an external load balancer to another region by using the Azure portal
@@ -70,7 +70,7 @@ The following procedures show how to prepare the external load balancer for the 
             "name": "[parameters('publicIPAddresses_myPubIP_name')]",
             "location": "<target-region>",
             "sku": {
-                "name": "Basic",
+                "name": "Standard",
                 "tier": "Regional"
             },
             "properties": {
@@ -78,7 +78,7 @@ The following procedures show how to prepare the external load balancer for the 
                 "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
                 "ipAddress": "52.177.6.204",
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
                }
@@ -100,14 +100,31 @@ The following procedures show how to prepare the external load balancer for the 
             "name": "[parameters('publicIPAddresses_myPubIP_name')]",
             "location": "<target-region>",
             "sku": {
-                "name": "Basic",
+                "name": "Standard",
                 "tier": "Regional"
             },
         ```
+     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP will be created as no-zone. You can specify a single zone to create a zonal public IP or all 3 zones for a zone-redundant public IP.
 
-        For information on the differences between basic and standard SKU public IPs, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
+         ```json
+          "resources": [
+         {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+            "location": "<target-region>",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "zones": [
+                "1",
+                "2",
+                "3"
+            ],
+         ```
 
-    * **Public IP allocation method** and **Idle timeout**. You can change the public IP allocation method by changing the **publicIPAllocationMethod** property from **Dynamic** to **Static** or from **Static** to **Dynamic**. You can change the idle timeout by changing the **idleTimeoutInMinutes** property to the desired value. The default is **4**.
+    * **Public IP allocation method** and **Idle timeout**. You can change the public IP allocation method by changing the **publicIPAllocationMethod** property from **Static** to **Dynamic** or from **Dynamic** to **Static**. You can change the idle timeout by changing the **idleTimeoutInMinutes** property to the desired value. The default is **4**. 
 
         ```json
           "resources": [
@@ -117,15 +134,20 @@ The following procedures show how to prepare the external load balancer for the 
             "name": "[parameters('publicIPAddresses_myPubIP_name')]",
             "location": "<target-region>",
             "sku": {
-                "name": "Basic",
+                "name": "Standard",
                 "tier": "Regional"
             },
+            "zones": [
+                "1",
+                "2",
+                "3"
+            ],
             "properties": {
                 "provisioningState": "Succeeded",
                 "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
                 "ipAddress": "52.177.6.204",
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
 
@@ -238,7 +260,7 @@ The following procedures show how to prepare the external load balancer for the 
 
 11. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the external load balancer in the configuration from standard to basic or from basic to standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. You can change the SKU of the external load balancer in the configuration from Standard to Basic or from Basic to Standard by changing the **name** property under **sku** in the template.json file:
 
         ```json
         "resources": [

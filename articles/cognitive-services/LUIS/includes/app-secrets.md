@@ -6,4 +6,4 @@ ms.date: 5/17/2020
 ---
 
 > [!IMPORTANT]
-> Remember to remove the credentials from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](/azure/key-vault/general/overview).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.

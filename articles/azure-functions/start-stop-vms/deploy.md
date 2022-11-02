@@ -1,37 +1,61 @@
 ---
-title: Deploy Start/Stop VMs v2 (preview)
-description: This article tells how to deploy the Start/Stop VMs v2 (preview) feature for your Azure VMs in your Azure subscription.
+title: Deploy Start/Stop VMs v2 to an Azure subscription
+description: This article tells how to deploy the Start/Stop VMs v2 feature for your Azure VMs in your Azure subscription.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 06/25/2021
-ms.topic: conceptual
+ms.date: 06/08/2022
+ms.topic: how-to
+ms.custon: subject-rbac-steps
 ---
 
-# Deploy Start/Stop VMs v2 (preview)
+# Deploy Start/Stop VMs v2 to an Azure subscription
 
-Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize it to your requirements.
+Perform the steps in this article in sequence to install the Start/Stop VMs v2 feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
 ## Permissions considerations
-Please keep the following in mind before and during deployment:
-+   The solution allows those with appropriate role-based access control (RBAC) permissions on the Start/Stop v2 deployment to add, remove, and manage schedules for virtual machines under the scope of the Start/Stop v2. This behavior is by design. In practice, this means a user who doesn't have direct RBAC permission on a virtual machine could still create start, stop, and autostop operations on that virtual machine when they have the RBAC permission to modify the Start/Stop v2 solution managing it.
+
+Keep the following considerations in mind before and during deployment:
+
++   The solution allows users with appropriate role-based access control (RBAC) permissions on the Start/Stop v2 deployment to add, remove, and manage schedules for virtual machines under the scope of the Start/Stop VMs v2 instance. This behavior is by design. In practice, this means a user who doesn't have explicit permissions on a virtual machine could still create start, stop, and autostop operations on that virtual machine when they have the permission to modify the Start/Stop v2 solution managing the virtual machine.
+
 + Any users with access to the Start/Stop v2 solution could uncover cost, savings, operation history, and other data that is stored in the Application Insights instance used by the Start/Stop v2 application.
+
 + When managing a Start/Stop v2 solution, you should consider the permissions of users to the Start/Stop v2 solution, particularly when whey don't have permission to directly modify the target virtual machines.
+
 ## Deploy feature
 
-The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
+The deployment is initiated from the [Start/Stop VMs v2 GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
 
-To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (preview) to a dedicated resource group.
+To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to a dedicated resource group.
 
 > [!NOTE]
-> Currently this preview does not support specifying an existing Storage account or Application Insights resource.
-
+> Currently this solution does not support specifying an existing Storage account or Application Insights resource.
 
 > [!NOTE]
 > The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
 
 1. Open your browser and navigate to the Start/Stop VMs v2 [GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
-1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
+1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
+1. Choose the appropriate **Plan** from the drop-down box. When choosing a Zone Redundant plan (**Start/StopV2-AZ**), you must create your deployment in one of the following regions:
+    + Australia East
+    + Brazil South
+    + Canada Central
+    + Central US
+    + East US
+    + East US 2
+    + France Central
+    + Germany West Central
+    + Japan East
+    + North Europe
+    + Southeast Asia
+    + UK South
+    + West Europe
+    + West US 2
+    + West US 3
+
+1. Select **Create**, which opens the custom Azure Resource Manager deployment page in the Azure portal.
+
 1. Enter the following values:
 
     |Name |Value |
@@ -59,25 +83,31 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 
 ## Enable multiple subscriptions
 
-After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 (preview) to take action across multiple subscriptions.
+After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 to take action across multiple subscriptions.
 
-1. Copy the value for the Azure Function App Name that you specified during the deployment.
+1. Copy the value for the Azure Function App name that you specified during the deployment.
 
-1. In the portal, navigate to your secondary subscription. Select the subscription, and then select **Access Control (IAM)**
+1. In the Azure portal, navigate to your secondary subscription.
 
-1. Select **Add** and then select **Add role assignment**.
+1. Select **Access control (IAM)**.
 
-1. Select the **Contributor** role from the **Role** drop down list.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Enter the Azure Function Application Name in the **Select** field. Select the function name in the results.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Select **Save** to commit your changes.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Your Azure Function App name> |
+
+    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Configure schedules overview
 
 To manage the automation method to control the start and stop of your VMs, you configure one or more of the included logic apps based on your requirements.
 
-- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
+- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs. **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
 - Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
@@ -267,7 +297,7 @@ In an environment that includes two or more components on multiple Azure Resourc
 
 ## Auto stop scenario
 
-Start/Stop VMs v2 (preview) can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+Start/Stop VMs v2 can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
 The following metric alert properties in the request body support customization:
 
@@ -299,7 +329,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "EnableClassic": false,    
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_Severity": "2",
       "AutoStop_Threshold": "5",
@@ -321,7 +351,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",
@@ -346,7 +376,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",
@@ -363,7 +393,10 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       }
     }
     ```
+## VM Tags
+
+You can also include or exclude specific VMs from start and stop actions by settings tags on the VMs themselves. To add a tag, navigate to the specific VM, select **Tags** from the left menu, and add a tag named `ssv2excludevm`. To exclude this VM from the start or stop action, set the value of this new tag to `true`. To include the VM in the action, set the value to `false`. This gives you a way to exclude specific VMs without having to update `ExcludedVMLists` in the payload configuration.
 
 ## Next steps
 
-To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
+To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.

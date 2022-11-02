@@ -70,10 +70,14 @@ items:
   items:
   - name: Authentication with Azure Maps
     href: azure-maps-authentication.md
+  - name: Authentication best practices
+    href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
+  - name: Azure Maps geographic scope
+    href: geographic-scope.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
@@ -127,7 +131,7 @@ items:
           href: how-to-secure-spa-users.md
         - name: How to secure web application
           href: how-to-secure-webapp-users.md
-        - name: How to secure sas application
+        - name: How to secure account with a SAS token
           href: how-to-secure-sas-app.md
         - name: How to secure non-interactive sign-in single page application
           href: how-to-secure-spa-app.md
@@ -153,6 +157,12 @@ items:
       href: how-to-request-weather-data.md
     - name: Request elevation data
       href: how-to-request-elevation-data.md
+  - name: Develop with the REST SDK
+    items:
+    - name: REST SDK Developer Guide
+      href: rest-sdk-developer-guide.md
+    - name: C# REST SDK Developers Guide
+      href: how-to-dev-guide-csharp-sdk.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
@@ -187,6 +197,8 @@ items:
         href: map-add-image-layer.md
       - name: Add tile layers
         href: map-add-tile-layer.md
+      - name: Add a WebGL layer
+        href: webgl-custom-layer.md
       - name: Show traffic 
         href: map-show-traffic.md
       - name: Cluster point data
@@ -227,8 +239,12 @@ items:
       items:
       - name: Indoor Maps module
         href: how-to-use-indoor-module.md
+      - name: Create dataset using GeoJson package (Preview)
+        href: how-to-dataset-geojson.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
+      - name: Custom styling for indoor maps
+        href: how-to-create-custom-styles.md        
       - name: Drawing error visualizer
         href: drawing-error-visualizer.md
     - name: Spatial IO module 
@@ -329,10 +345,14 @@ items:
     items: 
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
+    - name: Geocoding in Azure Maps Power BI Visual
+      href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a pie chart layer
+      href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a heat map layer
@@ -341,6 +361,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a filled map
+      href: power-bi-visual-filled-map.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
@@ -349,6 +371,8 @@ items:
       href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
+  - name: Show right attribution
+    href: how-to-show-attribution.md
 - name: Reference
   items:
   - name: API and parameter extensions
@@ -372,6 +396,8 @@ items:
   - name: REST
     items:
     - name: Data service
+      href: /rest/api/maps/data
+    - name: Data service V2
       href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
@@ -385,6 +411,8 @@ items:
       href: /rest/api/maps/route
     - name: Search service
       href: /rest/api/maps/search
+    - name: Search service V2
+      href: /rest/api/maps/search-v2
     - name: Spatial service
       href: /rest/api/maps/spatial
     - name: Timezone service
@@ -407,6 +435,14 @@ items:
         href: /rest/api/maps/v2/tileset
       - name: WFS service
         href: /rest/api/maps/v2/wfs
+      - name: V20220901Preview
+        items:
+        - name: Map configuration
+          href: /rest/api/maps/v20220901preview/map-configuration
+        - name: Style
+          href: /rest/api/maps/v20220901preview/style
+        - name: Tileset
+          href: /rest/api/maps/v20220901preview/tileset
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
@@ -427,6 +463,8 @@ items:
     href: /cli/azure/maps
 - name: Resources
   items:
+  - name: Azure Maps code samples
+    href: https://samples.azuremaps.com/
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
@@ -459,6 +497,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Understanding Azure Maps Transactions
+    href: understanding-azure-maps-transactions.md
   - name: Azure Maps videos
     href: /shows/
   - name: Open source projects

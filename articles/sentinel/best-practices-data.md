@@ -1,16 +1,14 @@
 ---
 title: Best practices for data collection in Microsoft Sentinel
 description: Learn about best practices to employ when connecting data sources to Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 
 #  Data collection best practices
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This section reviews best practices for collecting data using Microsoft Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Microsoft Sentinel data connectors reference](data-connectors-reference.md), and the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
@@ -57,13 +55,13 @@ Standard configuration for data collection may not work well for your organizati
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
+|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](entity-pages.md), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
 |**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
 |**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Microsoft Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality        |  Multi-home functionality requires more deployment overhead for the agent.       |
 |**Requires custom logs**     |   Collect files from specific folder paths <br><br>Use API ingestion <br><br>Use PowerShell <br><br>Use Logstash     |   You may have issues filtering your logs. <br><br>Custom methods are not supported. <br><br>Custom connectors may require developer skills.       |
-| | | |
+
 
 ### On-premises Linux log collection
 
@@ -75,7 +73,7 @@ Standard configuration for data collection may not work well for your organizati
 |**Requires tagging and enrichment at ingestion**      | Use Logstash for enrichment, or custom methods, such as API or EventHubs.         | You may have extra effort required for filtering.    |
 |**Requires splitting operation and security logs**     |  Use the [Azure Monitor Agent](connect-windows-security-events.md) with the multi-homing configuration.       |         |
 |**Requires custom logs**     |    Create a custom collector using the Microsoft Monitoring (Log Analytics) agent.      |      |
-| | | |
+
 
 ### Endpoint solutions
 
@@ -97,7 +95,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 |**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors-reference.md#microsoft-office-365) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
 |**Requires RBAC for splitting countries, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
-| | | |
+
 
 ### Cloud platform data
 
@@ -107,7 +105,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 |**Agent cannot be used**     |   Use Windows Event Forwarding      | You may need to load balance efforts across your resources.        |
 |**Servers are in air-gapped network**     | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires firewall rules to allow the Gateway to work.        |
 |**RBAC, tagging, and enrichment at ingestion**     |    Create custom collection via Logstash or the Log Analytics API.     |  RBAC is not supported for custom tables <br><br>Row-level RBAC is not supported for any tables.       |
-|     |         |         |
+
 
 ## Next steps
 

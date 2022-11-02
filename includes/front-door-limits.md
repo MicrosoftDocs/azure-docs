@@ -5,17 +5,17 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 02/25/2022
+ ms.date: 03/23/2022
  ms.author: duau
  ms.custom: include file
 ---
 
-* In addition to the limits below, there is a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+* In addition to the limits below, there's a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
-| Resource | Limit |
+| Resource | Classic tier limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
-| Front-end hosts, which includes custom domains per resource | 500 |
+| Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
 | Back-end pools per resource | 50 |
 | Back ends per back-end pool | 100 |
@@ -34,44 +34,49 @@
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
-### Azure Front Door Standard/Premium (Preview) Service Limits
+### Azure Front Door Standard and Premium tier service limits
 
 * Maximum **500** total Standard and Premium profiles per subscription.
-* In addition to the limits below, there is a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+* In addition to the limits below, there's a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
-| Resource | Standard SKU Limit | Premium SKU Limit |
+| Resource | Standard tier limit | Premium tier limit |
 | --- | --- | --- |
-| Maximum endpoint per profile	| 10 | 25 |
-| Maximum custom domain per profile	| 100 | 200 |
-| Maximum origin group per profile | 100 | 200 |
-| Maximum secrets per profile | 100 | 200 |
-| Maximum security policy per profile | 100 | 200 |
+| Maximum profiles per subscription | 500 | 500 |
+| Maximum endpoint per profile | 10 | 25 |
+| Maximum custom domain per profile	| 100 | 500 |
+| Maximum origin groups per profile | 100 | 200 |
+| Maximum origins per profile | 100 | 200 |
+| Maximum origin timeout | 16 - 240 secs | 16 - 240 secs |
+| Maximum routes per profile | 100 | 200 | 
 | Maximum rule set per profile | 100 | 200 |
-| Maximum rules per rule set | 100 | 100 |
-| Maximum origin per origin group | 50 | 50 |
-| Maximum routes per endpoint | 100 | 200 |
+| Maximum rules per route | 100 | 100 |
+| Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
-| Custom web application firewall rules per policy | 100 | 100 |
-| Web application firewall match conditions per custom rule | 10 | 10 |
-| Web application firewall IP address ranges per custom rule | 600 | 600 |
-| Web application firewall string match values per match condition | 10 | 10 |
-| Web application firewall string match value length | 256 | 256 |
-| Web application firewall POST body parameter name length | 256 | 256 |
-| Web application firewall HTTP header name length | 256 | 256 |
-| Web application firewall cookie name length | 256 | 256|
-| Web application firewall HTTP request body size inspected | 128 KB | 128 KB |
-| Web application firewall custom response body length | 32 KB | 32 KB |
+| Web Application Firewall (WAF) policy per subscription | 100 | 100 |
+| WAF custom rules per policy | 100 | 100 |
+| WAF match conditions per custom rule | 10 | 10 |
+| WAF custom regex rules per policy | 5 | 5 |
+| WAF IP address ranges per match conditions | 600 | 600 |
+| WAF string match values per match condition | 10 | 10 |
+| WAF string match value length | 256 | 256 |
+| WAF POST body parameter name length | 256 | 256 |
+| WAF HTTP header name length | 256 | 256 |
+| WAF cookie name length | 256 | 256|
+| WAF exclusion per policy | 100 | 100 |
+| WAF HTTP request body size inspected | 128 KB | 128 KB |
+| WAF custom response body length | 32 KB | 32 KB |
 
 #### Timeout values
 ##### Client to Front Door
 * Front Door has an idle TCP connection timeout of 61 seconds.
 
 ##### Front Door to application back-end
-* If the response is a chunked response, a 200 is returned if or when the first chunk is received.
-* After the HTTP request is forwarded to the back end, Front Door waits for 30 seconds for the first packet from the back end. Then it returns a 503 error to the client. This value is configurable via the field sendRecvTimeoutSeconds in the API.
-    * If a request is cached and it takes more than 30 seconds for the first packet from Front Door or from the backend, then a 504 error is returned to the client. 
-* After the first packet is received from the back end, Front Door waits for 30 seconds in an idle timeout. Then it returns a 503 error to the client. This timeout value is not configurable.
-* Front Door to the back-end TCP session timeout is 90 seconds.
+
+* After the HTTP request gets forwarded to the back end, Azure Front Door waits for 60 seconds (Standard and Premium) or 30 seconds (classic) for the first packet from the back end. Then it returns a 503 error to the client, or 504 for a cached request. You can configure this value using the *originResponseTimeoutSeconds* field in Azure Front Door Standard and Premium API, or the sendRecvTimeoutSeconds field in the Azure Front Door (classic) API.
+
+* After the back end receives the first packet, if the origin pauses for any reason in the middle of the response body beyond the originResponseTimeoutSeconds or sendRecvTimeoutSeconds, the response will be canceled.
+
+* Front Door takes advantage of HTTP keep-alive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Azure Front Door would disconnect idle connections after reaching the 90-second idle timeout. This timeout value can't be configured.
 
 #### Upload and download data limit
 
@@ -87,5 +92,6 @@
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
+* Maximum endhpoint name for Standard and Premium: 46 characters.
 
 For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

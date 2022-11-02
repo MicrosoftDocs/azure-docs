@@ -16,18 +16,18 @@ ms.custom: designer
 
 Use pipeline parameters to build flexible pipelines in the designer. Pipeline parameters let you dynamically set values at runtime to encapsulate pipeline logic and reuse assets.
 
-Pipeline parameters are especially useful when resubmitting a pipeline run, [retraining models](how-to-retrain-designer.md), or [performing batch predictions](how-to-run-batch-predictions-designer.md).
+Pipeline parameters are especially useful when resubmitting a pipeline job, [retraining models](how-to-retrain-designer.md), or [performing batch predictions](how-to-run-batch-predictions-designer.md).
 
 In this article, you learn how to do the following:
 
 > [!div class="checklist"]
 > * Create pipeline parameters
 > * Delete and manage pipeline parameters
-> * Trigger pipeline runs while adjusting pipeline parameters
+> * Trigger pipeline jobs while adjusting pipeline parameters
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
@@ -96,7 +96,7 @@ In this section, you will learn how to attach and detach component parameter to 
 
 ### Attach component parameter to pipeline parameter
 
-You can attach the same component parameters of duplicated components to the same pipeline parameter if you want to alter the value at one time when triggering the pipeline run.
+You can attach the same component parameters of duplicated components to the same pipeline parameter if you want to alter the value at one time when triggering the pipeline job.
 
 The following example has duplicated **Clean Missing Data** component. For each **Clean Missing Data** component, attach **Replacement value** to pipeline parameter **replace-missing-value**:
 
@@ -159,18 +159,18 @@ Use the following steps to delete a component pipeline parameter:
     > [!NOTE]
     > Deleting a pipeline parameter will cause all attached component parameters to be detached and the value of detached component parameters will keep current pipeline parameter value.     
 
-## Trigger a pipeline run with pipeline parameters 
+## Trigger a pipeline job with pipeline parameters 
 
-In this section, you learn how to submit a pipeline run while setting pipeline parameters.
+In this section, you learn how to submit a pipeline job while setting pipeline parameters.
 
-### Resubmit a pipeline run
+### Resubmit a pipeline job
 
-After submitting a pipeline with pipeline parameters, you can resubmit a pipeline run with different parameters:
+After submitting a pipeline with pipeline parameters, you can resubmit a pipeline job with different parameters:
 
-1. Go to pipeline detail page. In the **Pipeline run overview** window, you can check current pipeline parameters and values.
+1. Go to pipeline detail page. In the **Pipeline job overview** window, you can check current pipeline parameters and values.
 
 1. Select **Resubmit**.
-1. In the **Setup pipeline run**, specify your new pipeline parameters. 
+1. In the **Setup pipeline job**, specify your new pipeline parameters. 
 
 ![Screenshot that shows resubmit pipeline with pipeline parameters](media/how-to-use-pipeline-parameter/resubmit-pipeline-run.png)
 
@@ -184,4 +184,4 @@ Published endpoints are especially useful for retraining and batch prediction sc
 
 In this article, you learned how to create pipeline parameters in the designer. Next, see how you can use pipeline parameters to [retrain models](how-to-retrain-designer.md) or perform [batch predictions](how-to-run-batch-predictions-designer.md).
 
-You can also learn how to [use pipelines programmatically with the SDK](how-to-deploy-pipelines.md).
+You can also learn how to [use pipelines programmatically with the SDK v1](v1/how-to-deploy-pipelines.md).

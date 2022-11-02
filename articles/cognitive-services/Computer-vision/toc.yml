@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Computer Vision?
     href: overview.md
+  - name: Vision Studio
+    href: overview-vision-studio.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -37,7 +39,7 @@ items:
   - name: How-to guides
     items:
     - name: Call the Read API
-      href: Vision-API-How-to-Topics/call-read-api.md
+      href: how-to/call-read-api.md
     - name: Upgrade from Read 2.x to Read 3.x
       href: upgrade-api-versions.md
     - name: Use the Read container
@@ -75,7 +77,7 @@ items:
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision
+      href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
@@ -91,17 +93,27 @@ items:
   - name: Image Analysis quickstart
     href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
-    items:  
-    - name: Explore an image processing app
-      href: Tutorials/CSharpTutorial.md
-    - name: Other samples
-      href: /samples/browse/?products=azure&terms=analyze-image
+    href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Responsible use of AI
+    items:
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data, privacy, and security 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+      href: how-to/call-analyze-image.md
     - name: Analyze videos in real time
-      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+      href: how-to/analyze-video.md
+    - name: Generate a smart-cropped thumbnail
+      href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
     - name: Object detection
@@ -128,12 +140,18 @@ items:
       href: concept-generating-thumbnails.md
     - name: Adult content detection
       href: concept-detecting-adult-content.md
+    - name: Reading text (preview)
+      href: concept-ocr.md
+    - name: People detection (preview)
+      href: concept-people-detection.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items: 
+    - name: Image Analysis REST API v4.0 (preview)
+      href: https://aka.ms/vision-4-0-ref
     - name: Image Analysis REST API v3.2
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
     - name: Image Analysis REST API v3.1
@@ -145,7 +163,7 @@ items:
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision
+      href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
@@ -154,6 +172,82 @@ items:
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
+- name: Face
+  items:
+  - name: Face overview
+    href: overview-identity.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
+  - name: Face quickstart
+    href: quickstarts-sdk/identity-client-library.md
+  - name: Samples
+    href: /samples/browse/?products=azure&term=face
+  - name: Responsible use of AI
+    items:
+    - name: Transparency notes
+      items:
+      - name: Face use cases
+        href: /legal/cognitive-services/face/transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data privacy and security
+      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context
+  - name: How-to guides
+    items:
+    - name: Detect and analyze faces
+      href: how-to/identity-detect-faces.md
+    - name: Find similar faces
+      href: how-to/find-similar-faces.md
+    - name: Specify a face detection model version
+      href: how-to/specify-detection-model.md
+    - name: Specify a face recognition model version
+      href: how-to/specify-recognition-model.md
+    - name: Add faces to a group
+      href: how-to/add-faces.md
+    - name: Use the large-scale feature
+      href: how-to/use-large-scale.md
+    - name: Use the PersonDirectory structure (preview)
+      href: how-to/use-persondirectory.md
+    - name: Use the HeadPose attribute
+      href: how-to/use-headpose.md
+    - name: Mitigate latency when using the Face service
+      href: how-to/mitigate-latency.md
+    - name: Analyze videos in real time
+      href: how-to/identity-analyze-video.md
+    - name: Migrate face data
+      href: how-to/migrate-face-data.md
+    - name: Use customer-managed keys
+      href: identity-encrypt-data-at-rest.md
+  - name: Concepts
+    items:
+    - name: Face detection and analysis
+      href: concept-face-detection.md
+    - name: Face recognition
+      href: concept-face-recognition.md
+  - name: Tutorials
+    items:
+    - name: Add users to a Face service
+      items:
+      - name: Best practices for enrolling users
+        href: enrollment-overview.md
+      - name: Build a React app to enroll users
+        href: Tutorials/build-enrollment-app.md
+  - name: Reference
+    items:
+    - name: Face REST API
+      href: identity-api-reference.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi
+    - name: Node.js
+      href: /javascript/api/overview/azure/cognitiveservices-face-readme
+    - name: Python
+      href: /python/api/overview/azure/cognitiveservices-vision-face-readme
 - name: Spatial Analysis
   items: 
   - name: Spatial Analysis overview
@@ -184,6 +278,10 @@ items:
         href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
+      - name: Configure vehicle analysis
+        href: vehicle-analysis.md
+      - name: Use a local video file
+        href: spatial-analysis-local.md
       - name: Deploy a people counting web app
         href: Spatial-analysis-web-app.md
       - name: Logging and troubleshooting
@@ -212,7 +310,7 @@ items:
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-  - name: Microsoft Learn modules
-    href: /learn/paths/explore-computer-vision-microsoft-azure/
+  - name: Learn modules
+    href: /training/paths/explore-computer-vision-microsoft-azure/
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services

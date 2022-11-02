@@ -4,10 +4,10 @@ description: This article describes how to use the custom setup interface for an
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 08/09/2022
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -298,9 +298,9 @@ To view and reuse some samples of standard custom setups, complete the following
         
         If Data Source Name (DSN) is used in connection, DSN configuration is needed in setup script. For example: C:\Windows\SysWOW64\odbcconf.exe /A {CONFIGSYSDSN "MySQL ODBC 8.0 Unicode Driver" "DSN=\<dsnname\>|PORT=3306|SERVER=\<servername\>"}
 
-      * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) and silent installation config file (*client.rsp*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
+      * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
       
-        First, download Microsoft Connectors v5.0 for Oracle (*AttunitySSISOraAdaptersSetup.msi* and *AttunitySSISOraAdaptersSetup64.msi*) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle client (for example, *winx64_12102_client.zip*) from [Oracle](https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html). Next, upload them all together with *main.cmd* and *client.rsp* to your blob container. If you use TNS to connect to Oracle, you also need to download *tnsnames.ora*, edit it, and upload it to your blob container. In this way, it can be copied to the Oracle installation folder during setup.
+        First, download Microsoft Connectors v5.0 for Oracle (*AttunitySSISOraAdaptersSetup.msi* and *AttunitySSISOraAdaptersSetup64.msi*) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle Instant Client (for example, *instantclient-basic-windows.x64-21.3.0.0.0.zip*) from [Oracle](https://www.oracle.com/cis/database/technologies/instant-client/downloads.html). Next, upload them all together with *main.cmd* to your blob container. If you use TNS to connect to Oracle, you also need to download *tnsnames.ora*, edit it, and upload it to your blob container. In this way, it can be copied to the Oracle installation folder during setup.
 
       * An *ORACLE STANDARD ADO.NET* folder, which contains a custom setup script (*main.cmd*) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination to connect to the Oracle server. 
       
@@ -314,7 +314,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * An *ORACLE STANDARD OLEDB* folder, which contains a custom setup script (*main.cmd*) to install the Oracle OLEDB driver on each node of your Azure-SSIS IR. This setup lets you use the OLEDB Connection Manager, Source, and Destination to connect to the Oracle server. 
      
-        First, [download the latest Oracle OLEDB driver](https://www.oracle.com/partners/campaign/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
+        First, [download the latest Oracle OLEDB driver](https://oracle.com/technetwork/database/windows/downloads/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
 
       * A *POSTGRESQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager, Source, and Destination to connect to the PostgreSQL server. 
      

@@ -5,7 +5,8 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/21/2021
+ms.date: 06/28/2022
+ms.reviewer: Xema Pathak
 
 ---
 
@@ -186,7 +187,7 @@ Azure Monitor has no ability to monitor the status of a service or daemon. There
 > [!NOTE]
 > The Change Tracking and Analysis solution is different from the [Change Analysis](vminsights-change-analysis.md) feature in VM insights. This feature is in public preview and not yet included in this scenario.
 
-For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You'll have to [create an Azure Automation account](../../automation/quickstarts/create-account-portal.md) to support the solution.
+For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You'll have to [create an Azure Automation account](../../automation/quickstarts/create-azure-automation-account-portal.md) to support the solution.
 
 When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for log query alert rules.
 
@@ -283,7 +284,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | extend bythehour = datetime_part("hour", TimeGenerated)
     | project bythehour, LinksFailed
     | summarize failCount = count() by bythehour
@@ -295,7 +296,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h)
     | render timechart
     ```
@@ -321,7 +322,7 @@ A synthetic transaction connects to an application or service running on a machi
 
 ## SQL Server
 
-Use [SQL insights](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
+Use [SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview) to monitor SQL Server running on your virtual machines.
 
 ## Next steps
 

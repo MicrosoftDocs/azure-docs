@@ -23,7 +23,7 @@ The following prerequisites must be met to create SQL Server license assignments
 - Your organization has a supported agreement type and supported offer.
 - You're a member of a role that has permissions to assign SQL licenses.
 - Your organization has SQL Server core licenses with Software Assurance or core subscription licenses available to assign to Azure.
-- Your organization is enrolled to automatic registration of the Azure SQL VMs with the IaaS extension. To learn more, see [Automatic registration with SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md).
+- Your organization is enrolled to automatic registration of the Azure SQL VMs with the IaaS extension. To learn more, see [Automatic registration with SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms).
   > [!IMPORTANT]
   > Failure to meet this prerequisite will cause Azure to produce incomplete data about your current Azure Hybrid Benefit usage. This situation could lead to incorrect license assignments and might result in unnecessary pay-as-you-go charges for SQL Server licenses.
 
@@ -38,7 +38,7 @@ The prerequisite roles differ depending on the agreement type.
 
 
 > [!NOTE]
-> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
+> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or Microsoft Cloud Partner Program subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
 
 ## Create a SQL license assignment
 
@@ -46,7 +46,7 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
-1. Use one of the following two steps, depending on you agreement type:
+1. Use one of the following two steps, depending on your agreement type:
     - If you have an Enterprise Agreement, select a billing scope.  
         :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
     - If you have a Microsoft Customer Agreement, select a billing profile.  

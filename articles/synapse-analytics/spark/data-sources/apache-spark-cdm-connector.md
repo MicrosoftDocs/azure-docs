@@ -2,12 +2,12 @@
 title: Azure Synapse Spark Common Data Model (CDM) connector
 description: Learn how to use the Azure Synapse Spark CDM connector to read and write CDM entities in a CDM folder on ADLS.
 services: synapse-analytics 
-ms.author: ktuckerdavis
+ms.author: AvinandaC
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/10/2022
-author: ktuckd
+author: AvinandaMS
 ---
 
 # Common Data Model (CDM) Connector for Azure Synapse Spark
@@ -204,7 +204,7 @@ There are three modes of authentication that can be used with the Spark CDM Conn
 
 ### Credential pass-through
 
-In Synapse, the Spark CDM Connector supports use of [Managed identities for Azure resource](/active-directory/managed-identities-azure-resources/overview) to mediate access to the Azure datalake storage account containing the CDM folder.  A managed identity is [automatically created for every Synapse workspace](/security/synapse-workspace-managed-identity).  The connector uses the managed identity of the workspace that contains the notebook in which the connector is called to authenticate to the storage accounts being addressed.
+In Synapse, the Spark CDM Connector supports use of [Managed identities for Azure resource](../../../active-directory/managed-identities-azure-resources/overview.md) to mediate access to the Azure datalake storage account containing the CDM folder.  A managed identity is [automatically created for every Synapse workspace](/cli/azure/synapse/workspace/managed-identity).  The connector uses the managed identity of the workspace that contains the notebook in which the connector is called to authenticate to the storage accounts being addressed.
 
 You must ensure the identity used is granted access to the appropriate storage accounts.  Grant  **Storage Blob Data Contributor** to allow the library to write to CDM folders, or **Storage Blob Data Reader** to allow only read access. In both cases, no extra connector options are required.
 
@@ -218,7 +218,7 @@ SaS Token Credential authentication to storage accounts is an extra option for a
 
 ### Credential-based access control options
 
-As an alternative to using a managed identity or a user identity, explicit credentials can be provided to enable the Spark CDM connector to access data. In Azure Active Directory, [create an App Registration](/active-directory/develop/quickstart-register-app) and then grant this App Registration access to the storage account using either of the following roles: **Storage Blob Data Contributor** to allow the library to write to CDM folders, or **Storage Blob Data Reader** to allow only read.
+As an alternative to using a managed identity or a user identity, explicit credentials can be provided to enable the Spark CDM connector to access data. In Azure Active Directory, [create an App Registration](../../../active-directory/develop/quickstart-register-app.md) and then grant this App Registration access to the storage account using either of the following roles: **Storage Blob Data Contributor** to allow the library to write to CDM folders, or **Storage Blob Data Reader** to allow only read.
 
 Once permissions are created, you can pass the app ID, app key, and tenant ID to the connector on each call to it using the options below. It's recommended to use Azure Key Vault to secure these values to ensure they aren't stored in clear text in your notebook file.
 

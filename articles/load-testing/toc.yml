@@ -1,3 +1,4 @@
+items:
 - name: Azure Load Testing docs
   href: index.yml
 - name: Overview
@@ -12,44 +13,80 @@
     - name: Create & run a load test
       href: quickstart-create-and-run-load-test.md
 - name: Tutorials
-  expanded: true
   items: 
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Continuous regression testing (CI/CD)
-      expanded: true
-      items:
-      - name: Automate with GitHub Actions
-        href: tutorial-cicd-github-actions.md
-      - name: Automate with Azure Pipelines
-        href: tutorial-cicd-azure-pipelines.md
-- name: How-tos
-  expanded: true
+    - name: Automate regression tests with CI/CD
+      href: tutorial-identify-performance-regression-with-cicd.md
+- name: Concepts
   items: 
-    - name: Compare test runs
-      href: how-to-compare-multiple-test-runs.md
-    - name: Configure server-side monitoring
-      href: how-to-monitor-server-side-metrics.md
-    - name: Configure for high scale loads
-      href: how-to-high-scale-load.md
-    - name: Troubleshoot test execution errors
-      href: how-to-find-download-logs.md
-    - name: Define test criteria
-      href: how-to-define-test-criteria.md
-    - name: Parameterize load tests
-      href: how-to-parameterize-load-tests.md
-    - name: Read a CSV file in load tests
-      href: how-to-read-csv-data.md
-    - name: Get insights from App Service Diagnostics
-      href: how-to-appservice-insights.md
-    - name: Export test results
-      href: how-to-export-test-results.md
-    - name: Use a managed identity
-      href: how-to-use-a-managed-identity.md
+    - name: Key concepts
+      href: concept-load-testing-concepts.md
+    - name: Scenarios for VNET deployment
+      href: concept-azure-load-testing-vnet-injection.md
+- name: How-to guides
+  items:
+    - name: Configure tests
+      items:
+        - name: Configure for high scale loads
+          href: how-to-high-scale-load.md
+        - name: Define test fail criteria
+          href: how-to-define-test-criteria.md
+        - name: Parameterize load tests
+          href: how-to-parameterize-load-tests.md
+        - name: Use JMeter user properties
+          href: how-to-configure-user-properties.md
+    - name: Run tests
+      items:
+        - name: Create a load test with a JMeter script
+          href: how-to-create-and-run-load-test-with-JMeter-script.md 
+        - name: Read data from a CSV file
+          href: how-to-read-csv-data.md
+        - name: Test applications with authentication
+          href: how-to-test-secured-endpoints.md
+        - name: Test a private endpoint
+          href: how-to-test-private-endpoint.md
+    - name: Analyze test results
+      items:
+        - name: Compare test runs
+          href: how-to-compare-multiple-test-runs.md
+        - name: Configure server-side monitoring
+          href: how-to-monitor-server-side-metrics.md
+        - name: Troubleshoot with load test logs
+          href: how-to-find-download-logs.md
+        - name: Get insights from App Service Diagnostics
+          href: how-to-appservice-insights.md
+        - name: Export test results
+          href: how-to-export-test-results.md
+    - name: Security
+      items:
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use a managed identity
+          href: how-to-use-a-managed-identity.md
+        - name: Configure customer-managed keys
+          href: how-to-configure-customer-managed-keys.md
+    - name: Manage resources
+      items:
+        - name: Create & manage tests
+          href: how-to-create-manage-test.md
+        - name: Move between regions
+          href: how-to-move-between-regions.md
+        - name: Monitor Azure Load Testing
+          href: monitor-load-testing.md
+
 - name: Reference
   items:
-      - name: Test configuration YAML
-        href: reference-test-config-yaml.md
+    - name: REST API
+      href: /rest/api/loadtesting/
+    - name: Test configuration YAML
+      href: reference-test-config-yaml.md
+    - name: Resource Manager template
+      displayName: ARM
+      href: /azure/templates/microsoft.loadtestservice/allversions
+    - name: Monitor data reference
+      href: monitor-load-testing-reference.md
+
 - name: Resources
   items: 
     - name: Azure roadmap
@@ -60,3 +97,5 @@
       href: https://azure.microsoft.com/regions/services/
     - name: Supported Azure resource types
       href: resource-supported-azure-resource-types.md
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md

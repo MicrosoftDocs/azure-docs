@@ -18,7 +18,7 @@ Any Azure Synapse Analytics use deducts from the prepurchased SCUs automatically
 
 ## Determine the right size to buy
 
-A synapse prepurchase applies to all Synapse workloads and tiers. You can think of the Pre-Purchase Plan as a pool of prepaid Synapse commit units. Usage is deducted from the pool, regardless of the workload or tier. Other charges such as compute, storage, and networking are charged separately.
+A synapse prepurchase applies to all Synapse workloads and tiers. You can think of the Pre-Purchase Plan as a pool of prepaid Synapse commit units. Usage is deducted from the pool, regardless of the workload or tier. Integrated services such as VMs for SHIR, Azure Storage accounts, and networking components are charged separately.
 
 The Synapse prepurchase discount applies to usage from the following products:
 
@@ -34,10 +34,11 @@ For more information about available SCU tiers and pricing discounts, you'll use
 
 ## Purchase Synapse commit units
 
-You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise subscription.
+You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
 - You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
 - For Enterprise Agreement (EA) subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
+- For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
 
 ### To Purchase:
 

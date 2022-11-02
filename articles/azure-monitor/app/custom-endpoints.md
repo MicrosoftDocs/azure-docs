@@ -5,14 +5,15 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: references_regions, devx-track-js
+ms.reviewer: newylie
 ---
 
 # Application Insights overriding default endpoints
 
-To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
+> [!WARNING]
+> Endpoint modification is not recommended. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
 
-> [!NOTE]
-> [Connection strings](./sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.   
+To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -188,9 +189,6 @@ If you currently use the [Application Insights REST API](https://dev.application
 |-----------------|:------------|:-------------|
 | Azure China | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
-
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.
 
 ## Next steps
 

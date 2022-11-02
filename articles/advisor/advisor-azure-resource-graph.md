@@ -1,9 +1,10 @@
 ---
 title: Advisor data in Azure Resource Graph
 description: Make queries for Advisor data in Azure Resource Graph
+author: orspod
 ms.topic: article
 ms.date: 03/12/2020
-ms.author: sagupt
+ms.author: orspodek
 
 ---
 

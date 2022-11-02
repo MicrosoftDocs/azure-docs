@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
 
-You can communicate with the Azure Monitor Log Analytics API using this endpoint: [api.loganalytics.io](https://api.loganalytics.io/). To access the API, you must authenticate through Azure Active Directory (Azure AD). 
+You can communicate with the Azure Monitor Log Analytics API using this endpoint: `https://api.loganalytics.io`. To access the API, you must authenticate through Azure Active Directory (Azure AD). 
 ## Public API format
 
 The public API format is:
@@ -17,7 +17,7 @@ The public API format is:
     https://{hostname}/{api-version}/workspaces/{workspaceId}/query?[parameters]
 ```
 where:
- - **hostname**: [api.loganalytics.io](https://api.loganalytics.io/)
+ - **hostname**: `https://api.loganalytics.io`
  - **api-version**: The API version. The current version is "v1"
  - **workspaceId**: Your workspace ID
  - **parameters**: The data required for this query

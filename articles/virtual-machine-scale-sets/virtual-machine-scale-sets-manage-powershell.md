@@ -12,8 +12,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Manage a virtual machine scale set with Azure PowerShell
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure PowerShell cmdlets that let you perform these tasks.
 
 If you need to create a virtual machine scale set, you can [create a scale set with Azure PowerShell](quick-create-powershell.md).

@@ -1,13 +1,12 @@
 ---
-title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
+title: Permissions in Microsoft Defender for Cloud
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: overview
-ms.date: 01/27/2022
+ms.custom: ignite-2022
+ms.date: 05/22/2022
 ---
 
 # Permissions in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
@@ -16,7 +15,7 @@ Defender for Cloud assesses the configuration of your resources to identify secu
 In addition to the built-in roles, there are two roles specific to Defender for Cloud:
 
 * **Security Reader**: A user that belongs to this role has viewing rights to Defender for Cloud. The user can view recommendations, alerts, a security policy, and security states, but cannot make changes.
-* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
+* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy, dismiss alerts and recommendations, and apply recommendations.
 
 > [!NOTE]
 > The security roles, Security Reader and Security Admin, have access only in Defender for Cloud. The security roles do not have access to other Azure services such as Storage, Web & Mobile, or Internet of Things.
@@ -34,9 +33,9 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
-|  |  |  |  |  |
 
-For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
+
+The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

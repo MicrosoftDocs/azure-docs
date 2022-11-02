@@ -10,10 +10,13 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 03/21/2022
 
 ---
 # Migrate to an Azure resource authoring key
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 > [!IMPORTANT]
 >  As of December 3rd 2020, existing LUIS users must have completed the migration process to continue authoring LUIS applications.
@@ -30,7 +33,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 > [!Note]
 > * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-luis-resources) to create it.
 > * See the [migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
-> * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
+> * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#resource-usage-and-limits).
 
 ## Migration prerequisites
 

@@ -13,21 +13,21 @@ ms.custom: mode-other
 
 Azure Object Anchors is a managed cloud service that converts 3D models into AI models that enable object-aware mixed
 reality experiences for the HoloLens. This quickstart covers how to create an Object Anchors model from a 3D model using
-the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre).
+the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme).
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Create an Object Anchors account.
-> * Convert a 3D model to create an Object Anchors model using the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre) ([NuGet](https://www.nuget.org/packages/Azure.MixedReality.ObjectAnchors.Conversion/)).
+> * Convert a 3D model to create an Object Anchors model using the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme) ([NuGet](https://www.nuget.org/packages/Azure.MixedReality.ObjectAnchors.Conversion/)).
 
 ## Prerequisites
 
 To complete this quickstart, make sure you have:
 
-* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>.
+* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a>.
 * <a href="https://git-scm.com" target="_blank">Git for Windows</a>.
-* The <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>.
+* The <a href="https://dotnet.microsoft.com/download/dotnet/6.0">.NET 6.0 SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,4 +100,4 @@ In this quickstart, you created an Object Anchors account and converted a 3D mod
 > [HoloLens DirectX](get-started-hololens-directx.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)

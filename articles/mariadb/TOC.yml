@@ -24,6 +24,8 @@
       href: quickstart-create-mariadb-server-database-using-azure-cli.md
     - name: Create DB - Azure PowerShell
       href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+    - name: Create DB - Bicep
+      href: quickstart-create-mariadb-server-database-bicep.md
     - name: Create DB - ARM template
       href: quickstart-create-mariadb-server-database-arm-template.md
       displayName: deploy azure resource manager template

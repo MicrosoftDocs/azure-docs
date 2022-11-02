@@ -2,8 +2,8 @@
 title: Monitor Azure App Configuration 
 description: Start here to learn how to monitor App Configuration
 services: azure-app-configuration
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 05/05/2021
@@ -57,7 +57,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
     az account set --subscription <your-subscription-id>
     ```
 
-1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
+1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
     ```Azure CLI
     az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'

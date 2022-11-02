@@ -2,17 +2,18 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure AD reports?
+  - name: Azure AD reports
     href: overview-reports.md
-  - name: What is Azure AD monitoring?
+  - name: Azure AD monitoring
     href: overview-monitoring.md
-  - name: What is the sign-in diagnostic?
-    href: overview-sign-in-diagnostics.md
-  - name: What are flagged sign-ins?
-    href: overview-flagged-sign-ins.md
-  - name: What is Azure AD recommendations?
+  - name: Azure AD recommendations
     href: overview-recommendations.md
-   
+  - name: Flagged sign-ins
+    href: overview-flagged-sign-ins.md
+  - name: Service Health notifications
+    href: overview-service-health-notifications.md
+  - name: Sign-in diagnostic
+    href: overview-sign-in-diagnostics.md
 - name: Quickstarts
   expanded: true
   items:
@@ -62,18 +63,20 @@
     items:
     - name: Access activity logs
       href: howto-access-activity-logs.md
-    - name: Download logs
-      href: howto-download-logs.md
-    - name: Manage inactive user accounts in Azure AD
-      href: howto-manage-inactive-user-accounts.md
-    - name: Find activity reports
-      href: howto-find-activity-reports.md
-    - name: Troubleshoot sign-in errors for a user
-      href: howto-troubleshoot-sign-in-errors.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
-    - name: How to use Azure AD workbooks
+    - name: Download logs
+      href: howto-download-logs.md
+    - name: Find activity reports
+      href: howto-find-activity-reports.md
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
+    - name: Use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
+    - name: View applied conditional access policies
+      href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
     items:
@@ -104,6 +107,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
@@ -122,6 +127,7 @@
     href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
+
 - name: Workbooks
   items:
     - name: Authentication prompts analysis
@@ -130,13 +136,22 @@
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
+
 - name: Recommendations
   items:
+    - name: Convert to Conditional Access MFA
+      href: recommendation-turn-off-per-user-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
+    - name: Migrate apps from AD FS to Azure AD
+      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+    - name: Minimize MFA prompts from known devices
+      href: recommendation-mfa-from-known-devices.md

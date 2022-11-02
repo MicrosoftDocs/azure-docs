@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Files problems in Windows
-description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions. Only for SMB shares
-author: jeffpatt24
+description: Troubleshoot problems with SMB Azure file shares in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions.
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 01/31/2022
-ms.author: jeffpatt
+ms.date: 10/12/2022
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,11 +39,11 @@ Windows 8, Windows Server 2012, and later versions of each system negotiate requ
 ### Solution for cause 1
 
 1. Connect from a client that supports SMB encryption (Windows 8/Windows Server 2012 or later).
-2. Connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
-3. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client does not support SMB encryption.
+2. Connect from a virtual machine (VM) in the same datacenter as the Azure storage account that is used for the Azure file share.
+3. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client doesn't support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
-Network traffic is denied if virtual network (VNET) and firewall rules are configured on the storage account, unless the client IP address or virtual network is allow listed.
+Network traffic is denied if virtual network (VNET) and firewall rules are configured on the storage account, unless the client IP address or virtual network is allow-listed.
 
 ### Solution for cause 2
 
@@ -51,16 +51,16 @@ Verify that virtual network and firewall rules are configured properly on the st
 
 ### Cause 3: Share-level permissions are incorrect when using identity-based authentication
 
-If end-users are accessing the Azure file share using Active Directory (AD) or Azure Active Directory Domain Services (Azure AD DS) authentication, access to the file share fails with "Access is denied" error if share-level permissions are incorrect. 
+If end users are accessing the Azure file share using Active Directory (AD) or Azure Active Directory Domain Services (Azure AD DS) authentication, access to the file share fails with "Access is denied" error if share-level permissions are incorrect. 
 
 ### Solution for cause 3
 
 Validate that permissions are configured correctly:
 
-- **Active Directory (AD)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
+- **Active Directory Domain Services (AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
 
-    Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (Azure AD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
+    Share-level permission assignments are supported for groups and users that have been synced from AD DS to Azure Active Directory (Azure AD) using Azure AD Connect sync or Azure AD Connect cloud sync. Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an Azure AD identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-azure-ad-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -109,15 +109,15 @@ TcpTestSucceeded : True
  
 
 > [!Note]  
-> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
+> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Don't hardcode this IP address into any scripts, or into a firewall configuration.
 
 ### Solution for cause 1
 
-#### Solution 1 — Use Azure File Sync
-Azure File Sync can transform your on-premises Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. Azure File Sync works over port 443 and can thus be used as a workaround to access Azure Files from clients that have port 445 blocked. [Learn how to setup Azure File Sync](../file-sync/file-sync-extend-servers.md).
+#### Solution 1 — Use Azure File Sync as a QUIC endpoint
+You can use Azure File Sync as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
-#### Solution 2 — Use VPN
-By Setting up a VPN to your specific Storage Account, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
+#### Solution 2 — Use VPN or ExpressRoute
+By setting up a VPN or ExpressRoute from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
 
 #### Solution 3 — Unblock port 445 with help of your ISP/IT Admin
 Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -129,7 +129,7 @@ Azure Files also supports REST in addition to SMB. REST access works over port 4
 
 System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
-To determine whether this is the cause of the error, verify that the following registry subkey is not set to a value less than 3:
+To determine whether this is the cause of the error, verify that the following registry subkey isn't set to a value less than 3:
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
@@ -156,15 +156,28 @@ To view open handles for a file share, directory or file, use the [Get-AzStorage
 
 To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
 
-> [!Note]  
-> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+> [!Note]
+> The `Get-AzStorageFileHandle` and `Close-AzStorageFileHandle` cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+
+<a id="networkerror59"></a>
+## ERROR_UNEXP_NET_ERR (59) when doing any operations on a handle
+
+### Cause
+
+If you cache/hold a large number of open handles for a long time, you might see this server-side failure due to throttling reasons. When a large number of handles are cached by the client, many of those handles can go into a reconnect phase at the same time, building up a queue on the server which needs to be throttled. The retry logic and the throttling on the backend for reconnect takes longer than the client's timeout. This situation manifests itself as a client not being able to use an existing handle for any operation, with all operations failing with ERROR_UNEXP_NET_ERR (59).
+
+There are also edge cases in which the client handle becomes disconnected from the server (for example, a network outage lasting several minutes) that could cause this error.
+
+### Solution
+
+Don’t keep a large number of handles cached. Close handles and then retry. See preceding troubleshooting entry for PowerShell cmdlets to view/close open handles.
 
 <a id="noaaccessfailureportal"></a>
-## Error "No access" when you try to access or delete an Azure File Share  
+## Error "No access" when you try to access or delete an Azure File Share
 When you try to access or delete an Azure file share in the portal, you might receive the following error:
 
 No access  
-Error code: 403 
+Error code: 403
 
 ### Cause 1: Virtual network or firewall rules are enabled on the storage account
 
@@ -233,7 +246,7 @@ When you open a file from a mounted Azure file share over SMB, your application/
 - `ReadWrite`: a combination of both the `Read` and `Write` sharing modes.
 - `Delete`: others may delete the file while you have it open. 
 
-Although as a stateless protocol, the FileREST protocol does not have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it is treated as equivalent to a file handle with a file sharing mode of `None`. 
+Although as a stateless protocol, the FileREST protocol doesn't have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it's treated as equivalent to a file handle with a file sharing mode of `None`. 
 
 Although file handles and leases serve an important purpose, sometimes file handles and leases might be orphaned. When this happens, this can cause problems modifying or deleting files. You may see error messages like:
 
@@ -333,7 +346,7 @@ If you map an Azure file share as an administrator by using net use, the share a
 
 ### Cause
 
-By default, Windows File Explorer does not run as an administrator. If you run net use from an administrative command prompt, you map the network drive as an administrator. Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account.
+By default, Windows File Explorer doesn't run as an administrator. If you run net use from an administrative command prompt, you map the network drive as an administrator. Because mapped drives are user-centric, the user account that is logged in doesn't display the drives if they're mounted under a different user account.
 
 ### Solution
 Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) to configure the **EnableLinkedConnections** registry value.
@@ -405,11 +418,11 @@ Be aware that setting the registry key affects all copy operations that are made
 
 ### Cause
 
-This problem can occur if there is no enough cache on client machine for large directories.
+This problem can occur if there isn't enough cache on the client machine for large directories.
 
 ### Solution
 
-To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry value  to allow caching of larger directory listings in the client machine:
+To resolve this problem, adjust the **DirectoryCacheEntrySizeMax** registry value to allow caching of larger directory listings in the client machine:
 
 - Location: `HKLM\System\CCS\Services\Lanmanworkstation\Parameters`
 - Value name: `DirectoryCacheEntrySizeMax` 
@@ -421,7 +434,7 @@ For example, you can set it to `0x100000` and see if the performance improves.
 
 ### Cause
 
-Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [Azure AD Domain Service(Azure AD DS)](../../active-directory-domain-services/overview.md) is not created on the Azure AD tenant of the associated subscription.  
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [Azure AD Domain Service(Azure AD DS)](../../active-directory-domain-services/overview.md) isn't created on the Azure AD tenant of the associated subscription.  
 
 ### Solution
 
@@ -432,11 +445,11 @@ Enable Azure AD DS on the Azure AD tenant of the subscription that your storage 
 ## Unable to mount Azure Files with AD credentials 
 
 ### Self diagnostics steps
-First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](./storage-files-identity-auth-active-directory-enable.md).
+First, make sure that you've followed through all four steps to [enable Azure Files AD Authentication](./storage-files-identity-auth-active-directory-enable.md).
 
-Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If you failed to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
+Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If the share fails to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, give prescriptive guidance on self-fix, and collect the diagnostics traces.
 
-Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
+Third, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -445,7 +458,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 ```
 The cmdlet performs these checks below in sequence and provides guidance for failures:
 1. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key. If the password is incorrect, you can run [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) to reset the password. 
-2. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name). If the SPN isn't correctly setup, please run the Set-AD cmdlet returned in the debug cmdlet to configure the SPN.
+2. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name). If the SPN isn't correctly set up, please run the Set-AD cmdlet returned in the debug cmdlet to configure the SPN.
 3. CheckDomainJoined: Validate that the client machine is domain joined to AD. If your machine is not domain joined to AD, please refer to this [article](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) for domain join instruction.
 4. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection. If the required Port is not open, please refer to the troubleshooting tool [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) for connectivity issues with Azure Files.
 5. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters. 
@@ -459,8 +472,8 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 ### Symptom
 
 You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
-- After you click on Edit permission under the Security tab, the Permission wizard does not load. 
-- When you try to select a new user or group, the domain location does not display the right AD DS domain. 
+- After you click on Edit permission under the Security tab, the Permission wizard doesn't load. 
+- When you try to select a new user or group, the domain location doesn't display the right AD DS domain. 
 
 ### Solution
 
@@ -474,11 +487,11 @@ This error may occur if a domain controller that holds the RID Master FSMO role 
 
 ### Error: "Cannot bind positional parameters because no names were given"
 
-This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
+This error is most likely triggered by a syntax error in the `Join-AzStorageAccountforAuth` command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
 
-## Azure Files on-premises AD DS Authentication support for AES 256 Kerberos encryption
+## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES 256 Kerberos encryption support for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended authentication method. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
@@ -501,7 +514,7 @@ Navigate to the desired storage account in the Azure portal. In the table of con
 ![A screenshot of the access key pane](./media/storage-troubleshoot-windows-file-connection-problems/access-keys-1.png)
 
 # [PowerShell](#tab/azure-powershell)
-The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
@@ -521,7 +534,7 @@ New-AzStorageAccountKey `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```bash
 resourceGroupName="<resource-group>"
@@ -542,5 +555,159 @@ az storage account keys renew \
 
 ---
 
-## Need help? Contact support.
+## Set the API permissions on a newly created application
+
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps.
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** in the left pane.
+3. Select **All Applications** in the right pane.
+
+   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png":::
+
+4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
+
+## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
+
+You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts, which is currently in public preview.
+
+### Error - Grant admin consent disabled
+
+In some cases, Azure AD admin may disable the ability to grant admin consent to Azure AD applications. Below is the screenshot of what this may look like in the Azure portal.
+
+   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png" alt-text="Screenshot of the Azure portal configured permissions blade displaying a warning that some actions may be disabled due to your permissions." lightbox="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png":::
+
+If this is the case, ask your Azure AD admin to grant admin consent to the new Azure AD application. To find and view your administrators, select **roles and administrators**, then select **Cloud application administrator**.
+
+### Error - "The request to AAD Graph failed with code BadRequest"
+
+####  Cause 1: an application management policy is preventing credentials from being created
+
+When enabling Azure AD Kerberos authentication, you might encounter this error if the following conditions are met:
+
+1. You're using the beta/preview feature of [application management policies](/graph/api/resources/applicationauthenticationmethodpolicy?view=graph-rest-beta).
+2. You (or your administrator) have set a [tenant-wide policy](/graph/api/resources/tenantappmanagementpolicy?view=graph-rest-beta) that:
+    - Has no start date, or has a start date before 2019-01-01
+    - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
+
+There is currently no workaround for this error during the public preview.
+
+#### Cause 2: an application already exists for the storage account
+
+You might also encounter this error if you have previously enabled Azure AD Kerberos authentication through manual limited preview steps. To delete the existing application, the customer or their IT admin can run the following script. Running this script will remove the old manually created application and allow the new experience to auto-create and manage the newly created application.
+
+> [!IMPORTANT]
+> This script must be run in PowerShell 5 because the AzureAD module doesn't work in PowerShell 7. This PowerShell snippet uses Azure AD Graph.
+
+```powershell
+$storageAccount = "exampleStorageAccountName"
+$tenantId = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+Import-Module AzureAD
+Connect-AzureAD -TenantId $tenantId
+
+$application = Get-AzureADApplication -Filter "DisplayName eq '${storageAccount}'"
+if ($null -ne $application) {
+   Remove-AzureADApplication -ObjectId $application.ObjectId
+}
+```
+
+### Error - Service principal password has expired in Azure AD
+
+If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share.
+
+To mitigate this, you have two options: either rotate the service principal password in Azure AD every six months, or disable Azure AD Kerberos, delete the existing application, and reconfigure Azure AD Kerberos using the Azure portal.
+
+#### Option 1: Update the service principal password using PowerShell
+
+1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+
+To install the modules, open PowerShell with elevated privileges and run the following commands:
+
+```azurepowershell
+Install-Module -Name Az.Storage 
+Install-Module -Name AzureAD
+```
+
+2. Set the required variables for your tenant, subscription, storage account name, and resource group name by running the following cmdlets, replacing the values with the ones relevant to your environment.
+
+```azurepowershell
+$tenantId = "<MyTenantId>" 
+$subscriptionId = "<MySubscriptionId>" 
+$resourceGroupName = "<MyResourceGroup>" 
+$storageAccountName = "<MyStorageAccount>"
+```
+
+3. Generate a new kerb1 key and password for the service principal.
+
+```azurepowershell
+Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId 
+$kerbKeys = New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName "kerb1" -ErrorAction Stop | Select-Object -ExpandProperty Keys 
+$kerbKey = $kerbKeys | Where-Object { $_.KeyName -eq "kerb1" } | Select-Object -ExpandProperty Value 
+$azureAdPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey), 32); 
+$password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
+```
+
+4. Connect to Azure AD and retrieve the tenant information, application, and service principal.
+
+```azurepowershell
+Connect-AzureAD 
+$azureAdTenantDetail = Get-AzureADTenantDetail; 
+$azureAdTenantId = $azureAdTenantDetail.ObjectId 
+$azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name 
+$application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop; 
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'" 
+if ($servicePrincipal -eq $null) { 
+  Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)" 
+  Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop 
+} 
+```
+
+5. Set the password for the storage account's service principal.
+
+```azurepowershell
+$Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken; 
+$Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version=1.6' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId) 
+$json = @' 
+{ 
+  "passwordCredentials": [ 
+  { 
+    "customKeyIdentifier": null, 
+    "endDate": "<STORAGEACCOUNTENDDATE>", 
+    "value": "<STORAGEACCOUNTPASSWORD>", 
+    "startDate": "<STORAGEACCOUNTSTARTDATE>" 
+  }] 
+} 
+'@ 
+ 
+$now = [DateTime]::UtcNow 
+$json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddHours(-12).ToString("s") 
+ $json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s") 
+$json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password 
+ 
+$Headers = @{'authorization' = "Bearer $($Token)"} 
+ 
+try { 
+  Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json  
+  Write-Host "Success: Password is set for $storageAccountName" 
+} catch { 
+  Write-Host $_.Exception.ToString() 
+  Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value 
+  Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription 
+}
+```
+
+#### Option 2: Disable Azure AD Kerberos, delete the existing application, and reconfigure
+
+If you don't want to rotate the service principal password every six months, you can follow these steps. Be sure to save domain properties (domainName and domainGUID) before disabling Azure AD Kerberos, as you'll need them during reconfiguration if you want to configure directory and file-level permissions through Windows File Explorer.
+
+1. [Disable Azure AD Kerberos](storage-files-identity-auth-azure-active-directory-enable.md#disable-azure-ad-authentication-on-your-storage-account)
+1. [Delete the existing application](#cause-2-an-application-already-exists-for-the-storage-account)
+1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts-preview)
+
+Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
+
+## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

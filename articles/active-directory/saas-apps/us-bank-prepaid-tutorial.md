@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of U.S. Bank Prepaid into Azure AD, you need to add
 1. In the **Add from the gallery** section, type **U.S. Bank Prepaid** in the search box.
 1. Select **U.S. Bank Prepaid** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for U.S. Bank Prepaid
 
 Configure and test Azure AD SSO with U.S. Bank Prepaid using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in U.S. Bank Prepaid.
@@ -79,15 +81,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type the value:
     `USBank:SAML2.0:Prepaid_SP`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<Environment>.usbank.com/sp/ACS.saml2`
+    b. In the **Reply URL** text box, type the URL:
+    `https://federation.usbank.com/sp/ACS.saml2`
 
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<Environment>.usbank.com/sp/startSSO.ping?PartnerIdpId=<ID>`
+    c. In the **Sign-on URL** text box, type the URL:
+    `https://federation.usbank.com/sp/startSSO.ping?PartnerIdpId=<ID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [U.S. Bank Prepaid Client support team](mailto:web.access.management@usbank.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
+    > [!NOTE]
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [U.S. Bank Prepaid Client support team](mailto:web.access.management@usbank.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)

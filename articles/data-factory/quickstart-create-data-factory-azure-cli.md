@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 10/14/2021
+ms.date: 08/18/2022
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
@@ -27,20 +27,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart uses an Azure Storage account, which includes a container with a file.
 
-1. To create a resource group named `ADFQuickStartRG`, use the [az group create](/cli/azure/group#az_group_create) command:
+1. To create a resource group named `ADFQuickStartRG`, use the [az group create](/cli/azure/group#az-group-create) command:
 
    ```azurecli
    az group create --name ADFQuickStartRG --location eastus
    ```
 
-1. Create a storage account by using the [az storage account create](/cli/azure/storage/container#az_storage_container_create) command:
+1. Create a storage account by using the [az storage account create](/cli/azure/storage/container#az-storage-container-create) command:
 
    ```azurecli
    az storage account create --resource-group ADFQuickStartRG \
        --name adfquickstartstorage --location eastus
    ```
 
-1. Create a container named `adftutorial` by using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command:
+1. Create a container named `adftutorial` by using the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command:
 
    ```azurecli
    az storage container create --resource-group ADFQuickStartRG --name adftutorial \
@@ -56,7 +56,7 @@ This quickstart uses an Azure Storage account, which includes a container with a
 
    Use **Ctrl+D** to save your new file.
 
-1. To upload the new file to your Azure storage container, use the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command:
+1. To upload the new file to your Azure storage container, use the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command:
 
    ```azurecli
    az storage blob upload --account-name adfquickstartstorage --name input/emp.txt \
@@ -67,7 +67,7 @@ This quickstart uses an Azure Storage account, which includes a container with a
 
 ## Create a data factory
 
-To create an Azure data factory, run the [az datafactory create](/cli/azure/datafactory#az_datafactory_create) command:
+To create an Azure data factory, run the [az datafactory create](/cli/azure/datafactory#az-datafactory-create) command:
 
 ```azurecli
 az datafactory create --resource-group ADFQuickStartRG \
@@ -77,7 +77,7 @@ az datafactory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > Replace `ADFTutorialFactory` with a globally unique data factory name, for example, ADFTutorialFactorySP1127.
 
-You can see the data factory that you created by using the [az datafactory show](/cli/azure/datafactory#az_datafactory_factory_show) command:
+You can see the data factory that you created by using the [az datafactory show](/cli/azure/datafactory#az-datafactory-factory-show) command:
 
 ```azurecli
 az datafactory show --resource-group ADFQuickStartRG \
@@ -88,7 +88,7 @@ az datafactory show --resource-group ADFQuickStartRG \
 
 Next, create a linked service and two datasets.
 
-1. Get the connection string for your storage account by using the [az storage account show-connection-string](/cli/azure/datafactory#az_datafactory_factory_show) command:
+1. Get the connection string for your storage account by using the [az storage account show-connection-string](/cli/azure/datafactory#az-datafactory-factory-show) command:
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \
@@ -106,7 +106,7 @@ Next, create a linked service and two datasets.
     }
     ```
 
-1. Create a linked service, named `AzureStorageLinkedService`, by using the [az datafactory linked-service create](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_create) command:
+1. Create a linked service, named `AzureStorageLinkedService`, by using the [az datafactory linked-service create](/cli/azure/datafactory/linked-service#az-datafactory-linked-service-create) command:
 
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
@@ -135,7 +135,7 @@ Next, create a linked service and two datasets.
     }
     ```
 
-1. Create an input dataset named `InputDataset` by using the [az datafactory dataset create](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) command:
+1. Create an input dataset named `InputDataset` by using the [az datafactory dataset create](/cli/azure/datafactory/dataset#az-datafactory-dataset-create) command:
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -163,7 +163,7 @@ Next, create a linked service and two datasets.
     }
     ```
 
-1. Create an output dataset named `OutputDataset` by using the [az datafactory dataset create](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) command:
+1. Create an output dataset named `OutputDataset` by using the [az datafactory dataset create](/cli/azure/datafactory/dataset#az-datafactory-dataset-create) command:
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -229,7 +229,7 @@ Finally, create and run the pipeline.
     }
     ```
 
-1. Create a pipeline named `Adfv2QuickStartPipeline` by using the [az datafactory pipeline create](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create) command:
+1. Create a pipeline named `Adfv2QuickStartPipeline` by using the [az datafactory pipeline create](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create) command:
 
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
@@ -237,7 +237,7 @@ Finally, create and run the pipeline.
        --pipeline @Adfv2QuickStartPipeline.json
    ```
 
-1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create_run) command:
+1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create-run) command:
 
    ```azurecli
    az datafactory pipeline create-run --resource-group ADFQuickStartRG \
@@ -246,7 +246,7 @@ Finally, create and run the pipeline.
 
    This command returns a run ID. Copy it for use in the next command.
 
-1. Verify that the pipeline run succeeded by using the [az datafactory pipeline-run show](/cli/azure/datafactory/pipeline-run#az_datafactory_pipeline_run_show) command:
+1. Verify that the pipeline run succeeded by using the [az datafactory pipeline-run show](/cli/azure/datafactory/pipeline-run#az-datafactory-pipeline-run-show) command:
 
    ```azurecli
    az datafactory pipeline-run show --resource-group ADFQuickStartRG \
@@ -257,13 +257,13 @@ You can also verify that your pipeline ran as expected by using the [Azure porta
 
 ## Clean up resources
 
-All of the resources in this quickstart are part of the same resource group. To remove them all, use the [az group delete](/cli/azure/group#az_group_delete) command:
+All of the resources in this quickstart are part of the same resource group. To remove them all, use the [az group delete](/cli/azure/group#az-group-delete) command:
 
 ```azurecli
 az group delete --name ADFQuickStartRG
 ```
 
-If you're using this resource group for anything else, instead, delete individual resources. For instance, to remove the linked service, use the [az datafactory linked-service delete](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_delete) command.
+If you're using this resource group for anything else, instead, delete individual resources. For instance, to remove the linked service, use the [az datafactory linked-service delete](/cli/azure/datafactory/linked-service#az-datafactory-linked-service-delete) command.
 
 In this quickstart, you created the following JSON files:
 

@@ -15,6 +15,8 @@ adobe-target-content: ./create-first-function-cli-csharp-ieux
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
+This article supports creating both types of compiled C# functions: 
+
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
 This article creates an HTTP triggered function that runs on .NET 6.0. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
@@ -31,7 +33,7 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+    + [Azure CLI](/cli/azure/install-azure-cli) [version 2.4](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
@@ -78,9 +80,10 @@ In Azure Functions, a function project is a container for one or more individual
     # [Isolated process](#tab/isolated-process)
 
     ```console
-    func init LocalFunctionProj --worker-runtime dotnet-isolated
+    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net6.0
     ```
     ---
+ 
 
 1. Navigate into the project folder:
 
@@ -175,7 +178,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure CLI](#tab/azure-cli/isolated-process)
 
@@ -183,7 +186,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell/in-process)
 

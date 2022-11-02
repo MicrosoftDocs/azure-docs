@@ -58,17 +58,17 @@ Depending on the scenario, a device could send a request to a provisioning servi
 * **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
 > [!NOTE]
-> DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](how-to-send-additional-data.md) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
+> DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
 
 When designing your solution and defining a reprovisioning logic there are a few things to consider. For example:
 
 * How often you expect your devices to restart
 * The [DPS quotas and limits](about-iot-dps.md#quotas-and-limits)
 * Expected deployment time for your fleet (phased rollout vs all at once)
-* Retry capability implemented on your client code, as described on the [Retry general guidance](/architecture/best-practices/transient-faults) at the Azure Architecture Center
+* Retry capability implemented on your client code, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults) at the Azure Architecture Center
 
 >[!TIP]
-> We recommend not provisioning on every reboot of the device, as this could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to [get the device registration state](/rest/api/iot-dps/service/device-registration-state/get) and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/architecture/best-practices/transient-faults).
+> We recommend not provisioning on every reboot of the device, as this could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to use the [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) API and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults).
 >In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred.  If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), for example, consider the following scenarios:
 > * Retry the Hub operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors. 
 > * For 429 errors, only retry after the time indicated in the Retry-After header. 
@@ -77,9 +77,6 @@ When designing your solution and defining a reprovisioning logic there are a few
 > * Ideally you should also support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
 > 
 > We also recommend taking into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider planning for device updates in phases instead of updating your entire fleet at the same time.
-
->[!Note]
-> The [get device registration state API](/rest/api/iot-dps/service/device-registration-state/get) does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
 
 
 ### Managing backwards compatibility

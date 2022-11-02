@@ -1,8 +1,8 @@
 ---
 title: Concepts - Networking diagram for Azure Red Hat OpenShift 4
 description: Networking diagram and overview for Azure Red Hat OpenShift networking
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
@@ -35,7 +35,7 @@ The following list covers important networking components in an Azure Red Hat Op
     * This endpoint balances internal service traffic. For this load balancer, the worker nodes are in the backend pool.
     * This load balancer isn't created by default. It's created once you create a service of type LoadBalancer with the correct annotations. For example: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
 
-* **aro-internal-lb**
+* **aro**
     * This endpoint is used for any public traffic. When you create an application and a route, this endpoint is the path for ingress traffic.
     * This load balancer also covers egress Internet connectivity from any pod running in the worker nodes through Azure Load Balancer outbound rules.
         * Currently outbound rules aren't configurable. They allocate 1,024 TCP ports to each node.
@@ -91,7 +91,7 @@ The following networking features are specific to Azure Red Hat OpenShift:
 
 The following network settings are available for Azure Red Hat OpenShift 4 clusters:
 
-* **API Visibility** - Set the API visibility when running the [az are create command](tutorial-create-cluster.md#create-the-cluster).
+* **API Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
     * "Public" - API Server is accessible by external networks.
     * "Private" - API Server assigned a private IP from the control plane subnet, only accessible using connected networks (peered virtual networks and other subnets in the cluster). A private DNS Zone will be created on the customer's behalf.
 * **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).

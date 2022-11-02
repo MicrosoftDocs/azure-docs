@@ -51,15 +51,13 @@ The following list describes the endpoints:
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP](https://www.amqp.org/) and AMQP over WebSockets protocols. The direct method invocation endpoint is exposed over the HTTPS protocol.
   
-  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). A back-end service can use it to read the [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
+  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs](../event-hubs/index.yml). A back-end service can use it to read the [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
   
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages](iot-hub-devguide-messages-c2d.md), and to receive the corresponding delivery or expiration acknowledgments.
   
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method](iot-hub-devguide-direct-methods.md) on a device.
-  
-  * *Receive operations monitoring events*. This endpoint allows you to receive operations monitoring events if your IoT hub has been configured to emit them. For more information, see [IoT Hub operations monitoring](iot-hub-operations-monitoring.md).
 
 The [Azure IoT SDKs](iot-hub-devguide-sdks.md) article describes the various ways to access these endpoints.
 

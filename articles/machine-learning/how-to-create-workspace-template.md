@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.author: larryfr
-author: Blackmist
-ms.date: 10/21/2021
-
-
-# Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+ms.author: deeikele
+author: deeikele
+ms.reviewer: larryfr
+ms.date: 08/12/2022
+#Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
@@ -67,7 +66,7 @@ The example template has two **required** parameters:
 > [!TIP]
 > While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. One will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
 >
-> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-use-managed-identities.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
+> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-identity-based-service-authentication.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -85,7 +84,6 @@ See the [Azure portal](#use-the-azure-portal) section if you prefer using the gr
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az group create --name "examplegroup" --location "eastus"
@@ -102,8 +100,6 @@ New-AzResourceGroup -Name "examplegroup" -Location "eastus"
 Once your resource group is successfully created, deploy the template with the following command:
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -132,8 +128,6 @@ By default, all of the resources created as part of the template are new. Howeve
 > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace. Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -165,30 +159,28 @@ New-AzResourceGroupDeployment `
 
 The following example template demonstrates how to create a workspace with three settings:
 
-* Enable high confidentiality settings for the workspace. This creates a new Cosmos DB instance.
+* Enable high confidentiality settings for the workspace. This creates a new Azure Cosmos DB instance.
 * Enable encryption for the workspace.
-* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
-
-    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Azure Cosmos DB instance for the workspace.
 
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-For more information, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
+For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
 > * You must have an existing Azure Key Vault that contains an encryption key.
 > * The Azure Key Vault must be in the same region where you plan to create the Azure Machine Learning workspace.
 > * You must specify the ID of the Azure Key Vault and the URI of the encryption key.
+> 
+> For steps on creating the vault and key, see [Configure customer-managed keys](how-to-setup-customer-managed-keys.md).
 
 __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:	
 
 1. To get the Key Vault ID, use the following command:	
 
     # [Azure CLI](#tab/azcli)	
-    
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     ```azurecli	
     az keyvault show --name <keyvault-name> --query 'id' --output tsv	
@@ -206,8 +198,6 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 1. To get the value for the URI for the customer managed key, use the following command:	
 
     # [Azure CLI](#tab/azcli)	
-    
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     ```azurecli	
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv	
@@ -232,8 +222,6 @@ To enable use of Customer Managed Keys, set the following parameters when deploy
 * **resource_cmk_uri** to the `resource_cmk_uri` value obtained in previous steps.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -262,12 +250,12 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Azure Cosmos DB instance. For more information, see [Encryption at rest in Azure Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
 * Starts encrypting the local scratch disk for Azure Machine Learning compute clusters, providing you have not created any previous clusters in your subscription. If you have previously created a cluster in the subscription, open a support ticket to have encryption of the scratch disk enabled for your compute clusters.
-* Cleans up the local scratch disk between runs.
+* Cleans up the local scratch disk between jobs.
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
 
@@ -291,8 +279,6 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -323,8 +309,6 @@ New-AzResourceGroupDeployment `
 To deploy a resource behind a new virtual network, set the **vnetOption** to **new** along with the virtual network settings for the respective resource. The deployment below shows how to deploy a workspace with the storage account resource behind a new virtual network.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -359,8 +343,6 @@ New-AzResourceGroupDeployment `
 Alternatively, you can deploy multiple or all dependent resources behind a virtual network.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -407,8 +389,6 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
 ```azurecli
 az deployment group create \
     --name "exampledeployment" \
@@ -451,8 +431,6 @@ To deploy a workspace with existing associated resources you have to set the **v
 
     # [Azure CLI](#tab/azcli)
       
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-      
     ```azurecli
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
@@ -472,8 +450,6 @@ To deploy a workspace with existing associated resources you have to set the **v
 1. Deploy the workspace
 
     # [Azure CLI](#tab/azcli)
-    
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     ```azurecli
     az deployment group create \
@@ -524,8 +500,6 @@ To deploy a workspace with existing associated resources you have to set the **v
 > The deployment is only valid in regions which support private endpoints.
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -664,7 +638,7 @@ To avoid this problem, we recommend one of the following approaches:
 
     After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then reuse the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
-    To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
+    To get the ID of the Key Vault, you can reference the output of the original template job or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
     ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id

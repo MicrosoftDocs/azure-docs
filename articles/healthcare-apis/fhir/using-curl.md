@@ -2,14 +2,14 @@
 title: Access Azure Health Data Services with cURL
 description: This article explains how to access Azure Health Data Services with cURL
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/01/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
-# Access the Healthcare APIs with cURL
+# Access the Azure Health Data Services with cURL
 
 In this article, you'll learn how to access Azure Health Data Services with cURL.
 
@@ -19,7 +19,7 @@ In this article, you'll learn how to access Azure Health Data Services with cURL
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, install [PowerShell](/powershell/module/powershellget/) and [Azure Az PowerShell](/powershell/azure/install-az-ps).
-* Optionally, you can run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
+* Optionally, you can run the scripts in Visual Studio Code with the REST Client extension. For more information, see [Make a link to the REST Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ### CLI
@@ -27,14 +27,14 @@ In this article, you'll learn how to access Azure Health Data Services with cURL
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, install [Azure CLI](/cli/azure/install-azure-cli). 
 * Optionally, install a Bash shell, such as Git Bash, which it's included in [Git for Windows](https://gitforwindows.org/).
-* Optionally, run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
+* Optionally, run the scripts in Visual Studio Code with the REST Client extension. For more information, see [Make a link to the REST Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ## Obtain Azure Access Token
 
-Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](../authentication-authorization.md).
+Before accessing the Azure Health Data Services, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Azure Health Data Services authorization](../authentication-authorization.md).
 
-There are several different ways to obtain an Azure access token for the Healthcare APIs. 
+There are several different ways to obtain an Azure access token for the Azure Health Data Services. 
 
 > [!NOTE]
 > Make sure that you have logged into Azure and that you are in the Azure subscription and tenant where you have deployed the Azure Health Data Services instance.
@@ -124,3 +124,5 @@ To learn about how to access Azure Health Data Services data using REST Client e
 
 >[!div class="nextstepaction"]
 >[Access Azure Health Data Services using REST Client](using-rest-client.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

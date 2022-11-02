@@ -3,16 +3,19 @@ title: Create an Azure application offer in Azure Marketplace
 description: Create an Azure application offer for listing or selling in Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 07/20/2022
 ---
 
 # Create an Azure application offer
 
 As a commercial marketplace publisher, you can create an Azure application offer so potential customers can buy your solution. This article explains the process to create an Azure application offer for the Microsoft commercial marketplace.
+
+## Before you begin
+
+Before you can publish an Azure application offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 If you haven’t already done so, read [Plan an Azure application offer for the commercial marketplace](plan-azure-application-offer.md). It will provide the resources and help you gather the information and assets you’ll need when you create your offer.
 
@@ -39,11 +42,16 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
      * This name is only visible in Partner Center and it’s different from the offer name and other values shown to customers.
      * The Offer alias can't be changed after you select **Create**.
 
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
 1. To generate the offer and continue, select  **Create**.
 
 ## Configure your Azure application offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to configure a test drive. You’ll also connect your customer relationship management (CRM) system with your commercial marketplace offer.
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to configure a test drive. You can also choose whether to connect your customer relationship management (CRM) system with your commercial marketplace offer.
 
 ### Enable a test drive (optional)
 
@@ -55,7 +63,12 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 ### Customer lead management
 
-Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product.
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
+
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 #### To configure the connection details in Partner Center
 
@@ -74,8 +87,14 @@ Connect your customer relationship management (CRM) system with your commercial 
 1. Select **Save draft** before continuing to the next tab: Properties.
 
 > [!NOTE]
-> Make sure the connection to the lead destination stays up to date so you don't lose any leads. Make sure you update these connections whenever something has changed.
+> Make sure the connection to the lead destination stays up to date so your CRM system doesn't lose any leads.
+
+Make sure you update these connections whenever something has changed. You can still access leads in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. If needed, you can  export leads from Partner Center in order to import them into your CRM.
 
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
+
+**Video tutorial**
+
+- [Configuring Partner Center for Azure Managed Applications - Demo](https://go.microsoft.com/fwlink/?linkid=2196410)

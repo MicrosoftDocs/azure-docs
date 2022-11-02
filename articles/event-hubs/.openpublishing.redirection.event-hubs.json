@@ -161,6 +161,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "event-hubs-programming-guide.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "event-hubs-pulling-public-data.md",
     "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
     "redirect_document_id": false
@@ -258,6 +263,11 @@
   {
     "source_path": "policy-samples.md",
     "redirect_url": "/azure/event-hubs/policy-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "store-captured-data-data-warehouse.md",
+    "redirect_url": "/azure/stream-analytics/event-hubs-parquet-capture-tutorial",
     "redirect_document_id": false
   }
 ]

@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 03/30/2022
 ms.topic: conceptual
 ---
 
@@ -18,14 +18,14 @@ ms.topic: conceptual
 
 There are multiple options for the degree of connectivity from your Azure Arc-enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
-Azure Arc-enabled data services provides you the option to connect to Azure in two different *connectivity modes*: 
+Azure Arc-enabled data services provide you the option to connect to Azure in two different *connectivity modes*: 
 
 - Directly connected 
 - Indirectly connected
 
 The connectivity mode provides you the flexibility to choose how much data is sent to Azure and how users interact with the Arc Data Controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc-enabled data services may or may not be available.
 
-Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
+Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and PostgreSQL servers that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
@@ -43,7 +43,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Feature**|**Indirectly connected**|**Directly connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. 
+|**Self-service provisioning**|Supported<br/>Use Azure Data Studio, the appropriate CLI, or Kubernetes native tools like Helm, `kubectl`, or `oc`, or use Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. 
 |**Elastic scalability**|Supported|Supported<br/>|
 |**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. |
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.<br/><br/>Use client tools like Azure Data Studio, Azure Data CLI, or `kubectl` to view and manage inventory locally.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. As such, you can manage inventory directly from the Azure portal.|
@@ -76,8 +76,10 @@ Some Azure-attached services are only available when they can be directly reache
 There are three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
+- [Helm chart (direct connected mode)](#helm-chart-direct-connected-mode)
 - [Azure Resource Manager APIs](#azure-resource-manager-apis)
 - [Azure monitor APIs](#azure-monitor-apis)
+- [Azure Arc data processing service](#azure-arc-data-processing-service)
 
 All HTTPS connections to Azure and the Microsoft Container Registry are encrypted using SSL/TLS using officially signed and verifiable certificates.
 
@@ -111,9 +113,9 @@ Yes
 
 None
 
-### Helm chart used to create data controller in direct connected mode
+### Helm chart (direct connected mode)
 
-The helm chart used to provision the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry.
+The Helm chart used to provision the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry.
 
 #### Connection source
 
@@ -150,18 +152,6 @@ A computer running Azure Data Studio, or Azure CLI that is connecting to Azure.
 
 - `login.microsoftonline.com`
 - `management.azure.com`
-- `san-af-eastus-prod.azurewebsites.net`
-- `san-af-eastus2-prod.azurewebsites.net`
-- `san-af-australiaeast-prod.azurewebsites.net`
-- `san-af-centralus-prod.azurewebsites.net`
-- `san-af-westus2-prod.azurewebsites.net`
-- `san-af-westeurope-prod.azurewebsites.net`
-- `san-af-southeastasia-prod.azurewebsites.net`
-- `san-af-koreacentral-prod.azurewebsites.net`
-- `san-af-northeurope-prod.azurewebsites.net`
-- `san-af-westeurope-prod.azurewebsites.net`
-- `san-af-uksouth-prod.azurewebsites.net`
-- `san-af-francecentral-prod.azurewebsites.net`
 
 #### Protocol
 
@@ -174,6 +164,8 @@ HTTPS
 #### Can use proxy
 
 Yes
+
+To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
 
 #### Authentication 
 
@@ -195,6 +187,10 @@ A computer running Azure CLI that is uploading monitoring metrics or logs to Azu
 - `*.oms.opinsights.azure.com`
 - `*.monitoring.azure.com`
 
+For example, to upload usage metrics data services will connect to `https://<azureRegion>.monitoring.azure.com/` where `<azureRegion>` is the region where data services is deployed.
+
+Likewise, data services will connect to the log analytics workspace at `https://<subscription_id>.ods.opinsights.azure.com` where `<subscription_id>` represents your Azure subscription.
+
 #### Protocol
 
 HTTPS
@@ -215,3 +211,36 @@ Azure Active Directory
 > For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
+
+### Azure Arc data processing service
+
+Points to the data processing service endpoint in connection 
+
+#### Connection target
+
+- `san-af-eastus-prod.azurewebsites.net`
+- `san-af-eastus2-prod.azurewebsites.net`
+- `san-af-australiaeast-prod.azurewebsites.net`
+- `san-af-centralus-prod.azurewebsites.net`
+- `san-af-westus2-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-southeastasia-prod.azurewebsites.net`
+- `san-af-koreacentral-prod.azurewebsites.net`
+- `san-af-northeurope-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-uksouth-prod.azurewebsites.net`
+- `san-af-francecentral-prod.azurewebsites.net`
+
+#### Protocol
+
+HTTPS
+
+#### Can use proxy
+
+Yes
+
+To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+
+#### Authentication
+
+None

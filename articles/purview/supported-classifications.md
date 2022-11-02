@@ -1,8 +1,8 @@
 ---
 title: List of supported classifications
-description: This page lists the supported system classifications in Azure Purview.
-author: viseshag
-ms.author: viseshag
+description: This page lists the supported system classifications in Microsoft Purview.
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
@@ -10,14 +10,14 @@ ms.date: 09/27/2021
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
-# System classifications in Azure Purview
+# System classifications in Microsoft Purview
 
-This article lists the supported system classifications in Azure Purview. To learn more about classification, see [Classification](concept-classification.md).
+This article lists the supported system classifications in Microsoft Purview. To learn more about classification, see [Classification](concept-classification.md).
 
-Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). The following lists describe the format, pattern, and keywords for the Azure Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
+Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Regular_expression), [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter) and Machine Learning models. The following lists describe the format, pattern, and keywords for the Microsoft Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
 
 > [!Note]
-> Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Azure Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
+> Microsoft Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Microsoft Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
 
 > [!Note]
 > **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. For system classification minimum match threshold value is set at 60% and cannot be changed. For custom classification, this value is configurable.
@@ -28,15 +28,16 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
-## Person Name
+## Machine Learning based classifications
+## Person's Name
 
-Person Name bloom filter has been prepared using the below two datasets.
-
-- [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
-- [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
+Person Name machine learning model has been trained using global datasets of names in English language.
 
 > [!NOTE]
-> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+> Microsoft Purview classifies full names stored in the same column as well as first/last names in separate columns.
+
+## Person's Address
+Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
 
 ## RegEx Classifications
 
@@ -157,14 +158,6 @@ No
 -------------------------------------
 
 ## Australia business number
-
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
 
 ### Format
 
@@ -626,12 +619,6 @@ No
 -------------------------------------
 
 ## Austria identity card
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -2781,13 +2768,6 @@ No
 
 ## Cyprus identity card
 
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
 ### Format
 
 10 digits without spaces and delimiters
@@ -2865,13 +2845,6 @@ No
 -------------------------------------
 
 ## Cyprus tax identification number
-
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -3767,7 +3740,7 @@ No
 
 ### Format
 
-Most common ethnic groups. For a reference list see this [article](https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups).
+This classifier consists of the most common ethnic groups. For a reference list, see this [article](https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups).
 
 ### Checksum
 Not applicable
@@ -4645,12 +4618,6 @@ No
 -------------------------------------
 
 ## France health insurance number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -4876,12 +4843,6 @@ Yes
 -------------------------------------
 
 ## France value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5245,12 +5206,6 @@ Yes
 -------------------------------------
 
 ## Germany value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5290,7 +5245,7 @@ Yes
 
 ## Greece driver's license number
 
-This entity is included in the EU Driver's License Number sensitive information type. It is also available as a stand-alone sensitive information type entity.
+This entity is included in the EU Driver's License Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
 ### Format
 
@@ -5515,12 +5470,6 @@ No
 -------------------------------------
 
 ## Greece Social Security Number (AMKA)
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5553,12 +5502,6 @@ Yes
 -------------------------------------
 
 ## Greece tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5819,12 +5762,6 @@ No
 -------------------------------------
 
 ## Hungary personal identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5941,12 +5878,6 @@ Yes
 -------------------------------------
 
 ## Hungary tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5996,12 +5927,6 @@ Yes
 -------------------------------------
 
 ## Hungary value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -6074,7 +5999,7 @@ No
 ### Pattern
 
 12 digits:
-- A digit which is not 0 or 1
+- A digit that is not 0 or 1
 - Three digits
 - An optional space or dash
 - Four digits
@@ -6644,7 +6569,7 @@ Yes
 
 ## Italy driver's license number
 
-This type entity is included in the EU Driver's License Number sensitive information type. It is also available as a stand-alone sensitive information type entity.
+This type entity is included in the EU Driver's License Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
 ### Format
 
@@ -6797,12 +6722,6 @@ No
 -------------------------------------
 
 ## Italy fiscal code
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -6914,12 +6833,6 @@ not applicable
 -------------------------------------
 
 ## Italy value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7081,12 +6994,6 @@ No
 -------------------------------------
 
 ## Japan My Number - Corporate
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7122,12 +7029,6 @@ Yes
 -------------------------------------
 
 ## Japan My Number - Personal
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7751,12 +7652,6 @@ No
 -------------------------------------
 
 ## Lithuania Personal Code
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8026,12 +7921,6 @@ No
 -------------------------------------
 
 ## Luxemburg national identification number natural persons
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8400,12 +8289,6 @@ No
 -------------------------------------
 
 ## Malta identity card number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8785,12 +8668,6 @@ not applicable
 -------------------------------------
 
 ## Netherlands tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8848,12 +8725,6 @@ Yes
 -------------------------------------
 
 ## Netherlands value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8890,12 +8761,6 @@ Yes
 -------------------------------------
 
 ## New Zealand bank account number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8932,12 +8797,6 @@ Yes
 -------------------------------------
 
 ## New Zealand driver's license number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9027,12 +8886,6 @@ Yes
 -------------------------------------
 
 ## New Zealand inland revenue number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9101,13 +8954,6 @@ Yes
 -------------------------------------
 
 ## New Zealand social welfare number
-
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9464,12 +9310,6 @@ Yes
 -------------------------------------
 
 ## Poland REGON number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9514,12 +9354,6 @@ Yes
 -------------------------------------
 
 ## Poland tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10028,12 +9862,6 @@ No
 -------------------------------------
 
 ## Romania personal numeric code (CNP)
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10150,12 +9978,6 @@ No
 -------------------------------------
 
 ## Russia passport number domestic
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10198,12 +10020,6 @@ No
 -------------------------------------
 
 ## Russia passport number international
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10452,16 +10268,10 @@ No
 -------------------------------------
 
 ## Slovakia personal number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
-nine or 10 digits containing optional backslash
+nine or ten digits containing optional backslash
 
 ### Pattern
 
@@ -10719,12 +10529,6 @@ No
 -------------------------------------
 
 ## Slovenia Unique Master Citizen Number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10826,12 +10630,6 @@ No
 -------------------------------------
 
 ## Slovenia tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11096,12 +10894,6 @@ Yes
 -------------------------------------
 
 ## Spain DNI
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11205,7 +10997,6 @@ Not applicable
 
 ## Spain social security number (SSN)
 
-
 ### Format
 
 11-12 digits
@@ -11237,12 +11028,6 @@ Yes
 -------------------------------------
 
 ## Spain tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11577,12 +11362,6 @@ No
 -------------------------------------
 
 ## Sweden tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11695,12 +11474,6 @@ No
 -------------------------------------
 
 ## Switzerland SSN AHV number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -12129,12 +11902,6 @@ No
 -------------------------------------
 
 ## U.K. Unique Taxpayer Reference Number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -12231,7 +11998,7 @@ Depends on the state
 
 depends on the state - for example, New York:
 - nine digits formatted like ddd ddd ddd will match.
-- nine digits like ddddddddd will not match.
+- nine digits like ddddddddd won't match.
 
 ### Checksum
 
@@ -12392,13 +12159,13 @@ No
 ## U.S. phone number
 
 ### Pattern
-- 10 digit number, for e.g., +1 nxx-nxx-xxxx
+- 10 digit number, for example, +1 nxx-nxx-xxxx
 - Optional area code: +1
 - n can be any digit between 2-9
 - x can be any digit between 0-9
 - Optional paranthesis around the area code
 - Optional space or - between area code, exchange code, and the last four digits
-- Optional 4 digit extension
+- Optional four digit extension
 
 ### Checksum
 Not applicable
@@ -12478,7 +12245,7 @@ Not applicable
 ## U.S. zipcode
 
 ### Format
-Five digit U.S. Zip code and an optional 4 digit code separated by a hyphen (-).
+Five digit U.S. Zip code and an optional four digit code separated by a hyphen (-).
 
 ### Checksum
 Not applicable
@@ -12531,12 +12298,6 @@ No
 -------------------------------------
 
 ## Ukraine passport domestic
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -12565,12 +12326,6 @@ No
 -------------------------------------
 
 ## Ukraine passport international
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 

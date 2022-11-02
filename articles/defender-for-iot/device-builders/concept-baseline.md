@@ -2,7 +2,7 @@
 title: Baseline and custom checks
 description: Learn about the concept of Microsoft Defender for IoT baseline.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Microsoft Defender for IoT baseline and custom checks
@@ -21,13 +21,13 @@ Baseline custom checks establish a custom list of checks for each device baselin
 
 1. In your IoT Hub, locate and select the device you wish to change.
 
-1. Click on the device, and then click the **azureiotsecurity** module.
+1. Select on the device, and then select the **azureiotsecurity** module.
 
-1. Click **Module Identity Twin**.
+1. Select **Module Identity Twin**.
 
 1. Upload the **baseline custom checks** file to the device.
 
-1. Add baseline properties to the Defender-IoT-micro-agent and click **Save**.
+1. Add baseline properties to the Defender-IoT-micro-agent and select **Save**.
 
 ### Baseline custom check file example
 

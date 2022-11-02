@@ -4,12 +4,12 @@ description: Create administrative units to restrict the scope of role permissio
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/03/2022
+ms.date: 03/22/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -128,5 +128,5 @@ DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-uni
 
 ## Next steps
 
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)

@@ -4,11 +4,13 @@ description: Learn how to log support request and start a support session on you
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/09/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Contact Microsoft Support
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 The StorSimple Device Manager provides the capability to **log a new support request** within the service summary blade. If you encounter any issues with your StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
 

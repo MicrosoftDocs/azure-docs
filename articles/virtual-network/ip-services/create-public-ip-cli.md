@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ---
 # Quickstart: Create a public IP address using the Azure CLI
 
-In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs, basic, and standard. Two tiers of public IP addresses are available, regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
+In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,13 +25,14 @@ In this quickstart, you'll learn how to create an Azure public IP address. Publi
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **QuickStartCreateIP-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIP-rg** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
     --name QuickStartCreateIP-rg \
     --location eastus2
 ```
+## Create public IP
 
 # [**Standard SKU**](#tab/create-public-ip-standard)
 
@@ -40,7 +41,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 >
 >The following command works for API version **2020-08-01** or **later**.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**.  
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**.  
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
@@ -60,7 +61,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 In this section, you'll create a basic IP. Basic public IPs don't support availability zones.
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**. 
 
@@ -108,7 +109,7 @@ In this section, you'll create a non-zonal IP address.
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 

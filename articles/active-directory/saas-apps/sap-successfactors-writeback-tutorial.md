@@ -223,7 +223,7 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 
@@ -327,7 +327,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
    > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
    > [!NOTE]
-   > The SuccessFactors Writeback provisioning app does not support "group assignment". Only "user assignment" is supported. 
+   > SuccessFactors Writeback provisioning apps created after 12-Oct-2022 support the "group assignment" feature. If you created the app prior to 12-Oct-2022, it will only have "user assignment" support. To use the "group assignment" feature, create a new instance of the SuccessFactors Writeback application and move your existing mapping configurations to this app. 
 
 1. Click **Save**.
 

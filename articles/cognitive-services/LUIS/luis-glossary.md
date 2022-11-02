@@ -4,10 +4,16 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 03/21/2022
+author: aahill
+ms.author: aahi
+manager: nitinme
 ---
 
 # Language understanding glossary of common vocabulary and concepts
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS service.
 
 ## Active version
@@ -35,7 +41,7 @@ Authoring is the ability to create, manage and deploy a LUIS app, either using t
 
 ### Authoring Key
 
-The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
+The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [resource limits](luis-limits.md#resource-usage-and-limits).
 
 ### Authoring Resource
 
@@ -232,7 +238,7 @@ A prediction is a REST request to the Azure LUIS prediction service that takes i
 
 ### Prediction key
 
-The [prediction key](luis-how-to-azure-subscription.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
+The [prediction key](luis-how-to-azure-subscription.md) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
 
 This key is not the authoring key. If you have a prediction endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current prediction key inside the endpoint URL at the bottom of Azure resources page in LUIS website. It is the value of the subscription-key name/value pair.
 

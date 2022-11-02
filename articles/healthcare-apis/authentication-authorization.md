@@ -1,12 +1,12 @@
 ---
 title: Azure Health Data Services Authentication and Authorization
-description: This article provides an overview of the authentication and authorization of the Azure Health Data Services.
+description: This article provides an overview of the authentication and authorization of Azure Health Data Services.
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 03/14/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 
 # Authentication and Authorization for Azure Health Data Services
@@ -17,13 +17,13 @@ ms.author: ginle
 
 For the Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
+Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
 
-The client applications are registered in the Azure AD and can be used to access the Healthcare APIs. User data access controls are done in the applications or services that implement business logic.
+The client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
 
 ### Application roles
 
-Authenticated users and client applications of the Healthcare APIs must be granted with proper application roles.
+Authenticated users and client applications of the Azure Health Data Services must be granted with proper application roles.
 
 FHIR service of Azure Health Data Services provides the following roles:
 
@@ -58,9 +58,9 @@ For obtaining an access token for the Azure Health Data Services, these are the 
 
 2. **The client application exchanges the authorization code for an access token at the Azure AD token endpoint.** When requesting a token, the client application may have to provide a client secret (which you can add during application registration).
  
-3. **The client makes a request to the Healthcare APIs**, for example, a `GET` request to search all patients in the FHIR service. When making the request, it **includes the access token in an `HTTP` request header**, for example, **`Authorization: Bearer xxx`**.
+3. **The client makes a request to the Azure Health Data Services**, for example, a `GET` request to search all patients in the FHIR service. When making the request, it **includes the access token in an `HTTP` request header**, for example, **`Authorization: Bearer xxx`**.
 
-4. **The Healthcare APIs service validates that the token contains appropriate claims (properties in the token).** If it’s valid, it completes the request and returns data to the client.
+4. **Azure Health Data Services validates that the token contains appropriate claims (properties in the token).** If it’s valid, it completes the request and returns data to the client.
 
 In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there’s no user involved in the authentication. Therefore, it’s different from the **authorization code flow** in the following ways:
 
@@ -72,7 +72,8 @@ In the **client credentials flow**, permissions are granted directly to the appl
 
 The access token is a signed, [Base64](https://en.wikipedia.org/wiki/Base64) encoded collection of properties (claims) that convey information about the client's identity, roles, and privileges granted to the user or client.
 
-The Healthcare APIs typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token). It consists of three parts: 
+Azure Health Data Services typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token). It consists of three parts:
+
 * Header
 * Payload (the claims)
 * Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -101,7 +102,7 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) to view the t
  
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
-To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+To obtain an access token, you can use tools such as Postman, the REST Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## Encryption
 
@@ -109,7 +110,7 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 * FHIR service provides encryption of data at rest when data is persisted in the data store.
 * DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it’s encrypted automatically.
-* IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure Event Hubs, which use Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
+* MedTech service, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure Event Hubs, which use Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
 
 ## Next steps
 
@@ -117,3 +118,5 @@ In this document, you learned the authentication and authorization of Azure Heal
 
 >[!div class="nextstepaction"]
 >[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

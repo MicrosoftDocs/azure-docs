@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
-ms.date: 09/08/2021
+ms.date: 06/22/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -13,7 +13,7 @@ As a service provider, you may want to be aware when customer subscriptions or r
 
 In the managing tenant, the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from customer tenants.
 
-This topic explains the permissions needed to monitor delegation activity to your tenant (across all of your customers). It also includes a sample script that shows one method for querying and reporting on this data.
+This topic explains the permissions needed to monitor delegation activity to your tenant across all of your customers. It also includes a sample script that shows one method for querying and reporting on this data.
 
 > [!IMPORTANT]
 > All of these steps must be performed in your managing tenant, rather than in any customer tenants.
@@ -65,7 +65,7 @@ After you've assigned the Monitoring Reader role at root scope to the desired ac
 
 ## View delegation changes in the Azure portal
 
-Users who has been assigned the Monitoring Reader role at root scope can view delegation changes directly in the Azure portal.
+Users who have been assigned the Monitoring Reader role at root scope can view delegation changes directly in the Azure portal.
 
 1. Navigate to the **My customers** page, then select **Activity log** from the left-hand navigation menu.
 1. Ensure that **Directory Activity** is selected in the filter near the top of the screen.
@@ -180,5 +180,5 @@ else {
 ## Next steps
 
 - Learn how to [onboard customers to Azure Lighthouse](onboard-customer.md).
-- Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md).
+- Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/essentials/activity-log.md).
 - Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.

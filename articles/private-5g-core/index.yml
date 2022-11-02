@@ -28,8 +28,14 @@ landingContent:
         links:
           - text: Key components of a private mobile network
             url: key-components-of-a-private-mobile-network.md
+          - text: Private mobile network design requirements
+            url: private-mobile-network-design-requirements.md
           - text: Statement of compliance
             url: statement-of-compliance.md   
+      - linkListType: whats-new
+        links:
+          - text: Azure Private 5G Core 2209 release notes
+            url: azure-private-5g-core-release-notes-2210.md
   # Card            
   - title: Learn how to deploy a private mobile network
     linkLists:
@@ -39,8 +45,12 @@ landingContent:
             url: complete-private-mobile-network-prerequisites.md
           - text: Collect the required information for a private mobile network
             url: collect-required-information-for-private-mobile-network.md
-          - text: Deploy a private mobile network using the Azure portal
+          - text: Deploy a private mobile network - Azure portal
             url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy a private mobile network and site - ARM template
+            url: deploy-private-mobile-network-with-site-arm-template.md
   # Card
   - title: Manage sites
     linkLists:
@@ -48,8 +58,14 @@ landingContent:
         links:
           - text: Collect the required information for a site
             url: collect-required-information-for-a-site.md
-          - text: Create a site
+          - text: Create a site - Azure portal
             url: create-a-site.md
+          - text: Create a site - ARM template
+            url: create-site-arm-template.md
+          - text: Upgrade a packet core instance - Azure portal
+            url: upgrade-packet-core-azure-portal.md
+          - text: Upgrade a packet core instance - ARM template
+            url: upgrade-packet-core-arm-template.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:
@@ -65,31 +81,44 @@ landingContent:
         links:
           - text: Collect the required information for a service
             url: collect-required-information-for-service.md
-          - text: Configure a service
+          - text: Configure a service - Azure portal
             url: configure-service-azure-portal.md
           - text: Collect the required information for a SIM policy
             url: collect-required-information-for-sim-policy.md
-          - text: Configure a SIM policy
+          - text: Configure a SIM policy - Azure portal
             url: configure-sim-policy-azure-portal.md
+          - text: Configure a service and SIM policy - ARM template
+            url: configure-service-sim-policy-arm-template.md
   # Card
-  - title: Provision SIMs
+  - title: Provision and manage SIMs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Provision SIMs
+          - text: Provision new SIMs - Azure portal
             url: provision-sims-azure-portal.md
-          - text: Activate SIMs
-            url: activate-sims.md
+          - text: Provision new SIMs - ARM template
+            url: provision-sims-arm-template.md
+          - text: Manage existing SIMs
+            url: manage-existing-sims.md
+          - text: Manage SIM groups
+            url: manage-sim-groups.md
   # Card
   - title: Monitor your private mobile network
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Cloud monitoring with Azure Log Analytics
-            url: private-5g-core-overview.md#azure-centralized-monitoring
       - linkListType: concept
         links:
+          - text: Cloud monitoring with Azure Log Analytics
+            url: monitor-private-5g-core-with-log-analytics.md
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Log Analytics for Azure Private 5G Core
+            url: enable-log-analytics-for-private-5g-core.md
+          - text: Create an overview Log Analytics dashboard
+            url: create-overview-dashboard.md       
+          - text: Export, upload and share traces for diagnostics
+            url: distributed-tracing-share-traces.md
+            

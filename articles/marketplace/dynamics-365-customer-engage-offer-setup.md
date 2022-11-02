@@ -4,20 +4,20 @@ description: Create a Dynamics 365 apps on Dataverse and Power Apps offer on Mic
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 12/03/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 07/18/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
 
-This article describes how to create a Dynamics 365 apps on Dataverse and Power Apps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
-
-Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
+This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. 
 
 ## Before you begin
 
-Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
+Before you can publish a Dynamics 365 apps on Dataverse and Power Apps offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+
+Review [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 
@@ -35,18 +35,23 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces. The combined sum of the Offer ID and Publisher ID is limited to 40 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`. In this case, the segment, “testpublisherid.test-offer-1” is 28 characters long, which is within the 40-character limit.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
-- This name can't be changed after you select **Create**.
+    - This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
+    - This name can't be changed after you select **Create**.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 
@@ -54,20 +59,29 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-For **How do you want potential customers to interact with this listing offer?**, select the option you want to use for this offer:
+1. On the _Offer setup_ page, choose one of the following options:
 
-- **Enable app license management through Microsoft** – Manage your app licenses through Microsoft. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned box**. If you select this second box, you need to configure your solution package to not require a license.
+    - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf. 
+    
+        If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
 
-    > [!NOTE]
-    > You cannot change this setting after you publish your offer. To learn more about this setting, see [ISV app license management](isv-app-license.md).
+    - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 
-- **Get it now (free)** – List your offer to customers for free.
-- **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+        If you choose this option, you can use the **Enable app license management through Microsoft** check box to choose whether or not to enable app license management through Microsoft. For more information, see [ISV app license management](isv-app-license.md).
 
-    > [!NOTE]
-    > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
+1. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned** box. If you select this second box, you need to configure your solution package to not require a license.
 
-- **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+1. If you chose **No** in step 1 and chose not to enable app license management through Microsoft, then you can select one of the following:
+
+    - **Get it now (free)** – List your offer to customers for free.
+    - **Free trial (listing)** – List your offer to customers with a link to a free trial. The trial experience lets users deploy your solution to a live Dynamics 365 environment. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+        > [!NOTE]
+        > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
+
+    - **Contact me** – Collect customer contact information in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You can also connect your customer relationship management (CRM) system to manage leads there.
+        > [!NOTE]
+        > Connecting to a CRM system is optional. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 
@@ -76,15 +90,35 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/customer-leads.md)]
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
 
-For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
+> [!NOTE]
+> Connecting to a CRM system is optional.
+
+To configure the lead management in Partner Center:
+
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+   - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate** link.
+1. Select **Connect**.
+
+    For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+1. Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 

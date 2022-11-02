@@ -2,16 +2,19 @@
 title: Distributed GPU training guide 
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: fuhuifang
-ms.author: fufang
+author: rtanase
+ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 10/21/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Distributed GPU training guide
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
 
@@ -82,7 +85,7 @@ Make sure your code follows these tips:
 
 ### Horovod example
 
-* [azureml-examples: TensorFlow distributed training using Horovod](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/tensorflow/mnist-distributed-horovod)
+* [azureml-examples: TensorFlow distributed training using Horovod](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/tensorflow/mnist-distributed-horovod)
 
 ### DeepSpeed
 
@@ -95,7 +98,7 @@ Make sure your code follows these tips:
 
 ### DeepSeed example
 
-* [azureml-examples: Distributed training with DeepSpeed on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/deepspeed/cifar)
+* [azureml-examples: Distributed training with DeepSpeed on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/deepspeed/cifar)
 
 ### Environment variables from Open MPI
 
@@ -191,7 +194,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### Pytorch per-process-launch example
 
-- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/pytorch/cifar-distributed)
+- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
 
 ### <a name="per-node-launch"></a> Using `torch.distributed.launch` (per-node-launch)
 
@@ -246,43 +249,41 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### PyTorch per-node-launch example
 
-- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/pytorch/cifar-distributed)
+- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
 
 ### PyTorch Lightning
 
 [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/) is a lightweight open-source library that provides a high-level interface for PyTorch. Lightning abstracts away many of the lower-level distributed training configurations required for vanilla PyTorch. Lightning allows you to run your training scripts in single GPU, single-node multi-GPU, and multi-node multi-GPU settings. Behind the scene, it launches multiple processes for you similar to `torch.distributed.launch`.
 
-For single-node training (including single-node multi-GPU), you can run your code on Azure ML without needing to specify a `distributed_job_config`. For multi-node training, Lightning requires the following environment variables to be set on each node of your training cluster:
+For single-node training (including single-node multi-GPU), you can run your code on Azure ML without needing to specify a `distributed_job_config`. 
+To run an experiment using multiple nodes with multiple GPUs, there are 2 options:
 
-- MASTER_ADDR
-- MASTER_PORT
-- NODE_RANK
+- Using PyTorch configuration (recommended): Define `PyTorchConfiguration` and specify `communication_backend="Nccl"`, `node_count`, and `process_count` (note that this is the total number of processes, ie, `num_nodes * process_count_per_node`). In Lightning Trainer module, specify both `num_nodes` and `gpus` to be consistent with `PyTorchConfiguration`. For example, `num_nodes = node_count` and `gpus = process_count_per_node`.
 
-To run multi-node Lightning training on Azure ML, follow the [per-node-launch](#per-node-launch) guidance, but note that currently, the `ddp` strategy works only when you run an experiment using multiple nodes, with one GPU per node.
+- Using MPI Configuration: 
 
-To run an experiment using multiple nodes with multiple GPUs:
-
-- Define `MpiConfiguration` and specify `node_count`. Don't specify `process_count` because Lightning internally handles launching the worker processes for each node.
-- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires:
+   - Define `MpiConfiguration` and specify both `node_count` and `process_count_per_node`. In Lightning Trainer, specify both `num_nodes` and `gpus` to be respectively the same as `node_count` and `process_count_per_node` from `MpiConfiguration`. 
+   - For multi-node training with MPI, Lightning requires the following environment variables to be set on each node of your training cluster:
+      - MASTER_ADDR
+      - MASTER_PORT
+      - NODE_RANK
+      - LOCAL_RANK
+      
+      Manually set these environment variables that Lightning requires in the main training scripts:
 
    ```python
    import os
+   from argparse import ArgumentParser
 
-   def set_environment_variables_for_nccl_backend(single_node=False, master_port=6105):
-       if not single_node:
-           master_node_params = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
-           os.environ["MASTER_ADDR"] = master_node_params[0]
-
-           # Do not overwrite master port with that defined in AZ_BATCH_MASTER_NODE
-           if "MASTER_PORT" not in os.environ:
-               os.environ["MASTER_PORT"] = str(master_port)
+   def set_environment_variables_for_mpi(num_nodes, gpus_per_node, master_port=54965):
+       if num_nodes > 1:
+           os.environ["MASTER_ADDR"], os.environ["MASTER_PORT"] = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
        else:
            os.environ["MASTER_ADDR"] = os.environ["AZ_BATCHAI_MPI_MASTER_NODE"]
-           os.environ["MASTER_PORT"] = "54965"
+           os.environ["MASTER_PORT"] = str(master_port)
 
-       os.environ["NCCL_SOCKET_IFNAME"] = "^docker0,lo"
        try:
-           os.environ["NODE_RANK"] = os.environ["OMPI_COMM_WORLD_RANK"]
+           os.environ["NODE_RANK"] = str(int(os.environ.get("OMPI_COMM_WORLD_RANK")) // gpus_per_node)
            # additional variables
            os.environ["MASTER_ADDRESS"] = os.environ["MASTER_ADDR"]
            os.environ["LOCAL_RANK"] = os.environ["OMPI_COMM_WORLD_LOCAL_RANK"]
@@ -290,17 +291,30 @@ To run an experiment using multiple nodes with multiple GPUs:
        except:
            # fails when used with pytorch configuration instead of mpi
            pass
+           
+   if __name__ == "__main__":
+       parser = ArgumentParser()
+       parser.add_argument("--num_nodes", type=int, required=True)
+       parser.add_argument("--gpus_per_node", type=int, required=True)
+       args = parser.parse_args()
+       set_environment_variables_for_mpi(args.num_nodes, args.gpus_per_node)
+       
+       trainer = Trainer(
+        num_nodes=args.num_nodes,
+        gpus=args.gpus_per_node
+    )
    ```
 
-- Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manages rank and local rank internally:
+     Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes`.
 
    ```python
    from azureml.core import ScriptRunConfig, Experiment
    from azureml.core.runconfig import MpiConfiguration
 
    nnodes = 2
-   args = ['--max_epochs', 50, '--gpus', 2, '--accelerator', 'ddp_spawn', '--num_nodes', nnodes]
-   distr_config = MpiConfiguration(node_count=nnodes)
+   gpus_per_node = 4
+   args = ['--max_epochs', 50, '--gpus_per_node', gpus_per_node, '--accelerator', 'ddp', '--num_nodes', nnodes]
+   distr_config = MpiConfiguration(node_count=nnodes, process_count_per_node=gpus_per_node)
 
    run_config = ScriptRunConfig(
      source_directory='./src',
@@ -385,16 +399,23 @@ TF_CONFIG='{
 
 ### TensorFlow example
 
-- [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/tensorflow/mnist-distributed)
+- [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/tensorflow/mnist-distributed)
 
-## <a name="infiniband"></a> Accelerating GPU training with InfiniBand
+## <a name="infiniband"></a> Accelerating distributed GPU training with InfiniBand
 
-Certain Azure VM series, specifically the NC, ND, and H-series, now have RDMA-capable VMs with SR-IOV and Infiniband support. These VMs communicate over the low latency and high-bandwidth InfiniBand network, which is much more performant than Ethernet-based connectivity. SR-IOV for InfiniBand enables near bare-metal performance for any MPI library (MPI is used by many distributed training frameworks and tooling, including NVIDIA's NCCL software.) These SKUs are intended to meet the needs of computationally intensive, GPU-acclerated machine learning workloads. For more information, see [Accelerating Distributed Training in Azure Machine Learning with SR-IOV](https://techcommunity.microsoft.com/t5/azure-ai/accelerating-distributed-training-in-azure-machine-learning/ba-p/1059050).
+As the number of VMs training a model increases, the time required to train that model should decrease. The decrease in time, ideally, should be linearly proportional to the number of training VMs. For instance, if training a model on one VM takes 100 seconds, then training the same model on two VMs should ideally take 50 seconds. Training the model on four VMs should take 25 seconds, and so on.
 
-If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-enabled sizes, such as `Standard_ND40rs_v2`, the OS image will come with the Mellanox OFED driver required to enable InfiniBand preinstalled and preconfigured.
+InfiniBand can be an important factor in attaining this linear scaling. InfiniBand enables low-latency, GPU-to-GPU communication across nodes in a cluster. InfiniBand requires specialized hardware to operate. Certain Azure VM series, specifically the NC, ND, and H-series, now have RDMA-capable VMs with SR-IOV and InfiniBand support. These VMs communicate over the low latency and high-bandwidth InfiniBand network, which is much more performant than Ethernet-based connectivity. SR-IOV for InfiniBand enables near bare-metal performance for any MPI library (MPI is used by many distributed training frameworks and tooling, including NVIDIA's NCCL software.) These SKUs are intended to meet the needs of computationally intensive, GPU-acclerated machine learning workloads. For more information, see [Accelerating Distributed Training in Azure Machine Learning with SR-IOV](https://techcommunity.microsoft.com/t5/azure-ai/accelerating-distributed-training-in-azure-machine-learning/ba-p/1059050).
+
+Typically, VM SKUs with an 'r' in their name contain the required InfiniBand hardware, and those without an 'r' typically do not. ('r' is a reference to RDMA, which stands for "remote direct memory access.") For instance, the VM SKU `Standard_NC24rs_v3` is InfiniBand-enabled, but the SKU  `Standard_NC24s_v3` is not.  Aside from the InfiniBand capabilities, the specs between these two SKUs are largely the same – both have 24 cores, 448 GB RAM, 4 GPUs of the same SKU, etc. [Learn more about RDMA- and InfiniBand-enabled machine SKUs](../virtual-machines/sizes-hpc.md#rdma-capable-instances).
+
+>[!WARNING]
+>The older-generation machine SKU `Standard_NC24r`  is RDMA-enabled, but it does not contain SR-IOV hardware required for InfiniBand.
+
+If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-enabled sizes, the OS image will come with the Mellanox OFED driver required to enable InfiniBand preinstalled and preconfigured.
 
 ## Next steps
 
-* [Deploy machine learning models to Azure](how-to-deploy-and-where.md)
+* [Deploy machine learning models to Azure](./how-to-deploy-managed-online-endpoints.md)
 * [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

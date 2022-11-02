@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 08/01/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -39,6 +39,7 @@ In this tutorial, you learn about:
 > * Configure network
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
@@ -53,6 +54,7 @@ In this tutorial, you learn about:
 > * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
@@ -71,13 +73,16 @@ Your **Get started** page displays the various settings that are required to con
 
 Follow these steps to configure the network for your device.
 
-1. In the local web UI of your device, go to the **Get started** page. 
+1. In the local web UI of your device, go to the **Get started** page. On the **Set up a single node device** tile, select **Start**.
 
-2. On the **Network** tile, select **Configure**.  
+    ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Start button on the Set up a single node device tile is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png)
+
+
+2. On the **Network** tile, select **Needs setup**.  
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is used for the intial configuration of the device. For a new device, the **Network** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is used for the initial configuration of the device. For a new device, the **Network** page is as shown below.
     
     ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network isn't configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
@@ -128,7 +133,7 @@ Follow these steps to configure advanced network settings such as creating a swi
     1. Assign an intent for your virtual switch. To deploy compute workloads, you'll select compute as the intent.    
     1. Assign **Kubernetes node IPs**. These static IP addresses are for the compute VM that will be created on this virtual switch.  
 
-        For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 contiguous IPv4 addresses.
+        For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 free, contiguous IPv4 addresses.
     
         > [!IMPORTANT]
         > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
@@ -150,7 +155,6 @@ Follow these steps to configure advanced network settings such as creating a swi
 1. After the configuration is applied and you've refreshed the browser, you can see that the specified port is enabled for compute. 
  
     ![Screenshot of the Advanced networking page in the local web UI of an Azure Stack Edge device. The newly added virtual switch is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/advanced-networking-4.png)
-
 
 1. Optionally you can create a virtual network and associate it with your virtual switch if you wish to route your traffic. Select **Add virtual network** and then input the following information.
 
@@ -480,7 +484,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
  
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
 
-    For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 contiguous IPv4 addresses. For a two-node cluster, provide a minimum of 3 contiguous IPv4 addresses.
+    For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 free, contiguous IPv4 addresses. For a two-node cluster, provide a minimum of 3 free, contiguous IPv4 addresses.
     
     > [!IMPORTANT]
     > - Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
@@ -539,8 +543,24 @@ This is an optional configuration. However, if you use a web proxy, you can conf
 
    ![Screenshot of the Web proxy page in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
 
-2. After the settings are applied, select **Next: Device**.
+## Validate network settings
 
+Follow these steps to validate your network settings.
+
+1. Go to the **Diagnostic tests** page and select the tests as shown below.
+1. Select **Run test**.
+   
+   ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
+
+1. Review test results to ensure that status shows **Healthy** for each test that was run.
+
+   ![Screenshot of the Diagnostic test results page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test-results.png)
+
+1. If a test fails, select **Recommended actions** on the test results page, implement the recommended change, and then rerun the test. For example, the dialog below shows recommended actions if the Azure Edge compute runtime test fails.
+
+   ![Screenshot of Recommended actions when the Azure Edge compute runtime test fails as shown in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/recommended-actions-ip-already-in-use.png)
+
+1. After network settings are validated and all tests return **Healthy** status, proceed to the device settings page.
 
 ## Next steps
 
@@ -553,6 +573,7 @@ In this tutorial, you learned about:
 > * Configure network
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 
@@ -567,6 +588,7 @@ In this tutorial, you learned about:
 > * Configure virtual IP settings for Azure Consistent Services and NFS
 > * Configure advanced networking
 > * Configure web proxy
+> * Validate network settings
 
 ::: zone-end
 

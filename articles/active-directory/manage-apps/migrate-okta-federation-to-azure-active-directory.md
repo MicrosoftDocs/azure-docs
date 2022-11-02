@@ -1,17 +1,16 @@
 ---
-title: Tutorial to migrate Okta federation to Azure Active Directory-managed authentication
-titleSuffix: Active Directory
-description: Learn how to migrate your Okta federated applications to Azure AD-managed authentication.
+title: Migrate Okta federation to Azure Active Directory
+description: Learn how to migrate your Okta-federated applications to managed authentication under Azure AD. See how to migrate federation in a staged manner.
 services: active-directory
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 05/19/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: kr2b-contr-experiment
 ---
 
 # Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication
@@ -39,7 +38,7 @@ Seamless SSO can be deployed to password hash synchronization or pass-through au
 
 Follow the [deployment guide](../hybrid/how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) to ensure that you deploy all necessary prerequisites of seamless SSO to your users.
 
-For our example, we'll configure password hash synchronization and seamless SSO.
+For this example, you configure password hash synchronization and seamless SSO.
 
 ### Configure Azure AD Connect for password hash synchronization and seamless SSO
 
@@ -47,15 +46,15 @@ Follow these steps to configure Azure AD Connect for password hash synchronizati
 
 1. On your Azure AD Connect server, open the **Azure AD Connect** app and then select **Configure**.
 
-   ![Screenshot that shows the Azure A D icon and Configure button.](media/migrate-okta-federation-to-azure-active-directory/configure-azure-ad.png)
+   ![Screenshot that shows the Azure A D icon and the Configure button in the Azure A D Connect app.](media/migrate-okta-federation-to-azure-active-directory/configure-azure-ad.png)
 
-1. Select **Change user sign-in** > **Next**.
+1. Select **Change user sign-in**, and then select **Next**.
 
-   ![Screenshot that shows the page for changing user sign-in.](media/migrate-okta-federation-to-azure-active-directory/change-user-signin.png)
+   ![Screenshot of the Azure A D Connect app that shows the page for changing user sign-in.](media/migrate-okta-federation-to-azure-active-directory/change-user-signin.png)
 
 1. Enter your global administrator credentials.
 
-   ![Screenshot that shows where to enter global admin credentials.](media/migrate-okta-federation-to-azure-active-directory/global-admin-credentials.png)
+   ![Screenshot of the Azure A D Connect app that shows where to enter global admin credentials.](media/migrate-okta-federation-to-azure-active-directory/global-admin-credentials.png)
 
 1. Currently, the server is configured for federation with Okta. Change the selection to **Password Hash Synchronization**. Then select **Enable single sign-on**.
 
@@ -65,15 +64,15 @@ Follow these steps to enable seamless SSO:
 
 1. Enter the domain administrator credentials for the local on-premises system. Then select **Next**.
 
-   ![Screenshot that shows settings for user sign-in.](media/migrate-okta-federation-to-azure-active-directory/domain-admin-credentials.png)
+   ![Screenshot of the Azure A D Connect app that shows settings for user sign-in.](media/migrate-okta-federation-to-azure-active-directory/domain-admin-credentials.png)
 
 1. On the final page, select **Configure** to update the Azure AD Connect server.
 
-   ![Screenshot that shows the configuration page.](media/migrate-okta-federation-to-azure-active-directory/update-azure-ad-connect-server.png)
+   ![Screenshot of the Ready to configure page of the Azure A D Connect app.](media/migrate-okta-federation-to-azure-active-directory/update-azure-ad-connect-server.png)
 
 1. Ignore the warning for hybrid Azure AD join for now. You'll reconfigure the device options after you disable federation from Okta.
 
-   ![Screenshot that shows the link to configure device options.](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
+   ![Screenshot of the Azure A D Connect app. A warning about the hybrid Azure A D join is visible. A link for configuring device options is also visible.](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
 
 ## Configure staged rollout features
 
@@ -83,7 +82,7 @@ After you enable password hash sync and seamless SSO on the Azure AD Connect ser
 
 1. In the [Azure portal](https://portal.azure.com/#home), select **View** or **Manage Azure Active Directory**.
 
-   ![Screenshot that shows the Azure portal.](media/migrate-okta-federation-to-azure-active-directory/azure-portal.png)
+   ![Screenshot that shows the Azure portal. A welcome message is visible.](media/migrate-okta-federation-to-azure-active-directory/azure-portal.png)
 
 1. On the **Azure Active Directory** menu, select **Azure AD Connect**. Then confirm that **Password Hash Sync** is enabled in the tenant.
 
@@ -93,21 +92,21 @@ After you enable password hash sync and seamless SSO on the Azure AD Connect ser
 
 1. Your **Password Hash Sync** setting might have changed to **On** after the server was configured. If the setting isn't enabled, enable it now.
 
-   Notice that **Seamless single sign-on** is set to **Off**. If you attempt to enable it, you'll get an error because it's already enabled for users in the tenant.
+   Notice that **Seamless single sign-on** is set to **Off**. If you attempt to enable it, you get an error because it's already enabled for users in the tenant.
 
 1. Select **Manage groups**.
 
-   ![Screenshot that shows the button for managing groups.](media/migrate-okta-federation-to-azure-active-directory/password-hash-sync.png)
+   ![Screenshot of the Enable staged rollout features page in the Azure portal. A Manage groups button is visible.](media/migrate-okta-federation-to-azure-active-directory/password-hash-sync.png)
 
-Follow the instructions to add a group to the password hash sync rollout. In the following example, the security group starts with 10 members.
+1. Follow the instructions to add a group to the password hash sync rollout. In the following example, the security group starts with 10 members.
 
-![Screenshot that shows an example of a security group.](media/migrate-okta-federation-to-azure-active-directory/example-security-group.png)
+   ![Screenshot of the Manage groups for Password Hash Sync page in the Azure portal. A group is visible in a table.](media/migrate-okta-federation-to-azure-active-directory/example-security-group.png)
 
-After you add the group, wait for about 30 minutes while the feature takes effect in your tenant. When the feature has taken effect, your users will no longer be redirected to Okta when they attempt to access Office 365 services.
+1. After you add the group, wait for about 30 minutes while the feature takes effect in your tenant. When the feature has taken effect, your users are no longer redirected to Okta when they attempt to access Office 365 services.
 
 The staged rollout feature has some unsupported scenarios:
 
-- Legacy authentication such as POP3 and SMTP aren't supported.
+- Legacy authentication protocols such as POP3 and SMTP aren't supported.
 - If you've configured hybrid Azure AD join for use with Okta, all the hybrid Azure AD join flows go to Okta until the domain is defederated. A sign-on policy should remain in Okta to allow legacy authentication for hybrid Azure AD join Windows clients.
 
 ## Create an Okta app in Azure AD
@@ -120,30 +119,30 @@ To configure the enterprise application registration for Okta:
 
 1. On the left menu, under **Manage**, select **Enterprise applications**.
 
-   ![Screenshot that shows the "Enterprise applications" selection.](media/migrate-okta-federation-to-azure-active-directory/enterprise-application.png)
+   ![Screenshot that shows the left menu of the Azure portal. Enterprise applications is visible.](media/migrate-okta-federation-to-azure-active-directory/enterprise-application.png)
 
 1. On the **All applications** menu, select **New application**.
 
-   ![Screenshot that shows the "New application" selection.](media/migrate-okta-federation-to-azure-active-directory/new-application.png)
+   ![Screenshot that shows the All applications page in the Azure portal. A new application is visible.](media/migrate-okta-federation-to-azure-active-directory/new-application.png)
 
 1. Select **Create your own application**. On the menu that opens, name the Okta app and select **Register an application you're working on to integrate with Azure AD**. Then select **Create**.
 
-   :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/register-application.png" alt-text="Screenshot that shows how to register an application." lightbox="media/migrate-okta-federation-to-azure-active-directory/register-application.png":::
+   :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/register-application.png" alt-text="Screenshot that shows the Create your own application menu. The app name is visible. The option to integrate with Azure A D is turned on." lightbox="media/migrate-okta-federation-to-azure-active-directory/register-application.png":::
 
-1. Select **Accounts in any organizational directory (Any Azure AD Directory - Multitenant)** > **Register**.
+1. Select **Accounts in any organizational directory (Any Azure AD Directory - Multitenant)**, and then select **Register**.
 
    ![Screenshot that shows how to register an application and change the application account.](media/migrate-okta-federation-to-azure-active-directory/register-change-application.png)
 
 1. On the Azure AD menu, select **App registrations**. Then open the newly created registration.
 
-   ![Screenshot that shows the new app registration.](media/migrate-okta-federation-to-azure-active-directory/app-registration.png)
+   ![Screenshot that shows the App registrations page in the Azure portal. The new app registration is visible.](media/migrate-okta-federation-to-azure-active-directory/app-registration.png)
 
 1. Record your tenant ID and application ID.
 
    >[!Note]
    >You'll need the tenant ID and application ID to configure the identity provider in Okta.
 
-   ![Screenshot that shows the tenant ID and application ID.](media/migrate-okta-federation-to-azure-active-directory/record-ids.png)
+   ![Screenshot that shows the Okta Application Access page in the Azure portal. The tenant I D and application I D are called out.](media/migrate-okta-federation-to-azure-active-directory/record-ids.png)
 
 1. On the left menu, select **Certificates & secrets**. Then select **New client secret**. Give the secret a generic name and set its expiration date.
 
@@ -152,40 +151,40 @@ To configure the enterprise application registration for Okta:
    >[!NOTE]
    >The value and ID aren't shown later. If you fail to record this information now, you'll have to regenerate a secret.
 
-   ![Screenshot that shows where to record the secret's value and I D.](media/migrate-okta-federation-to-azure-active-directory/record-secrets.png)
+   ![Screenshot of the Certificates and secrets page. The value and I D of the secret are visible.](media/migrate-okta-federation-to-azure-active-directory/record-secrets.png)
 
 1. On the left menu, select **API permissions**. Grant the application access to the OpenID Connect (OIDC) stack.
 
 1. Select **Add a permission** > **Microsoft Graph** > **Delegated permissions**.
 
-    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/delegated-permissions.png" alt-text="Screenshot that shows delegated permissions." lightbox="media/migrate-okta-federation-to-azure-active-directory/delegated-permissions.png":::
+    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/delegated-permissions.png" alt-text="Screenshot that shows the A P I permissions page of the Azure portal. A delegated permission for reading is visible." lightbox="media/migrate-okta-federation-to-azure-active-directory/delegated-permissions.png":::
 
 1. In the OpenID permissions section, add **email**, **openid**, and **profile**. Then select **Add permissions**.
 
-    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/add-permissions.png" alt-text="Screenshot that shows how to add permissions." lightbox="media/migrate-okta-federation-to-azure-active-directory/add-permissions.png":::
+    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/add-permissions.png" alt-text="Screenshot that shows the A P I permissions page of the Azure portal. Permissions for email, openid, profile, and reading are visible." lightbox="media/migrate-okta-federation-to-azure-active-directory/add-permissions.png":::
 
 1. Select **Grant admin consent for \<tenant domain name>** and wait until the **Granted** status appears.
 
-    ![Screenshot that shows granted consent.](media/migrate-okta-federation-to-azure-active-directory/grant-consent.png)
+    ![Screenshot of the A P I permissions page that shows a message about granted consent.](media/migrate-okta-federation-to-azure-active-directory/grant-consent.png)
 
 1. On the left menu, select **Branding**. For **Home page URL**, add your user's application home page.
 
-    ![Screenshot that shows how to add branding.](media/migrate-okta-federation-to-azure-active-directory/add-branding.png)
+    ![Screenshot of the Branding page in the Azure portal. Several input boxes are visible, including one for the home page U R L.](media/migrate-okta-federation-to-azure-active-directory/add-branding.png)
 
 1. In the Okta administration portal, select **Security** > **Identity Providers** to add a new identity provider. Select **Add Microsoft**.
 
-    ![Screenshot that shows how to add the identity provider.](media/migrate-okta-federation-to-azure-active-directory/configure-idp.png)
+    ![Screenshot of the Okta administration portal. Add Microsoft is visible in the Add Identity Provider list.](media/migrate-okta-federation-to-azure-active-directory/configure-idp.png)
 
 1. On the **Identity Provider** page, copy your application ID to the **Client ID** field. Copy the client secret to the **Client Secret** field.
 
-1. Select **Show Advanced Settings**. By default, this configuration will tie the user principal name (UPN) in Okta to the UPN in Azure AD for reverse-federation access.
+1. Select **Show Advanced Settings**. By default, this configuration ties the user principal name (UPN) in Okta to the UPN in Azure AD for reverse-federation access.
 
     >[!IMPORTANT]
     >If your UPNs in Okta and Azure AD don't match, select an attribute that's common between users.
 
-1. Finish your selections for autoprovisioning. By default, if a user doesn't match in Okta, the system will attempt to provision the user in Azure AD. If you've migrated provisioning away from Okta, select **Redirect to Okta sign-in page**.
+1. Finish your selections for autoprovisioning. By default, if no match is found for an Okta user, the system attempts to provision the user in Azure AD. If you've migrated provisioning away from Okta, select **Redirect to Okta sign-in page**.
 
-    ![Screenshot that shows the option for redirecting to the Okta sign-in page.](media/migrate-okta-federation-to-azure-active-directory/redirect-okta.png)
+    ![Screenshot of the General Settings page in the Okta admin portal. The option for redirecting to the Okta sign-in page is visible.](media/migrate-okta-federation-to-azure-active-directory/redirect-okta.png)
 
     Now that you've created the identity provider (IDP), you need to send users to the correct IDP.
 
@@ -195,7 +194,7 @@ To configure the enterprise application registration for Okta:
 
     In this example, the **Division** attribute is unused on all Okta profiles, so it's a good choice for IDP routing.
 
-    ![Screenshot that shows the division attribute for I D P routing.](media/migrate-okta-federation-to-azure-active-directory/division-idp-routing.png)
+    ![Screenshot of the Edit Rule page in the Okta admin portal. A rule definition that involves the division attribute is visible.](media/migrate-okta-federation-to-azure-active-directory/division-idp-routing.png)
 
 1. Now that you've added the routing rule, record the redirect URI so you can add it to the application registration.
 
@@ -203,23 +202,23 @@ To configure the enterprise application registration for Okta:
 
 1. On your application registration, on the left menu, select **Authentication**. Then select **Add a platform** > **Web**.
 
-    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/add-platform.png" alt-text="Screenshot that shows how to add a web platform." lightbox="media/migrate-okta-federation-to-azure-active-directory/add-platform.png":::
+    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/add-platform.png" alt-text="Screenshot of the Authentication page in the Azure portal. Add a platform and a Configure platforms menu are visible." lightbox="media/migrate-okta-federation-to-azure-active-directory/add-platform.png":::
 
 1. Add the redirect URI that you recorded in the IDP in Okta. Then select **Access tokens** and **ID tokens**.
 
-    ![Screenshot that shows Okta access and I D tokens.](media/migrate-okta-federation-to-azure-active-directory/access-id-tokens.png)
+    ![Screenshot of the Configure Web page in the Azure portal. A redirect U R I is visible. The access and I D tokens are selected.](media/migrate-okta-federation-to-azure-active-directory/access-id-tokens.png)
 
 1. In the admin console, select **Directory** > **People**. Select your first test user to edit the profile.
 
 1. In the profile, add **ToAzureAD** as in the following image. Then select **Save**.
 
-    ![Screenshot that shows how to edit a profile.](media/migrate-okta-federation-to-azure-active-directory/profile-editing.png)
+    ![Screenshot of the Okta admin portal. Profile settings are visible, and the Division box contains ToAzureAD.](media/migrate-okta-federation-to-azure-active-directory/profile-editing.png)
 
-1. Try to sign in to the [Microsoft 356 portal](https://portal.office.com) as the modified user. If your user isn't a part of the managed authentication pilot, you'll notice that your action loops. To exit the loop, add the user to the managed authentication experience.
+1. Try to sign in to the [Microsoft 356 portal](https://portal.office.com) as the modified user. If your user isn't part of the managed authentication pilot, your action enters a loop. To exit the loop, add the user to the managed authentication experience.
 
 ## Test Okta app access on pilot members
 
-After you configure the Okta app in Azure AD and you configure the IDP in the Okta portal, you must assign the application to users.
+After you configure the Okta app in Azure AD and you configure the IDP in the Okta portal, assign the application to users.
 
 1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**.
 
@@ -228,15 +227,15 @@ After you configure the Okta app in Azure AD and you configure the IDP in the Ok
    >[!NOTE]
    >You can add users and groups only from the **Enterprise applications** page. You can't add users from the **App registrations** menu.
 
-   ![Screenshot that shows how to add a group.](media/migrate-okta-federation-to-azure-active-directory/add-group.png)
+   ![Screenshot of the Users and groups page of the Azure portal. A group called Managed Authentication Staging Group is visible.](media/migrate-okta-federation-to-azure-active-directory/add-group.png)
 
 1. After about 15 minutes, sign in as one of the managed authentication pilot users and go to [My Apps](https://myapplications.microsoft.com).
 
-   ![Screenshot that shows the My Apps gallery.](media/migrate-okta-federation-to-azure-active-directory/my-applications.png)
+   ![Screenshot that shows the My Apps gallery. An icon for Okta Application Access is visible.](media/migrate-okta-federation-to-azure-active-directory/my-applications.png)
 
 1. Select the **Okta Application Access** tile to return the user to the Okta home page.
 
-## Test-managed authentication on pilot members
+## Test managed authentication on pilot members
 
 After you configure the Okta reverse-federation app, have your users conduct full testing on the managed authentication experience. We recommend that you set up company branding to help your users recognize the tenant they're signing in to. For more information, see [Add branding to your organization's Azure AD sign-in page](../fundamentals/customize-branding.md).
 

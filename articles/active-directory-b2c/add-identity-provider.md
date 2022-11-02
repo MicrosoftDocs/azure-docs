@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 12/02/2021
+ms.date: 04/08/2022
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -43,11 +43,12 @@ You typically use only one identity provider in your applications, but you have 
 * [Google](identity-provider-google.md)
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)
+* [Mobile ID](identity-provider-mobile-id.md)
 * [PingOne](identity-provider-ping-one.md) (PingIdentity)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
-* [SwissID]( identity-provider-swissid.md)
+* [SwissID](identity-provider-swissid.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

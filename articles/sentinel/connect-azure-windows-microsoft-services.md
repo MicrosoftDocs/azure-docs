@@ -10,11 +10,13 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
+
+This article describes the collection of Windows Security Events. For Windows DNS events, learn about the [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md).
+
+## Types of connections
 
 This article discusses the following types of connectors:
 
@@ -85,7 +87,7 @@ To ingest data into Microsoft Sentinel:
 
 1. Select **Save** at the top of the screen.
 
-For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings) in the Azure Monitor documentation.
+For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) in the Azure Monitor documentation.
 
 # [Azure Policy](#tab/AP)
 
@@ -131,6 +133,10 @@ You can find and query the data for each resource type using the table name that
 
 ## Windows agent-based connections
 
+> [!NOTE]
+>
+> The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also uses the Azure Monitor Agent. This connector streams and filter events from Windows Domain Name System (DNS) server logs.
+
 # [Azure Monitor Agent](#tab/AMA)
 
 > [!IMPORTANT]
@@ -171,7 +177,7 @@ See below how to create data collection rules.
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
     Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
@@ -275,7 +281,7 @@ See this [complete description of data collection rules](../azure-monitor/essent
     | --------- | --------- |
     | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
     | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
-    | | |
+
 
 > [!NOTE]
 >

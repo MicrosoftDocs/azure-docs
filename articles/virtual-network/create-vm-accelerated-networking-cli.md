@@ -3,7 +3,7 @@ title: Create an Azure VM with Accelerated Networking using Azure CLI
 description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
 documentationcenter: na
-author: steveesp
+author: asudbring
 manager: gedegrac
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/15/2022
-ms.author: steveesp
+ms.date: 03/24/2022
+ms.author: allensu
 ms.custom: 
 
 ---
@@ -27,6 +27,8 @@ Though this article provides steps to create a virtual machine with accelerated 
 You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
 >[!NOTE]
+> The Accelerated Networking setting in the portal reflects the user-selected state. AccelNet allows choosing “Disabled” even if the VM size requires AccelNet. For those AccelNet-required VM sizes, AccelNet will be enabled at runtime regardless of the user setting seen in the portal.
+> 
 > Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 
 After the VM is created, you can confirm that Accelerated Networking is enabled by following the [confirmation instructions](#confirm-that-accelerated-networking-is-enabled).
@@ -149,9 +151,11 @@ From the Bash shell, enter `uname -r` and confirm that the kernel version is one
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 3.10.0-693
+* **RHEL**: 3.10.0-693, 2.6.32-573*
 * **CentOS**: 3.10.0-693
 
+> [!NOTE]
+> Other kernel versions may be supported. For the most up to date list, reference the compatibility tables for each distrubution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows) and confirm that SR-IOV is supported. Additional details can be found in the release notes for the [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). * RHEL 6.7-6.10 are supported if the Mellanox VF version 4.5+ is installed before Linux Integration Services 4.3+.
 
 Confirm that the Mellanox VF device is exposed to the VM with the `lspci` command. The returned output is similar to the following output:
 
@@ -178,7 +182,7 @@ Accelerated Networking is now enabled for your VM.
 ## Handle dynamic binding and revocation of virtual function 
 Applications must run over the synthetic NIC that is exposed in VM. If the application runs directly over the VF NIC, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. If you run an application over the synthetic NIC, it guarantees that the application receives **all** packets that are destined to it. It also makes sure that the application keeps running, even if the VF is revoked during host servicing. Applications binding to the synthetic NIC is a **mandatory** requirement for all applications taking advantage of **Accelerated Networking**.
 
-For more details on application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](/azure/virtual-network/accelerated-networking-how-it-works#application-usage).
+For more details on application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
 ## Enable Accelerated Networking on existing VMs
 If you've created a VM without Accelerated Networking, it's possible to enable this feature on an existing VM. The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined:
@@ -265,4 +269,3 @@ A VM with Accelerated Networking enabled can't be resized to a VM instance that 
 * Learn [how Accelerated Networking works](./accelerated-networking-how-it-works.md)
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
-

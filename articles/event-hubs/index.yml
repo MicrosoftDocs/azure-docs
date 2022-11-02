@@ -56,11 +56,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Hubs
-            url: /learn/modules/azure-event-hubs/
+            url: /training/modules/azure-event-hubs/
           - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
-            url: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
 
   # Card
   - title: Create a dedicated cluster
@@ -85,6 +85,8 @@ landingContent:
         links:
           - text: Stream into Event Hubs for Apache Kafka
             url: event-hubs-quickstart-kafka-enabled-event-hubs.md
+          - text: Use Spring Kafka with Azure Event Hubs
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
       - linkListType: tutorial
         links:
           - text: Process events using Stream Analytics
@@ -111,6 +113,8 @@ landingContent:
             url: event-hubs-dotnet-standard-getstarted-send.md
           - text: Java
             url: event-hubs-java-get-started-send.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
           - text: Python
             url: event-hubs-python-get-started-send.md
           - text: JavaScript
@@ -199,4 +203,6 @@ landingContent:
           - text: Use private endpoints
             url: private-link-service.md            
           - text: Configure customer-managed keys for encrypting data at rest
-            url: configure-customer-managed-key.md            
+            url: configure-customer-managed-key.md     
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md    

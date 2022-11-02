@@ -1,8 +1,8 @@
 ---
 title: Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of business continuity with Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 11/30/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 **Business continuity** in Azure Database for PostgreSQL - Flexible Server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, flexible server will handle the disruptive events happens that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that cannot be handled automatically such as:
 
@@ -25,8 +27,9 @@ The table below illustrates the features that Flexible server offers.
 | ---------- | ----------- | ------------ |
 | **Automatic backups** | Flexible server automatically performs daily backups of your database files and continuously backs up transaction logs. Backups can be retained from 7 days up to 35 days. You will be able to restore your database server to any point in time within your backup retention period. RTO is dependent on the size of the data to restore + the time to perform log recovery. It can be from few minutes up to 12 hours. For more details, see [Concepts - Backup and Restore](./concepts-backup-restore.md). |Backup data remains within the region. |
 | **Zone redundant high availability** | Flexible server can be deployed with zone redundant high availability(HA) configuration where primary and standby servers are deployed in two different availability zones within a region. This HA configuration protects your databases from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica. RTO in most cases is expected to be less than 120s. RPO is expected to be zero (no data loss). For more information, see [Concepts - High availability](./concepts-high-availability.md). | Supported in general purpose and memory optimized compute tiers. Available only in regions where multiple zones are available. |
+| **Same zone high availability** | Flexible server can be deployed with same zone high availability(HA) configuration where primary and standby servers are deployed in the same availability zone in a region. This HA configuration protects your databases from node-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica. RTO in most cases is expected to be less than 120s. RPO is expected to be zero (no data loss). For more information, see [Concepts - High availability](./concepts-high-availability.md). | Supported in general purpose and memory optimized compute tiers. |
 | **Premium-managed disks** | Database files are stored in a highly durable and reliable premium-managed storage. This provides data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. For more information, see [Managed disks documentation](../../virtual-machines/managed-disks-overview.md). | Data stored within an availability zone. |
-| **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region. During a zone-level failure where your server is provisioned, and if your server is not configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
+| **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region if the region supports AZs. During a zone-level failure where your server is provisioned, and if your server is not configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 
 ## Planned downtime events
@@ -40,7 +43,7 @@ Below are some planned maintenance scenarios. These events typically incur up to
 | <b>New software deployment (Azure-initiated) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, check your [portal](https://aka.ms/servicehealthpm). | 
 | <b>Minor version upgrades (Azure-initiated) | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. The database server is automatically restarted with the new minor version. For more information, see [documentation](../concepts-monitoring.md#planned-maintenance-notification). You can also check your [portal](https://aka.ms/servicehealthpm).| 
 
-When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
+When the flexible server is configured with **high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
 
 ##  Unplanned downtime mitigation
 
@@ -63,5 +66,5 @@ Below are some unplanned failure scenarios and the recovery process.
 
 ## Next steps
 
--   Learn about [zone redundant high availability](./concepts-high-availability.md)
+-   Learn about [high availability deployment models](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)

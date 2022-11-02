@@ -1,25 +1,18 @@
 ---
-title: Improve performance by compressing files in Azure Front Door Standard/Premium (Preview)
+title: Improve performance by compressing files in Azure Front Door
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure Front Door.
 services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/20/2022
 ms.author: yuajia
 ---
 
-# Improve performance by compressing files in Azure Front Door Standard/Premium (Preview)
-
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+# Improve performance by compressing files in Azure Front Door
 
 File compression is an effective method to improve file transfer speed and increase page-load performance. The compression reduces the size of the file before it's sent by the server. File compression can reduce bandwidth costs and provide a better experience for your users.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 There are two ways to enable file compression:
 
 - Enabling compression on your origin server. Azure Front Door passes along the compressed files and delivers them to clients that request them.

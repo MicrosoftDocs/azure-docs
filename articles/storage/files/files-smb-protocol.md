@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 05/09/2022
 ms.author: kendownie
 ms.subservice: files
 
@@ -58,7 +58,7 @@ To view the status of SMB Multichannel, navigate to the storage account containi
 
 To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
 
-:::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature":::
+:::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature.":::
 
 # [PowerShell](#tab/azure-powershell)
 To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
@@ -141,7 +141,7 @@ echo $protocolSettings
 
 To enable/disable SMB Multichannel, use the `az storage account file-service-properties update` command.
 
-```bash
+```azurecli
 az storage account file-service-properties update \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
@@ -154,13 +154,29 @@ Azure Files exposes settings that let you toggle the SMB protocol to be more com
 
 Azure Files exposes the following settings:
 
-- **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if "require secure transit" is enabled, since SMB 2.1 does not support encryption in transit.
+- **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if "require secure transfer" is enabled, because SMB 2.1 does not support encryption in transit.
 - **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share.
-- **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are RC4-HMAC and AES-256.
+- **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM.
 
+The SMB security settings can be viewed and changed using the Azure portal, PowerShell, or CLI. Please select the desired tab to see the steps on how to get and set the SMB security settings.
+
 # [Portal](#tab/azure-portal)
-The SMB security settings can be viewed and changed using PowerShell or CLI. Please select the desired tab to see the steps on how to get and set the SMB security settings.
+To view or change the SMB security settings using the Azure portal, follow these steps:
+
+1. Search for **Storage accounts** and select the storage account for which you want to view the security settings.
+
+1. Select **Data storage** > **File shares**.
+
+1. Under **File share settings**, select the value associated with **Security**. If you haven't modified the security settings, this value defaults to **Maximum compatibility**.
+
+   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to change SMB security settings.":::
+
+1. Under **Profile**, select **Maximum compatibility**, **Maximum security**, or **Custom**. Selecting **Custom** allows you to create a custom profile for SMB protocol versions, SMB channel encryption, authentication mechanisms, and Kerberos ticket encryption.
+
+   :::image type="content" source="media/files-smb-protocol/file-share-security-settings.png" alt-text="A screenshot showing the dialog to change the SMB security settings for SMB protocol versions, SMB channel encryption, authentication mechanisms, and Kerberos ticket encryption.":::
+
+After you've entered the desired security settings, select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 To get the SMB protocol settings, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
@@ -286,7 +302,7 @@ protocolSettings=$(az storage account file-service-properties show \
     --query "${query}")
 
 # Replace returned values if null with default values 
-protocolSettings="${protocolSettings/$replaceSmbProtocolVersion/$defaultSmbProtocolVersion}"
+protocolSettings="${protocolSettings/$replaceSmbProtocolVersion/$defaultSmbProtocolVersions}"
 protocolSettings="${protocolSettings/$replaceSmbChannelEncryption/$defaultSmbChannelEncryption}"
 protocolSettings="${protocolSettings/$replaceSmbAuthenticationMethods/$defaultSmbAuthenticationMethods}"
 protocolSettings="${protocolSettings/$replaceSmbKerberosTicketEncryption/$defaultSmbKerberosTicketEncryption}"
@@ -300,7 +316,7 @@ Depending on your organizations security, performance, and compatibility require
 > [!Important]  
 > Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that do not support AES-256-GCM will not be able to connect.
 
-```bash
+```azurecli
 az storage account file-service-properties update \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \

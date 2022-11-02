@@ -43,12 +43,13 @@ With X.509 attestation, devices can also be provisioned through an enrollment gr
 
 To see a list of devices that have been provisioned through an enrollment group, you can view the enrollment group's details. This is an easy way to understand which IoT hub each device has been provisioned to. To view the device list:
 
-1. Log in to the Azure portal and click **All resources** on the left-hand menu.
-2. Click your provisioning service in the list of resources.
-3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
-4. Click the enrollment group to open it.
+1. Log in to the Azure portal and select **All resources** on the left-hand menu.
+2. Select your provisioning service in the list of resources.
+3. In your provisioning service, select **Manage enrollments**, then select the **Enrollment Groups** tab.
+4. Select the enrollment group to open it.
+5. Select the **Registration Records** tab to view the registration records for the enrollment group.
 
-   ![View enrollment group entry in the portal](./media/how-to-unprovision-devices/view-enrollment-group.png)
+   ![Screenshot showing the registration records for an enrollment group in the portal.](./media/how-to-unprovision-devices/view-registration-records.png)
 
 With enrollment groups, there are two scenarios to consider:
 
@@ -56,6 +57,11 @@ With enrollment groups, there are two scenarios to consider:
   1. Disable the enrollment group to disallow its signing certificate.
   2. Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub.
   3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll.
+
+     > [!NOTE]
+     > Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations has been reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
+     >
+     >You may want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).
 
 - To deprovision a single device from an enrollment group:
   1. Create a disabled individual enrollment for the device.

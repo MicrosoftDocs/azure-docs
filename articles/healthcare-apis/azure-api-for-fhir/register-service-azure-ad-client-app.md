@@ -1,17 +1,17 @@
 ---
 title: Register a service app in Azure AD - Azure API for FHIR
 description: Learn how to register a service client application in Azure Active Directory. 
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Register a service client application in Azure Active Directory for Azure API for FHIR
 
-In this article, you'll learn how to register a service client application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
+In this article, you'll learn how to register a service client application in Azure Active Directory (Azure AD). Client application registrations are Azure AD representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
 
 Follow these steps to create a new service client.
 
@@ -53,7 +53,9 @@ The service client needs a secret (password) to obtain a token.
 
 ## Next steps
 
-In this article, you've learned how to register a service client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
+In this article, you've learned how to register a service client application in Azure AD. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

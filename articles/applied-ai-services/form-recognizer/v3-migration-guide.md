@@ -7,27 +7,48 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
-# Form Recognizer v3.0 migration | Preview
+# Form Recognizer v3.0 migration
 
 > [!IMPORTANT]
 >
 > Form Recognizer REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
 
-Form Recognizer v3.0 (preview) introduces several new features and capabilities:
+## Migrating from a v3.0 preview API version
 
-* [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
-* [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Custom document model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
+Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+
+The 2022-08-31 API has a few updates from the preview API versions:
+* Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
+* Field deleted: entities removed from the result of the general document model.
+* Field rename: documentLanguage.languageCode to locale
+* Added support for HEIF format
+* Added paragraph detection, with role classification for layout and general document models
+* Added support for parsed address fields.
+
+## Migrating from v2.1
+
+Form Recognizer v3.0  introduces several new features and capabilities:
+
+* [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.
+* [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
+* [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom forms.
+* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
+* [**Custom model API (v3.0)**](overview.md) supports analysis of all the newly added prebuilt models. For a complete list of prebuilt models, see the [overview](overview.md) page.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
+
+> [!CAUTION]
+>
+> * REST API **2022-08-31** release includes a breaking change in the REST API analyze response JSON.
+> * The `boundingBox` property is renamed to `polygon` in each instance.
 
 ## Changes to the REST API endpoints
 
@@ -36,14 +57,14 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 ### POST request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-08-31
 
 ```
 
 ### GET request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-01-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-08-31
 ```
 
 ### Analyze operation
@@ -51,19 +72,19 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to failed and an error will be returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to `failed`, and an error will be returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
 | **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
-|🆕 **General document**|N/A|/documentModels/prebuilt-document:analyze |
-| **Layout**| /layout/analyze |/documentModels/prebuilt-layout:analyze|
-|**Custom**| /custom/{modelId}/analyze    |/documentModels/{modelId}:analyze |
-| **Invoice** | /prebuilt/invoice/analyze    | /documentModels/prebuilt-invoice:analyze |
-| **Receipt** | /prebuilt/receipt/analyze    | /documentModels/prebuilt-receipt:analyze |
-| **ID document** | /prebuilt/idDocument/analyze |  /documentModels/prebuilt-idDocument:analyze |
-|**Business card**| /prebuilt/businessCard/analyze| /documentModels/prebuilt-businessCard:analyze|
-|**W-2**| /prebuilt/w-2/analyze| /documentModels/prebuilt-w-2:analyze|
+| **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
+| **Layout**| /layout/analyze |`/documentModels/prebuilt-layout:analyze`|
+|**Custom**| /custom/{modelId}/analyze    |`/documentModels/{modelId}:analyze` |
+| **Invoice** | /prebuilt/invoice/analyze    | `/documentModels/prebuilt-invoice:analyze` |
+| **Receipt** | /prebuilt/receipt/analyze    | `/documentModels/prebuilt-receipt:analyze` |
+| **ID document** | /prebuilt/idDocument/analyze |  `/documentModels/prebuilt-idDocument:analyze` |
+|**Business card**| /prebuilt/businessCard/analyze| `/documentModels/prebuilt-businessCard:analyze`|
+|**W-2**| /prebuilt/w-2/analyze| `/documentModels/prebuilt-w-2:analyze`|
 
 ### Analyze request body
 
@@ -85,14 +106,14 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 }
 ```
 
-### Additional parameters
+### Additionally supported parameters
 
 Parameters that continue to be supported:
 
-* `pages`
-* `locale`
+* `pages` : Analyze only a specific subset of pages in the document. List of page numbers indexed from the number `1` to analyze. Ex. "1-3,5,7-9"
+* `locale` : Locale hint for text recognition and document analysis. Value may contain only the language code (ex. "en", "fr") or BCP 47 language tag (ex. "en-US").
 
-Parameters no longer supported: 
+Parameters no longer supported:
 
 * includeTextDetails
 
@@ -117,7 +138,7 @@ Analyze response has been refactored to the following top-level results to suppo
 
 {
 // Basic analyze result metadata
-"apiVersion": "2022-01-30-preview", // REST API version used
+"apiVersion": "2022-08-31", // REST API version used
 "modelId": "prebuilt-invoice", // ModelId used
 "stringIndexType": "textElements", // Character unit used for string offsets and lengths:
 // textElements, unicodeCodePoint, utf16CodeUnit // Concatenated content in global reading order across pages.
@@ -131,7 +152,7 @@ Analyze response has been refactored to the following top-level results to suppo
 "angle": 0, // Orientation of content in clockwise direction (degree)
 "width": 0, // Page width
 "height": 0, // Page height
-"unit": "pixel", // Unit for width, height, and bounding box coordinates
+"unit": "pixel", // Unit for width, height, and polygon coordinates
 "spans": [ // Parts of top-level content covered by page
 {
 "offset": 0, // Offset in content
@@ -167,10 +188,10 @@ Analyze response has been refactored to the following top-level results to suppo
 {
 "rowCount": 1, // Number of rows in table
 "columnCount": 1, // Number of columns in table
-"boundingRegions": [ // Bounding boxes potentially across pages covered by table
+"boundingRegions": [ // Polygons or Bounding boxes potentially across pages covered by table
 {
 "pageNumber": 1, // 1-indexed page number
-"boundingBox": [ ... ], // Bounding box
+"polygon": [ ... ], // Previously Bounding box, renamed to polygon in the 2022-08-31 API
 }
 ],
 "spans": [ ... ], // Parts of top-level content covered by table // List of cells in table
@@ -240,8 +261,6 @@ Analyze response has been refactored to the following top-level results to suppo
 ]
 }
 
-
-
 ```
 
 ## Build or train model
@@ -250,14 +269,14 @@ The model object has three updates in the new API
 
 * ```modelId``` is now a property that can be set on a model for a human readable name.
 * ```modelName``` has been renamed to ```description```
-* ```buildMode``` is a new proerty with values of  ```template``` for custom form models or ```neural``` for custom document models.
+* ```buildMode``` is a new property with values of  ```template``` for custom form models or ```neural``` for custom neural models.
 
-The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL is not the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
+The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL isn't the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed```, and the error is returned.
 
 The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 {
   "modelId": {modelId},
@@ -275,7 +294,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
 Model compose is now limited to single level of nesting. Composed models are now consistent with custom models with the addition of ```modelId``` and ```description``` properties.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2022-01-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2022-08-31
 {
   "modelId": "{composedModelId}",
   "description": "{composedModelDescription}",
@@ -292,7 +311,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
 The call pattern for copy model remains unchanged:
 
 * Authorize the copy operation with the target resource calling ```authorizeCopy```. Now a POST request.
-* Submit the authorization to the source resource to copy the model calling ```copy-to```
+* Submit the authorization to the source resource to copy the model calling ```copyTo```
 * Poll the returned operation to validate the operation completed successfully
 
 The only changes to the copy model function are:
@@ -303,7 +322,7 @@ The only changes to the copy model function are:
 ***Authorize the copy***
 
 ```json
-POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2022-01-30-preview
+POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2022-08-31
 {
   "modelId": "{targetModelId}",
   "description": "{targetModelDescription}",
@@ -313,7 +332,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
 Use the response body from the authorize action to construct the request for the copy.
 
 ```json
-POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2022-01-30-preview
+POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copyTo?api-version=2022-08-31
 {
   "targetResourceId": "{targetResourceId}",
   "targetResourceRegion": "{targetResourceRegion}",
@@ -331,7 +350,7 @@ List models have been extended to now return prebuilt and custom models. All pre
 ***Sample list models request***
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2022-08-31
 ```
 
 ## Change to get model
@@ -339,7 +358,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-ve
 As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type is described by its name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-08-31
 ```
 
 ## New get info operation
@@ -347,7 +366,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{model
 The ```info``` operation on the service returns the custom model count and custom model limit.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2022-08-31
 ```
 
 ***Sample response***
@@ -363,8 +382,9 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 ## Next steps
 
-In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API for any of the preview features.
+In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs.
 
-* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+

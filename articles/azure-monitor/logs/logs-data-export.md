@@ -10,15 +10,15 @@ ms.date: 02/09/2022
 ---
 
 # Log Analytics workspace data export in Azure Monitor
-Data export in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it's collected. This article provides details on this feature and steps to configure data export in your workspaces.
+Data export in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it arrives to Azure Monitor pipeline. This article provides details on this feature and steps to configure data export in your workspaces.
 
 ## Overview
 Data in Log Analytics is available for the retention period defined in your workspace, and used in various experiences provided in Azure Monitor and Azure services. There are cases where you need to use other tools:
 * Tamper protected store compliance – data can't be altered in Log Analytics once ingested, but can be purged. Export to Storage Account set with [immutability policies](../../storage/blobs/immutable-policy-configure-version-scope.md) to keep data tamper protected.
-*  Integration with Azure services and other tools – export to Event Hubs in near-real-time to send data to your services and tools at it arrives to Azure Monitor.
+*  Integration with Azure services and other tools – export to Event Hubs as data arrives and is processed in Azure Monitor.
 *  Keep audit and security data for very long time – export to Storage Account in the workspace's region, or replicate data to other regions using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including "GRS" and "GZRS".
 
-After configuring data export rules in Log Analytics workspace, new data for tables in rules is exported from Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
+Once you've configured data export rules in Log Analytics workspace, new data for tables in rules is exported from Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
 
 [![Data export overview](media/logs-data-export/data-export-overview.png "Screenshot of data export flow diagram.")](media/logs-data-export/data-export-overview.png#lightbox)
 
@@ -28,32 +28,35 @@ Data is exported without a filter. For example, when you configure a data export
 ## Other export options
 Log Analytics workspace data export continuously exports data that is sent to your Log Analytics workspace. There are other options to export data for particular scenarios:
 
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure Storage Account. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces), see [Archive data from Log Analytics workspace to Azure Storage Account using Logic App](logs-export-logic-app.md).
+- Configure Diagnostic Settings in Azure resources. Logs are sent to destination directly and has lower latency compared to data export in Log Analytics.
+- Schedule export of data based on a log query you define with the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query/execute). Use services such as Azure Data Factory, Azure Functions, or Azure Logic App to orchestrate queries in your workspace and export data to a destination. This is similar to the data export feature, but allows you to export historical data from your workspace, using filters and aggregation. This method is subject to [log query limits](../service-limits.md#log-analytics-workspaces) and not intended for scale. See [Archive data from Log Analytics workspace to Azure Storage Account using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Limitations
 
 - All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section.
-- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
+- Legacy custom log using the [HTTP Data Collector API](./data-collector-api.md) won’t be supported in export, while data for [DCR based custom logs](./logs-ingestion-api-overview.md) can be exported. 
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage Account must be unique across rules in workspace.
-- Tables names can be no longer than 60 characters when exporting to Storage Account and 47 characters to Event Hubs. Tables with longer names will not be exported.
-- Data export isn't supported in Government regions currently
+- Tables names can be 60 characters long when exporting to Storage Account, and 47 characters to Event Hubs. Tables with longer names won't be exported.
+- Data export isn't supported in China currently.
 
 ## Data completeness
 Data export is optimized for moving large data volume to your destinations, and in certain retry conditions, can include a fraction of duplicated records. The export operation could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). In such case, a retry continues for up to 30 minutes, and if destination is unavailable yet, data will be discarded until destination becomes available.
 
-## Cost
-Billing for the Log Analytics Data Export feature is not enabled yet. View more details in [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+## Pricing model
+Data export charges are based on the volume of data exported measured in bytes. The size of data exported by Log Analytics Data Export is the number of bytes in the exported JSON formatted data. Data volume is measured in GB (10^9 bytes)
+
+For more information, including the data export billing timeline, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Export destinations
 
 Data export destination must be available before creating export rules in your workspace. Destinations don't have to be in the same subscription as your workspace. When using Azure Lighthouse, it is also possible send data to destinations in another Azure Active Directory tenant.
 
-### Storage Account
+You need to have 'write' permissions to both workspace and destination to configure data export rule on any table in workspace. The shared access policy for the Event Hubs namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
 
-You need to have 'write' permissions to both workspace and destination to configure data export rule. 
+### Storage Account
 
 Don't use an existing Storage Account that has other, non-monitoring data to better control access to the data, and prevent reaching storage ingress rate limit, failures, and latency. 
 
@@ -63,7 +66,7 @@ The Storage Account must be StorageV1 or above and in the same region as your wo
 
 Data is sent to Storage Accounts as it reaches Azure Monitor and exported to destinations located in workspace region. A container is created for each table in Storage Account, with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would send to a container named *am-SecurityEvent*.
 
-Blobs are stored in 5-minute folders in path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Append blobs is limited to 50-K writes and could be reached, and more blobs will be added in folder as: PT05M_#.json*, where # is incremental blob count.
+Blobs are stored in 5-minute folders in path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Appends to blobs are limited to 50-K writes. More blobs will be added in folder as: PT05M_#.json*, where # is incremental blob count.
 
 The format of blobs in Storage Account is in [JSON lines](../essentials/resource-logs-blob-format.md), where each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
@@ -71,11 +74,9 @@ The format of blobs in Storage Account is in [JSON lines](../essentials/resource
 
 ### Event Hubs
 
-You need to have 'write' permissions to both workspace and destination to configure data export rule. The shared access policy for the Event Hubs namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
-
 Don't use an existing Event Hubs that has, non-monitoring data to prevent reaching Event Hubs namespace ingress rate limit, failures, and latency.
 
-Data is sent to your Event Hubs as it reaches Azure Monitor and exported to destinations located in workspace region. You can create multiple export rules to the same Event Hubs namespace by providing different `event hub name` in rule. When `event hub name` isn't provided, default Event Hubs are created for tables that you export with name: *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an Event Hub named: *am-SecurityEvent*. The [number of supported Event Hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules, to different Event Hubs namespaces, or provide an Event Hub name to export all tables to it.
+Data is sent to your Event Hubs as it reaches Azure Monitor and exported to destinations located in workspace region. You can create multiple export rules to the same Event Hubs namespace by providing different `event hub name` in rule. When `event hub name` isn't provided, default Event Hubs is created for tables that you export with name: *am-* followed by the name of the table. For example, the table *SecurityEvent* would be sent to an Event Hubs named: *am-SecurityEvent*. The [number of supported Event Hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules, to different Event Hubs namespaces, or provide an Event Hubs name to export all tables to it.
 
 > [!NOTE]
 > - 'Basic' Event Hubs namespace tier is limited – it supports [lower event size](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option to automatically scale up and increase the number of throughput units. Since data volume to your workspace increases over time and consequence Event Hubs scaling is required, use 'Standard', 'Premium' or 'Dedicated' Event Hubs tiers with **Auto-inflate** feature enabled. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
@@ -135,9 +136,9 @@ If you have configured your Storage Account to allow access from selected networ
   
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per alert evaluation period. For example, limit is 1 MB/s per unit ("TU" or "PU") and five units used. Threshold is 1200 MB per 5-minutes evaluation period |
-    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per alert evaluation period. For example, limit is 1000/s per unit ("TU" or ""PU") and five units used. Threshold is 1200000 per 5-minutes evaluation period |
-    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% of request. For example, requests per 5-minute is 600000. Threshold is 6000 per 5-minute evaluation period |
+    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of max ingress per alert evaluation period. For example, limit is 1 MB/s per unit ("TU" or "PU") and five units used. Threshold is 1200 MB per 5-minutes evaluation period |
+    | namespaces-name | Event Hubs standard metrics | Incoming requests | Count | 80% of max events per alert evaluation period. For example, limit is 1000/s per unit ("TU" or ""PU") and five units used. Threshold is 1200000 per 5-minutes evaluation period |
+    | namespaces-name | Event Hubs standard metrics | Quota Exceeded Errors | Count | Between 1% of request. For example, requests per 5-minute is 600000. Threshold is 6000 per 5-minute evaluation period |
 
 2. Alert remediation actions
    - Use separate Event Hubs namespace for export that isn't shared with non-monitoring data.
@@ -150,10 +151,9 @@ If you have configured your Storage Account to allow access from selected networ
 Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage Account must be unique across rules in workspace. Multiple rules can use the same Event Hubs namespace when sending to separate Event Hubs.
 
 > [!NOTE]
-> - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
-> - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
+> - You can include tables that aren't yet supported in rules, but no data will be exported for these until tables get supported.
 > - Export to Storage Account - a separate container is created in Storage Account for each table.
-> - Export to Event Hubs - if Event Hub name isn't provided, a separate Event Hub is created for each table. The [number of supported Event Hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different Event Hubs namespaces, or provide an Event Hub name in the rule to export all tables to it.
+> - Export to Event Hubs - if Event Hubs name isn't provided, a separate Event Hubs is created for each table. The [number of supported Event Hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different Event Hubs namespaces, or provide an Event Hubs name in the rule to export all tables to it.
 
 # [Azure portal](#tab/portal)
 
@@ -175,14 +175,14 @@ $storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resou
 New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -ResourceId $storageAccountResourceId
 ```
 
-Use the following command to create a data export rule to a specific Event Hub using PowerShell. All tables are exported to the provided Event Hub name and can be filtered by "Type" field to separate tables.
+Use the following command to create a data export rule to a specific Event Hubs using PowerShell. All tables are exported to the provided Event Hubs name and can be filtered by "Type" field to separate tables.
 
 ```powershell
 $eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
 New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -ResourceId $eventHubResourceId -EventHubName EventhubName
 ```
 
-Use the following command to create a data export rule to an Event Hub using PowerShell. When specific Event Hub name isn't provided, a separate container is created for each table, up to the [number of Event Hubs supported in Event Hubs tier](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). To export more tables, provide an Event Hub name in rule, or set another rule and export the remaining tables to another Event Hubs namespace.
+Use the following command to create a data export rule to an Event Hubs using PowerShell. When specific Event Hubs name isn't provided, a separate container is created for each table, up to the [number of Event Hubs supported in Event Hubs tier](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). To export more tables, provide an Event Hubs name in rule, or set another rule and export the remaining tables to another Event Hubs namespace.
 
 ```powershell
 $eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
@@ -198,14 +198,14 @@ $storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resou
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Use the following command to create a data export rule to a specific Event Hub using CLI. All tables are exported to the provided Event Hub name and can be filtered by "Type" field to separate tables.
+Use the following command to create a data export rule to a specific Event Hubs using CLI. All tables are exported to the provided Event Hubs name and can be filtered by "Type" field to separate tables.
 
 ```azurecli
 $eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
-Use the following command to create a data export rule to an Event Hubs using CLI. When specific Event Hub name isn't provided, a separate container is created for each table up to the [number of supported Event Hubs for your Event Hubs tier](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you have more tables to export, provide Event Hub name to export any number of tables, or set another rule to export the remaining tables to another Event Hubs namespace.
+Use the following command to create a data export rule to an Event Hubs using CLI. When specific Event Hubs name isn't provided, a separate container is created for each table up to the [number of supported Event Hubs for your Event Hubs tier](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you have more tables to export, provide Event Hubs name to export any number of tables, or set another rule to export the remaining tables to another Event Hubs namespace.
 
 ```azurecli
 $eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
@@ -254,7 +254,7 @@ Following is a sample body for the REST request for an Event Hubs.
 }
 ```
 
-Following is a sample body for the REST request for an Event Hubs where Event Hub name is provided. In this case, all exported data is sent to it.
+Following is a sample body for the REST request for an Event Hubs where Event Hubs name is provided. In this case, all exported data is sent to it.
 
 ```json
 {
@@ -334,7 +334,7 @@ Use the following command to create a data export rule to a Storage Account usin
 }
 ```
 
-Use the following command to create a data export rule to an Event Hubs using Resource Manager template. A separate Event Hub is created for each table.
+Use the following command to create a data export rule to an Event Hubs using Resource Manager template. A separate Event Hubs is created for each table.
 
 ```
 {
@@ -390,7 +390,7 @@ Use the following command to create a data export rule to an Event Hubs using Re
 }
 ```
 
-Use the following command to create a data export rule to a specific Event Hub using Resource Manager template. All tables are exported to it.
+Use the following command to create a data export rule to a specific Event Hubs using Resource Manager template. All tables are exported to it.
 
 ```
 {
@@ -651,7 +651,9 @@ All data from the table will be exported unless limitations are specified. This 
 | AADManagedIdentitySignInLogs |  |
 | AADNonInteractiveUserSignInLogs |  |
 | AADProvisioningLogs |  |
+| AADRiskyServicePrincipals |  |
 | AADRiskyUsers |  |
+| AADServicePrincipalRiskEvents |  |
 | AADServicePrincipalSignInLogs |  |
 | AADUserRiskEvents |  |
 | ABSBotRequests |  |
@@ -661,6 +663,7 @@ All data from the table will be exported unless limitations are specified. This 
 | ACSCallDiagnostics |  |
 | ACSCallSummary |  |
 | ACSChatIncomingOperations |  |
+| ACSNetworkTraversalIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
 | ADFActivityRun |  |
@@ -668,7 +671,6 @@ All data from the table will be exported unless limitations are specified. This 
 | ADFSSignInLogs |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
-| ADPDiagnostics |  |
 | ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
@@ -678,36 +680,52 @@ All data from the table will be exported unless limitations are specified. This 
 | ADTQueryOperation |  |
 | ADXCommand |  |
 | ADXQuery |  |
-| AEWAuditLogs |  |
-| ATCExpressRouteCircuitIpfix |  |
-| AWSCloudTrail |  |
-| AWSGuardDuty |  |
-| AWSVPCFlow |  |
+| AegDataPlaneRequests |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAuditLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodFarmManagementLogs |  |
 | AgriFoodFarmOperationLogs |  |
 | AgriFoodJobProcessedLogs |  |
-| AgriFoodProviderAuthLogs |  |
+| AGSGrafanaLoginEvents |  |
 | Alert | Partial support – Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
+| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
+| AppAvailabilityResults |  |
+| AppBrowserTimings |  |
 | AppCenterError |  |
+| AppEvents |  |
+| AppExceptions |  |
+| AppDependencies |  |
+| AppMetrics |  |
+| AppPageViews |  |
+| AppPerformanceCounters |  |
 | AppPlatformSystemLogs |  |
+| AppRequests |  |
 | AppServiceAppLogs |  |
 | AppServiceAuditLogs |  |
 | AppServiceConsoleLogs |  |
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
+| AppSystemEvents |  |
+| AppTraces |  |
+| ASimDnsActivityLogs |  |
+| ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
+| AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AzureAssessmentRecommendation |  |
+| AzureAttestationDiagnostics |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
+| CassandraLogs |  |
 | CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
@@ -718,7 +736,6 @@ All data from the table will be exported unless limitations are specified. This 
 | CDBQueryRuntimeStatistics |  |
 | CIEventsAudit |  |
 | CIEventsOperational |  |
-| CassandraLogs |  |
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
@@ -730,19 +747,21 @@ All data from the table will be exported unless limitations are specified. This 
 | ContainerNodeInventory |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
-| DSMAzureBlobStorageLogs |  |
 | DatabricksAccounts |  |
 | DatabricksClusters |  |
 | DatabricksDBFS |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
 | DatabricksNotebook |  |
+| DatabricksSecrets |  |
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
-| DatabricksSecrets |  |
 | DatabricksWorkspace |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DSMAzureBlobStorageLogs |  |
+| DSMDataClassificationLogs |  |
+| DSMDataLabelingLogs |  |
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
@@ -754,19 +773,17 @@ All data from the table will be exported unless limitations are specified. This 
 | FunctionAppLogs |  |
 | HDInsightAmbariClusterAlerts |  |
 | HDInsightAmbariSystemMetrics |  |
-| HDInsightHBaseLogs |  |
-| HDInsightHBaseMetrics |  |
 | HDInsightHadoopAndYarnLogs |  |
 | HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHBaseLogs |  |
+| HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveQueryAppStats |  |
 | HDInsightHiveTezAppStats |  |
-| HDInsightJupyterNotebookEvents |  |
 | HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
-| HDInsightRangerAuditLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
 | HDInsightSparkBlockManagerEvents |  |
@@ -794,9 +811,9 @@ All data from the table will be exported unless limitations are specified. This 
 | KubePodInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
-| MCCEventLogs |  |
-| MCVPOperationLogs |  |
 | McasShadowItReporting |  |
+| MCVPAuditLogs |  |
+| MCVPOperationLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -804,15 +821,18 @@ All data from the table will be exported unless limitations are specified. This 
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
+| OLPSupplyChainEntityOperations |  |
+| OLPSupplyChainEvents |  |
 | Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| PowerBIActivity |  |
 | PowerBIDatasetsWorkspace |  |
+| ProjectActivity |  |
 | PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
+| ResourceManagementPublicAccessLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
-| SQLAssessmentRecommendation |  |
-| SQLSecurityAuditEvents |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
@@ -822,11 +842,17 @@ All data from the table will be exported unless limitations are specified. This 
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
 | SecurityRecommendation |  |
+| SentinelAudit |  |
 | SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
+| SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
+| SPAssessmentRecommendation |  |
+| SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
+| StorageCacheOperationEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -844,23 +870,29 @@ All data from the table will be exported unless limitations are specified. This 
 | SynapseSqlPoolWaits |  |
 | Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
+| UCClient |  |
 | UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
+| UCServiceUpdateStatus |  |
+| UCUpdateAlert |  |
 | Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Usage |  |
+| UserAccessAnalytics |  |
 | UserPeerAnalytics |  |
+| Watchlist |  |
+| WindowsEvent |  |
+| WindowsFirewall |  |
+| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDManagement |  |
-| Watchlist |  |
-| WindowsEvent |  |
-| WindowsFirewall |  |
-| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
-| WorkloadDiagnosticLogs |  |
+
 
 ## Next steps
 

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 10/26/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -14,113 +14,58 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Sign in to Language Studio
 
-1. Go to the [Language Studio](https://aka.ms/languageStudio) and sign in with your Azure account. 
+[!INCLUDE [Sign in to Language studio](../language-studio/sign-in-studio.md)]
 
-2. In the **Choose a language resource** window that appears, find your Azure subscription, and choose your Language resource. If you don't have a resource, you can create a new one.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Sign-in-to-language-studio" target="_target">I ran into an issue</a>
 
-    > [!NOTE]
-    > Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
-    
-    :::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
+## Create a conversational language understanding project
 
-## Create a conversation project
+Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart, you'll create a project that can identify commands for email, such as: reading emails by certain people, deleting emails, and attaching a document to an email.
+For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and select **Conversational language understanding**.  
-    :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../media/select-custom-clu.png"::: 
-    
+[!INCLUDE [Import project](../language-studio/import-project.md)]
 
-2. This will bring you to the **Conversations project** page. Select **Create new project**. Select **Conversation project**, then select **Next**.
+Once the upload is complete, you will land on **Schema definition** page. For this quickstart, the schema is already built, and utterances are already labeled with intents and entities.
 
-    :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project" target="_target">I ran into an issue</a>
 
+## Train your model
 
-You then need to provide the following details:
+Typically, after you create a project, you should [build a schema](../../how-to/build-schema.md) and [label utterances](../../how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and labeled utterances. 
+ 
+To train a model, you need to start a training job. The output of a successful training job is your trained model.
 
-|Value  | Description  |
-|---------|---------|
-|Name     | A name for your project.        |
-|Description    | Optional project description.        |
-|Text primary language     | The primary language of your project. Your training data should primarily be in this language. For this quickstart, choose **English**.        |
-|Enable multiple languages     |  Whether you would like to enable your project to support multiple languages at once. For this quickstart, enable this option.       |
+[!INCLUDE [Train model](../language-studio/train-model.md)]
 
-Once you're done, select **Next** and review the details. Select **create project** to complete the process. You should now see the **Build Schema** screen in your project.
-
-## Build schema
-
-1. Select the **Intents** or **Entities** tab in the **Build Schema** page, and select **Add**. You will be prompted for a name before completing the creation of the intent or entity.
-
-2. Create three intents with the following names:
-    - **Read**
-    - **Delete**
-    - **Attach**
-
-3. Create three entities with the following names. Once you create the entity, go back to the **Build Schema** page without adding details to the entity:
-    - **Sender**
-    - **FileName**
-    - **FileType**
-
-
-When you select the intent, you will see the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
-
-
-:::image type="content" source="../../media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intents.png":::
-
-## Tag utterances
-
-In the tag utterances page, let's add a few examples to the intents. Select the **Read** intent from the drop-down box that says **Select Intent**.
-
-In the text box that says **Write your example utterance and press enter**, write the sentence "*read the email from Carol*" and press enter to add it as an example utterance.
-
-Drag your cursor over the word "*Carol*" and select the **Sender** entity, to label "*Carol*" as the entity.
-
-Add the rest of these utterances with the following intents and entities.
-
-|Utterance|Intent|Entities|
-|--|--|--|
-|*Read John's email for me*|**Read**|"John": **Sender**|
-|*What did the email from Matt say*|**Read**|"Matt": **Sender**|
-|*Open Blake's email*|**Read**|"Blake": **Sender**|
-|*Delete my last email from Martha*|**Delete**|"Martha": **Sender**|
-|*Delete this*|**Delete**|_No entities_|
-|*Remove this one*|**Delete**|_No entities_|
-|*Move this to the deleted folder*|**Delete**|_No entities_|
-|*Attach the excel file called reports q1*|**Attach**|"excel": **FileType**, <br> "reports q1" -> **FileName**|
-|*Attach the PowerPoint file*|**Attach**|"PowerPoint": **FileType**|
-|*Add the PDF file with the name signed contract* |**Attach**|"PDF": **FileType**, <br> "signed contract": **FileName**|
-
-
-When you're done, select **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
-
-:::image type="content" source="../../media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/quickstart-utterances.png":::
-
-## Train your model and view its details
-
-Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key. 
-
-Turn off **Run evaluation with training** before selecting **Train**. 
-
-You should see the **View model details** page. Wait until training completes, which may take about 5 minutes. When training succeeds, Select **Deploy Model** on the left of the screen.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
 
 ## Deploy your model
 
-From the **Deploy model** page on the left of the screen, select the trained model and select the **Deploy model** button. In the screen that appears, select **Deploy**.
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
-## Test your model
+[!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 
-Select **Test model** on the left of the screen, and select the model link. Write the utterance "*trash this one*", and select **Run the test**. 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
 
-You now see the top intent as **Delete** with no entities.
+[!INCLUDE [Test model](../language-studio/test-model.md)]
 
-You can test other utterances such as:
-* "*attach my docx file*", 
-* "*read the email by Jason*", 
-* "*attach the ppt file named CLU demo*".
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Test-model" target="_target">I ran into an issue</a>
 
-You can also test out utterances in other languages such as the following phrases:
+## Clean up resources
 
-* "*Joindre le fichier PDF*" (in French: "*Attach the PDF file*"), 
-* "*Lesen Sie die E-mail von Macy*" (in German: "*Read Macy's e-mail*")
+[!INCLUDE [Delete project using Language studio](../language-studio/delete-project.md)]
+ 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Clean-up-projects" target="_target">I ran into an issue</a>
+

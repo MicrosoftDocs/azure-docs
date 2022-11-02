@@ -1,10 +1,10 @@
 ---
 title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
@@ -89,7 +89,7 @@ Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../a
 |**Created**     |Alert rules <br> Case comments <br>Incident comments <br>Saved searches<br>Watchlists    <br>Workbooks     |
 |**Deleted**     |Alert rules <br>Bookmarks <br>Data connectors <br>Incidents <br>Saved searches <br>Settings <br>Threat intelligence reports <br>Watchlists      <br>Workbooks <br>Workflow  |
 |**Updated**     |  Alert rules<br>Bookmarks <br> Cases <br> Data connectors <br>Incidents <br>Incident comments <br>Threat intelligence reports <br> Workbooks <br>Workflow       |
-|     |         |
+
 
 You can also use the Azure Activity logs to check for user authorizations and licenses.
 
@@ -115,7 +115,7 @@ For example, the following table lists selected operations found in Azure Activi
 |Update data connectors |Microsoft.SecurityInsights/dataConnectors|
 |Delete data connectors |Microsoft.SecurityInsights/dataConnectors|
 |Update settings |Microsoft.SecurityInsights/settings|
-| | |
+
 
 For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
 

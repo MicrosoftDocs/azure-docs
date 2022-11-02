@@ -3,12 +3,11 @@ title: Alert response tutorial - Microsoft Defender for Cloud
 description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.topic: tutorial
+ms.custom: ignite-2022
 ms.date: 11/09/2021
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Defender for Cloud. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
 
@@ -109,15 +108,15 @@ If you don't plan to continue, or you want to disable either of these features:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Select **Auto provisioning**.
+1. In the Monitoring coverage column of the Defender plan, select **Settings**.
 1. Disable the relevant extensions.
 
     >[!NOTE]
-    > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
+    > Disabling extensions does not remove the Log Analytics agent from Azure VMs that already have the agent, but does limits security monitoring for your resources.
 
 ## Next steps
 In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:
 
 - [Respond to Microsoft Defender for Key Vault alerts](defender-for-key-vault-usage.md)
 - [Security alerts - a reference guide](alerts-reference.md)
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)

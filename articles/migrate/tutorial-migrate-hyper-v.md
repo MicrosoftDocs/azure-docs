@@ -1,17 +1,17 @@
 ---
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
-author: bsiva
-ms.author: bsiva
+author: rahug1190
+ms.author: rahugup
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 06/20/2022
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
 # Migrate Hyper-V VMs to Azure
 
-This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate machines to Azure.
 
@@ -21,7 +21,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migrate:Server Migration tool.
+> * Add the Azure Migrate: Server Migration tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -44,19 +44,19 @@ Before you begin this tutorial, you should:
 
 ## Download the provider
 
-For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
+For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
 
 1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
 1. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
-    - If you've already set up migration with Azure Migrate Server Migration, this option won't appear since resources were set up previously.
+    - If you've already set up migration with Azure Migrate: Server Migration, this option won't appear since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
 
 1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file.
-    - The registration key is needed to register the Hyper-V host with Azure Migrate Server Migration.
+    - The registration key is needed to register the Hyper-V host with Azure Migrate: Server Migration.
     - The key is valid for five days after you generate it.
 
     ![Download provider and key](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
@@ -106,6 +106,9 @@ Run the following commands on each host, as described below:
 
 1. Register the Hyper-V host to Azure Migrate.
 
+    > [!NOTE]
+    > If your Hyper-V host was previously registered with another Azure Migrate project that you are no longer using or have deleted, you'll need to de-register it from that project and register it in the new one. Follow the [Remove servers and disable protection](../site-recovery/site-recovery-manage-registration-and-protection.md?WT.mc_id=modinfra-39236-thmaure) guide to do so.
+
     ```
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path>
     ```
@@ -131,7 +134,7 @@ After installing the provider on hosts, go to the Azure portal and in **Discover
 
  ![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
 
-It can take up to 15 minutes after finalizing registration until discovered VMs appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
+It can take up to 15 minutes after finalizing registration until discovered VMs appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
  ![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
@@ -153,7 +156,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Then, click **Next: Target settings**.
 
-    ![Select VMs](./media/tutorial-migrate-hyper-v/select-vms.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/select-vms-inline.png" alt-text="Screenshot shows the selected VMs in the Replicate dialog box." lightbox="./media/tutorial-migrate-hyper-v/select-vms-expanded.png":::
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
 1. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
@@ -167,7 +170,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/target-settings.png" alt-text="Screenshot on target settings.":::
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
@@ -175,13 +178,15 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
-    ![VM compute settings](./media/tutorial-migrate-hyper-v/compute-settings.png)
-
-1. In **Disks**, specify the VM disks that needs to be replicated to Azure. Then click **Next**.
+1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
-    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-hyper-v/disks.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-hyper-v/disks-expanded.png":::
+
+1. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/tags-expanded.png":::
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
@@ -275,7 +280,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
 -  Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

@@ -1,18 +1,21 @@
 ---
-title: Troubleshoot Azure NFS file share problems - Azure Files
-description: Troubleshoot Azure NFS file share problems.
-author: jeffpatt24
+title: Troubleshoot NFS file share problems - Azure Files
+description: Troubleshoot NFS Azure file share problems.
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
-ms.author: jeffpatt
+ms.date: 05/25/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Troubleshoot Azure NFS file share problems
+# Troubleshoot NFS Azure file share problems
 
-This article lists some common problems and known issues related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems and known issues related to NFS Azure file shares. It provides potential causes and workarounds when these problems are encountered.
+
+> [!IMPORTANT]
+> NFS Azure file shares are not supported for Windows clients.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -30,10 +33,10 @@ Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled.
 Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters. 
 
 ### Workaround
-Check that idmapping is disabled and nothing is re-enabling it, then perform the following:
+Check that idmapping is disabled and nothing is re-enabling it, then perform the following steps:
 
 - Unmount the share
-- Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Disable idmapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
 - If running rsync, run rsync with the "—numeric-ids" argument from a directory that does not have a bad dir/file name.
 
@@ -51,7 +54,7 @@ NFS is only available on storage accounts with the following configuration:
 
 Follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
-## Cannot connect to or mount an Azure NFS file share
+## Cannot connect to or mount an NFS Azure file share
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
@@ -71,7 +74,7 @@ The following diagram depicts connectivity using public endpoints.
 
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
-    - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premise)
+    - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premises)
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
     - Private endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs.
 
@@ -79,7 +82,7 @@ The following diagram depicts connectivity using public endpoints.
 
 ### Cause 2: Secure transfer required is enabled
 
-Double encryption is not supported for NFS shares yet. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. NFS shares can only be accessed from trusted virtual networks and over VPN tunnels. No additional transport layer encryption is available on NFS shares.
+Double encryption isn't supported for NFS shares yet. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. NFS shares can only be accessed from trusted virtual networks and over VPN tunnels. No additional transport layer encryption is available on NFS shares.
 
 #### Solution
 
@@ -94,7 +97,7 @@ To check if the NFS package is installed, run: `rpm qa | grep nfs-utils`
 
 #### Solution
 
-If the package is not installed, install the package on your distribution.
+If the package isn't installed, install the package on your distribution.
 
 ##### Ubuntu or Debian
 
@@ -118,12 +121,12 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 
 #### Solution
 
-Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
+Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port isn't open, open it.
 
 ## ls hangs for large directory enumeration on some kernels
 
 ### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
-Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call will not have the problem.
+Some kernel versions have a bug that causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call won't have the problem.
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
 
 #### Workaround: Downgrading or upgrading the kernel

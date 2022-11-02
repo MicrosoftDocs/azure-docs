@@ -1,13 +1,12 @@
 ---
 title: How to review and publish an offer to Microsoft commercial marketplace
 description: Use Partner Center to submit your offer to preview, preview your offer, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 02/16/2022
+ms.date: 08/01/2022
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -27,7 +26,9 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending Stop distribution | Publisher selected "Stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
-|
+
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
 ## Validation and publishing steps
 
@@ -48,7 +49,6 @@ After all pages are complete and you have entered applicable testing notes,  sel
 | [Preview creation](#preview-creation-phase) | The listing page for your offer preview is available to anyone who has the preview link. If your offer will be sold through Microsoft (transactable), only the audience you specified on the **Preview audience** page of your offer can purchase and access the offer for testing. |
 | [Publisher sign-off](#publisher-sign-off-phase) | We send you an email with a request for you to preview and approve your offer. |
 | [Publish](#publish-phase) | We run a series of steps to verify that the preview offer is published live to the commercial marketplace. |
-|||
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
@@ -72,7 +72,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 - **Lead management validation and registration** (<15 min)
 
-    We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+   We confirm that your CRM system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with CRM system configured.
 
 - **Offer validation** (<30 min)
 
@@ -95,7 +95,7 @@ There are three levels of validation included in the certification process for e
 
 #### Publisher business eligibility
 
-Each offer type checks a set of required base eligibility criteria. This criteria may include publisher MPN status, competencies held, competency levels, and so on.
+Each offer type checks a set of required base eligibility criteria. This criteria may include publisher Microsoft Cloud Partner Program status, competencies held, competency levels, and so on.
 
 #### Content validation
 
@@ -121,7 +121,7 @@ The offer is tested across various platforms and versions to ensure it’s robus
 
 ### Certification failure report
 
-If your offer fails any of the listing, technical, or policy checks, or if you are not eligible to submit an offer of that type, we email a certification failure report to you.
+If your offer fails any of the listing, technical, or policy checks, or if you are not eligible to submit an offer of that type, we provide a certification failure report to you through email and the Action Center in Partner Center.
 
 This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
 
@@ -167,7 +167,7 @@ On the **Offer overview** page, you will see preview links under the **Go live**
 
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
-If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md)
+If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select *Go live*. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md).
 
 ## Publish phase
 

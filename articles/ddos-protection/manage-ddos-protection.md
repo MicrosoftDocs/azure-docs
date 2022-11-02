@@ -1,30 +1,21 @@
 ---
-title: Manage Azure DDoS Protection Standard using the Azure portal
-description: Learn how to use Azure DDoS Protection Standard to mitigate an attack.
-services: ddos-protection
-documentationcenter: na
-author: aletheatoh
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+title: 'Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal'
+description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
+author: AbdullahBell
+ms.author: abell
 ms.service: ddos-protection
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.custom: mode-ui
-ms.date: 05/17/2019
-ms.author: yitoh
-
+ms.topic: quickstart 
+ms.date: 10/12/2022
+ms.custom: template-quickstart, ignite-2022
 ---
 
-# Quickstart: Create and configure Azure DDoS Protection Standard
+# Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal
 
-Get started with Azure DDoS Protection Standard by using the Azure portal. 
+Get started with Azure DDoS Network Protection by using the Azure portal.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan. 
+A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions under a single Azure AD tenant to the same plan.
 
-In this quickstart, you'll create a DDoS protection plan and link it to a virtual network. 
+In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 
 ## Prerequisites
 
@@ -34,88 +25,111 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 ## Create a DDoS protection plan
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
-2. Search the term *DDoS*. When **DDoS protection plan** appears in the search results, select it.
-3. Select **Create**.
-4. Enter or select the following values, then select **Create**:
+1. Search the term *DDoS*. When **DDoS protection plan** appears in the search results, select it.
+1. Select **Create**.
+1. Enter or select the following values.
 
     |Setting        |Value                                              |
     |---------      |---------                                          |
-    |Name           | Enter _MyDdosProtectionPlan_.                     |
     |Subscription   | Select your subscription.                         |
-    |Resource group | Select **Create new** and enter _MyResourceGroup_.|
-    |Location       | Enter _East US_.                                  |
+    |Resource group | Select **Create new** and enter **MyResourceGroup**.|
+    |Name           | Enter **MyDdosProtectionPlan**.                     |
+    |Region         | Enter **East US**.                                  |
+
+1. Select **Review + create** then **Create**
+
+[!INCLUDE [DDoS-Protection-region-requirement.md](../../includes/DDoS-Protection-region-requirement.md)]
 
 ## Enable DDoS protection for a virtual network
-
 ### Enable DDoS protection for a new virtual network
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
-2. Select **Networking**, and then select **Virtual network**.
-3. Enter or select the following values, accept the remaining defaults, and then select **Create**:
+1. Select **Networking**, and then select **Virtual network**.
+1. Enter or select the following values.
 
     | Setting         | Value                                           |
     | ---------       | ---------                                       |
-    | Name            | Enter _MyVnet_.                                 |
     | Subscription    | Select your subscription.                                    |
     | Resource group  | Select **Use existing**, and then select **MyResourceGroup** |
-    | Location        | Enter _East US_                                                    |
-    | DDoS Protection Standard | Select **Enable**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.|
+    | Name            | Enter **MyVnet**.                                 |
+    | Region          | Enter **East US**.                                                   |
 
-You cannot move a virtual network to another resource group or subscription when DDoS Standard is enabled for the virtual network. If you need to move a virtual network with DDoS Standard enabled, disable DDoS Standard first, move the virtual network, and then enable DDoS standard. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
+1. Select **Next: IP Addresses** and enter the following values.
+
+    | Setting              | Value                                                                         |
+    | ---------            | ---------                                                                     |
+    | IPv4 address space   | Enter **10.1.0.0/16.**                                                        |
+    | Subnet name          | Under **Subnet name**, select the **Add subnet** link and enter **mySubnet.** |
+    | Subnet address range | Enter **10.1.0.0/24.**                                                        |
+
+1. Select **Add**.
+1. Select **Next: Security**.
+1. Select **Enable** on the **DDoS Network Protection** radio.
+1. Select **MyDdosProtectionPlan** from the **DDoS protection plan** pane. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
+1. Select **Review + create** then **Create**.
+
+[!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
 ### Enable DDoS protection for an existing virtual network
 
 1. Create a DDoS protection plan by completing the steps in [Create a DDoS protection plan](#create-a-ddos-protection-plan), if you don't have an existing DDoS protection plan.
-2. Enter the name of the virtual network that you want to enable DDoS Protection Standard for in the **Search resources, services, and docs box** at the top of the Azure portal. When the name of the virtual network appears in the search results, select it.
-3. Select **DDoS protection**, under **SETTINGS**.
-4. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
+1. Enter the name of the virtual network that you want to enable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the Azure portal. When the name of the virtual network appears in the search results, select it.
+1. Select **DDoS protection**, under **Settings**.
+1. Select **Enable**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then click **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant. 
 
-### Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
+You can also enable the DDoS protection plan for an existing virtual network from the DDoS Protection plan, not from the virtual network. 
+1. Search for "DDoS protection plans" in the **Search resources, services, and docs box** at the top of the Azure portal. When **DDoS protection plans** appears in the search results, select it.
+1. Select the desired DDoS protection plan you want to enable for your virtual network. 
+1. Select  **Protected resources** under **Settings**.
+1. Click **+Add** and select the right subscription, resource group and the virtual network name. Click **Add** again. 
 
-Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md)
+## Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
 
-:::image type="content" source="/azure/firewall-manager/media/configure-ddos/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan":::
+Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md).
 
-### Enable DDoS protection for all virtual networks
+:::image type="content" source="./media/manage-ddos-protection/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan.":::
 
-This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. See [Azure Policy built-in definitions for Azure DDoS Protection Standard](policy-reference.md) for full list of built-in policies. 
+## Enable DDoS protection for all virtual networks
+
+This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that don't have DDoS Network Protection enabled. This policy will then optionally create a remediation task that will create the association to protect the Virtual Network. See [Azure Policy built-in definitions for Azure DDoS Network Protection](policy-reference.md) for full list of built-in policies.
 
 ## Validate and test
 
 First, check the details of your DDoS protection plan:
 
 1. Select **All services** on the top, left of the portal.
-2. Enter *DDoS* in the **Filter** box. When **DDoS protection plans** appear in the results, select it.
-3. Select your DDoS protection plan from the list.
+1. Enter *DDoS* in the **Filter** box. When **DDoS protection plans** appear in the results, select it.
+1. Select your DDoS protection plan from the list.
 
-The _MyVnet_ virtual network should be listed. 
+The _MyVnet_ virtual network should be listed.
 
-### View protected resources
+## View protected resources
 Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
 
-![View protected resources](./media/manage-ddos-protection/ddos-protected-resources.png)
+:::image type="content" source="./media/manage-ddos-protection/ddos-protected-resources.png" alt-text="Screenshot showing protected resources.":::
 
 ## Clean up resources
 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. If you don't intend to use this DDoS protection plan, you should remove resources to avoid unnecessary charges.
 
    >[!WARNING]
-   >This action is irreversable.
+   >This action is irreversible.
 
 1. In the Azure portal, search for and select **Resource groups**, or select **Resource groups** from the Azure portal menu.
 
-2. Filter or scroll down to find the _MyResourceGroup_ resource group.
+1. Filter or scroll down to find the _MyResourceGroup_ resource group.
 
-3. Select the resource group, then select **Delete resource group**.
+1. Select the resource group, then select **Delete resource group**.
 
-4. Type the resource group name to verify, and then select **Delete**.
+1. Type the resource group name to verify, and then select **Delete**.
 
-To disable DDoS protection for a virtual network: 
+To disable DDoS protection for a virtual network:
 
-1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-2. Under **DDoS Protection Standard**, select **Disable**.
+1. Enter the name of the virtual network you want to disable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
+1. Under **DDoS Network Protection**, select **Disable**.
 
-If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it. 
+> [!NOTE]
+> If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it.
 
 ## Next steps
 

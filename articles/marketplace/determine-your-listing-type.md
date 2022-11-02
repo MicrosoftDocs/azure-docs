@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/03/2021
+ms.date: 04/12/2021
 ---
 
 # Introduction to listing options
@@ -15,23 +15,24 @@ When you create an offer type, you choose one or more listing options. These opt
 
 This table shows which listing options are available for each offer type:
 
-| Offer type | Free Trial | Test Drive | Contact Me | Get It Now `*` |
+| Offer type | Free Trial | Test Drive | Contact Me | Get It Now |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
-| Azure Application (Managed app) |   | &#10004; |   | &#10004; |
-| Azure Application (Solution template) |  |  |  | &#10004; |
-| Azure Container |  |  |  | &#10004; |
-| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| Azure Application (Managed app) |   | &#10004; |   | &#10004;<sup>1</sup> |
+| Azure Application (Solution template) |  |  |  | &#10004;<sup>1</sup> |
+| Azure Container |  |  |  | &#10004;<sup>1</sup> |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004;<sup>1</sup> |
 | Consulting service |  |  | &#10004; |  |
-| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 apps on Dataverse and Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 Operations Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| IoT Edge module |  |  |  | &#10004; |
-| Managed Service |  |  |  | &#10004; |
-| Power BI App |  |  |  | &#10004; |
-| Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
-||||||
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> |
+| Dynamics 365 apps on Dataverse and Power Apps | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> <sup>2</sup> |
+| Dynamics 365 Operations Apps | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> |
+| IoT Edge module |  |  |  | &#10004;<sup>1</sup> |
+| Managed Service |  |  |  | &#10004;<sup>1</sup> |
+| Power BI App |  |  |  | &#10004;<sup>1</sup> |
+| Software as a service | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> |
 
-\* The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
+<sup>1</sup> The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
+
+<sup>2</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
 
 ## Change the offer type
 
@@ -60,6 +61,9 @@ This option is a simple listing of your application or service. Customers use th
 
 This listing option includes transactable offers (subscriptions or user-based pricing), bring your own license (BYOL) offers, and **Get It Now (Free)**. Transactable offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. Customers use the **Get It Now** button to get the offer.
 
+> [!NOTE]
+> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
+
 This table shows which offer types support the pricing options that are included with the **Get It Now** listing option.
 
 | Offer type | Get It Now (Free) | BYOL | Subscription | Usage-based pricing |
@@ -76,11 +80,12 @@ This table shows which offer types support the pricing options that are included
 | Power BI App | &#10004; |   |   |   |
 | Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
 | Software as a service | &#10004; |   | &#10004; | &#10004; |
-||||||
 
 <sup>1</sup> The **Pricing model** column of the **Plan overview** tab shows **Free** or **BYOL**, but it's not selectable.
 
 <sup>2</sup> Priced per hour and billed monthly.
+
+<sup>3</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md).
 
 ### Get It Now (Free)
 
@@ -111,7 +116,7 @@ The following offer types support usage-based pricing:
 - SaaS offers support for Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support for **Per core**, **Per core size**, and **Per market and core size** pricing. These options are priced per hour and billed monthly.
 
-When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores) and [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ## Sample offer
 
@@ -133,17 +138,18 @@ The following table shows the options that are available for different offer typ
 | IoT Edge module |   |   | Azure Marketplace | Azure Marketplace |   |
 | Managed service |   |   |   | Azure Marketplace |   |
 | Consulting service | Both online stores |   |   |   |   |
-| SaaS  | Both online stores | Both online stores | Both online stores |   | Both online stores &#42; |
-| Microsoft 365 App | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| SaaS  | Both online stores | Both online stores | Both online stores |   | Both online stores <sup>1</sup>|
+| Microsoft 365 App | AppSource | AppSource |   |   | AppSource <sup>2</sup> |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   |   |
+| Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   | AppSource <sup>3</sup>  |
 | Dynamics 365 Operations Apps | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
-|||||||
 
-&#42; SaaS transactable offers in AppSource only accept credit cards at this time.
+<sup>1</sup> SaaS transactable offers in AppSource only accept credit cards at this time.
 
-&#42;&#42; Microsoft 365 add-ins are free to install and can be monetized using an SaaS offer. For more information, see [Monetize your app through the commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+<sup>2</sup> Microsoft 365 add-ins are free to install and can be monetized using an SaaS offer. For more information, see [Monetize your app through the commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+<sup>3</sup> Applies to offers configured for [ISV app license management](isv-app-license.md).
 
 ## Marketplace Rewards
 
@@ -155,4 +161,4 @@ Non-transactable offers earn benefits based on whether or not a free trial is at
 
 ## Next steps
 
-To choose an offer type to create, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
+- To choose an offer type, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).

@@ -1,30 +1,31 @@
 ---
 title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
-description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
+description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment jobs. 
 services: machine-learning
-ms.author: nibaccam
-author: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/21/2021
+ms.date: 04/08/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q2, automl
+ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 ---
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many runs are created and each run creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
 
 For example, automated ML generates the following charts based on experiment type.
 
 | Classification| Regression/forecasting |
-| ----------------------------------------------------------- | ---------------------------------------- |
-| [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)        |
-| [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true) |
-| [Precision-recall (PR) curve](#precision-recall-curve)      |                                          |
-| [Lift curve](#lift-curve)                                   |                                          |
-| [Cumulative gains curve](#cumulative-gains-curve)           |                                          |
+| ----------------------------------------------------------- | --------------------------------------------------------|
+| [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)                       |
+| [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true)                |
+| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon (preview)](#forecast-horizon-preview) |
+| [Lift curve](#lift-curve)                                   |                                                         |
+| [Cumulative gains curve](#cumulative-gains-curve)           |                                                         |
 | [Calibration curve](#calibration-curve)                     |                     
 
 
@@ -35,22 +36,20 @@ For example, automated ML generates the following charts based on experiment typ
   - The [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (no code required)
   - The [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)
 
-## View run results
+## View job results
 
-After your automated ML experiment completes, a history of the runs can be found via:
-  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
+After your automated ML experiment completes, a history of the jobs can be found via:
+  - A browser with [Azure Machine Learning studio](https://ml.azure.com)
+  - A Jupyter notebook using the [JobDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Experiments**.
+1. In the left menu, select **Runs**.
 1. Select your experiment from the list of experiments.
-1. In the table at the bottom of the page, select an automated ML run.
+1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
-
-![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
 ## Classification metrics
 
@@ -204,7 +203,7 @@ spearman_correlation| Spearman correlation is a nonparametric measure of the mon
 
 ### Metric normalization
 
-Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+Automated ML normalizes regression and forecasting metrics which enable comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
 
 While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
 
@@ -237,6 +236,17 @@ In this example, note that the better model has a predicted vs. true line that i
 
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## Forecast horizon (preview)
+
+For forecasting experiments, the forecast horizon chart plots the relationship between the models predicted value and the actual values mapped over time per cross validation fold, up to 5 folds. The x axis maps time based on the frequency you provided during training setup. The vertical line in the chart marks the forecast horizon point also referred to as the horizon line, which is the time period at which you would want to start generating predictions. To the left of the forecast horizon line, you can view historic training data to better visualize past trends. To the right of the forecast horizon, you can visualize the predictions (the purple line) against the actuals (the blue line) for the different cross validation folds and time series identifiers. The shaded purple area indicates the confidence intervals or variance of predictions around that mean. 
+
+You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 20 different time series identifiers to visualize the chart for your various time series.  
+
+> [!IMPORTANT]
+> This chart is only available for models generated from training and validation data. We allow up to 20 data points before and up to 80 data points after the forecast origin. Visuals for models based on test data are not supported at this time. 
+
+![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
 ## Metrics for image models (preview)
 

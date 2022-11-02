@@ -45,6 +45,8 @@ This component requires a dataset that contains a column of text, either raw or 
 
 1. Add the **Latent Dirichlet Allocation** component to your pipeline.
 
+    In the list of assets under *Text Analytics*, drag and drop the **Latent Dirichlet Allocation** component onto the canvas. 
+
 2. As input for the component, provide a dataset that contains one or more text columns.
 
 3. For **Target columns**, choose one or more columns that contain text to analyze.

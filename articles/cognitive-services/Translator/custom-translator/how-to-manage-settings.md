@@ -1,7 +1,7 @@
 ---
-title: How to manage settings? - Custom Translator
+title: "Legacy: How to manage settings? - Custom Translator"
 titleSuffix: Azure Cognitive Services
-description: How to manage settings, create workspace, share workspace, and manage subscription key in Custom Translator.
+description: How to manage settings, create workspace, share workspace, and manage key in Custom Translator.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,28 +9,27 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
-#Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that I can create workspace, share workspace, and manage subscription key in Custom Translator.
+ms.custom: cogserv-non-critical-translator
+#Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that I can create workspace, share workspace, and manage key in Custom Translator.
 ---
 
 # How to manage settings
 
-Within the Custom Translator settings page, you can share your workspace, modify your Translator subscription key, and delete workspace.
+Within the Custom Translator settings page, you can share your workspace, modify your Translator key, and delete workspace.
 
 To access the settings page:
 
 1. Sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal.
 2. On Custom Translator portal, select the gear icon in the sidebar.
-
-
     ![Setting Link](media/how-to/how-to-settings.png)
 
 ## Associating Translator Subscription
 
-You need to have a Translator subscription key associated with your workspace to train or deploy models.
+You need to have a Translator key associated with your workspace to train or deploy models.
 
 If you don't have a subscription, follow the steps below:
 
-1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../translator-how-to-signup.md) to subscribe and acquire a Translator key.
+1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../how-to-create-translator-resource.md) to subscribe and acquire a Translator key.
 2. Note the key for your Translator subscription. Either Key1 or Key2 is acceptable.
 
 3. Navigate back to the Custom Translator portal.
@@ -50,18 +49,18 @@ If you don't have a subscription, follow the steps below:
     ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Custom Translator does not support creating workspace for Translator Text API resource (a.k.a. Azure subscription key) that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
+>Custom Translator does not support creating workspace for Translator Text API resource (a.k.a. Azure key) that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
 
 ### Modify existing key
 
 1. Navigate to the "Settings" page for your workspace.
 2. Select **Change Key**.
 
-    ![How to add subscription key](media/how-to/how-to-add-subscription-key.png)
+    ![How to add key](media/how-to/how-to-add-subscription-key.png)
 
 3. In the dialog, enter the key for your Translator subscription, then select the **Save** button.
 
-    ![How to add subscription key dialog](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![How to add key dialog](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## Manage your workspace
 
@@ -82,14 +81,14 @@ In Custom Translator you can share your workspace with others, if different part
 
     ![Share workspace dialog](media/how-to/share-workspace-dialog.png)
 
-4. If your workspace still has the default name "My workspace", you will be required to change it before sharing your workspace.
+4. If your workspace still has the default name "My workspace", you'll be required to change it before sharing your workspace.
 5. Select **Save**.
 
 ## Sharing permissions
 
 1. **Reader:** A reader in the workspace will be able to view all information in the workspace.
 
-2. **Editor:** An editor in the workspace will be able to add documents, train models, and delete documents and projects. They can add a subscription key, but can't modify who the workspace is shared with, delete the workspace, or change the workspace name.
+2. **Editor:** An editor in the workspace will be able to add documents, train models, and delete documents and projects. They can add a key, but can't modify who the workspace is shared with, delete the workspace, or change the workspace name.
 
 3. **Owner:** An owner has full permissions to the workspace.
 
@@ -97,7 +96,7 @@ In Custom Translator you can share your workspace with others, if different part
 
 When a workspace is shared, the **Sharing settings** section shows all email addresses that this workspace is shared with. You can change existing sharing permission for each email address if you have owner access to the workspace.
 
-1. In the **Sharing settings** section, for each email a dropdown menu shows the current permission level.
+1. In the **Sharing settings** section, for each email, a dropdown menu shows the current permission level.
 
 2. Choose the dropdown menu and select the new permission level you want to assign to that email address.
 

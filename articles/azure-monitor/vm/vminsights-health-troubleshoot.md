@@ -4,15 +4,17 @@ description: Describes troubleshooting steps that you can take when you have iss
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2021
+ms.date: 05/03/2022
 
 ---
 
 # Troubleshoot VM insights guest health (preview)
 This article describes troubleshooting steps that you can take when you have issues with VM insights health.
 
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
+
 ## Installation errors
-If any of the following solutions do not solve your installation issue, collect VM Health agent log located at `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log` and contact Microsoft for further investigation.
+If any of the following solutions don't solve your installation issue, collect VM Health agent log located at `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log` and contact Microsoft for further investigation.
 
 ### Error message showing db5 error
 Your installation didn't succeed and your installation error message is similar to the following:
@@ -33,7 +35,7 @@ Your installation didn't succeed and your installation error message is similar 
 Exiting with the following error: "Failed to install VM Guest Health Agent: Init already exists: /etc/systemd/system/vmGuestHealthAgent.service"install vmGuestHealthAgent service execution failed with exit code 37
 ```
 
-VM Health Agent will uninstall the existing service first before installing the current version. The reason for this error is likely because the previous service file didn't get cleaned up due to some reason. Login to the VM and run the following command backup existing service file and try re-install again.
+VM Health Agent will uninstall the existing service first before installing the current version. The reason for this error is likely because the previous service file didn't get cleaned up due to some reason. Log in to the VM and run the following command backup existing service file and try re-install again.
 
 ```
 sudo mv /etc/systemd/system/vmGuestHealthAgent.service  /etc/systemd/system/vmGuestHealthAgent.service.bak
@@ -51,28 +53,28 @@ Your installation didn't succeed and your installation error message is similar 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
 ```
-This is likely because VM Guest Agent couldn't acquire the lock for the service file. Try to reboot your VM which will release the lock.
+This is likely because VM Guest Agent couldn't acquire the lock for the service file. Try to reboot your VM, which will release the lock.
 
 
 ## Upgrade errors
 
 ### Upgrade available message is still displayed after upgrading guest health 
 
-- Verify that VM is running in global Azure. Azure Arc-enabled servers are not yet supported.
+- Verify that VM is running in global Azure. Azure Arc-enabled servers aren't yet supported.
 - Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md).
 - Verify that guest health extension installed successfully with 0 exit code.
 - Verify that Azure Monitor agent extension is installed successfully.
 - Verify that system-assigned managed identity is enabled for the virtual machine.
 - Verify that no user-assigned managed identities are specified for the virtual machine.
-- Verify for Windows virtual machines that locale is *US English*. Localization is not currently supported by Azure Monitor agent.
-- Verify that the virtual machine is not using the network proxy. Azure Monitor agent does not currently support proxies.
+- Verify for Windows virtual machines that locale is *US English*. Localization isn't currently supported by Azure Monitor agent.
+- Verify that the virtual machine isn't using the network proxy. Azure Monitor agent doesn't currently support proxies.
 - Verify that the health extension agent started without errors. If the agent can't start, the agent's state may be corrupt. Delete the contents of the agent state folder and restart the agent.
   - For Linux: Daemon is *vmGuestHealthAgent*. State folder is */var/opt/vmGuestHealthAgent/**
   - For Windows: Service is *VM Guest Health agent*. State folder is _%ProgramData%\Microsoft\VMGuestHealthAgent\\*_.
 - Verify the Azure Monitor agent has network connectivity. 
   - From the virtual machine, attempt to ping _\<region\>.handler.control.monitor.azure.com_. For example, for a virtual machine in westeurope, attempt to ping _westeurope.handler.control.monitor.azure.com:443_.
 - Verify that virtual machine has an association with a data collection rule in the same region as the Log Analytics workspace.
-  -  Refer to **Create data collection rule (DCR)** in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) to ensure structure of the DCR is correct. Pay particular attention to presence of *performanceCounters* data source section set up to samples three counters and presence of *inputDataSources* section in health extension configuration to send counters to the extension.
+  -  Refer to **Create data collection rule (DCR)** in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) to ensure structure of the DCR is correct. Pay particular attention to presence of *performanceCounters* data source section setup to samples three counters and presence of *inputDataSources* section in health extension configuration to send counters to the extension.
 -  Check the virtual machine for guest health extension errors.
    -  For Linux: Check logs at _/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log_.
    -  For Windows: Check logs at _C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.VirtualMachines.GuestHealthWindowsAgent\{extension version}\*.log_.
@@ -90,7 +92,7 @@ This is likely because VM Guest Agent couldn't acquire the lock for the service 
 
 #### Verify that the virtual machine meets configuration requirements
 
-1. Verify that the virtual machine is an Azure virtual machine. Azure Arc for servers is not currently supported.
+1. Verify that the virtual machine is an Azure virtual machine. Azure Arc for servers isn't currently supported.
 2. Verify that the virtual machine is running a [supported operating system](vminsights-health-enable.md?current-limitations.md).
 3. Verify that the virtual machine is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
 4. Verify that the Log Analytics workspace is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
@@ -116,7 +118,7 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 ### Health shows as "unknown" after guest health is enabled.
 
 #### Verify that performance counters on Windows nodes are working correctly 
-Guest health relies on the agent being able to collect performance counters from the node. he base set of performance counter libraries may become corrupted and may need to be rebuilt. Follow the instructions at [Manually rebuild performance counter library values](/troubleshoot/windows-server/performance/rebuild-performance-counter-library-values) to rebuild the performance counters.
+Guest health relies on the agent being able to collect performance counters from the node. the base set of performance counter libraries may become corrupted and may need to be rebuilt. Follow the instructions at [Manually rebuild performance counter library values](/troubleshoot/windows-server/performance/rebuild-performance-counter-library-values) to rebuild the performance counters.
 
 
 

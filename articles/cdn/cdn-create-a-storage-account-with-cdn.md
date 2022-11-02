@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 04/30/2020
+ms.date: 04/29/2022
 ms.author: duau
 ms.custom: mvc, mode-other
 ---
@@ -27,19 +27,19 @@ A storage account gives access to Azure Storage services. The storage account re
 
 To create a storage account, you must be either the service administrator or a coadministrator for the associated subscription.
 
-1. In the Azure portal, select **Create a resource** on the upper left. The **New** pane appears.
+1. In the Azure portal, select **Create a resource** on the upper left. The **Create a resource** pane appears.
 
-1. Search for **Storage account** and select **Storage account - blob, file, table, queue** from the drop-down list. Then select **Create**:
-	
-    ![Select storage resource](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
+1. Search for **Storage account** and select **Storage account** from the  list. Then select **Create**:
+
+    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png" alt-text="Screenshot of create a storage account.":::
 
 1. In the **Create storage account pane**, enter the following details:
 
-    | Setting | Value | 
+    | Setting | Value |
     | --- | --- |
-    | Project details > Resource group | Select **Create new** and use the name *CDNQuickstart-rg*. You can also use an existing resource group if you prefer. |
-    | Instance details > Storage account name | Enter a name for the account using 3-24 lowercase letters and numbers only. The name must be unique across Azure, and becomes the host name in the URL that's used to address blob, queue, or table resources for the subscription. To address a container resource in Blob storage, use a URI in the following format: http://*&lt;storageaccountname&gt;*.blob.core.windows.net/*&lt;container-name&gt;*.
-    | Instance details > Location | Select an Azure region near you from the drop-down list. |
+    | Resource group | Select **Create new** and use the name *CDNQuickstart-rg*. You can also use an existing resource group if you prefer. |
+    | Storage account name | Enter a name for the account using 3-24 lowercase letters and numbers only. The name must be unique across Azure, and becomes the host name in the URL that's used to address blob, queue, or table resources for the subscription. To address a container resource in Blob storage, use a URI in the following format: http://*&lt;storageaccountname&gt;*.blob.core.windows.net/*&lt;container-name&gt;*.
+    | Region | Select an Azure region near you from the drop-down list. |
     
     Leave all other details set to the defaults, then select **Review + create**.
 
@@ -49,14 +49,14 @@ To create a storage account, you must be either the service administrator or a c
 
 1. On the page for your storage account, select **Blob service** > **Azure CDN** from the left menu. The **Azure CDN** page appears.
 
-	![Create CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint.":::
 	
 1. In the **New endpoint** section, enter the following information:
 
     | Setting  | Value |
     | -------- | ----- |
     | **CDN profile** | Select **Create new** and enter your profile name, for example, *cdn-profile-123*. A profile is a collection of endpoints. |
-    | **Pricing tier** | Select one of the **Standard** options, such as **Standard Microsoft**. |
+    | **Pricing tier** | Select one of the **Standard** options, such as **Microsoft CDN (classic)**. |
 	| **CDN endpoint name** | Enter your endpoint hostname, such as *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
 	| **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
 
@@ -72,7 +72,7 @@ To create a storage account, you must be either the service administrator or a c
 
 From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page.
 
-From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country-region.md). 
+From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country-region.md).
 	
 ## Enable SAS
 
@@ -112,4 +112,4 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)
+> [Tutorial: Use CDN to serve static content from a web app.](cdn-add-to-web-app.md)

@@ -3,13 +3,13 @@ title: How to use Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/29/2021
-ms.author: aahi
+ms.date: 09/05/2022
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -46,12 +46,11 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container image with `docker pull`
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry.
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the  [dockerhub page](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)  
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
 ```
-
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -84,7 +83,7 @@ To run the container in your own environment after downloading the container ima
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name> \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -96,7 +95,7 @@ This command:
 - Runs the Text Analytics for health container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-- Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
+- Accepts the end user license agreement (EULA) and responsible AI (RAI) terms
 - Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Demo UI to visualize output
@@ -116,7 +115,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ### Install the container using Azure Web App for Containers
 
-Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is an Azure resource dedicated to running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support of docker containers and docker compose, HTTPS support and much more.
+Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is an Azure resource dedicated to running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support for docker containers and docker compose, HTTPS support and much more.
 
 > [!NOTE]
 > Using Azure Web App you will automatically get a domain in the form of `<appservice_name>.azurewebsites.net`
@@ -149,7 +148,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
 
-See [How to use Azure Container Instances](../../../containers/azure-container-instance-recipe.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Due to the limit on the maximum number of CPUs per ACI resource, do not select this option if you expect to submit more than 5 large documents (approximately 5000 characters each) per request.
+See [How to use Azure Container Instances](../../../containers/azure-container-instance-recipe.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create an ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Due to the limit on the maximum number of CPUs per ACI resource, do not select this option if you expect to submit more than 5 large documents (approximately 5000 characters each) per request.
 See the [ACI regional support](../../../../container-instances/container-instances-region-availability.md) article for availability information. 
 
 > [!NOTE] 
@@ -262,174 +261,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
-```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+[!INCLUDE [Use APIs in container](../includes/container-request.md)]
 
-```
-
-The following JSON is an example of a JSON file attached to the Text Analytics for health request's POST body:
-
-```json
-example.json
-
-{
-  "documents": [
-    {
-      "language": "en",
-      "id": "1",
-      "text": "Patient reported itchy sores after swimming in the lake."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "Prescribed 50mg benadryl, taken twice daily."
-    }
-  ]
-}
-```
-
-### Container response body
-
-The following JSON is an example of the Text Analytics for health response body from the containerized synchronous call:
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "entities": [
-                {
-                    "offset": 25,
-                    "length": 5,
-                    "text": "100mg",
-                    "category": "Dosage",
-                    "confidenceScore": 1.0
-                },
-                {
-                    "offset": 31,
-                    "length": 10,
-                    "text": "remdesivir",
-                    "category": "MedicationName",
-                    "confidenceScore": 1.0,
-                    "name": "remdesivir",
-                    "links": [
-                        {
-                            "dataSource": "UMLS",
-                            "id": "C4726677"
-                        },
-                        {
-                            "dataSource": "DRUGBANK",
-                            "id": "DB14761"
-                        },
-                        {
-                            "dataSource": "GS",
-                            "id": "6192"
-                        },
-                        {
-                            "dataSource": "MEDCIN",
-                            "id": "398132"
-                        },
-                        {
-                            "dataSource": "MMSL",
-                            "id": "d09540"
-                        },
-                        {
-                            "dataSource": "MSH",
-                            "id": "C000606551"
-                        },
-                        {
-                            "dataSource": "MTHSPL",
-                            "id": "3QKI37EEHE"
-                        },
-                        {
-                            "dataSource": "NCI",
-                            "id": "C152185"
-                        },
-                        {
-                            "dataSource": "NCI_FDA",
-                            "id": "3QKI37EEHE"
-                        },
-                        {
-                            "dataSource": "NDDF",
-                            "id": "018308"
-                        },
-                        {
-                            "dataSource": "RXNORM",
-                            "id": "2284718"
-                        },
-                        {
-                            "dataSource": "SNOMEDCT_US",
-                            "id": "870592005"
-                        },
-                        {
-                            "dataSource": "VANDF",
-                            "id": "4039395"
-                        }
-                    ]
-                },
-                {
-                    "offset": 42,
-                    "length": 13,
-                    "text": "intravenously",
-                    "category": "MedicationRoute",
-                    "confidenceScore": 1.0
-                },
-                {
-                    "offset": 73,
-                    "length": 7,
-                    "text": "120 min",
-                    "category": "Time",
-                    "confidenceScore": 0.94
-                }
-            ],
-            "relations": [
-                {
-                    "relationType": "DosageOfMedication",
-                    "entities": [
-                        {
-                            "ref": "#/documents/0/entities/0",
-                            "role": "Dosage"
-                        },
-                        {
-                            "ref": "#/documents/0/entities/1",
-                            "role": "Medication"
-                        }
-                    ]
-                },
-                {
-                    "relationType": "RouteOfMedication",
-                    "entities": [
-                        {
-                            "ref": "#/documents/0/entities/1",
-                            "role": "Medication"
-                        },
-                        {
-                            "ref": "#/documents/0/entities/2",
-                            "role": "Route"
-                        }
-                    ]
-                },
-                {
-                    "relationType": "TimeOfMedication",
-                    "entities": [
-                        {
-                            "ref": "#/documents/0/entities/1",
-                            "role": "Medication"
-                        },
-                        {
-                            "ref": "#/documents/0/entities/3",
-                            "role": "Time"
-                        }
-                    ]
-                }
-            ],
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2021-03-01"
-}
-```
 
 ## Run the container with client library support
 

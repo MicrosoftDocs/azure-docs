@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
@@ -13,12 +13,9 @@ ms.author: jasteppe
 
 This article describes how to configure the MedTech service using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
 
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
-
 Below is a conceptual example of what happens during the normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
 ## FHIR destination mappings
 
@@ -265,13 +262,13 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 ```
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
-In this article, you learned how to use FHIR destination mappings. To learn how to use Device mappings, see
+In this article, you learned how to use FHIR destination mappings. To learn how to use device mappings, see
 
->[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use device mappings](how-to-use-device-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

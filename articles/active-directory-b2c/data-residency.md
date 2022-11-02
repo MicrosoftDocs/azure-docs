@@ -49,7 +49,7 @@ Data resides in **Asia Pacific** for the following countries/regions:
 
 Data resides in **Australia** for the following countries/regions:
 
-> Australia and New Zealand
+> Australia (AU) and New Zealand (NZ)
 
 The following countries/regions are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the countries/regions above.
 

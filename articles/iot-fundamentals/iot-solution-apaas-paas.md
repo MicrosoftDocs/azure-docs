@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 08/24/2022
 ms.author: dobett
 ---
 
@@ -53,7 +53,7 @@ Use the following table to help decide if you can use an aPaaS solution based on
 | Visualizations | IoT Central has a UX that makes it simple to visualize device data, perform analytics queries, and create custom dashboards. See: [What is Azure IoT Central?](../iot-central/core/overview-iot-central.md#dashboards) | You design and build your own visualizations with your choice of technologies. |
 | OPC UA protocol  | Not currently supported. | OPC Publisher is a Microsoft-supported open-source product that bridges the gap between industrial assets and Azure hosted resources. It connects to OPC UA–enabled assets or industrial connectivity software and publishes telemetry data to [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) in various formats, including IEC62541 OPC UA PubSub standard format. See: [Microsoft OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher). |
 | Pricing | The first two active devices within an IoT Central application are free, if their message volume doesn't exceed the threshold: 800 messages with the *Standard Tier 0 plan*, 10,000 messages with the *Standard Tier 1 plan*, or 60,000 messages with the *Standard Tier 2 plan* per month. Volumes that exceed those thresholds incur overage charges. With more than two active devices, device pricing is prorated monthly. For each hour during the billing period, the highest number of active devices is counted and billed. See: [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). | See: [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). |
-| Analytics, insights, and actions | Integrated analytics experience targeted at exploration of device data in the context of device management.  | To incorporate analytics, insights, and actions, use separate Azure PaaS services such as Azure Steam Analytics, Time Series Insights, Azure Data Explorer, and Azure Synapse. |
+| Analytics, insights, and actions | Integrated analytics experience targeted at exploration of device data in the context of device management.  | To incorporate analytics, insights, and actions, use separate Azure PaaS services such as Azure Stream Analytics, Time Series Insights, Azure Data Explorer, and Azure Synapse. |
 | Big data management | Data management can be managed from Azure IoT Central itself. | You need to add and manage big data Azure PaaS services as part of your solution. |
 | High availability and disaster recovery | High availability and disaster recovery capabilities are built in to Azure IoT Central and managed for you automatically. See: [Best practices for device development in Azure IoT Central](../iot-central/core/concepts-best-practices.md). | Can be configured to support multiple high availability and disaster recovery scenarios. See: [Azure IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md). |
 | SLA | See: [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central/).| See: [SLA for Azure IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/). |

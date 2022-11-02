@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 04/06/2022
 ---
 
 ### Compute modules have Unknown status and can't be used
@@ -17,7 +17,7 @@ All modules on the device show Unknown status and can't be used. The Unknown sta
 Delete the IoT Edge service, and then redeploy the module(s). For more information, see [Remove IoT Edge service](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
 
 
-### Modules show as running but are not working
+### Modules show as running but aren't working
 
 #### Error description
 
@@ -32,7 +32,7 @@ Take the following steps:
 1. Go to **Set modules > Runtime settings**. 
 1. Add the `Upstream protocol` environment variable and assign it a value of `AMQPWS`. The messages configured in this case are sent over WebSockets via port 443.
 
-### Modules show as running but do not have an IP assigned
+### Modules show as running but don't have an IP assigned
 
 #### Error description
 
@@ -88,3 +88,14 @@ You can use the create options via the K8s-experimental section. The following s
   }
 }
 ```
+### Not able to create or update IoT role
+
+#### Problem description
+
+When configuring the IoT device during setup, you may see the following error: 
+
+>*(Http status code: 400) Could not create or update IoT role on \<YourDeviceName>\. An error occurred with the error code {NO_PARAM}. For more information, refer to the error code details (https://aka.ms/dbe-error-codes). If the error persists, contact Microsoft Support*.
+
+#### Suggested solution
+
+If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.

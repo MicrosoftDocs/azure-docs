@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add or remove a delegated subnet for a service in Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
-ms.author: kumud 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -107,7 +107,7 @@ The built-in [Network Contributor](../role-based-access-control/built-in-roles.m
 
 In this section, you delegate the subnet that you created in the preceding section to an Azure service. 
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to update the subnet named **mySubnet** with a delegation to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -117,7 +117,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vn
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-To verify the delegation was applied, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Verify the service is delegated to the subnet under the property **serviceName**:
+To verify the delegation was applied, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Verify the service is delegated to the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -146,7 +146,7 @@ To verify the delegation was applied, use [az network vnet subnet show](/cli/azu
 
 ### Remove subnet delegation from an Azure service
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to remove the delegation from the subnet named **mySubnet**:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to remove the delegation from the subnet named **mySubnet**:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -155,7 +155,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vn
   --vnet-name myVnet \
   --remove delegations
 ```
-To verify the delegation was removed, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Verify the service is removed from the subnet under the property **serviceName**:
+To verify the delegation was removed, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Verify the service is removed from the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \

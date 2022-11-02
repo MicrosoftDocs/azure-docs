@@ -1,9 +1,9 @@
 ---
-title: Get right-sized Azure recommendation for your on-premises SQL Server database(s)
-description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
+title: Get right-sized Azure recommendation for your on-premises SQL Server database(s) (Preview)
+description: Learn how to use the Azure SQL migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database.
 services: database-migration
-author: mokabiru
-ms.author: mokabiru
+author: croblesm
+ms.author: roblescarlos
 manager: 
 ms.reviewer: 
 ms.service: dms
@@ -13,20 +13,20 @@ ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 
-# Get right-sized Azure recommendation for your on-premises SQL Server database(s)
+# Get right-sized Azure recommendation for your on-premises SQL Server database(s) (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized Azure recommendations and migrate your SQL Server database(s) to Azure.
+The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized SKU recommendations and migrate your SQL Server database(s) to Azure.
 
 Before migrating your SQL Server databases to Azure, it is important to assess them to identify any migration issues (if any) so you can remediate them and confidently migrate them to Azure. Moreover, it is equally important to identify the right-sized configuration in Azure to ensure your database workload performance requirements are met with minimal cost.
 
-The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension provides a user friendly interface to run the assessment and generate recommendations within a short timeframe.
+The Azure SQL migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension provides a user friendly interface to run the assessment and generate recommendations within a short timeframe.
 
 > [!NOTE]
-> Assessment and Azure recommendation feature in the Azure SQL Migration extension for Azure Data Studio also supports source SQL Server running on Linux.
+> Assessment and Azure recommendation feature in the Azure SQL migration extension for Azure Data Studio also supports source SQL Server running on Linux.
 
 ## Performance data collection and SKU recommendation
 
-With the Azure SQL Migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines that meets your database(s)' performance characteristics with the lowest cost.
+With the Azure SQL migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database (Preview) that meets your database(s)' performance characteristics with the lowest cost.
 
 The workflow for data collection and SKU recommendation is illustrated below.
 
@@ -35,7 +35,7 @@ The workflow for data collection and SKU recommendation is illustrated below.
 1. **Performance data collection**: To start the performance data collection process in the migration wizard, select **Get Azure recommendation** and choose the option to collect performance data as shown below. Provide the folder where the collected data will be saved and select **Start**.
     :::image type="content" source="media/ads-sku-recommend/collect-performance-data.png" alt-text="Collect performance data for SKU recommendation":::
     
-    When you start the data collection process in the migration wizard, the Azure SQL Migration extension for Azure Data Studio collects data from your SQL Server instance that includes information about the hardware configuration and aggregated SQL Server specific performance data from system Dynamic Management Views (DMVs) such as CPU utilization, memory utilization, storage size, IO, throughput and IO latency.
+    When you start the data collection process in the migration wizard, the Azure SQL migration extension for Azure Data Studio collects data from your SQL Server instance that includes information about the hardware configuration and aggregated SQL Server specific performance data from system Dynamic Management Views (DMVs) such as CPU utilization, memory utilization, storage size, IO, throughput and IO latency.
     > [!IMPORTANT]
     > - The data collection process runs for 10 minutes to generate the first recommendation. It is important to start the data collection process when your database workload reflects usage close to your production scenarios.</br>
     > - After the first recommendation is generated, you can continue to run the data collection process to refine recommendations especially if your usage patterns vary for an extended duration of time.
@@ -57,16 +57,16 @@ The workflow for data collection and SKU recommendation is illustrated below.
     > - return to start the data collection again from the migration wizard;
 
 ### Import existing performance data
-Any existing Performance data that you collected previously using the Azure SQL Migration extension or [using the console application in Data Migration Assistant](/sql/dma/dma-sku-recommend-sql-db) can be imported in the migration wizard to view the recommendation.</br>
+Any existing Performance data that you collected previously using the Azure SQL migration extension or [using the console application in Data Migration Assistant](/sql/dma/dma-sku-recommend-sql-db) can be imported in the migration wizard to view the recommendation.</br>
 Simply provide the folder location where the performance data files are saved and select **Start** to instantly view the recommendation and its details.</br>
     :::image type="content" source="media/ads-sku-recommend/import-sku-data.png" alt-text="Import performance data for SKU recommendation":::
 ## Prerequisites
 
 The following prerequisites are required to get Azure recommendation:
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
-* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
+* [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 
 ## Next steps
 
-- For an overview of the architecture to migrate databases, see [Migrate databases with Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
+- For an overview of the architecture to migrate databases, see [Migrate databases with Azure SQL migration extension for Azure Data Studio](migration-using-azure-data-studio.md).

@@ -3,15 +3,15 @@ metadata:
   title: Frequently asked questions (FAQ) - Azure Active Directory | Microsoft Docs
   description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
   services: active-directory
-  author: ajburnle
-  manager: karenhoran
+  author: barclayn
+  manager: amycolannino
   ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
   ms.service: active-directory
   ms.subservice: fundamentals
   ms.workload: identity
   ms.topic: faq
-  ms.date: 11/12/2018
-  ms.author: ajburnle
+  ms.date: 08/17/2022
+  ms.author: barclayn
   ms.custom: "it-pro, seodec18"
   ms.collection: M365-identity-device-management
 title: Frequently asked questions about Azure Active Directory
@@ -53,7 +53,7 @@ sections:
         answer: |
           By default, the person who signs up for an Azure subscription is assigned the Owner role for Azure resources. An Owner can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
           
-          If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For additional information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+          If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
           
           By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) and [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
           
@@ -64,14 +64,14 @@ sections:
       - question: |
           Is there a report that shows when my Azure AD user licenses will expire?
         answer: |
-          No.  This is not currently available.
+          No.  This isn't currently available.
           
           
           
   - name: Get started with Hybrid Azure AD
     questions:
       - question: |
-          How do I leave a tenant when I am added as a collaborator?
+          How do I leave a tenant when I'm added as a collaborator?
         answer: |
           When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization, and Microsoft is working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
           
@@ -252,4 +252,4 @@ sections:
       - question: |
           Can I set up a secure LDAP connection with Azure AD?
         answer: |
-           No. Azure AD does not support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Azure AD Domain Services (Azure AD DS) instance on your Azure AD tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+           No. Azure AD doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Azure AD Domain Services (Azure AD DS) instance on your Azure AD tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)

@@ -26,7 +26,7 @@ For more information, see a list of [platform metrics that are supported in Azur
 
 ## Metric dimensions
 
-For more information about metric dimensions, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
+For more information about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure virtual machines and virtual machine scale sets have the following dimensions that are associated with their metrics.
 

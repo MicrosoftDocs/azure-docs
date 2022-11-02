@@ -1,16 +1,16 @@
 ---
-title: Restore logs in Azure Monitor (Preview) 
+title: Restore logs in Azure Monitor
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 10/01/2022
 
 ---
 
-# Restore logs in Azure Monitor (preview)
+# Restore logs in Azure Monitor
 The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
 ## When to restore logs
-Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table cannot complete within the log query timeout of 10 minutes.
+Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
 > Restore is one method for accessing archived data. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
@@ -20,7 +20,7 @@ When you restore data, you specify the source table that contains the data you w
 
 The restore operation creates the restore table and allocates additional compute resources for querying the restored data using high-performance queries that support full KQL.
 
-The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
+The destination table provides a view of the underlying source data, but doesn't affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
 ## Restore data
 
@@ -80,16 +80,33 @@ To restore data from a table, run the [az monitor log-analytics workspace table 
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
+az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
 ---
+
+## Query restored data
+
+Restored logs retain their original timestamps. When you run a query on restored logs, set the query time range based on when the data was originally generated.
+
+Set the query time range by either: 
+
+- Selecting **Custom** in the **Time range** dropdown at the top of the query editor and setting **From** and **To** values.<br>  
+    or 
+- Specifying the time range in the query. For example:
+
+    ```kusto
+    let startTime =datetime(01/01/2022 8:00:00 PM);
+    let endTime =datetime(01/05/2022 8:00:00 PM);
+    TableName_RST
+    | where TimeGenerated between(startTime .. endTime)
+    ```
+
 ## Dismiss restored data
 
 To save costs, dismiss restored data when you no longer need it by deleting the restored table.
 
-Deleting the restored table does not delete the data in the source table.
+Deleting the restored table doesn't delete the data in the source table.
 
 > [!NOTE]
 > Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly. 
@@ -107,8 +124,7 @@ To delete a restore table, run the [az monitor log-analytics workspace table del
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Heartbeat_RST
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Heartbeat_RST
 ```
 
 ---
@@ -118,18 +134,18 @@ Restore is subject to the following limitations.
 You can: 
 
 - Restore data for a minimum of two days.
-- Restore up to 60TB.
+- Restore up to 60 TB.
 - Perform up to four restores per workspace per week. 
 - Run up to two restore processes in a workspace concurrently.
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
 
 ## Pricing model
-The charge for the restore operation is based on the volume of data you restore and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day.
+The charge for maintaining restored logs is calculated based on the volume of data you restore, in GB, and the number or days for which you restore the data. Charges are prorated and subject to the minimum restore duration and data volume. There is no charge for querying against restored logs.
 
-For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data. 
+For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
 
 > [!NOTE]
-> There is no charge for restored data during the preview period.
+> Billing of restore is not yet enabled. Restore can be used for free until February 1, 2023.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

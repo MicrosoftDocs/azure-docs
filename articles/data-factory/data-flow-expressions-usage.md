@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 10/19/2022
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -119,6 +119,24 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``'Washington'``
 ___
 
+<a name="ascii" ></a>
+
+### <code>ascii</code>
+<code><b>ascii(<i>&lt;Input&gt;</i> : string) => number</b></code><br/><br/>
+Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned
+* ``ascii('A') -> 65``
+* ``ascii('a') -> 97``
+
+___
+
+<a name="asin" ></a>
+
+### <code>asin</code>
+<code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
+Calculates an inverse sine value.  
+* ``asin(0) -> 0.0``  
+___
+
 <a name="assertErrorMessages" ></a>
 
 ### <code>assertErrorMessages</code>
@@ -129,16 +147,6 @@ Examples
 * ``assertErrorMessages() => ['assert1': 'This row failed on assert1.', 'assert2': 'This row failed on assert2.']. In this example, at(assertErrorMessages(), 'assert1') would return 'This row failed on assert1.'``
 
 ___
-
-
-<a name="asin" ></a>
-
-### <code>asin</code>
-<code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates an inverse sine value.  
-* ``asin(0) -> 0.0``  
-___
-
 
 <a name="associate" ></a>
 
@@ -379,6 +387,14 @@ Returns the smallest integer not smaller than the number.
 * ``ceil(-0.1) -> 0``  
 ___
 
+<a name="char" ></a>
+
+### <code>char</code>
+<code><b>char(<i>&lt;Input&gt;</i> : number) => string</b></code><br/><br/>
+Returns the ascii character represented by the input number. If number is greater than 256, the result is equivalent to char(number % 256)
+* ``char(65) -> 'A'``
+* ``char(97) -> 'a'``
+___
 
 <a name="coalesce" ></a>
 
@@ -395,6 +411,17 @@ ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
 Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
+
+
+<a name="collectUnique" ></a>
+
+### <code>collectUnique</code>
+<code><b>collectUnique(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collects all values of the expression in the aggregated group into a unique array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
 * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
@@ -592,7 +619,7 @@ ___
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
+Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone of the data factory's data center/region is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
 * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
@@ -655,6 +682,14 @@ Duration in milliseconds for number of days.
 * ``days(2) -> 172800000L``  
 ___
 
+<a name="decode" ></a>
+
+### <code>decode</code>
+<code><b>decode(<i>&lt;Input&gt;</i> : any, <i>&lt;Charset&gt;</i> : string) => binary</b></code><br/><br/>
+Decodes the encoded input data into a string based on the given charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'
+* ``decode(array(toByte(97),toByte(98),toByte(99)), 'US-ASCII') -> abc``
+___
+
 
 <a name="degrees" ></a>
 
@@ -714,6 +749,15 @@ ___
 
 ## E
 
+<a name="encode" ></a>
+
+### <code>encode</code>
+<code><b>encode(<i>&lt;Input&gt;</i> : string, <i>&lt;Charset&gt;</i> : string) => binary</b></code><br/><br/>
+Encodes the input string data into binary based on a charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'
+* ``encode('abc', 'US-ASCII') -> array(toByte(97),toByte(98),toByte(99))``  
+___
+
+Input string: string, Charset: string) => binary
 <a name="endsWith" ></a>
 
 ### <code>endsWith</code>
@@ -1001,7 +1045,7 @@ ___
 Given two or more inputs, returns the first not null item. This function is equivalent to coalesce.
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull('azure', 'data', 'factory') -> 'azure'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 
@@ -2249,7 +2293,18 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 * ``substring('Cat in the hat', 100, 100) -> ''``  
 ___
 
+<a name="substringIndex" ></a>
 
+### <code>substringIndex</code>
+<code><b>substringIndex(<i>&lt;string to subset&gt;</i> : string, <i>&lt;delimiter&gt;</i> : string, &lt;count of delimiter occurences&gt;</i> : integral]) => string</b></code><br/><br/>
+Extracts the substring before `count` occurrences of the delimiter. If `count` is positive, everything to the left of the final delimiter (counting from the left) is returned. If `count` is negative, everything to the right of the final delimiter (counting from the right) is returned.  
+* ``substringIndex('111-222-333', '-', 1) -> '111'``  
+* ``substringIndex('111-222-333', '-', 2) -> '111-222'``  
+* ``substringIndex('111-222-333', '-', -1) -> '333'``  
+* ``substringIndex('111-222-333', '-', -2) -> '222-333'``  
+___   
+      
+      
 <a name="sum" ></a>
 
 ### <code>sum</code>
@@ -2417,6 +2472,15 @@ Converts any numeric or string to a long value. An optional Java decimal format 
 * ``toLong('$123', '$###') -> 123``  
 ___
 
+      
+<a name="topN" ></a>
+
+### <code>topN</code>
+<code><b>topN(<i>&lt;column/expression&gt;</i> : any, <i>&lt;count&gt;</i> : long, <i>&lt;n&gt;</i> : integer) => array</b></code><br/><br/>
+Gets the top N values for this column based on the count argument.  
+* ``topN(custId, count, 5)``
+* ``topN(productId, num_sales, 10)``
+___
 
 <a name="toShort" ></a>
 

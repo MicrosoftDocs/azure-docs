@@ -2,13 +2,13 @@
 title: SQL information protection policy in Microsoft Defender for Cloud
 description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
 ms.topic: how-to
+author: bmansheim
+ms.author: benmansheim
 ms.date: 11/09/2021
 ---
 # SQL information protection policy in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-SQL information protection's [data discovery and classification mechanism](../azure-sql/database/data-discovery-and-classification-overview.md) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+SQL information protection's [data discovery and classification mechanism](/azure/azure-sql/database/data-discovery-and-classification-overview) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 The classification mechanism is based on the following two elements:
 
@@ -36,7 +36,9 @@ Each of these is shown in the relevant tab below.
 
 ### [**From Defender for Cloud's settings**](#tab/sqlip-tenant)
 
-### Access the policy from Defender for Cloud's environment settings page <a name="sqlip-tenant"></a>
+<a name="sqlip-tenant"></a>
+
+### Access the policy from Defender for Cloud's environment settings page
 
 From Defender for Cloud's **Environment settings** page, select **SQL information protection**.
 
@@ -49,7 +51,9 @@ From Defender for Cloud's **Environment settings** page, select **SQL informatio
 
 ### [**From Defender for Cloud's recommendation**](#tab/sqlip-db)
 
-### Access the policy from the Defender for Cloud recommendation <a name="sqlip-db"></a>
+<a name="sqlip-db"></a>
+
+### Access the policy from the Defender for Cloud recommendation
 
 Use Defender for Cloud's recommendation, "Sensitive data in your SQL databases should be classified", to view the data discovery and classification page for your database. There, you'll also see the columns discovered to contain information that we recommend you classify.
 
@@ -67,7 +71,9 @@ Use Defender for Cloud's recommendation, "Sensitive data in your SQL databases s
 
 ### [**From Azure SQL**](#tab/sqlip-azuresql)
 
-### Access the policy from Azure SQL <a name="sqlip-azuresql"></a>
+<a name="sqlip-azuresql"></a>
+
+### Access the policy from Azure SQL
 
 1. From the Azure portal, open Azure SQL.
 
@@ -133,7 +139,7 @@ Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions
 
 ## Next steps
  
-In this article, you learned about defining an information protection policy in Microsoft Defender for Cloud. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
+In this article, you learned about defining an information protection policy in Microsoft Defender for Cloud. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](/azure/azure-sql/database/data-discovery-and-classification-overview).
 
 For more information on security policies and data security in Defender for Cloud, see the following articles:
  

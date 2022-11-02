@@ -2,12 +2,12 @@
 title: Azure Files monitoring data reference | Microsoft Docs
 description: Log and metrics reference for monitoring data from Azure Files.
 author: normesta
-services: azure-monitor
-ms.service: azure-monitor
+services: storage
+ms.service: storage
 ms.topic: reference
 ms.date: 10/02/2020
 ms.author: normesta
-ms.subservice: logs
+ms.subservice: files
 ms.custom: monitoring
 ---
 
@@ -42,8 +42,8 @@ This table shows [Azure Files metrics](../../azure-monitor/essentials/metrics-su
 
 | Metric | Description |
 | ------------------- | ----------------- |
-| FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Dimensions: FileShare, Tier <br/> Value example: 1024 |
+| FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimensions: FileShare, Tier <br/> Value example: 1024 |
 | FileShareCapacityQuota | The upper limit on the amount of storage that can be used by Azure Files Service in bytes. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024|
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: CountPerSecond <br/> Aggregation Type: Average |

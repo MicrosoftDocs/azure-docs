@@ -5,7 +5,7 @@
   items: 
   - name: Azure Table storage overview
     href: table-storage-overview.md
-  - name: Choose Table storage or Table API
+  - name: Choose Table storage or Azure Cosmos DB for Table
     href: ../../cosmos-db/table-support.md
     maintainContext: true   
 - name: Quickstarts
@@ -35,6 +35,9 @@
   - name: Python
     href: ../../cosmos-db/table-storage-how-to-use-python.md
     maintainContext: true 
+  - name: Go
+    href: ../../cosmos-db/table-storage-how-to-use-go.md 
+    maintainContext: true
   - name: Ruby
     href: ../../cosmos-db/table-storage-how-to-use-ruby.md
     maintainContext: true
@@ -67,9 +70,6 @@
     items:
     - name: Azure Storage encryption at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      items:
-      - name: Encryption with customer-managed keys
-        href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
@@ -132,14 +132,24 @@
       items:
       - name: Create an account that supports customer-managed keys
         href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Configure encryption with customer-managed keys
-        items:
-        - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Store customer-managed keys in a managed HSM
-          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Configure customer-managed keys in Azure Key Vault
+        items:
+        - name: Configure customer-managed keys in the same tenant
+          items:
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a different tenant
+          items:
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a managed HSM
+          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Enable infrastructure encryption for the account
         href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Configure client-side encryption
@@ -169,7 +179,11 @@
     - name: Change how data is replicated
       href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Design highly available applications
-      href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      items:
+        - name: .NET (v12 SDK)
+          href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: .NET (v11 SDK)
+          href: ../common/geo-redundant-design-legacy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property
@@ -184,6 +198,12 @@
       href: /previous-versions/azure/storage/storage-use-azcopy-linux
   - name: Troubleshoot
     items:
+    - name: Performance
+      href: ../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Availability
+      href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Client errors
+      href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Latency issues
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Resources
@@ -200,6 +220,30 @@
     href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/table-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage/management
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
   - name: Monitoring Azure Table storage reference
     href: monitor-table-storage-reference.md
   - name: Scalability and performance targets

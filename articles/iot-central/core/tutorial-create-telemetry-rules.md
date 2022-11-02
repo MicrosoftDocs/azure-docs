@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in your Azure IoT Central application
 description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/09/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -76,10 +76,6 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. In the left pane, select **Rules**.
 
-1. If you haven't created any rules yet, you see the following screen:
-
-    :::image type="content" source="media/tutorial-create-telemetry-rules/rules-landing-page.png" alt-text="Screenshot that shows the empty list of rules":::
-
 1. Select **+ New** to add a new rule.
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
@@ -95,8 +91,6 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 1. Select **Temperature** in the **Telemetry** dropdown.
 
 1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**.
-
-    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Screenshot that shows the temperature condition for the rule":::
 
 1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 

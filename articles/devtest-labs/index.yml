@@ -10,8 +10,8 @@ metadata:
   ms.subservice: 
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: j-martens #Required; your GitHub user alias, with correct capitalization.
-  ms.author: jmartens #Required; microsoft alias of author; optional team alias.
+  author: RoseHJM #Required; your GitHub user alias, with correct capitalization.
+  ms.author: rosemalcolm #Required; microsoft alias of author; optional team alias.
   ms.date: 08/26/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -39,7 +39,7 @@ landingContent:
       - linkListType: learn
         links:       
           - text: Intro to DevTest Labs
-            url: /learn/modules/intro-to-azure-devtest-labs/
+            url: /training/modules/intro-to-azure-devtest-labs/
   - title: Artifacts
     linkLists:
       - linkListType: how-to-guide

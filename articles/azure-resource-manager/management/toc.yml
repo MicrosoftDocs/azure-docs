@@ -22,6 +22,8 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: TLS support
+      href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
     - name: Security controls by Azure Policy
@@ -69,10 +71,12 @@
           href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Batch
           href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Cache for Redis
+          href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cognitive Search
           href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
-          href: https://docs.microsoft.com/azure/container-registry/manual-regional-move
+          href: ../../container-registry/manual-regional-move.md
         - name: Azure Cosmos DB
           href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
@@ -92,11 +96,11 @@
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
-          href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/database/move-resources-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Stream Analytics
           items:
           - name: Move Stream Analytics jobs
-            href: https://docs.microsoft.com/azure/stream-analytics/copy-job
+            href: ../../stream-analytics/copy-job.md
           - name: Move Stream Analytics cluster
             href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
@@ -105,24 +109,16 @@
           href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Maintenance Control configuration
           href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Cache for Redis
-          href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
-          items:
-          - name: Virtual network
-            href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Network Interface (NIC)
-            href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Network security group (NSG)
-            href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Public IP addresses
-            href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Managed identities for Azure Resources
+          href: ../../active-directory/managed-identities-azure-resources/how-to-managed-identity-regional-move.md
         - name: Power BI
           href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: SQL Server on Azure VM
-          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
     - name: Decision guide
@@ -139,10 +135,10 @@
     items:
     - name: Create - portal
       href: create-private-link-access-portal.md
-    - name: Create - REST
-      href: create-private-link-access-rest.md
-    - name: Manage - REST
-      href: manage-private-link-access-rest.md
+    - name: Create - Commands
+      href: create-private-link-access-commands.md
+    - name: Manage - Commands
+      href: manage-private-link-access-commands.md
   - name: Manage resource groups
     items:
     - name: Azure portal
@@ -202,8 +198,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-resource-manager
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator

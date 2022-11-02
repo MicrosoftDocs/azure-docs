@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Cisco Umbrella Admin SSO | Microsoft Docs'
+title: 'Tutorial: Azure AD integration with Cisco Umbrella Admin SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Umbrella Admin SSO.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 05/24/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Cisco Umbrella Admin SSO
+# Tutorial: Azure AD integration with Cisco Umbrella Admin SSO
 
 In this tutorial, you'll learn how to integrate Cisco Umbrella Admin SSO with Azure Active Directory (Azure AD). When you integrate Cisco Umbrella Admin SSO with Azure AD, you can:
 
@@ -26,6 +26,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Cisco Umbrella Admin SSO single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -43,6 +46,8 @@ To configure the integration of Cisco Umbrella Admin SSO into Azure AD, you need
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Cisco Umbrella Admin SSO** in the search box.
 1. Select **Cisco Umbrella Admin SSO** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Cisco Umbrella Admin SSO
 
@@ -65,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
@@ -77,11 +82,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 6. On the **Set up Cisco Umbrella Admin SSO** section, copy the appropriate URL(s) as per your requirement.
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Attributes")
 
 ### Create an Azure AD test user
 
@@ -113,27 +118,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. From the left side of menu, click **Admin** and navigate to **Authentication** and then click on **SAML**.
 
-    ![The Admin](./media/cisco-umbrella-tutorial/admin.png)
+    ![Screenshot shows the Admin menu window.](./media/cisco-umbrella-tutorial/admin.png "Administrator")
 
 3. Choose **Other** and click on **NEXT**.
 
-    ![The Other](./media/cisco-umbrella-tutorial/other.png)
+    ![Screenshot shows the Other menu window.](./media/cisco-umbrella-tutorial/other.png "Folder")
 
 4. On the **Cisco Umbrella Admin SSO Metadata**, page, click **NEXT**.
 
-    ![The metadata](./media/cisco-umbrella-tutorial/metadata.png)
+    ![Screenshot shows the metadata file page.](./media/cisco-umbrella-tutorial/metadata.png "File")
 
 5. On the **Upload Metadata** tab, if you had pre-configured SAML, select **Click here to change them** option and follow the below steps.
 
-    ![The Next](./media/cisco-umbrella-tutorial/next.png)
+    ![Screenshot shows the Next Folder window.](./media/cisco-umbrella-tutorial/next.png "Values")
 
 6. In the **Option A: Upload XML file**,  upload the **Federation Metadata XML** file that you downloaded from the Azure portal and after uploading metadata the below values get auto populated automatically then click **NEXT**.
 
-    ![The choosefile](./media/cisco-umbrella-tutorial/choose-file.png)
+    ![Screenshot shows the choosefile from folder.](./media/cisco-umbrella-tutorial/choose-file.png "Federation")
 
 7. Under **Validate SAML Configuration** section, click **TEST YOUR SAML CONFIGURATION**.
 
-    ![The Test](./media/cisco-umbrella-tutorial/test.png)
+    ![Screenshot shows the Test SAML Configuration.](./media/cisco-umbrella-tutorial/test.png "Validate")
 
 8. Click **SAVE**.
 
@@ -148,11 +153,11 @@ In the case of Cisco Umbrella Admin SSO, provisioning is a manual task.
 
 2. From the left side of menu, click **Admin** and navigate to **Accounts**.
 
-    ![The Account](./media/cisco-umbrella-tutorial/account.png)
+    ![Screenshot shows the Account of Cisco Umbrella Admin.](./media/cisco-umbrella-tutorial/account.png "Account")
 
 3. On the **Accounts** page, click on **Add** on the top right side of the page and perform the following steps.
 
-    ![The User](./media/cisco-umbrella-tutorial/create-user.png)
+    ![Screenshot shows the User of Accounts.](./media/cisco-umbrella-tutorial/create-user.png "User")
 
     a. In the **First Name** field, enter the firstname like **Britta**.
 

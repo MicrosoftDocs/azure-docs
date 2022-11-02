@@ -10,9 +10,9 @@ metadata:
   ms.service: virtual-network
   ms.topic: hub-page
   ms.collection:
-  author: KumudD
-  ms.author: kumud
-  manager: mtillman
+  author: mbender-ms
+  ms.author: mbender
+  manager: kumudD
   ms.date: 09/08/2021
 
 highlightedContent:
@@ -111,7 +111,7 @@ additionalContent:
             - text: What is Azure Virtual Network NAT?
               url: ../virtual-network/nat-gateway/nat-overview.md
             - text: Create and configure NAT gateway resource
-              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+              url: ../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
 
@@ -161,9 +161,9 @@ additionalContent:
         - title: Secure cloud CDN and global load balancer
           links:
             - text: What is Azure Front Door Service?
-              url: ../frontdoor/standard-premium/overview.md
-            - text:  Add a custom domain to your Azure Front Door Service
-              url: ../frontdoor/front-door-how-to-redirect-https.md
+              url: ../frontdoor/front-door-overview.md
+            - text:  Create an Azure Front Door profile
+              url: ../frontdoor/create-front-door-portal.md
             - text: See more
               url: ../frontdoor/index.yml
 
@@ -191,10 +191,12 @@ additionalContent:
         # Card
         - title: DDoS protection
           links:
-            - text: What is Azure DDoS Protection Standard?
+            - text: What is Azure DDoS Protection?
+              url: ../ddos-protection/ddos-protection-overview.md
+            - text: Create DDoS Network Protection
               url: ../ddos-protection/manage-ddos-protection.md
-            - text: Manage DDoS Protection
-              url: ../ddos-protection/manage-ddos-protection.md
+            - text: Create DDoS IP Protection
+              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
             - text: See more
               url: ../ddos-protection/index.yml
 
@@ -231,16 +233,6 @@ additionalContent:
               url: ../bastion/index.yml
 
         # Card
-        - title: Secure cloud CDN and global load balancer
-          links:
-            - text: What is Azure Front Door Service?
-              url: ../frontdoor/standard-premium/overview.md
-            - text:  Add a custom domain to your Azure Front Door Service
-              url: ../frontdoor/front-door-how-to-redirect-https.md
-            - text: See more
-              url: ../frontdoor/index.yml
-
-        # Card
         - title: Network security management
           links:
             - text: What is Azure Firewall Manager?
@@ -265,6 +257,6 @@ additionalContent:
             - text: What is Azure Monitor?
               url: ../network-watcher/network-watcher-monitoring-overview.md
             - text: What is Azure Monitor Network Insights?
-              url: ../azure-monitor/insights/network-insights-overview.md
+              url: ../network-watcher/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml

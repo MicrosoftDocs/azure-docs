@@ -1,0 +1,81 @@
+---
+title: Delete and restore a blob container with .NET - Azure Storage 
+description: Learn how to delete and restore a blob container in your Azure Storage account using the .NET client library.
+services: storage
+author: pauljewellmsft
+ms.author: pauljewell
+
+ms.service: storage
+ms.topic: how-to
+ms.date: 03/28/2022
+
+ms.subservice: blobs
+ms.devlang: csharp
+ms.custom: devx-track-csharp
+---
+
+# Delete and restore a container in Azure Storage with .NET
+
+This article shows how to delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled container soft delete, you can restore deleted containers.
+
+## Delete a container
+
+To delete a container in .NET, use one of the following methods:
+
+- [Delete](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
+
+The **Delete** and **DeleteAsync** methods throw an exception if the container doesn't exist.
+
+The **DeleteIfExists** and **DeleteIfExistsAsync** methods return a Boolean value indicating whether the container was deleted. If the specified container doesn't exist, then these methods return **False** to indicate that the container wasn't deleted.
+
+After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found).
+
+The following example deletes the specified container, and handles the exception if the container doesn't exist:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
+
+The following example shows how to delete all of the containers that start with a specified prefix.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteContainersWithPrefixAsync":::
+
+## Restore a deleted container
+
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling either of the following methods of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class.
+
+- [UndeleteBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.undeleteblobcontainer)
+- [UndeleteBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.undeleteblobcontainerasync)
+
+The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the [UndeleteBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.undeleteblobcontainerasync) method to restore the container.
+
+```csharp
+public static async Task RestoreContainer(BlobServiceClient client, string containerName)
+{
+    await foreach (BlobContainerItem item in client.GetBlobContainersAsync
+        (BlobContainerTraits.None, BlobContainerStates.Deleted))
+    {
+        if (item.Name == containerName && (item.IsDeleted == true))
+        {
+            try 
+            { 
+                await client.UndeleteBlobContainerAsync(containerName, item.VersionId);
+            }
+            catch (RequestFailedException e)
+            {
+                Console.WriteLine("HTTP error code {0}: {1}",
+                e.Status, e.ErrorCode);
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+}
+```
+
+## See also
+
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+- [Soft delete for containers](soft-delete-container-overview.md)
+- [Enable and manage soft delete for containers](soft-delete-container-enable.md)
+- [Restore Container](/en-us/rest/api/storageservices/restore-container)

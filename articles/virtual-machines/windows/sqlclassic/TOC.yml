@@ -1,37 +1,37 @@
 - name: Overview
   items:
   - name: Windows SQL Server VMs
-    href: ../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
   - name: FAQ
-    href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    href: /azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Get Started
   items:
   - name: Provision a VM in the Azure Portal
-    href: ../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: /azure/azure-sql/virtual-machines/windows/create-sql-vm-portal?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Migrate a SQL Server database
-    href: ../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: /azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
 - name: How to
   items:
   - name: Configure High Availability
     items:
     - name: High availability options
-      href: ../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Manage
     items:
     - name: Security Considerations
-      href: ../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/security-considerations-best-practices?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Backup and restore
     items:
     - name: Backup and Restore
-      href: ../../../azure-sql/virtual-machines/windows/backup-restore.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/backup-restore?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
     - name: Use Azure Storage for Backup and Restore
-      href: ../../../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Performance best practices
-    href: ../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
   - name: Application patterns
-    href: ../../../azure-sql/virtual-machines/windows/application-patterns-development-strategies.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: /azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
 - name: Reference
   items:
   - name: Azure PowerShell

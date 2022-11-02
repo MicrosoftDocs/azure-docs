@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 02/14/2022
+ms.date: 03/22/2022
 ms.custom: ignite-fall-2021, references_regions
 ---
 
@@ -19,11 +19,10 @@ See below for information about changes to Speech services and resources.
 
 ## What's new?
 
-* STT Service January 2022, added 18 new locales.
-* Speech SDK 1.20.0 released January 2022. Updates include extended programming language support for DialogServiceConnector, Unity on Linux, enhancements to IntentRecognizer, added support for Python 3.10, and a fix to remove a 10-second delay while stopping a speech recognizer (when using a PushAudioInputStream, and no new audio is pushed in after StopContinuousRecognition is called).
-* Speech CLI 1.20.0 released January 2022. Updates include microphone input for Speaker recognition and expanded support for Intent recognition.
-* TTS Service January 2022, added 10 new languages and variants for Neural text-to-speech and new voices in preview for en-GB, fr-FR and de-DE.
-* Containers v3.0.0 released January 2022, with support for using containers in disconnected environments.
+* Speech SDK 1.24.0 and Speech CLI 1.24.0 were released in October 2022. See details below.
+* Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
+* TTS Service August 2022, five new voices in public preview were released.
+* TTS Service September 2022, all the prebuilt neural voices have been upgraded to high-fidelity voices with 48kHz sample rate.
 
 ## Release notes
 

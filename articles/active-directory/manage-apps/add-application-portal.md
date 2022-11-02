@@ -1,17 +1,16 @@
 ---
 title: 'Quickstart: Add an enterprise application'
 description: Add an enterprise application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergleenl
+ms.date: 03/24/2022
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to add an enterprise application.
 ---

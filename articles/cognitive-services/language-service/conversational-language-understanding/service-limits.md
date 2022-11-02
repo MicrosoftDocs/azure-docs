@@ -8,54 +8,104 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 10/12/2022
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu, ignite-fall-2021, references_regions
 ---
 
-# Service limits for Conversational Language Understanding
+# Conversational language understanding limits
 
-Learn about the data, region, and throughput limits for the Conversational Language Understanding service
+Use this article to learn about the data and service limits when using conversational language understanding.
 
-## Region limits
+## Language resource limits
 
-- Conversational Language Understanding is only available in 2 regions: **West US 2** and **West Europe**. 
-    - Orchestration workflow projects will enable **Conversation projects**, **QnA Maker** and **LUIS** connections in West Europe.
-    - Orchestration workflow projects will enable **Conversation projects** and **QnA Maker** connections only in West US 2. There is no authoring West US 2 region for LUIS. 
-- The only available SKU to access CLU is the **Language** resource with the **S** sku.
+* Your Language resource must be one of the following [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/):
 
-## Data limits
-
-The following limits are observed for the Conversational Language Understanding service.
-
-|Item|Limit|
-| --- | --- |
-|Utterances|15,000 per project*|
-|Intents|500 per project|
-|Entities|100 per project|
-|Utterance length|500 characters|
-|Intent and entity name length|50 characters|
-|Models|10 per project|
-|Projects|500 per resource|
-|Synonyms|20,000 per list component|
-
-\**Only includes utterances added by the user. Data pulled in for orchestration workflow projects do not count towards the total.*
+  |Tier|Description|Limit|
+  |--|--|--|
+  |F0|Free tier|You are only allowed **one** F0 Language resource **per subscription**.|
+  |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
 
 
-## Throughput limits
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
-|Item | Limit |
---- | --- 
-|Authoring Calls| 60 requests per minute|
-|Prediction Calls| 60 requests per minute|
+* You can have up to **500** projects per resource.
+
+* Project names have to be unique within the same resource across all custom features.
+
+### Regional availability
+
+Conversational language understanding is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
+
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
+
+## API limits
+
+|Item|Request type| Maximum limit|
+|:-|:-|:-|
+|Authoring API|POST|10 per minute|
+|Authoring API|GET|100 per minute|
+|Predection API|GET/POST|1,000 per minute|
 
 ## Quota limits
 
-| Item | Limit |
---- | --- 
-|Authoring Calls| Unlimited|
-|Prediction Calls| 100,000 per month|
+|Pricing tier |Item |Limit |
+| --- | --- | ---|
+|F|Training time| 1 hour per month  |
+|S|Training time| Unlimited, Pay as you go |
+|F|Prediction Calls| 5,000 request per month  |
+|S|Prediction Calls| Unlimited, Pay as you go |
+
+## Data limits
+
+The following limits are observed for the conversational language understanding.
+
+|Item|Lower Limit| Upper Limit |
+| --- | --- | --- |
+|Count of utterances per project | 1 | 25,000|
+|Utterance length in characters | 1 | 500 |
+|Count of intents per project | 1 | 500|
+|Count of entities per project | 1 | 500|
+|Count of list synonyms per entity| 0 | 20,000 |
+|Count of prebuilt components per entity| 0 | 7 |
+|Count of trained models per project| 0 | 10 |
+|Count of deployments per project| 0 | 10 |
+
+## Naming limits
+
+| Item | Limits |
+|--|--|
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` , symbols  `_ . -`, with no spaces. Maximum allowed length is 50 characters. |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and all symbols except ":", `$ & %  * (  ) + ~ # / ?`. Maximum allowed length is 50 characters.|
+| Entity name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and all symbols except ":", `$ & %  * (  ) + ~ # / ?`. Maximum allowed length is 50 characters.|
 
 ## Next steps
 
-[Conversational Language Understanding overview](overview.md)
+* [Conversational language understanding overview](overview.md)

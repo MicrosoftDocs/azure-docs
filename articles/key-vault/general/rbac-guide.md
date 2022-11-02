@@ -16,7 +16,7 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
 > [!NOTE]
-> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. It is supported using client libraries like Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts.
 
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
@@ -27,7 +27,7 @@ The Azure RBAC model provides the ability to set permissions on different scope 
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-## Best Practices for individual keys, secrets, and certificates
+## Best Practices for individual keys, secrets, and certificates role assignments
 
 Our recommendation is to use a vault per application per environment
 (Development, Pre-Production, and Production).
@@ -36,7 +36,6 @@ Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
 -   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
--   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
 
 More about Azure Key Vault management guidelines, see:
 
@@ -57,7 +56,10 @@ More about Azure Key Vault management guidelines, see:
 | Key Vault Crypto User  | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
 | Key Vault Reader | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 | Key Vault Secrets Officer| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Key Vault Secrets User | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Key Vault Secrets User | Read secret contents including secret portion of a certificate with private key. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+
+> [!NOTE]
+> There is no `Key Vault Certificate User` because applications require secrets portion of certificate with private key. The `Key Vault Secrets User` role should be used for applications to retrieve certificate.
 
 For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -199,6 +201,9 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 ### Secret scope role assignment
 
+> [!NOTE]
+> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](rbac-guide.md?i#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
+
 1. Open a previously created secret.
 
 1. Click the Access control(IAM) tab
@@ -247,39 +252,39 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Validate adding new secret without "Key Vault Secrets Officer" role on key vault level.
 
-Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer" role assignment for this resource.
+   1. Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer" role assignment for this resource.
 
-![Remove assignment - key vault](../media/rbac/image-9.png)
+      ![Remove assignment - key vault](../media/rbac/image-9.png)
 
-Navigate to previously created secret. You can see all secret properties.
+   1. Navigate to previously created secret. You can see all secret properties.
 
-![Secret view with access](../media/rbac/image-10.png)
+      ![Secret view with access](../media/rbac/image-10.png)
 
-Create new secret ( Secrets \> +Generate/Import) should show below error:
+   1. Create new secret ( Secrets \> +Generate/Import) should show below error:
 
-   ![Create new secret](../media/rbac/image-11.png)
+      ![Create new secret](../media/rbac/image-11.png)
 
-2.  Validate secret editing without "Key Vault Secret Officer" role on secret level.
+1. Validate secret editing without "Key Vault Secret Officer" role on secret level.
 
--   Go to previously created secret Access Control (IAM) tab
+   1. Go to previously created secret Access Control (IAM) tab
     and remove "Key Vault Secrets Officer" role assignment for
     this resource.
 
--   Navigate to previously created secret. You can see secret properties.
+   1. Navigate to previously created secret. You can see secret properties.
 
-   ![Secret view without access](../media/rbac/image-12.png)
+      ![Secret view without access](../media/rbac/image-12.png)
 
-3. Validate secrets read without reader role on key vault level.
+1. Validate secrets read without reader role on key vault level.
 
--   Go to key vault resource group Access control (IAM) tab and remove "Key Vault Reader" role assignment.
+   1. Go to key vault resource group Access control (IAM) tab and remove "Key Vault Reader" role assignment.
 
--   Navigating to key vault's Secrets tab should show below error:
+   1. Navigating to key vault's Secrets tab should show below error:
 
-   ![Secret tab - error](../media/rbac/image-13.png)
+      ![Secret tab - error](../media/rbac/image-13.png)
 
 ### Creating custom roles 
 
-[az role definition create command](/cli/azure/role/definition#az_role_definition_create)
+[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -334,9 +339,12 @@ For more Information about how to create custom roles, see:
 -   2000 Azure role assignments per subscription
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
-## Learn more
-1. Assign the [ROLENAME] role to the [USER | GROUP | SERVICEPRINCIPAL | MANAGEDIDENTITY] at [MANAGEMENTGROUP | SUBSCRIPTION | RESOURCEGROUP | RESOURCE] scope.
+## Frequently Asked Questions:
 
+### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
+No. RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions which will then expose secure information to operators across application teams.
+
+## Learn more
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
 - [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)

@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 08/20/2022
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), you can create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) by using the Logic Apps REST API. To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -45,7 +47,7 @@ Deployment usually takes within two hours to finish. Occasionally, deployment mi
 
 > [!NOTE]
 > If deployment fails or you delete your ISE, Azure might take up to an hour before releasing your subnets. 
-> This delay means means you might have to wait before reusing those subnets in another ISE.
+> This delay means you might have to wait before reusing those subnets in another ISE.
 >
 > If you delete your virtual network, Azure generally takes up to two hours 
 > before releasing up your subnets, but this operation might take longer. 

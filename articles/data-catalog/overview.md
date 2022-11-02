@@ -1,15 +1,13 @@
 ---
 title: Introduction to Azure Data Catalog
 description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it addresses. Data Catalog enables any user to register, discover, understand, and consume data sources.
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 02/24/2022
 ---
 
 # What is Azure Data Catalog?
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 Azure Data Catalog is a fully managed cloud service that lets users discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments.
 

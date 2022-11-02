@@ -3,7 +3,7 @@ title: Use the cluster autoscaler in Azure Kubernetes Service (AKS)
 description: Learn how to use the cluster autoscaler to automatically scale your cluster to meet application demands in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 10/03/2022
 
 ---
 
@@ -153,7 +153,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-When you enable the cluster autoscaler on node pools in the cluster, those clusters will also use the cluster autoscaler profile. For example:
+When you enable the cluster autoscaler on node pools in the cluster, these node pools with CA enabled will also use the cluster autoscaler profile. For example:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -225,7 +225,7 @@ To configure logs to be pushed from the cluster autoscaler into Log Analytics, f
 1. Select the "Logs" section on your cluster via the Azure portal.
 1. Input the following example query into Log Analytics:
 
-```
+```kusto
 AzureDiagnostics
 | where Category == "cluster-autoscaler"
 ```
@@ -236,7 +236,7 @@ You should see logs similar to the following example as long as there are logs t
 
 The cluster autoscaler will also write out health status to a `configmap` named `cluster-autoscaler-status`. To retrieve these logs, execute the following `kubectl` command. A health status will be reported for each node pool configured with the cluster autoscaler.
 
-```
+```bash
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
@@ -273,33 +273,32 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 > [!NOTE]
 > If you are planning on using the cluster autoscaler with nodepools that span multiple zones and leverage scheduling features related to zones such as volume topological scheduling, the recommendation is to have one nodepool per zone and enable the `--balance-similar-node-groups` through the autoscaler profile. This will ensure that the autoscaler will scale up succesfully and try and keep the sizes of the nodepools balanced.
 
+## Configure the horizontal pod autoscaler
+
+Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more details on using the horizontal pod autoscaler, see [HorizontalPodAutoscaler Walkthrough][kubernetes-hpa-walkthrough].
+
 ## Next steps
 
 This article showed you how to automatically scale the number of AKS nodes. You can also use the horizontal pod autoscaler to automatically adjust the number of pods that run your application. For steps on using the horizontal pod autoscaler, see [Scale applications in AKS][aks-scale-apps].
 
+To further help improve cluster resource utilization and free up CPU and memory for other pods, see [Vertical Pod Autoscaler][vertical-pod-autoscaler].
+
 <!-- LINKS - internal -->
-[aks-faq]: faq.md
 [aks-faq-node-resource-group]: faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
 [aks-multiple-node-pools]: use-multiple-node-pools.md
 [aks-scale-apps]: tutorial-kubernetes-scale.md
-[aks-support-policies]: support-policies.md
-[aks-upgrade]: upgrade-cluster.md
 [aks-view-master-logs]: monitor-aks.md#configure-monitoring
-[autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
-[az-aks-scale]: /cli/azure/aks#az_aks_scale
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[vertical-pod-autoscaler]: vertical-pod-autoscaler.md
 
 <!-- LINKS - external -->
 [az-aks-update-preview]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
-[autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca
 [kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[kubernetes-hpa-walkthrough]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server

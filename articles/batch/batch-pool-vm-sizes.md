@@ -15,7 +15,7 @@ When you select a node size for an Azure Batch pool, you can choose from almost 
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). The supported VM sizes in a region can be obtained via [Batch Management APIs](batch-apis-tools.md#batch-management-apis), as well as the [command line tools](batch-apis-tools.md#batch-command-line-tools) (PowerShell cmdlets and Azure CLI).  For example, the [Azure Batch CLI command](/cli/azure/batch/location#az_batch_location_list_skus) to list supported VM sizes in a region is:
+Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). The supported VM sizes in a region can be obtained via [Batch Management APIs](batch-apis-tools.md#batch-management-apis), as well as the [command line tools](batch-apis-tools.md#batch-command-line-tools) (PowerShell cmdlets and Azure CLI).  For example, the [Azure Batch CLI command](/cli/azure/batch/location#az-batch-location-list-skus) to list supported VM sizes in a region is:
 
 ```azurecli-interactive
 az batch location list-skus --location
@@ -59,6 +59,7 @@ For each VM series, the following table also lists whether the VM series and VM 
 | NCv2 | All sizes |
 | NCv3 | All sizes |
 | NCasT4_v3 | All sizes |
+| NC_A100_v4 | All sizes |
 | ND | All sizes |
 | NDv4 | All sizes |
 | NDv2 | None - not yet available |

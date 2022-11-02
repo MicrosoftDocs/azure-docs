@@ -10,7 +10,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -19,7 +19,7 @@ The best way to authenticate to Azure services is by using a [managed identity](
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification. 
 
 > [!NOTE]
-> Storage account keys can be automatically managed in Key Vault if you provide shared access signature tokens for delegated access to the storage account. There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
+> For Storage account services, using Azure Active Directory to authorize requests is recommended. For more information, see [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
 
 Here's the rotation solution described in this tutorial: 
 
@@ -37,6 +37,9 @@ In this solution, Azure Key Vault stores storage account individual access keys 
 * Azure [Cloud Shell](https://shell.azure.com/). This tutorial is using portal Cloud Shell with PowerShell env
 * Azure Key Vault.
 * Two Azure storage accounts.
+
+> [!NOTE]
+>  Rotation of shared storage account key revokes account level shared access signature (SAS) generated based on that key. After storage account key rotation, you must regenerate account-level SAS tokens to avoid disruptions to applications.
 
 You can use this deployment link if you don't have an existing key vault and existing storage accounts:
 
@@ -312,7 +315,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Disable rotation for secret
 
-You can disable rotation of a secret simply by deleting event grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az_eventgrid_event_subscription_delete) command.
+You can disable rotation of a secret simply by deleting event grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
 
 
 ## Key Vault rotation functions for two sets of credentials
@@ -322,7 +325,7 @@ Rotation functions template for two sets of credentials and several ready to use
 - [Project template](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
 - [Redis Cache](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
 - [Storage Account](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
-- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+- [Azure Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
 
 > [!NOTE]
 > Above rotation functions are created by a member of the community and not by Microsoft. Community Azure Functions are not supported under any Microsoft support programme or service, and are made available AS IS without warranty of any kind.

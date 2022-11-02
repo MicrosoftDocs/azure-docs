@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 02/28/2022
+ms.date: 10/19/2022
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -17,7 +17,7 @@ ms.date: 02/28/2022
 
 You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
 
-Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like SELECT, UPDATE, and INSERT let users retrieve, store, modify, delete, insert and update data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users. 
+Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
 
 You can use the Script activity to invoke a SQL script in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
@@ -29,7 +29,7 @@ You can use the Script activity to invoke a SQL script in one of the following d
 
 The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Execute SQL task for the following purposes: 
 
-- Truncate a table or view in preparation for inserting data. 
+- Truncate a table in preparation for inserting data. 
 - Create, alter, and drop database objects such as tables and views. 
 - Re-create fact and dimension tables before loading data into them. 
 - Run stored procedures. If the SQL statement invokes a stored procedure that returns results from a temporary table, use the WITH RESULT SETS option to define metadata for the result set. 
@@ -64,24 +64,11 @@ Here is the JSON format for defining a Script activity:
             ] 
          }, 
          ... 
-      ], 
-      "scriptReference":{ 
-         "linkedServiceName":{ 
-            "referenceName": "<name>", 
-            "type": "<LinkedServiceReference>" 
-         }, 
-         "path": "<file path>", 
-         "parameters":[ 
-            { 
-               "name": "<name>", 
-               "value": "<value>", 
-               "type": "<type>", 
-               "direction": "<Input> or <Output> or <InputOutput> or <ReturnValue>", 
-               "size": 256 
-            }, 
-            ... 
+      ],     
+         ... 
          ] 
       }, 
+      "scriptBlockExecutionTimeout": "<time>",  
       "logSettings": { 
          "logDestination": "<ActivityOutput> or <ExternalStore>", 
          "logLocationSettings":{ 
@@ -114,15 +101,7 @@ The following table describes these JSON properties:
 |scripts.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.         |No         |
 |scripts.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
 |scripts.parameter.size     |The max size of the parameter. Only applies to Output/InputOutput direction parameter of type string/byte[].          |No         |
-|scriptReference     |The reference to a remotely stored script file.           |No         |
-|scriptReference.linkedServiceName     |The linked service of the script location.           |No         |
-|scriptReference.path     |The file path to the script file. Only a single file is supported.         |No         |
-|scriptReference.parameter     |The array of parameters of the script.          |No         |
-|scriptReference.parameter.name     |The name of the parameter.          |No         |
-|scriptReference.parameter.value     |The value of the parameter.          |No         |
-|scriptReference.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.          |No         |
-|scriptReference.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
-|scriptReference.parameter.size     |The max size of the parameter. Only applies to types that can be variable size.          |No         |
+|scriptBlockExecutionTimeout    |The wait time for the script block execution operation to complete before it times out.        |No         |
 |logSettings     |The settings to store the output logs. If not specified, script log is disabled.          |No         |
 |logSettings.logDestination     |The destination of log output. It can be ActivityOutput or ExternalStore. Default: ActivityOutput.          |No         |
 |logSettings.logLocationSettings     |The settings of the target location if logDestination is ExternalStore.          |No         |
@@ -187,12 +166,6 @@ Sample output:
 :::image type="content" source="media/transform-data-using-script/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
-
-### Script file reference
-
-:::image type="content" source="media/transform-data-using-script/script-file-reference.png" alt-text="Screenshot showing the UI to configure a script file reference.":::
-
-If you have you a custom process to generate scripts and would like to reference it in the pipeline rather than use an in-line script, you cam specify the file path on a storage.
 
 ### Logging
 

@@ -2,7 +2,7 @@
 title: Investigate a suspicious device
 description: This how to guide explains how to use Defender for IoT to investigate a suspicious IoT device using Log Analytics.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Investigate a suspicious IoT device
@@ -13,7 +13,12 @@ In this guide, use the investigation suggestions provided to help determine the 
 
 > [!div class="checklist"]
 > * Find your device data
-> * Investigate using kql queries
+> * Investigate using KQL queries
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+>
+> For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md) and [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 
 ## How can I access my data?
 
@@ -36,11 +41,11 @@ Following configuration, do the following to access data stored in your Log Anal
 
 To view insights and raw data about your IoT devices, go to your Log Analytics workspace [to access your data](#how-can-i-access-my-data).
 
-See the sample kql queries below to get started with investigating alerts and activities on your device.
+See the sample KQL queries below to get started with investigating alerts and activities on your device.
 
 ### Related alerts
 
-You can find out if other alerts were triggered around the same time through the following kql query:
+You can find out if other alerts were triggered around the same time through the following KQL query:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -52,7 +57,7 @@ You can find out if other alerts were triggered around the same time through the
 
 ### Users with access
 
-To find out which users have access to this device use the following kql query:
+To find out which users have access to this device use the following KQL query:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -74,7 +79,7 @@ Use this data to discover:
 
 ### Open ports
 
-To find out which ports in the device are currently in use or were used, use the following kql query:
+To find out which ports in the device are currently in use or were used, use the following KQL query:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -102,7 +107,7 @@ Use this data to discover:
 
 ### User logins
 
-To find users that logged into the device use the following kql query:
+To find users that logged into the device use the following KQL query:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -134,7 +139,7 @@ Use the query results to discover:
 
 ### Process list
 
-To find out if the process list is as expected, use the following kql query:
+To find out if the process list is as expected, use the following KQL query:
 
  ```
   let device = "YOUR_DEVICE_ID";

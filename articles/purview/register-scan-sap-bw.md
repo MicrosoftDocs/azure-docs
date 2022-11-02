@@ -1,30 +1,28 @@
 ---
 title: Connect to and manage an SAP Business Warehouse
-description: This guide describes how to connect to SAP Business Warehouse in Azure Purview, and use Azure Purview's features to scan and manage your SAP BW source.
+description: This guide describes how to connect to SAP Business Warehouse in Microsoft Purview, and use Microsoft Purview's features to scan and manage your SAP BW source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/05/2022
+ms.date: 11/01/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP Business Warehouse in Azure Purview (Preview)
+# Connect to and manage SAP Business Warehouse in Microsoft Purview
 
-This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|No|
 
-The supported SAP BW versions are 7.3 to 7.5. SAP BW4/HANA is not supported.
+The supported SAP BW versions are 7.3 to 7.5. SAP BW/4HANA isn't supported.
 
-When scanning SAP BW source, Azure Purview supports extracting technical metadata including:
+When scanning SAP BW source, Microsoft Purview supports extracting technical metadata including:
 
 - Instance
 - InfoArea
@@ -48,31 +46,35 @@ When scanning SAP BW source, Azure Purview supports extracting technical metadat
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Microsoft Purview resource](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.15.8079.1.
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API. Make sure the Java Connector is available on your machine where self-hosted integration runtime is installed. Make sure that you use the correct JCo distribution for your environment, and the **sapjco3.jar** and **sapjco3.dll** files are available.
+    * The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API. Make sure the Java Connector is available on your machine where self-hosted integration runtime is installed. Make sure that you use the correct JCo distribution for your environment, and the **sapjco3.jar** and **sapjco3.dll** files are available.
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
-* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. The user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
+    * Self-hosted integration runtime communicates with the SAP server over dispatcher port 32NN and gateway port 33NN, where NN is your SAP instance number from 00 to 99. Make sure the outbound traffic is allowed on your firewall.
+
+* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. For scan execution, the user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
 
     * STFC_CONNECTION (check connectivity)
     * RFC_SYSTEM_INFO (check system information)
     * OCS_GET_INSTALLED_COMPS (check software versions)
-    * Z_MITI_BW_DOWNLOAD (main metadata import)
+    * Z_MITI_BW_DOWNLOAD (main metadata import, the function module you create following the Purview guide)
+    
+    The underlying SAP Java Connector (JCo) libraries may call additional RFC function modules e.g. RFC_PING, RFC_METADATA_GET, etc., refer to [SAP support note 460089](https://launchpad.support.sap.com/#/notes/460089) for details.
 
 ## Register
 
-This section describes how to register SAP BW in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register SAP BW in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -80,7 +82,7 @@ The only supported authentication for SAP BW source is **Basic authentication**.
 
 ### Steps to register
 
-1. Navigate to your Azure Purview account.
+1. Navigate to your Microsoft Purview account.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**.
 1. In **Register sources**, select **SAP BW** > **Continue**.  
@@ -101,7 +103,7 @@ On the **Register sources (SAP BW)** screen, do the following:
 
 ## Scan
 
-Follow the steps below to scan SAP BW to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan SAP BW to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Create and run scan
 
@@ -127,7 +129,7 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 
     1. **Client ID**: Enter the SAP Client ID. It's a three-digit numeric number from 000 to 999.
 
-    1. **JCo library path**: The directory path where the JCo libraries are located.
+    1. **JCo library path**: Specify the directory path where the JCo libraries are located, e.g. `D:\Drivers\SAPJCo`. Make sure the path is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP BW source to be scanned. 
 
@@ -146,8 +148,8 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
 - [Search Data Catalog](how-to-search-catalog.md)
-- [Data insights in Azure Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Supported data sources and file types](azure-purview-connector-overview.md)

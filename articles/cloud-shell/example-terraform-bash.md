@@ -7,12 +7,13 @@ author: tomarchermsft
 manager: routlaw
 tags: azure-cloud-shell
 
-ms.service: azure
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
+ms.tool: terraform
 ms.custom: devx-track-terraform
 ---
 

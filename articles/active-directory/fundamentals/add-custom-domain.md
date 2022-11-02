@@ -2,15 +2,15 @@
 title: Add your custom domain - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/25/2019
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: elkuzmen
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -56,6 +56,8 @@ After you create your directory, you can add your custom domain name.
 
     >[!IMPORTANT]
     >You must include *.com*, *.net*, or any other top-level extension for this to work properly.
+    > 
+    >When adding a custom domain, the Password Policy values will be inherited from the initial domain.
 
     The unverified domain is added. The **contoso.com** page appears showing your DNS information. Save this information. You need it later to create a TXT record to configure DNS.
 

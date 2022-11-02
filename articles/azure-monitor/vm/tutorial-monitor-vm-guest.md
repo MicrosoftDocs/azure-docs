@@ -1,13 +1,14 @@
 ---
-title: Tutorial - Collect guest logs and metrics from Azure virtual machine
+title: Collect guest logs and metrics from Azure virtual machine
 description: Create data collection rule to collect guest logs and metrics from Azure virtual machine.
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 11/08/2021
+ms.reviewer: Xema Pathak
 ---
 
-# Tutorial: Collect guest logs and metrics from Azure virtual machine
+# Collect guest logs and metrics from Azure virtual machine
 When you [enable monitoring with VM insights](tutorial-monitor-vm-enable.md), it collects performance data using the Log Analytics agent. To collect logs from the guest operating system and to send performance data to Azure Monitor Metrics, install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../essentials/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
 
 > [!NOTE]

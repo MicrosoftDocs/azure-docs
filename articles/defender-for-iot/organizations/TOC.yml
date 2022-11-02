@@ -1,239 +1,337 @@
 - name: Microsoft Defender for IoT for end-user organizations
   href: index.yml
   items:
-- name: Overview 
+- name: Overview
   items:
-  - name: Overview for OT networks
-    displayName: IoT, OT, getting started
+  - name: About Defender for IoT
     href: overview.md
-  - name: Overview for EIoT networks
-    displayName: IoT, OT, getting started
-    href: overview-eiot.md
   - name: What's new?
-    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
-    href: release-notes.md
-  - name: Agentless solution architecture
-    displayName: deployment, where to deploy
-    href: architecture.md
+    items:
+    - name: Whats new in Defender for IoT
+      href: release-notes.md
+    - name: Microsoft Sentinel solution release notes
+      href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
-  items: 
+  items:
   - name: Get started with Defender for IoT
-    displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
 - name: Tutorials
   expanded: false
   items:
-  - name: Enterprise IoT networks
-    items:
-    - name: Get started with Enterprise IoT
-      displayNAme: EIoT, Enterprise, IoT
-      href: tutorial-getting-started-eiot-sensor.md
-  - name: OT networks
+  - name: Set up OT network security
+    href: tutorial-onboarding.md
+  - name: Set up Enterprise IoT network security
+    href: tutorial-getting-started-eiot-sensor.md
+  - name: Integrate with Microsoft Sentinel
     items: 
-    - name: Defender for IoT trial setup
-      href: tutorial-onboarding.md
-    - name: Integrate ClearPass
-      href: tutorial-clearpass.md
-    - name: Integrate CyberArk
-      href: tutorial-cyberark.md
-    - name: Integrate Forescout
-      href: tutorial-forescout.md
-    - name: Integrate Fortinet
-      href: tutorial-fortinet.md
-    - name: Integrate Palo Alto
-      href: tutorial-palo-alto.md
-    - name: Integrate Qradar
-      href: tutorial-qradar.md
-    - name: Integrate Splunk
-      href: tutorial-splunk.md
-    - name: Integrate ServiceNow
-      href: tutorial-servicenow.md
-    - name: Detect threats with Microsoft Sentinel
+    - name: Connect Defender for IoT data to Microsoft Sentinel
       href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
-  items:  
-    - name: Key concepts
-      href: concept-key-concepts.md
+  items:
+    - name: System architecture
+      href: architecture.md
+    - name: OT network monitoring best practices
+      items:
+      - name: Understand your network architecture
+        href: best-practices/understand-network-architecture.md
+      - name: Plan your network connections
+        href: best-practices/plan-network-monitoring.md
+      - name: Sample connectivity models
+        href: best-practices/sample-connectivity-models.md
     - name: OT threat monitoring in enterprise SOCs
-      displayName: SOC, SCADA, OT, Microsoft Sentinel
-      href: concept-sentinel-integration.md 
-    - name: Supported protocols
-      displayName: protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary
-      href: concept-supported-protocols.md    
+      href: concept-sentinel-integration.md
+    - name: OT security system architecture
+      items:
+      - name: OT sensor cloud connection methods
+        href: architecture-connections.md
+      - name: OT monitoring appliance catalog
+        items:
+        - name: Which appliances do I need?
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances
+          href: ot-pre-configured-appliances.md
+        - name: OT monitoring with virtual appliances
+          href: ot-virtual-appliances.md
+      - name: Supported OT protocols
+        href: concept-supported-protocols.md
 - name: How-to guides
   items:
-  - name: Prepare your network
+  - name: Visualize devices
+    displayName: assets, network devices
     items:
-      - name: Identify required appliances
-        displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
-        href: how-to-identify-required-appliances.md
-      - name: Set up your network
-        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel
-        href: how-to-set-up-your-network.md
-      - name: Deploy certificates
-        displayName: SSL, TLS, PKI, Locally-signed, CA-signed
-        href: how-to-deploy-certificates.md
-      - name: Install software
-        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
-        href: how-to-install-software.md
-      - name: Connect sensors with a proxy
-        displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
-        href: how-to-connect-sensor-by-proxy.md
-  - name: Manage subscriptions
-    items:
-    - name: Manage subscriptions
-      displayName: onboard, offboard, subscription, billing, pricing, payment, trial, evaluate, committed devices
-      href: how-to-manage-subscriptions.md 
-  - name: Prepare your on-premises management console
-    items:
-    - name: Activate and set up your on-premises management console
-      displayName: token, deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, tunnel, committed activation file
-      href: how-to-activate-and-set-up-your-on-premises-management-console.md
-    - name: Set up high availability
-      displayName: primary, secondary, failover, failback fail, recovery 
-      href: how-to-set-up-high-availability.md
-  - name: Prepare your sensors
-    items:
-    - name: Onboard sensors
-      displayName: onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected
-      href: how-to-manage-sensors-on-the-cloud.md
-    - name: Activate and set up your sensor
-      displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
-      href: how-to-activate-and-set-up-your-sensor.md
-  - name: Manage users and user access
-    items:
-    - name: Create and manage users
-      displayName: Active Directory, roles, permissions, password, LDAP
-      href: how-to-create-and-manage-users.md
-    - name: Define global user access control
-      href: how-to-define-global-user-access-control.md
-      displayName: business unit, site, region, user
-  - name: Control what traffic is monitored
-    displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets, active, probing, scanning, switch
-    href: how-to-control-what-traffic-is-monitored.md
-  - name: Manage sensors from the on-premises management console
-    displayName: update, disconnect, connect, activation file, sensor backup
-    href: how-to-manage-sensors-from-the-on-premises-management-console.md
-  - name: Manage individual sensors
-    href: how-to-manage-individual-sensors.md
-    displayName: upgrade, activation, certificate, SSL, TLS, connect, timezone time zone, backup, sync, restore, software update, failure
-  - name: Manage sensors on the cloud
-    href: how-to-manage-sensors-on-the-cloud.md
-  - name: Manage the on-premises management console
-    href: how-to-manage-the-on-premises-management-console.md
-    displayName: mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery
-  - name: Work with threat intelligence packages
-    href: how-to-work-with-threat-intelligence-packages.md
-    displayName: packages, automatic, intelligence, push, threat
-  - name: Manage device inventories
-    items: 
-    - name: OT Networks
+    - name: Manage device inventory
       items:
-      - name: Manage cloud device inventory
+      - name: Manage device inventory from the Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-        displayNAme: device inventory, device, inventory, EIoT, eiot
-      - name: Manage sensor device inventory
+      - name: Manage device inventory from an OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-        displayName: classification, Windows registry, device, firmware, import, bulk, delete, device inventory
-      - name: Manage the management console device inventory
+      - name: Manage device inventory from an on-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-        displayName: classification, device inventory
-    - name: Enterprise IoT
-      items: 
-      - name: Manage cloud device inventory
-        href: how-to-manage-device-inventory-for-organizations.md
-        displayNAme: device inventory, device, inventory, EIoT, eiot
-  - name: Work with the sensor device map
-    href: how-to-work-with-the-sensor-device-map.md
-    displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
-  - name: Work with alerts detected by a sensor
+    - name: View OT device mapping
+      href: how-to-work-with-the-sensor-device-map.md
+    - name: View OT devices per zone
+      href: how-to-view-information-per-zone.md
+  - name: Manage alerts
     items:
-    - name: View alerts details on the Alerts page 
-      href: how-to-view-alerts.md
-    - name: Alert types and descriptions
-      href: alert-engine-messages.md
-      displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
-    - name: Manage alert events
-      href: how-to-manage-the-alert-event.md
-      displayName: PCAP, acknowledge, learn, mute, policy
-    - name: Accelerate alert workflows
-      href: how-to-accelerate-alert-incident-response.md
-      displayName: custom, alerts, comments, groups
-    - name: Forward alert information
-      href: how-to-forward-alert-information-to-partners.md
-      displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
-  - name: Manage cloud alerts
-    href: how-to-manage-cloud-alerts.md
-    displayName: MITRE ATT&CK, remediation, severity, status, alert exclusion, learn, important, mute, new, active, close
-  - name: Gain insight into global, regional, and local threats
-    href: how-to-gain-insight-into-global-regional-and-local-threats.md
-    displayName: site, business unit, region, map
-  - name: View information devices, alerts and sensors per zone
-    href: how-to-view-information-per-zone.md
-    displayName: zones
-  - name: Work with alerts on the on-premises management console
-    href: how-to-work-with-alerts-on-premises-management-console.md
-  - name: Create reports
+    - name: Manage alerts from the Azure portal
+      href: how-to-manage-cloud-alerts.md
+    - name: Manage OT alerts from a sensor console
+      items:
+      - name: View alerts from a sensor console
+        href: how-to-view-alerts.md
+      - name: Manage alerts from a sensor console
+        href: how-to-manage-the-alert-event.md
+      - name: Manage alert workflows from a sensor console
+        href: how-to-accelerate-alert-incident-response.md
+      - name: Forward alert data from a sensor console
+        href: how-to-forward-alert-information-to-partners.md
+    - name: Manage OT alerts from an on-premises management console
+      href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: Monitor vulnerabilities and threats
     items:
-    - name: Create risk assessment reports
-      href: how-to-create-risk-assessment-reports.md
-      displayName: vulnerability, security score, score, CVE
-    - name: Create attack vector reports
-      href: how-to-create-attack-vector-reports.md
-      displayName: Attack surface, prediction,simulation 
-    - name: Create data mining reports
-      displayName: CVE, activity 
-      href: how-to-create-data-mining-queries.md
-    - name: Create trends and statistics reports
-      href: how-to-create-trends-and-statistics-reports.md
-      displayName: widgets, charts      
-  - name: Analyze programming details and changes
-    displayName: programming, unauthorized 
-    href: how-to-analyze-programming-details-changes.md
-  - name: Enrich device information
-    items: 
-    - name: Work with device notifications
-      displayName: notifications, operating systems, enrich, device information, classification, delete devices
-      href: how-to-work-with-device-notifications.md
-    - name: Enhance port and VLAN name resolution
-      displayName: port, VLAN
-      href: how-to-enhance-port-and-vlan-name-resolution.md
-    - name: Import device information
-      displayName: import, enrich
-      href: how-to-import-device-information.md
-    - name: Define Windows endpoint monitoring (WMI)
-      displayName: scan, probe, active
-      href: how-to-configure-windows-endpoint-monitoring.md
-  - name: Track sensor activity
-    displayName: timeline, time line, time-line, event
-    href: how-to-track-sensor-activity.md
-  - name: Troubleshoot the sensor and on-premises management console
-    displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service, export, logs
-    href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
-  - name: Set up SNMP MIB monitoring
-    href: how-to-set-up-snmp-mib-monitoring.md
-    displayName: health
+    - name: View and create Azure Monitor workbooks
+      href: workbooks.md
+    - name: Create OT sensor reports
+      items:
+      - name: Create risk assessment reports
+        href: how-to-create-risk-assessment-reports.md
+      - name: Create attack vector reports
+        href: how-to-create-attack-vector-reports.md
+      - name: Create data mining reports
+        href: how-to-create-data-mining-queries.md
+      - name: Create trends and statistics reports
+        href: how-to-create-trends-and-statistics-reports.md
+    - name: View OT threats by location from an OT sensor
+      href: how-to-gain-insight-into-global-regional-and-local-threats.md
+    - name: Analyze OT programming details and changes
+      href: how-to-analyze-programming-details-changes.md
+  - name: Integrate with security partners
+    items:
+    - name: Integration catalog
+      href: integrate-overview.md
+    - name: Aruba ClearPass
+      href: tutorial-clearpass.md
+    - name: CyberArk
+      href: tutorial-cyberark.md
+    - name: Forescout
+      href: tutorial-forescout.md
+    - name: Fortinet
+      href: tutorial-fortinet.md
+    - name: IBM Qradar
+      href: tutorial-qradar.md
+    - name: LogRhythm
+      href: integrations/logrhythm.md
+    - name: Micro Focus ArcSight
+      href: integrations/arcsight.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
+    - name: RSA NetWitness
+      href: integrations/netwitness.md
+    - name: Splunk
+      href: tutorial-splunk.md
+    - name: ServiceNow
+      items:
+      - name: ServiceNow integrations
+        href: tutorial-servicenow.md
+      - name: Legacy integration
+        href: integrations/service-now-legacy.md
+  - name: System deployment
+    items:
+    - name: Manage plans on Azure subscriptions
+      href: how-to-manage-subscriptions.md
+    - name: Onboard sensors
+      href: onboard-sensors.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: OT system setup
+      items:
+      - name: Set up OT network monitoring
+        href: how-to-set-up-your-network.md
+      - name: Configure traffic mirroring
+        items:
+        - name: Overview
+          href: best-practices/traffic-mirroring-methods.md
+        - name: Configure a switch SPAN port
+          href: traffic-mirroring/configure-mirror-span.md
+        - name: Configure a remote SPAN (RSPAN)
+          href: traffic-mirroring/configure-mirror-rspan.md
+        - name: Configure active and passive aggregation (TAP)
+          href: traffic-mirroring/configure-mirror-tap.md
+        - name: Configure ERSPAN mirroring
+          href: traffic-mirroring/configure-mirror-erspan.md
+        - name: Configure mirroring with an ESXi vSwitch
+          href: traffic-mirroring/configure-mirror-esxi.md
+        - name: Configure mirroring with a Hyper-V vSwitch
+          href: traffic-mirroring/configure-mirror-hyper-v.md
+      - name: Deploy OT certificates
+        href: how-to-deploy-certificates.md
+      - name: Install OT system software
+        href: how-to-install-software.md
+      - name: Connect OT sensors to the cloud
+        items:
+        - name: Connect OT sensors to Defender for IoT
+          href: connect-sensors.md
+        - name: Connect OT sensors with a proxy (legacy)
+          href: how-to-connect-sensor-by-proxy.md
+      - name: Activate and set up your on-premises management console
+        href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Add support for proprietary protocols
+        href: resources-manage-proprietary-protocols.md
+    - name: Enterprise IoT system setup
+      items:
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
+  - name: System maintenance
+    items:
+    - name: Manage sensors from the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
+    - name: OT system maintenance
+      items:
+      - name: Update OT monitoring software
+        href: update-ot-software.md
+        displayName: upgrade
+      - name: Manage OT sensors
+        items:
+        - name: Manage individual sensors
+          href: how-to-manage-individual-sensors.md
+        - name: Control OT traffic monitoring
+          href: how-to-control-what-traffic-is-monitored.md
+        - name: Detect Windows workstations and servers by script
+          href: detect-windows-endpoints-script.md
+        - name: Configure active monitoring
+          items:
+          - name: Planning and prerequisites
+            href: configure-active-monitoring.md
+          - name: Configure Windows Endpoint Monitoring
+            href: configure-windows-endpoint-monitoring.md
+          - name: Configure reverse DNS lookup
+            href: configure-reverse-dns-lookup.md
+        - name: Manage sensors from the on-premises management console
+          href: how-to-manage-sensors-from-the-on-premises-management-console.md
+      - name: Manage OT sensor users
+        items:
+        - name: Create and manage users
+          href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
+        - name: Define global user access control
+          href: how-to-define-global-user-access-control.md
+      - name: Enrich device information
+        items:
+        - name: Work with device notifications
+          href: how-to-work-with-device-notifications.md
+        - name: Enhance port and VLAN name resolution
+          href: how-to-enhance-port-and-vlan-name-resolution.md
+        - name: Import device information
+          href: how-to-import-device-information.md
+      - name: Track sensor activity
+        href: how-to-track-sensor-activity.md
+      - name: Set up SNMP MIB monitoring
+        href: how-to-set-up-snmp-mib-monitoring.md
+      - name: Manage proprietary protocols (Horizon)
+        href: resources-manage-proprietary-protocols.md
+      - name: Manage an OT on-premises management console
+        items:
+        - name: Set up high availability
+          href: how-to-set-up-high-availability.md
+        - name: Manage the on-premises management console
+          href: how-to-manage-the-on-premises-management-console.md
+      - name: Troubleshoot the sensor and on-premises management console
+        href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Work with Defender for IoT APIs
-    href: references-work-with-defender-for-iot-apis.md
-  - name: Work with Defender for IoT CLI commands
+  - name: OT monitoring appliances
+    items:
+    - name: Overview
+      href: appliance-catalog/index.yml
+    - name: Corporate environments
+      items:
+      - name: HPE ProLiant DL360
+        href: appliance-catalog/hpe-proliant-dl360.md
+    - name: Large enterprises
+      items:
+      - name: HPE ProLiant DL20/DL20 Plus (4SFF)
+        href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
+        href: appliance-catalog/dell-edge-5200.md
+    - name: Production line
+      items:
+      - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
+        href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
+      - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+        href: appliance-catalog/ys-techsystems-ys-fit2.md
+    - name: Virtual appliances
+      items:
+      - name: OT sensor (VMWare ESXi) 
+        href: appliance-catalog/virtual-sensor-vmware.md
+      - name: OT sensor (Hyper-V)
+        href: appliance-catalog/virtual-sensor-hyper-v.md
+      - name: On-premises management console (VMWare ESXi)
+        href: appliance-catalog/virtual-management-vmware.md
+      - name: On-premises management console (Microsoft Hyper-V)
+        href: appliance-catalog/virtual-management-hyper-v.md
+    - name: Legacy appliances
+      items:
+      - name: Dell PowerEdge R340 XL (enterprise)
+        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
+      - name: HPE Edgeline EL300 (SMB rugged)
+        href: appliance-catalog/hpe-edgeline-el300.md
+      - name: Neousys Nuvo-500LP (SMB rugged)
+        href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Alert reference
+    href: alert-engine-messages.md
+  - name: API reference
+    items:
+    - name: Working with Defender for IoT APIs
+      href: references-work-with-defender-for-iot-apis.md
+    - name: Sensor API reference
+      items:
+      - name: Authentication and password management
+        href: api/sensor-auth-apis.md
+      - name: Inventory management
+        href: api/sensor-inventory-apis.md
+      - name: Alert management
+        href: api/sensor-alert-apis.md
+      - name: Vulnerability management
+        href: api/sensor-vulnerability-apis.md
+    - name: General management API reference
+      items:
+      - name: Authentication and password management
+        href: api/management-auth-apis.md
+      - name: Appliance management
+        href: api/management-appliances-apis.md
+      - name: Alert management
+        href: api/management-alert-apis.md
+      - name: Inventory management
+        href: api/management-inventory-apis.md
+      - name: Partner integration
+        href: api/management-integration-apis.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
+  - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Manage proprietary protocols (Horizon)
-    href: resources-manage-proprietary-protocols.md
-  - name: Frequently asked questions - service
-    displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
-    href: resources-frequently-asked-questions.md
+  - name: Frequently asked questions
+    items:
+    - name: General FAQ
+      href: faqs-general.md
+    - name: OT networks FAQ
+      href: faqs-ot.md
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
-  - name: Pre-deployment checklist
-    displayNAme: pre-deployment
-    href: resources-sensor-deployment-checklist.md
-  - name: Tech Community Training sessions
-    displayName: training, videos 
+  - name: OT network pre-deployment checklist
+    href: pre-deployment-checklist.md
+  - name: Custom columns sample script
+    href: custom-columns-sample-script.md
+  - name: Microsoft Defender for IoT ninja training
     href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
@@ -241,11 +339,5 @@
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-  - name: Security Resources 
-    items:
-    - name: Build your security skills with Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure security documentation 
-      href: ../../security/index.yml
-    - name: Azure IoT Security, Privacy, & Compliance blog
-      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Release notes archive
+    href: release-notes-archive.md

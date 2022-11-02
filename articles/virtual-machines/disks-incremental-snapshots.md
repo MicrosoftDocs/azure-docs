@@ -4,10 +4,10 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -72,7 +72,7 @@ Once that is installed, login to your PowerShell session with `Connect-AzAccount
 To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) through the `-Snapshot` parameter.
 
 ```PowerShell
-$diskName = "yourDiskNameHere>"
+$diskName = "yourDiskNameHere"
 $resourceGroupName = "yourResourceGroupNameHere"
 $snapshotName = "yourDesiredSnapshotNameHere"
 
@@ -145,48 +145,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 ```
 ---
 
-## Cross-region snapshot copy (preview)
-
-You can use the CopyStart option (preview) to initiate a copy of incremental snapshots from one region to any region of your choice. Azure handles the process of copying the incremental snapshots and ensures that only delta changes since the last snapshot are copied to the target region, reducing the data footprint. Customers can check the progress of the copy so they can know when a target snapshot is ready to restore disks in the target region. You can use this process to copy snapshots to another subscription for long-term retention. You can also use this to copy snapshots in the same region, to ensure that snapshots are fully hardened on [zone-redundant storage](disks-redundancy.md#zone-redundant-storage-for-managed-disks) and ensure that snapshots are available in the event of a zonal failure.
-
-:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="Diagram of Azure orchestrated cross-region copy of incremental snapshots via the Clone option." lightbox="media/disks-incremental-snapshots/cross-region-snapshot.png":::
-
-### Pre-requisites
-
-You need to enable the feature on your subscription to use the preview feature. Use the following command to register the feature:
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name CreateOptionClone
-```
-
-It may take a few minutes for registration to complete, you can use the following command to check its status:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name CreateOptionClone
-```
-
-### Restrictions
-
-- Cross-region snapshot copy is currently only available in Central US, East US, East US 2, Germany West central, North Central US, North Europe, South Central US, West Central US, West US, West US 2, West Europe, South India, Central India
-- You must use version 2020-12-01 or newer of the Azure Compute REST API.
-
-### Get started
-
-```azurecli
-subscriptionId=<yourSubscriptionID>
-resourceGroupName=<yourResourceGroupName>
-name=<targetSnapshotName>
-sourceSnapshotResourceId=<sourceSnapshotResourceId>
-targetRegion=<validRegion>
-
-az login
-az account set --subscription $subscriptionId
-az deployment group create -g $resourceGroupName \
---template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
---parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
-az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv
-```
-
 ## Next steps
+
+See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

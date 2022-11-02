@@ -158,7 +158,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 

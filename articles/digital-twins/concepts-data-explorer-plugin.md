@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Querying with Azure Data Explorer
+title: Querying with the Azure Data Explorer plugin
 titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 03/23/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -72,19 +72,25 @@ For more information on using the plugin, see the [Kusto documentation for the a
 
 To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
-## Using Azure Data Explorer IoT data with Azure Digital Twins
+## Ingesting Azure Digital Twins data into Azure Data Explorer
 
-There are various ways to ingest IoT data into Azure Data Explorer. Here are two of them that you might take advantage of when using Azure Data Explorer with Azure Digital Twins:
-* Create a history record of digital twin property values in Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer. This process is similar to the one used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
-* [Ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This path may be suitable for direct-ingestion workloads. 
+Before querying with the plugin, you'll need to ingest your Azure Digital Twins data into Azure Data Explorer. There are two main ways you can do so: through the **data history** feature, or through direct ingestion. The following sections describe these options in more detail.
 
-### Mapping data across Azure Data Explorer and Azure Digital Twins
+### Ingesting with data history
 
-If you're ingesting time series data directly into Azure Data Explorer, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/Azure Data Explorer queries.
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
+
+### Direct ingestion
+
+You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads—however, you won't be able to leverage Azure Digital Twins' event-based architecture to update other twins, trigger downstream services, or emit notifications when twins change state. For more information about this process, continue through the rest of this section.
+
+#### Mapping data across Azure Data Explorer and Azure Digital Twins
+
+If you're ingesting time series data directly into Azure Data Explorer, you may need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/Azure Data Explorer queries.
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
-You can use an update policy to enrich your raw time series data with the corresponding twin ID from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
+If the sensor ID in your telemetry data differs from the corresponding twin ID in Azure Digital Twins, you can use an update policy to enrich your raw time series data with the twin ID and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
 For example, say you created the following table to hold the raw time series data flowing into your Azure Data Explorer instance. 
 
@@ -124,19 +130,19 @@ Lastly, create an update policy to call the function and update the target table
 
 Once the target table is created, you can use the Azure Digital Twins plugin to select twins of interest and then join them against time series data in the target table. 
 
-### Example schema
+#### Example schema
 
-Here's an example of a schema that might be used to represent shared data.
+Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema](concepts-data-history.md#data-schema).
 
-| timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
-| --- | --- | --- | --- | --- | --- | --- |
-| 2021-02-01 17:24 | ConfRoomTempSensor | dtmi:com:example:TemperatureSensor;1 | temperature | 301.0 |  |  |
+| `TimeStamp` | `SourceTimeStamp` | `TwinId` | `ModelId` | `Name` | `Value` | `RelationshipTarget` | `RelationshipID` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2021-02-01 17:24 | 2021-02-01 17:11 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
 
 Digital twin properties are stored as key-value pairs (`name, value`). `name` and `value` are stored as dynamic data types. 
 
 The schema also supports storing properties for relationships, per the `relationshipTarget` and `relationshipID` fields. The key-value schema avoids the need to create a column for each twin property.
 
-### Representing properties with multiple fields 
+#### Representing properties with multiple fields 
 
 You may want to store a property in your schema with multiple fields. These properties are represented by storing a JSON object as `value` in your schema.
 

@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/23/2021
+ms.date: 06/17/2022
 ms.custom: references_regions
 
 ---
@@ -36,25 +36,35 @@ Yes, you can use different virtual machine sizes in your AKS cluster by creating
 
 ## Are security updates applied to AKS agent nodes?
 
-Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you're responsible for ensuring that those Linux nodes are rebooted as required. You have several options for rebooting nodes:
+AKS patches CVE’s that have a "vendor fix" every week. CVE's without a fix are waiting on a "vendor fix" before it can be remediated.  The AKS images will get automatically updated inside of 30 days and it recommended that customer apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - By using [node image upgrade](node-image-upgrade.md).
 
+## What is the size limit on a container image in AKS?
+
+AKS does not set a limit on the container image size. However, it is important to understand that the larger the image, the higher the memory demand. This could potentially exceed resource limits or the overall available memory of worker nodes. By default, memory for VM size Standard_DS2_v2 for an AKS cluster is set to 7 GiB.
+
+When a container image is excessively large, as in the Terabyte (TBs) range, kubelet might not be able to pull it from your container registry to a node due to lack of disk space.
+
 ### Windows Server nodes
 
 For Windows Server nodes, Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the cluster and the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
-### Are there additional security threats relevant to AKS that customers should be aware of?
+### Are there security threats targeting AKS that customers should be aware of?
 
-Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+Microsoft provides guidance for other actions you can take to secure your workloads through services like [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks). The following security threat is related to AKS and Kubernetes that customers should be aware of:
 
 * [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
 
+## How does the managed Control Plane communicate with my Nodes?
+
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
+
 ## Why are two resource groups created with AKS?
 
-AKS builds upon a number of Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. This enables you to leverage many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
+AKS builds upon many Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. This enables you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
 
 To enable this architecture, each AKS deployment spans two resource groups:
 
@@ -119,7 +129,7 @@ AKS firewalls the API server egress so your admission controller webhooks need t
 
 To protect the stability of the system and prevent custom admission controllers from impacting internal services in the kube-system, namespace AKS has an **Admissions Enforcer**, which automatically excludes kube-system and AKS internal namespaces. This service ensures the custom admission controllers don't affect the services running in kube-system.
 
-If you have a critical use case for having something deployed on kube-system (not recommended) which you require to be covered by your custom admission webhook, you may add the below label or annotation so that Admissions Enforcer ignores it.
+If you have a critical use case for deploying something on kube-system (not recommended) in support of your custom admission webhook, you may add the below label or annotation so that Admissions Enforcer ignores it.
 
 Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admissions.enforcer/disabled": true```
 
@@ -129,7 +139,7 @@ Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admission
 
 ## Can I run Windows Server containers on AKS?
 
-Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool][aks-windows-cli].
+Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool](./learn/quick-windows-container-deploy-cli.md).
 
 Windows Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
 
@@ -137,11 +147,11 @@ Windows Server support for node pool includes some limitations that are part of 
 
 AKS provides SLA guarantees as an optional feature with [Uptime SLA][uptime-sla]. 
 
-The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, application overwhelming the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
+The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
-AKS agent nodes are billed as standard Azure virtual machines, so if you've purchased [Azure reservations][reservation-discounts] for the VM size that you're using in AKS, those discounts are automatically applied.
+AKS agent nodes are billed as standard Azure virtual machines. If you've purchased [Azure reservations][reservation-discounts] for the VM size that you're using in AKS, those discounts are automatically applied.
 
 ## Can I move/migrate my cluster between Azure tenants?
 
@@ -161,7 +171,7 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 ## Why is my cluster delete taking so long?
 
-Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take additional time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take more time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
@@ -184,6 +194,7 @@ Confirm your service principal hasn't expired.  See: [AKS service principal](./k
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
 ## Can I scale my AKS cluster to zero?
+
 You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
 You can't directly scale [system node pools](use-system-pools.md) to zero.
 
@@ -205,11 +216,11 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
+No, all data is stored in the cluster's region.
 
 ## Are AKS images required to run as root?
 
-Except for the following two images, AKS images aren't required to run as root:
+The following images have functional requirements to "Run as Root" and exceptions must be filed for any policies:
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
@@ -218,7 +229,7 @@ Except for the following two images, AKS images aren't required to run as root:
 
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
-From v1.2.0 Azure CNI will have Transparent mode as default for single tenancy Linux CNI deployments. Transparent mode is replacing bridge mode. In this section, we will discuss more about the differences about both modes and what are the benefits/limitation for using Transparent mode in Azure CNI.
+Starting with version 1.2.0, Azure CNI sets Transparent mode as default for single tenancy Linux CNI deployments. Transparent mode is replacing bridge mode. In this section, we will discuss more about the differences about both modes and what are the benefits/limitation for using Transparent mode in Azure CNI.
 
 ### Bridge mode
 
@@ -236,6 +247,7 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### Transparent mode
+
 Transparent mode takes a straight forward approach to setting up Linux networking. In this mode, Azure CNI won't change any properties of eth0 interface in the Linux VM. This minimal approach of changing the Linux networking properties helps reduce complex corner case issues that clusters could face with Bridge mode. In Transparent Mode, Azure CNI will create and add host-side pod `veth` pair interfaces that will be added to the host network. Intra VM Pod-to-Pod communication is through ip routes that the CNI will add. Essentially Pod-to-Pod communication is over layer 3 and pod traffic is routed by L3 routing rules.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Transparent mode topology":::
@@ -266,7 +278,7 @@ Below is an example ip route setup of transparent mode, each Pod's interface wil
 
 Traditionally if your pod is running as a non-root user (which you should), you must specify a `fsGroup` inside the pod’s security context so that the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
-But one side-effect of setting `fsGroup` is that, each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume - with a few exceptions noted below. This happens even if group ownership of the volume already matches the requested `fsGroup`, and can be pretty expensive for larger volumes with lots of small files, which causes pod startup to take a long time. This scenario has been a known problem before v1.20 and the workaround is setting the Pod run as root:
+But one side-effect of setting `fsGroup` is that, each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume - with a few exceptions noted below. This happens even if group ownership of the volume already matches the requested `fsGroup`, and can be expensive for larger volumes with lots of small files, which causes pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
 
 ```yaml
 apiVersion: v1
@@ -279,15 +291,19 @@ spec:
     fsGroup: 0
 ```
 
-The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
+The issue has been resolved with Kubernetes version 1.20. For more information, see [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/).
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are currently are now Generally Available on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
+FIPS-enabled nodes are currently are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
 
 ## Can I configure NSGs with AKS?
 
-AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. AKS will only modify the NSGs at the NIC level. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups](concepts-network.md#network-security-groups).
+AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. AKS only modifies the network interfaces NSGs settings. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you must also ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more information, see [Network security groups](concepts-network.md#network-security-groups).
+
+## How does Time syncronization work in AKS?
+
+AKS nodes run the "chrony" service which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
 
 <!-- LINKS - internal -->
 
@@ -297,7 +313,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/aks
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

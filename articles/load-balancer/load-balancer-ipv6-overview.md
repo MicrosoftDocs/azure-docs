@@ -3,7 +3,7 @@ title: Overview of IPv6 - Azure Load Balancer
 description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: article
@@ -11,7 +11,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Overview of IPv6 for Azure Load Balancer
@@ -62,9 +62,7 @@ Details
 Limitations
 
 * You cannot add IPv6 load balancing rules in the Azure portal. The rules can only be created through the template, CLI, PowerShell.
-* You may not upgrade existing VMs to use IPv6 addresses. You must deploy new VMs.
 * A single IPv6 address can be assigned to a single network interface in each VM.
-* The public IPv6 addresses cannot be assigned to a VM. They can only be assigned to a load balancer.
 * You cannot configure the reverse DNS lookup for your public IPv6 addresses.
 * The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
 * Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
@@ -75,7 +73,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **currently not supported**.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **not supported** for Basic Load Balancer.
 
 ## Next steps
 

@@ -1,9 +1,9 @@
 ---
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: include
 ms.date: 04/16/2021
-ms.author: vlvinogr
+ms.author: danlep
 ---
 ## Go to your API Management instance
 

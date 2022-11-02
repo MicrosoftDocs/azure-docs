@@ -1,8 +1,10 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 06/29/2021
+author: timwarner-msft
+ms.date: 10/26/2022
 ms.topic: how-to
+ms.author: timwarner
 ---
 # Get compliance data of Azure resources
 
@@ -37,7 +39,7 @@ operations of the Azure Policy Insights REST API, see
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
-- A policy or initiative is newly assigned to a scope. It takes around 30 minutes for the assignment
+- A policy or initiative is newly assigned to a scope. It takes around five minutes for the assignment
   to be applied to the defined scope. Once it's applied, the evaluation cycle begins for resources
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant, non-compliant, or exempt. A
@@ -67,7 +69,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
-- The [guest configuration](../concepts/guest-configuration.md) resource provider is updated with
+- The [machine configuration](../../machine-configuration/overview.md) resource provider is updated with
   compliance details by a managed resource.
 
 - On-demand scan
@@ -79,6 +81,9 @@ PowerShell, a call to the REST API, or by using the
 [Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan).
 This scan is an asynchronous process.
 
+> [!NOTE]
+> Not all Azure resource providers support on-demand evaluation scans. For example, [Azure Virtual Network Manager (AVNM)](../../../virtual-network-manager/overview.md) currently doesn't support either manual triggers or the standard policy compliance evaluation cycle (daily scans).
+
 #### On-demand evaluation scan - GitHub Action
 
 Use the
@@ -87,7 +92,7 @@ to trigger an on-demand evaluation scan from your
 [GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
 on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
 compliance state of resources. You can also configure the workflow to run at a scheduled time so
-that you get the latest compliance status at a convenient time. Optionally, this GitHub action can
+that you get the latest compliance status at a convenient time. Optionally, this GitHub Actions can
 generate a report on the compliance state of scanned resources for further analysis or for
 archiving.
 
@@ -114,12 +119,12 @@ jobs:
 ```
 
 For more information and workflow samples, see the
-[GitHub Action for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
+[GitHub Actions for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
 
 #### On-demand evaluation scan - Azure CLI
 
 The compliance scan is started with the
-[az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan) command.
+[az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) command.
 
 By default, `az policy state trigger-scan` starts an evaluation for all resources in the current
 subscription. To start an evaluation on a specific resource group, use the **resource-group**
@@ -349,9 +354,6 @@ details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. Th
 pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
-
-> [!NOTE]
-> Currently "reason for non-compliance" cannot be retrieved from Command line.  We are working on mapping the reason code to the "reason for non-compliance" and at this point there is no ETA on this.
 
 ### Summarize results
 

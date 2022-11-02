@@ -61,7 +61,7 @@ SP_ID=$(az aro show --name MyManagedCluster --resource-group MyResourceGroup \
 Generate a new secure secret (`--client-secret`) for the service principal using the `SP_ID` variable above. Store the new secure secret as `SP_SECRET` environment variable.
 ```azurecli-interactive
 # Generate a new secure secret for the service principal
-SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --id $SP_ID --query password -o tsv)
 ```
 Rotate service principal credentials using the above environment variables.
 ```azurecli-interactive
@@ -94,7 +94,7 @@ If the service principal credentials are expired please update using one of the 
 
 ### Cluster AAD application contains a client secret with an empty description
 When using [automated service principal credential rotation](#Automated-Service-Principal-Credential-Rotation) the following error occurs:
-```bash
+```azurecli
 $ az aro update --refresh-credentials --name MyManagedCluster --resource-group MyResourceGroup
 
 Cluster AAD application contains a client secret with an empty description.

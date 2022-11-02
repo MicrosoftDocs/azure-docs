@@ -59,16 +59,13 @@ In this tutorial, you learn:
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create micro-fulfillment application
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the navigation bar and then select the **Retail** tab:
-
-    :::image type="content" source="media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png" alt-text="Screenshot showing how to create an app.":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the navigation bar and then select the **Retail** tab.
 
 1. Select **Create app** under **micro-fulfillment center**.
 
@@ -116,7 +113,7 @@ Use the sample rule as inspiration to define rules that are more appropriate for
 
 If you're not going to continue to use this application, delete the application template. Go to **Application** > **Management**, and select **Delete**.
 
-:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application settings page.":::
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application Management page.":::
 
 ## Next steps
 

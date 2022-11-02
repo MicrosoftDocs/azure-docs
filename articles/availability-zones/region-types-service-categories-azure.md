@@ -2,7 +2,8 @@
 title: Azure services
 description: Learn about Region types and service categories in Azure.
 author: obeling
-ms.service: azure
+ms.service: reliability
+ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.author: mamccrea
@@ -107,7 +108,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Machine Learning                               |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
-> | Azure Purview                                        |
+> | Microsoft Purview                                        |
 > | Azure Red Hat OpenShift                              |
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |

@@ -2,11 +2,11 @@
 title: Create a virtual network - quickstart - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
-author: KumudD
+author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2021
-ms.author: kumud
+ms.date: 04/13/2022
+ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ---
@@ -130,7 +130,7 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 
 To get the public IP address of the VM, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
 
-This example returns the public IP address of the **myVm1** VM:
+This example returns the public IP address of the **myVM1** VM:
 
 ```azurepowershell-interactive
 $ip = @{
@@ -161,16 +161,16 @@ mstsc /v:<publicIpAddress>
 
 ## Communicate between VMs
 
-1. In the Remote Desktop of **myVm1**, open PowerShell.
+1. In the Remote Desktop of **myVM1**, open PowerShell.
 
-1. Enter `ping myVm2`.
+1. Enter `ping myVM2`.
 
-    You'll get something like this back:
+    You'll get a reply message like this:
 
     ```powershell
-    PS C:\Users\myVm1> ping myVm2
+    PS C:\Users\myVM1> ping myVM2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
+    Pinging myVM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -182,7 +182,7 @@ mstsc /v:<publicIpAddress>
 
     The ping fails, because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through your Windows firewall.
 
-1. To allow **myVm2** to ping **myVm1** in a later step, enter this command:
+1. To allow **myVM2** to ping **myVM1** in a later step, enter this command:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -190,18 +190,18 @@ mstsc /v:<publicIpAddress>
 
     That command lets ICMP inbound through the Windows firewall.
 
-1. Close the remote desktop connection to **myVm1**.
+1. Close the remote desktop connection to **myVM1**.
 
-1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to **myVm2**.
+1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to **myVM2**.
 
-1. From a command prompt on the **myVm2** VM, enter `ping myvm1`.
+1. From a command prompt on the **myVM2** VM, enter `ping myVM1`.
 
-    You'll get something like this back:
+    You'll get a reply message like this:
 
     ```cmd
-    C:\windows\system32>ping myVm1
+    C:\windows\system32>ping myVM1
 
-    Pinging myVm1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
+    Pinging myVM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
     Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
     Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
     Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
@@ -213,9 +213,9 @@ mstsc /v:<publicIpAddress>
         Minimum = 0ms, Maximum = 2ms, Average = 0ms
     ```
 
-    You receive replies from **myVm1**, because you allowed ICMP through the Windows firewall on the **myVm1** VM in a previous step.
+    You receive replies from **myVM1**, because you allowed ICMP through the Windows firewall on the **myVM1** VM in a previous step.
 
-1. Close the remote desktop connection to **myVm2**.
+1. Close the remote desktop connection to **myVM2**.
 
 ## Clean up resources
 

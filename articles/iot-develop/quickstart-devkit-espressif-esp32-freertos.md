@@ -32,6 +32,7 @@ Hardware:
 - ESPRESSIF [ESP32-Azure IoT Kit](https://www.espressif.com/products/devkits/esp32-azure-kit/overview)
 - USB 2.0 A male to Micro USB male cable
 - Wi-Fi 2.4 GHz
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -207,6 +208,9 @@ You can view the device information from IoT Central.
 Select the **About** tab on the device page.
 
 :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-device-info.png" alt-text="Screenshot of device information in IoT Central.":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Clean up resources
 

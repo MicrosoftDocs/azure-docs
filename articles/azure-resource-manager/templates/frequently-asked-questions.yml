@@ -3,7 +3,8 @@ metadata:
   title: ARM template frequently asked questions
   description: Frequently asked questions (FAQ) about Azure Resource Manager templates (ARM templates).
   ms.topic: faq
-  ms.service: azure
+  ms.service: azure-resource-manager
+  ms.subservice: templates
   ms.date: 03/03/2021
   ms.author: tomfitz
   author: tfitzmac
@@ -26,7 +27,7 @@ sections:
         answer: |
             To simplify authoring ARM templates, you need the right tools. We recommend installing [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For a quick introduction to these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
           
-            When you're ready to learn about creating ARM templates, start the [beginner tutorial series on ARM templates](template-tutorial-create-first-template.md). These tutorials take you step by step through the process of constructing an ARM template. You learn about the different sections of the template and how to they work together. This content is also available as a [Microsoft Learn module](/learn/modules/authoring-arm-templates/).
+            When you're ready to learn about creating ARM templates, start the [beginner tutorial series on ARM templates](template-tutorial-create-first-template.md). These tutorials take you step by step through the process of constructing an ARM template. You learn about the different sections of the template and how to they work together. This content is also available as a [Learn module](/training/modules/authoring-arm-templates/).
           
       - question: |
           Should I use ARM templates or Terraform to deploy to Azure?
@@ -200,7 +201,7 @@ sections:
             Yes. For an explanation of how to use template and pipelines, see [Tutorial: Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md) and [Integrate ARM templates with Azure Pipelines](add-template-to-azure-pipelines.md).
           
       - question: |
-          Can I use GitHub actions to deploy a template?
+          Can I use GitHub Actions to deploy a template?
         answer: |
             Yes, see [Deploy ARM templates by using GitHub Actions](deploy-github-actions.md).
           

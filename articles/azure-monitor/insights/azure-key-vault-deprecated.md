@@ -6,13 +6,14 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: shijain
 
 ---
 
 # Azure Key Vault Analytics solution in Azure Monitor
 
 > [!NOTE]
-> This solution is deprecated. [We now recommend using Key Vault insights](./key-vault-insights-overview.md).
+> This solution is deprecated. [We now recommend using Key Vault insights](../../key-vault/key-vault-insights-overview.md).
 
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 

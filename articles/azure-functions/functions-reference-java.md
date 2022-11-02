@@ -4,7 +4,7 @@ description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, ignite-2022
 ---
 
 # Azure Functions Java developer guide
@@ -13,9 +13,9 @@ This guide contains detailed information to help you succeed developing Azure Fu
 
 As a Java developer, if you're new to Azure Functions, please consider first reading one of the following articles:
 
-| Getting started | Concepts| 
-| -- | -- |  
-| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> |
+| Getting started | Concepts| Scenarios/samples |
+| -- | -- | -- |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Azure Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
 
 ## Java function basics
 
@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x | 11 <br/>8 | 11 <br/>8 |
+| 4.x |17(preview) <br/>11 <br/>8 |17(preview) <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -162,10 +162,10 @@ You can control the version of Java targeted by the Maven archetype by using the
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
-| Element |  Java 8 value | Java 11 value | Description |
-| ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | Version of Java used by the maven-compiler-plugin. |
-| **`JavaVersion`** | 8 | 11 | Java version hosted by the function app in Azure. |
+| Element |  Java 8 value | Java 11 value | Java 17 (preview) value | Description |
+| ---- | ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | 17 | Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | 17 | Java version hosted by the function app in Azure. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
@@ -414,7 +414,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-You invoke this function on an HttpRequest. It writes multiple values to Queue storage.
+You invoke this function on an `HttpRequest` object. It writes multiple values to Queue storage.
 
 ## HttpRequestMessage and HttpResponseMessage
 

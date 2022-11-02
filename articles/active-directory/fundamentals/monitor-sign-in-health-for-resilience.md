@@ -2,14 +2,14 @@
 title: Monitor application sign-in health for resilience in Azure Active Directory
 description: Create queries and notifications to monitor the sign-in health of your applications.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.author: baselden
+ms.date: 08/20/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

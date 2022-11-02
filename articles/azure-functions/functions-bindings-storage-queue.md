@@ -39,9 +39,18 @@ The functionality of the extension varies depending on the extension version:
 # [Extension 5.x+](#tab/extensionv5/in-process)
 
 <a name="storage-extension-5x-and-higher"></a>
-A new version of the Storage bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-This extension version is available by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+This version allows you to bind to types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+
+This extension is available by installing the [Microsoft.Azure.WebJobs.Extensions.Storage.Queues NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
+
+Using the .NET CLI:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues --version 5.0.0
+``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
@@ -58,9 +67,20 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
+This version allows you to bind to types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
 
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+
+Using the .NET CLI:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues --version 5.0.0
+``` 
+
+[!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
@@ -72,23 +92,15 @@ Functions version 1.x doesn't support isolated process.
 
 # [Extension 5.x+](#tab/extensionv5/csharp-script)
 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
 This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
-
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
@@ -110,21 +122,15 @@ The Blob storage binding is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv3)
 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+
 You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
-```json
-{
-  "version": "3.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Bundle v2.x](#tab/extensionv2)
 
@@ -168,7 +174,7 @@ Functions 1.x apps automatically have a reference to the extension.
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency as long as your function app runs only on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
 |newBatchThreshold|N*batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.<br><br>`N` represents the number of vCPUs available when running on App Service or Premium Plans. Its value is `1` for the Consumption Plan.|
-|messageEncoding|base64| This setting is only available in [extension version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
+|messageEncoding|base64| This setting is only available in [extension bundle version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
 
 ## Next steps
 

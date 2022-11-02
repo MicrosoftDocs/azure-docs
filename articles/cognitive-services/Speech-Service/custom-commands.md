@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/11/2020
 ms.author: travisw
+ms.custom: cogserv-non-critical-speech
 ---
 
 # What is Custom Commands?

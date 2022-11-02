@@ -32,7 +32,7 @@
     > [!NOTE]
     > React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
 
-1. Navigate to your projects folder where you want to create the new application. Use the Typescript-based template by specifying the `--template` parameter:
+1. Navigate to your projects folder where you want to create the new application. Use the TypeScript-based template by specifying the `--template` parameter:
 
     ```bash
     # init new project with npx

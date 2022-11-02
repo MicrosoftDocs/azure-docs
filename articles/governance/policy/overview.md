@@ -1,8 +1,10 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 07/27/2021
+ms.date: 07/05/2022
 ms.topic: overview
+ms.author: timwarner
+author: timwarner-msft
 ---
 # What is Azure Policy?
 
@@ -11,6 +13,10 @@ its compliance dashboard, it provides an aggregated view to evaluate the overall
 environment, with the ability to drill down to the per-resource, per-policy granularity. It also
 helps to bring your resources to compliance through bulk remediation for existing resources and
 automatic remediation for new resources.
+
+> [!NOTE]
+> For more information on remediation, see
+> [Remediate non-compliant resources with Azure Policy](./how-to/remediate-resources.md).
 
 Common use cases for Azure Policy include implementing governance for resource consistency,
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
@@ -113,30 +119,45 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
+Many built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
-**Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
+**Reader** have access to all _read_ Azure Policy operations.
+
+**Contributor** may trigger resource
 remediation, but can't _create_ or _update_ definitions and assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
-permissions. All policy objects will be readable to all roles over the scope.
+permissions.
 
-If none of the Built-in roles have the permissions required, create a
+> [!NOTE]
+> All Policy objects, including definitions, initiatives, and assignments, will be readable to all
+> roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable
+> by all role holders at the subscription scope and below.
+
+If none of the built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
 
-Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of 
+Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of
 permissions necessary to perform a task should be assigned and these permissions should not be granted
 to users who do not need them.
 
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
 > permissions to create or update targetted resources. For more information, see
-> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
+> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
+
+### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
+
+[Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
+
+To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need not only appropriate read and write Azure Policy RBAC permissions as described previously, but also permissions to join the network group.
+
+Specifically, the required resource provider permission is `Microsoft.Network/networkManagers/networkGroups/join/action`.
 
 ### Resources covered by Azure Policy
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[guest configuration](./concepts/guest-configuration.md),
+[Machine configuration](../machine-configuration/overview.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
@@ -163,7 +184,7 @@ Here are a few pointers and tips to keep in mind:
 
     - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
-  
+
   - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
   If you need to evaluate a policy individually, it's better to not include it in an initiative.
 
@@ -223,8 +244,8 @@ For more information about policy parameters, see
 An initiative definition is a collection of policy definitions that are tailored toward achieving
 a singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
-create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
-all the available security recommendations in your Azure Security Center.
+create an initiative titled **Enable Monitoring in Microsoft Defender for Cloud**, with a goal to monitor
+all the available security recommendations in your Microsoft Defender for Cloud instance.
 
 > [!NOTE]
 > The SDK, such as Azure CLI and Azure PowerShell, use properties and parameters named **PolicySet**
@@ -232,11 +253,11 @@ all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 
-- **Monitor unencrypted SQL Database in Security Center** - For monitoring unencrypted SQL databases
+- **Monitor unencrypted SQL Database in Microsoft Defender for Cloud** - For monitoring unencrypted SQL databases
   and servers.
-- **Monitor OS vulnerabilities in Security Center** - For monitoring servers that don't satisfy the
+- **Monitor OS vulnerabilities in Microsoft Defender for Cloud** - For monitoring servers that don't satisfy the
   configured baseline.
-- **Monitor missing Endpoint Protection in Security Center** - For monitoring servers without an
+- **Monitor missing Endpoint Protection in Microsoft Defender for Cloud** - For monitoring servers without an
   installed endpoint protection agent.
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing

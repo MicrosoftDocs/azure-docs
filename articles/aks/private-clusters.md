@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 01/12/2022
+ms.date: 10/05/2022
 
 ---
 
@@ -19,15 +19,13 @@ When you provision a private AKS cluster, AKS by default creates a private FQDN 
 
 Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-> [!NOTE]
-> Azure Government sites are supported, however US Gov Texas isn't currently supported because of missing Private Link support.
-
 ## Prerequisites
 
-* Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
-* If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
-* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+* The Azure CLI version 2.28.0 and higher.
+* The aks-preview extension 0.5.29 or higher.
+* If using ARM or the Azure REST API, the AKS API version must be 2021-05-01 or higher.
+* Azure Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
+* To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
 
 ## Create a private AKS cluster
 
@@ -39,7 +37,7 @@ Create a resource group or use an existing resource group for your AKS cluster.
 az group create -l westus -n MyResourceGroup
 ```
 
-### Default basic networking 
+### Default basic networking
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
@@ -61,10 +59,15 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Where `--enable-private-cluster` is a mandatory flag for a private cluster. 
+
+Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
+
+## Use custom domains
+
+If you want to configure custom domains that can only be resolved internally, see [Use custom domains][use-custom-domains] for more information.
 
 ## Disable Public FQDN
 
@@ -82,13 +85,13 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
 ```
 
-## Configure Private DNS Zone 
+## Configure Private DNS Zone
 
 The following parameters can be leveraged to configure Private DNS Zone.
 
 - "system", which is also the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
 - "none", defaults to public DNS which means AKS will not create a Private DNS Zone.  
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `vnet contributor` roles.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `network contributor` roles.
   - If the Private DNS Zone is in a different subscription than the AKS cluster, you need to register Microsoft.ContainerServices in both the subscriptions.
   - "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
 
@@ -127,9 +130,9 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option. Express
 ## Virtual network peering
 
 As mentioned, virtual network peering is one way to access your private cluster. To use virtual network peering, you need to set up a link between virtual network and the private DNS zone.
-    
+
 1. Go to the node resource group in the Azure portal.  
-2. Select the private DNS zone.   
+2. Select the private DNS zone.
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
 5. In the Azure portal, navigate to the resource group that contains your cluster's virtual network.  
@@ -149,6 +152,9 @@ As mentioned, virtual network peering is one way to access your private cluster.
 2. The private DNS zone is linked only to the VNet that the cluster nodes are attached to (3). This means that the private endpoint can only be resolved by hosts in that linked VNet. In scenarios where no custom DNS is configured on the VNet (default), this works without issue as hosts point at 168.63.129.16 for DNS that can resolve records in the private DNS zone because of the link.
 
 3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
+
+> [!NOTE]
+> Conditional Forwarding doesn't support subdomains.
 
 > [!NOTE]
 > If you are using [Bring Your Own Route Table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
@@ -233,27 +239,22 @@ Once the A record is created, link the private DNS zone to the virtual network t
 > [!WARNING]
 > If the private cluster is stopped and restarted, the private cluster's original private link service is removed and re-created, which breaks the connection between your private endpoint and the private cluster. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
 
-## Limitations 
+## Limitations
+
 * IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
 * If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
 * No support for converting existing AKS clusters into private clusters
-* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
+* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [private-endpoint-service]: ../private-link/private-endpoint-overview.md
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: /azure/devops/pipelines/agents/agents
-[availability-zones]: availability-zones.md
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
+[virtual-networks-168.63.129.16]: ../virtual-network/what-is-ip-address-168-63-129-16.md
+[use-custom-domains]: coredns-custom.md#use-custom-domains

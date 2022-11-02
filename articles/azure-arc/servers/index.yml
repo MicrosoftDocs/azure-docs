@@ -4,47 +4,50 @@ summary: Azure Arc-enabled servers
 
 metadata:
   title: Azure Arc-enabled servers
-  description: Learn about how to manage on-premises machines in Azure
+  description: Learn how to connect and manage on-premises machines in Azure.
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 09/21/2021
+  ms.date: 03/24/2022
 
 landingContent:
  # Card
-  - title: Connect machines to Azure using Azure Arc-enabled servers
+  - title: About Azure Arc-enabled servers
     linkLists: 
       - linkListType: overview
         links:
           - text: What is Azure Arc-enabled servers?
             url: overview.md
-      - linkListType: deploy
+          - text: Azure Connected Machine agent overview
+            url: agent-overview.md
+      - linkListType: architecture
+        links:
+          - text: Manage configurations for hybrid servers 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+ 
+ # Card
+  - title: Connect machines to Azure
+    linkLists: 
+      - linkListType: concept
         links:
           - text: Plan for deployment
             url: plan-at-scale-deployment.md
-      - linkListType: get-started
-        links:
-          - text: Connect machines to Azure Arc using a deployment script
-            url: onboard-portal.md
-          - text: Connect machines at scale using a service principal
-            url: onboard-service-principal.md
-          - text: Connect machines to Azure with Windows Admin Center
-            url: onboard-windows-admin-center.md
- # Card
-  - title: 10-minute quickstarts
-    linkLists:
+          - text: Prerequisites
+            url: prerequisites.md
       - linkListType: quickstart
         links:
-          - text: Deploy Arc-enabled servers agent
+          - text: Connect a hybrid machine
             url: ./learn/quick-enable-hybrid-vm.md
- 
- # Card
-  - title: Training
-    linkLists: 
-      - linkListType: learn
+      - linkListType: deploy
         links:
-          - text: Microsoft Learn learning path
-            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
- 
+          - text: Use a deployment script
+            url: onboard-portal.md
+          - text: Onboard at scale using a service principal
+            url: onboard-service-principal.md
+          - text: Deploy with Windows Admin Center
+            url: onboard-windows-admin-center.md
+          - text: All deployment options
+            url: deployment-options.md
+  
  # Card
   - title: Proof of concept
     linkLists:
@@ -56,10 +59,45 @@ landingContent:
        links:
           - text: Test Arc-enabled servers using an Azure VM
             url: plan-evaluate-on-azure-virtual-machine.md
+
  # Card
-  - title: Reference architecture
+  - title: Reference
     linkLists:
-      - linkListType: architecture
+      - linkListType: reference
         links:
-          - text: Manage configurations for hybrid servers 
-            url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+          - text: Azure CLI
+            url: /cli/azure/connectedmachine
+          - text: Azure PowerShell
+            url: /powershell/module/az.connectedmachine/
+          - text: .NET
+            url: /dotnet/api/overview/azure/hybridcompute/management
+          - text: REST
+            url: /rest/api/hybridcompute/
+          - text: Java
+            url: /java/api/com.azure.resourcemanager.compute
+          - text: JavaScript
+            url: /javascript/api/@azure/arm-hybridcompute/
+
+ # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Learning path
+            url: /training/paths/manage-hybrid-infrastructure-with-azure-arc         
+
+ # Card
+  - title: Azure service integration
+    linkLists: 
+      - linkListType: tutorial
+        links:
+          - text: Azure Policy
+            url: ./learn/tutorial-assign-policy-portal.md 
+          - text: Azure Monitor
+            url: ./learn/tutorial-enable-vm-insights.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Microsoft Sentinel
+            url: scenario-onboard-azure-sentinel.md
+          - text: Microsoft Defender for Cloud
+            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

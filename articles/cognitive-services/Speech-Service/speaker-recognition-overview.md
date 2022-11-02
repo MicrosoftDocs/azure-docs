@@ -66,8 +66,8 @@ As with all of the Cognitive Services resources, developers who use the speaker 
 |---------|----------|
 | What situations am I most likely to use speaker recognition? | Good examples include call center customer verification, voice-based patient check-in, meeting transcription, and multi-user device personalization.|
 | What's the difference between identification and verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, *enrolled* voice.|
-| What languages are supported? | See [Speaker recognition language support](language-support.md#speaker-recognition). |
-| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speaker-recognition).|
+| What languages are supported? | See [Speaker recognition language support](language-support.md?tabs=speaker-recognition). |
+| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speech-service).|
 | What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
 | What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#delete-voice-profile-enrollments). Recognition audio samples aren't retained or stored. |

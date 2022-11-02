@@ -1,13 +1,15 @@
 ---
 title: Adaptive application controls in Microsoft Defender for Cloud
 description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
 ms.date: 11/09/2021
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
@@ -37,11 +39,11 @@ No enforcement options are currently available. Adaptive application controls ar
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
-|||
+
 
 
 
@@ -72,9 +74,10 @@ Select the recommendation, or open the adaptive application controls page to vie
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
       - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - AppLocker is not available (Windows Server Core installations)
 
       > [!TIP]
-      > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for servers, will appear under the **No recommendation** tab.
+      > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for Servers, will appear under the **No recommendation** tab.
 
 1. Open the **Recommended** tab. The groups of machines with recommended allowlists appears.
 
@@ -210,7 +213,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programmatically, use our REST API. 
 
-The relevant API documentation is available in [the Adaptive Application Controls section of Defender for Cloud's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/defenderforcloud/adaptive-application-controls).
 
 Some of the functions that are available from the REST API:
 
@@ -235,7 +238,7 @@ Some of the functions that are available from the REST API:
 No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
 ### Why do I see a Qualys app in my recommended applications?
-[Microsoft Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+[Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
 
 To ensure no alerts are generated when Defender for Cloud deploys the scanner, the adaptive application controls recommended allowlist includes the scanner for all machines. 
 

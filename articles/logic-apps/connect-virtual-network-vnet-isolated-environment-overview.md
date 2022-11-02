@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/16/2021
+ms.date: 08/20/2022
 ---
 
 # Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
@@ -22,7 +22,7 @@ For more information, review the [differences between multi-tenant Azure Logic A
 
 ## How an ISE works with a virtual network
 
-When you create an ISE, you select the Azure virtual network where you want Azure to *inject* or deploy your ISE. When you create logic apps and integration accounts that need access to this virtual network, you can select your ISE as the host location those logic apps and integration accounts. Inside the ISE, logic apps run on dedicated resources separately from others in the multi-tenant Azure Logic Apps environment. Data in an ISE stays in the [same region where you create and deploy that ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
+When you create an ISE, you select the Azure virtual network where you want Azure to *inject* or deploy your ISE. When you create logic apps and integration accounts that need access to this virtual network, you can select your ISE as the host location for those logic apps and integration accounts. Inside the ISE, logic apps run on dedicated resources separately from others in the multi-tenant Azure Logic Apps environment. Data in an ISE stays in the [same region where you create and deploy that ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

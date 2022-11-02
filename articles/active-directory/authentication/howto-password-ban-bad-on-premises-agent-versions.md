@@ -10,12 +10,25 @@ ms.date: 06/04/2021
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
+
+## 1.2.177.1
+
+Release date: March 28, 2022
+
+* Fixed software version being incorrect
+
+## 1.2.177.0
+
+Release date: March 14, 2022
+
+* Minor bugfixes
+* Fixed issue with Azure AD Connect Agent Updater not being updated
 
 ## 1.2.176.0
 

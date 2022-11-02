@@ -1,49 +1,49 @@
 ---
-title: Nudge users to set up Microsoft Authenticator app - Azure Active Directory
-description: Learn how to move your organization away from less secure authentication methods to the Microsoft Authenticator app
+title: Nudge users to set up Microsoft Authenticator - Azure Active Directory
+description: Learn how to move your organization away from less secure authentication methods to Microsoft Authenticator
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 06/23/2022
 
 ms.author: justinha
 author: mjsantani
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
-
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+#Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app
+# How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator
 
-You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Microsoft Authenticator.  
+You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
 
-In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they will be nudged again on the next MFA attempt after the snooze duration has elapsed. 
+In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. 
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure MFA. Every edition of Azure AD includes Azure MFA. No additional license is needed for a registration campaign.
-- User must not have already set up Microsoft Authenticator for push notifications on their account. 
-- Admins need to enable users for Microsoft Authenticator using one of these policies:  
+- Your organization must have enabled Azure AD Multi-Factor Authentication. Every edition of Azure AD includes Azure AD Multi-Factor Authentication. No additional license is needed for a registration campaign.
+- Users can't have already set up the Authenticator app for push notifications on their account. 
+- Admins need to enable users for the Authenticator app using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
-  - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md). 
+  - Authentication Methods Policy: Users will need to be enabled for the Authenticator app and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user won't be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md). 
 
 ## User experience
 
-1. User successfully performs MFA using Azure MFA. 
+1. User successfully authenticates using Azure AD Multi-Factor Authentication. 
 
-1. User sees prompt to set up the Microsoft Authenticator app to improve their sign-in experience. Note: Only users who are allowed for the Microsoft Authenticator push notifications and do not have it currently set up will see the prompt. 
+1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
    ![User performs multifactor authentication](./media/how-to-nudge-authenticator-app/user-mfa.png)
 
-1. User taps **Next** and steps through Microsoft Authenticator setup. 
+1. User taps **Next** and steps through the Authenticator app setup. 
    1. First download the app.  
 
       ![User downloads Microsoft Authenticator](./media/how-to-nudge-authenticator-app/download.png)
 
-   1. See how to set up Microsoft Authenticator. 
+   1. See how to set up the Authenticator app. 
    
       ![User sets up Microsoft Authenticator](./media/how-to-nudge-authenticator-app/setup.png)
 
@@ -63,7 +63,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for a number of days, which can be defined by an admin. 
+1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. 
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
@@ -78,7 +78,7 @@ To enable a registration campaign in the Azure AD portal, complete the following
 
 ## Enable the registration campaign policy using Graph Explorer
 
-In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -101,7 +101,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 | Name | Possible values | Description |
 |------|-----------------|-------------|
 | state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
-| snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
+| snoozeDurationInDays | Range: 0 – 14 | Defines the number of days before the user is nudged again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
 
@@ -249,13 +249,13 @@ Here are a few sample JSONs you can use to get started!
 
 ## Limitations
 
-The nudge will not appear on mobile devices that run Android or iOS.
+The nudge won't appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
 **Is registration campaign available for MFA Server?** 
 
-No. This feature is available only for users using Azure MFA. 
+No. This feature is available only for users using Azure AD Multi-Factor Authentication. 
 
 **Can users be nudged within an application?** 
 
@@ -275,27 +275,27 @@ The feature aims to empower admins to get users set up with MFA using the Authen
 
 **Will a user who has a 3rd party authenticator app setup see the nudge?** 
 
-If this user doesn’t have the Microsoft Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
+If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
 
-**Will a user who has a Microsoft Authenticator app setup only for TOTP codes see the nudge?** 
+**Will a user who has the Authenticator app setup only for TOTP codes see the nudge?** 
 
-Yes. If the Microsoft Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
+Yes. If the Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
 
 **If a user just went through MFA registration, will they be nudged in the same sign-in session?** 
 
-No. To provide a good user experience, users will not be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
+No. To provide a good user experience, users won't be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
 
 **Can I nudge my users to register another authentication method?** 
 
-No. The feature, for now, aims to nudge users to set up the Microsoft Authenticator app only. 
+No. The feature, for now, aims to nudge users to set up the Authenticator app only. 
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
 
 There is no way to hide the snooze option on the nudge. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
 
-**Will I be able to nudge my users if I am not using Azure MFA?** 
+**Will I be able to nudge my users if I am not using Azure AD Multi-Factor Authentication?** 
 
-No. The nudge will only work for users who are doing MFA using the Azure MFA service. 
+No. The nudge will only work for users who are doing MFA using the Azure AD Multi-Factor Authentication service. 
 
 **Will Guest/B2B users in my tenant be nudged?** 
 
@@ -308,4 +308,4 @@ It's the same as snoozing.
 
 ## Next steps
 
-[Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
+[Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)

@@ -8,6 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
+ms.custom: cogserv-non-critical-anomaly-detector
 ms.date: 01/22/2021
 ms.author: mbullwin
 ---

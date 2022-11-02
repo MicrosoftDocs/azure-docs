@@ -2,24 +2,17 @@
 title: Azure Active Directory activity logs in Azure Monitor | Microsoft Docs
 description: Introduction to Azure Active Directory activity logs in Azure Monitor
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/11/2022
-ms.author: markvi
+ms.date: 10/03/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-
 ms.collection: M365-identity-device-management
 ---
-
 # Azure AD activity logs in Azure Monitor
 
 You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
@@ -31,16 +24,12 @@ You can route Azure Active Directory (Azure AD) activity logs to several endpoin
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 ## Supported reports
 
 You can route Azure AD audit logs and sign-in logs to your Azure Storage account, event hub, Azure Monitor logs, or custom solution by using this feature.
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
-
-
 
 ## Prerequisites
 
@@ -49,7 +38,7 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD audit logs in the Azure portal. 
 * An Azure AD tenant.
-* A user who's a **global administrator** or **security administrator** for the Azure AD tenant.
+* A user who's a **Global Administrator** or **Security Administrator** for the Azure AD tenant.
 * Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
 
 Depending on where you want to route the audit log data, you need either of the following:
@@ -78,14 +67,6 @@ The following table contains a cost estimate of, depending on the size of the te
 | Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
  
 
-
-
-
-
-
-
-
-
 ### Event Hub messages for activity logs
 
 Events are batched into approximately five-minute intervals and sent as a single message that contains all the events within that timeframe. A message in the Event Hub has a maximum size of 256 KB, and if the total size of all the messages within the timeframe exceeds that volume, multiple messages are sent. 
@@ -103,24 +84,13 @@ The following table contains estimated costs per month for a basic Event Hub in 
 
 ### Azure Monitor logs cost considerations
 
-
-
 | Log category | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
 |:-|--|--|--|-:|
 | Audit and Sign-ins | 100,000 | 16,500,000 | 495,000,000 | $1093.00 |
 | Audit | 100,000 | 1,500,000 | 45,000,000 | $246.66 |
 | Sign-ins | 100,000 | 15,000,000 | 450,000,000 | $847.28 |
 
-
-
-
-
-
-
-
-
-
-To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/logs/manage-cost-storage.md).
+To review costs related to managing the Azure Monitor logs, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
 
 ## Frequently asked questions
 
@@ -174,7 +144,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: What SIEM tools are currently supported?** 
 
-**A**: **A**: Currently, Azure Monitor is supported by [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, and Logz.io. For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+**A**: Currently, Azure Monitor is supported by [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure/), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, and Logz.io. For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ---
 
@@ -186,7 +156,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How do I integrate Azure AD activity logs with Sumo Logic?** 
 
-**A**: First, [route the Azure AD activity logs to an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), then follow the steps to [Install the Azure AD application and view the dashboards in SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
+**A**: First, [route the Azure AD activity logs to an event hub](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#collecting-logs-for-azure-active-directory), then follow the steps to [Install the Azure AD application and view the dashboards in SumoLogic](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#viewing-azure-active-directory-dashboards).
 
 ---
 

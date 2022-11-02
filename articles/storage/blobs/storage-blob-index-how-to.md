@@ -4,11 +4,10 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: normesta
 
 ms.author: normesta
-ms.date: 06/14/2021
+ms.date: 07/21/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: klaasl
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -19,40 +18,11 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-## Prerequisites
-
-# [Portal](#tab/azure-portal)
-
-- An Azure subscription registered and approved for access
-- Access to the [Azure portal](https://portal.azure.com/)
-
-# [.NET v12 SDK](#tab/net)
-
-1. Set up your Visual Studio project to get started with the Azure Blob Storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
-
-2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0** or newer to your project. You can also run the PowerShell command: `Install-Package Azure.Storage.Blobs -Version 12.7.0`
-
-   To learn how, see [Find and install a package](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
-
-3. Add the following using statements to the top of your code file.
-
-    ```csharp
-    using Azure;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
-    using Azure.Storage.Blobs.Specialized;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    ```
-
----
-
 ## Upload a new blob with index tags
 
 This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
@@ -66,37 +36,67 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 6. Select the **Upload** button to upload the blob.
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
 
-# [.NET v12 SDK](#tab/net)
+### [PowerShell](#tab/azure-powershell)
 
-The following example shows how to create an append blob with tags set during creation.
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-```csharp
-static async Task BlobIndexTagsOnCreateAsync()
-{
-    var serviceClient = new BlobServiceClient(ConnectionString);
-    var container = serviceClient.GetBlobContainerClient("mycontainer");
+   ```powershell
+   Connect-AzAccount
+   ```
 
-    // Create a container
-    await container.CreateIfNotExistsAsync();
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
-    // Create an append blob
-    AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context   
+   ```
 
-    // Blob index tags to upload
-    AppendBlobCreateOptions appendOptions = new AppendBlobCreateOptions();
-    appendOptions.Tags = new Dictionary<string, string>
-    {
-        { "Sealed", "false" },
-        { "Content", "logs" },
-        { "Date", "2020-04-20" }
-    };
+3. Upload a blob by using the `Set-AzStorageBlobContent` command. Set tags by using the `-Tag` parameter.
 
-    // Upload data with tags set on creation
-    await appendBlobWithTags.CreateAsync(appendOptions);
-}
-```
+    ```powershell
+    $containerName = "myContainer"
+    $file = "C:\demo-file.txt"
+
+    Set-AzStorageBlobContent -File $file -Container $containerName -Context $ctx -Tag @{"tag1" = "value1"; "tag2" = "value2" }
+    ```
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Install the `storage-preview` extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+2. If you're using Azure CLI locally, run the login command.
+
+   ```azurecli
+   az login
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+3. Upload a blob by using the `az storage blob upload` command. Set tags by using the `--tags` parameter.
+
+   ```azurecli
+   az storage blob upload --account-name mystorageaccount --container-name myContainer --name demo-file.txt --file C:\demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
+   ```
+
+### [AzCopy](#tab/azcopy)
+
+See [Upload with index tags](../common/storage-use-azcopy-blobs-upload.md#upload-with-index-tags).
 
 ---
 
@@ -106,7 +106,7 @@ Getting blob index tags can be performed by a [Storage Blob Data Owner](../../ro
 
 Setting and updating blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
@@ -120,55 +120,82 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 6. Select the **Save** button to confirm any updates to your blob.
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
 
-# [.NET v12 SDK](#tab/net)
+### [PowerShell](#tab/azure-powershell)
 
-```csharp
-static async Task BlobIndexTagsExample()
-{
-    var serviceClient = new BlobServiceClient(ConnectionString);
-    var container = serviceClient.GetBlobContainerClient("mycontainer");
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-    // Create a container
-    await container.CreateIfNotExistsAsync();
+   ```powershell
+   Connect-AzAccount
+   ```
 
-    // Create a new append blob
-    AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
-    await appendBlob.CreateAsync();
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
-    // Set or update blob index tags on existing blob
-    Dictionary<string, string> tags = new Dictionary<string, string>
-    {
-        { "Project", "Contoso" },
-        { "Status", "Unprocessed" },
-        { "Sealed", "true" }
-    };
-    await appendBlob.SetTagsAsync(tags);
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context   
+   ```
 
-    // Get blob index tags
-    Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
-    Console.WriteLine(appendBlob.Name);
-    foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
-    {
-        Console.WriteLine($"{tag.Key} = {tag.Value}");
-    }
+3. To get the tags of a blob, use the `Get-AzStorageBlobTag` command and set the `-Blob` parameter to the name of the blob.
 
-    // List blobs with all options returned including blob index tags
-    await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
-    {
-        Console.WriteLine(Environment.NewLine + blobItem.Name);
-        foreach (KeyValuePair<string, string> tag in blobItem.Tags)
-        {
-            Console.WriteLine($"{tag.Key} = {tag.Value}");
-        }
-    }
+    ```powershell
+    $containerName = "myContainer"
+    $blobName = "myBlob" 
+    Get-AzStorageBlobTag -Context $ctx -Container $containerName -Blob $blobName
+    ```
 
-    // Delete existing blob index tags by replacing all tags
-    var noTags = new Dictionary<string, string>();
-    await appendBlob.SetTagsAsync(noTags);
-}
-```
+4. To set the tags of a blob, use the `Set-AzStorageBlobTag` command. Set the `-Blob` parameter to the name of the blob, and set the `-Tag` parameter to a collection of name and value pairs.
+
+    ```powershell
+    $containerName = "myContainer"
+    $blobName = "myBlob" 
+    $tags = @{"tag1" = "value1"; "tag2" = "value2" }
+    Set-AzStorageBlobTag -Context $ctx -Container $containerName -Blob $blobName -Tag $tags
+    ```
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Install the `storage-preview` extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+2. If you're using Azure CLI locally, run the login command.
+
+   ```azurecli
+   az login
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+
+3. To get the tags of a blob, use the `az storage blob tag list` command and set the `--name` parameter to the name of the blob.
+
+   ```azurecli
+   az storage blob tag list --account-name mystorageaccount --container-name myContainer --name demo-file.txt --auth-mode login
+   ```
+
+4. To set the tags of a blob, use the `az storage blob tag set` command. Set the `--name` parameter to the name of the blob, and set the `--tags` parameter to a collection of name and value pairs.
+
+   ```azurecli
+   az storage blob tag set --account-name mystorageaccount --container-name myContainer --name demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
+   ```
+
+### [AzCopy](#tab/azcopy)
+
+See [Replace index tags](../common/storage-use-azcopy-blobs-properties-metadata.md#replace-index-tags)
 
 ---
 
@@ -179,7 +206,7 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 Within the Azure portal, the blob index tags filter automatically applies the `@container` parameter to scope your selected container. If you wish to filter and find tagged data across your entire storage account, use our REST API, SDKs, or tools.
 
@@ -193,104 +220,79 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 5. Select the **Blob Index tags filter** button to add additional tag filters (up to 10).
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
 
-# [.NET v12 SDK](#tab/net)
+### [PowerShell](#tab/azure-powershell)
 
-```csharp
-static async Task FindBlobsByTagsExample()
-{
-    var serviceClient = new BlobServiceClient(ConnectionString);
-    var container1 = serviceClient.GetBlobContainerClient("mycontainer");
-    var container2 = serviceClient.GetBlobContainerClient("mycontainer2");
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-    // Blob index queries and selection
-    var singleEqualityQuery = @"""Archive"" = 'false'";
-    var andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
-    var rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
-    var containerScopedQuery = @"@container = 'mycontainer' AND ""Archive"" = 'false'";
+   ```powershell
+   Connect-AzAccount
+   ```
 
-    var queryToUse = containerScopedQuery;
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
-    // Create a container
-    await container1.CreateIfNotExistsAsync();
-    await container2.CreateIfNotExistsAsync();
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context   
+   ```
 
-    // Create append blobs
-    var appendBlobWithTags0 = container1.GetAppendBlobClient("myAppendBlob00.logs");
-    var appendBlobWithTags1 = container1.GetAppendBlobClient("myAppendBlob01.logs");
-    var appendBlobWithTags2 = container1.GetAppendBlobClient("myAppendBlob02.logs");
-    var appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
-    var appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
-    var appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
+3. To find all blobs that match a specific blob tag, use the `Get-AzStorageBlobByTag` command. 
 
-    // Blob index tags to upload
-    CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
-    appendOptions.Tags = new Dictionary<string, string>
-    {
-        { "Archive", "false" },
-        { "Priority", "01" },
-        { "Date", "2020-04-20" }
-    };
+    ```powershell
+    $filterExpression = """tag1""='value1'"
+    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
+    ```
 
-    CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
-    appendOptions2.Tags = new Dictionary<string, string>
-    {
-        { "Archive", "true" },
-        { "Priority", "02" },
-        { "Date", "2020-04-24" }
-    };
+4. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
 
-    // Upload data with tags set on creation
-    await appendBlobWithTags0.CreateAsync(appendOptions);
-    await appendBlobWithTags1.CreateAsync(appendOptions);
-    await appendBlobWithTags2.CreateAsync(appendOptions2);
-    await appendBlobWithTags3.CreateAsync(appendOptions);
-    await appendBlobWithTags4.CreateAsync(appendOptions2);
-    await appendBlobWithTags5.CreateAsync(appendOptions2);
+    ```powershell
+    $filterExpression = "@container='myContainer' AND ""tag1""='value1'"
+    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
+    ``` 
 
-    // Find Blobs given a tags query
-    Console.WriteLine($"Find Blob by Tags query: {queryToUse}");
+### [Azure CLI](#tab/azure-cli)
 
-    var blobs = new List<TaggedBlobItem>();
-    await foreach (TaggedBlobItem taggedBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
-    {
-        blobs.Add(taggedBlobItem);
-    }
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-    foreach (var filteredBlob in blobs)
-    {
-        Console.WriteLine($"BlobIndex result: ContainerName= {filteredBlob.ContainerName}, " +
-            $"BlobName= {filteredBlob.Name}");
-    }
-}
-```
+2. Install the `storage-preview` extension.
 
----
+   ```azurecli
+   az extension add -n storage-preview
+   ```
 
-## Lifecycle management with blob index tag filters
+2. If you're using Azure CLI locally, run the login command.
 
-# [Portal](#tab/azure-portal)
+   ```azurecli
+   az login
+   ```
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account.
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
 
-2. Navigate to the **Lifecycle Management** option under **Blob Service**
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
 
-3. Select *Add rule* and then fill out the Action set form fields
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Select **Filter** set to add optional filter for prefix match and blob index match
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot of the Azure portal showing how to add index tags for lifecycle management.":::
+3. To find all blobs that match a specific blob tag, use the `az storage blob filter` command. 
 
-5. Select **Review + add** to review the rule settings
+   ```azurecli
+   az storage blob filter --account-name mystorageaccount --tag-filter ""tag1"='value1' and "tag2"='value2'" --auth-mode login
+   ```
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot of the Azure portal showing a lifecycle management rule with blob index tags filter example":::
+4. To find blobs only in a specific container, include the container name in the `--tag-filter` parameter.
 
-6. Select **Add** to apply the new rule to the lifecycle management policy
+   ```azurecli
+   az storage blob filter --account-name mystorageaccount --tag-filter ""@container"='myContainer' and "tag1"='value1' and "tag2"='value2'" --auth-mode login
+   ```
 
-# [.NET v12 SDK](#tab/net)
+### [AzCopy](#tab/azcopy)
 
-[Lifecycle management](./lifecycle-management-overview.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
+N/A
 
 ---
 

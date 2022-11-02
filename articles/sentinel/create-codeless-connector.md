@@ -1,10 +1,11 @@
 ---
 title: Create a codeless connector for Microsoft Sentinel
 description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Platform (CCP).
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.custom: ignite-2022
+ms.date: 06/30/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
 
@@ -92,7 +93,7 @@ The following image shows a sample data connector page, highlighted with numbers
 |**permissions**     | [RequiredConnectorPermissions[]](#requiredconnectorpermissions)        | Lists the permissions required to enable or disable the connector.        |
 |**instructionsSteps**     | [InstructionStep[]](#instructionstep)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
 |**metadata**     |   [Metadata](#metadata)      |  ARM template metadata, for deploying the connector as an ARM template.       |
-|     |         |         |
+
 
 ### GraphQuery
 
@@ -105,7 +106,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |**metricName**     |   String      |  A meaningful name for your graph. <br><br>Example: `Total data received`       |
 |**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
 |**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName | where ProviderName == “myprovider”` or `{{graphQueriesTableName}}`     |
-|     |         |         |
+
 
 
 ### SampleQuery
@@ -114,7 +115,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **Description** | String | A meaningful description for the sample query.<br><br>Example: `Top 10 vulnerabilities detected` |
 | **Query** | String | Sample query used to fetch the data type's data. <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
-| | | |
+
 
 ### DataTypes
 
@@ -122,7 +123,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **dataTypeName** | String | A meaningful description for the`lastDataReceivedQuery` query, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
 | **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)`
-| | | |
+
 
 
 ### ConnectivityCriteria
@@ -131,7 +132,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **type** | ENUM | Always define this value as `SentinelKindsV2`. |
 | **value** | deprecated |N/A |
-| | | |
+
 
 ### Availability
 
@@ -139,7 +140,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **status** | Boolean | Determines whether or not the data connector is available in your workspace. <br><br>Example: `1`|
 | **isPreview** | Boolean |Determines whether the data connector is supported as Preview or not. <br><br>Example: `false` |
-| | | |
+
 
 ### RequiredConnectorPermissions
 
@@ -149,7 +150,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
 | **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
 | **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
-| | | |
+
 
 #### ResourceProviderPermissions
 
@@ -160,7 +161,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions. |
 | **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector as one of the following values: `read`, `write`, `delete`, `action` |
 | **Scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `Subscription`, `ResourceGroup`, `Workspace` |
-| | | |
+
 
 ### RequiredPermissionSet
 
@@ -170,7 +171,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **write** | boolean | Determines whether *write* permissions are required. |
 | **delete** | boolean | Determines whether *delete* permissions are required. |
 | **action** | 	boolean	| Determines whether *action* permissions are required. |
-| | | |
+
 
 ### Metadata
 
@@ -183,7 +184,7 @@ This section provides metadata used when you're [deploying your data connector a
 | **source** | 	String |Describes your data source, using the following syntax: <br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
 | **author** |	String | Describes the data connector author, using the following syntax: <br>`{`<br>`  name:string`<br>`}`|
 | **support** |	String | Describe the support provided for the data connector using the following syntax: <br>	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`|
-| | | |
+
 
 ### Instructions
 
@@ -197,7 +198,7 @@ This section provides parameters that define the set of instructions that appear
 | **innerSteps**	| [InstructionStep](#instructionstep) | Optional. Defines an array of inner instruction steps. |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Microsoft Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Microsoft Sentinel |
-| | | |
+
 
 
 #### CopyableLabel
@@ -231,7 +232,7 @@ instructions: [
 |**value**     |  String       |  Defines the value to present in the text box, supports placeholders.       |
 |**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
 |**wideLabel**     |Boolean         | Optional. Determines a wide label for long strings. By default, set to `false`.        |
-|    |         |         |
+
 
 
 #### InfoMessage
@@ -269,7 +270,7 @@ instructions: [
 |**text**     |    String     |   Define the text to display in the message.      |
 |**visible**     |   Boolean      |    Determines whether the message is displayed.     |
 |**inline**     |   Boolean      |   Determines how the information message is displayed. <br><br>- `true`: (Recommended) Shows the information message embedded in the instructions. <br>- `false`: Adds a blue background.     |
-|     |         |         |
+
 
 
 
@@ -297,7 +298,7 @@ new LinkInstructionModel({ linkType: LinkType.OpenAzureActivityLog } )
 |**policyDefinitionGuid**     | String        |  Optional. For policy-based connectors, defines the GUID of the built-in policy definition.        |
 |**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
 |**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as one of the following: `SecurityEvent`,  `ForwardEvent`       |
-|     |         |         |
+
 
 To define an inline link using markdown, use the following example as a guide:
 
@@ -337,7 +338,7 @@ For example:
 |**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
 |**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
 |**expanded**     |   Boolean      |   Optional. If `true`, shows as expanded by default.      |
-|     |         |         |
+
 
 
 
@@ -348,7 +349,7 @@ This section describes the configuration for how data is polled from your data s
 
 The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file.
 
-```rest
+```json
 "pollingConfig": {
     auth": {
         "authType": <string>,
@@ -364,15 +365,14 @@ The following code shows the syntax of the `pollingConfig` section of the [CCP c
 
 The `pollingConfig` section includes the following properties:
 
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|**id**     |  String | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |
-|**auth**     | String | Describes the authentication properties for polling the data.  For more information, see  [auth configuration](#auth-configuration).   |
-|<a name="authtype"></a>**auth.authType**     |   String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `Session`        |
-|**request**     |  Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration).         |
-|**response**     | Nested JSON |  Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration).     |
-|**paging**     | Nested JSON. |  Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration).         |
-|     |         |         |
+| Name         | Type        | Description  |
+| ------------ | ----------- | ------------ |
+| **id**       | String      | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in Azure Cosmos DB |
+| **auth**     | String      | Describes the authentication properties for polling the data. For more information, see [auth configuration](#auth-configuration). |
+| <a name="authtype"></a>**auth.authType** | String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2`, `Session`, `CiscoDuo` |
+| **request**  | Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration). |
+| **response** | Nested JSON | Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
+| **paging**   | Nested JSON | Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration). |
 
 For more information, see [Sample pollingConfig code](#sample-pollingconfig-code).
 
@@ -380,55 +380,110 @@ For more information, see [Sample pollingConfig code](#sample-pollingconfig-code
 
 The `auth` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
 
+#### Basic authType parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **Username** | String | Mandatory. Defines user name. |
+| **Password** | String | Mandatory. Defines user password. |
+
 #### APIKey authType parameters
 
-|Name  |Type   |Description  |
-|---------|---------|---------|
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 |**APIKeyName**     |String | Optional. Defines the name of your API key, as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        |
 |**IsAPIKeyInPostPayload**     |Boolean | Determines where your API key is defined. <br><br>True: API key is defined in the POST request payload <br>False: API key is defined in the header     |
 |**APIKeyIdentifier**     |  String | Optional. Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |
-| | | |
+
+#### OAuth2 authType parameters
+
+The Codeless Connector Platform supports OAuth 2.0 authorization code grant.
+
+The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+
+After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
+
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported values:<br>- `AuthCode` - requires an authorization flow<br>- `ClientCredentials` - doesn't require authorization flow. |
+| **AccessToken** | String | Optional. Defines an OAuth2 access token, relevant when the access token doesn't expire. |
+| **AccessTokenPrepend** | String | Optional. Defines an OAuth2 access token prepend. Default is `Bearer`. |
+| **RefreshToken** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |
+| **TokenEndpoint** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 token service endpoint. |
+| **AuthorizationEndpoint** | String | Optional. Defines the OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. |
+| **RedirectionEndpoint** | String | Optional. Defines a redirection endpoint during onboarding. |
+| **AccessTokenExpirationDateTimeInUtc** | String | Optional. Defines an access token expiration datetime, in UTC format. Relevant for when the access token doesn't expire, and therefore has a large datetime in UTC, or when the access token has a large expiration datetime. |
+| **RefreshTokenExpirationDateTimeInUtc** | String | Mandatory for OAuth2 auth types. Defines the refresh token expiration datetime in UTC format. |
+| **TokenEndpointHeaders** | Dictionary<string, object> | Optional. Defines the headers when calling an OAuth2 token service endpoint.<br><br>Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }` |
+| **AuthorizationEndpointHeaders** | Dictionary<string, object> | Optional. Defines the headers when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
+| **AuthorizationEndpointQueryParameters** | Dictionary<string, object> | Optional. Defines query parameters when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
+| **TokenEndpointQueryParameters** | Dictionary<string, object> | Optional. Define query parameters when calling OAuth2 token service endpoint.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ... }` |
+| **IsTokenEndpointPostPayloadJson** | Boolean | Optional, default is false. Determines whether query parameters are in JSON format and set in the request POST payload. |
+| **IsClientSecretInHeader** | Boolean | Optional, default is false. Determines whether the `client_id` and `client_secret` values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload. |
+| **RefreshTokenLifetimeinSecAttributeName** | String | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. |
+| **IsJwtBearerFlow** | Boolean | Optional, default is false. Determines whether you are using JWT. |
+| **JwtHeaderInJson** | Dictionary<string, object> | Optional. Define the JWT headers in JSON format.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>...}` |
+| **JwtClaimsInJson** | Dictionary<string, object> | Optional. Defines JWT claims in JSON format.<br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <serialized val>, '<attr_name>': <serialized val>, ...}` |
+| **JwtPem** | String | Optional. Defines a secret key, in PEM Pkcs1 format: `'-----BEGIN RSA PRIVATE KEY-----\r\n{privatekey}\r\n-----END RSA PRIVATE KEY-----\r\n'`<br><br>Make sure to keep the `'\r\n'` code in place. |
+| **RequestTimeoutInSeconds** | Integer | Optional. Determines timeout in seconds when calling token service endpoint. Default is 180 seconds |
+
+Here's an example of how an OAuth2 configuration might look:
+
+```json
+"pollingConfig": {
+    "auth": {
+        "authType": "OAuth2",
+        "authorizationEndpoint": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+        "redirectionEndpoint": "https://portal.azure.com/TokenAuthorize",
+        "tokenEndpoint": "https://oauth2.googleapis.com/token",
+        "authorizationEndpointQueryParameters": {},
+        "tokenEndpointHeaders": {
+            "Accept": "application/json"
+        },
+        "TokenEndpointQueryParameters": {},
+        "isClientSecretInHeader": false,
+        "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
+        "grantType": "authorization_code",
+        "contentType": "application/x-www-form-urlencoded",
+        "FlowName": "AuthCode"
+    },
+```
 
 #### Session authType parameters
 
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|**QueryParameters**     |    String     | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>`{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
-|**IsPostPayloadJson**     |   Boolean | Optional. Determines whether the query parameters are in JSON format.  |
-|**Headers**     |    String. | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
-|**SessionTimeoutInMinutes**     |   String | Optional. Defines a session timeout, in minutes.       |
-|**SessionIdName**     |    String | Optional. Defines an ID name for the session.  |
-|**SessionLoginRequestUri**     |  String | Optional. Defines a session login request URI. |
-| | | |
+| Name                        | Type                       | Description  |
+| --------------------------- | -------------------------- | ------------ |
+| **QueryParameters**         | Dictionary<string, object> | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>`{'<attr_name>': '<val>', '<attr_name>': '<val>'... }` |
+| **IsPostPayloadJson**       | Boolean                    | Optional. Determines whether the query parameters are in JSON format.  |
+| **Headers**                 | Dictionary<string, object> | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
+| **SessionTimeoutInMinutes** | String                     | Optional. Defines a session timeout, in minutes.       |
+| **SessionIdName**           | String                     | Optional. Defines an ID name for the session.  |
+| **SessionLoginRequestUri**  | String                     | Optional. Defines a session login request URI. |
 
-
-
-
-### request configuration
+### Request configuration
 
 The `request` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|**apiEndpoint**     |   String | Mandatory. Defines the endpoint to pull data from.      |
-|**httpMethod**     |String | Mandatory. Defines the API method: `GET` or `POST`       |
-|**queryTimeFormat**     |  String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |
-|**startTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query start time.        |
-|**endTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query end time.      |
-|**queryTimeIntervalAttributeName**     | String. | Optional. Defines the name of the attribute that defines the query time interval. |
-|**queryTimeIntervalDelimiter**     |   String | Optional. Defines the query time interval delimiter. |
-|**queryWindowInMin**     |  String | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
-|**queryParameters**     |  String | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.  <br><br>Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`       |
-|**queryParametersTemplate**     | String object | Optional. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |
-|**isPostPayloadJson**     | Boolean | Optional. Determines whether the POST payload is in JSON format.  |
-|**rateLimitQPS**     |   Double      | Optional. Defines the number of calls or queries allowed in a second. |
-|**timeoutInSeconds**     |  Integer | Optional. Defines the request timeout, in seconds. |
-|**retryCount**     |   Integer | Optional. Defines the number of request retries to try if needed. |
-|**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`         |
-|     |         |         |
+| Name                               | Type    | Description                                        |
+| ---------------------------------- | ------- | -------------------------------------------------- |
+| **apiEndpoint**                    | String  | Mandatory. Defines the endpoint to pull data from. |
+| **httpMethod**                     | String  | Mandatory. Defines the API method: `GET` or `POST` |
+| **queryTimeFormat**                | String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp. |
+| **startTimeAttributeName**         | String  | Optional. Defines the name of the attribute that defines the query start time. |
+| **endTimeAttributeName**           | String  | Optional. Defines the name of the attribute that defines the query end time. |
+| **queryTimeIntervalAttributeName** | String  | Optional. Defines the name of the attribute that defines the query time interval. |
+| **queryTimeIntervalDelimiter**     | String  | Optional. Defines the query time interval delimiter. |
+| **queryWindowInMin**               | Integer | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
+| **queryParameters**                | Dictionary<string, object> | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path. <br><br>Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`. |
+| **queryParametersTemplate**        | String  | Optional. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"` <br><br>`{_QueryWindowStartTime}` and `{_QueryWindowEndTime}` are only supported in the `queryParameters` and `queryParametersTemplate` request parameters.  <br><br>`{_APIKeyName}` and `{_APIKey}` are only supported in the `queryParametersTemplate` request parameter. |
+| **isPostPayloadJson**              | Boolean | Optional. Determines whether the POST payload is in JSON format. |
+| **rateLimitQPS**                   | Double  | Optional. Defines the number of calls or queries allowed in a second. |
+| **timeoutInSeconds**               | Integer | Optional. Defines the request timeout, in seconds. |
+| **retryCount**                     | Integer | Optional. Defines the number of request retries to try if needed. |
+| **headers**                        |  Dictionary<string, object> | Optional. Defines the request header value, in the serialized `dictionary<string, object>` format: `{'<attr_name>': '<serialized val>', '<attr_name>': '<serialized val>'... }` |
 
-
-### response configuration
+### Response configuration
 
 The `response` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
@@ -438,7 +493,7 @@ The `response` section of the [pollingConfig](#configure-your-connectors-polling
 | **successStatusJsonPath**    |  String | Optional. Defines the path to the success message in the response JSON. |
 |  **successStatusValue**   | String | Optional. Defines the path to the success message value in the response JSON    |
 |  **isGzipCompressed**   |   Boolean | Optional. Determines whether the response is compressed in a gzip file.      |
-|     |         |         |
+
 
 The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
 
@@ -449,7 +504,7 @@ The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) v
 ```
 
 
-### paging configuration
+### Paging configuration
 
 The `paging` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
@@ -467,14 +522,14 @@ The `paging` section of the [pollingConfig](#configure-your-connectors-polling-s
 |  **offsetParaName**   |    String | Optional. Defines the name of the offset parameter. |
 |  **pageSizeParaName**   |   String | Optional. Defines the name of the page size parameter. |
 | **PageSize**    |     Integer | Defines the paging size. |
-|     |         |         |
+
 
 
 ### Sample pollingConfig code
 
 The following code shows an example of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file:
 
-```rest
+```json
 "pollingConfig": {
     "auth": {
         "authType": "APIKey",
@@ -541,7 +596,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 |**RequestObjectKey** |String | Defines the ID used to identify where in the request section of the API call to replace the placeholder value with a user value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
 |**PollingKeyPaths** |String |Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
 |**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file. This can be any unique value, such as `{{placeHolder}}`. |
-| | |
+
 
 
 ## Deploy your connector in Microsoft Sentinel and start ingesting data
@@ -605,11 +660,11 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
     |---------|---------|
     |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
     |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
-    |     |         |
+
 
     If you're using a [template configuration file with placeholder data](#add-placeholders-to-your-connectors-json-configuration-file), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 
-    ```rest
+    ```json
     "requestConfigUserInputValues": [
         {
            "displayText": "<A display name>",
@@ -636,7 +691,7 @@ Use one of the following methods:
 
 - **API**: Use the [DISCONNECT](/rest/api/securityinsights/preview/data-connectors/disconnect) API to send a PUT call with an empty body to the following URL:
 
-    ```rest
+    ```http
     https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
     ```
 

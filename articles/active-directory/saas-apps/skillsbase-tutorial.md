@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 05/13/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Skills Base
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate Skills Base with Azure Active Di
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Skills Base single sign-on (SSO) enabled subscription.
+* A Skills Base license that supports single sign-on (SSO).
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -37,8 +37,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Skills Base supports **SP** initiated SSO.
 * Skills Base supports **Just In Time** user provisioning.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+>[!NOTE]
+> Skills Base does not support **IdP** initiated SSO.
 
 ## Add Skills Base from the gallery
 
@@ -51,6 +51,8 @@ To configure the integration of Skills Base into Azure AD, you need to add Skill
 1. In the **Add from the gallery** section, type **Skills Base** in the search box.
 1. Select **Skills Base** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Skills Base
 
 Configure and test Azure AD SSO with Skills Base using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Skills Base.
@@ -59,90 +61,118 @@ To configure and test Azure AD SSO with Skills Base, perform the following steps
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Skills Base SSO](#configure-skills-base-sso)** - to configure the single sign-on settings on application side.
+    2. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+2. **[Configure Skills Base SSO](#configure-skills-base-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Skills Base test user](#create-skills-base-test-user)** - to have a counterpart of B.Simon in Skills Base that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
-
+3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+    
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Skills Base** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. In the Azure portal, on the **Skills Base** Enterprise Application Overview page, under **Getting Started** section select **Get started** under **2. Set up single sign on**.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+2. On the **Select a single sign-on method** page, select **SAML**.
 
-4. On the **Basic SAML Configuration** section, perform the following step:
+3. On the **Set up Single Sign-On with SAML** page, click the **Upload metadata file** button at the top of the page.
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+4. Click the **Select a file** icon and select the metadata file that you downloaded from Skills Base.
+
+5. Click **Add**
+
+   ![Screenshot of showing Upload SP metadata.](common/browse-upload-metadata.png)
+
+6. On the **Basic SAML Configuration** page, in the **Sign on URL** text box, enter your Skills Base shortcut link, which should be in the format:
     `https://app.skills-base.com/o/<customer-unique-key>`
 
 	> [!NOTE]
-	> You can get the Sign-On URL from Skills Base application. Please login as an Administrator and to go to Admin-> Settings-> Instance details -> Shortcut link. Copy the Sign-On URL and paste it in above textbox.
+	> You can get the Sign on URL from the Skills Base application. Please log in as an Administrator and to go to \[Administration > Settings > Instance details > Shortcut link\]. Copy the shortcut link and paste it into the **Sign on URL** textbox in Azure AD.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. Click **Save**
 
-	![The Certificate download link](common/metadataxml.png)
+6. Close the **Basic SAML Configuration** dialog.
 
-6. On the **Set up Skills Base** section, copy the appropriate URL(s) as per your requirement.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, next to **Federation Metadata XML**, click **Download** to download the Federation Metadata XML and save it on your computer.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot of showing The Certificate download link.](common/metadataxml.png)
+
+## Configure Skills Base SSO
+
+1. Log in to Skills Base as an Administrator.
+
+1. From the left side of menu, select **Administration -> Authentication**.
+
+	![Screenshot of showing The Authentication menu.](./media/skillsbase-tutorial/admin.png)
+
+1. On the **Authentication** page in the **Identity Providers** section, select **Add identity provider**.
+
+	![Screenshot shows the "Add identity provider" button.](./media/skillsbase-tutorial/configuration.png)
+
+1. Click **Add** to use the default settings.
+
+	![Screenshot shows the Authentication page where you can enter the values described.](./media/skillsbase-tutorial/save-configuration.png)
+
+1. In the **Application Details** panel, next to **SAML SP Metadata**, select **Download XML File** and save the resulting file on your computer.
+
+	![Screenshot shows the Application Details panel where you can download the SP Metadata file.](./media/skillsbase-tutorial/download-sp-metadata.png)
+
+1. In the **Identity Providers** section, select the **edit** button (denoted by a pencil icon) for the Identity Provider record you added.
+
+   ![Screenshot of showing Edit Identity Providers button.](./media/skillsbase-tutorial/edit-identity-provider.png)
+
+1. In the **Edit identity provider** panel, for **SAML IdP Metadata** select **Upload an XML file**
+
+1. Click **Browse** to choose a file. Select the Federation Metadata XML file that you downloaded from Azure AD and click **Save**.
+
+   ![Screenshot of showing Upload certificate type.](./media/skillsbase-tutorial/browse-and-save.png)
+   
+1. In the **Authentication** panel, for **Single Sign-On** select the Identity Provider you added.
+
+   ![Screenshot for Authentication panel for S S O.](./media/skillsbase-tutorial/select-identity-provider.png)
+
+1. Make sure the option to bypass the Skills Base login screen is **deselected** for now.  You can enable this option later, once the integration is proved to be working.
+
+1. If you would like to enable **Just In Time** user provisioning, enable the **Automatic user account provisioning** option.
+
+1. click **Save changes**.
+
+   ![Screenshot for Just in Time provisioning.](./media/skillsbase-tutorial/identity-provider-enabled.png)
+
+> [!Note]
+> The Identity Provider you added in the **Identity Providers** panel should now have a green **Enabled** badge in the **Status** column.
 
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
+2. Select **New user** at the top of the screen.
+3. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   2. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   3. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   4. Click **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Skills Base.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Skills Base**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+2. In the applications list, select **Skills Base**.
+3. In the app's overview page, find the **Manage** section and select **Users and groups**.
+4. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+5. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+6. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Skills Base SSO
 
-1. In a different web browser window, login to Skills Base as a Security Administrator.
-
-2. From the left side of menu, under **ADMIN** click **Authentication**.
-
-	![The admin](./media/skillsbase-tutorial/admin.png)
-
-3. On the **Authentication** Page, select Single Sign-On as **SAML 2**.
-
-	![Screenshot shows the Authentication page with SAML 2 selected for Sing Sign-on.](./media/skillsbase-tutorial/configuration.png)
-
-4. On the **Authentication** Page, Perform the following steps:
-
-	![Screenshot shows the Authentication page where you can enter the values described.](./media/skillsbase-tutorial/save-configuration.png)
-
-	a. Click on **Update IdP metadata** button next to **Status** option and paste the contents of Metadata XML that you downloaded from the Azure portal in the specified textbox.
-
-	> [!Note]
-	> You can also validate idp metadata through the **Metadata validator** tool as highlighted in screenshot above.
-
-	b. Click **Save**.
 
 ### Create Skills Base test user
 
-In this section, a user called Britta Simon is created in Skills Base. Skills Base supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Skills Base, a new one is created after authentication.
+Skills Base supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Skills Base, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, follow the instructions [here](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
+> If you need to create a user manually, follow the instructions [here](https://support.skills-base.com/kb/articles/11000024831-adding-people-and-enabling-them-to-log-in).
 
 ## Test SSO
 

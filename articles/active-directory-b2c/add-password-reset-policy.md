@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/07/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -114,6 +114,7 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
 
 [Page layout version](contentdefinitions.md#migrating-to-page-layout) 2.1.2 is required to enable the self-service password reset flow in the sign-up or sign-in journey. To upgrade the page layout version:
 
+1. Open the base file of your policy, for example, *SocialAndLocalAccounts/TrustFrameworkBase.xml*.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ContentDefinitions](contentdefinitions.md) element. If the element doesn't exist, add it.
 1. Modify the **DataURI** element within the **ContentDefinition** element to have the ID `api.signuporsignin`:
@@ -130,7 +131,11 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
     </BuildingBlocks> -->
     ```
 
-A claims transformation technical profile initiates the **isForgotPassword** claim. The technical profile is referenced later. When invoked, it sets the value of the **isForgotPassword** claim to `true`. Find the **ClaimsProviders** element. If the element doesn't exist, add it. Then add the following claims provider:  
+### Add the technical profiles
+A claims transformation technical profile accesses the `isForgotPassword` claim. The technical profile is referenced later. When it's invoked, it sets the value of the `isForgotPassword` claim to `true`. 
+
+1. Open the extensions file of your policy, for example, in *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*.
+1. Find the **ClaimsProviders** element (if the element doesn't exist, create it), and then add the following claims provider:
 
 ```xml
 <!-- 
@@ -151,6 +156,9 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
           <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
         </Metadata>
       </TechnicalProfile>
+      <TechnicalProfile Id="LocalAccountWritePasswordUsingObjectId">
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+      </TechnicalProfile>
     </TechnicalProfiles>
   </ClaimsProvider>
 <!-- 
@@ -159,13 +167,16 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
 
 The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that executes in your user journey.
 
+The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** `SM-AAD` session manager is required for the user to preform subsequent logins successfully under [SSO](./custom-policy-reference-sso.md) conditions.
+
 ### Add the password reset sub journey
 
 The user can now sign in, sign up, and perform password reset in your user journey. To better organize the user journey, you can use a [sub journey](subjourneys.md) to handle the password reset flow.
 
 The sub journey is called from the user journey and performs the specific steps that deliver the password reset experience to the user. Use the `Call` type sub journey so that when the sub journey is finished, control is returned to the orchestration step that initiated the sub journey.
 
-Find the **SubJourneys** element. If the element doesn't exist, add it after the **User Journeys** element. Then, add the following sub journey:
+1. Open the extensions file of your policy, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*.
+1. Find the **SubJourneys** element. If the element doesn't exist, add it after the **User Journeys** element. Then, add the following sub journey:
 
 ```xml
 <!--
@@ -197,15 +208,17 @@ Next, connect the **Forgot your password?** link to the Forgot Password sub jour
 
 If you don't have your own custom user journey that has a **CombinedSignInAndSignUp** step, complete the following steps to duplicate an existing sign-up or sign-in user journey. Otherwise, continue to the next section.
 
-1. In the starter pack, open the *TrustFrameworkBase.xml* file.
+1. In the starter pack, open the *TrustFrameworkBase.xml* file such as *SocialAndLocalAccounts/TrustFrameworkBase.xml*.
 1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-1. Open *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+1. Open *TrustFrameworkExtensions.xml* file, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*, and find the **UserJourneys** element. If the element doesn't exist, create it.
 1. Create a child element of the **UserJourneys** element by pasting the entire contents of the **UserJourney** element you copied in step 2.
 1. Rename the ID of the user journey. For example, `Id="CustomSignUpSignIn"`.
 
 ### Connect the Forgot Password link to the Forgot Password sub journey
 
-In your user journey, you can represent the Forgot Password sub journey as a **ClaimsProviderSelection**. Adding this element connects the **Forgot your password?** link to the Forgot Password sub journey.
+In your user journey, you can represent the Forgot Password sub journey as a **ClaimsProviderSelection**. By adding this element, you connect the **Forgot your password?** link to the Forgot Password sub journey.
+
+1. Open the *TrustFrameworkExtensions.xml* file, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*. 
 
 1. In the user journey, find the orchestration step element that includes `Type="CombinedSignInAndSignUp"` or `Type="ClaimsProviderSelection"`. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can use to sign in. Add the following line:
 
@@ -213,7 +226,7 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
     <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
     ```
 
-1. In the next orchestration step, add a **ClaimsExchange** element. Add the following line:
+1. In the next orchestration step, add a **ClaimsExchange** element by adding the following line:
 
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
@@ -239,7 +252,13 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
 
 ### Set the user journey to be executed
 
-Now that you've modified or created a user journey, in the **Relying Party** section, specify the journey that Azure AD B2C will execute for this custom policy. In the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. Update the **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
+Now that you've modified or created a user journey, in the **Relying Party** section, specify the journey that Azure AD B2C will execute for this custom policy. 
+
+1. Open the file that has the **Relying Party** element, such as *SocialAndLocalAccounts/SignUpOrSignin.xml*.   
+
+1. In the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. 
+
+1. Update the **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
@@ -269,8 +288,8 @@ Your application might need to detect whether the user signed in by using the Fo
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the menu under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**. In the following order, upload the two policy files that you changed:
-   1. The extension policy, for example, *TrustFrameworkExtensions.xml*.
-   1. The relying party policy, for example, *SignUpSignIn.xml*.
+   1. The extension policy, for example, *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*.
+   1. The relying party policy, for example, *SocialAndLocalAccounts/SignUpOrSignin.xml*.
 
 ::: zone-end
 
@@ -332,7 +351,7 @@ To test the user flow:
 
 ### Create a password reset policy
 
-Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs that have several pre-built policies, including sign-up and sign-in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide [starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) that have several pre-built policies, including sign up and sign in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

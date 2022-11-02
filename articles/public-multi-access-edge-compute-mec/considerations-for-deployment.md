@@ -25,7 +25,7 @@ For Azure public MEC, follow these best practices:
 
 - Deploy in Azure public MEC only those components of the application that are latency sensitive or need low latency compute at the Azure public MEC. Deploy in the parent Azure region those components of the application that perform control plane and management plane functionalities.
 
-- Because Azure public MEC sites are connected to the telecommunications network, accessing resources deployed in it over the internet isn't allowed. To access VMs deployed in the Azure public MEC, deploy jump box virtual machines (VMs) or Azure Bastion in a virtual network (VNet) in the parent region.
+- To access VMs deployed in the Azure public MEC, deploy jump box virtual machines (VMs) or Azure Bastion in a virtual network (VNet) in the parent region.
 
 - For compute resources in the Azure public MEC, deploy Azure Key Vault in the Azure region to provide secrets management and key management services.
 
@@ -72,7 +72,7 @@ Applications you deploy in the Azure public MEC can be made available and resili
 
 - [Deploy resources in active/standby](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha), with primary resources in the Azure public MEC and standby resources in the parent Azure region. If there's a failure in the Azure public MEC, the resources in the parent region become active.
 
-- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
+- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](../site-recovery/site-recovery-overview.md) and Azure Backup features. This solution:
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
   - Backs up VMs to prevent data corruption or lost data.
 

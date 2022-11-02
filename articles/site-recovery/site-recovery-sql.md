@@ -2,12 +2,12 @@
 title: Set up disaster recovery for SQL Server with Azure Site Recovery 
 description: This article describes how to set up disaster recovery for SQL Server by using SQL Server and Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
-ms.author: sutalasi
+ms.author: v-pgaddala
 
 ---
 # Set up disaster recovery for SQL Server
@@ -43,7 +43,7 @@ SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site R
 > * Ensure that the data change rate observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). The change rate is measured in write bytes per second. For machines running Windows, you can view this change rate by selecting the **Performance** tab in Task Manager. Observe the write speed for each disk.
 > * Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. To learn more, see [how to enable Storage Spaces Direct replication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
+> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
 
 ## Disaster recovery of an application
 
@@ -68,8 +68,8 @@ After the database tier is running in the target Azure region, ensure that you h
 
 To understand how you can design applications for connectivity considerations, see these examples:
 
-* [Design an application for cloud disaster recovery](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md)
-* [Elastic pool Disaster Recovery strategies](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [Design an application for cloud disaster recovery](/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery)
+* [Elastic pool Disaster Recovery strategies](/azure/azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool)
 
 ### Step 3: Interoperate with Always On, active geo-replication, and auto-failover groups
 
@@ -159,6 +159,6 @@ Site Recovery is application agnostic. Site Recovery can help protect any versio
 ## Next steps
 
 * Learn more about [Site Recovery architecture](./azure-to-azure-architecture.md).
-* For SQL Server in Azure, learn more about [high availability solutions](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
-* For SQL Database, learn more about the [business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) and [high availability](../azure-sql/database/high-availability-sla.md) options for recovery in a secondary Azure region.
-* For SQL Server machines at on-premises, learn more about the [high availability options](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.
+* For SQL Server in Azure, learn more about [high availability solutions](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
+* For SQL Database, learn more about the [business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) and [high availability](/azure/azure-sql/database/high-availability-sla) options for recovery in a secondary Azure region.
+* For SQL Server machines at on-premises, learn more about the [high availability options](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.

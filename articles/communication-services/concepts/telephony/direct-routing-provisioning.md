@@ -1,21 +1,23 @@
 ---
-title: Azure direct routing provisioning and configuration - Azure Communication Services
-description: Learn how to add a Session Border Controller and configure voice routing for Azure Communication Services direct routing
+title: Use direct routing to connect existing telephony service
+description: Learn how to add a Session Border Controller and configure voice routing for Azure Communication Services direct routing.
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 05/26/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
+ms.custom: kr2b-contr-experiment
 ---
 
-# Session Border Controllers and voice routing
+# Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
@@ -23,22 +25,34 @@ For information about whether Azure Communication Services direct routing is the
 
 ### Configure using Azure portal 
 1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
-1. Enter a fully qualified domain name and signaling port for the SBC.
- 
-- SBC certificate must match the name; wildcard certificates are supported.
-- The *.onmicrosoft.com domain can’t be used for the FQDN of the SBC.
-For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
-   :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adding Session Border Controller.":::
-- When you're done, select Next.
-If everything set up correctly, you should see exchange of OPTIONS messages between Microsoft and your Session Border Controller, user your SBC monitoring/logs to validate the connection.
+2. Enter a fully qualified domain name and signaling port for the SBC.
+    - SBC certificate must match the name; wildcard certificates are supported.
+    - The *.onmicrosoft.com domain can’t be used for the FQDN of the SBC.
+
+    For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
+
+   :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Screenshot of Adding Session Border Controller.":::
+
+3. When you're done, select Next.
+
+    If everything is set up correctly, you should see an exchange of OPTIONS messages between Microsoft and your Session Border Controller. Use your SBC monitoring/logs to validate the connection.
 
 ## Voice routing considerations
 
-Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
-When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) will try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. If there's a match, the call goes through the direct routing trunk. If there's no match, the next step is to process the `alternateCallerId` parameter of the `callAgent.startCall` method. If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, the `alternateCallerId` is checked. If the `alternateCallerId` matches one of a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. If `alternateCallerId` parameter doesn't match any of the purchased numbers, the call will fail. The diagram below demonstrates the Azure Communication Services voice routing logic.
+Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific SBC based on the called number pattern.
 
-:::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Communication Services outgoing voice routing.":::
+When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) will try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. 
+
+- If there's a match, the call goes through the direct routing trunk. 
+- If there's no match, the next step is to process the `alternateCallerId` parameter of the `callAgent.startCall` method. 
+- If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, the `alternateCallerId` is checked. 
+- If the `alternateCallerId` matches a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. 
+- If `alternateCallerId` parameter doesn't match any of the purchased numbers, the call will fail. 
+
+The diagram below demonstrates the Azure Communication Services voice routing logic.
+
+:::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Diagram of outgoing voice routing flowchart.":::
 
 ## Voice routing examples
 The following examples display voice routing in a call flow.
@@ -65,9 +79,9 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 
 ### Configure using Azure portal
 
-:::image type="content" source="../media/direct-routing-provisioning/voice-routing-configuration.png" alt-text="Communication Services outgoing voice routing configuration.":::
+:::image type="content" source="../media/direct-routing-provisioning/voice-routing-configuration.png" alt-text="Screenshot of outgoing voice routing configuration.":::
 
-Give your Voice Route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
+Give your voice route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
 Here are some examples of basic regular expressions:
 - `^\+\d+$` - matches a telephone number with one or more digits that start with a plus
 - `^+1(\d[10])$` - matches a telephone number with a ten digits after a `+1`
@@ -82,7 +96,7 @@ You can select multiple SBCs for a single pattern. In such a case, the routing a
 
 ### Delete using Azure portal
 
-#### To delete a Voice Route:
+#### To delete a voice route:
 1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
 1. Select route or routes you want to delete using a checkbox.
 1. Select Remove.

@@ -14,18 +14,16 @@
       href: add-application-portal.md
     - name: Assign a user
       href: add-application-portal-assign-users.md
-    - name: Enable single sign-on
-      href: add-application-portal-setup-sso.md
     - name: View applications
       href: view-applications-portal.md
-    - name: Delete applications
-      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Manage access and security
       href: tutorial-manage-access-security.md
     - name: Govern and monitor
       href: tutorial-govern-monitor.md
+    - name: Manage certificates
+      href: tutorial-manage-certificates-for-federated-single-sign-on.md 
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -43,6 +41,10 @@
     items: 
     - name: Application gallery
       href: overview-application-gallery.md
+    - name: Request to publish applications
+      href: v2-howto-app-gallery-listing.md
+    - name: Application integration
+      href: plan-an-application-integration.md
     - name: Application ownership
       href: overview-assign-app-owners.md
     - name: Application properties
@@ -53,10 +55,10 @@
         href: what-is-access-management.md
       - name: Certificate signing options
         href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md 
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -65,12 +67,8 @@
         href: cloud-app-security.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
-    - name: Planning a cloud app integration
-      items:
-      - name: Get started with app integration
-        href: plan-an-application-integration.md
-      - name: Plan a My Apps deployment
-        href: my-apps-deployment-plan.md
+    - name: My Apps overview
+      href: myapps-overview.md
     - name: Single sign-on
       items:
       - name: What is single sign-on?
@@ -79,8 +77,10 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
+      - name: Admin consent workflow overview
+        href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
         href: manage-consent-requests.md
       - name: Protect against consent phishing
@@ -94,6 +94,8 @@
       href: assign-app-owners.md
     - name: Configure properties
       href: add-application-portal-configure.md
+    - name: Add enterprise app for multi-tenant app
+      href: create-service-principal-cross-tenant.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -122,18 +124,20 @@
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
         href: custom-security-attributes-apps.md
-      - name: Create collections on My Apps
-        href: access-panel-collections.md
-      - name: Enable self-service app access
-        href: manage-self-service-access.md
-      - name: Hide an app
-        href: hide-application-from-user-portal.md
-      - name: Disable user sign-on
+      - name: Disable user sign-in
         href: disable-user-sign-in-portal.md
       - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
       - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
+    - name: Manage My Apps
+      items:
+      - name: Create collections
+        href: access-panel-collections.md
+      - name: Enable self-service access
+        href: manage-self-service-access.md
+      - name: Hide an application
+        href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
       - name: Migrate an AD FS app to Azure
@@ -142,8 +146,6 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-      - name: Migration resources
-        href: migration-resources.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
@@ -154,61 +156,69 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Publish applications
-      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
+      - name: Cloudflare
+        href: cloudflare-azure-ad-integration.md
       - name: Datawiza
-        href: datawiza-with-azure-ad.md 
-    - name: F5
-      items:
-      - name: Deploy F5 BIG-IP in Azure
-        href: f5-bigip-deployment-guide.md
-      - name: F5 BIG-IP and Azure AD integration
         items:
-        - name: Integrate F5 BIG-IP with Azure AD
-          href: f5-aad-integration.md
-        - name: Easy Button guided configuration
+        - name: Integrate Datawiza with Azure AD
+          href: datawiza-with-azure-ad.md 
+        - name: Configure Oracle JDE with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-jde.md
+        - name: Configure Oracle PeopleSoft with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+      - name: F5
+        items:
+        - name: Deploy F5 BIG-IP in Azure
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP and Azure AD integration
           items:
-          - name: Kerberos
-            href: f5-big-ip-kerberos-easy-button.md
-          - name: Headers
-            href: f5-big-ip-headers-easy-button.md
-          - name: Headers and LDAP
-            href: f5-big-ip-ldap-header-easybutton.md
-          - name: Oracle EBS
-            href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
-          - name: Oracle JDE
-            href: f5-big-ip-oracle-jde-easy-button.md
-          - name: Oracle PeopleSoft
-            href: f5-big-ip-oracle-peoplesoft-easy-button.md
-          - name: SAP ERP
-            href: f5-big-ip-sap-erp-easy-button.md
-        - name: Advanced configuration
-          items:
-            - name: Headers
-              href: f5-big-ip-header-advanced.md
+          - name: Integrate F5 BIG-IP with Azure AD
+            href: f5-aad-integration.md
+          - name: Easy Button guided configuration
+            items:
             - name: Kerberos
-              href: f5-big-ip-kerberos-advanced.md
-            - name: Form-based
-              href: f5-big-ip-forms-advanced.md 
-            - name: SSL-VPN
-              href: f5-aad-password-less-vpn.md  
-            - name: B2C
-              href: ../../active-directory-b2c/partner-f5.md
-    - name: Silverfort
-      href: silverfort-azure-ad-integration.md
+              href: f5-big-ip-kerberos-easy-button.md
+            - name: Headers
+              href: f5-big-ip-headers-easy-button.md
+            - name: Headers and LDAP
+              href: f5-big-ip-ldap-header-easybutton.md
+            - name: Oracle EBS
+              href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+            - name: Oracle JDE
+              href: f5-big-ip-oracle-jde-easy-button.md
+            - name: Oracle PeopleSoft
+              href: f5-big-ip-oracle-peoplesoft-easy-button.md
+            - name: SAP ERP
+              href: f5-big-ip-sap-erp-easy-button.md
+          - name: Advanced configuration
+            items:
+              - name: Headers
+                href: f5-big-ip-header-advanced.md
+              - name: Kerberos
+                href: f5-big-ip-kerberos-advanced.md
+              - name: Form-based
+                href: f5-big-ip-forms-advanced.md 
+              - name: SSL-VPN
+                href: f5-aad-password-less-vpn.md  
+              - name: B2C
+                href: ../../active-directory-b2c/partner-f5.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
@@ -230,8 +240,16 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
+    - name: Delete and restore apps
+      items:
+      - name: Delete an enterprise application
+        href: delete-application-portal.md
+      - name: Restore an enterprise application
+        href: restore-application.md   
   - name: Reference
     items:
+    - name: Deletion and recovery FAQ
+      href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
@@ -244,6 +262,10 @@
       href: methods-for-removing-user-access.md
   - name: Resources
     items:
+        - name: Video learning
+          href: app-management-videos.md
+        - name: Migration resources
+          href: migration-resources.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
@@ -256,5 +278,3 @@
           href: https://azure.microsoft.com/updates/?product=active-directory
         - name: Stack Overflow
           href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        - name: Videos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

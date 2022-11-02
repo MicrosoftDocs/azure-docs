@@ -3,12 +3,12 @@ title: Azure CLI script sample - Import to an App Configuration store
 titleSuffix: Azure App Configuration
 description: Use Azure CLI script - Importing configuration to Azure App Configuration
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: alkemper 
+ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
 
@@ -39,7 +39,7 @@ This script uses the following commands to import to an App Configuration store.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv import](/cli/azure/appconfig/kv#az_appconfig_kv_import) | Imports to an App Configuration store resource. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Imports to an App Configuration store resource. |
 
 ## Next steps
 

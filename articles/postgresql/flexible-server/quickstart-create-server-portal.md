@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - Flexible Server'
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Flexible Server by using the Azure portal user interface.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: mvc, mode-ui
@@ -12,7 +12,7 @@ ms.date: 12/01/2021
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Flexible Server in about five minutes using the Azure portal.
 

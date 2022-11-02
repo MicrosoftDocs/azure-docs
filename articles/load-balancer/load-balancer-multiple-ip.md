@@ -2,8 +2,8 @@
 title: 'Tutorial: Load balance multiple IP configurations - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/08/2021

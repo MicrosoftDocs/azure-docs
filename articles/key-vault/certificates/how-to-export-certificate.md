@@ -2,7 +2,7 @@
 title: Export certificates from Azure Key Vault
 description: Learn how to export certificates from Azure Key Vault.
 services: key-vault
-author: sebansal
+author: msmbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault
@@ -10,7 +10,7 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 08/11/2020
-ms.author: sebansal
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Export certificates from Azure Key Vault
@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](/cli/azure/keyvault/certificate#az_keyvault_certificate_download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](/cli/azure/keyvault/secret#az_keyvault_secret_download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -89,8 +89,7 @@ try {
     [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
 }
 $secretByte = [Convert]::FromBase64String($secretValueText)
-$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
-$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($secretByte,'','Exportable,PersistKeySet')
 $type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
 $pfxFileByte = $x509Cert.Export($type, $password)
 

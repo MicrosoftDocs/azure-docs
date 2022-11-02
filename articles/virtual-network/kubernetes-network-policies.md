@@ -3,7 +3,7 @@ title: Azure Kubernetes network policies | Microsoft Docs
 description: Learn about Kubernetes network policies to secure your Kubernetes cluster.
 services: virtual-network
 documentationcenter: na
-author: aanandr
+author: asudbring
 manager: NarayanAnnamalai
 editor: ''
 tags: azure-resource-manager
@@ -14,18 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/25/2018
-ms.author: aanandr
+ms.author: allensu
 ms.custom: 
 
 ---
 
-# Azure Kubernetes Network Policies overview
+# Azure Kubernetes Network Policies 
 
+## Overview
 Network Policies provides micro-segmentation for pods just like Network Security Groups (NSGs) provide micro-segmentation for VMs. The Azure Network Policy Manager (also known as Azure NPM) implementation supports the standard Kubernetes Network Policy specification. You can use labels to select a group of pods and define a list of ingress and egress rules to filter traffic to and from these pods. Learn more about the Kubernetes network policies in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 ![Kubernetes network policies overview](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
 
-Azure NPM implementation works in conjunction with the Azure CNI that provides VNet integration for containers. NPM is supported only on Linux today. The implementation enforces traffic filtering by configuring allow and deny IP rules in Linux IPTables based on the defined policies. These rules are grouped together using Linux IPSets.
+Azure NPM implementation works with the Azure CNI that provides VNet integration for containers. NPM is supported on Linux and Windows Server 2022. The implementation enforces traffic filtering by configuring allow and deny IP rules based on the defined policies in Linux IPTables or Host Network Service(HNS) ACLPolicies for Windows Server 2022.
 
 ## Planning security for your Kubernetes cluster
 When implementing security for your cluster, use network security groups (NSGs) to filter traffic entering and leaving your cluster subnet (North-South traffic). Use Azure NPM for traffic between pods in your cluster (East-West traffic).
@@ -36,103 +37,76 @@ Azure NPM can be used in the following ways to provide micro-segmentation for po
 ### Azure Kubernetes Service (AKS)
 NPM is available natively in AKS and can be enabled at the time of cluster creation. Learn more about it in [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](../aks/use-network-policies.md).
 
-### AKS-engine
-AKS-Engine is a tool that generates an Azure Resource Manager template for the deployment of a Kubernetes cluster in Azure. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see Microsoft Azure Container Service Engine - Cluster Definition.
-
-To enable policies on clusters deployed using acs-engine, specify the value of the networkPolicy setting in the cluster definition file to be "azure".
-
-#### Example configuration
-
-The below JSON example configuration creates a new virtual network and subnet, and deploys a Kubernetes cluster in it with Azure CNI. We recommend that you use “Notepad” to edit the JSON file. 
-```json
-{
-  "apiVersion": "vlabs",
-  "properties": {
-    "orchestratorProfile": {
-      "orchestratorType": "Kubernetes",
-      "kubernetesConfig": {
-         "networkPolicy": "azure"
-       }
-    },
-    "masterProfile": {
-      "count": 1,
-      "dnsPrefix": "<specify a cluster name>",
-      "vmSize": "Standard_D2s_v3"
-    },
-    "agentPoolProfiles": [
-      {
-        "name": "agentpool",
-        "count": 2,
-        "vmSize": "Standard_D2s_v3",
-        "availabilityProfile": "AvailabilitySet"
-      }
-    ],
-   "linuxProfile": {
-      "adminUsername": "<specify admin username>",
-      "ssh": {
-        "publicKeys": [
-          {
-            "keyData": "<cut and paste your ssh key here>"
-          }
-        ]
-      }
-    },
-    "servicePrincipalProfile": {
-      "clientId": "<enter the client ID of your service principal here >",
-      "secret": "<enter the password of your service principal here>"
-    }
-  }
-}
-
-```
 ### Do it yourself (DIY) Kubernetes clusters in Azure
  For DIY clusters, first install the CNI plug-in and enable it on every virtual machine in a cluster. For detailed instructions, see [Deploy the plug-in for a Kubernetes cluster that you deploy yourself](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 Once the cluster is deployed run the following `kubectl` command to download and apply the Azure NPM *daemon set* to the cluster.
 
-  ```
-  kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
+For Linux:
 
   ```
+  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/azure-npm.yaml
+  ```
+
+For Windows:
+
+ ```
+  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/examples/windows/azure-npm.yaml
+  ```
+
 The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/npm).
 
 ## Monitor and Visualize Network Configurations with Azure NPM
 Azure NPM includes informative Prometheus metrics that allow you to monitor and better understand your configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. You can start collecting these metrics using either Azure Monitor or a Prometheus Server.
 
 ### Benefits of Azure NPM Metrics
-Users previously were only able to learn about their Network Configuration with the command `iptables -L` run inside a cluster node, which yields a verbose and difficult to understand output. NPM metrics provide the following benefits related to Network Policies, IPTables Rules, and IPSets.
-- Provides insight into the relationship between the three and a time dimension to debug a configuration.
-- Number of entries in all IPSets and each IPSet.
-- Time taken to apply a policy with IPTable/IPSet level granularity.
+Users previously were only able to learn about their Network Configuration with `iptables` and `ipset` commands run inside a cluster node, which yields a verbose and difficult to understand output.
+
+Overall, the metrics provide:
+- counts of policies, ACL rules, ipsets, ipset entries, and entries in any given ipset
+- execution times for individual OS calls and for handling kubernetes resource events (median, 90th percentile, and 99th percentile)
+- failure info for handling kubernetes resource events (these will fail when an OS call fails)
+
+#### Example Metrics Use Cases
+##### Alerts via a Prometheus AlertManager
+See a [configuration for these alerts](#set-up-alerts-for-alertmanager) below.
+1. Alert when NPM has a failure with an OS call or when translating a Network Policy.
+2. Alert when the median time to apply changes for a create event was more than 100 milliseconds.
+
+##### Visualizations and Debugging via our Grafana Dashboard or Azure Monitor Workbook
+1. See how many IPTables rules your policies create (having a massive amount of IPTables rules may increase latency slightly).
+2. Correlate cluster counts (for example, ACLs) to execution times.
+3. Get the human-friendly name of an ipset in a given IPTables rule (for example, "azure-npm-487392" represents "podlabel-role:database").
  
-### Supported Metrics
-Following is the list of supported metrics:
+### All supported metrics
+The following is the list of supported metrics. Any `quantile` label has possible values `0.5`, `0.9`, and `0.99`. Any `had_error` label has possible values `false` and `true`, representing whether the operation succeeded or failed.
 
-|Metric Name |Description  |Prometheus Metric Type  |Labels  |
-|---------|---------|---------|---------|
-|`npm_num_policies`     |number of network policies          |Gauge         |-         |
-|`npm_num_iptables_rules`     | number of IPTables rules     | Gauge        |-         |         
-|`npm_num_ipsets`     |number of IPSets         |Gauge            |-         |
-|`npm_num_ipset_entries`     |number of IP address entries in all IPSets         |Gauge         |-         |
-|`npm_add_policy_exec_time`     |runtime for adding a network policy         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_add_iptables_rule_exec_time`     |runtime for adding an IPTables rule         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_add_ipset_exec_time`     |runtime for adding an IPSet         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_ipset_counts` (advanced)     |number of entries within each individual IPSet         |GaugeVec         |set name & hash         |
+| Metric Name                          | Description                                    | Prometheus Metric Type | Labels         |
+| -----                                | -----                                          | -----    |  -----                       |
+| `npm_num_policies`                   | number of network policies                     | Gauge    |  -                           |
+| `npm_num_iptables_rules`             | number of IPTables rules                       | Gauge    |  -                           |
+| `npm_num_ipsets`                     | number of IPSets                               | Gauge    |  -                           |
+| `npm_num_ipset_entries`              | number of IP address entries in all IPSets     | Gauge    |  -                           |
+| `npm_add_iptables_rule_exec_time`    | runtime for adding an IPTables rule            | Summary  | `quantile`                   |
+| `npm_add_ipset_exec_time`            | runtime for adding an IPSet                    | Summary  | `quantile`                   |
+| `npm_ipset_counts` (advanced)        | number of entries within each individual IPSet | GaugeVec | `set_name` & `set_hash`      |
+| `npm_add_policy_exec_time`           | runtime for adding a network policy            | Summary  | `quantile` & `had_error`     |
+| `npm_controller_policy_exec_time`    | runtime for updating/deleting a network policy | Summary  | `quantile` & `had_error` & `operation` (with values `update` or `delete`)            |
+| `npm_controller_namespace_exec_time` | runtime for creating/updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_controller_pod_exec_time`       | runtime for creating/updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
 
-The different quantile levels in "exec_time" metrics help you differentiate between the general and worst case scenarios.
+There are also "exec_time_count" and "exec_time_sum" metrics for each "exec_time" Summary metric.
 
-There's also an "exec_time_count" and "exec_time_sum" metric for each "exec_time" Summary metric.
+The metrics can be scraped through Azure Monitor for containers or through Prometheus.
 
-The metrics can be scraped through Azure Monitor for Containers or through Prometheus.
-
-### Setup for Azure Monitor
-The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
+### Set up for Azure Monitor
+The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure Monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
 
 `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
-Below is a snippet from the [Azure monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
+Below is a snippet from the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
 ```
 integrations: |-
     [integrations.azure_network_policy_manager]
@@ -141,7 +115,7 @@ integrations: |-
 ```
 Advanced metrics are optional, and turning them on will automatically turn on basic metrics collection. Advanced metrics currently include only `npm_ipset_counts`
 
-Learn more about [Azure monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
+Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
 
 ### Visualization Options for Azure Monitor
 Once NPM metrics collection is enabled, you can view the metrics in the Azure portal using Container Insights or in Grafana.
@@ -160,10 +134,10 @@ Set up your Grafana Server and configure a Log Analytics Data Source as describe
 
 The dashboard has visuals similar to the Azure Workbook. You can add panels to chart & visualize NPM metrics from InsightsMetrics table.
 
-### Setup for Prometheus Server
+### Set up for Prometheus Server
 Some users may choose to collect metrics with a Prometheus Server instead of Azure Monitor for containers. You merely need to add two jobs to your scrape config to collect NPM metrics.
 
-To install a simple Prometheus Server, add this helm repo on your cluster
+To install a Prometheus Server, add this helm repo on your cluster
 ```
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo update
@@ -204,7 +178,6 @@ where `prometheus-server-scrape-config.yaml` consists of
     action: drop
 ```
 
-
 You can also replace the `azure-npm-node-metrics` job  with the content below or incorporate it into a pre-existing job for Kubernetes pods:
 ```
 - job_name: "azure-npm-node-metrics-from-pod-config"
@@ -222,6 +195,36 @@ You can also replace the `azure-npm-node-metrics` job  with the content below or
     regex: ([^:]+)(?::\d+)?
     replacement: "$1:10091"
     target_label: __address__
+```
+
+#### Set up Alerts for AlertManager
+If you use a Prometheus Server, you can set up an AlertManager like so. Here's an example config for [the two alerting rules described above](#alerts-via-a-prometheus-alertmanager):
+```
+groups:
+- name: npm.rules
+  rules:
+  # fire when NPM has a new failure with an OS call or when translating a Network Policy (suppose there's a scraping interval of 5m)
+  - alert: AzureNPMFailureCreatePolicy
+    # this expression says to grab the current count minus the count 5 minutes ago, or grab the current count if there was no data 5 minutes ago
+    expr: (npm_add_policy_exec_time_count{had_error='true'} - (npm_add_policy_exec_time_count{had_error='true'} offset 5m)) or npm_add_policy_exec_time_count{had_error='true'}
+    labels:
+      severity: warning
+      addon: azure-npm
+    annotations:
+      summary: "Azure NPM failed to handle a policy create event"
+      description: "Current failure count since NPM started: {{ $value }}"
+  # fire when the median time to apply changes for a pod create event is more than 100 milliseconds.
+  - alert: AzureNPMHighControllerPodCreateTimeMedian
+    expr: topk(1, npm_controller_pod_exec_time{operation="create",quantile="0.5",had_error="false"}) > 100.0
+    labels:
+      severity: warning
+      addon: azure-npm
+    annotations:
+      summary: "Azure NPM controller pod create time median > 100.0 ms"
+      # could have a simpler description like the one for the alert above,
+      # but this description includes the number of pod creates that were handled in the past 10 minutes, 
+      # which is the retention period for observations when calculating quantiles for a Prometheus Summary metric
+      description: "value: [{{ $value }}] and observation count: [{{ printf `(npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} - (npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} offset 10m)) or npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'}` $labels.pod $labels.pod $labels.pod | query | first | value }}] for pod: [{{ $labels.pod }}]"
 ```
 
 ### Visualization Options for Prometheus
@@ -257,7 +260,6 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 
 #### Grafana Dashboard Runtime Quantiles
 [![Grafana Dashboard runtime quantiles](media/kubernetes-network-policies/grafana-runtime-quantiles.png)](media/kubernetes-network-policies/grafana-runtime-quantiles.png#lightbox)
-
 
 
 ## Next steps

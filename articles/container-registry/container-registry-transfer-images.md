@@ -2,7 +2,9 @@
 title: ACR Transfer with Arm Templates
 description: ACR Transfer with Az CLI with ARM templates
 ms.topic: article
-ms.date: 10/07/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom:
 ---
 

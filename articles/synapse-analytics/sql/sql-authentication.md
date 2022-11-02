@@ -10,6 +10,7 @@ ms.date: 03/07/2022
 ms.author: vvasic
 ms.reviewer: sngun, wiassaf
 ---
+
 # SQL Authentication in Azure Synapse Analytics
 
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
@@ -23,19 +24,21 @@ SQL authorization enables legacy applications to connect to Azure Synapse SQL in
 
 ## Administrative accounts
 
-There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the Properties tab of your Synapse SQL.
+There are two administrative accounts (**SQL admin username** and **SQL Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL pools open the Azure portal, and navigate to the Properties tab of your Synapse workspace.
 
 ![SQL Server Admins](./media/sql-authentication/sql-admins.png)
 
-- **Server admin**
+- **SQL admin username**
 
   When you create an Azure Synapse Analytics, you must name a **Server admin login**. SQL server creates that account as a login in the `master` database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
 
-- **Azure Active Directory admin**
+- **SQL Active Directory admin**
 
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL.
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It's optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL. 
 
-The **Server admin** and **Azure AD admin** accounts have the following characteristics:
+   - The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools, for example, the **Synapse Administrator** role. Changing the Azure Active Directory administrator account will only affect the account's access to dedicated SQL pools. 
+
+The **SQL admin username** and **SQL Active Directory admin** accounts have the following characteristics:
 
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.)
@@ -44,6 +47,9 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can create, alter, and drop databases, logins, users in the `master` database, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
+
+>[!Note]
+>If a user is configured as an  Active Directory admin and Synapse Administrator, and then removed from the  Active Directory admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## [Serverless SQL pool](#tab/serverless)
 
@@ -57,7 +63,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 
-Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
+When the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a user, you can use the following syntax:
 
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
@@ -69,11 +75,11 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Once login and user are created, you can use the regular SQL Server syntax to grant rights.
 
-## [dedicated SQL pool](#tab/provisioned)
+## [Dedicated SQL pool](#tab/provisioned)
 
 ### Administrator access path
 
-When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. 
+When the workspace-level firewall is properly configured, the **SQL admin username** and the **SQL Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. 
 
 The following diagram shows a typical configuration for the two administrator accounts:
  
@@ -172,19 +178,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> One common reason to create a database user based on a server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. 
-
-For more information on configuring logins for geo-replication, see  [Configure and manage Azure SQL Database security for geo-restore or failover](../../azure-sql/database/active-geo-replication-security-configure.md).
-
-### Configuring the database-level firewall
-
-As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
-
-### Non-administrator access path
-
-When the database-level firewall is properly configured, the database users can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical non-administrator access path.
-
-![Non-administrator access path](./media/sql-authentication/2sql-db-nonadmin-access.png)
+> One common reason to create a database user based on a server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. 
 
 ## Groups and roles
 
@@ -221,22 +215,6 @@ When managing logins and users in SQL Database, consider the following points:
 - To connect to a user database, you must provide the name of the database in the connection string.
 - Only the server-level principal login and the members of the **loginmanager** database role in the `master` database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
 - When executing the `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP DATABASE` statements in an ADO.NET application, using parameterized commands isn't allowed. For more information, see [Commands and Parameters](/dotnet/framework/data/adonet/commands-and-parameters).
-- When executing the `CREATE/ALTER/DROP DATABASE` and `CREATE/ALTER/DROP LOGIN` statements, each of these statements must be the only statement in a Transact-SQL batch. Otherwise, an error occurs. For example, the following Transact-SQL checks whether the database exists. If it exists, a `DROP DATABASE` statement is called to remove the database. Because the `DROP DATABASE` statement is not the only statement in the batch, executing the following Transact-SQL statement results in an error.
-
-  ```sql
-  IF EXISTS (SELECT [name]
-           FROM   [sys].[databases]
-           WHERE  [name] = N'database_name')
-  DROP DATABASE [database_name];
-  GO
-  ```
-  
-  Instead, use the following Transact-SQL statement:
-  
-  ```sql
-  DROP DATABASE IF EXISTS [database_name]
-  ```
-
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure AD-only authentication is enabled for the Azure Synapse workspace.

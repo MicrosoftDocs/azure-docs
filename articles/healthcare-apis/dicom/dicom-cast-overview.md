@@ -1,29 +1,29 @@
 ---
-title:  DICOM cast overview - Azure Health Data Services
-description: In this article, you'll learn the concepts of DICOM cast.
-author: aersoy
+title:  DICOMcast overview - Azure Health Data Services
+description: In this article, you'll learn the concepts of DICOMcast.
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/02/2022
-ms.author: aersoy
+ms.date: 06/03/2022
+ms.author: mmitrik
 ---
 
-# DICOM cast overview
+# DICOMcast overview
 
-DICOM cast offers customers the ability to synchronize the data from a DICOM service to a [FHIR service](../../healthcare-apis/fhir/overview.md), which allows healthcare organizations to integrate clinical and imaging data. DICOM cast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
+DICOMcast offers customers the ability to synchronize the data from a DICOM service to a [FHIR service](../../healthcare-apis/fhir/overview.md), which allows healthcare organizations to integrate clinical and imaging data. DICOMcast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
 ## Architecture
 
-[ ![Architecture diagram of DICOM cast](media/dicom-cast-architecture.png) ](media/dicom-cast-architecture.png#lightbox)
+[ ![Architecture diagram of DICOMcast](media/dicom-cast-architecture.png) ](media/dicom-cast-architecture.png#lightbox)
 
 
-1. **Poll for batch of changes**: DICOM cast polls for any changes via the [Change Feed](dicom-change-feed-overview.md), which captures any changes that occur in your Medical Imaging Server for DICOM.
-1. **Fetch corresponding FHIR resources, if any**: If any DICOM service changes and correspond to FHIR resources, DICOM cast will fetch the related FHIR resources. DICOM cast synchronizes DICOM tags to the FHIR resource types *Patient* and *ImagingStudy*.
-1. **Merge FHIR resources and 'PUT' as a bundle in a transaction**: The FHIR resources corresponding to the DICOM cast captured changes will be merged. The FHIR resources will be 'PUT' as a bundle in a transaction into your FHIR service.
-1. **Persist state and process next batch**: DICOM cast will then persist the current state to prepare for next batch of changes.
+1. **Poll for batch of changes**: DICOMcast polls for any changes via the [Change Feed](dicom-change-feed-overview.md), which captures any changes that occur in your Medical Imaging Server for DICOM.
+1. **Fetch corresponding FHIR resources, if any**: If any DICOM service changes and correspond to FHIR resources, DICOMcast will fetch the related FHIR resources. DICOMcast synchronizes DICOM tags to the FHIR resource types *Patient* and *ImagingStudy*.
+1. **Merge FHIR resources and 'PUT' as a bundle in a transaction**: The FHIR resources corresponding to the DICOMcast captured changes will be merged. The FHIR resources will be 'PUT' as a bundle in a transaction into your FHIR service.
+1. **Persist state and process next batch**: DICOMcast will then persist the current state to prepare for next batch of changes.
 
-The current implementation of DICOM cast:
+The current implementation of DICOMcast:
 
 - Supports a single-threaded process that reads from the DICOM change feed and writes to a FHIR service.
 - Is hosted by Azure Container Instance in our sample template, but can be run elsewhere.
@@ -41,7 +41,7 @@ The current implementation of DICOM cast:
 
 ## Mappings
 
-The current implementation of DICOM cast has the following mappings:
+The current implementation of DICOMcast has the following mappings:
 
 ### Patient
 
@@ -87,7 +87,7 @@ DICOM has different date time VR types. Some tags (like Study and Series) have t
 
 ## Summary
 
-In this concept, we reviewed the architecture and mappings of DICOM cast. This feature is available on demand. To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 
+In this concept, we reviewed the architecture and mappings of DICOMcast. This feature is available on demand. To enable DICOMcast for your Azure subscription, please request access for DICOMcast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOMcast, see [DICOMcast request access](dicom-cast-access-request.md). 
 
 > [!IMPORTANT]
 > Ensure that you include the **resource IDs** of your DICOM service and FHIR service when you submit a support ticket. 
@@ -102,3 +102,5 @@ To get started using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

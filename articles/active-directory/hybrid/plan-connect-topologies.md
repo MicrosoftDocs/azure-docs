@@ -4,7 +4,7 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -149,7 +149,7 @@ This topology implements the following use cases:
 *	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
 *	It is supported to configure Password Hash Sync from Active Directory to multiple Azure AD tenants for the same user object. If Password Hash Sync is enabled for a tenant, then Password Writeback may be enabled as well, and this can be done on multiple tenants: if the password is changed on one tenant, then password writeback will update it in Active Directory, and Password Hash Sync will update the password in the other tenants.
 *	It is not supported to add and verify the same custom domain name in more than one Azure AD tenant, even if these tenants are in different Azure environments.
-*	It is not supported to configure hybrid experiences that utilize forest level configuration in AD, such as Seamless SSO and Hybrid Azure AD Join (non-targeted approach), with more than one tenant.  Doing so would overwrite the configuration of the other tenant, making it no longer usable.  You can find additional information in [Plan your hybrid Azure Active Directory join deployment](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants). 
+*	It is not supported to configure hybrid experiences that utilize forest level configuration in AD, such as Seamless SSO and Hybrid Azure AD Join (non-targeted approach), with more than one tenant.  Doing so would overwrite the configuration of the other tenant, making it no longer usable.  You can find additional information in [Plan your hybrid Azure Active Directory join deployment](../devices/hybrid-azuread-join-plan.md#hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants). 
 *	You can synchronize device objects to more than one tenant but a device can be Hybrid Azure AD Joined to only one tenant.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
 

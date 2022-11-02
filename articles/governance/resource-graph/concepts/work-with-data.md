@@ -1,8 +1,10 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 09/29/2021
+author: timwarner-msft
+ms.date: 10/06/2022
 ms.topic: conceptual
+ms.author: timwarner
 ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
@@ -48,6 +50,14 @@ set returned would be the smaller value configured by **top** or **limit**.
 
 **First** has a maximum allowed value of _1000_.
 
+## CSV export result size limitation
+
+When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the
+result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
+
+To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
+query. On the toolbar, click **Download as CSV**.
+
 ## Skipping records
 
 The next option for working with large data sets is the **Skip** control. This control allows your
@@ -65,7 +75,7 @@ of the data set instead.
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
@@ -87,7 +97,7 @@ consumer if there are more records not returned in the response. This condition 
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
-**resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because: 
+**resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because:
 
 - The query contains a `limit` or `sample`/`take` operator.
 - **All** output columns are either `dynamic` or `null` type.
@@ -97,7 +107,7 @@ When **resultTruncated** is **true**, the **$skipToken** property isn't set.
 The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
@@ -108,7 +118,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > The response won't include the **$skipToken** if:
 > - The query contains a `limit` or `sample`/`take` operator.
-> - **All** output columns are either `dynamic` or `null` type. 
+> - **All** output columns are either `dynamic` or `null` type.
 
 For an example, see
 [Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)

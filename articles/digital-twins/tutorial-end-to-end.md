@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 09/26/2022
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -59,11 +59,13 @@ First, you'll use the AdtSampleApp solution from the sample project to build the
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the Azure Digital Twins instance section.":::
 
-In your Visual Studio window where the *AdtE2ESample.sln* solution is open, run the SampleClientApp project with this button in the toolbar:
+Open a local **console window** and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button with the SampleClientApp project open.":::
+```cmd/sh
+dotnet run
+```
 
-A console window will open, carry out authentication, and wait for a command. In this console, run the next command to instantiate the sample Azure Digital Twins solution.
+The project will start running, carry out authentication, and wait for a command. In this console, run the next command to instantiate the sample Azure Digital Twins solution.
 
 > [!IMPORTANT]
 > If you already have digital twins and relationships in your Azure Digital Twins instance, running this command will delete them and replace them with the twins and relationships for the sample scenario.
@@ -84,9 +86,7 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
-
-You can now stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
+You can now stop running the project. Keep the console window open at this location, though, as you'll use this app again later in the tutorial.
 
 ## Set up the sample function app
 
@@ -94,25 +94,13 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
+In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
 
-Back in your Visual Studio window where the *AdtE2ESample.sln* solution is open, the function app is located in the SampleFunctionsApp project. You can view it in the **Solution Explorer** pane.
-
-### Update dependencies
-
-Before publishing the app, it's a good idea to make sure your dependencies are up to date, making sure you have the latest version of all the included packages.
-
-In the **Solution Explorer** pane, expand **SampleFunctionsApp > Dependencies**. Right-select **Packages** and choose **Manage NuGet Packages...**.
-
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Screenshot of Visual Studio showing the 'Manage NuGet Packages' menu button for the SampleFunctionsApp project." border="false":::
-
-Doing so will open the NuGet Package Manager. Select the **Updates** tab and if there are any packages to be updated, check the box to **Select all packages**. Then select **Update**.
-
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Screenshot of Visual Studio showing how to selecting to update all packages in the NuGet Package Manager.":::
+The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 
 ### Publish the app
 
-To publish the function app to Azure, you'll first need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
+To publish the function app to Azure, you'll need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
 
 1. Create an Azure storage account by running the following command:
 
@@ -128,27 +116,31 @@ To publish the function app to Azure, you'll first need to create a storage acco
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a terminal like PowerShell on your local machine, and navigate to the [Digital Twins samples repo](https://github.com/azure-samples/digital-twins-samples/tree/master/) you downloaded earlier in the tutorial. Inside the downloaded repo folder, navigate to *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp*.
+    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
-    1. In your terminal, run the following command to publish the project:
+    1. In the console, run the following command to publish the project locally:
 
-        ```powershell
+        ```cmd/sh
         dotnet publish -c Release
         ```
 
-        This command publishes the project to the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. 
+    1. Using your preferred method, create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
         
-        If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
-    
-        ```powershell
-        Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
-        ```
+        >[!TIP] 
+        >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
+        >
+        >```powershell
+        >Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
+        >```
+        > The cmdlet will create the *publish.zip* file in the directory location of your console.
 
-        The cmdlet will create a *publish.zip* file in the directory location of your terminal that includes a *host.json* file, as well as *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents* directories.
+        Your *publish.zip* file should contain folders for *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents*, and there should also be a *host.json* file.
 
-        If you're not using PowerShell and don't have access to the `Compress-Archive` cmdlet, you'll need to zip up the files using the File Explorer or another method.
+        :::image type="content" source="media/tutorial-end-to-end/publish-zip.png" alt-text="Screenshot of File Explorer in Windows showing the contents of the publish zip folder.":::
+
+    Now you can close the local console window that you used to prepare the project. The last step will be done in the Azure CLI.
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
@@ -156,7 +148,7 @@ To publish the function app to Azure, you'll first need to create a storage acco
     az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
     ```
 
-    > [!NOTE]
+    > [!TIP]
     > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine.
     > 
     >If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:
@@ -175,7 +167,12 @@ To publish the function app to Azure, you'll first need to create a storage acco
     }
     ```
 
-You've now published the functions to a function app in Azure.
+The functions should now be published to a function app in Azure. You can use the following CLI commands to verify both functions were published successfully. Each command has placeholders for your resource group and the name of your function app. The commands will print information about the *ProcessDTRoutedData* and *ProcessHubToDTEvents* functions that have been published.
+
+```azurecli-interactive
+az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name ProcessDTRoutedData
+az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name ProcessHubToDTEvents
+```
 
 Next, your function app will need to have the right permission to access your Azure Digital Twins instance. You'll configure this access in the next section.
 
@@ -187,20 +184,11 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
-1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
+1. Use the following command to create a system-managed identity for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
 
     ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name>	
+    az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>
     ```
-
-    >[!NOTE]
-    > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
-    > 
-    >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
-    >```
-    >
-    > The output will then display details of the identity, including the **principalId** value required for the next step. 
 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
@@ -221,7 +209,6 @@ az functionapp config appsettings set --resource-group <your-resource-group> --n
 ```
 
 The output is the list of settings for the Azure Function, which should now contain an entry called `ADT_SERVICE_URL`.
-
 
 ## Process simulated telemetry from an IoT Hub device
 
@@ -258,27 +245,19 @@ Save the **name** that you gave to your IoT hub. You'll use it later.
 
 Next, connect your IoT hub to the *ProcessHubToDTEvents* Azure function in the function app you published earlier, so that data can flow from the device in IoT Hub through the function, which updates Azure Digital Twins.
 
-To do so, you'll create an *Event Subscription* on your IoT Hub, with the Azure function as an endpoint. This "subscribes" the function to events happening in IoT Hub.
+To do so, you'll create an *event subscription* on your IoT Hub, with the Azure function as an endpoint. This "subscribes" the function to events happening in IoT Hub.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your newly created IoT hub by searching for its name in the top search bar. Select **Events** from the hub menu, and select **+ Event Subscription**.
+Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for the event subscription, and there are also placeholders for you to enter your subscription ID, resource group, IoT hub name, and the name of your function app.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Screenshot of the Azure portal showing the IoT Hub event subscription.":::
+```azurecli-interactive
+az eventgrid event-subscription create --name <name-for-hub-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Devices/IotHubs/<your-IoT-hub> --included-event-types Microsoft.Devices.DeviceTelemetry --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessHubToDTEvents
+```
 
-Selecting this option will bring up the **Create Event Subscription** page.
+The output will show information about the event subscription that has been created. You can confirm that the operation completed successfully by verifying the `provisioningState` value in the result:
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Screenshot of the Azure portal showing how to create an event subscription.":::
-
-Fill in the fields as follows (fields filled by default aren't mentioned):
-* **EVENT SUBSCRIPTION DETAILS** > **Name**: Give a name to your event subscription.
-* **TOPIC DETAILS** > **System Topic Name**: Give a name to use for the system topic. 
-* **EVENT TYPES** > **Filter to Event Types**: Select **Device Telemetry** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint Type**: Select **Azure Function** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint**: Select the **Select an endpoint** link, which will open a **Select Azure Function** window:
-    :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Screenshot of the Azure portal event subscription showing the window to select an Azure function." border="false":::
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (**ProcessHubToDTEvents**). Some of these values may auto-populate after selecting the subscription.
-    - Select **Confirm Selection**.
-
-Back on the **Create Event Subscription** page, select **Create**.
+```azurecli
+"provisioningState": "Succeeded",
+```
 
 ### Register the simulated device with IoT Hub 
 
@@ -308,14 +287,9 @@ Then, get the device connection string with this command:
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
-You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
+Next, plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
-In a new Visual Studio window, open (from the downloaded solution folder) *DeviceSimulator* > **DeviceSimulator.sln**.
-
->[!NOTE]
-> You should now have two Visual Studio windows, one with *DeviceSimulator.sln* and one from earlier with *AdtE2ESample.sln*.
-
-From the **Solution Explorer** pane in this new Visual Studio window, select **DeviceSimulator > AzureIoTHub.cs** to open it in the editing window. Change the following connection string values to the values you gathered above:
+Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>
@@ -324,11 +298,18 @@ deviceConnectionString = <your-device-connection-string>
 
 Save the file.
 
-Now, to see the results of the data simulation that you've set up, run the **DeviceSimulator** project with this button in the toolbar:
+Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator*.
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Screenshot of the Visual Studio start button with the DeviceSimulator project open.":::
+>[!NOTE]
+> You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
 
-A console window will open and display simulated temperature telemetry messages. These messages are being sent to IoT Hub, where they're then picked up and processed by the Azure function.
+Use the following dotnet command to run the device simulator project:
+
+```cmd/sh
+dotnet run
+```
+
+The project will start running and begin displaying simulated temperature telemetry messages. These messages are being sent to IoT Hub, where they're then picked up and processed by the Azure function.
 
 :::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Screenshot of the console output of the device simulator showing temperature telemetry being sent.":::
 
@@ -338,22 +319,22 @@ You don't need to do anything else in this console, but leave it running while y
 
 The *ProcessHubToDTEvents* function you published earlier listens to the IoT Hub data, and calls an Azure Digital Twins API to update the `Temperature` property on the thermostat67 twin.
 
-To see the data from the Azure Digital Twins side, go to your Visual Studio window where the *AdtE2ESample.sln* solution is open and run the SampleClientApp project.
+To see the data from the Azure Digital Twins side, switch to your other console window that's open to the *AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with `dotnet run`.
 
-In the project console window that opens, run the following command to get the temperatures being reported by the digital twin thermostat67:
+Once the project is running and accepting commands, run the following command to get the temperatures being reported by the digital twin thermostat67:
 
-```cmd
+```cmd/sh
 ObserveProperties thermostat67 Temperature
 ```
 
-You should see the live updated temperatures from your Azure Digital Twins instance being logged to the console every two seconds.
+You should see the live updated temperatures from your Azure Digital Twins instance being logged to the console every two seconds. They should reflect the values that the data simulator is generating (you can place the console windows side-by-side to verify that the values coordinate).
 
 >[!NOTE]
 > It may take a few seconds for the data from the device to propagate through to the twin. The first few temperature readings may show as 0 before data begins to arrive.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Screenshot of the console output showing log of temperature messages from digital twin thermostat67.":::
 
-Once you've verified the live temperatures logging is working successfully, you can stop running both projects. Keep the Visual Studio windows open, as you'll continue using them in the rest of the tutorial.
+Once you've verified the live temperature logging is working successfully, you can stop running both projects. Keep the console windows open, as you'll use them again later in the tutorial.
 
 ## Propagate Azure Digital Twins events through the graph
 
@@ -364,49 +345,40 @@ To do so, you'll use the *ProcessDTRoutedData* Azure function to update a Room t
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the section that shows the elements after Azure Digital Twins.":::
 
 Here are the actions you'll complete to set up this data flow:
-1. [Create an event grid topic](#create-the-event-grid-topic) to enable movement of data between Azure services
-1. [Create an endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to the event grid topic
+1. [Create an Event Grid topic](#create-the-event-grid-topic) to enable movement of data between Azure services
+1. [Create an endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to the Event Grid topic
 1. [Set up a route](#create-the-route) within Azure Digital Twins that sends twin property change events to the endpoint
-1. [Set up an Azure function](#connect-the-azure-function) that listens on the event grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
+1. [Set up an Azure function](#connect-the-azure-function) that listens on the Event Grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
 
 [!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
 ### Connect the Azure function
 
-Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
+Next, subscribe the *ProcessDTRoutedData* Azure function to the Event Grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the Event Grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
 
-To do so, you'll create an Event Grid subscription that sends data from the event grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
+To do so, you'll create an Event Grid subscription that sends data from the Event Grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select **+ Event Subscription**.
+Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for this event subscription, and there are also placeholders for you to enter your subscription ID, resource group, the name of your Event Grid topic, and the name of your function app.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Screenshot of the Azure portal showing how to create an Event Grid event subscription.":::
-
-The steps to create this event subscription are similar to when you subscribed the first Azure function to IoT Hub earlier in this tutorial. This time, you don't need to specify **Device Telemetry** as the event type to listen for, and you'll connect to a different Azure function.
-
-On the **Create Event Subscription** page, fill in the fields as follows (fields filled by default aren't mentioned):
-* **EVENT SUBSCRIPTION DETAILS** > **Name**: Give a name to your event subscription.
-* **ENDPOINT DETAILS** > **Endpoint Type**: Select **Azure Function** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint**: Select the **Select an endpoint** link, which will open a **Select Azure Function** window:
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (**ProcessDTRoutedData**). Some of these values may auto-populate after selecting the subscription.
-    - Select **Confirm Selection**.
-
-Back on the **Create Event Subscription** page, select **Create**.
+```azurecli-interactive
+az eventgrid event-subscription create --name <name-for-topic-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessDTRoutedData
+```
 
 ## Run the simulation and see the results
 
 Now, events should have the capability to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
 
-Go to your Visual Studio window where the *DeviceSimulator.sln* solution is open, and run the DeviceSimulator project.
+Go to your console window that's open to the *DeviceSimulator\DeviceSimulator* folder, and run the device simulator project with `dotnet run`.
 
-Like when you ran the device simulator earlier, a console window will open and display simulated temperature telemetry messages. These events are going through the flow you set up earlier to update the thermostat67 twin, and then going through the flow you set up recently to update the room21 twin to match.
+Like the first time you ran the device simulator, the project will start running and display simulated temperature telemetry messages. These events are going through the flow you set up earlier to update the thermostat67 twin, and then going through the flow you set up recently to update the room21 twin to match.
 
 :::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Screenshot of the console output of the device simulator showing temperature telemetry being sent.":::
 
 You don't need to do anything else in this console, but leave it running while you complete the next steps.
 
-To see the data from the Azure Digital Twins side, go to your Visual Studio window where the *AdtE2ESample.sln* solution is open, and run the SampleClientApp project.
+To see the data from the Azure Digital Twins side, go to your other console window that's open to the *AdtSampleApp\SampleClientApp* folder, and run the *SampleClientApp* project with `dotnet run`.
 
-In the project console window that opens, run the following command to get the temperatures being reported by both the digital twin thermostat67 and the digital twin room21.
+Once the project is running and accepting commands, run the following command to get the temperatures being reported by both the digital twin thermostat67 and the digital twin room21.
 
 ```cmd
 ObserveProperties thermostat67 Temperature room21 Temperature
@@ -416,15 +388,15 @@ You should see the live updated temperatures from your Azure Digital Twins insta
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Screenshot of the console output showing a log of temperature messages, from a thermostat and a room.":::
 
-Once you've verified the live temperatures logging from your instance is working successfully, you can stop running both projects. You can also close the Visual Studio windows, as the tutorial is now complete.
+Once you've verified the live temperatures logging from your instance is working successfully, you can stop running both projects. You can also close both console windows, as the tutorial is now complete.
 
 ## Review
 
-Here's a review of the scenario that you built out in this tutorial.
+Here's a review of the scenario that you built in this tutorial.
 
 1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
 2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the `Temperature` property on thermostat67 (**arrow B** in the diagram).
-3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the `Temperature` property on room21 (**arrow C** in the diagram).
+3. Property change events in Azure Digital Twins are routed to an Event Grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the `Temperature` property on room21 (**arrow C** in the diagram).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 

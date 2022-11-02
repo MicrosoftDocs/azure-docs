@@ -2,14 +2,13 @@
 title: Azure subscription and reservation transfer hub
 description: This article helps you understand what's needed to transfer Azure subscriptions and provides links to other articles for more detailed information.
 author: bandersmsft
-ms.reviewer: andalmia
+ms.reviewer: sgautam
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 08/01/2022
 ms.author: banders
-ms.custom:
 ---
 
 # Azure subscription and reservation transfer hub
@@ -43,7 +42,8 @@ As you begin to plan your product transfer, consider the information needed to a
   - Previous Azure offer in CSP
   - New Azure offer in CSP, also referred to as Azure Plan with a Microsoft Partner Agreement (MPA)
   - Enterprise Agreement (EA)
-  - Microsoft Customer Agreement (MCA) in the Enterprise motion when you buy Azure services through a Microsoft representative and individual MCA when you buy Azure services through Azure.com
+  - Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
+  - Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement.
   - Others like MSDN, BizSpark, EOPEN, Azure Pass, and Free Trial
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.
@@ -62,7 +62,7 @@ The following table describes product transfer support between the different agr
 
 Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) products. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Support plans can't be transferred. If you have a support plan, you should cancel it for the old agreement and then buy a new one for the new agreement.
+Support plans can't be transferred. If you have a support plan, you should cancel. Then buy a new one for the new agreement.
 
 Dev/Test products aren't shown in the following table. Transfers for Dev/Test products are handled in the same way as other product types. For example, an EA Dev/Test product transfer is handled in the way an EA product transfer.
 
@@ -71,26 +71,27 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 
 | Source (current) product agreement type | Destination (future) product agreement type | Notes |
 | --- | --- | --- |
-| EA | MOSP (PAYG) | <ul><li>Transfer from an EA enrollment to a MOSP subscription requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Reservations don't automatically transfer and transferring them isn't supported. |
-| EA | MCA - individual | <ul><li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them. |
-| EA | EA | <ul><li>Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li>Reservations don't automatically transfer between enrollments so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them. <li> Transfer within the same enrollment is the same action as changing the account owner. For details, see [Change EA subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
-| EA | MCA - Enterprise | <ul><li> Transferring all enrollment products is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). <li> If you want to transfer specific products, not all of the products in an enrollment, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). |
-| EA | MPA | <ul><li> Only CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure products for their customers that have a Direct Enterprise Agreement (EA). For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program. <li> There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner).  |
-| MCA - individual | MOSP (PAYG) | <ul><li> For details, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li> Reservations don't automatically transfer and transferring them isn't supported. |
-| MCA - individual | MCA - individual | <ul><li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
-| MCA - individual | EA | <ul><li> For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). <li> Self-service reservation transfers are supported. |
-| MCA - individual | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<li> Self-service reservation transfers are supported. |
-| MCA - Enterprise | MOSP | <ul><li> Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Reservations don't automatically transfer and transferring them isn't supported. |
-| MCA - Enterprise | MCA - individual | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them. |
-| MCA - Enterprise | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
-| Previous Azure offer in CSP | Previous Azure offer in CSP | <ul><li> Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Reservations don't automatically transfer and transferring them isn't supported. |
+| EA | MOSP (PAYG) | • Transfer from an EA enrollment to a MOSP subscription requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
+| EA | MCA - individual | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported.  |
+| EA | EA | • Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Self-service reservation transfers are supported.<br><br>  •  Transfer within the same enrollment is the same action as changing the account owner. For details, see [Change EA subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
+| EA | MCA - Enterprise | •  Transferring all enrollment products is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md).<br><br> •  If you want to transfer specific products, not all of the products in an enrollment, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). -  Self-service reservation transfers are supported. |
+| EA | MPA | • Transfer is only allowed for direct EA to MPA. A direct EA is signed between Microsoft and an EA customer.<br><br>•  Only CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure products for their customers that have a Direct Enterprise Agreement (EA). For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.<br><br> •  Transfer from EA Government to MPA isn't supported.<br><br>•  There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-or-mca-enterprise-subscriptions-to-a-csp-partner).  |
+| MCA - individual | MOSP (PAYG) | •  For details, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).<br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
+| MCA - individual | MCA - individual | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
+| MCA - individual | EA | •  For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea).<br><br> •  Self-service reservation transfers are supported. |
+| MCA - individual | MCA - Enterprise | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br>•  Self-service reservation transfers are supported. |
+| MCA - Enterprise | MOSP | •  Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
+| MCA - Enterprise | MCA - individual | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
+| MCA - Enterprise | MCA - Enterprise | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported.  |
+| MCA - Enterprise | MPA | •  Only CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure products for their customers that have a Microsoft Customer Agreement with a Microsoft representative. For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.<br><br> •  Self-service reservation transfers are supported.<br><br> •  There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-or-mca-enterprise-subscriptions-to-a-csp-partner).  |
+| Previous Azure offer in CSP | Previous Azure offer in CSP | •  Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
 | Previous Azure offer in CSP | MPA | For details, see [Transfer a customer's Azure subscriptions to a different CSP (under an Azure plan)](/partner-center/transfer-azure-subscriptions-under-azure-plan). |
-| MPA | EA | <ul><li> Automatic transfer isn't supported. Any transfer requires resources to move from the existing MPA product manually to a newly created or an existing EA product. <li> Use the information in the [Perform resource transfers](#perform-resource-transfers) section. <li> Reservations don't automatically transfer and transferring them isn't supported. |
-| MPA | MPA | <ul><li> For details, see [Transfer a customer's Azure subscriptions to a different CSP (under an Azure plan)](/partner-center/transfer-azure-subscriptions-under-azure-plan). <li> Reservations don't automatically transfer and transferring them isn't supported. |
-| MOSP (PAYG) | MOSP (PAYG) | <ul><li> If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
-| MOSP (PAYG) | MCA - individual | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
-| MOSP (PAYG) | EA | For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). |
-| MOSP (PAYG) | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
+| MPA | EA | •  Automatic transfer isn't supported. Any transfer requires resources to move from the existing MPA product manually to a newly created or an existing EA product.<br><br> •  Use the information in the [Perform resource transfers](#perform-resource-transfers) section. <br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
+| MPA | MPA | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported.  |
+| MOSP (PAYG) | MOSP (PAYG) | •  If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).<br><br> •  Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
+| MOSP (PAYG) | MCA - individual | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
+| MOSP (PAYG) | EA | • If you're transferring the subscription to the EA enrollment, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea).<br><br> •  If you're changing billing ownership, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
+| MOSP (PAYG) | MCA - Enterprise | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
 
 ## Perform resource transfers
 
@@ -104,23 +105,23 @@ Read the following sections to learn more about other considerations before you 
 
 ### Transfer terms and conditions
 
-When you send or accept a transfer you agree to terms and conditions. The following information provides additional details.
+When you send or accept a transfer, you agree to terms and conditions. The following information provides more details.
 
 #### Send transfer
 
-When you send a transfer request, must select the **Send transfer request** option. By making the selection you also agree to the following terms and conditions:
+When you send a transfer request, must select the **Send transfer request** option. By making the selection, you also agree to the following terms and conditions:
 
-_By sending this transfer request, you acknowledge and agree that the selected items will transfer to your account as of the Transition Date (date when the transfer completed successfully). You will be responsible to Microsoft for all ongoing, scheduled billings related to the transfer items as of the Transition Date; provided that Microsoft will move any prepaid subscriptions (including reserved instances) to your account. You agree that you may not cancel any prepaid subscriptions transferred to your account._
+`By sending this transfer request, you acknowledge and agree that the selected items will transfer to your account as of the Transition Date (date when the transfer completed successfully). You will be responsible to Microsoft for all ongoing, scheduled billings related to the transfer items as of the Transition Date; provided that Microsoft will move any prepaid subscriptions (including reserved instances) to your account. You agree that you may not cancel any prepaid subscriptions transferred to your account.`
 
 #### Transfer acceptance
 
-When you accept a transfer, must select the **Review + validate** option. By making the selection you also agree to the following terms and conditions:
+When you accept a transfer, must select the **Review + validate** option. By making the selection, you also agree to the following terms and conditions:
 
-_By accepting this transfer request, you acknowledge and agree that the indicated items will transfer to the nominated destination account as of the Transition Date (date when the transfer completed successfully). Any prepaid subscriptions, if selected, (including reserved instances) will be moved to the destination account and, as of the Transition Date, you will no longer be responsible to Microsoft for ongoing payment obligations (if any) related to the transfer items._
+`By accepting this transfer request, you acknowledge and agree that the indicated items will transfer to the nominated destination account as of the Transition Date (date when the transfer completed successfully). Any prepaid subscriptions, if selected, (including reserved instances) will be moved to the destination account and, as of the Transition Date, you will no longer be responsible to Microsoft for ongoing payment obligations (if any) related to the transfer items.`
 
 ### Resources transfer with subscriptions
 
-When only billing ownership is changing, then resources aren't affected. However, when you do a resource move or change the service tenant, then resources could be affected.
+When only billing ownership is changing, then resources aren't affected. All resources from the subscriptions like VMs, disks, and websites transfer. However, when you do a resource move or change the service tenant, then resources could be affected.
 
 ### Transfer a product from one account to another
 
@@ -138,7 +139,7 @@ The only information available to users for the new account is usage and billing
 
 ### Remaining product credits
 
-If you have a Visual Studio or Microsoft Partner Network product, you get monthly credits. Your credit doesn't carry forward with the product in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The product uses the Visual Studio credit that's available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](billing-subscription-transfer.md#transfer-visual-studio-and-partner-network-subscriptions).
+If you have a Visual Studio or Microsoft Cloud Partner Program product, you get monthly credits. Your credit doesn't carry forward with the product in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The product uses the Visual Studio credit that's available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](billing-subscription-transfer.md#transfer-visual-studio-and-partner-network-subscriptions).
 
 ### Users keep access to transferred resources
 
@@ -161,6 +162,70 @@ Your account is responsible for payment for any usage that is reported from the 
 ### Transfer Enterprise Agreement product ownership
 
 The Enterprise Administrator can update account ownership for any account, even after an original account owner is no longer part of the organization. For more information about transferring Azure Enterprise Agreement accounts, see [Azure Enterprise transfers](ea-transfers.md).
+
+## Supplemental information about transfers
+
+The following sections provide additional information about transferring subscriptions.
+
+### Cancel a prior support plan
+
+If you have an Azure support plan and you transfer all of your Azure subscriptions to a new agreement, then you must cancel the support plan because it doesn't transfer with the subscriptions. For example, when you transfer a Microsoft Online Subscription Agreement (an Azure subscription purchased on the web) to the Microsoft Customer Agreement. To cancel your support plan:
+
+Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft support plan.
+    - For a Microsoft Customer Agreement:
+        - Select **Recurring charges** in the left pane.
+        - In the right pane, to the right of the support plan line item, select the ellipsis (**...**) and then select **Turn off auto-renewal**.
+    - For a Microsoft Online Subscription Agreement (MOSA):
+        - Select **Subscriptions** in the left pane.
+        - Select the support plan subscription in the right pane and then select **Cancel**.
+
+### Access your historical invoices
+
+You may want to access your invoices for your old Microsoft Online Subscription Agreement account (an Azure subscription purchased on the web) after you transfer billing ownership to your new Microsoft Customer Agreement account. To do so, use the following steps:
+
+Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com/.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft Online Subscription Agreement account.
+1.	Select **Invoices** in the left pane to access your historical invoices.
+
+### Disabled subscriptions
+
+Disabled subscriptions can't be transferred. Subscriptions must be in active state to transfer their billing ownership.
+
+### Azure Marketplace products transfer
+
+Azure Marketplace products transfer along with their respective subscriptions.
+
+### Azure Reservations transfer
+
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations automatically move with the subscriptions.
+
+### Access to Azure services
+
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+
+### Charges for transferred subscription
+
+Any charges after the time of transfer appear on the new account's invoice. Charges before the time of transfer appear on the previous account's invoice.
+
+The original billing owner of the subscriptions is responsible for any charges that were reported up to the time that the transfer completes. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that happened before the transfer but were reported afterward. The charges appear on your invoice section.
+
+### Cancel a transfer request
+
+You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the [transfer details page](mca-request-billing-ownership.md#check-the-transfer-request-status) and select cancel from the bottom of the page.
+
+### Software as a Service (SaaS) transfer
+
+SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you conduct management operations like deleting and viewing the details of the product. The user must be a resource owner on the SaaS product to transfer resource ownership.
+
 
 ## Next steps
 

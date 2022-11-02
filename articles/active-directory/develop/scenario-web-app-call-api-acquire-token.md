@@ -1,6 +1,5 @@
 ---
-title: Get a token in a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token in a web app that calls web APIs
 description: Learn how to acquire a token for a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/25/2020
+ms.date: 05/06/2022
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
@@ -20,7 +19,7 @@ ms.custom: aaddev
 
 You've built your client application object. Now, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
 
-- Get a token for the web API by using the token cache. To get this token, you call the MSAL `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
+- Get a token for the web API by using the token cache. To get this token, you call the Microsoft Authentication Library (MSAL) `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
 - Call the protected API, passing the access token to it as a parameter.
 
 # [ASP.NET Core](#tab/aspnetcore)
@@ -85,6 +84,9 @@ The code for ASP.NET is similar to the code shown for ASP.NET Core:
 - From there, it builds an MSAL.NET `IConfidentialClientApplication` object.
 - Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 - If interaction is required, the web app needs to challenge the user (re-sign in) and ask for more claims.
+
+>[!NOTE]
+>The scope should be the fully qualified scope name. For example,`({api_uri}/scope)`.
 
 The following code snippet is extracted from [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) in the [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC code sample:
 

@@ -2,11 +2,10 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.custom: ignite-2022
+ms.date: 09/18/2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
@@ -26,26 +25,45 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
-By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
+By default, every Azure subscription has the **Microsoft cloud security benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
 Available regulatory standards:
 
-- PCI-DSS v3.2.1:2018
+- PCI-DSS v3.2.1
 - SOC TSP
-- NIST SP 800-53 R4
-- NIST SP 800 171 R2
-- UK OFFICIAL and UK NHS
-- Canada Federal PBMM
-- Azure CIS 1.1.0
-- HIPAA/HITRUST
-- SWIFT CSP CSCF v2020
 - ISO 27001:2013
-- New Zealand ISM Restricted
-- CMMC Level 3
+- Azure CIS 1.1.0
 - Azure CIS 1.3.0
+- Azure CIS 1.4.0
+- NIST SP 800-53 R4
 - NIST SP 800-53 R5
+- NIST SP 800 171 R2
+- CMMC Level 3
 - FedRAMP H
 - FedRAMP M
+- HIPAA/HITRUST
+- SWIFT CSP CSCF v2020
+- UK OFFICIAL and UK NHS
+- Canada Federal PBMM
+- New Zealand ISM Restricted
+- New Zealand ISM Restricted v3.5
+- Australian Government ISM Protected
+- RMIT Malaysia
+
+By default, every AWS connector subscription has the **Microsoft cloud security benchmark (MCSB)** assigned along with the **AWS Foundational Security Best Practices**. MCSB is the Microsoft recommended cloud security best practices based on common compliance frameworks, with detailed guidance for applying to an AWS environment. AWS Foundational Security Best Practices is the AWS-recommended security guidelines.  
+
+Available AWS regulatory standards:
+- AWS CIS 1.2.0
+- AWS PCI DSS 3.2.1
+
+By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks. 
+
+Available GCP regulatory standards:
+- GCP CIS 1.1.0
+- GCP CIS 1.2.0
+- GCP ISO 27001
+- GCP NIST 800 53
+- PCI DSS 3.2.1
 
 > [!TIP]
 > Standards are added to the dashboard as they become available. The preceding list might not contain recently added standards.
@@ -60,18 +78,20 @@ To add standards to your dashboard:
 - The subscription must have Defender for Cloud's enhanced security features enabled
 - The user must have owner or policy contributor permissions
 
-### Add a standard
+### Add a standard to your Azure resources
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
-1. From the top of the page, select **Manage compliance policies**. The Policy Management page appears.
+1. From the top of the page, select **Manage compliance policies**.
 
 1. Select the subscription or management group for which you want to manage the regulatory compliance posture. 
 
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. To add the standards relevant to your organization, expand the **Industry & regulatory standards** section and select **Add more standards**.
+1. Select **Security policy**.
+
+1. Expand the Industry & regulatory standards section and select **Add more standards**.
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
     
@@ -85,8 +105,6 @@ To add standards to your dashboard:
 
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
-
-    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/regulatory-compliance-dashboard/compliance-dashboard.png":::
 
 ## Remove a standard from your dashboard
 
@@ -118,6 +136,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Azure Security Benchmark](/security/benchmark/azure/introduction)
+- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 - [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
 - [Working with security policies](tutorial-security-policy.md)

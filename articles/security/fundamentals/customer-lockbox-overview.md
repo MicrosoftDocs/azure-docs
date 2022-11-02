@@ -1,11 +1,11 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: TerryLanfear
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
 ms.date: 05/12/2021
 ---
@@ -30,21 +30,29 @@ The following services are generally available for Customer Lockbox:
 - Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
-- Azure Database for MySQL
-- Azure Databricks
 - Azure Data Box
 - Azure Data Explorer
 - Azure Data Factory
+- Azure Database for MySQL
 - Azure Database for PostgreSQL
+- Azure Databricks
+- Azure Edge Zone Platform Storage
 - Azure Functions
 - Azure HDInsight
+- Azure Health Bot
+- Azure Intelligent Recommendations
 - Azure Kubernetes Service
 - Azure Monitor
-- Azure Storage
+- Azure Spring Apps
 - Azure SQL Database
+- Azure SQL managed Instance
+- Azure Storage
 - Azure subscription transfers
 - Azure Synapse Analytics
+- Azure Unified Vision Service
+- Microsoft Energy Data Services 
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
+
 
 ### Public Preview
 The following services are currently in preview for Customer Lockbox:
@@ -124,9 +132,9 @@ As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## Customer Lockbox integration with Azure Security Benchmark
+## Customer Lockbox integration with the Microsoft cloud security benchmark
 
-We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
+We've introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

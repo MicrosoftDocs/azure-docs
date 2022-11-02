@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT smart meter monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the smart meter monitoring application template for IoT Central.
-author: op-ravi
-ms.author: omravi
-ms.date: 12/23/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/14/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -42,14 +42,13 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 
 In this tutorial, you learn how to:
 
-- Create the Smart Meter App for free
+- Create the smart meter app
 - Application walk-through
 - Clean up resources
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a smart meter monitoring application
 

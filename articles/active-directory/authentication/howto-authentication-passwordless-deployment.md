@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 10/29/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: dawoo
 
@@ -22,7 +22,7 @@ Passwords are a primary attack vector. Bad actors use social engineering, phishi
 
 Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
 
-* [Microsoft Authenticator app](./concept-authentication-passwordless.md#microsoft-authenticator-app) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
+* [Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
 * [FIDO2-compliant security keys](./concept-authentication-passwordless.md#fido2-security-keys) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
 
@@ -43,11 +43,11 @@ The following table lists the passwordless authentication methods by device type
 
 | Device types| Passwordless authentication method |
 | - | - |
-| Dedicated non-windows devices| <li> **Microsoft Authenticator app** <li> Security keys |
+| Dedicated non-windows devices| <li> **Microsoft Authenticator** <li> Security keys |
 | Dedicated Windows 10 computers (version 1703 and later)| <li> **Windows Hello for Business** <li> Security keys |
 | Dedicated Windows 10 computers (before version 1703)| <li> **Windows Hello for Business** <li> Microsoft Authenticator app |
-| Shared devices: tablets, and mobile devices| <li> **Microsoft Authenticator app** <li> One-time password sign-in |
-| Kiosks (Legacy)| **Microsoft Authenticator app** |
+| Shared devices: tablets, and mobile devices| <li> **Microsoft Authenticator** <li> One-time password sign-in |
+| Kiosks (Legacy)| **Microsoft Authenticator** |
 | Kiosks and shared computers ‎(Windows 10)| <li> **Security keys** <li> Microsoft Authenticator app |
 
 
@@ -62,7 +62,7 @@ Here are the least privileged roles required for this deployment:
 
 | Azure AD Role| Description |
 | - | -|
-| Global Administrator| To implement combined registration experience. |
+| User Administrator or Global Administrator| To implement combined registration experience. |
 | Authentication Administrator| To implement and manage authentication methods. |
 | User| To configure Authenticator app on device, or to enroll security key device for web or Windows 10 sign-in. |
 
@@ -72,7 +72,7 @@ As part of this deployment plan, we recommend that passwordless authentication b
 
 The prerequisites are determined by your selected passwordless authentication methods.
 
-| Prerequisite| Microsoft Authenticator app| FIDO2 Security Keys|
+| Prerequisite| Microsoft Authenticator| FIDO2 Security Keys|
 | - | -|-|
 | [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
 | [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|
@@ -107,9 +107,9 @@ Your communications to end users should include the following information:
 
 * [Guidance on combined registration for both Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)
 
-* [Downloading the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
+* [Downloading Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
-* [Registering in the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
+* [Registering in Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 
 * [Signing in with your phone](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
@@ -117,45 +117,45 @@ Microsoft provides communication templates for end users. Download the [authenti
 
 ## Plan user registration
 
-Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and Microsoft Authenticator app, and any other changes to the authentication methods. 
+Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and the Authenticator app, and any other changes to the authentication methods. 
 
 For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
 
-This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or Microsoft Authenticator app but needs to sign in to **register a new strong authentication method**. 
+This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or the Authenticator app but needs to sign in to **register a new strong authentication method**. 
 
 >[!NOTE] 
-> If you can't use the security key or Microsoft Authenticator app for some scenarios, multifactor authentication with a username and password along with another registered method can be used as a fallback option.
+> If you can't use the security key or the Authenticator app for some scenarios, multifactor authentication with a username and password along with another registered method can be used as a fallback option.
 
-## Plan for and deploy the Microsoft Authenticator app
+## Plan for and deploy Microsoft Authenticator
 
-The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It's a free download from Google Play or the Apple App Store. Have users [download the Microsoft Authenticator app](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
+[Microsoft Authenticator](concept-authentication-passwordless.md) turns any iOS or Android phone into a strong, passwordless credential. It's a free download from Google Play or the Apple App Store. Have users [download Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and follow the directions to enable phone sign-in.
 
 ### Technical considerations
 
-**Active Directory Federation Services (AD FS) Integration** - When a user enables the Microsoft Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential.
+**Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential. For non-Microsoft 365 applications which use AD FS for authentication, Azure AD Conditional Access policies will not be applied and you will need to set up access control policies within AD FS.
 
-**Azure MFA server** - End users enabled for multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator app with the credential, this change may result in an error.
+**MFA server** - End users enabled for multi-factor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication. Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. We recommend moving from Azure MFA Server to Azure Active Directory MFA.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
-**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Microsoft Authenticator app.
+**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
-### Deploy phone sign-in with the Microsoft Authenticator app
+### Deploy phone sign-in with the Authenticator app
 
-Follow the steps in the article, [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md) to enable the Microsoft Authenticator app as a passwordless authentication method in your organization.
+Follow the steps in the article, [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md) to enable the Authenticator app as a passwordless authentication method in your organization.
 
-### Testing Microsoft Authenticator app
+### Testing Authenticator app
 
-The following are sample test cases for passwordless authentication with the Microsoft Authenticator app:
+The following are sample test cases for passwordless authentication with the Authenticator app:
 
 | Scenario| Expected results |
 | - |-|
-| User can register Microsoft Authenticator app| User can register app from https://aka.ms/mysecurityinfo |
-| User can enable phone sign-in| Phone sign-in configured for work account |
-| User can access an app with phone sign-in| User goes through phone sign-in flow and reaches application. |
-| Test rolling back phone sign-in registration by turning off Microsoft Authenticator passwordless sign-in. Do this within the Authentication methods screen in the Azure AD portal| Previously enabled users unable to use passwordless sign-in from Microsoft Authenticator. |
-| Removing phone sign in from Microsoft Authenticator app| Work account no longer available on Microsoft Authenticator |
+| User can register the Authenticator app.| User can register app from https://aka.ms/mysecurityinfo. |
+| User can enable phone sign-in| Phone sign-in configured for work account. |
+| User can access an app with phone sign-in.| User goes through phone sign-in flow and reaches application. |
+| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure AD portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
+| Removing phone sign-in from the Authenticator app| Work account no longer available on the Authenticator app. |
 
 
 ### Troubleshoot phone sign-in
@@ -216,13 +216,13 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Intune](howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Microsoft Endpoint Manager](howto-authentication-passwordless-security-key-windows.md)
 
-  * We recommend Intune deployment.
+  * We recommend Microsoft Endpoint Manager deployment.
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Microsoft Endpoint Manager deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 
@@ -312,9 +312,9 @@ You can also manage the passwordless authentication methods using the authentica
 
 * You can retrieve details of a user's FIDO2 Security Key and delete it if the user has lost the key.
 
-* You can retrieve details of a user's Microsoft Authenticator registration and delete it if the user has lost the phone.
+* You can retrieve details of a user's Authenticator app registration and delete it if the user has lost the phone.
 
-* Manage your authentication method policies for security keys and Microsoft Authenticator app.
+* Manage your authentication method policies for security keys and the Authenticator app.
 
 For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
@@ -339,7 +339,7 @@ The following table provides some examples of typical reporting scenarios:
 | Manage risk| Increase productivity| Governance and compliance| other|
 |-|-|-|-|
 | Report types| Authentication methods- users registered for combined security registration| Authentication methods – users registered for app notification| Sign-ins: review who is accessing the tenant and how |
-| Potential actions| Target users not yet registered| Drive adoption of Microsoft Authenticator app or security keys| Revoke access or enforce additional security policies for admins |
+| Potential actions| Target users not yet registered| Drive adoption of the Authenticator app or security keys| Revoke access or enforce additional security policies for admins |
 
 
 #### Track usage and insights

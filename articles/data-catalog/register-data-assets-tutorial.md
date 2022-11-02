@@ -1,8 +1,6 @@
 ---
 title: 'Tutorial: Register data assets in Azure Data Catalog'
 description: This tutorial describes how to register data assets in your Azure Data Catalog. 
-author: ChandraKavya
-ms.author: kchandra
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 02/24/2022
@@ -10,7 +8,7 @@ ms.date: 02/24/2022
 ---
 # Tutorial: Register data assets in Azure Data Catalog
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 In this tutorial, you use the registration tool to register data assets from the database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
@@ -36,7 +34,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ### Register a data source
 
-You register data assets (tables) from a [database sample](../azure-sql/database/single-database-create-quickstart.md) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+You register data assets (tables) from a [database sample](/azure/azure-sql/database/single-database-create-quickstart) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
 The database name we're using in this tutorial is *RLSTest*.
 

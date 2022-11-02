@@ -1,37 +1,37 @@
 #### Vowels
 
-| `ipa` | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
-|-------|------------|----------------|----------|
-| `ɑ`   | **a**zúcar | tom**a**te     | rop**a** |
-| `e`   | **e**so    | rem**e**ro     | am**é**  |
-| `i`   | h**i**lo   | liqu**i**do    | ol**í**  |
-| `o`   | h**o**gar  | ol**o**te      | cas**o** |
-| `u`   | **u**no    | ning**u**no    | tab**ú** |
+| `ipa` | VisemeID | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
+|-------|----------|------------|----------------|----------|
+| `ɑ`   | 2        | **a**zúcar | tom**a**te     | rop**a** |
+| `e`   | 4        | **e**so    | rem**e**ro     | am**é**  |
+| `i`   | 6        | h**i**lo   | liqu**i**do    | ol**í**  |
+| `o`   | 8        | h**o**gar  | ol**o**te      | cas**o** |
+| `u`   | 7        | **u**no    | ning**u**no    | tab**ú** |
 
 #### Consonants
 
-| `ipa` | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
-|-------|------------|----------------|----------|
-| `b`   | **b**ote   |                |          |
-| `β`   | ór**b**ita | envol**v**ente |          |
-| `t͡ʃ` | **ch**ico  | ha**ch**a      |          |
-| `d`   | **d**átil  |                |          |
-| `ð`   | or**d**en  | o**d**a        |          |
-| `f`   | **f**oco   | o**f**icina    |          |
-| `g`   | **g**ajo   |                |          |
-| `ɣ`   | a**g**ua   | ho**gu**era    |          |
-| `j`   | **i**odo   | cal**i**ente   | re**y**  |
-| `j͡j` |            | o**ll**a       |          |
-| `k`   | **c**asa   | á**c**aro      |          |
-| `l`   | **l**oco   | a**l**a        |          |
-| `ʎ`   | **ll**ave  | en**y**ugo     |          |
-| `m`   | **m**ata   | a**m**ar       |          |
-| `n`   | **n**ada   | a**n**o        |          |
-| `ɲ`   | **ñ**oño   | a**ñ**o        |          |
-| `p`   | **p**apa   | pa**p**a       |          |
-| `ɾ`   |            | a**r**o        |          |
-| `r`   | **r**ojo   | pe**rr**o      |          |
-| `s`   | **s**illa  | a**s**a        |          |
-| `t`   | **t**omate |                | sof**t** |
-| `w`   | h**u**evo  |                |          |
-| `x`   | **j**arra  | ho**j**a       |          |
+| `ipa` | VisemeID | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
+|-------|----------|------------|----------------|----------|
+| `b`   | 21       | **b**ote   |                |          |
+| `β`   | 21       | ór**b**ita | envol**v**ente |          |
+| `t͡ʃ` | 19,16    | **ch**ico  | ha**ch**a      |          |
+| `d`   | 19       | **d**átil  |                |          |
+| `ð`   | 17       | or**d**en  | o**d**a        |          |
+| `f`   | 18       | **f**oco   | o**f**icina    |          |
+| `g`   | 20       | **g**ajo   |                |          |
+| `ɣ`   | 20       | a**g**ua   | ho**gu**era    |          |
+| `j`   | 6        | **i**odo   | cal**i**ente   | re**y**  |
+| `j͡j` | 6,6      |            | o**ll**a       |          |
+| `k`   | 20       | **c**asa   | á**c**aro      |          |
+| `l`   | 14       | **l**oco   | a**l**a        |          |
+| `ʎ`   | 14       | **ll**ave  | en**y**ugo     |          |
+| `m`   | 21       | **m**ata   | a**m**ar       |          |
+| `n`   | 19       | **n**ada   | a**n**o        |          |
+| `ɲ`   | 19       | **ñ**oño   | a**ñ**o        |          |
+| `p`   | 21       | **p**apa   | pa**p**a       |          |
+| `ɾ`   | 19       |            | a**r**o        |          |
+| `r`   | 13       | **r**ojo   | pe**rr**o      |          |
+| `s`   | 15       | **s**illa  | a**s**a        |          |
+| `t`   | 19       | **t**omate |                | sof**t** |
+| `w`   | 7        | h**u**evo  |                |          |
+| `x`   | 12       | **j**arra  | ho**j**a       |          |

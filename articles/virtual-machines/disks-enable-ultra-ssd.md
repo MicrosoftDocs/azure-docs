@@ -4,10 +4,10 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 10/13/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Using Azure ultra disks
@@ -446,29 +446,14 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-Ultra disks offer a unique capability that allows you to adjust their performance. You can make these adjustments from the Azure portal, on the disks themselves.
-
-1. Navigate to your VM and select **Disks**.
-1. Select the ultra disk you'd like to modify the performance of.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-ultra-disk-to-modify.png" alt-text="Screenshot of disks blade on your vm, ultra disk is highlighted.":::
-
-1. Select **Size + performance** and then make your modifications.
-1. Select **Save**.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/modify-ultra-disk-performance.png" alt-text="Screenshot of configuration blade on your ultra disk, disk size, iops, and throughput are highlighted, save is highlighted.":::
+Currently, adjusting disk performance is only supported with Azure CLI or the Azure PowerShell module.
 
 # [Azure CLI](#tab/azure-cli)
 
 Ultra disks offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
 
 ```azurecli-interactive
-az disk update `
---subscription $subscription `
---resource-group $rgname `
---name $diskName `
---set diskIopsReadWrite=80000 `
---set diskMbpsReadWrite=800
+az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -486,4 +471,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ## Next steps
 
 - [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
-- [Migrate log disk to an ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).
+- [Migrate log disk to an ultra disk](/azure/azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk).

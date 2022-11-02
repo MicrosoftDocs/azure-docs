@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -76,7 +76,7 @@ Copy the updated text from Step 3 into the "Request Body".
 
 Click on “Run Query”. 
 
-You should get the output as "Success – Status Code 204". 
+You should get the output as "Success – Status Code 204". If you receive an error you may need to check that your account has Read/Write permissions for ServicePrincipalEndpoint. You can find this permission by clicking on the *Modify permissions* tab in Graph Explorer.
 
    ![PUT response](./media/skip-out-of-scope-deletions/skip-06.png)
 

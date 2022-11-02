@@ -60,12 +60,12 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 Reading this series of articles will guide you in how to use your models in your Azure Digital Twins instance. 
 
 >[!TIP]
-> You can visualize the models in your ontology using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
+> You can visualize the models in your ontology using the [model graph](how-to-use-azure-digital-twins-explorer.md#explore-models-and-the-model-graph) in Azure Digital Twins Explorer.
 
 ## Next steps
 
 Read more about the strategies of adopting, converting, and authoring ontologies:
-* [Adopting industry-standard ontologies](concepts-ontologies-adopt.md)
+* [Adopting DTDL-based industry ontologies](concepts-ontologies-adopt.md)
 * [Converting ontologies](concepts-ontologies-convert.md)
 * [Manage DTDL models](how-to-manage-model.md)
 

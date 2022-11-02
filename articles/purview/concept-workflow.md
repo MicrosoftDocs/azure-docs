@@ -1,22 +1,22 @@
 ---
-title: Workflows in Azure Purview
-description: This article describes workflows in Azure Purview, the roles they play, and who can create and manage them.
+title: Workflows in Microsoft Purview
+description: This article describes workflows in Microsoft Purview, the roles they play, and who can create and manage them.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-workflows
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/09/2022
+ms.date: 10/17/2022
 ms.custom: template-concept
 ---
 
-# Workflows in Azure Purview
+# Workflows in Microsoft Purview
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Workflows are automated, repeatable business processes that users can create within Azure Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
+Workflows are automated, repeatable business processes that users can create within Microsoft Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
 
-Since the workflows are created and managed within Azure Purview, manual change monitoring or approval are no longer required to ensure quality updates to the data catalog.
+Since the workflows are created and managed within Microsoft Purview, manual change monitoring or approval are no longer required to ensure quality updates to the data catalog.
 
 ## What are workflows?
 
@@ -31,34 +31,24 @@ Currently, there are two kinds of workflows:
 * **Data governance** - for data policy, access governance, and loss prevention. [Scoped](#workflow-scope) at the collection level.
 * **Data catalog** - to manage approvals for CUD (create, update, delete) operations for glossary terms. [Scoped](#workflow-scope) at the glossary level.
 
-These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Azure Purview studio, but are fully customizable using the available workflow connectors.
+These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Microsoft Purview governance portal, but are fully customizable using the available workflow connectors.
 
 
 ## Workflow templates
 
-For all the different types of user defined workflows enabled and available for your use, Azure Purview provides templates to help [workflow administrators](#who-can-manage-workflows) create workflows without needing to build them from scratch. The templates are built into the authoring experience and automatically populate based on the workflow being created, so there's no need to search for them.
+For all the different types of user defined workflows enabled and available for your use, Microsoft Purview provides templates to help [workflow administrators](#who-can-manage-workflows) create workflows without needing to build them from scratch. The templates are built into the authoring experience and automatically populate based on the workflow being created, so there's no need to search for them.
 
 Templates are available to launch the workflow authoring experience. However, a workflow admin can customize the template to meet the requirements in their organization. 
 
 ## Workflow connectors
 
-Workflow connectors are a common set of actions applicable across all workflows. They can be used in any workflow in Azure Purview to create processes customized to your organization. Currently, the available connectors are: 
-
-- **Approval connector** – Generates approval requests and assign the requests to individual users or Microsoft Azure Active Directory groups. 
-
-    Azure Purview workflow approval connector currently supports two types of approval types: 
-    * First to Respond – This implies that the first approver’s outcome (Approve/Reject) is considered final. 
-    * Everyone must approve – This implies everyone identified as an approver must approve the request for the request to be considered approved. If one approver rejects the request, regardless of other approvers, the request is rejected.
-
-- **Task Connector** - Creates, assigns, and tracks a task to a user or Azure AD group as part of a workflow.  
-
-- **Send Email** – Sends emails as part of a workflow.
+Workflow connectors are a common set of actions applicable across some workflows. They can be used in any workflow in Microsoft Purview to create processes customized to your organization. To view the list of existing workflow connectors in Microsoft Purview, see [Workflow connectors](how-to-use-workflow-connectors.md).
 
 ## Workflow scope
 
 Once a workflow is created and enabled, it can be bound to a particular scope. This gives you the flexibility to run different workflows for different areas/departments in your organization.
 
-Data governance workflows are scoped to collections, and can be bound to the root collection to govern the whole Azure Purview catalog, or any subcollection.
+Data governance workflows are scoped to collections, and can be bound to the root collection to govern the whole Microsoft Purview catalog, or any subcollection.
 
 Data catalog workflows are scoped to the glossary and can be bound to the entire glossary, any single term, or any parent term to manage child-terms.
 
@@ -87,7 +77,7 @@ A Workflow admin defined for any collection can create approval workflows for th
 
 ## Next steps
 
-Now that you understand what workflows are, you can follow these guides to use them in your Azure Purview account:
+Now that you understand what workflows are, you can follow these guides to use them in your Microsoft Purview account:
 
 - [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)

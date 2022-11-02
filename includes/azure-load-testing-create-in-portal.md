@@ -45,3 +45,10 @@ ms.date: 02/15/2022
 1. To view the new resource, select **Go to resource**.
     
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
+
+1. Optionally, [manage access to your Azure Load Testing resource](../articles/load-testing/how-to-assign-roles.md).
+
+    Azure Load Testing uses role-based access control (RBAC) to manage permissions for your resource. If you encounter this message, your account doesn't have the necessary permissions to manage tests.
+
+    :::image type="content" source="media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" lightbox="media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
+    

@@ -146,7 +146,6 @@ sections:
         answer: |
           Yes. End users need to download any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
           
-          This feature is in public preview.
       - question: |
           Why are my TOTP authenticator app codes not working?
         answer: |

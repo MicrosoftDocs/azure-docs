@@ -3,7 +3,7 @@ title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 10/31/2022
 
 ---
 
@@ -30,7 +30,7 @@ You can build and run modern, portable, microservices-based applications, using 
 
 As an open platform, Kubernetes allows you to build your applications with your preferred programming language, OS, libraries, or messaging bus. Existing continuous integration and continuous delivery (CI/CD) tools can integrate with Kubernetes to schedule and deploy releases.
 
-AKS provides a managed Kubernetes service that reduces the complexity of deployment and core management tasks, like upgrade coordination. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications. AKS is built on top of the open-source Azure Kubernetes Service Engine: [aks-engine][aks-engine].
+AKS provides a managed Kubernetes service that reduces the complexity of deployment and core management tasks, like upgrade coordination. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications.
 
 ## Kubernetes cluster architecture
 
@@ -78,6 +78,8 @@ The Azure VM size for your nodes defines the storage CPUs, memory, size, and typ
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
+For managed disks, the default disk size and performance will be assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
+
 If you need advanced configuration and control on your Kubernetes node container runtime and OS, you can deploy a self-managed cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
 
 ### Resource reservations
@@ -117,6 +119,9 @@ Two types of resources are reserved:
       - 10% of the next 8 GB of memory (up to 16 GB)
       - 6% of the next 112 GB of memory (up to 128 GB)
       - 2% of any memory above 128 GB
+
+>[!NOTE]
+> AKS reserves an additional 2GB for system process in Windows nodes that are not part of the calculated memory.
 
 Memory and CPU allocation rules:
 * Keep agent nodes healthy, including some hosting system pods critical to cluster health. 
@@ -191,7 +196,7 @@ Most stateless applications in AKS should use the deployment model rather than s
 
 You don't want to disrupt management decisions with an update process if your application requires a minimum number of available instances. *Pod Disruption Budgets* define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *five (5)* replicas in your deployment, you can define a pod disruption of *4 (four)* to only allow one replica to be deleted or rescheduled at a time. As with pod resource limits, best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
-Deployments are typically created and managed with `kubectl create` or `kubectl apply`. Create a deployment by defining a manifest file in the YAML format. 
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. Create a deployment by defining a manifest file in the YAML format.
 
 The following example creates a basic deployment of the NGINX web server. The deployment specifies *three (3)* replicas to be created, and requires port *80* to be open on the container. Resource requests and limits are also defined for CPU and memory.
 
@@ -223,6 +228,32 @@ spec:
             cpu: 500m
             memory: 256Mi
 ```
+
+A breakdown of the deployment specifications in the YAML manifest file is as follows:
+
+| Specification | Description |  
+| ----------------- | ------------- |  
+| `.apiVersion` | Specifies the API group and API resource you want to use when creating the resource. |  
+| `.kind` | Specifies the type of resource you want to create. |  
+| `.metadata.name` | Specifies the image to run. This file will run the *nginx* image from Docker Hub. |  
+| `.spec.replicas` | Specifies how many pods to create. This file will create three deplicated pods. |  
+| `.spec.selector` | Specifies which pods will be affected by this deployment. |
+| `.spec.selector.matchLabels` | Contains a map of *{key, value}* pairs that allows the deployment to find and manage the created pods. |  
+| `.spec.selector.matchLabels.app` | Has to match `.spec.template.metadata.labels`. |  
+| `.spec.template.labels` | Specifies the *{key, value}* pairs attached to the object. |  
+| `.spec.template.app` | Has to match `.spec.selector.matchLabels`. |  
+| `.spec.spec.containers` | Specifies the list of containers belonging to the pod. |  
+| `.spec.spec.containers.name` | Specifies the name of the container specified as a DNS label. |
+| `.spec.spec.containers.image` | Specifies the container image name. |
+| `.spec.spec.containers.ports` | Specifies the list of ports to expose from the container. |  
+| `.spec.spec.containers.ports.containerPort` | Specifies the number of port to expose on the pod's IP address. |  
+| `.spec.spec.resources` | Specifies the compute resources required by the container. |
+| `.spec.spec.resources.requests` | Specifies the minimum amount of compute resources required. |
+| `.spec.spec.resources.requests.cpu` | Specifies the minimum amount of CPU required. |
+| `.spec.spec.resources.requests.memory` | Specifies the minimum amount of memory required. |
+| `.spec.spec.resources.limits` | Specifies the maximum amount of compute resources allowed. This limit is enforced by the kubelet. |
+| `.spec.spec.resources.limits.cpu` | Specifies the maximum amount of CPU allowed. This limit is enforced by the kubelet. |
+| `.spec.spec.resources.limits.memory` | Specifies the maximum amount of memory allowed. This limit is enforced by the kubelet. |
 
 More complex applications can be created by including services (such as load balancers) within the YAML manifest.
 
@@ -296,7 +327,6 @@ This article covers some of the core Kubernetes components and how they apply to
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [cluster-api-provider-azure]: https://github.com/kubernetes-sigs/cluster-api-provider-azure
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/

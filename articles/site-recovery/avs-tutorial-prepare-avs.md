@@ -1,12 +1,12 @@
 ---
 title: Prepare Azure VMware Solution for disaster recovery to Azure Site Recovery
 description: Learn how to prepare Azure VMware Solution servers for disaster recovery to Azure using the Azure Site Recovery service.
-author: Harsha-CS
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/29/2020
-ms.author: harshacs
+ms.author: v-pgaddala
 ms.custom: MVC
 
 ---
@@ -20,9 +20,9 @@ This is the second tutorial in a series that shows you how to set up disaster re
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
-> * Prepare an account for automatic installation of the Mobility service on VMware VMs.
-> * Review VMware server and VM requirements and support.
+> * Prepare an account on the vCenter Server to automate VM discovery.
+> * Prepare an account for automatic installation of the Mobility service on VMware vSphere VMs.
+> * Review VMware vCenter Server and VM requirements and support.
 > * Prepare to connect to Azure VMs after failover.
 
 > [!NOTE]
@@ -42,10 +42,10 @@ Site Recovery needs access to Azure VMware Solution servers to:
 
 Create the account as follows:
 
-1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
+1. To use a dedicated account, create a role at the vCenter Server level. Give the role a name such as
    **Azure_Site_Recovery**.
 2. Assign the role the permissions summarized in the table below.
-3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+3. Create a user on the vCenter Server. Assign the role to the user.
 
 ### VMware account permissions
 
@@ -56,28 +56,27 @@ Create the account as follows:
 
 ## Prepare an account for Mobility service installation
 
-The Mobility service must be installed on machines you want to replicate. Site Recovery can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
+The Mobility service must be installed on machines you want to replicate. Azure Site Recovery can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
 
 - In this tutorial, we're going to install the Mobility service with the push installation.
-- For this push installation, you need to prepare an account that Site Recovery can use to access the VM. You specify this account
+- For this push installation, you need to prepare an account that Azure Site Recovery can use to access the VM. You specify this account
 when you set up disaster recovery in the Azure console.
 
 Prepare the account as follows:
 
-Prepare a domain or local account with permissions to install on the VM.
-
+- Prepare a domain or local account with permissions to install on the VM.
 - **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable Remote User Access
    control on the local machine. To do this, in the registry > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
      DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - **Linux VMs**: To install on Linux VMs, prepare a root account on the source Linux server.
 
 
-## Check VMware requirements
+## Check Azure VMware Solution requirements
 
-Make sure VMware servers and VMs comply with requirements.
+Make sure VMware vCenter Server and VMs comply with requirements.
 
-1. Verify Azure VMware solution [software versions](../azure-vmware/concepts-private-clouds-clusters.md#vmware-software-versions).
-2. Verify [VMware server requirements](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
+1. Verify Azure VMware Solution [software versions](../azure-vmware/concepts-private-clouds-clusters.md#vmware-software-versions).
+2. Verify [VMware vCenter Server requirements](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 3. For Linux VMs, [check](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) file system and storage requirements. 
 4. Check [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
 5. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.

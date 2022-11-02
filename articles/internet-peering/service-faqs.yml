@@ -4,11 +4,11 @@ metadata:
   titleSuffix: Azure
   description: Peering Service - FAQ
   services: internet-peering
-  author: prmitiki
+  author: halkazwini
   ms.service: internet-peering
   ms.topic: faq
   ms.date: 11/27/2019
-  ms.author: prmitiki
+  ms.author: halkazwini
 title: Peering Service - FAQs
 summary: You may review information below for general questions.
 

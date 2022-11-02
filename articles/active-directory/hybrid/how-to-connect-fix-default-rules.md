@@ -3,7 +3,7 @@ title: 'How to fix modified default rules - Azure AD Connect | Microsoft Docs'
 description: Learn how to fix modified default rules that come with Azure AD Connect.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
@@ -100,7 +100,7 @@ Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as 
 You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
-You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the constant value, `AuthoritativeNull`, flow to the target attribute. 
+You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the expression value, `AuthoritativeNull`, flow to the target attribute. 
 
 >[!NOTE] 
 > Use `AuthoritativeNull` instead of `Null` in this case. This is because the non-null value replaces the null value, even if it has lower precedence (a higher number value in the rule). `AuthoritativeNull`, on the other hand, isn't replaced with a non-null value by other rules. 

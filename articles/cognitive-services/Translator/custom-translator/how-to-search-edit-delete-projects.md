@@ -1,5 +1,5 @@
 ---
-title: How to search, edit, and delete project - Custom Translator
+title: "Legacy: How to search, edit, and delete project - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Custom Translator provides various ways to manage your projects in efficient manner. You can create multiple projects, search based on your criteria, edit your projects. Deleting a project is also possible in Custom Translator.  
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
 ---
 # Search, edit, and delete projects
@@ -33,13 +34,13 @@ The filter tool allows you to search projects by different filter conditions. It
 
 ## Edit a project
 
-Custom Translator gives you the ability to edit the name and description of a project. Other project metadata like the category, source language, and target language are not available for edit. The steps below describe how to edit a project.
+Custom Translator gives you the ability to edit the name and description of a project. Other project metadata like the category, source language, and target language aren't available for edit. The steps below describe how to edit a project.
 
 1. Select the **pencil icon** that appears when you hover over a project.
 
     ![Edit project](media/how-to/how-to-edit-project.png)
 
-2. In the dialog, you can modify the project name, the description of the project, the category description, and the project label if no model is deployed. You cannot modify the category or language pair once the project is created.
+2. In the dialog, you can modify the project name, the description of the project, the category description, and the project label if no model is deployed. You can't modify the category or language pair once the project is created.
 
     ![Edit project dialog](media/how-to/how-to-edit-project-dialog.png)
 
@@ -48,13 +49,11 @@ Custom Translator gives you the ability to edit the name and description of a pr
 ## Delete a project
 
 You can delete a project when you no longer need it. Make sure the project doesn't have models in an active state such as deployed, training submitted, data processing, or deploying, otherwise, the delete operation will fail. The following steps describe how to delete a project.
-
-
 1. Hover on any project record and select on the **trash bin** icon.
 
    ![Delete project](media/how-to/how-to-delete-project.png)
 
-2. Confirm deletion. Deleting a project will delete all models that were created within that project. Deleting project will not affect your  documents.
+2. Confirm deletion. Deleting a project will delete all models that were created within that project. Deleting project won't affect your  documents.
 
    ![Delete confirmation dialog](media/how-to/how-to-delete-project-confirm.png)
 

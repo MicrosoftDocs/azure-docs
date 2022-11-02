@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.date: 10/05/2021
 ---
 
-# Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS (Preview)
+# Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS
 
-Use the Azure SQL Migration extension in Azure Data Studio to migrate the databases from a SQL Server instance to a [SQL Server on Azure Virtual Machine (SQL Server 2016 and above)](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to SQL Server on Azure Virtual Machine](../azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md).
+Use the Azure SQL migration extension in Azure Data Studio to migrate the databases from a SQL Server instance to a [SQL Server on Azure Virtual Machine (SQL Server 2016 and above)](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to SQL Server on Azure Virtual Machine](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview).
 
 In this tutorial, you migrate the **AdventureWorks** database from an on-premises instance of SQL Server to a SQL Server on Azure Virtual Machine with minimal downtime by using Azure Data Studio with Azure Database Migration Service.
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Launch the Migrate to Azure SQL wizard in Azure Data Studio.
 > * Run an assessment of your source SQL Server database(s)
 > * Collect performance data from your source SQL Server
-> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
+> * Get a recommendation of the SQL Server on Azure Virtual Machine SKU best suited for your workload
 > * Specify details of your source SQL Server, backup location and your target SQL Server on Azure Virtual Machine
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration.
@@ -39,17 +39,18 @@ This article describes an online migration from SQL Server to a SQL Server on Az
 To complete this tutorial, you need to:
 
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
-* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
+* [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
-    - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
-    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
+    - Contributor for the target SQL Server on Azure Virtual Machine (and Storage Account to upload your database backup files from SMB network share).
+    - Reader role for the Azure Resource Groups containing the target SQL Server on Azure Virtual Machine or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
+    - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](resource-custom-roles-sql-db-virtual-machine-ads.md)
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
-* Create a target [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+* Create a target [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
 
     > [!IMPORTANT]
-    > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes).
+    > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 
@@ -106,7 +107,7 @@ To complete this tutorial, you need to:
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
 2. Select **Online migration** as the migration mode.
     > [!NOTE]
-    > In the online migration mode, the source SQL Server database is available for read and write activity while database backups are continuously restored on the target SQL Server on Azure Virtual Machine. Application downtime is limited to duration for the cutover at the end of migration.
+    > In the online migration mode, the source SQL Server database can be used for read and write activity while database backups are continuously restored on the target SQL Server on Azure Virtual Machine. Application downtime is limited to duration for the cutover at the end of migration.
 3. In step 5, select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
@@ -165,8 +166,8 @@ Resource group, Azure storage account, Blob container from the corresponding dro
     | Arrived | Backup file arrived in the source backup location and validated |
     | Uploading | Integration runtime is currently uploading the backup file to Azure storage|
     | Uploaded | Backup file is uploaded to Azure storage |
-    | Restoring | Azure Database Migration Service is currently restoring the backup file to Azure SQL Managed Instance|
-    | Restored | Backup file is successfully restored on Azure SQL Managed Instance |
+    | Restoring | Azure Database Migration Service is currently restoring the backup file to SQL Server on Azure Virtual Machine|
+    | Restored | Backup file is successfully restored on SQL Server on Azure Virtual Machine |
     | Canceled | Migration process was canceled |
     | Ignored | Backup file was ignored as it doesn't belong to a valid database backup chain |
 
@@ -188,6 +189,6 @@ During the cutover process, the migration status changes from *in progress* to *
 
 ## Next steps
 
-* How to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
-* For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
-* For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
+* How to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
+* For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
+* For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).

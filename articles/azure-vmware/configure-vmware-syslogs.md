@@ -2,9 +2,10 @@
 title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
-ms.date: 09/24/2021
+ms.service: azure-vmware
+ms.date: 10/07/2022
 
-#Customer intent: As an Azure service administrator, I want to collect VMWare syslogs and store it in my storage account so that I can view the vCenter logs and analyze for any diagnostic purposes.
+#Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
 
 ---
 
@@ -12,11 +13,20 @@ ms.date: 09/24/2021
 
 Diagnostic settings are used to configure streaming export of platform logs and metrics for a resource to the destination of your choice. You can create up to five different diagnostic settings to send different logs and metrics to independent destinations. 
 
-In this article, you'll configure a diagnostic setting to collect VMware syslogs for your Azure VMware Solution private cloud. You'll store the syslog to a storage account to view the vCenter logs and analyze for diagnostic purposes. 
+In this article, you'll configure a diagnostic setting to collect VMware syslogs for your Azure VMware Solution private cloud. You'll store the syslog to a storage account to view the vCenter Server logs and analyze for diagnostic purposes. 
+ >[!IMPORTANT]
+   >The **VMware syslogs** contains the following logs:
+   >- NSX-T Data Center Distributed Firewall logs
+   >- NSX-T Manager logs
+   >- NSX-T Data Center Gateway Firewall logs
+   >- ESXi logs
+   >- vCenter Server logs
+   >- NSX-T Data Center Edge Appliance logs
+ 
 
 ## Prerequisites
 
-Make sure you have an Azure VMware Solution private cloud with access to the vCenter and NSX-T Manager interfaces. 
+Make sure you have an Azure VMware Solution private cloud with access to the vCenter Server and NSX-T Manager interfaces. 
 
 ## Configure diagnostic settings
 

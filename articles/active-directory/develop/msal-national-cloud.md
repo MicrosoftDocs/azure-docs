@@ -1,6 +1,5 @@
 ---
-title: Use MSAL in a national cloud app | Azure
-titleSuffix: Microsoft identity platform
+title: Use MSAL in a national cloud app
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: negoe
@@ -154,7 +153,7 @@ To enable your MSAL Python application for sovereign clouds:
 To enable your MSAL for Java application for sovereign clouds:
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
-- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
 - Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
 Here's an example authority:

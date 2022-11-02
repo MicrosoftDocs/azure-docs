@@ -1,13 +1,14 @@
 ---
 title: Automatic VM Guest Patching for Azure VMs
 description: Learn how to automatically patch virtual machines in Azure.
-author: mimckitt
+author: maulikshah23
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
-ms.author: mimckitt
+ms.author: maulikshah
+ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automatic VM guest patching for Azure VMs
@@ -74,23 +75,49 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
+| Canonical  | UbuntuServer | 16.04-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS |
+| Canonical  | UbuntuServer | 18.04-LTS-Gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
+| Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-1 |
+| microsoftcblmariner  | cbl-mariner | 1-gen2 |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
+| microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
+| microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
+| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
-| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
-| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |
+| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
+| OpenLogic  | centos-lvm | 7-lvm |
+| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8_4, 8_5 |
+| OpenLogic  | centos-lvm | 8-lvm |
 | SUSE  | sles-12-sp5 | gen1, gen2 |
 | SUSE  | sles-15-sp2 | gen1, gen2 |
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-gensecond  |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-smalldisk  |
+| MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-with-containers  |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-gensecond  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-smalldisk  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-smalldisk-g2  |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-with-containers  |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core-g2 |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk-g2 |
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
@@ -195,17 +222,22 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### Azure CLI for Windows VMs
-Use [az vm create](/cli/azure/vm#az_vm_create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az-vm-create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-To modify an existing VM, use [az vm update](/cli/azure/vm#az_vm_update)
+To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
 ```
+
+### Azure portal
+When creating a VM using the Azure portal, patch orchestration modes can be set under the **Management** tab for both Linux and Windows. 
+
+:::image type="content" source="./media/automatic-vm-guest-patching/auto-guest-patching-portal.png" alt-text="Shows the management tab in the Azure portal used to enable patch orchestration modes.":::
 
 ## Enablement and assessment
 
@@ -246,7 +278,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be available soon through PowerShell.
 
 ### Azure CLI
-Use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to access the instance view for your VM.
+Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to access the instance view for your VM.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -292,7 +324,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### Azure CLI
-Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) to assess available patches for your virtual machine.
+Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) to assess available patches for your virtual machine.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM
@@ -359,7 +391,7 @@ Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -Max
 ```
 
 ### Azure CLI
-Use [az vm install-patches](/cli/azure/vm#az_vm_install_patches) to install patches on your virtual machine.
+Use [az vm install-patches](/cli/azure/vm#az-vm-install-patches) to install patches on your virtual machine.
 
 Example to install all Critical patches on a Linux VM:
 ```azurecli-interactive

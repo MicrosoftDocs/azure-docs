@@ -2,12 +2,13 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: KumudD
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 06/26/2020
-ms.author: kumud
+ms.author: allensu
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -49,7 +50,10 @@ We recommend that you use the address ranges enumerated in [RFC 1918](https://to
 * 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
 * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
 
-Other address spaces may work but may have undesirable side effects.
+You can also deploy the Shared Address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as Private IP Address space in Azure:
+* 100.64.0.0 - 100.127.255.255 (100.64/10 prefix)
+
+Other address spaces, including all other IETF-recognized private, non-routable address spaces, may work but may have undesirable side effects.
 
 In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
@@ -65,11 +69,15 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.   
-- x.x.x.0: Network address
-- x.x.x.1: Reserved by Azure for the default gateway
-- x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
+
+Yes. Azure reserves the first four and last IP address for a total of 5 IP addresses within each subnet.
+
+For example, the IP address range of 192.168.1.0/24 has the following reserved addresses:
+
+- 192.168.1.0 : Network address
+- 192.168.1.1 : Reserved by Azure for the default gateway
+- 192.168.1.2, 192.168.1.3 : Reserved by Azure to map the Azure DNS IPs to the VNet space
+- 192.168.1.255 : Network broadcast address.
 
 ### How small and how large can VNets and subnets be?
 The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
@@ -80,17 +88,23 @@ No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
 ### Can I specify custom routing policies on my VNets and subnets?
 Yes. You can create a route table and associate it to a subnet. For more information about routing in Azure, see [Routing overview](virtual-networks-udr-overview.md#custom-routes).
 
+### What would be the behavior when I apply both NSG and UDR at subnet?
+For inbound traffic, NSG inbound rules are processed. For outbound, NSG outbound rules are processed followed by UDR rules.
+
+### What would be the behavior when I apply NSG at NIC and subnet for a VM?
+When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed by NIC level NSG is processed for inbound and NIC level NSG followed by subnet level NSG for outbound traffic.
+
 ### Do VNets support multicast or broadcast?
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
 You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
-### Can I ping my default routers within a VNet?
-No.
+### Can I ping default gateway within a VNet?
+No. Azure provided default gateway does not respond to ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
 
 ### Can I use tracert to diagnose connectivity?
-No.
+Yes. 
 
 ### Can I add subnets after the VNet is created?
 Yes. Subnets can be added to VNets at any time as long as the subnet address range is not part of another subnet and there is available space left in the virtual network's address range.
@@ -338,7 +352,7 @@ The first step is a network side operation and the second step is a service reso
 >[!NOTE]
 > Both the operations described above must be completed before you can limit the Azure service access to the allowed VNet and subnet. Only turning on service endpoints for the Azure service on the network side does not provide you the limited access. In addition, you must also set up VNet ACLs on the Azure service side.
 
-Certain services (such as SQL and CosmosDB) allow exceptions to the above sequence through the **IgnoreMissingVnetServiceEndpoint** flag. Once the flag is set to **True**, VNet ACLs can be set on the Azure service side prior to setting up the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services and turning on the service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on the Azure service side before setting service endpoints on the network side can help avoid a connectivity drop.
+Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the above sequence through the `IgnoreMissingVnetServiceEndpoint` flag. Once the flag is set to `True`, VNet ACLs can be set on the Azure service side prior to setting up the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services and turning on the service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on the Azure service side before setting service endpoints on the network side can help avoid a connectivity drop.
 
 ### Do all Azure services reside in the Azure virtual network provided by the customer? How does VNet service endpoint work with Azure services?
 
@@ -499,4 +513,4 @@ For more information, see [FAQ about classic to Azure Resource Manager migration
 
 ### How can I report an issue? 
 
-You can post your questions about your migration issues to the [Microsoft Q&A](https://aka.ms/AAflal1) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.
+You can post your questions about your migration issues to the [Microsoft Q&A](/answers/topics/azure-virtual-network.html) page. It's recommended that you post all your questions on this forum. If you have a support contract, you can also file a support request.

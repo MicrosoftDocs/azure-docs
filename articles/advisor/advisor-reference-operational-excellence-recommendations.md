@@ -2,6 +2,7 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/02/2022
 ---
 
@@ -23,17 +24,17 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 
 ## Spring Cloud
 
-### Update your outdated Azure Spring Cloud SDK to the latest version
+### Update your outdated Azure Spring Apps SDK to the latest version
 
-We have identified API calls from an outdated Azure Spring Cloud SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Cloud SDK to the latest version)](/azure/spring-cloud).
+Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
 
-### Update Azure Spring Cloud API Version
+### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](/azure/spring-cloud).
+Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
 
 ## Automation
 
@@ -42,6 +43,14 @@ Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azur
 This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
 Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v2)](https://aka.ms/startstopv2docs).
+
+## Azure VMware
+
+### New HCX version is available for upgrade
+
+Your HCX version is not latest. New HCX version is available for upgrade. Updating a VMware HCX system installs the latest features, problem fixes, and security patches.
+
+Learn more about [AVS Private cloud - HCXVersion (New HCX version is available for upgrade)](https://aka.ms/vmware/hcxdoc).
 
 ## Batch
 
@@ -75,7 +84,21 @@ Your pool is using an image with an imminent expiration date. Please recreate th
 
 Learn more about [Batch account - EolImage (Recreate your pool with a new image)](https://aka.ms/batch_expiring_image_learn_more).
 
-## Cognitive Service
+## Cache for Redis
+
+### Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications
+
+Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. It's difficult to configure the network accurately and avoid affecting cache functionality. It's easy to break the cache accidentally while making configuration changes for other network resources. This is a common source of incidents affecting customer applications
+
+Learn more about [Redis Cache Server - PrivateLink (Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications)](https://aka.ms/VnetToPrivateLink).
+
+### TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.
+
+TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses. We highly recommend that you configure your cache to use TLS 1.2 only and your application should use TLS 1.2 or later. See https://aka.ms/TLSVersions for more information.
+
+Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.)](https://aka.ms/TLSVersions).
+
+## Cognitive Services
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
@@ -103,11 +126,11 @@ Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new
 
 Learn more about [Virtual machine - GetVmlistFortigateNtpIssue (Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.)](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-release-notes/236526/known-issues).
 
-### An Azure environment update has been rolled out that may affect you Checkpoint Firewall.
+### An Azure environment update has been rolled out that may affect your Checkpoint Firewall.
 
 The image version of the Checkpoint firewall installed may have been affected by the recent Azure environment update. A kernel panic resulting in a reboot to factory defaults can occur in certain circumstances.
 
-Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that may affect you Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
+Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that may affect your Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
 
 ### The iControl REST interface has an unauthenticated remote command execution vulnerability.
 
@@ -119,13 +142,13 @@ Learn more about [Virtual machine - GetF5vulnK03009991 (The iControl REST interf
 
 Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on this VM, but actual state for accelerated networking is not enabled.
 
-Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](/azure/virtual-network/create-vm-accelerated-networking-cli).
+Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-### Upgrade Citrix load balancers to avoid connectivity issues during NIC maintenance operations.
+### Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled may disconnect during maintenance operation
 
-We have identified that your Virtual Machine might be running a version of software image that is running drivers for Accelerated Networking (AN) that are not compatible with the Azure environment. It has a synthetic network interface which, either, is AN capable but may disconnect during a maintenance or NIC operation. It is recommended that you upgrade to the latest version of the image that addresses this issue. Please contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
+We have identified that you are running a Network virtual Appliance (NVA) called Citrix Application Delivery Controller (ADC), and the NVA has accelerated networking enabled. The Virtual machine that this NVA is deployed on may experience connectivity issues during a platform maintenance operation. It is recommended that you follow the article provided by the vendor: https://aka.ms/Citrix_CTX331516
 
-Learn more about [Virtual machine - GetCitrixVFRevokeError (Upgrade Citrix load balancers to avoid connectivity issues during NIC maintenance operations.)](https://www.citrix.com/support/).
+Learn more about [Virtual machine - GetCitrixVFRevokeError (Virtual machines with Citrix Application Delivery Controller (ADC) and accelerated networking enabled may disconnect during maintenance operation)](https://aka.ms/Citrix_CTX331516).
 
 ## Kubernetes
 
@@ -133,11 +156,11 @@ Learn more about [Virtual machine - GetCitrixVFRevokeError (Upgrade Citrix load 
 
 This cluster's service principal is expired and the cluster will not be healthy until the service principal is updated
 
-Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](/azure/aks/update-credentials).
+Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](../aks/update-credentials.md).
 
 ### Monitoring addon workspace is deleted
 
-Monitoring addon workspace is deleted. Correct issues to setup monitoring addon.
+Monitoring addon workspace is deleted. Correct issues to set up monitoring addon.
 
 Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](https://aka.ms/aks-disable-monitoring-addon).
 
@@ -157,7 +180,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -169,13 +192,13 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](/azure/aks/cluster-configuration#ephemeral-os).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
 
 ### Use Uptime SLA
 
 This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](/azure/aks/uptime-sla).
+Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -183,41 +206,49 @@ Deprecated Kubernetes API in 1.22 has been found. Avoid using deprecated APIs.
 
 Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn122IsFound (Deprecated Kubernetes API in 1.22 has been found)](https://aka.ms/aks-deprecated-k8s-api-1.22).
 
+## MySQL
+
+### Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols
+
+To support modern security standards, MySQL community edition discontinued the support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols. Microsoft will also stop supporting connection over TLSv1 and TLSv1.1 to Azure Database for MySQL - Flexible server soon to comply with the modern security standards. We recommend you upgrade your client driver to support TLSv1.2.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlTlsDeprecation (Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols)](https://aka.ms/encrypted_connection_deprecated_protocols).
+
 ## Desktop Virtualization
 
 ### Permissions missing for start VM on connect
 
-We have determined you have enabled start VM on connect but didn't gave the Azure Virtual Desktop the rights to power manage VMs in your subscription. As a result your users connecting to host pools won't receive a remote desktop session. Review feature documentation for requirements.
+We have determined you enabled start VM on connect but didn't grant the Azure Virtual Desktop the rights to power manage VMs in your subscription. As a result your users connecting to host pools won't receive a remote desktop session. Review feature documentation for requirements.
 
 Learn more about [Host Pool - AVDStartVMonConnect (Permissions missing for start VM on connect)](https://aka.ms/AVDStartVMRequirement).
 
 ### No validation environment enabled
 
-We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues.
+We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Azure Virtual Desktop service deployments with early detection of potential issues.
 
-Learn more about [Host Pool - ValidationEnvHostPools (No validation environment enabled)](/azure/virtual-desktop/create-validation-host-pool).
+Learn more about [Host Pool - ValidationEnvHostPools (No validation environment enabled)](../virtual-desktop/create-validation-host-pool.md).
 
 ### Not enough production environments enabled
 
-We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Windows Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
+We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Azure Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
 
-Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](/azure/virtual-desktop/create-host-pools-powershell).
+Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
-We noticed that your Azure Cosmos collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
+We noticed that your Azure Cosmos DB collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](/azure/cosmos-db/attachments#migrating-attachments-to-azure-blob-storage).
+Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](/azure/cosmos-db/continuous-backup-restore-introduction).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
-## Insights
+## Monitor
 
 ### Repair your log alert rule
 
@@ -237,7 +268,7 @@ Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disable
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](/azure/key-vault/managed-hsm/best-practices#backup).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#backup).
 
 ## Data Explorer
 
@@ -251,13 +282,13 @@ Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables
 
 ### Resolve Azure Key Vault issue for your Application Gateway
 
-We've detected that one or more of your Application Gateways has been misconfigured to obtain their listener certificate(s) from Key Vault, which may result in operational issues. You should fix this misconfiguration immediately to avoid operational issues for your Application Gateway.
+We've detected that one or more of your Application Gateways is unable to obtain a certificate due to misconfigured Key Vault. You should fix this configuration immediately to avoid operational issues with your gateway.
 
 Learn more about [Application gateway - AppGwAdvisorRecommendationForKeyVaultErrors (Resolve Azure Key Vault issue for your Application Gateway)](https://aka.ms/agkverror).
 
 ### Application Gateway does not have enough capacity to scale out
 
-We've detected that your Application Gateway subnet does not have enough capacity for allowing scale out during high traffic conditions, which can cause downtime.
+We've detected that your Application Gateway subnet does not have enough capacity for allowing scale-out during high traffic conditions, which can cause downtime.
 
 Learn more about [Application gateway - AppgwRestrictedSubnetSpace (Application Gateway does not have enough capacity to scale out)](https://aka.ms/application-gateway-faq).
 
@@ -295,43 +326,43 @@ Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releas
 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
-Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
+Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
 ### Enforce 'Add or replace a tag on resources' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task. Does not modify tags on resource groups.
 
-Learn more about [Subscription - AddTagPolicy (Enforce 'Add or replace a tag on resources' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AddTagPolicy (Enforce 'Add or replace a tag on resources' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed locations' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.
 
-Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locations' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locations' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Audit VMs that do not use managed disks' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy audits VMs that do not use managed disks.
 
-Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed virtual machine SKUs' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
 
-Learn more about [Subscription - AllowedVirtualMachineSkuPolicy (Enforce 'Allowed virtual machine SKUs' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AllowedVirtualMachineSkuPolicy (Enforce 'Allowed virtual machine SKUs' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Inherit a tag from the resource group' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
 
-Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](../governance/policy/overview.md).
 
 ### Use Azure Lighthouse to simply and securely manage customer subscriptions at scale
 
 Using Azure Lighthouse improves security and reduces unnecessary access to your customer tenants by enabling more granular permissions for your users. It also allows for greater scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
-Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure Lighthouse to simply and securely manage customer subscriptions at scale)](/azure/lighthouse/concepts/cloud-solution-provider).
+Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure Lighthouse to simply and securely manage customer subscriptions at scale)](../lighthouse/concepts/cloud-solution-provider.md).
 
 ## Web
 
@@ -339,8 +370,87 @@ Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure 
 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
-Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
+Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
+### Update Service Connector API Version
+
+We have identified API calls from outdated Service Connector API for resources under this subscription. We recommend switching to the latest Service Connector API version. You need to update your existing code or tools to use the latest API version.
+
+Learn more about [App service - UpgradeServiceConnectorAPI (Update Service Connector API Version)](/azure/service-connector).
+
+### Update Service Connector SDK to the latest version
+
+We have identified API calls from an outdated Service Connector SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+
+Learn more about [App service - UpgradeServiceConnectorSDK (Update Service Connector SDK to the latest version)](/azure/service-connector).
+
+## Azure Center for SAP
+
+### Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP
+
+Azure Center for SAP solutions recommendation: All VMs in SAP system should be certified for SAP.
+
+Learn more about [App Server Instance - VM_0001 (Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces
+
+Azure Center for SAP solutions recommendation: Ensure Accelerated networking is enabled on all interfaces.
+
+Learn more about [Database Instance - NIC_0001_DB (Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces
+
+Azure Center for SAP solutions recommendation: Ensure Accelerated networking is enabled on all interfaces.
+
+Learn more about [App Server Instance - NIC_0001 (Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces
+
+Azure Center for SAP solutions recommendation: Ensure Accelerated networking is enabled on all interfaces.
+
+Learn more about [Central Server Instance - NIC_0001_ASCS (Azure Center for SAP recommendation: Ensure Accelerated networking is enabled on all interfaces)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP
+
+Azure Center for SAP solutions recommendation: All VMs in SAP system should be certified for SAP.
+
+Learn more about [Central Server Instance - VM_0001_ASCS (Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP
+
+Azure Center for SAP solutions recommendation: All VMs in SAP system should be certified for SAP.
+
+Learn more about [Database Instance - VM_0001_DB (Azure Center for SAP recommendation: All VMs in SAP system should be certified for SAP)](https://launchpad.support.sap.com/#/notes/1928533).
+
+### Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET
+
+Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
+
+Learn more about [App Server Instance - AllVmsHaveSameVnetApp (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
+
+### Azure Center for SAP recommendation: Swap space on HANA systems should be 2GB
+
+Azure Center for SAP solutions recommendation: Swap space on HANA systems should be 2GB.
+
+Learn more about [Database Instance - SwapSpaceForSap (Azure Center for SAP recommendation: Swap space on HANA systems should be 2GB)](https://launchpad.support.sap.com/#/notes/1999997).
+
+### Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET
+
+Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
+
+Learn more about [Central Server Instance - AllVmsHaveSameVnetAscs (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
+
+### Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET
+
+Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
+
+Learn more about [Database Instance - AllVmsHaveSameVnetDb (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
+
+### Azure Center for SAP recommendation: Ensure network configuration is optimized for HANA and OS
+
+Azure Center for SAP  solutions recommendation: Ensure network configuration is optimized for HANA and OS.
+
+Learn more about [Database Instance - NetworkConfigForSap (Azure Center for SAP recommendation: Ensure network configuration is optimized for HANA and OS)](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Next steps
 

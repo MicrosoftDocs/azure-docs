@@ -3,10 +3,10 @@ title: Using alerts suppression rules to suppress false positives or other unwan
 description: This article explains how to use Microsoft Defender for Cloud's suppression rules to hide unwanted security alerts
 ms.date: 11/09/2021
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 # Suppress alerts from Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Defender for Cloud.
 
@@ -18,7 +18,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |Pricing:|Free<br>(Most security alerts are only available with [enhanced security features](enable-enhanced-security.md))|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 
 ## What are suppression rules?
@@ -45,7 +45,8 @@ There are a few ways you can create rules to suppress unwanted security alerts:
 - To suppress alerts at the management group level, use Azure Policy
 - To suppress alerts at the subscription level, you can use the Azure portal or the REST API as explained below
 
-Suppression rules can only dismiss alerts that have already been triggered on the selected subscriptions.
+> [!NOTE]
+> Suppression rules don't work retroactively - they'll only suppress alerts triggered _after_ the rule is created. Also, if a specific alert type has never been generated on a specific subscription, future alerts of that type won't be suppressed. For a rule to suppress an alert on a specific subscription, that alert type has to have been triggered at least once before the rule is created.
 
 To create a rule directly in the Azure portal:
 
@@ -114,7 +115,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For full details and usage examples, see the [API documentation](/rest/api/securitycenter/). 
+For full details and usage examples, see the [API documentation](/rest/api/defenderforcloud/). 
 
 
 ## Next steps

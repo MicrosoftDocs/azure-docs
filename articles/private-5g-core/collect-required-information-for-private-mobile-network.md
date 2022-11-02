@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
 titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,48 +12,73 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. You'll use this information to complete the steps in [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview.
+
+- You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+- Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
 
 ## Prerequisites
 
 You must have completed all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
-## Collect Mobile Network resource values
+## Collect mobile network resource values
 
-Collect all of the following values for the Mobile Network resource that will represent your private mobile network.
+Collect all of the following values for the mobile network resource that will represent your private mobile network.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to deploy the Mobile Network resource. You must use the same subscription for all resources in your private mobile network deployment. This is the subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
-   |The Azure resource group to use to deploy the Mobile Network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
+   |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
+   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
 
-## Collect SIM values
+## Collect SIM and SIM group values
 
-Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
+Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network. Each SIM must be a member of exactly one SIM group. If you only have a small number of SIMs, you may want to add them all to the same SIM group. Alternatively, you can create multiple SIM groups to sort your SIMs. For example, you could categorize your SIMs by their purpose (such as SIMs used by specific UE types like cameras or cellphones), or by their on-site location.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md).
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md). Likewise, if you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Manage SIM groups](manage-sim-groups.md).
 
-If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
+If you want to provision SIMs as part of deploying your private mobile network:
 
-- Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provision SIM resources through the Azure portal using a JSON file](#provision-sim-resources-through-the-azure-portal-using-a-json-file).
+1. Choose one of the following encryption types for the new SIM group to which all of the SIMs you provision will be added:  
+Note that once the SIM group is created, the encryption type cannot be changed.
+    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](/azure/security/fundamentals/encryption-atrest).
+    - Customer-managed keys (CMK) that you must manually configure.  
+    You must create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
+         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+         - The SIM group accesses the key via the user-assigned identity.
+         - For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
 
-You must then collect each of the values given in the following table for each SIM resource you want to provision.
+1. Collect each of the values given in the following table for the SIM group you want to provision.
 
- |Value  |Field name in Azure portal  | JSON file parameter name |
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|
+   |The region that the SIM group belongs to.|**Region**|
+   |The mobile network that the SIM group belongs to.|**Mobile network**|
+   |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|
+   |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|
+   |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|
+
+1. Choose one of the following methods for provisioning your SIMs:
+
+   - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a few SIMs.
+   - Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims). You'll need to use this option if you're deploying your private mobile network with an ARM template.
+
+1. Collect each of the values given in the following table for each SIM resource you want to provision.
+
+   |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
-   |The name for the SIM resource. This must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
-   |The Integrated Circuit Card Identification Number (ICCID). This identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. This is a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
-   |The international mobile subscriber identity (IMSI). This is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
-   |The Authentication Key (Ki). This is a unique 128-bit value assigned to the SIM by an operator, and is used in conjunction with the derived operator code (OPc) to authenticate a user. This must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
-   |The derived operator code (OPc). This is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
-   |The type of device that is using this SIM. This is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
+   |The name for the SIM resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
+   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
+   |The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
+   |The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. The Ki must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
+   |The derived operator code (OPc). The OPc is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
+   |The type of device that is using this SIM. This value is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
 
-### Provision SIM resources through the Azure portal using a JSON file
+### JSON file format for provisioning SIMs
 
 The following example shows the file format you'll need if you want to provision your SIM resources using a JSON file. It contains the parameters required to provision two SIMs (SIM1 and SIM2).
 
@@ -78,8 +103,21 @@ The following example shows the file format you'll need if you want to provision
 ]
 ```
 
+## Decide whether you want to use the default service and SIM policy
+
+ Azure Private 5G Core offers a default service and SIM policy that allow all traffic in both directions for all the SIMs you provision. They're designed to allow you to quickly deploy a private mobile network and bring SIMs into service automatically, without the need to design your own policy control configuration.
+
+- If you're using the ARM template in [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md), the default service and SIM policy are automatically included.
+
+- If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it.
+
+- If they aren't suitable, you can choose to deploy the private mobile network without any services or SIM policies. In this case, any SIMs you provision won't be brought into service when you create your private mobile network. You'll need to create your own services and SIM policies later.  
+
+For detailed information on services and SIM policies, see [Policy control](policy-control.md).
+
 ## Next steps
 
 You can now use the information you've collected to deploy your private mobile network.
 
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
+- [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md)

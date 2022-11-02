@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 
@@ -54,7 +54,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 
-- Configure **[outbound connectivity ](./load-balancer-outbound-connections.md)** for Azure virtual machines.
+- Configure **[outbound connectivity](./load-balancer-outbound-connections.md)** for Azure virtual machines.
 
 - Use **[health probes](./load-balancer-custom-probe-overview.md)** to monitor load-balanced resources.
 
@@ -94,6 +94,8 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer feature update
 
 ## Next steps
 
-See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
+* See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
 
-For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+* For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+
+* [Learn module: Introduction to Azure Load Balancer](/training/paths/intro-to-azure-application-delivery-services).

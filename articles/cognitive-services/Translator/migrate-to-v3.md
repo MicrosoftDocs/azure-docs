@@ -40,7 +40,7 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft Speech Service](../speech-service/language-support.md#text-to-speech)         |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](../speech-service/language-support.md)         |
 | `Speak`     | [Microsoft Speech Service](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |

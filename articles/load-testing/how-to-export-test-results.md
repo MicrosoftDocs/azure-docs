@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 03/31/2022
 ms.topic: how-to
 
 ---
@@ -14,12 +14,11 @@ ms.topic: how-to
 
 In this article, you'll learn how to download the test results from Azure Load Testing Preview in the Azure portal. You might use these results for reporting in third-party tools.
 
-The test results contain a comma-separated values (CSV) file with details of each application request. In addition, all files for running the Apache JMeter dashboard locally are included.
+The test results contain comma-separated values (CSV) file(s) with details of each application request. See [Apache JMeter CSV log format](https://jmeter.apache.org/usermanual/listeners.html#csvlogformat) and the [Apache JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) for details about the different fields.
 
-> [!NOTE]
-> The Apache JMeter dashboard generation is temporarily disabled. You can download the CSV files with the test results.
+You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-find-download-logs.md).
 
-:::image type="content" source="media/how-to-export-test-results/apache-jmeter-dashboard.png" alt-text="Screenshot that shows the downloaded test results on the Apache JMeter dashboard.":::
+You can generate the Apache JMeter dashboard from the CSV log file following the steps mentioned [here](https://jmeter.apache.org/usermanual/generating-dashboard.html#report).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -59,10 +58,10 @@ In this section, you'll retrieve and download the Azure Load Testing results fil
 
     :::image type="content" source="media/how-to-export-test-results/test-results-zip.png" alt-text="Screenshot that shows the test results zip file in the downloads list.":::  
 
-    The *testreport.csv* file contains the individual requests that the test engine executed during the load test. The Apache JMeter dashboard, which is also included in the zip file, uses this file for its graphs.
+    The folder contains a separate CSV file for every test engine and contains details of requests that the test engine executed during the load test.
 
 ## Next steps
 
+- Learn more about [Troubleshooting test execution errors](./how-to-find-download-logs.md).
 - For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

@@ -1,10 +1,10 @@
 ---
 title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos Studio with the Azure CLI
 description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure CLI
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: how-to
-ms.date: 11/11/2021
-ms.author: johnkem
+ms.date: 04/21/2022
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -19,7 +19,7 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster with Linux node pools. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with Linux node pools. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
 > [!WARNING]
 > AKS Chaos Mesh faults are only supported on Linux node pools.
@@ -30,7 +30,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]
 > These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
@@ -46,7 +46,7 @@ Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos 
    helm repo add chaos-mesh https://charts.chaos-mesh.org
    helm repo update
    kubectl create ns chaos-testing
-   helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --version 2.0.3 --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
+   helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
    ```
 
 2. Verify that the Chaos Mesh pods are installed by running the following command:

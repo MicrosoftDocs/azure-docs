@@ -1,10 +1,10 @@
 ---
 title: Built-in policy definitions for Azure Managed Applications
 description: Lists Azure Policy built-in policy definitions for Azure Managed Applications. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/08/2022
+ms.date: 09/12/2022
 ms.topic: reference
-author: tfitzmac
-ms.author: tomfitz
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Managed Applications

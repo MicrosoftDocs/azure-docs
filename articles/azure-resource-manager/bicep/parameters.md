@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 09/28/2022
 ---
 
 # Parameters in Bicep
@@ -15,9 +15,13 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-### Microsoft Learn
+You are limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters) on **Microsoft Learn**.
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
+
+### Training resources
+
+If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
 
 ## Declaration
 
@@ -79,7 +83,7 @@ The following table describes the available decorators and how to use them.
 | [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
-| metadata | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
+| [metadata](#metadata) | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
 | [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
 | [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
 | [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
@@ -147,7 +151,7 @@ param month int
 
 ### Description
 
-To help users understand the value to provide, add a description to the parameter. When deploying the template through the portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
+To help users understand the value to provide, add a description to the parameter. When a user deploys the template through the portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
 
 ```bicep
 @description('Must be at least Standard_A3 to support 2 NICs.')
@@ -172,6 +176,21 @@ When you hover your cursor over **storageAccountName** in VSCode, you see the fo
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
 Make sure the text is well-formatted Markdown. Otherwise the text won't be rendered correctly.
+
+### Metadata
+
+If you have custom properties that you want to apply to a parameter, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the parameter that doesn't make sense to add to the [description](#description).
+
+```bicep
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+param settings object
+```
 
 ## Use parameter
 

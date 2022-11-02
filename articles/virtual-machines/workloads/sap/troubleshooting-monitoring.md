@@ -3,15 +3,15 @@ title: Monitoring SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about monitoring SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: bburns
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2021
-ms.author: mamccrea
+ms.date: 10/19/2022
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017, contperf-fy21q4
 ---
 
@@ -65,9 +65,9 @@ When you work with the Microsoft Support team to troubleshoot an issue, you may 
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
 
-## Azure Monitor for SAP Solutions
+## Azure Monitor for SAP solutions
 
-You can use Azure Monitor for SAP Solutions to monitor all of the resources listed above and more. Azure Monitor for SAP Solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Monitor SAP on Azure](../../../virtual-machines/workloads/sap/monitor-sap-on-azure.md).
+You can use Azure Monitor for SAP solutions to monitor all of the resources listed above and more. Azure Monitor for SAP solutions is native to Azure. It allows you to collect data from Azure infrastructure and databases into a single location and visually correlate the data for faster troubleshooting. For more information, see [Monitor SAP on Azure](../../../virtual-machines/workloads/sap/monitor-sap-on-azure.md).
 
 ## Next steps
 

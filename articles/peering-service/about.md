@@ -1,17 +1,16 @@
 ---
 title: Azure Peering Service overview
-description: Learn about Azure Peering Service overview
+description: Learn about Azure Peering Service
 services: peering-service
-author: derekolo
+author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/18/2020
-ms.author: derekol
+ms.date: 06/30/2022
+ms.author: halkazwini
 ---
 
-# Azure Peering Service Overview
+# Azure Peering Service overview
 
 Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
@@ -28,19 +27,17 @@ For instructions on how to register Peering Service, see [Register Peering Servi
 > [!NOTE]
 > This article is intended for network architects in charge of enterprise connectivity to the cloud and to the internet.
 
-
 ## What is Peering Service?
 
 Peering Service is:
 
 - An IP service that uses the public internet. 
-- A collaboration platform with service providers and a value-added service that's intended to offer optimal and reliable routing to the customer via service provider partners to the Microsoft cloud over the public network.
+- A collaboration platform with service providers and a value-added service that's intended to offer optimal and reliable routing via service provider partners to the Microsoft cloud over the public network.
 
 Peering Service is not a private connectivity product like Azure ExpressRoute or a VPN product.
 
 > [!NOTE]
-> For more information about ExpressRoute, see [ExpressRoute documentation](../expressroute/index.yml).
->
+> For more information about ExpressRoute, see [ExpressRoute documentation](../expressroute/expressroute-introduction.md).
 
 ## Background
 
@@ -62,7 +59,7 @@ Enterprises looking for internet-first access to the cloud or considering SD-WAN
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
-- Route analytics and statistics: Events for ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak or hijack detection) and suboptimal routing.
+- Route analytics and statistics: Events for BGP route anomalies (leak or hijack detection) and suboptimal routing.
 
 ### Robust, reliable peering
 

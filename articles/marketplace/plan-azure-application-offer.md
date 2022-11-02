@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 08/18/2022
 ---
 
 # Tutorial: Plan an Azure Application offer
@@ -39,6 +39,8 @@ Review the following resources as you plan your Azure application offer for the 
     - [Azure CLI](../azure-resource-manager/managed-applications/cli-samples.md)
     - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
     - [Managed application solutions](../azure-resource-manager/managed-applications/sample-projects.md)
+- Testing resources
+    - [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace)
 
 The video [Building Solution Templates, and Managed Applications for Azure Marketplace](/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
@@ -83,9 +85,9 @@ You can also read about [test drive best practices](https://github.com/Azure/Azu
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Categories and subcategories
 
@@ -134,12 +136,12 @@ The following screenshot shows how offer information appears in the Azure portal
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 200 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence, in plain text with no line breaks, in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
 - **Short description**: Provide up to 256 characters of plain text. This summary will appear on your offer's details page.
 - **Description**: This description will be displayed in the Azure Marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, customer need or pain that the offer addresses, any required disclosures, and a link to learn more.
 
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description) and [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, which includes HTML markup and spaces. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description) and [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online store. For best results, also use these keywords in your description. You don't need to include the offer **Name** and **Description**. That text is automatically included in search.
 - **Privacy policy link**: The URL for your company's privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
@@ -229,3 +231,9 @@ There are two kinds of Azure application plans: _solution template_ and _managed
 
 - To plan a solution template, see [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
 - To plan an Azure managed application, see [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).
+
+**Video tutorials and hands-on labs**
+
+- [Mastering Azure Managed Application offers](https://go.microsoft.com/fwlink/?linkid=2201395)
+- [Metered Billing for Azure Managed Applications – Demo](https://go.microsoft.com/fwlink/?linkid=2196412)
+- [Azure Managed Application Deployment Package Overview](https://go.microsoft.com/fwlink/?linkid=2196244)

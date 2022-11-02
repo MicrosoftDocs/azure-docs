@@ -1,23 +1,26 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
+description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
 author: dlepow
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 04/28/2022
 ms.service: api-management
 ms.author: danlep
 ---
 
 # API Management advanced policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for advanced API Management policies, such as those that are based on policy expressions. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## <a name="AdvancedPolicies"></a> Advanced policies
 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+-   [Include fragment](#IncludeFragment) - Inserts a policy fragment in the policy definition.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
--   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
+-   [Log to event hub](#log-to-eventhub) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
@@ -35,6 +38,8 @@ This topic provides a reference for the following API Management policies. For i
 
 The `choose` policy applies enclosed policy statements based on the outcome of evaluation of Boolean expressions, similar to an if-then-else or a switch construct in a programming language.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### <a name="ChoosePolicyStatement"></a> Policy statement
 
 ```xml
@@ -47,7 +52,7 @@ The `choose` policy applies enclosed policy statements based on the outcome of e
     </when>
     <otherwise>
         <!— one or more policy statements to be applied if none of the above conditions are true  -->
-</otherwise>
+    </otherwise>
 </choose>
 ```
 
@@ -140,8 +145,11 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
-> [!NOTE]
-> Removing this policy results in the request not being forwarded to the backend service and the policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
+> [!IMPORTANT]
+> * This policy is required to forward requests to an API backend. By default, API Management sets up this policy at the global scope.
+> * Removing this policy results in the request not being forwarded to the backend service. Policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -193,7 +201,7 @@ This operation level policy uses the `base` element to inherit the backend polic
 
 #### Example
 
-This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with a error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
+This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with an error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
 
 ```xml
 <!-- operation level -->
@@ -242,11 +250,11 @@ This operation level policy does not forward requests to the backend service.
 
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None    |
+| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | 300    |
 | follow-redirects="false &#124; true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
-| buffer-request-body="false &#124; true"       | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
-| buffer-response="false &#124; true" | Affects processing of chunked responses. When set to "false", each chunk received from the backend is immediately returned to the caller. When set to "true", chunks are buffered (8KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to "false" with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. | No | true |
-| fail-on-error-status-code="false &#124; true" | When set to true triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
+| buffer-request-body="false &#124; true"       | When set to "true", request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| buffer-response="false &#124; true" | Affects processing of chunked responses. When set to "false", each chunk received from the backend is immediately returned to the caller. When set to "true", chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to "false" with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. | No | true |
+| fail-on-error-status-code="false &#124; true" | When set to true, triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### Usage
 
@@ -255,9 +263,55 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** backend
 -   **Policy scopes:** all scopes
 
+## <a name="IncludeFragment"></a> Include fragment
+
+The `include-fragment` policy inserts the contents of a previously created [policy fragment](policy-fragments.md) in the policy definition. A policy fragment is a centrally managed, reusable XML policy snippet that can be included in policy definitions in your API Management instance.
+
+The policy inserts the policy fragment as-is at the location you select in the policy definition.  
+
+### Policy statement
+
+```xml
+<include-fragment fragment-id="fragment" />
+```
+
+### Example
+
+In the following example, the policy fragment named *myFragment* is added in the inbound section of a policy definition.
+
+```xml
+<inbound>
+    <include-fragment fragment-id="myFragment" />
+    <base />
+</inbound>
+[...]
+```
+
+### Elements
+
+| Element           | Description   | Required |
+| ----------------- | ------------- | -------- |
+| include-fragment | Root element. | Yes      |
+
+### Attributes
+
+| Attribute | Description                                                                                        | Required | Default |
+| --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
+| fragment-id       | A string. Expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
+-   **Policy scopes:** all scopes
+
 ## <a name="LimitConcurrency"></a> Limit concurrency
 
-The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. When that number is exceeded, new requests will fail immediately with the `429` Too Many Requests status code.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### <a name="LimitConcurrencyStatement"></a> Policy statement
 
@@ -267,9 +321,7 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 </limit-concurrency>
 ```
 
-### Examples
-
-#### Example
+### Example
 
 The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
 
@@ -306,12 +358,16 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** all scopes
 
-## <a name="log-to-eventhub"></a> Log to Event Hub
+## <a name="log-to-eventhub"></a> Log to event hub
 
-The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
+The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
+The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
 > [!NOTE]
 > For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -367,6 +423,8 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 > [!NOTE]
 > * Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
 > * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -438,6 +496,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `mock-response`, as the name implies, is used to mock APIs and operations. It aborts normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, whenever available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -482,6 +543,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -500,7 +564,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ### Example
 
-In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.
+In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
 
 ```xml
 
@@ -512,6 +576,29 @@ In the following example, request forwarding is retried up to ten times using an
     delta="10"
     first-fast-retry="false">
         <forward-request buffer-request-body="true" />
+</retry>
+
+```
+
+### Example
+
+In the following example, sending a request to a URL other than the defined backend is retried up to three times if the connection is dropped/timed out, or the request results in a server-side error. Since `first-fast-retry` is set to true, the first retry is executed immediately upon the initial request failure. Note that `send-request` must set `ignore-error` to true in order for `response-variable-name` to be null in the event of an error.
+
+```xml
+
+<retry
+    condition="@(context.Variables["response"] == null || ((IResponse)context.Variables["response"]).StatusCode >= 500)"
+    count="3"
+    interval="1"
+    first-fast-retry="true">
+        <send-request 
+            mode="new" 
+            response-variable-name="response" 
+            timeout="3" 
+            ignore-error="true">
+		        <set-url>https://api.contoso.com/products/5</set-url>
+		        <set-method>GET</set-method>
+		</send-request>
 </retry>
 
 ```
@@ -533,14 +620,17 @@ In the following example, request forwarding is retried up to ten times using an
 | delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
 | first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
 
-> [!NOTE]
-> When only the `interval` is specified, **fixed** interval retries are performed.
-> When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used, where wait time between retries is calculated according the following formula - `interval + (count - 1)*delta`.
-> When the `interval`, `max-interval` and `delta` are specified, **exponential** interval retry algorithm is applied, where the wait time between the retries is growing exponentially from the value of `interval` to the value `max-interval` according to the following formula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+#### Retry wait times
+
+* When only the `interval` is specified, **fixed** interval retries are performed.
+* When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+
+    For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 
 ### Usage
 
-This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes) . Note that child policy usage restrictions will be inherited by this policy.
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes). Child policy usage restrictions will be inherited by this policy.
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -549,6 +639,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="ReturnResponse"></a> Return response
 
 The `return-response` policy aborts pipeline execution and returns either a default or custom response to the caller. Default response is `200 OK` with no body. Custom response can be specified via a context variable or policy statements. When both are provided, the response contained within the context variable is modified by the policy statements before being returned to the caller.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -600,11 +693,14 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `send-one-way-request` policy sends the provided request to the specified URL without waiting for a response.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
 <send-one-way-request mode="new | copy">
-  <url>...</url>
+  <set-url>...</set-url>
   <method>...</method>
   <header name="" exists-action="override | skip | append | delete">...</header>
   <body>...</body>
@@ -621,7 +717,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
       <send-one-way-request mode="new">
-        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
                 return new JObject(
@@ -648,7 +744,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 | Element                    | Description                                                                                                 | Required                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Root element.                                                                                               | Yes                             |
-| url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
+| set-url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
 | method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
 | header                     | Request header. Use multiple header elements for multiple request headers.                                  | No                              |
 | body                       | The request body.                                                                                           | No                              |
@@ -673,6 +769,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="SendRequest"></a> Send request
 
 The `send-request` policy sends the provided request to the specified URL, waiting no longer than the set timeout value.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -759,7 +858,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetHttpProxy"></a> Set HTTP proxy
 
-The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
+The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. To route the send-request via HTTP proxy, you must place the set HTTP proxy policy inside the send-request policy block.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -802,6 +904,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="SetRequestMethod"></a> Set request method
 
 The `set-method` policy allows you to change the HTTP request method for a request.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -858,6 +963,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `set-status` policy sets the HTTP status code to the specified value.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -900,12 +1008,15 @@ This example shows how to return a 401 response if the authorization token is in
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
--   **Policy sections:** outbound, backend, on-error
+-   **Policy sections:** inbound, outbound, backend, on-error
 -   **Policy scopes:** all scopes
 
 ## <a name="set-variable"></a> Set variable
 
 The `set-variable` policy declares a [context](api-management-policy-expressions.md#ContextVariables) variable and assigns it a value specified via an [expression](api-management-policy-expressions.md) or a string literal. if the expression contains a literal it will be converted to a string and the type of the value will be `System.String`.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### <a name="set-variablePolicyStatement"></a> Policy statement
 
@@ -984,6 +1095,10 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
 -   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
+-   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -1034,6 +1149,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `wait` policy executes its immediate child policies in parallel, and waits for either all or one of its immediate child policies to complete before it completes. The wait policy can have as its immediate child policies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), and [Control flow](api-management-advanced-policies.md#choose) policies.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -1046,7 +1164,7 @@ The `wait` policy executes its immediate child policies in parallel, and waits f
 
 ### Example
 
-In the following example there are two `choose` policies as immediate child policies of the `wait` policy. Each of these `choose` policies executes in parallel. Each `choose` policy attempts to retrieve a cached value. If there is a cache miss, a backend service is called to provide the value. In this example the `wait` policy does not complete until all of its immediate child policies complete, because the `for` attribute is set to `all`. In this example the context variables (`execute-branch-one`, `value-one`, `execute-branch-two`, and `value-two`) are declared outside of the scope of this example policy.
+In the following example, there are two `choose` policies as immediate child policies of the `wait` policy. Each of these `choose` policies executes in parallel. Each `choose` policy attempts to retrieve a cached value. If there is a cache miss, a backend service is called to provide the value. In this example the `wait` policy does not complete until all of its immediate child policies complete, because the `for` attribute is set to `all`. In this example the context variables (`execute-branch-one`, `value-one`, `execute-branch-two`, and `value-two`) are declared outside of the scope of this example policy.
 
 ```xml
 <wait for="all">
@@ -1099,11 +1217,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound, outbound, backend
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Policy expressions](api-management-policy-expressions.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

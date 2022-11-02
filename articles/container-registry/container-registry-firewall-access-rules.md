@@ -2,7 +2,9 @@
 title: Firewall access rules
 description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to REST API and data endpoint domain names or service-specific IP address ranges.
 ms.topic: article
-ms.date: 05/18/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Configure rules to access an Azure container registry behind a firewall
@@ -28,6 +30,15 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 > [!NOTE]
 > Azure Container Registry is introducing [dedicated data endpoints](#enable-dedicated-data-endpoints), allowing you to tightly scope client firewall rules for your registry storage. Optionally enable data endpoints in all regions where the registry is located or replicated, using the form `<registry-name>.<region>.data.azurecr.io`.
 
+ ## About Registry FQDN's
+
+Registry has two FQDN's, the **login url** and the **data endpoint**.
+
+* Both the **login url** and the **data endpoint** are accessible from within the virtual network, using private IP's by enabling a private link.
+* A registry that does not use data endpoints would have to access the data from an endpoint of the form `*.blob.core.windows.net` and does not provide the isolation required when configuring firewall rules. 
+* A registry with a private link enabled gets the dedicated data endpoint automatically.
+* A dedicated data endpoint is created per region for a registry.
+* Login url remains the same irrespective of whether data endpoint is enabled or disabled.
 ## Allow access by IP address range
 
 If your organization has policies to allow access only to specific IP addresses or address ranges, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).

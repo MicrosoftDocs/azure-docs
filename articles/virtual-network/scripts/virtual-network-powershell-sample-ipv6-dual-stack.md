@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Configure IPv6 endpoints in virtual network with an Azure PowerShell script and find links to command-specific documentation to help with the PowerShell sample.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -27,6 +27,7 @@ This tutorial describes the steps you need to perform in both Gong and Azure Act
 > * Create users in Gong.
 > * Remove users in Gong when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Gong.
+> * Provision groups and group memberships in Gong.
 
 ## Prerequisites
 
@@ -34,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A user account in Gong with **Technical Administrator** privileges.
+* A user account in Gong with **Technical Administrator** privilege.
 
 
 ## Step 1. Plan your provisioning deployment
@@ -81,9 +82,9 @@ Add Gong from the Azure AD application gallery to start managing provisioning to
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Gong, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Gong 
@@ -108,9 +109,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Taskize Connect account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Taskize Connect. If the connection fails, ensure your Taskize Connect account has Admin permissions and try again.
+1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Gong account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Gong. If the connection fails, ensure your Gong account has Admin permissions and try again.
 
    ![Token](media/gong-provisioning-tutorial/gong-authorize.png)
+   
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
@@ -121,13 +123,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Review the user attributes that are synchronized from Azure AD to Gong in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Gong for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Gong API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Gong|
-   |---|---|---|---|
+    |Attribute|Type|Supported for filtering|Required by Gong|
+    |---|---|---|---|
     |userName|String|&check;|&check;
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|| 
     |active|Boolean||
     |title|String|| 
-    |emails[type eq "work"].value|String||  
+    |emails[type eq "work"].value|String||&check; 
     |name.givenName|String||&check;
     |name.familyName|String||&check;
     |phoneNumbers[type eq "work"].value|String||
@@ -135,7 +137,16 @@ This section guides you through the steps to configure the Azure AD provisioning
     |locale|String|| 
     |timezone|String||
     |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:stateOrProvince|String|| 
-    |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:country|String||      
+    |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:country|String||
+          
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Gong**.
+
+1. Review the group attributes that are synchronized from Azure AD to Gong in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Gong for update operations. Select the **Save** button to commit any changes.
+
+    |Attribute|Type|Supported for filtering|Required by Gong|
+    |---|---|---|---|
+    |displayName|String|&check;|&check;
+    |members|Reference||
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,6 +171,9 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Change Log
+* 03/23/2022 - Added support for **Group Provisioning**.
+* 04/21/2022 - **emails[type eq "work"].value** has been marked as required attribute.
 
 ## More resources
 

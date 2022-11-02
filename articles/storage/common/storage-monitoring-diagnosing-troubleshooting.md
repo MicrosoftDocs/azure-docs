@@ -1,72 +1,17 @@
 ---
-title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
+title: Monitor and troubleshoot Azure Storage (classic logs & metrics) | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/08/2020
+ms.date: 05/23/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: "monitoring, devx-track-csharp"
 ---
 
-# Monitor, diagnose, and troubleshoot Microsoft Azure Storage
-
-[!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
-
-## Overview
-
-Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these environments. Typically, your application's network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
-
-To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
-
-- [Introduction]
-  - [How this guide is organized]
-- [Monitoring your storage service]
-  - [Monitoring service health]
-  - [Monitoring capacity]
-  - [Monitoring availability]
-  - [Monitoring performance]
-- [Diagnosing storage issues]
-  - [Service health issues]
-  - [Performance issues]
-  - [Diagnosing errors]
-  - [Storage emulator issues]
-  - [Storage logging tools]
-  - [Using network logging tools]
-- [End-to-end tracing]
-  - [Correlating log data]
-  - [Client request ID]
-  - [Server request ID]
-  - [Timestamps]
-- [Troubleshooting guidance]
-  - [Metrics show high AverageE2ELatency and low AverageServerLatency]
-  - [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
-  - [Metrics show high AverageServerLatency]
-  - [You are experiencing unexpected delays in message delivery on a queue]
-  - [Metrics show an increase in PercentThrottlingError]
-  - [Metrics show an increase in PercentTimeoutError]
-  - [Metrics show an increase in PercentNetworkError]
-  - [The client is receiving HTTP 403 (Forbidden) messages]
-  - [The client is receiving HTTP 404 (Not found) messages]
-  - [The client is receiving HTTP 409 (Conflict) messages]
-  - [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
-  - [Capacity metrics show an unexpected increase in storage capacity usage]
-  - [Your issue arises from using the storage emulator for development or test]
-  - [You are encountering problems installing the Azure SDK for .NET]
-  - [You have a different issue with a storage service]
-  - [Troubleshooting VHDs on Windows virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-  - [Troubleshooting VHDs on Linux virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-  - [Troubleshooting Azure Files issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-  - [Troubleshooting Azure Files issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
-- [Appendices]
-  - [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
-  - [Appendix 2: Using Wireshark to capture network traffic]
-  - [Appendix 4: Using Excel to view metrics and log data]
-  - [Appendix 5: Monitoring with Application Insights for Azure DevOps]
-
-## <a name="introduction"></a>Introduction
+# Monitor, diagnose, and troubleshoot Microsoft Azure Storage (classic)
 
 This guide shows you how to use features such as Azure Storage Analytics, client-side logging in the Azure Storage Client Library, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage related issues.
 
@@ -77,6 +22,20 @@ This guide is intended to be read primarily by developers of online services tha
 - To help you maintain the health and performance of your Azure Storage accounts.
 - To provide you with the necessary processes and tools to help you decide whether an issue or problem in an application relates to Azure Storage.
 - To provide you with actionable guidance for resolving problems related to Azure Storage.
+
+> [!NOTE]
+> This article is based on using Storage Analytics metrics and logs as referred to as *Classic metrics and logs*. We recommend that you use Azure Storage metrics and logs in Azure Monitor instead of Storage Analytics logs. To learn more, see any of the following articles:
+>
+> - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+> - [Monitoring Azure Files](../files/storage-files-monitoring.md)
+> - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+> - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
+
+## Overview
+
+Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these environments. Typically, your application's network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
+
+To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 ### <a name="how-this-guide-is-organized"></a>How this guide is organized
 
@@ -120,7 +79,7 @@ The remainder of this section describes what metrics you should monitor and why.
 You can use the [Azure portal](https://portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. Monitoring enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The [Azure portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
-Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://status.azure.com).
+Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://azure.status.microsoft).
 For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity

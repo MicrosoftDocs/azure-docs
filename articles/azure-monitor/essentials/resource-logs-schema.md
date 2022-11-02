@@ -3,14 +3,15 @@ title: Azure resource logs supported services and schemas
 description: Understand the supported services and event schemas for Azure resource logs.
 ms.topic: reference
 ms.date: 05/10/2021
+ms.reviewer: lualderm
 ---
 
 # Common and service-specific schemas for Azure resource logs
 
 > [!NOTE]
-> Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource. 
+> Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 >
-> This article used to list resource log categories that you can collect. That list is now at [Resource log categories](resource-logs-categories.md). 
+> This article used to list resource log categories that you can collect. That list is now at [Resource log categories](resource-logs-categories.md).
 
 [Azure Monitor resource logs](../essentials/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema. Each service has the flexibility to emit unique properties for its own events.
 
@@ -74,20 +75,23 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
+| Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
 | Azure Kubernetes Service |[Azure Kubernetes Service logging](../../aks/monitor-aks-reference.md#resource-logs) |
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
+| Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |
 | Azure Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
-| Azure Media Services | [Media Services monitoring schemas](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
+| Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |
 | Network security groups |[Log Analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Azure Power BI Embedded | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Azure Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Azure SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| Azure SQL Database | [Azure SQL Database logging](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure) |
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
 | Azure Virtual Network | Schema not available |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|
 

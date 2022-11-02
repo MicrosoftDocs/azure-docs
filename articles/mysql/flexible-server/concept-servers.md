@@ -1,11 +1,13 @@
 ---
 title: Server concepts - Azure Database for MySQL Flexible Server
 description: This topic provides considerations and guidelines for working with Azure Database for MySQL Flexible Server
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Server concepts in Azure Database for MySQL Flexible Server
@@ -40,7 +42,7 @@ Within an Azure Database for MySQL Flexible Server, you can create one or multip
 
 Azure Database for MySQL Flexible Server gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](how-to-stop-start-server-portal.md) or CLI.
 
-When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
+When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to be billed as the server's storage remains to ensure that data files are available when the server is started again.
 
 > [!IMPORTANT]
 > When you **Stop** the server it remains in that state for the next 30 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 30 days. You can chose to **Stop** it again if you are not using the server.
@@ -65,4 +67,3 @@ You can manage the creation, deletion, server parameter configuration (my.cnf), 
 
 -   Learn about [Create Server](./quickstart-create-server-portal.md)
 -   Learn about [Monitoring and Alerts](./how-to-alert-on-metric.md)
-

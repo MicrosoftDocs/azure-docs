@@ -1,10 +1,10 @@
 ---
 title: Save and share customized views
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how to save and share a customized view with others.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2021
+ms.date: 03/22/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -34,6 +34,8 @@ You can also pin the current view to an Azure portal dashboard. This only includ
     :::image type="content" source="./media/save-share-views/save-box.png" alt-text="Screen shot showing Save box where you enter a name to save." lightbox="./media/save-share-views/save-box.png" :::
 1. After you save a view, it's available to select from the **View** menu.  
      :::image type="content" source="./media/save-share-views/view-list.png" alt-text="Screen shot showing the View list." lightbox="./media/save-share-views/view-list.png" :::
+     
+You can save up to 100 private views across all scopes for yourself and up to 100 shared views per scope that anyone with Cost Management Reader or greater access can use.
 
 ### To share a view
 

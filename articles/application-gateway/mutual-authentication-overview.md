@@ -2,23 +2,23 @@
 title: Overview of mutual authentication on Azure Application Gateway
 description: This article is an overview of mutual authentication on Application Gateway.
 services: application-gateway
-author: mscatyao
+author: greg-lindsay
 ms.service: application-gateway
 ms.date: 03/30/2021
 ms.topic: conceptual 
-ms.author: caya
+ms.author: greglin
 
 ---
 # Overview of mutual authentication with Application Gateway
 
-Mutual authentication, or client authentication, allows for the Application Gateway to authenticate the client sending requests. Usually only the client is authenticating the Application Gateway; mutual authentication allows for both the client and the Application Gateway to authenticate each other. 
+Mutual authentication, or client authentication, allows for the Application Gateway to authenticate the client sending requests. Usually, only the client is authenticating the Application Gateway; mutual authentication allows for both the client and the Application Gateway to authenticate each other. 
 
 > [!NOTE]
 > We recommend using TLS 1.2 with mutual authentication as TLS 1.2 will be mandated in the future. 
 
 ## Mutual authentication
 
-Application Gateway supports certificate based mutual authentication where you can upload a trusted client CA certificate(s) to the Application Gateway and the gateway will use that certificate to authenticate the client sending a request to the gateway. With the rise in IoT use cases and increased security requirements across industries, mutual authentication provides a way for you to manage and control which clients can talk to your Application Gateway. 
+Application Gateway supports certificate-based mutual authentication where you can upload a trusted client CA certificate(s) to the Application Gateway, and the gateway will use that certificate to authenticate the client sending a request to the gateway. With the rise in IoT use cases and increased security requirements across industries, mutual authentication provides a way for you to manage and control which clients can talk to your Application Gateway. 
 
 To configure mutual authentication, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile will then need to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. 
 
@@ -33,15 +33,18 @@ If you're uploading a certificate chain with root CA and intermediate CA certifi
 
 Application Gateway supports the following types of certificates:
 
-- CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA)
-- Self-signed CA certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed CA certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed CA certificates.
+- CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA).
+- Self-signed CA certificates: Client browsers do not trust these certificates and will warn the user that the virtual service's certificate is not part of a trust chain. Self-signed CA certificates are good for testing or in environments where administrators control the clients and can safely bypass the browser's security alerts.  
+
+> [!IMPORTANT]
+> Production workloads should never use self-signed CA certificates.
 
 For more information on how to set up mutual authentication, see [configure mutual authentication with Application Gateway](./mutual-authentication-portal.md).
 
 > [!IMPORTANT]
 > Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
 
-Each SSL profile can support up to 5 trusted client CA certificate chains. 
+Each SSL profile can support up to five trusted client CA certificate chains. 
 
 ## Additional client authentication validation
 
@@ -49,7 +52,7 @@ Each SSL profile can support up to 5 trusted client CA certificate chains.
 
 You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This options is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
 
-If you choose to enable the Application Gateway to verify the client certificate's immediate issuer, here's how to determine what the client certificate issuer DN will be extracted from the certificates uploaded. 
+If you choose to enable the Application Gateway to verify the client certificate's immediate issuer, here's how to determine what client certificate issuer DN will be extracted from the certificates uploaded. 
 * **Scenario 1:** Certificate chain includes: root certificate - intermediate certificate - leaf certificate 
     * *Intermediate certificate's* subject name is what Application Gateway will extract as the client certificate issuer DN and will be verified against. 
 * **Scenario 2:** Certificate chain includes: root certificate - intermediate1 certificate - intermediate2 certificate - leaf certificate

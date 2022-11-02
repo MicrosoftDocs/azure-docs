@@ -42,12 +42,12 @@ To meet the certification requirements, your device must:
 
 ## Test with the Azure IoT Extension CLI
 
-The [Azure IoT CLI extension](/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
+The [Azure IoT CLI extension](/cli/azure/iot/product?view=azure-cli-latest&preserve-view=true) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
 
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
 ### Install the Azure IoT extension for the Azure CLI
-Install the [Azure CLI](/cli/azure/install-azure-cli) and review the installation instructions to set up the [Azure CLI](/cli/azure/iot?view=azure-cli-latest) in your environment.
+Install the [Azure CLI](/cli/azure/install-azure-cli) and review the installation instructions to set up the [Azure CLI](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) in your environment.
 
 To install the Azure IoT Extension, run the following command:
 
@@ -55,7 +55,7 @@ To install the Azure IoT Extension, run the following command:
 az extension add --name azure-iot
 ```
 
-To learn more, see [Azure CLI for Azure IoT](https://docs.microsoft.com/cli/azure/iot/product?view=azure-cli-latest).
+To learn more, see [Azure CLI for Azure IoT](/cli/azure/iot/product?view=azure-cli-latest&preserve-view=true).
 
 ### Create a new product test
 

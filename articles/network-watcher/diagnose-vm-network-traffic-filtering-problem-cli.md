@@ -13,7 +13,7 @@ ms.service: network-watcher
 ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 01/07/2021
+ms.date: 05/04/2022
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli, mode-api
 #Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -21,7 +21,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI
 
-In this quickstart you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
+In this quickstart, you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ To test network communication with Network Watcher, you must first enable a netw
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) command to create a network watcher in the EastUS region:
+If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -68,7 +68,7 @@ az network watcher configure \
 
 ### Use IP flow verify
 
-When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow) command.
+When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command.
 
 Test outbound communication from the VM to one of the IP addresses for www.bing.com:
 
@@ -84,7 +84,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-After several seconds, the result returned informs you that access is allowed by a security rule named **AllowInternetOutbound**.
+After several seconds, the result returned informs you that access is allowed by a security rule named **DenyAllOutBound**.
 
 Test outbound communication from the VM to 172.31.0.100:
 
@@ -100,7 +100,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-The result returned informs you that access is denied by a security rule named **DefaultOutboundDenyAll**.
+The result returned informs you that access is denied by a security rule named **DenyAllOutBound**.
 
 Test inbound communication to the VM from 172.31.0.100:
 
@@ -116,11 +116,11 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**. Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
+The result returned informs you that access is denied because of a security rule named **DenyAllInBound**. Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
 
 ## View details of a security rule
 
-To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg) command:
+To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -169,7 +169,7 @@ The returned output includes the following text for the **AllowInternetOutbound*
 
 You can see in the previous output that **destinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200 relates to **Internet** though. You see several address prefixes listed under **expandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the previous output that override this rule. To deny outbound communication to an IP address, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
-When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
+When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllOutBound** rule denied the communication. The **DenyAllOutBound** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
 ```console
 {
@@ -200,9 +200,9 @@ When you ran the `az network watcher test-ip-flow` command to test outbound comm
 }
 ```
 
-The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the `az network nic list-effective-nsg` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
+The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100 because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the `az network nic list-effective-nsg` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
+When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
 ```console
 {
@@ -235,7 +235,7 @@ When you ran the `az network watcher test-ip-flow` command in [Use IP flow verif
 
 The **DenyAllInBound** rule is applied because, as shown in the output, no other higher priority rule exists in the output from the `az network nic list-effective-nsg` command that allows port 80 inbound to the VM from 172.131.0.100. To allow the inbound communication, you could add a security rule with a higher priority that allows port 80 inbound from 172.131.0.100.
 
-The checks in this quickstart tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
+The checks in this quickstart tested Azure configuration. If the checks return the expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 
 ## Clean up resources
 

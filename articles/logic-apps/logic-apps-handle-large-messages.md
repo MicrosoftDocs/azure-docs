@@ -4,10 +4,12 @@ description: Handle large messages using chunking in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/01/2022
 ---
 
 # Handle large messages in workflows using chunking in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure Logic Apps has different maximum limits on the message content size that triggers and actions can handle in logic app workflows, based on the logic app resource type and the environment where that logic app workflow runs. These limits help reduce any overhead that results from storing and processing [large messages](#what-is-large-message). For more information about message size limits, review [Message limits in Azure Logic Apps](logic-apps-limits-and-config.md#messages).
 
@@ -216,12 +218,10 @@ Your logic app can then send an initial POST or PUT message to the target endpoi
 After the endpoint responds with a suggested chunk size, your logic app follows 
 up by sending HTTP PATCH requests that contain the content chunks.
 
-These steps describe the detailed process Logic Apps uses for uploading 
+The following steps describe the detailed process Logic Apps uses for uploading 
 chunked content from your logic app to an endpoint:
 
-1. Your logic app sends an initial HTTP POST or PUT request 
-with an empty message body. The request header, 
-includes this information about the content that your logic app wants to upload in chunks:
+1. Your logic app sends an initial HTTP POST or PUT request with an empty message body. The request header, includes the following information about the content that your logic app wants to upload in chunks:
 
    | Logic Apps request header field | Value | Type | Description |
    |---------------------------------|-------|------|-------------|
@@ -229,20 +229,19 @@ includes this information about the content that your logic app wants to upload 
    | **x-ms-content-length** | <*content-length*> | Integer | The entire content size in bytes before chunking |
    ||||
 
-2. The endpoint responds with "200" success status code and this optional information:
+1. The endpoint responds with "200" success status code and the following information:
 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
    | **Location** | String | Yes | The URL location where to send the HTTP PATCH messages |
+   | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
    ||||
 
-3. Your logic app creates and sends follow-up HTTP PATCH messages - each with this information:
+1. Your logic app creates and sends follow-up HTTP PATCH messages - each with the following information:
 
-   * A content chunk based on **x-ms-chunk-size** or some internally calculated
-   size until all the content totaling **x-ms-content-length** is sequentially uploaded
+   * A content chunk based on **x-ms-chunk-size** or some internally calculated size until all the content totaling **x-ms-content-length** is sequentially uploaded
 
-   * These header details about the content chunk sent in each PATCH message:
+   * The following header information about the content chunk sent in each PATCH message:
 
      | Logic Apps request header field | Value | Type | Description |
      |---------------------------------|-------|------|-------------|
@@ -251,8 +250,7 @@ includes this information about the content that your logic app wants to upload 
      | **Content-Length** | <*content-length*> | String | The length of size in bytes of the current chunk |
      |||||
 
-4. After each PATCH request, the endpoint confirms the receipt 
-for each chunk by responding with the "200" status code and the following response headers:
+1. After each PATCH request, the endpoint confirms the receipt for each chunk by responding with the "200" status code and the following response headers:
 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
@@ -260,9 +258,7 @@ for each chunk by responding with the "200" status code and the following respon
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
    ||||
 
-For example, this action definition shows an HTTP POST 
-request for uploading chunked content to an endpoint. 
-In the action's `runTimeConfiguration` property, 
+For example, this action definition shows an HTTP POST request for uploading chunked content to an endpoint. In the action's `runTimeConfiguration` property, 
 the `contentTransfer` property sets `transferMode` to `chunked`:
 
 ```json

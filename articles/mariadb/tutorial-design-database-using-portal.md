@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: tutorial
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ms.custom: mvc
 ---
 
@@ -56,13 +56,13 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
     Location | *the region closest to your users*| Select the location that is closest to your users or to your other Azure applications.
     Version | *the latest version*| The latest version (unless you have specific requirements for using a different version).
     Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Storage** (100 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
-    
+
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
-4. Click **Review + create**. You can click on the **Notifications** button on the toolbar to monitor the deployment process. Deployment can take up to 20 minutes.
+4. Select **Review + create**. You can select on the **Notifications** button on the toolbar to monitor the deployment process. Deployment can take up to 20 minutes.
 
 ## Configure the firewall
 
@@ -92,7 +92,7 @@ In our example, the server name is **mydemoserver.mariadb.database.azure.com** a
 
 ## Connect to the server by using mysql
 
-Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or go to the Azure portal and click the **>_** icon in the top right toolbar.
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or go to the Azure portal and select the **>_** icon in the top right toolbar.
 
 Enter the command to connect:
 
@@ -168,15 +168,16 @@ Imagine that you accidentally deleted an important database table and can't reco
 2. On the **Restore** page, enter or select the following information:
 
    ![Restore form](./media/tutorial-design-database-using-portal/2-restore-form.png)
-   
+
    - **Restore point**: Select a point in time that you want to restore to, in the timeframe listed. Make sure you convert your local time zone to UTC.
    - **Restore to new server**: Enter a new server name to restore to.
    - **Location**: The region is same as the source server and can't be changed.
    - **Pricing tier**: The pricing tier is the same as the source server and can't be changed.
-   
-3. Select **OK** to restore the server to a point in time [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server at the point in time that you selected. 
+
+3. Select **OK** to restore the server to a point in time [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server at the point in time that you selected.
 
 ## Next steps
+
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]

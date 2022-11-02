@@ -2,9 +2,8 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 03/15/2022
 ms.author: eur
-ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [Header](../../common/csharp.md)]
@@ -15,225 +14,120 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-### Install the Speech SDK
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
+## Set up the environment
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements. 
 
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
+### Set environment variables
 
-### Import dependencies
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-To run the examples in this article, include the following `using` statements at the top of your script:
-
-```csharp
-using System;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
-```
-
-## Create a speech configuration
-
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, and authorization token.
-
-> [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
-
-You can initialize `SpeechConfig` in a few ways:
-
-* With a subscription: pass in a key and the associated location/region.
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated location/region.
-
-In this example, you create a `SpeechConfig` instance by using a speech key and location/region. Get these credentials by following the steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
-
-```csharp
-public class Program
-{
-    static async Task Main()
-    {
-        await SynthesizeAudioAsync();
-    }
-
-    static async Task SynthesizeAudioAsync()
-    {
-        var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    }
-}
-```
-
-## Select synthesis language and voice
-
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
-
-Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
-
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    // Note: if only language is set, the default voice of that language is chosen.
-    config.SpeechSynthesisLanguage = "<your-synthesis-language>"; // For example, "de-DE"
-    // The voice setting will overwrite the language setting.
-    // The voice setting will not overwrite the voice element in input SSML.
-    config.SpeechSynthesisVoiceName = "<your-wanted-voice>";
-}
-```
-
-## Synthesize speech to a file
-
-Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
-
-- The [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
-- An [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
-
-To start, create an `AudioConfig` instance to automatically write the output to a .wav file by using the `FromWavFileOutput()` function. Instantiate it with a `using` statement. A `using` statement in this context automatically disposes of unmanaged resources and causes the object to go out of scope after disposal.
-
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
-}
-```
-
-Next, instantiate a `SpeechSynthesizer` instance with another `using` statement. Pass your `config` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
-
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
-    using var synthesizer = new SpeechSynthesizer(config, audioConfig);
-    await synthesizer.SpeakTextAsync("A simple test to write to a file.");
-}
-```
-
-Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
-In some cases, you might want to output synthesized speech directly to a speaker. To do this, omit the `AudioConfig` parameter when you're creating the `SpeechSynthesizer` instance in the previous example. This change synthesizes to the current active output device.
+Follow these steps to create a new console application and install the Speech SDK.
 
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    using var synthesizer = new SpeechSynthesizer(config);
-    await synthesizer.SpeakTextAsync("Synthesizing directly to speaker output.");
-}
+1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
+    ```dotnetcli
+    dotnet new console
+    ```
+1. Install the Speech SDK in your new project with the .NET CLI.
+    ```dotnetcli
+    dotnet add package Microsoft.CognitiveServices.Speech
+    ```
+1. Replace the contents of `Program.cs` with the following code. 
+    
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Microsoft.CognitiveServices.Speech;
+    using Microsoft.CognitiveServices.Speech.Audio;
+        
+    class Program 
+    {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
+        static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
+
+        static void OutputSpeechSynthesisResult(SpeechSynthesisResult speechSynthesisResult, string text)
+        {
+            switch (speechSynthesisResult.Reason)
+            {
+                case ResultReason.SynthesizingAudioCompleted:
+                    Console.WriteLine($"Speech synthesized for text: [{text}]");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = SpeechSynthesisCancellationDetails.FromResult(speechSynthesisResult);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+    
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails=[{cancellation.ErrorDetails}]");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        async static Task Main(string[] args)
+        {
+            var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);      
+    
+            // The language of the voice that speaks.
+            speechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural"; 
+    
+            using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
+            {
+                // Get text from the console and synthesize to the default speaker.
+                Console.WriteLine("Enter some text that you want to speak >");
+                string text = Console.ReadLine();
+    
+                var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text);
+                OutputSpeechSynthesisResult(speechSynthesisResult, text);
+            }
+    
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
+    }
+    ```
+
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+
+[Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech synthesis to the default speaker.
+
+```console
+dotnet run
 ```
 
-## Get a result as an in-memory stream
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
-* Abstract the resulting byte array as a seekable stream for custom downstream services.
-* Integrate the result with other APIs or services.
-* Modify the audio data, write custom .wav headers, and do related tasks.
-
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you'll manage the output behavior manually from this point onward for increased control. Then pass `null` for `AudioConfig` in the `SpeechSynthesizer` constructor.
-
-> [!NOTE]
-> Passing `null` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
-
-This time, save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `AudioData` property contains a `byte []` instance for the output data. You can work with this `byte []` instance manually, or you can use the [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example, you use the `AudioDataStream.FromResult()` static function to get a stream from the result:
-
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    using var synthesizer = new SpeechSynthesizer(config, null);
-
-    var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
-    using var stream = AudioDataStream.FromResult(result);
-}
+```console
+Enter some text that you want to speak >
+I'm excited to try text to speech
 ```
 
-From here, you can implement any custom behavior by using the resulting `stream` object.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
-## Customize audio format
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
-You can customize audio output attributes, including:
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
-* Audio file type
-* Sample rate
-* Bit depth
+## Clean up resources
 
-To change the audio format, you use the `SetSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
-
-There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
-
-- You know that your downstream implementation can decode a raw bitstream.
-- You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
-
-In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
-
-```csharp
-static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
-
-    using var synthesizer = new SpeechSynthesizer(config, null);
-    var result = await synthesizer.SpeakTextAsync("Customizing audio output format.");
-
-    using var stream = AudioDataStream.FromResult(result);
-    await stream.SaveToWaveFileAsync("path/to/write/file.wav");
-}
-```
-
-Running your program again will write a .wav file to the specified path.
-
-## Use SSML to customize speech characteristics
-
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
-
-To start using SSML for customization, you make a simple change that switches the voice.
-
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported *neural* voices.
-
-```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
-    When you're on the freeway, it's a good idea to use a GPS.
-  </voice>
-</speak>
-```
-
-Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML configuration as a string by using `File.ReadAllText()`. From here, the result object is exactly the same as previous examples.
-
-> [!NOTE]
-> If you're using Visual Studio, your build configuration likely won't find your XML file by default. To fix this, right-click the XML file and select **Properties**. Change **Build Action** to **Content**, and change **Copy to Output Directory** to **Copy always**.
-
-```csharp
-public static async Task SynthesizeAudioAsync()
-{
-    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    using var synthesizer = new SpeechSynthesizer(config, null);
-
-    var ssml = File.ReadAllText("./ssml.xml");
-    var result = await synthesizer.SpeakSsmlAsync(ssml);
-
-    using var stream = AudioDataStream.FromResult(result);
-    await stream.SaveToWaveFileAsync("path/to/write/file.wav");
-}
-```
-
-> [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";`.
-
-## Get facial pose events
-
-Speech can be a good way to drive the animation of facial expressions.
-[Visemes](../../../how-to-speech-synthesis-viseme.md) are often used to represent the key poses in observed speech. Key poses include the position of the lips, jaw, and tongue in producing a particular phoneme.
-
-You can subscribe to viseme events in the Speech SDK. Then, you can apply viseme events to animate the face of a character as speech audio plays.
-Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]

@@ -13,6 +13,9 @@
     href: container-instances-quickstart-portal.md
   - name: Deploy a container instance - PowerShell
     href: container-instances-quickstart-powershell.md
+  - name: Deploy a container instance - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: container-instances-quickstart-bicep.md
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
@@ -84,6 +87,8 @@
       href: container-instances-dedicated-hosts.md
     - name: Deploy in availability zones (preview)
       href: availability-zones.md
+    - name: Configure DNS name reuse
+      href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
   - name: Container scenarios
@@ -98,7 +103,7 @@
       href: container-instances-exec.md
     - name: Run a setup container (init)
       href: container-instances-init-container.md
-    - name: Use a managed identity (preview)
+    - name: Use a managed identity
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
@@ -110,6 +115,8 @@
       href: container-instances-egress-ip-address.md
     - name: Configure container group egress with NAT gateway
       href: container-instances-nat-gateway.md
+    - name: Configure custom DNS settings for container group
+      href: container-instances-custom-dns.md
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -132,6 +139,8 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
+    - name: Monitor Azure Container Instances
+      href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
     - name: Get container logs and events
@@ -159,20 +168,22 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
+    href: /javascript/api/overview/azure/container-instances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
   - name: YAML  
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Monitoring data
+    href: monitor-azure-container-instances-reference.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

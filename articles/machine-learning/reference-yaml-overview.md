@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: s-polly
+ms.author: scottpolly
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) YAML schemas
@@ -19,7 +20,7 @@ ms.reviewer: laobri
 
 The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses and sometimes requires YAML files with specific schemas. This article lists reference docs and the source schema for YAML files. Examples are included inline in individual articles.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Workspace
 
@@ -33,11 +34,11 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [Environment](reference-yaml-environment.md) | https://azuremlschemas.azureedge.net/latest/environment.schema.json |
 
-## Dataset
+## Data
 
 | Reference | URI |
 | - | - |
-| [Dataset](reference-yaml-dataset.md) | https://azuremlschemas.azureedge.net/latest/dataset.schema.json |
+| [Dataset](reference-yaml-data.md) | https://azuremlschemas.azureedge.net/latest/data.schema.json |
 
 ## Model
 
@@ -52,6 +53,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | [Compute cluster (AmlCompute)](reference-yaml-compute-aml.md) | https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json |
 | [Compute instance](reference-yaml-compute-instance.md) | https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json |
 | [Attached Virtual Machine](reference-yaml-compute-vm.md) | https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json |
+| [Attached Azure Arc-enabled Kubernetes (KubernetesCompute)](reference-yaml-compute-kubernetes.md) | `https://azuremlschemas.azureedge.net/latest/kubernetesCompute.schema.json` |
 
 ## Job
 
@@ -74,7 +76,8 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 
 | Reference | URI |
 | - | - |
-| [Managed online (real-time)](reference-yaml-endpoint-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json |
+| [Managed online (real-time)](reference-yaml-endpoint-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json |
+| [Kubernetes online (real-time)](reference-yaml-endpoint-online.md) | https://azuremlschemas.azureedge.net/latest/kubernetesOnlineEndpoint.schema.json |
 | [Batch](reference-yaml-endpoint-batch.md) | https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json |
 
 ## Deployment
@@ -82,6 +85,7 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | Reference | URI |
 | - | - |
 | [Managed online (real-time)](reference-yaml-deployment-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json |
+| [Kubernetes online (real-time)](reference-yaml-deployment-kubernetes-online.md) | https://azuremlschemas.azureedge.net/latest/kubernetesOnlineDeployment.schema.json |
 | [Batch](reference-yaml-deployment-batch.md) | https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json |
 
 ## Component

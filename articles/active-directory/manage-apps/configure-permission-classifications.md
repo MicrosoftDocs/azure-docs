@@ -1,16 +1,15 @@
 ---
 title: Configure permission classifications
-titleSuffix: Azure AD
 description: Learn how to manage delegated permission classifications.
 services: active-directory
-author: davidmu1
+author: jackson-woods
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/23/2021
-ms.author: davidmu
+ms.author: jawoods
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 
@@ -23,7 +22,7 @@ In this article you'll learn how to configure permissions classifications in Azu
 
 Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
 
-The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, `User.Read` and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read the full profile details of the signed-in user and can maintain this access even when the user is no longer using the app.
+The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
 ## Prerequisites
 

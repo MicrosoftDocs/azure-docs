@@ -7,4 +7,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Speech to Text API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) | [Swagger reference](/azure/cognitive-services/speech-service/rest-speech-to-text) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Speech-to-text REST API reference](../../rest-speech-to-text.md) | [Speech-to-text REST API for short audio reference](../../rest-speech-to-text-short.md) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)

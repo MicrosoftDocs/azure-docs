@@ -11,6 +11,8 @@ ms.custom: devx-track-csharp
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create a function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
 
 ## Prerequisites
@@ -130,7 +132,7 @@ Next, create the function that acts as the trigger and listens to the queue.
    // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
+   // Reuse the instance of HTTP clients if possible: https://learn.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
    public static async Task Run(string myQueueItem, TraceWriter log) 

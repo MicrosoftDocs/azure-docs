@@ -30,8 +30,7 @@ To add Application Insights to your ASP.NET website, you need to:
 > [!IMPORTANT]
 > We recommend [connection strings](./sdk-connection-string.md?tabs=net) over instrumentation keys. New Azure regions *require* the use of connection strings instead of instrumentation keys.
 >
-> A connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints that your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
-
+> A connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints that your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to the “APPLICATIONINSIGHTS_CONNECTION_STRING” environment variable.
 
 ## Create a basic ASP.NET web app
 
@@ -47,10 +46,10 @@ This section will guide you through automatically adding Application Insights to
 
 1. Select **Project** > **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
 2. Open the *ApplicationInsights.config* file. 
-3. Before the closing `</ApplicationInsights>` tag, add a line that contains the instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
+3. Before the closing `</ApplicationInsights>` tag, add a line that contains the connection string for your Application Insights resource. Find your connection string on the overview pane of the newly created Application Insights resource.
 
     ```xml
-    <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
+    <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     ```
 
 4. Select **Project** > **Manage NuGet Packages** > **Updates**. Then update each `Microsoft.ApplicationInsights` NuGet package to the latest stable release.   
@@ -68,12 +67,12 @@ This section will guide you through manually adding Application Insights to a te
 
 2. In some cases, the *ApplicationInsights.config* file is created for you automatically. If the file is already present, skip to step 4. 
 
-   If it's not created automatically, you'll need to create it yourself. At the same level in your project as the *Global.asax* file, create a new file called *ApplicationInsights.config*.
+   If it's not created automatically, you'll need to create it yourself. In the root directory of an ASP.NET application, create a new file called *ApplicationInsights.config*.
 
 3. Copy the following XML configuration into your newly created file:
 
-     ```xml
-     <?xml version="1.0" encoding="utf-8"?>
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
       <TelemetryInitializers>
         <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector" />
@@ -196,12 +195,15 @@ This section will guide you through manually adding Application Insights to a te
             <Add Type="Microsoft.ApplicationInsights.Extensibility.AutocollectedMetricsExtractor, Microsoft.ApplicationInsights" />
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-              <ExcludedTypes>Event</ExcludedTypes>
+              <ExcludedTypes>Trace</ExcludedTypes>
             </Add>
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
               <IncludedTypes>Event</IncludedTypes>
             </Add>
+            <!--
+              Adjust the include and exclude examples to specify the desired semicolon-delimited types. (Dependency, Event, Exception, PageView, Request, Trace)
+            -->
           </TelemetryProcessors>
           <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel, Microsoft.AI.ServerTelemetryChannel" />
         </Add>
@@ -210,14 +212,14 @@ This section will guide you through manually adding Application Insights to a te
         Learn more about Application Insights configuration with ApplicationInsights.config here: 
         http://go.microsoft.com/fwlink/?LinkID=513840
       -->
-      <InstrumentationKey>your-instrumentation-key-here</InstrumentationKey>
+      <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     </ApplicationInsights>
-     ```
+    ```
 
-4. Before the closing `</ApplicationInsights>` tag, add your instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
+4. Before the closing `</ApplicationInsights>` tag, add the connection string for your Application Insights resource. You can find your connection string on the overview pane of the newly created Application Insights resource.
 
     ```xml
-    <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
+    <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     ```
 
 5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look like this:
@@ -247,7 +249,6 @@ This section will guide you through manually adding Application Insights to a te
             }
         }
     }
-    
     ```
 
 6. In the *App_Start* folder, open the *FilterConfig.cs* file and change it to match the sample:
@@ -364,7 +365,11 @@ For the template-based ASP.NET MVC app from this article, the file that you need
 
 ## Troubleshooting
 
-There's a known issue in the current version of Visual Studio 2019: storing the instrumentation key in a user secret is broken for .NET Framework-based apps. The key ultimately has to be hardcoded into the *applicationinsights.config* file to work around this bug. This article is designed to avoid this issue entirely, by not using user secrets.  
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
+
+There's a known issue in the current version of Visual Studio 2019: storing the instrumentation key or connection string in a user secret is broken for .NET Framework-based apps. The key ultimately has to be hardcoded into the *applicationinsights.config* file to work around this bug. This article is designed to avoid this issue entirely, by not using user secrets.
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 
@@ -376,5 +381,3 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 * Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.
-
-

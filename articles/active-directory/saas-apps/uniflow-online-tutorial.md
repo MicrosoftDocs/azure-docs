@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with uniFLOW Online | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with uniFLOW Online'
 description: Learn how to configure single sign-on between Azure Active Directory and uniFLOW Online.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 05/16/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with uniFLOW Online
+# Tutorial: Azure AD SSO integration with uniFLOW Online
 
 In this tutorial, you'll learn how to integrate uniFLOW Online with Azure Active Directory (Azure AD). When you integrate uniFLOW Online with Azure AD, you can:
 
@@ -45,6 +45,8 @@ To configure the integration of uniFLOW Online into Azure AD, you need to add un
 1. In the **Add from the gallery** section, type **uniFLOW Online** in the search box.
 1. Select **uniFLOW Online** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for uniFLOW Online
 
 Configure and test Azure AD SSO with uniFLOW Online using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in uniFLOW Online.
@@ -75,16 +77,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| **Identifier** |
 	|---------|
 	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
 	| `https://<tenant_domain_name>.us.uniflowonline.com` |
 	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
 	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
 	| `https://<tenant_domain_name>.au.uniflowonline.com` |
+	
 
 	b. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
 	| **Sign on URL** |
 	|---------|
 	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
 	| `https://<tenant_domain_name>.us.uniflowonline.com` |
 	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
 	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
@@ -142,45 +147,56 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to uniFLOW Online website as an administrator.
 
-1. From the left navigation panel, select **User** tab.
+1. From the left navigation panel, select **Extensions** tab.
 
-	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/user.png)
+	![Screenshot shows Extension selected from the uniFLOW Online site.](./media/uniflow-online-tutorial/extensions.png)
 
-1. Click **Identity providers**.
 
-	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/profile.png)
+1. Click **Identity Providers**.
+
+	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/identity-providers.png)
+	
+1. Click **Configure identity providers**
+
+	![Screenshot shows box to configure identity providers](./media/uniflow-online-tutorial/configure-identity-providers.png)
 
 1. Click on **Add identity provider**.
 
-	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/add-profile.png)
+	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/add-identity-providers.png)
+
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configuration.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/display-name.png)
+
 
 	a. Enter the Display name Ex: **AzureAD SSO**.
 
-	b. For **Provider type**, select **WS-Fed** option from the dropdown.
+	b. For **Provider type**, select **WS-Federation** option from the dropdown.
 
-	c. For **WS-Fed type**, select **Azure Active Directory** option from the dropdown.
+	c. For **WS-Federation type**, select **Azure Active Directory** option from the dropdown.
 
 	d. Click **Save**.
 
 1. On the **General** tab, perform the following steps:
 
-	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/general-tab.png)
+	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configuration.png)
+
 
 	a. Enter the Display name Ex: **AzureAD SSO**.
+	
+	b. Select **Identity provider** as **Enable AzureAD SSO**.
 
-	b. Select the **From URL** option for the **ADFS Federation Metadata**.
+	c. Select the **From URL** option for the **ADFS Federation Metadata**.
 
-	c. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
-
-	d. Select **Identity provider** as **Enabled**.
+	d. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata URL** value, which you have copied from the Azure portal.
 
 	e. Select **Automatic user registration** as **Activated**.
 
 	f. Click **Save**.
+	
+> [!NOTE]
+> **Reply URL** is automatically pre-filled and cannot be changed.	
 
 ### Sign in to uniFLOW Online using the created test user
 

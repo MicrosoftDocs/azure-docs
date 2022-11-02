@@ -45,22 +45,16 @@ landingContent:
           url: quickstart-devkit-mxchip-az3166-iot-hub.md
         - text: Connect a Microchip ATSAME54-XPro to Azure IoT
           url: quickstart-devkit-microchip-atsame54-xpro.md
+        - text: Connect an NXP MIMXRT1060-EVK Evaluation kit to Azure IoT
+          url: quickstart-devkit-nxp-mimxrt1060-evk.md
         - text: Connect an STMicroelectronics L4S5I-IOT01A to Azure IoT
           url: quickstart-devkit-stm-b-l4s5i.md
-        - text: Connect an STMicroelectronics L475E-IOT01A to Azure IoT
-          url: quickstart-devkit-stm-b-l475e.md
   - title: Build device solutions
     linkLists:
     - linkListType: tutorial
       links:
         - text: Connect a sample device to IoT Hub
           url: tutorial-connect-device.md
-        - text: Securely connect IoT devices to the cloud
-          url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
-    - linkListType: concept
-      links: 
-        - text: Guidelines for secure embedded development
-          url: concepts-azure-rtos-security-practices.md
   - title: Device development framework
     linkLists:
     - linkListType: concept

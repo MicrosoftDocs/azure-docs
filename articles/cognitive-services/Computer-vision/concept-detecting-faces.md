@@ -9,21 +9,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Face detection with Computer Vision
+# Face detection with Image Analysis
 
-Computer Vision can detect human faces within an image and generate rectangle coordinates for each detected face. 
+Image Analysis can detect human faces within an image and generate rectangle coordinates for each detected face.
 
 > [!NOTE]
-> This feature is also offered by the Azure [Face](../face/index.yml) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
+> This feature is also offered by the dedicated [Face](./overview-identity.md) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
+
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
+
+Try out the face detection features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Face detection examples
 
-The following example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
+The following example demonstrates the JSON response returned by Analyze API for an image containing a single human face.
 
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png)
 

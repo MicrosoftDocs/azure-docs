@@ -1,119 +1,80 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 11/09/2021
+ms.date: 06/02/2022
 ms.topic: article
 ---
 
-# Support for IoT, OT, ICS, and SCADA protocols
+# Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols
 
-Microsoft Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT reduces IoT, IT, and ICS risk with deployments in demanding and complex OT environments across all industry verticals and geographies.
+This article lists the protocols that are supported by default in Microsoft Defender for IoT. If your organization uses proprietary protocols or other protocols not listed here, use the Defender for IoT Horizon SDK to extend support as needed.
 
-## Supported protocols
+## Supported protocols for asset discovery
 
-Defender for IoT supports a broad range of protocols across a diverse enterprise. Supported protocols include industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments.
+Defender for IoT can detect the following protocols when identifying assets and devices in your network:
 
-For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
 
-### Supported protocols (passive monitoring)
+|Brand / Vendor |Protocols  |
+|---------|---------|
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)      |
+|**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
+|**Beckhoff**     |   AMS (ADS)<br> Twincat       |
+|**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
+|**DNP. org**     |   DNP3      |
+|**Emerson**     |   DeltaV<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
+|**Emerson Fischer**     |  ROC       |
+|**Eurocontrol**     |      ASTERIX   |
+|**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
+|**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
+|**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
+|**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
+|**IEEE**     |     LLC<br> STP<br> VLAN    |
+|**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
+|**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
+|**Medical**     |ASTM<br> HL7         |
+|**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
+|**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
+|**Omron**     |  FINS       |
+|**Oracle**     |   TDS<br> TNS      |
+|**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
+|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
+|**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
+|**Schneider Electric / Modicon**     |   Modbus RTU      |
+|**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
+|**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
+|**Toshiba**     |Toshiba Computer Link         |
+|**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
 
-This section lists protocols that are detected using passive monitoring.
+[!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
-**ABB:** IEC61850 MMS (including ABB extension)
+## Don't see your protocol here? 
 
-**ASHRAE:** BACnet, BACnet BACapp, BACnet BVLC
+### Build support for proprietary protocols with the Horizon SDK
 
-**Beckhoff:** AMS (ADS), Twincat 
+Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any protocol used in IoT and ICS environments that's not isn't already supported by default.
 
-**Cisco:** CAPWAP Control, CAPWAP Data, CDP,  LWAPP
+Horizon helps you to write plugins that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
 
-**DNP. org :**  DNP3
+Horizon provides:
 
-**Emerson:** DeltaV, Emerson OpenBSI/BSAP, Ovation DCS ADMD,Ovation DCS DPUSTAT, Ovation DCS SSRPC
+- Support for common, proprietary, or custom protocols that deviate from standards
+- Extra flexibility and scope for DPI development
+- Extra visibility and control over your OT assets without needing to update your Defender for IoT version
+- The security of allowing proprietary development without divulging sensitive information
 
-**Emerson Fischer:**  ROC
+:::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." border="false":::
 
-**Eurocontrol:** ASTERIX
+### Collaborate with the Horizon community
 
-**GE:**  Bentley Nevada (System 1),  EGD,  GSM (GE MarkVI and MarkVIe),  SRTP (GE)
+Join our community to help lead the way towards digital transformation and industry-wide collaboration for protocol support!
 
-**Honeywell:** ENAP, Experion DCS CDA, Experion DCS FDA
+The Horizon ICS community shares knowledge between domain experts in critical infrastructures, building management, production lines, transportation systems, and leading industries. For example, our community shares tutorials, discussion forums, instructor-led training, educational white papers, and more.
 
-**IEC:** Codesys V3, ICCP TASE.2/IEC-60870, IEC60870-5 (IEC104/101), IEC60870-5-103 (encapsulated serial), IEC61850 GOOSE, IEC61850 MMS, IEC61850 SMV (SAMPLED-VALUES), LonTalk (LonWorks)
-
-**IEEE**: LLC, STP, VLAN
-
-**IETF:** ARP, DCE RPC, DNS, FTP (FTP_ADAT, FTP_DATA), GSSAPI (RFC2743), HTTP, ICMP, IPv4, IPv6, LLDP, MDNS, NBNS, NTLM (NTLMSSP Auth Protocol), RPC, SMB / Browse / NBDGM, SMB / CIFS, SNMP, SPNEGO (RFC4178), SSH, Syslog, Telnet, TFTP, TPKT, UDP
-
-**ISO:** CLNP (ISO 8473), COTP (ISO 8073), ISO Industrial Protocol,  MQTT (IEC 20922)
-
-**Medical:** ASTM, HL7
-
-**Microsoft:** Horizon community dissectors, Horizon proprietary dissectors (developed by customers). 
-
-**Mitsubishi:** Melsoft / Melsec (Mitsubishi Electric)
-
-**Omron:** FINS
-
-**Oracle:** TDS, TNS
-
-**Rockwell Automation:** ENIP, EtherNet/IP CIP (including Rockwell extension), EtherNet/IP CIP FW version 27 and above
-
-**Schneider Electric:** Modbus/TCP, Modbus TCP–Schneider Unity Extensions, OASYS (Schneider Electric Telvant) 
-
-**Schneider Electric / Invensys:** Foxboro Evo, Foxboro I/A, Trident, TriGP, TriStation
-
-**Schneider Electric / Modicon:** Modbus RTU
-
-**Schneider Electric / Wonderware:** Wonderware Suitelink
-
-**Siemens:** CAMP, PCS7, PCS7 WinCC – Historian, Profinet DCP, Profinet Realtime, Siemens PHD, Siemens S7, Siemens S7-Plus, Siemens S7-Plus, Siemens SICAM, Siemens WinCC
-
-**Toshiba:** Toshiba Computer Link
-
-**Yokogawa:** Centum ODEQ (Centum / ProSafe DCS), HIS Equalize, Vnet/IP
-
-### Supported protocols (active monitoring)
-
-This section lists protocols that are detected using active probing, for example ping sweeps and queries.
-
-**IETF:** Ping Sweep, SNMP Network Layout Query, SNMP Query
-
-**Microsoft:**  Windows WMI Query (req. WMI/WinRM): hardware, BIOS, version, software, patches
-
-**Rockwell Automation:**  ENIP Query, ENIP Scan,  EtherNet/IP CIP (CIP Query)
-
-**Siemens:** Siemens S7
-
-## Quickly add support for proprietary, restricted protocols
-
-Digitization is driving deployment of billions of IoT devices followed by a significant increase in connectivity between IT and OT networks. This means attack surfaces are growing, including a greater risk of dangerous cyber attacks on industrial control systems.
-
-To help reduce the attack surface, the Horizon Protocol SDK allows quick, secure support of any protocol used in IoT and ICS environments.
-
-Horizon provides the following solutions for customers and technology partners:
-
-- Unlimited, full support for common, proprietary, custom protocols or protocols that deviate from any standard.
-
-- A new level of flexibility and scope for DPI development.
-
-- A tool that exponentially expands OT visibility and control, without the need to upgrade Defender for IoT platform versions.
-
-- The security of allowing proprietary development without divulging sensitive information.
-
-The Horizon SDK lets you write plugins that enable Deep Packet Inspection (DPI) on the traffic and detect threats in real time. The Horizon SDK makes extra customizations possible as well. For example, the Horizon SDK enables asset vendors, partners, or platform owners to localize and customize the text for alerts, events, and protocol parameters.
-
-[![The Horizon SDK allows quick support for 100% of the protocols used in IoT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](media/concept-supported-protocols/sdk-horizon-expanded.png#lightbox)
-
-## Collaborate with the Horizon community
-
-Be part of a community that is leading the way toward digital transformation and industry-wide collaboration for protocol support. The Horizon ICS community allows knowledge sharing for domain experts in critical infrastructures, building management, production lines, transportation systems, and other industrial leaders.
-
-The community provides tutorials, discussion forums, instructor-led training, educational white papers, webinars, and more.
-
-We invite you to join our community here: <horizon-community@microsoft.com>
+To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
 
 ## Next steps
 
-[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
-[About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
+For more information:
+
+- [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
+- [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)

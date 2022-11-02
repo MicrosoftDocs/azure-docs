@@ -2,10 +2,9 @@
 title: "Azure Arc-enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 11/24/2021
-ms.topic: article
-author: shashankbarsin
-ms.author: shasb
+ms.custom: event-tier1-build-2022, ignite-2022
+ms.date: 10/12/2022
+ms.topic: how-to
 description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
 ---
 
@@ -18,25 +17,24 @@ The Kubernetes extensions feature enables the following on Azure Arc-enabled Kub
 
 In this article, you learn:
 > [!div class="checklist"]
-> * Current available Azure Arc-enabled Kubernetes cluster extensions.
+
+> * Which Azure Arc-enabled Kubernetes cluster extensions are currently available.
 > * How to create extension instances.
 > * Required and optional parameters.
-> * How to view, list, update, and delete extension instances. 
+> * How to view, list, update, and delete extension instances.
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md) article.
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
+A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md).
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
-- `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
+* Install the latest version of the `connectedk8s` and `k8s-extension` Azure CLI extensions by running the following commands:
   
     ```azurecli
     az extension add --name connectedk8s
     az extension add --name k8s-extension
     ```
-    
+
     If the `connectedk8s` and `k8s-extension` extension are already installed, you can update them to the latest version using the following command:
 
     ```azurecli
@@ -44,11 +42,13 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
     az extension update --name k8s-extension
     ```
 
-- An existing Azure Arc-enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
+* An existing Azure Arc-enabled Kubernetes connected cluster.
+  * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+  * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 ## Currently available extensions
+
+The following extensions are currently available.
 
 | Extension | Description |
 | --------- | ----------- |
@@ -57,12 +57,26 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure Key Vault Secrets Provider](tutorial-akv-secrets-provider.md) | The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a CSI volume. |
 | [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
-| [Azure Arc-enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
+| [Azure Arc-enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
-| [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters. |
+| [Azure Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters. |
 | [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc-enabled Kubernetes clusters. |
-| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
+| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
+| [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
+
+> [!NOTE]
+> Installing Azure Arc extensions on [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview) is currently in preview, with support for the Azure Arc-enabled Open Service Mesh, Azure Key Vault Secrets Provider, Flux (GitOps) and Microsoft Defender for Cloud extensions.
+
+### Extension scope
+
+Extension installations on the Arc-enabled Kubernetes cluster are either *cluster-scoped* or *namespace-scoped*. 
+
+A cluster-scoped extension will be installed in the `release-namespace` specified during extension creation. Typically, only one instance of the cluster-scoped extension and its components, such as pods, operators, and Custom Resource Definitions (CRDs), are installed in the release namespace on the cluster.
+
+A namespace-scoped extension can be installed in a given namespace provided using the `–namespace` property. Since the extension can be deployed at a namespace scope, multiple instances of the namespace-scoped extension and its components can run on the cluster.  Each extension instance has permissions on the namespace where it is deployed to. All the above extensions are cluster-scoped except Event Grid on Kubernetes.
+
+All of the extensions listed above are cluster-scoped, except for [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) .
 
 ## Usage of cluster extensions
 
@@ -111,8 +125,9 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 ```
 
 > [!NOTE]
-> * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc-enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
-> * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
+> The service is unable to retain sensitive information for more than 48 hours. If Azure Arc-enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
+>
+> Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
 
@@ -123,7 +138,10 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the Azure Arc-enabled Kubernetes resource on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the Azure Arc-enabled Kubernetes resource |
-| `--cluster-type` | The cluster type on which the extension instance has to be created. Current only `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes, is an accepted value |
+| `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes. |
+
+> [!NOTE]
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 **Optional parameters**
 
@@ -258,23 +276,41 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
+> [!NOTE]
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview), you must add `--yes` to the delete command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+
+## AKS hybrid clusters provisioned from Azure (preview)
+
+You can deploy extensions to AKS hybrid clusters provisioned from Azure. However, there are a few key differences to keep in mind in order to deploy successfully:
+
+* The value for the `--cluster-type` parameter must be `provisionedClusters`.
+* You must add `--cluster-resource-provider microsoft.hybridcontainerservice` to your commands.
+* When deleting an extension instance, you must add `--yes` to the command:
+
+   ```azurecli
+   az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type provisionedClusters --cluster-resource-provider microsoft.hybridcontainerservice --yes
+   ```
+
+In addition, you must be using the latest version of the Azure CLI `k8s-extension` module (version >= 1.3.3). Use the following commands to add or update to the latest version:
+
+```azurecli
+# add if you do not have this installed
+az extension add --name k8s-extension
+
+# update if you do have the module installed
+az extension update --name k8s-extension
+```
+
+> [!IMPORTANT]
+> Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+
 ## Next steps
 
 Learn more about the cluster extensions currently available for Azure Arc-enabled Kubernetes:
 
-> [!div class="nextstepaction"]
-> [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
-> 
-> [!div class="nextstepaction"]
-> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> 
-> [!div class="nextstepaction"]
-> [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
-> 
-> [!div class="nextstepaction"]
-> [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
-> 
-> [!div class="nextstepaction"]
-> [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
+* [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+* [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
+* [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
+* [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
+* [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)

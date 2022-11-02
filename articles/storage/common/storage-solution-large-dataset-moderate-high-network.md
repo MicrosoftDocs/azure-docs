@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/28/2022
 ms.author: alkohli
 ---
 
@@ -46,7 +46,7 @@ If the available network bandwidth is high, use one of the following tools.
 
 - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
 - **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure SDKs offered in multiple languages.
-- **Azure Data Box family for online transfers** – Data Box Edge and Data Box Gateway are online network devices that can move data into and out of Azure. Use Data Box Edge physical device when there is a simultaneous need for continuous ingestion and pre-processing of the data prior to upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities. In each case, the data transfer is managed by the device.
+- **Azure Data Box family for online transfers** – Azure Stack Edge and Data Box Gateway are online network devices that can move data into and out of Azure. Use Azure Stack Edge physical device when there is a simultaneous need for continuous ingestion and pre-processing of the data prior to upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities. In each case, the data transfer is managed by the device.
 - **Azure Data Factory** – Data Factory should be used to scale out a transfer operation, and if there is a need for orchestration and enterprise grade monitoring capabilities. Use Data Factory to regularly transfer files between several Azure services, on-premises, or a combination of the two. with Data Factory, you can create and schedule data-driven workflows (called pipelines) that ingest data from disparate data stores and automate data movement and data transformation.
 
 ## Comparison of key capabilities
@@ -77,7 +77,7 @@ If using online data transfer, use the table in the following section for high n
 
 ### High network bandwidth
 
-|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST APIs, SDKs                   |    Data Box Gateway or Data Box Edge          |    Azure Data Factory                                            |
+|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST APIs, SDKs                   |    Data Box Gateway or Azure Stack Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    **Data type**              |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Supports 70+ data connectors for data stores and formats    |
 |    **Form factor**            |    Command-line tools                        |    Programmatic interface                    |    Microsoft supplies a virtual <br>or physical device     |    Service in Azure portal                                            |
@@ -85,7 +85,7 @@ If using online data transfer, use the table in the following section for high n
 |    **Data pre-processing**          |    No                                        |    No                                        |    Yes (With Edge compute)                               |    Yes                                                                |
 |    **Transfer from other clouds**   |    No                                        |    No                                        |    No                                                    |    Yes                                                                |
 |    **User type**                    |    IT Pro or dev                                       |    Dev                                       |    IT Pro                                                |    IT Pro                                                             |
-|    **Pricing**                      |    Free, data egress charges apply         |    Free, data egress charges apply         |    [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    **Pricing**                      |    Free, data egress charges apply         |    Free, data egress charges apply         |    [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) <br> [Data Box Gateway pricing](https://azure.microsoft.com/pricing/details/databox/gateway/)                                               |    [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## Next steps
 
@@ -96,7 +96,7 @@ If using online data transfer, use the table in the following section for high n
   - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
   - [Transfer data with AzCopy](./storage-use-azcopy-v10.md).
   - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-  - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+  - [Transform data with Azure Stack Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 
 - [Learn how to transfer data with Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 

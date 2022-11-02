@@ -44,7 +44,7 @@ When you are done creating the resource in the Azure portal, return to the QnA M
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select an option|
-    |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
+    |**+ Add URL**|`https://www.microsoft.com/download/faq.aspx`|
     |**Chit-chat**|Select **Professional**|
 
 7. In **Step 5**, Select **Create your KB**.

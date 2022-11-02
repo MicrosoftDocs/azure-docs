@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - Routing rule matching
-description: This article helps you understand how Azure Front Door match incoming requests to a routing rule.
+description: This article helps you understand how Azure Front Door matches incoming requests to a routing rule.
 services: front-door
 author: duongau
 ms.service: frontdoor
@@ -15,21 +15,16 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-In Azure Front Door Standard/Premium tier a route defines how the traffic is handled when the incoming request arrives at the Azure Front Door environment. Through the route settings, an association is defined between a domain and a backend origin group. By turning on advance features such as Pattern to Match and Rule set, you can have a more granular control over traffic to your backend resources.
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In Azure Front Door a route defines how the traffic gets handled when the incoming request arrives at the Azure Front Door environment. Through the route settings, an association is defined between a domain and a backend origin group. By turning on advance features such as Pattern to Match and Rule set, you can have more granular control over traffic to your backend resources.
 
 > [!NOTE]
-> When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override the origin group](front-door-rules-engine-actions.md#origin-group-override) for a request. The origin group set by the rules engine overrides the routing process described in this article.
+> When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) for a request. The origin group set by the rules engine overrides the routing process described in this article.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-After establishing a connection and completing a TLS handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determine which particular routing rule to match the request to and then take the defined action in the configuration. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
+After an established connection and a complete TLS handshake, when a request lands on the Azure Front Door (classic) environment, one of the first things that Front Door does is determine which routing rule to match the request to and then take the defined action in the configuration. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
 
 ::: zone-end
 
@@ -157,13 +152,13 @@ Given that configuration, the following example matching table would result:
 
 Once Azure Front Door Standard/Premium has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door Standard/Premium has a cached response available for the matched routing rule, then the request gets served back to the client.
 
-Finally, Azure Front Door Standard/Premium evaluates whether or not you have a [rule set](front-door-rules-engine.md) for the matched routing rule. If there's no rule set defined, then the request gets forwarded to the origin group as-is. Otherwise, the rule sets get executed in the order they're configured. [Rule sets can override the route](front-door-rules-engine-actions.md#origin-group-override), forcing traffic to a specific origin group.
+Finally, Azure Front Door Standard/Premium evaluates whether or not you have a [rule set](front-door-rules-engine.md) for the matched routing rule. If there's no rule set defined, then the request gets forwarded to the origin group as-is. Otherwise, the rule sets get executed in the order they're configured. [Rule sets can override the route](front-door-rules-engine-actions.md#RouteConfigurationOverride), forcing traffic to a specific origin group.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL rewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
+After you've matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, the thing that gets evaluated is whether you have configured [URL rewrite](front-door-url-rewrite.md) for the matched routing rule. If there's no custom forwarding path, the request gets forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path gets updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
 
 ::: zone-end
 

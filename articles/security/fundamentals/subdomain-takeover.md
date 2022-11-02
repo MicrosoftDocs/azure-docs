@@ -203,6 +203,21 @@ It's often up to developers and operations teams to run cleanup processes to avo
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
 
+### Clean up DNS pointers or Re-claim the DNS
+
+Upon deletion of the classic cloud service resource, the corresponding DNS is reserved for 7 days. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the AAD tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
+ 
+Public - cloudapp.net
+Mooncake - chinacloudapp.cn
+Fairfax - usgovcloudapp.net
+BlackForest - azurecloudapp.de
+                
+i.e. a hosted service in Public named “test” would have DNS “test.cloudapp.net”
+
+Example:
+Subscription ‘A’ and subscription ‘B’ are the only subscriptions belonging to AAD tenant ‘AB’. Subscription ‘A’ contains a classic cloud service ‘test’ with DNS name ‘test.cloudapp.net’. Upon deletion of the cloud service, a reservation is taken on DNS name ‘test.cloudapp.net’. During the 7 day reservation period, only subscription ‘A’ or subscription ‘B’ will be able to claim the DNS name ‘test.cloudapp.net’ by creating a classic cloud service named ‘test’. No other subscriptions will be allowed to claim it. After the 7 days is up, any subscription in Azure can now claim ‘test.cloudapp.net’.
+
+
 ## Next steps
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.

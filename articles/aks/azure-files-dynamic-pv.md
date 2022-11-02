@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/01/2020
+ms.date: 05/31/2022
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage using Azure Files to pods in AKS.
@@ -18,7 +18,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -46,6 +46,7 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
 provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
+allowVolumeExpansion: true
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -55,7 +56,7 @@ mountOptions:
   - cache=strict
   - actimeo=30
 parameters:
-  skuName: Standard_LRS
+  skuName: Premium_LRS
 ```
 
 Create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -66,7 +67,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## Create a persistent volume claim
 
-A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. The following YAML can be used to create a persistent volume claim *5 GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. The following YAML can be used to create a persistent volume claim *100 GB* in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
 
 Now create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
 
@@ -81,7 +82,7 @@ spec:
   storageClassName: my-azurefile
   resources:
     requests:
-      storage: 5Gi
+      storage: 100Gi
 ```
 
 > [!NOTE]
@@ -99,7 +100,7 @@ Once completed, the file share will be created. A Kubernetes secret is also crea
 $ kubectl get pvc my-azurefile
 
 NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
-my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            my-azurefile      5m
+my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   10Gi       RWX            my-azurefile      5m
 ```
 
 ## Use the persistent volume
@@ -172,6 +173,7 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
 provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
+allowVolumeExpansion: true
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -181,7 +183,7 @@ mountOptions:
   - cache=strict
   - actimeo=30
 parameters:
-  skuName: Standard_LRS
+  skuName: Premium_LRS
 ```
 
 ## Using Azure tags
@@ -221,8 +223,9 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [mount-options]: #mount-options
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md

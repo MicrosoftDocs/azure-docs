@@ -224,6 +224,16 @@
             "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-on-windows.md",
             "redirect_url": "/azure/iot-edge/how-to-provision-single-device-windows-symmetric",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
+            "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-publish-subscribe.md",
+            "redirect_url": "/azure/iot-edge/",
+            "redirect_document_id": false
         }
     ]
 }

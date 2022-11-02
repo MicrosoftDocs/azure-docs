@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with FactSet | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with FactSet'
 description: Learn how to configure single sign-on between Azure Active Directory and FactSet.
 services: active-directory
 author: jeevansd
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 10/10/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FactSet
+# Tutorial: Azure AD SSO integration with FactSet
 
 In this tutorial, you'll learn how to integrate FactSet with Azure Active Directory (Azure AD). When you integrate FactSet with Azure AD, you can:
 
-* Control in Azure AD who has access to FactSet.
+* Control in Azure AD who has access to FactSet URLs via the Federation.
 * Enable your users to be automatically signed-in to FactSet with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* FactSet supports **IDP** initiated SSO.
+* FactSet supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -47,6 +47,8 @@ To configure the integration of FactSet into Azure AD, you need to add FactSet f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **FactSet** in the search box.
 1. Select **FactSet** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for FactSet
 
@@ -69,9 +71,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Set up single sign-on with SAML** page, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
     `https://auth.factset.com`
@@ -81,11 +83,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up FactSet** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 ### Create an Azure AD test user
 

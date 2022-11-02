@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-author: tracychms
-ms.author: tracych
-ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.custom: cliv2, event-tier1-build-2022
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
+ms.date: 03/31/2022
 ---
 
 # CLI (v2) batch deployment YAML schema
@@ -19,7 +19,7 @@ ms.reviewer: laobri
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -34,8 +34,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
 | `model` | string or object | **Required.** The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline, follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
 | `code_configuration` | object | Configuration for the scoring code logic. <br><br> This property is not required if your model is in MLflow format. | | |
-| `code_configuration.code.local_path` | string | Local path to the source code directory for scoring the model. | | |
-| `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
+| `code_configuration.code` | string | The local directory that contains all the Python source code to score the model. | | |
+| `code_configuration.scoring_script` | string | The Python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation (for example, load the model in memory). `init()` will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` function should return a pandas DataFrame or an array. Each returned element indicates one successful run of input element in the `mini_batch`. For more information on how to author scoring script, see [Understanding the scoring script](batch-inference/how-to-use-batch-endpoint.md#understanding-the-scoring-script).| | |
 | `environment` | string or object | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> This property is not required if your model is in MLflow format. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `compute` | string | **Required.** Name of the compute target to execute the batch scoring jobs on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | | |
 | `resources.instance_count` | integer | The number of nodes to use for each batch scoring job. | | `1` |
@@ -48,7 +48,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `retry_settings.timeout` | integer | The timeout in seconds for scoring a mini batch. | | `30` |
 | `output_action` | string | Indicates how the output should be organized in the output file. | `append_row`, `summary_only` | `append_row` |
 | `output_file_name` | string | Name of the batch scoring output file. | | `predictions.csv` |
-| `environment_variables` | object | Dictionary of environment variable name-value pairs to set for each batch scoring job. | | |
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
 
 ## Remarks
 
@@ -60,11 +60,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic (MLflow)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nyc-taxi-mlflow-deployment.yml":::
 
 ## YAML: custom model and scoring code
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
 
 ## Next steps
 

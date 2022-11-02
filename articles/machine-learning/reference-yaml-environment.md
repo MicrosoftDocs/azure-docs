@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2, event-tier1-build-2022
 
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: s-polly
+ms.author: scottpolly
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) environment YAML schema
@@ -19,7 +20,7 @@ ms.reviewer: laobri
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -35,7 +36,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `image` | string | The Docker image to use for the environment. **One of `image` or `build` is required.** | | |
 | `conda_file` | string or object | The standard conda YAML configuration file of the dependencies for a conda environment. See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually. <br> <br> If specified, `image` must be specified as well. Azure ML will build the conda environment on top of the Docker image provided. | | |
 | `build` | object | The Docker build context configuration to use for the environment. **One of `image` or `build` is required.** | | |
-| `build.local_path` | string | Local path to the directory to use as the build context. | | |
+| `build.path` | string | Local path to the directory to use as the build context. | | |
 | `build.dockerfile_path` | string | Relative path to the Dockerfile within the build context. | | `Dockerfile` |
 | `os_type` | string | The type of operating system. | `linux`, `windows` | `linux` |  
 | `inference_config` | object | Inference container configurations. Only applicable if the environment is used to build a serving container for online deployments. See [Attributes of the `inference_config` key](#attributes-of-the-inference_config-key). | | |

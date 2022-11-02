@@ -4,6 +4,7 @@ description: This article lists Azure Application Insights metrics with supporte
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
+ms.reviewer: vitalyg
 ---
 
 # Application Insights standard metrics
@@ -168,6 +169,8 @@ The metric shows how much of the total processor capacity is consumed by the pro
 |---|---|---|
 |Percentage|Average, Max, Min| `Cloud role instance` |
 
+> [!NOTE]
+> The range of the metric is between 0 and 100 * n, where n is the number of available CPU cores. For example, the metric value of 200% could represent full utilization of two CPU core or half utilization of 4 CPU cores and so on. The *Process CPU Normalized* is an alternative metric collected by many SDKs which represents the same value but divides it by the number of available CPU cores. Thus, the range of *Process CPU Normalized* metric is 0 through 100.
 
 ### Process IO rate (performanceCounters/processIOBytesPerSecond)
 

@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to Restart/Stop/Start an Azu
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -15,7 +16,7 @@ ms.date: 02/10/2022
 This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server.
 
 > [!IMPORTANT]
-> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+> When you **Stop** the server it remains in that state for the next 30 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 30 days. You can chose to **Stop** it again if you are not using the server.
 
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to start the server.
 
@@ -47,13 +48,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az mysql flexible-server stop](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_stop)|Stops a Flexible Server.|
-|[az mysql flexible-server start](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_start)|Starts a Flexible Server.|
-|[az mysql flexible-server restart](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_restart)|Restarts a Flexible Server.|
-|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az mysql flexible-server stop](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-stop)|Stops a Flexible Server.|
+|[az mysql flexible-server start](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-start)|Starts a Flexible Server.|
+|[az mysql flexible-server restart](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-restart)|Restarts a Flexible Server.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-delete)|Deletes a Flexible Server.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 

@@ -6,11 +6,11 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: 
-ms.date: 4/26/2021
+ms.date: 09/13/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---

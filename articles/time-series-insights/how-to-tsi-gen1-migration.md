@@ -14,6 +14,8 @@ ms.custom: tvilutis
 
 # Migrating Time Series Insights Gen1 to Azure Data Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 The recommendation is to set up Azure Data Explorer cluster with a new consumer group from the Event Hub or IoT Hub and wait for retention period to pass and fill Azure Data Explorer with the same data as Time Series Insights environment.

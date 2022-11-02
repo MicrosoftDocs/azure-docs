@@ -1,129 +1,352 @@
 ---
-title: Secure data access in the cloud
+title: Data access
 titleSuffix: Azure Machine Learning
-description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets.
+description: Learn how to access and process data in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
-ms.date: 10/21/2021
-ms.custom: devx-track-python, data4ml
-
-# Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
+ms.reviewer: larryfr
+author: samuel100
+ms.author: samkemp
+ms.date: 05/11/2022
+ms.custom: devx-track-python, data4ml, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
-# Secure data access in Azure Machine Learning
+# Data in Azure Machine Learning
 
-Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](./v1/concept-data.md)
+> * [v2 (current version)](concept-data.md)
 
-*    Interoperability with Pandas and Spark DataFrames
-*    Versioning and tracking of data lineage
-*    Data labeling 
-*    Data drift monitoring
-    
-## Data workflow
+Azure Machine Learning lets you bring data from a local machine or an existing cloud-based storage. In this article you will learn the main data concepts in Azure Machine Learning, including:
 
-When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
+> [!div class="checklist"]
+> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`. If you want to consume a file as an input of a job, You can define this job input by providing `type` as `uri_file`, `path` as where the file is.
+> - [**MLTable**](#mltable) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+> - [**Data asset**](#data-asset) - If you plan to share your data (URIs or MLTables) in your workspace to team members, or you want to track data versions, or track lineage, you can create data assets from URIs or MLTables you have. But if you didn't create data asset, you can still consume the data in jobs without lineange tracking, version management, etc.
+> - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information(storage container name, credentials) to your data storage on Azure, so you don't have to code it in your scripts. You can use AzureML datastore uri and relative path to your data to point to your data. You can also register files/folders in your AzureML datastore into data assets.
 
-1. Create an [Azure Machine Learning datastore](#datastores) to store connection information to your Azure storage.
 
-2. From that datastore, create an [Azure Machine Learning dataset](#datasets) to point to a specific file(s) in your underlying storage. 
+## URIs
+A URI (uniform resource identifier) represents a storage location on your local computer, an attached Datastore, blob/ADLS storage, or a publicly available http(s) location. In addition to local paths (for example: `./path_to_my_data/`), several different protocols are supported for cloud storage locations:
 
-3. To use that dataset in your machine learning experiment you can either
-    1. Mount it to your experiment's compute target for model training.
+- `http(s)` - Private/Public Azure Blob Storage Locations, or publicly available http(s) location
+- `abfs(s)` - Azure Data Lake Storage Gen2 storage location
+- `azureml` - An Azure Machine Learning [Datastore](#datastore) location
 
-        **OR** 
+Azure Machine Learning distinguishes two types of URIs:
 
-    1. Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](concept-designer.md).
+Data type | Description | Examples
+---|------|---
+`uri_file` | Refers to a specific **file** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`<br> `azureml://datastores/<datastore_name>/paths/<folder>/<file>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
+`uri_folder`| Refers to a specific **folder** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>`<br> `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
 
-4. Create [dataset monitors](#drift) for your model output dataset to detect for data drift. 
+URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them. URIs leverage **identity-based authentication** to connect to storage services with either your Azure Active Directory ID (default) or Managed Identity.
 
-5. If data drift is detected, update your input dataset and retrain your model accordingly.
+> [!TIP]
+> For data located in an Azure storage account we recommend using the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/#overview). You can browse data and obtain the URI for any file/folder by right-selecting **Copy URL**:
+> :::image type="content" source="media/concept-data/use-storage-explorer.png" alt-text="Screenshot of the Storage Explorer with Copy URL highlighted.":::
 
-The following diagram provides a visual demonstration of this recommended workflow.
+### Examples
 
-![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
+# [`uri_file`](#tab/uri-file-example)
 
-<a name="datastores"></a>
-## Connect to storage with datastores
+Below is an example of a job specification that shows how to access a file from a public blob store. In this example, the job executes the Linux `ls` command.
 
-Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying storage service. 
+```yml
+# hello-data-uri-file.yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  ls ${{inputs.my_csv_file}}
 
-Supported cloud-based storage services in Azure that can be registered as datastores:
+inputs:
+  my_csv_file:
+    type: uri_file
+    path: https://azuremlexamples.blob.core.windows.net/datasets/titanic.csv
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+compute: azureml:cpu-cluster
+```
 
-+ Azure Blob Container
-+ Azure File Share
-+ Azure Data Lake
-+ Azure Data Lake Gen2
-+ Azure SQL Database
-+ Azure Database for PostgreSQL
-+ Databricks File System
-+ Azure Database for MySQL
+Create the job using the CLI:
 
->[!TIP]
-> You can create datastores with credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access] to connect to storage services(how-to-identity-based-data-access.md).
+```azurecli
+az ml job create --file hello-data-uri-file.yml
+```
 
-<a name="datasets"></a>
-## Reference data in storage with datasets
+When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.my_csv_file}}`:
 
-Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
+:::image type="content" source="media/concept-data/uri-file.png" alt-text="Screenshot of the job log showing URI file output.":::
 
-Because datasets are lazily evaluated, and the data remains in its existing location, you
+Notice that the file has been mapped to the filesystem on the compute target and `${{inputs.my_csv_file}}` resolves to that location. 
 
-* Incur no extra storage cost.
-* Don't risk unintentionally changing your original data sources.
-* Improve ML workflow performance speeds.
+# [`uri_folder`](#tab/uri-folder-example)
 
-To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+In the case where you want to map a **folder** to the filesystem of the compute target, you define the `uri_folder` type in your job specification file:
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or Azure storage services via datastores. 
+```yml
+# hello-data-uri-folder.yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  ls ${{inputs.sampledata}}
+inputs:
+  sampledata:
+    type: uri_folder
+    path: https://<account_name>.blob.core.windows.net/<container_name>/<folder>
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+compute: azureml:cpu-cluster
+```
 
-There are 2 types of datasets: 
+Create the job using the CLI:
 
-+ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
+```azurecli
+az ml job create --file hello-data-uri-folder.yml
+```
 
-+ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
+When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.sampledata}}`:
 
-Additional datasets capabilities can be found in the following documentation:
+:::image type="content" source="media/concept-data/uri-folder.png" alt-text="Screenshot of the job log showing the URI folder output":::
 
-+ [Version and track](how-to-version-track-datasets.md) dataset lineage.
-+ [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.    
+Notice that the folder has been mapped to the filesystem on the compute target (you can see all the files in the folder), and `${{inputs.sampledata}}` resolves to the folder location. 
 
-## Work with your data
+---
 
-With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
+## Data asset
 
-+ Create a [data labeling project](#label).
-+ Train machine learning models:
-     + [automated ML experiments](how-to-use-automated-ml-for-ml-models.md)
-     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
-     + [notebooks](how-to-train-with-datasets.md)
-     + [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md)
-+ Access datasets for scoring with [batch inference](./tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](./how-to-create-machine-learning-pipelines.md).
-+ Set up a dataset monitor for [data drift](#drift) detection.
+Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version.
 
-<a name="label"></a>
+### Example usage
 
-## Label data with data labeling projects
 
-Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
+# [Create data asset](#tab/cli-data-create-example)
+To create a data asset, firstly define a data specification in a YAML file that provides a name, type and path for the data:
 
-Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
+```yml
+# data-example.yml
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: <name>
+description: <description>
+type: <type> # uri_file, uri_folder, mltable
+path: https://<storage_name>.blob.core.windows.net/<container_name>/path
+```
 
-Create an [image labeling project](how-to-create-image-labeling-projects.md) or [text labeling project](how-to-create-text-labeling-projects.md), and output a dataset for use in machine learning experiments.
+Then in the CLI, create the data asset:
 
-<a name="drift"></a>
+```azurecli
+az ml data create --file data-example.yml --version 1
+```
 
-## Monitor model performance with data drift
+# [Consume data asset](#tab/cli-data-consume-example)
 
-In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
+To consume a registered/created data asset in a job, you can define your job specification in a YAML file, you need to specify the type of your data asset (type will be set as ` uri_folder` by default if you don't provide a type value), and you can specify the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>` to spare the effort of checking what is the datastore uri or storage uri (these 2 paths are also supported).
+For example:
 
-See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn more about how to detect and alert to data drift on new data in a dataset.
+```yml
+# hello-data-uri-file.yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  ls ${{inputs.sampledata}}
+code: src
+inputs:
+  sampledata:
+    type: <type> # uri_file, uri_folder, mltable
+    path: azureml:<data_name>@latest
+environment: azureml:<environment_name>@latest
+compute: azureml:<compute_name>
+```
+
+Next, use the CLI to create your job:
+
+```azurecli
+az ml job create --file hello-data-uri-file.yml 
+```
+
+---
+
+## Datastore
+
+An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. The benefits of creating and using a datastore are:
+
+1. A common and easy-to-use API to interact with different storage types (Blob/Files/ADLS).
+1. Easier to discover useful datastores when working as a team.
+1. When using credential-based access (service principal/SAS/key), the connection information is secured so you don't have to code it in your scripts.
+
+When you create a datastore with an existing storage account on Azure, you have the choice between two different authentication methods:
+
+- **Credential-based** - authenticate access to the data using a service principal, shared access signature (SAS) token or account key. These credentials can be accessed by users who have *Reader* access to the workspace. 
+- **Identity-based** - authenticate access to the data using your Azure Active Directory identity or managed identity. 
+
+The table below summarizes which cloud-based storage services in Azure can be created as an Azure Machine Learning datastore and what authentication type can be used to access them. 
+
+Supported storage service | Credential-based authentication | Identity-based authentication
+|---|:----:|:---:|
+Azure Blob Container| ✓ | ✓|
+Azure File Share| ✓ | |
+Azure Data Lake Gen1 | ✓ | ✓|
+Azure Data Lake Gen2| ✓ | ✓|
+
+> [!NOTE]
+> The URI format to refer to a file/folder/mltable on a datastore is:
+> `azureml://datastores/<name>/paths/<path>`
+
+
+## MLTable
+`mltable` is a way to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
+
+> [!TIP]
+> The ideal scenarios to use `mltable` are:
+> - The schema of your data is complex and/or changes frequently.
+> - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
+> - AutoML jobs requiring tabular data.
+>
+> If your scenario does not fit the above then it is likely that URIs are a more suitable type.
+
+### A motivating example
+
+Imagine a scenario where you have many text files in a folder:
+
+```text
+├── my_data
+│   ├── file1.txt
+│   ├── file1_use_this.txt
+│   ├── file2.txt
+│   ├── file2_use_this.txt
+.
+.
+.
+│   ├── file1000.txt
+│   ├── file1000_use_this.txt
+```
+
+Each text file has the following structure:
+
+```text
+store_location date zip_code amount x y z noise_col1 noise_col2 
+Seattle 20/04/2022 12324 123.4 true false true blah blah 
+.
+.
+.
+London 20/04/2022 XX358YY 156 true true true blah blah
+```
+
+Some important features of this data are:
+
+- The data of interest is only in files that have the following suffix: `_use_this.txt` and other file names that don't match should be ignored.
+- The date should be represented as a date and not a string.
+- The x, y, z columns are booleans, not strings.
+- The store location is an index that is useful for generating subsets of data.
+- The file is encoded in `ascii` format.
+- Every file in the folder contains the same header.
+- The first million records for zip_code are numeric but later on you can see they're alphanumeric.
+- There are some dummy (noisy) columns in the data that aren't useful for machine learning.
+
+You could materialize the above text files into a dataframe using Pandas and a URI:
+
+```python
+import glob
+import datetime
+import os
+import argparse
+import pandas as pd
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_folder", type=str)
+args = parser.parse_args()
+
+path = os.path.join(args.input_folder, "*_use_this.txt")
+files = glob.glob(path)
+
+# create empty list
+dfl = []
+
+# dict of column types
+col_types = {
+    "zip": str,
+    "date": datetime.date,
+    "x": bool,
+    "y": bool,
+    "z": bool
+}
+
+# enumerate files into a list of dfs
+for f in files:
+    csv = pd.read_table(
+        path=f,
+        delimiter=" ",
+        header=0,
+        usecols=["store_location", "zip_code", "date", "amount", "x", "y", "z"],
+        dtype=col_types,
+        encoding='ascii'
+    )
+    dfl.append(csv)
+
+# concatenate the list of dataframes
+df = pd.concat(dfl)
+# set the index column
+df.index_columns("store_location")
+```
+
+However, it will be the responsibility of the *consumer* of the data asset to parse the schema into a dataframe. In the scenario defined above, that means the consumers will need to independently ascertain the Python code to materialize the data into a dataframe. 
+
+Passing responsibility to the consumer of the data asset will cause problems when:
+
+- **The schema changes (for example,  a column name changes):** All consumers of the data must update their Python code independently. Other examples can be type changes, columns being added/removed, encoding change, etc.
+- **The data size increases** - If the data gets too large for Pandas to process, then all the consumers of the data need to switch to a more scalable library (PySpark/Dask).
+
+Under the above two conditions, `mltable` can help because it enables the creator of the data asset to define the schema in a single file and the consumers can materialize the data into a dataframe easily without needing to write Python code to parse the schema. For the above example, the creator of the data asset defines an MLTable file **in the same directory** as the data:
+
+```text
+├── my_data
+│   ├── MLTable
+│   ├── file1.txt
+│   ├── file1_use_this.txt
+.
+.
+.
+```
+
+The MLTable file has the following definition that specifies how the data should be processed into a dataframe:
+
+```yaml
+type: mltable
+
+paths:
+    - pattern: ./*_use_this.txt
+
+traits:
+    - index_columns: store_location
+
+transformations:
+    - read_delimited:
+        encoding: ascii
+        header: all_files_same_headers
+        delimiter: " "
+    - keep_columns: ["store_location", "zip_code", "date", "amount", "x", "y", "z"]
+    - convert_column_types:
+        - columns: ["x", "y", "z"]
+          to_type: boolean
+        - columns: "date"
+          to_type: datetime
+```
+
+The consumers can read the data into dataframe using three lines of Python code:
+
+```python
+import mltable
+
+tbl = mltable.load("./my_data")
+df = tbl.to_pandas_dataframe()
+```
+
+If the schema of the data changes, then it can be updated in a single place (the MLTable file) rather than having to make code changes in multiple places.
+
+Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable` types.
 
 ## Next steps 
 
-+ Create a dataset in Azure Machine Learning studio or with the Python SDK [using these steps.](how-to-create-register-datasets.md)
-+ Try out dataset training examples with our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
+- [Install and set up the CLI (v2)](how-to-configure-cli.md#install-and-set-up-the-cli-v2)
+- [Create datastores](how-to-datastore.md#create-datastores)
+- [Create data assets](how-to-create-data-assets.md#create-data-assets)
+- [Read and write data in a job](how-to-read-write-data-v2.md#read-and-write-data-in-a-job)
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)

@@ -1,10 +1,11 @@
 ---
 title: Azure Database for PostgreSQL Videos
 description: This page lists video content relevant for learning Azure Database for PostgreSQL.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 07/30/2020
 ---
 # Azure Database for PostgreSQL videos
@@ -13,7 +14,7 @@ This page provides video content for learning about Azure Database for PostgreSQ
 
 ## Overview: Azure Database for PostgreSQL and MySQL
 
->[!VIDEO https://docs.microsoft.com/Events/Connect/2017/T147/player] 
+>[!VIDEO https://learn.microsoft.com/Events/Connect/2017/T147/player] 
 [Open in Channel 9](/Events/Connect/2017/T147)
 
 Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to get a quick overview of the advantages of using the service, and see some of the capabilities in action.
@@ -27,14 +28,14 @@ Azure Database for PostgreSQL and Azure Database for MySQL are managed services 
 
 ## Deep dive on managed service capabilities for MySQL and PostgreSQL
 
->[!VIDEO https://docs.microsoft.com/Events/Connect/2017/T148/player]
+>[!VIDEO https://learn.microsoft.com/Events/Connect/2017/T148/player]
 [Open in Channel 9](/Events/Connect/2017/T148)
 
 Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and the capabilities of a fully managed service. Tune in to get a deep dive on how these services work—how we ensure high availability and fast scaling (within seconds), so you can meet your customers’ needs. You'll also learn about some of the underlying investments in security and worldwide availability.
 
 ## Develop an intelligent analytics app with PostgreSQL
 
->[!VIDEO https://docs.microsoft.com/Events/Connect/2017/T149/player]
+>[!VIDEO https://learn.microsoft.com/Events/Connect/2017/T149/player]
 [Open in Channel 9](/Events/Connect/2017/T149)
 
 Azure Database for PostgreSQL brings together community edition database engine and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to see in action how easy it is to create new experiences like adding Cognitive Services to your apps by virtue of being on Azure.

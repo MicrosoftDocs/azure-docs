@@ -3,14 +3,16 @@ title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.reviewer: sergkanz
+ms.reviewer: mmcc
 ---
 
 # Request telemetry: Application Insights data model
 
-A request telemetry item (in [Application Insights](./app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
+A request telemetry item (in [Application Insights](./app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.  
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Name
 

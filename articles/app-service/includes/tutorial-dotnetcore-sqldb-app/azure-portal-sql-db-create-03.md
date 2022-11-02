@@ -6,7 +6,7 @@ ms.date: 02/03/2022
 ---
 
 On the Create Server page, fill out the form as follows.
-1. **Resource Group** - choose the **ms-docs-core-sql-tutorial** group you created.
+1. **Resource Group** - choose the **msdocs-core-sql** group you created.
 
 1. **Server name** - enter a globally unique name such as *coredbserverXYZ* where XYZ are random numbers.
 

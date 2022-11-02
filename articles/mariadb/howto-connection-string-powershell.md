@@ -1,12 +1,12 @@
 ---
 title: Generate a connection string with PowerShell - Azure Database for MariaDB
 description: This article provides an Azure PowerShell example to generate a connection string for connecting to Azure Database for MariaDB.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 8/5/2020
+ms.date: 06/24/2022
 ---
 
 # How to generate an Azure Database for MariaDB connection string with PowerShell

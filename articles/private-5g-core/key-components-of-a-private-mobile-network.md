@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
 
-Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for 5G user equipment (UEs). The following diagram shows the main components of a single site.
+Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for user equipment (UEs). The following diagram shows the main components of a single site.
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/site-physical-components.png" alt-text="Diagram displaying the main components of a site in a private mobile network":::
 
@@ -22,7 +22,7 @@ Each private mobile network contains one or more *sites*. A site is a physical e
 
     When you add a site to your private mobile network, you'll create a *Kubernetes cluster* on the Azure Stack Edge device. This serves as the platform for the packet core instance.
 
-- Each packet core instance connects to a radio access network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party.
+- Each packet core instance connects to a radio access network (RAN) to provide coverage for UEs. You'll source your RAN from a third party.
 
 ## Azure Private 5G Core resources
 
@@ -32,9 +32,10 @@ The following diagram shows the key resources you'll use to manage your private 
 
 - The *mobile network* resource represents the private mobile network as a whole.
 - Each *SIM* resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by UEs that will be served by the private mobile network.
+- *SIM group* resources serve as containers for SIM resources and allow you to sort SIMs into categories for easier management. Each SIM must be a member of a SIM group, but can't be a member of more than one. If you only have a small number of SIMs, you may want to add them all to the same SIM group. Alternatively, you can create multiple SIM groups to sort your SIMs. For example, you could categorize your SIMs by their purpose (such as SIMs used by specific UE types like cameras or cellphones), or by their on-site location.
 - *SIM policy* resources are a key component of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
 
-    Each SIM policy defines a set of policies and interoperability settings, which can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
+    Each SIM policy defines a set of policies and interoperability settings. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
     A SIM policy will also reference one or more *services*. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
@@ -45,4 +46,5 @@ The following diagram shows the key resources you'll use to manage your private 
 
 ## Next steps
 
+- [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

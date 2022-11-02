@@ -3,16 +3,16 @@ title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
  
 # Azure Tables bindings for Azure Functions
 
-Azure Functions integrates with [Azure Tables](../cosmos-db/table/introduction.md) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Azure Tables allows you to build functions that read and write data using the Tables API for [Azure Storage](../storage/index.yml) and [Cosmos DB](../cosmos-db/introduction.md).
+Azure Functions integrates with [Azure Tables](../cosmos-db/table/introduction.md) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Azure Tables allows you to build functions that read and write data using the Tables API for [Azure Storage](../storage/index.yml) and [Azure Cosmos DB](../cosmos-db/introduction.md).
 
 > [!NOTE]
-> The Table bindings have historically only supported Azure Storage. Support for Cosmos DB is currently in preview. See [Table API extension (preview)](#table-api-extension).
+> The Table bindings have historically only supported Azure Storage. Support for Azure Cosmos DB is currently in preview. See [Azure Cosmos DB for Table extension (preview)](#table-api-extension).
 
 | Action | Type |
 |---------|---------|
@@ -43,34 +43,32 @@ The process for installing the extension varies depending on the extension versi
 <a name="storage-extension"></a>
 <a name="table-api-extension"></a>
 
-# [Combined Azure Storage extension](#tab/storage-extension/in-process)
+# [Azure Cosmos DB for Table extension](#tab/table-api/in-process)
 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
 
-Working with the bindings requires that you reference the appropriate NuGet package. Tables are included in a combined package for Azure Storage. Install the [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package][storage-4.x], version 3.x or 4.x. 
+This version allows you to bind to types from [`Azure.Data.Tables`](/dotnet/api/azure.data.tables). It also introduces the ability to use Azure Cosmos DB for Table.
 
-> [!NOTE]
-> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Table API extension](#table-api-extension) when using version 5.x.
-
-# [Table API extension (preview)](#tab/table-api/in-process)
-
-A new Table API extension is now in preview. The new version introduces the ability to use Cosmos DB Table APIs and to [connect to Azure Storage using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Data.Tables](/dotnet/api/azure.data.tables).
-
-This new extension is available by installing the [Microsoft.Azure.WebJobs.Extensions.Tables NuGet package][table-api-package] to a project using version 5.x or higher of the storage extension for [blobs](./functions-bindings-storage-blob.md?tabs=in-process%2Cextensionv5) and [queues](./functions-bindings-storage-queue.md?tabs=in-process%2Cextensionv5).
+This extension is available by installing the [Microsoft.Azure.WebJobs.Extensions.Tables NuGet package][table-api-package] into a project using version 5.x or higher of the extensions for [blobs](./functions-bindings-storage-blob.md?tabs=in-process%2Cextensionv5) and [queues](./functions-bindings-storage-queue.md?tabs=in-process%2Cextensionv5).
 
 Using the .NET CLI:
 
 ```dotnetcli
 # Install the Tables API extension
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0-beta.1
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0
 
 # Update the combined Azure Storage extension (to a version which no longer includes Tables)
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
 ``` 
 
-> [!IMPORTANT]
-> If you install the Table API extension with the [Microsoft.Azure.WebJobs.Extensions.Tables NuGet package][table-api-package], ensure that you are using [Microsoft.Azure.WebJobs.Extensions.Storage version 5.x or higher][storage-5.x], as prior versions of that package also include the older version of the table bindings. Using an older version of the storage extension will result in conflicts.
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
-Any existing functions in your project which use table bindings may need to be updated to account for changes in allowed parameter types.
+# [Combined Azure Storage extension](#tab/storage-extension/in-process)
+
+Working with the bindings requires that you reference the appropriate NuGet package. Tables are included in a combined package for Azure Storage. Install the [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package][storage-4.x], version 3.x or 4.x. 
+
+> [!NOTE]
+> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Azure Cosmos DB for Table extension](#table-api-extension) when using version 5.x.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
@@ -85,9 +83,9 @@ Tables are included in a combined package for Azure Storage. Install the [Micros
 > [!NOTE]
 > Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x.
 
-# [Table API extension (preview)](#tab/table-api/isolated-process)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Table API extension does not currently support isolated process. You will instead need to use the [Storage extension](#storage-extension).
+The Azure Cosmos DB for Table extension does not currently support isolated process. You will instead need to use the [Storage extension](#storage-extension).
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -100,9 +98,9 @@ You can install this version of the extension in your function app by registerin
 > [!NOTE]
 > Version 3.x of the extension bundle doesn't include the Table Storage bindings. You need to instead use version 2.x for now.
 
-# [Table API extension (preview)](#tab/table-api/csharp-script)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/csharp-script)
 
-Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the [Storage extension](#storage-extension).
+Version 3.x of the extension bundle doesn't currently include the Azure Cosmos DB for Table bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the [Storage extension](#storage-extension).
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
@@ -146,4 +144,3 @@ Functions 1.x apps automatically have a reference to the extension.
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 
 [Update your extensions]: ./functions-bindings-register.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles

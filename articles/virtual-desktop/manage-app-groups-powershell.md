@@ -114,7 +114,7 @@ To create a RemoteApp group with PowerShell:
 
 To create a RemoteApp group with the Azure CLI:
 
-1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) command to create a new remote application group:
+1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az-desktopvirtualization-applicationgroup-create) command to create a new remote application group:
 
    ```azurecli
    az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \

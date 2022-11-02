@@ -24,6 +24,33 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Group policy requirements](disk-encryption-overview.md#group-policy-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
+## Troubleshooting 'Failed to send DiskEncryptionData'
+
+When encrypting a VM fails with the error message "Failed to send DiskEncryptionData...", it is usually caused by one of the following situations:
+
+- Having the Key Vault existing in a different region and/or subscription than the Virtual Machine
+- Advanced access policies in the Key Vault are not set to allow Azure Disk Encryption
+- Key Encryption Key, when in use, has been disabled or deleted in the Key Vault
+- Typo in the Resource ID or URL for the Key Vault or Key Encryption Key (KEK)
+- Special characters used while naming the VM, data disks, or keys. i.e _VMName, élite, etc
+- Unsupported encryption scenarios
+- Network issues that prevent the VM/Host from accessing the required resources
+
+### Suggestions
+
+- Make sure the Key Vault exists in the same region and subscription as the Virtual Machine
+- Ensure that you have [set key vault advanced access policies](disk-encryption-key-vault.md#set-key-vault-advanced-access-policies) properly
+- If you are using KEK, ensure the key exists and is enabled in Key Vault
+- Check VM name, data disks, and keys follow [key vault resource naming restrictions](../../azure-resource-manager/management/resource-name-rules.md#microsoftkeyvault)
+- Check for any typos in the Key Vault name or KEK name in your PowerShell or CLI command
+>[!NOTE]
+   > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
+   > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+- Ensure you are not following any [unsupported scenario](disk-encryption-windows.md#unsupported-scenarios)
+- Ensure you are meeting [network requirements](disk-encryption-overview.md#networking-requirements) and try again
+
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
 When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM." In expected scenarios, the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.

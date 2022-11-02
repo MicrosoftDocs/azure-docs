@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2022
+ms.date: 11/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -43,11 +43,14 @@ You learn how to register an application in the next tutorial.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
+
 1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your subscription: 
 
     1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory that contains your subscription in the **Directory name** list, and then select **Switch** button next to it.
+        
+        ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 

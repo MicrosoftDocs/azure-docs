@@ -3,7 +3,7 @@ title: Header-based single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with header-based authentication.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -86,7 +86,7 @@ When you've completed all these steps, your app should be running and available.
 ## Considerations
 
 - Application Proxy is used to provide remote access to apps on-premises or on private cloud. Application Proxy is not recommended to handle traffic originating internally from the corporate network.
-- Access to header-based authentication applications should be restricted to only traffic from the connector or other permitted header-based authentication solution. This is commonly done through restricting network access to the application using a firewall or IP restriction on the application server.
+- **Access to header-based authentication applications should be restricted to only traffic from the connector or other permitted header-based authentication solution**. This is commonly done through restricting network access to the application using a firewall or IP restriction on the application server to avoid exposing to the attackers.
 
 ## Next steps
 

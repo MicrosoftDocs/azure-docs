@@ -2,11 +2,11 @@
 title: Create a virtual network - quickstart - Azure CLI
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
-author: KumudD
+author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2021
-ms.author: kumud
+ms.date: 04/13/2022
+ms.author: allensu
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
@@ -25,7 +25,7 @@ In this quickstart, you learn how to create a virtual network. After creating a 
 
 ## Create a resource group and a virtual network
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named **CreateVNetQS-rg** in the **Eastus** location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **CreateVNetQS-rg** in the **Eastus** location:
 
 ```azurecli-interactive
 az group create \
@@ -33,7 +33,7 @@ az group create \
     --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named **myVNet** with one subnet named **default**:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNet** with one subnet named **default**:
 
 ```azurecli-interactive
 az network vnet create \
@@ -48,7 +48,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). 
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). 
 
 If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. 
 
@@ -101,7 +101,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 
 ## VM public IP
 
-To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
+To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
 ```azurecli-interactive
 az network public-ip show \
@@ -121,19 +121,30 @@ ssh <publicIpAddress>
 
 ## Communicate between VMs
 
-To confirm private communication between the **myVM2** and **myVM1** VMs, enter this command:
+To confirm private communication between the **myVM2** and **myVM1** VMs, enter `ping myVM1 -c 4`.
+
+You'll receive a reply message like this:
 
 ```bash
-ping myVM1 -c 4
-```
 
-You'll receive four replies from *10.0.0.4*.
+azureuser@myVM2:~$ ping myVM1 -c 4
+PING myVM1.h0o2foz2r0tefncddcnfqm2lid.bx.internal.cloudapp.net (10.0.0.4) 56(84) bytes of data.
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=1 ttl=64 time=2.77 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=2 ttl=64 time=1.95 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=3 ttl=64 time=2.19 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=1.85 ms
+
+--- myVM1.h0o2foz2r0tefncddcnfqm2lid.bx.internal.cloudapp.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 1.859/2.195/2.770/0.357 ms
+
+```
 
 Exit the SSH session with the **myVM2** VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete \

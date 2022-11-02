@@ -24,7 +24,7 @@ Reference documentation [(training)](https://pkg.go.dev/github.com/Azure/azure-s
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [Go 1.8+](https://golang.org/doc/install)
+* [Go 1.8+](https://go.dev/doc/install)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to create a training and prediction resource and get your keys and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resources you create to connect your application to Custom Vision. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -51,7 +51,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+Add the following code to your script to create a new Custom Vision service project. Insert your keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
 See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
@@ -98,6 +98,9 @@ func main() {
     fmt.Println("Creating project...")
     project, _ := trainer.CreateProject(ctx, project_name, "", objectDetectDomain.ID, "")
 ```
+
+> [!IMPORTANT]
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ## Create tags in the project
 
@@ -177,18 +180,20 @@ var fork_images []training.ImageFileCreateEntry
 for file, region := range forkImageRegions {
     imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "fork", file))
 
-    imageRegion := training.Region { 
-        TagID:forkTag.ID,
-        Left:&region[0],
-        Top:&region[1],
-        Width:&region[2],
-        Height:&region[3],
+    regiontest := forkImageRegions[file]
+    imageRegion := training.Region{
+        TagID:  forkTag.ID,
+        Left:   &regiontest[0],
+        Top:    &regiontest[1],
+        Width:  &regiontest[2],
+        Height: &regiontest[3],
     }
+    var fileName string = file
 
-    fork_images = append(fork_images, training.ImageFileCreateEntry {
-        Name: &file,
+    fork_images = append(fork_images, training.ImageFileCreateEntry{
+        Name:     &fileName,
         Contents: &imageFile,
-        Regions: &[]training.Region{ imageRegion },
+        Regions:  &[]training.Region{imageRegion}
     })
 }
     

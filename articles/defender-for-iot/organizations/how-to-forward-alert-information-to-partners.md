@@ -15,7 +15,7 @@ Syslog and other default forwarding actions are delivered with your system. More
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators has permission to use forwarding rules.
+Defender for IoT administrators have permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -33,7 +33,11 @@ Alerts provide information about an extensive range of security and operational 
 
 - Suspicious traffic detected
 
-Relevant information is sent to partner systems when forwarding rules are created.
+- Disconnected sensors
+
+- Remote backup failures
+
+Relevant information is sent to partner systems when forwarding rules are created in the sensor console or the [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md#create-forwarding-rules).
 
 ## About Forwarding rules and certificates
 
@@ -64,7 +68,7 @@ The following Forwarding rules allow encryption and certificate validation:
     -  Select the severity level.  This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
     
     - Select a protocol(s) that should be detected. 
-       Information will forwarding if the traffic detected was running selected protocols. 
+       Information will be forwarded if the traffic detected was running selected protocols. 
     
     - Select which engines the rule should apply to.
     Alert information detected from selected engines will be forwarded
@@ -91,6 +95,9 @@ Send mail that includes the alert information. You can enter one email address p
 
 1. Select **Save**.
 
+>[!NOTE]
+>Make sure you also add an SMTP server to System Settings -> Integrations -> SMTP Server in order for the EMAIL forwarding rule to function
+
 ### Syslog server actions
 
 The following formats are supported:
@@ -116,11 +123,8 @@ Enter the following parameters:
 
 | Syslog text message output fields | Description |
 |--|--|
-| Date and time | Date and time that the syslog server machine received the information. |
-| Priority | User.Alert |
-| Hostname | Sensor IP address |
-| Protocol | TCP or UDP |
-| Message | Sensor: The sensor name.<br /> Alert: The title of the alert.<br /> Type: The type of the alert. Can be **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**.<br /> Severity: The severity of the alert. Can be **Warning**, **Minor**, **Major**, or **Critical**.<br /> Source: The source device name.<br /> Source IP: The source device IP address.<br /> Destination: The destination device name.<br /> Destination IP: The IP address of the destination device.<br /> Message: The message of the alert.<br /> Alert group: The alert group associated with the alert. |
+| Priority | User. Alert |
+| Message | CyberX platform name: The sensor name.<br /> Microsoft Defender for IoT Alert: The title of the alert.<br /> Type: The type of the alert. Can be **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**.<br /> Severity: The severity of the alert. Can be **Warning**, **Minor**, **Major**, or **Critical**.<br /> Source: The source device name.<br /> Source IP: The source device IP address.<br /> Protocol (Optional): The detected source protocol.<br /> Address (Optional): Source protocol address.<br /> Destination: The destination device name.<br /> Destination IP: The IP address of the destination device.<br /> Protocol (Optional): The detected destination protocol.<br /> Address (Optional): The destination protocol address.<br /> Message: The message of the alert.<br /> Alert group: The alert group associated with the alert. <br /> UUID (Optional): The UUID the alert. |
 
 | Syslog object output | Description |
 |--|--|
@@ -134,7 +138,7 @@ Enter the following parameters:
 | Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
 | Hostname | Sensor IP address |
-| Message | CEF:0 <br />Microsoft Defender for IoT <br />Sensor name: The name of the sensor appliance. <br />Sensor version <br />Alert title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert. <br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> start: The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip: IP address of the source device.  <br />dst_ip: IP address of the destination device.<br />cat: The alert group associated with the alert.  |
+| Message | CEF:0 <br />Microsoft Defender for IoT/CyberX <br />Sensor name <br />Sensor version <br />Microsoft Defender for IoT Alert <br />Alert title <br />Integer indication of serverity. 1=**Warning**, 4=**Minor**, 8=**Major**, or 10=**Critical**.<br />msg= The message of the alert. <br />protocol= The protocol of the alert. <br />severity= **Warning**, **Minor**, **Major**, or **Critical**. <br />type= **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />UUID= UUID of the alert <br /> start= The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip= IP address of the source device. <br />src_mac= MAC address of the source device. (Optional)  <br />dst_ip= IP address of the destination device.<br />dst_mac= MAC address of the destination device. (Optional)<br />cat= The alert group associated with the alert.  |
 
 | Syslog LEEF output format | Description |
 |--|--|
@@ -195,7 +199,7 @@ Once the Webhook Extended forwarding rule has been configured, you can test the 
 
     :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Select the run button to test your forwarding rule.":::
 
-You will know the forwarding rule is working if you see the Success notification.
+You'll know the forwarding rule is working if you see the Success notification.
 
 
 ### NetWitness action
@@ -250,7 +254,7 @@ Test the connection between the sensor and the partner server that's defined in 
 1. Select **Delete** and confirm.
 1. Select **Save**. 
 
-## Forwarding rules and alert exclusion rules
+## Forwarding rules and alert exclusion rules 
 
 The administrator might have defined alert exclusion rules. These rules help administrators achieve more granular control over alert triggering by instructing the sensor to ignore alert events based on various parameters. These parameters might include device addresses, alert names, or specific sensors.
 

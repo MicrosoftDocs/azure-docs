@@ -2,8 +2,9 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 02/16/2022
+ms.date: 09/28/2022
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -14,15 +15,15 @@ Throughout this article, the term "client" refers to any entity that accesses Se
 
 ## Resource planning and considerations
 
-As with any technical resourcing, prudent planning is key in ensuring that Azure Service Bus is providing the performance that your application expects. The right configuration or topology for your Service Bus namespaces depends on a host of factors involving your application architecture and how each of the Service Bus features are used.
+As with any technical resourcing, prudent planning is key in ensuring that Azure Service Bus is providing the performance that your application expects. The right configuration or topology for your Service Bus namespaces depends on a host of factors involving your application architecture and how each of the Service Bus features is used.
 
 ### Pricing tier
 
-Service Bus offers various pricing tiers. It is recommended to pick the appropriate tier for your application requirements.
+Service Bus offers various pricing tiers. It's recommended to pick the appropriate tier for your application requirements.
 
    * **Standard tier** - Suited for developer/test environments or low throughput scenarios where the applications are **not sensitive** to throttling.
 
-   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput is required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) and can be enabled to accommodate spikes in throughput.
+   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput are required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) and can be enabled to accommodate spikes in throughput.
 
 > [!NOTE]
 > If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
@@ -40,7 +41,7 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here is a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) which you can run to see the expected throughput you will receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
 
@@ -57,7 +58,7 @@ Using certain Service Bus features may require compute utilization that may decr
 7. De-duplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
-If your application leverages any of the above features and you are not receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
+If your application leverages any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
 
 You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md).
 
@@ -241,7 +242,7 @@ To increase the throughput of a queue, topic, or subscription, Service Bus batch
 
 Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations aren't affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
 
-When creating a new queue, topic or subscription, batched store access is enabled by default.
+When you create a new queue, topic or subscription, batched store access is enabled by default.
 
 
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
@@ -283,7 +284,7 @@ Batched store access doesn't affect the number of billable messaging operations.
 
 When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
 
-When using the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
+When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (because of the increased message size). Receiving prefetched messages from the cache will be faster because these messages have already been downloaded by the client.
 
@@ -320,9 +321,13 @@ While using these approaches together, consider the following cases -
 
 There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
 
-## Multiple queues
+## Multiple queues or topics
 
 If a single queue or topic can't handle the expected, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+
+More queues or topics mean that you have more entities to manage at deployment time. From a scalability perspective, there really isn't too much of a difference that you would notice as Service Bus already spreads the load across multiple logs internally, so if you use six queues or topics or two queues or topics won't make a material difference.
+
+The tier of service you use impacts performance predictability. If you choose **Standard** tier, throughput and latency are best effort over a shared multi-tenant infrastructure. Other tenants on the same cluster may impact your throughput. If you choose **Premium**, you get resources that give you predictable performance, and your multiple queues or topics get processed out of that resource pool. For more information, see [Pricing tiers](#pricing-tier).
 
 ## Scenarios
 
@@ -378,7 +383,7 @@ To maximize throughput, follow these guidelines:
 
 * If each receiver is in a different process, use only a single factory per process.
 * Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request doesn't affect receiver throughput.
-* Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
+* Leave batched store access enabled. This access reduces the overall load of the entity. It also increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions
@@ -398,7 +403,7 @@ To maximize throughput, follow these guidelines:
 
 Goal: Maximize the throughput of a topic with a large number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is much larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
-Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. It's because each message is received many times, and all messages in a topic and all its subscriptions are stored in the same store. The assumption here is that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
+Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. It's because each message is received many times, and all messages in a topic and all its subscriptions are stored in the same store. The assumption here's that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
 
 To maximize throughput, try the following steps:
 

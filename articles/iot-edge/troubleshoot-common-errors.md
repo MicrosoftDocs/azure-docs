@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Common issues and resolutions for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -70,7 +70,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -78,7 +78,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -101,7 +101,7 @@ Restart the container engine for the updates to take effect.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 Place `daemon.json` in the `/etc/docker` directory on your device.
 
@@ -114,7 +114,7 @@ sudo systemctl restart docker
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -135,6 +135,25 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+## Could not start module due to OS mismatch
+
+ **Observed behavior:**
+
+The edgeHub module fails to start in IoT Edge version 1.1.
+
+**Root cause:**
+
+Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
+
+**Resolution:**
+
+Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
+
+:::moniker-end
+<!-- end 1.1 -->
+
 ## IoT Edge hub fails to start
 
 **Observed behavior:**
@@ -153,7 +172,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging -- 	caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -171,7 +190,7 @@ If you don't need to use the IoT Edge device as a gateway, then you can remove t
 
 In the Azure portal:
 
-1. Navigate to your IoT hub and select **IoT Edge**.
+1. Navigate to your IoT hub and select **Devices** under the **Device management** menu.
 
 2. Select the IoT Edge device that you want to update.
 
@@ -261,7 +280,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
@@ -289,7 +308,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -316,6 +335,27 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## DPS client error
+
+**Observed behavior:**
+
+IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
+
+**Root cause:**
+
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+
+**Resolution:**
+
+1. Verify your DPS credentials are correct.
+1. Apply your configuration using `sudo iotedge apply config`.
+1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
+1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
+
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+
+When using external provisioning, the daemon will also notify the external provisioning endpoint about the re-provisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -400,7 +440,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 **Resolution:**
 
@@ -421,7 +461,7 @@ On Windows:
 
    1. If the parameter exists, set the value of the parameter to **1**.
 
-   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
 
       | Setting | Value |
       | ------- | ----- |
@@ -453,7 +493,7 @@ On Linux:
 
 1. Restart the network service and docker service to apply the changes.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -492,7 +532,29 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart each device in hierarchy level by level from top to the bottom
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
+
+## Security daemon couldn't start successfully
+
+**Observed behavior:**
+
+The security daemon fails to start and module containers aren't created. The `edgeAgent`, `edgeHub` and other custom modules aren't started by IoT Edge service. In `aziot-edged` logs, you see this error:
+
+> - The daemon could not start up successfully: Could not start management service
+>  - caused by: An error occurred for path /var/run/iotedge/mgmt.sock
+>  - caused by: Permission denied (os error 13)
+
+
+**Root cause:**
+
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+
+**Resolution:**
+
+You do not need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
+1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
+1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
 ## Next steps
 

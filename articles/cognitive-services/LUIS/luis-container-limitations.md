@@ -14,6 +14,9 @@ ms.author: aahi
 
 # Language Understanding (LUIS) container limitations
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The LUIS containers have a few notable limitations. From unsupported dependencies, to a subset of languages supported, this article details these restrictions.
 
 ## Supported dependencies for `latest` container

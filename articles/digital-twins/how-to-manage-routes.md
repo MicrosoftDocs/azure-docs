@@ -156,7 +156,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as *dead-lettering*.
 
-You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need to use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To learn more about dead-lettering, see [Endpoints and event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
@@ -211,7 +211,7 @@ Next, create a SAS token for your storage account that the endpoint can use to a
     > [!NOTE]
     > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
     >
-    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az_storage_account_generate_sas).
+    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az-storage-account-generate-sas).
 
 ---
 
@@ -473,13 +473,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's navigation menu on the left to bring up the **Metrics** page.
-
-:::image type="content" source="media/how-to-monitor-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
-
-From here, you can view the metrics for your instance and create custom views.
-
-For more on viewing Azure Digital Twins metrics, see [Monitor with metrics](how-to-monitor-metrics.md).
+For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
 
 ## Next steps
 
