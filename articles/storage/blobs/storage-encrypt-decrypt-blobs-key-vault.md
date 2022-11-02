@@ -290,6 +290,6 @@ Console.WriteLine((await BinaryData.FromStreamAsync(downloadInfo.Content)).ToStr
 
 In this tutorial, you learned how to use .NET client libraries to perform client-side encryption for blob upload and download operations.
 
-For more information about client-side encryption, see [Client-side encryption for blobs](client-side-encryption.md).
+For a broad overview of client-side encryption for blobs, including instructions for migrating encrypted data to version 2, see [Client-side encryption for blobs](client-side-encryption.md).
 
 For more information about Azure Key Vault, see the [Azure Key Vault overview page](../../key-vault/general/overview.md)
