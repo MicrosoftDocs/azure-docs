@@ -30,7 +30,7 @@ These core scenarios are where IoT Edge uses certificates. Use the links to lear
 |---|---|---|
 | IoT Edge | [Ensures it's communicating to the right IoT Hub](#device-verifies-iot-hub-identity) | IoT Hub server certificate |
 | IoT Hub | [Ensures the request came from a legitimate IoT Edge device](#iot-hub-verifies-iot-edge-device-identity) | IoT Edge identity certificate |
-| Downstream IoT device | [Ensures it's communicating to the right IoT Edge gateway](#device-verifies-gateway-identity) | IoT Edge Hub *edgeHub* module server certificate |
+| Downstream IoT device | [Ensures it's communicating to the right IoT Edge gateway](#device-verifies-gateway-identity) | IoT Edge Hub *edgeHub* module server certificate, issued by Edge CA |
 | IoT Edge | [Signs new module server certificates](#why-does-iot-edge-create-certificates). For example, *edgeHub* | Edge CA certificate |
 | IoT Edge | [Ensures the request came from a legitimate downstream device](#gateway-verifies-device-identity) | IoT device identity certificate |
 
@@ -243,7 +243,7 @@ The certificate common name **CN = edgegateway.local** is listed at the top of t
 The two values must *match exactly*. As in the example, **CN = 'edgegateway.local'** and **hostname = 'edgegateway.local'**.
 
 > [!NOTE]
-> For simplicity, the example shows subject certificate common name (CN) as property that is validated. In practice, if a certificate has a subject alternative name (SAN), SAN is validated instead of CN. Generally, because SAN can contain multiple values, it has both the main domain/hostname for the certificate holder as well as any alternate domains. 
+> For simplicity, the example shows subject certificate common name (CN) as property that is validated. In practice, if a certificate has a subject alternative name (SAN), SAN is validated instead of CN. Generally, because SAN can contain multiple values, it has both the main domain/hostname for the certificate holder as well as any alternate domains.
 
 #### Why does EdgeGateway need to be told about its own hostname?
 
