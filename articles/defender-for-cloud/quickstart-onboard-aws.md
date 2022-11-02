@@ -174,7 +174,7 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 
 :::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
 
-1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Here you should provide the URL to this S3 bucket in the AWS deployment wizard. 
+1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Enter the URL to the S3 bucket in the AWS deployment wizard. 
 
 1. **Upload a template file** – AWS will automatically create an S3 bucket in which the CloudFormation template will be saved. Please note that with this automation the S3 bucket will be created with a security misconfiguration which will result in a security recommendation “S3 buckets should require requests to use Secure Socket Layer”. This recommendation can be fixed by applying the following policy: 
 
