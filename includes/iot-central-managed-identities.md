@@ -22,3 +22,6 @@ When you configure a managed identity, the configuration includes a *scope* and 
 The following video provides more information about system assigned managed identities:
 
 > [!VIDEO https://aka.ms/docs/player?id=f095aa41-1f78-4807-807d-baf5555365eb]
+
+> [!CAUTION]
+> To export to blob storage, don't use the **Storage Account Contributor** as shown in the video. Use the **Storage Blob Data Contributor** role instead.

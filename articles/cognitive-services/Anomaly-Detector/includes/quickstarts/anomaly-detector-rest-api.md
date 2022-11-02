@@ -2,8 +2,9 @@
 author: mrbullwinkle
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/18/2020
+ms.date: 10/06/2022
 ms.author: mbullwin
+ms.custom: engagement-fy23
 ---
 
 In this quickstart, you learn how to detect anomalies in a batch of time series data using the Anomaly Detector service and cURL.
@@ -12,29 +13,81 @@ For a high-level look at Anomaly Detector concepts, see the [overview](../../ove
 
 ## Prerequisites
 
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
-    - You will need the key and endpoint address from the resource you create to use the REST API. 
-    You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the <a href="https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect" target="_blank">Request body sample</a>
 
-## Detect anomalies for an entire series
+## Retrieve key and endpoint
 
-At a command prompt, run the following command. You will need to insert the following values into the command.
+To successfully make a call against the Anomaly Detector service, you'll need the following values:
+
+|Variable name | Value |
+|--------------------------|-------------|
+| `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+### Create environment variables
+
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+---
+
+## Detect anomalies
+
+At a command prompt, run the following command. You'll need to insert the following values into the command.
 - Your Anomaly detector service subscription key.
 - Your Anomaly detector endpoint address. 
 - A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the [Request body sample](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
 
-```curl
-curl -v -X POST "https://{endpointresourcename.cognitive.microsoft.com}/anomalydetector/v1.0/timeseries/entire/detect"
+```cmd
+curl -v POST "%ANOMALY_DETECTOR_ENDPOINT%/anomalydetector/v1.0/timeseries/entire/detect"
 -H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
--d "@{path_to_file.json}" 
+-H "Ocp-Apim-Subscription-Key: %ANOMALY_DETECTOR_API_KEY%"
+-d "@path_to_sample_file.json" 
 ```
 
-For an example with all values populated:
+An example of the full command as a single line:
 
-```curl
-curl -v -X POST "https://my-resource-name.cognitiveservices.azure.com/anomalydetector/v1.0/timeseries/entire/detect" -H  "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:1111112222222ed333333ab333333333" -d "@test.json"
+```cmd
+curl -v POST "%ANOMALY_DETECTOR_ENDPOINT%/anomalydetector/v1.0/timeseries/entire/detect" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %ANOMALY_DETECTOR_API_KEY%" -d "@c:\test\rest.json"
+```
+
+Alternatively if you're running the cURL command from a Bash shell your command would be slightly different:
+
+```bash
+curl -v POST "$ANOMALY_DETECTOR_ENDPOINT/anomalydetector/v1.0/timeseries/entire/detect" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: $ANOMALY_DETECTOR_API_KEY" -d "@c:\test\rest.json"
 ```
 
 If you used the sample data from the pre-requisites, you should receive a response 200 with the following results:

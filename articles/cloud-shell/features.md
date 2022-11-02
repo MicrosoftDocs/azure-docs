@@ -3,24 +3,32 @@ title: Azure Cloud Shell features | Microsoft Docs
 description: Overview of features in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
-author: maertendMSFT
+author: theJasonHelmick
 manager: timlt
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service: azure-resource-manager
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/26/2019
-ms.author: damaerte
+ms.date: 09/20/2022
+ms.author: jahelmic
 ---
 
 # Features & tools for Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell runs on `Common Base Linux Delridge`.
+Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner),
+Microsoft's Linux distribution for cloud-infrastructure-edge products and services.
+
+Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
+guard against supply chain attacks. Tooling has been updated to reflect the new base image
+CBL-Mariner. You can get a full list of installed package versions using the following command:
+`tdnf list installed`. If these changes affected your Cloud Shell environment, please contact
+Azuresupport or create an issue in the
+[Cloud Shell repository](https://github.com/Azure/CloudShell/issues).
 
 ## Features
 

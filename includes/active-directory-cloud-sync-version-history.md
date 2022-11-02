@@ -56,10 +56,7 @@ April 18, 2022 - released for download
 
 New features and improvements
 
- - We updated the alias for the Provisioning agent to use the new filename of the MSI when installing the agent.
- - We updated the logic for using the gMSA account to use the Local System account  for the ECMA2 Host installation.
  - We fix bug where granting logon as a service right to a gMSA would fail.
- - We created a cleanup script to match the group membership from AD to AAD.
  - We updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
 
 ## 1.1.587.0

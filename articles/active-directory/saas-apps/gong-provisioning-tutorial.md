@@ -109,9 +109,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Taskize Connect account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Taskize Connect. If the connection fails, ensure your Taskize Connect account has Admin permissions and try again.
+1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Gong account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Gong. If the connection fails, ensure your Gong account has Admin permissions and try again.
 
    ![Token](media/gong-provisioning-tutorial/gong-authorize.png)
+   
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)

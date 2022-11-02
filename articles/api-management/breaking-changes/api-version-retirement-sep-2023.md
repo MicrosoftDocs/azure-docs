@@ -52,9 +52,9 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 * [Azure CLI](/cli/azure/update-azure-cli)
 * [Azure PowerShell](/powershell/azure/install-az-ps)
-* [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
+* [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Terraform on Azure](/azure/developer/terraform/)
-* [Bicep](/azure/azure-resource-manager/bicep/overview)
+* [Bicep](../../azure-resource-manager/bicep/overview.md)
 * [Microsoft Q&A](/answers/topics/azure-api-management.html)
 
 ## Next steps

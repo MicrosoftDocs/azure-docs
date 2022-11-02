@@ -2,6 +2,7 @@
 title: CloudEvents v1.0 schema with Azure Event Grid
 description: Describes how to use the CloudEvents v1.0 schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 07/22/2021
 ---
 
@@ -19,7 +20,7 @@ This article describes CloudEvents schema with Event Grid.
 
 Here is an example of an Azure Blob Storage event in CloudEvents format:
 
-``` JSON
+```json
 {
     "specversion": "1.0",
     "type": "Microsoft.Storage.BlobCreated",  

@@ -26,7 +26,7 @@ Your application will connect to a Web PubSub service instance in Azure.
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Resource name** | Globally unique name | The globally unique Name that identifies your new Web PubSub service instance. Valid characters are `a-z`, `0-9`, and `-`. |
+    | **Resource name** | Globally unique name | The globally unique Name that identifies your new Web PubSub service instance. Valid characters are `a-z`, `A-Z`, `0-9`, and `-`. |
     | **Subscription** | Your subscription | The Azure subscription under which this new Web PubSub service instance is created. |
     | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your Web PubSub service instance. |
     | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |

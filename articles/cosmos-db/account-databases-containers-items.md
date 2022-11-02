@@ -1,17 +1,18 @@
 ---
 title: Azure Cosmos DB resource model
-description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos account. 
+description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos DB account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos DB account. 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/03/2022
 ---
 
 # Azure Cosmos DB resource model
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, create an Azure Cosmos DB account in an Azure resource group in your subscription. You then create databases and containers within the account.
 
@@ -31,12 +32,12 @@ The following image shows the hierarchy of different entities in an Azure Cosmos
 
 In Azure Cosmos DB, a database is similar to a namespace. A database is simply a group of containers. The following table shows how a database is mapped to various API-specific entities:
 
-| Azure Cosmos DB entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Apache Cassandra | API for MongoDB | API for Apache Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos database | Database | Keyspace | Database | Database | NA |
+|Azure Cosmos DB database | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> With Table API accounts, to maintain compatibility with Azure Storage Tables, tables in Azure Cosmos DB are created at the account level.
+> With API for Table accounts, to maintain compatibility with Azure Storage Tables, tables in Azure Cosmos DB are created at the account level.
 
 ## Azure Cosmos DB containers
 
@@ -65,9 +66,9 @@ Data within a container must have a unique `id` property value for each logical 
 
 A container is specialized into API-specific entities as shown in the following table:
 
-| Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+|Azure Cosmos DB container | Container | Table | Collection | Graph | Table |
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. Some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -76,7 +77,7 @@ A container is specialized into API-specific entities as shown in the following 
 
 An Azure Cosmos DB container has a set of system-defined properties. Depending on which API you use, some properties might not be directly exposed. The following table describes the list of system-defined properties:
 
-| System-defined property | System-generated or user-configurable | Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| System-defined property | System-generated or user-configurable | Purpose | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | System-generated | Unique identifier of container | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
@@ -91,17 +92,17 @@ An Azure Cosmos DB container has a set of system-defined properties. Depending o
 
 ## Azure Cosmos DB items
 
-Depending on which API you use, data can represent either an item in a container, a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos item:
+Depending on which API you use, data can represent either an item in a container, a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos DB item:
 
-| Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Azure Cosmos DB entity | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
 | Azure Cosmos DB item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 
-Every Azure Cosmos item has the following system-defined properties. Depending on which API you use, some of them might not be directly exposed.
+Every Azure Cosmos DB item has the following system-defined properties. Depending on which API you use, some of them might not be directly exposed.
 
-| System-defined property | System-generated or user-defined| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| System-defined property | System-generated or user-defined | Purpose | API for NoSQL | API for Cassandra | DB API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | System-generated | Unique identifier of the item | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
@@ -115,17 +116,17 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 
 ### Operations on items
 
-Azure Cosmos items support the following operations. You can use any of the Azure Cosmos APIs to perform the operations.
+Azure Cosmos DB items support the following operations. You can use any of the Azure Cosmos DB APIs to perform the operations.
 
-| Operation | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
+| Operation | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
 | Insert, Replace, Delete, Upsert, Read | Yes | Yes | Yes | Yes | Yes |
 
 ## Next steps
 
-Learn how to manage your Azure Cosmos account and other concepts:
+Learn how to manage your Azure Cosmos DB account and other concepts:
 
-* To learn more, see the [Azure Cosmos DB SQL API](/training/modules/intro-to-azure-cosmos-db-core-api/) training module.
+* To learn more, see the [Azure Cosmos DB API for NoSQL](/training/modules/intro-to-azure-cosmos-db-core-api/) training module.
 * [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)

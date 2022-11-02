@@ -9,9 +9,9 @@ ms.date: 08/18/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# How to convert a SEG-Y file to oVDS?
+# How to convert a SEG-Y file to oVDS
 
-Seismic data stored in the industry standard SEG-Y format can be converted to Open VDS (oVDS) format for use in applications via the Seismic DMS.
+In this article, you will learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DMS.
 
 [OSDU&trade; SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
 
@@ -19,19 +19,18 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
 
 ## Prerequisites
 
-### Postman
+1. Download and install [Postman](https://www.postman.com/) desktop app.
+2. Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
+3. Ensure that a Microsoft Energy Data Services Preview instance is created already
+4. Clone the **sdutil** repo as shown below:
 
-* Download and install [Postman](https://www.postman.com/) desktop app.
-* Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-* Microsoft Energy Data Services Preview instance is created already
-* Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git
 
   git checkout azure/stable
   ```
 
-## Step by step guide
+## Convert SEG-Y file to oVDS file
 
 1. Check if VDS is registered with the workflow service or not:
 
@@ -44,8 +43,7 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
 
    You should see VDS converter DAG in the list. IF NOT in the response list then REPORT the issue to Azure Team
 
-2. Open **sdutil** and edit the `config.yaml` at the root
-   Update `config` to:
+2. Open **sdutil** and edit the `config.yaml` at the root to include the following yaml and fill in the three templatized values (two instances of `<meds-instance-url>` and one `<put refresh token here...>`). See [Generate a refresh token](how-to-generate-refresh-token.md) on how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     ```yaml
     seistore:
@@ -67,9 +65,6 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
     azure:
         empty: none
     ```
-
-    > [!NOTE]
-    > See [Generate a refresh token](how-to-generate-refresh-token.md) on how to generate a refresh token. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
 3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
 
@@ -121,5 +116,5 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert a segy to zgy file](/how-to-convert-segy-to-zgy.md)
+> [How to convert a segy to zgy file](/azure/energy-data-services/how-to-convert-segy-to-zgy)
 

@@ -44,7 +44,7 @@ To update the Synchronization Service with the new password:
 
 7. Click **OK** to save the new password and close the pop-up dialog.
 
-8. Restart the Azure AD Connect Synchronization Service under Windows Service Control Manager. This is to ensure that any reference to the old password is removed from the memory cache.
+8. Restart the **Microsoft Azure AD Sync** service under Windows Service Control Manager. This is to ensure that any reference to the old password is removed from the memory cache.
 
 ## Next steps
 **Overview topics**
