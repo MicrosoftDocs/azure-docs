@@ -122,7 +122,7 @@ Must be one of the following operators:
 
 - IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4
 - Equal – input is the same as the MatchValue
-- Any – It should not have a MatchValue. It is recommended for Match Variable with a valid Selector.
+- Any – It shouldn't have a MatchValue. It's recommended for Match Variable with a valid Selector.
 - Contains
 - LessThan
 - GreaterThan
@@ -165,9 +165,9 @@ Supported HTTP request method values include:
 
 In WAF policy detection mode, if a custom rule is triggered, the action is always logged regardless of the action value set on the custom rule.
 
-- Allow – Authorizes the transaction, skipping all other rules. The specified request is added to the allow list and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allow list aren't evaluated for any further custom rules or managed rules.
+- Allow – Authorizes the transaction, skipping all other rules. The specified request is added to the allowlist and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allowlist aren't evaluated for any further custom rules or managed rules.
 - Block - Blocks or logs the transaction based on SecDefaultAction (detection/prevention mode).
-   - Prevention mode - Blocks the transaction based on SecDefaultAction. Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked.
+   - Prevention mode - Blocks the transaction based on SecDefaultAction. Just like the Allow action, once the request is evaluated and added to the blocklist, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked.
    - Detection mode - Logs the transaction based on SecDefaultAction after which evaluation is stopped. Any request after that meets the same conditions won't be evaluated and will just be logged.
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
 
