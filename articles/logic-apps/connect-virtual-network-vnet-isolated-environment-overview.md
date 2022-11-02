@@ -17,8 +17,8 @@ ms.date: 11/04/2022
 > logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
 > Logic Apps and provide the same capabilities plus more.
 >
-> Starting November 5, 2022, you can no longer create new ISE resources. However, existing ISE resources 
-> before this date are still supported through August 31, 2024. For more information, see the following resources:
+> Starting November 4, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
 >
 > - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 > - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
