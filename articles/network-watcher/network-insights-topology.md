@@ -53,7 +53,7 @@ To view a topology, follow these steps:
 
 The topology containing the resources according to the scope and resource type specified, appears.
 
-   :::image type="content" source="./media/network-insights-topology/topology-start-screen-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/topology-start-screen-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/topology-start-screen-inline.png" alt-text="Screenshot of topology." lightbox="./media/network-insights-topology/topology-start-screen-expanded.png":::
 
 Each edge of the topology represents an association between each of the resources. In the topology, similar types of resources are grouped together. 
 
@@ -65,7 +65,7 @@ To add a region, follow these steps:
 1. Hover on **Regions** under **Azure Regions**.
 2. From the list of **Hidden Resources**, select the regions to be added and select **Add to View**.
 
-   :::image type="content" source="./media/network-insights-topology/add-resources-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/add-resources-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/add-resources-inline.png" alt-text="Screenshot of added resources." lightbox="./media/network-insights-topology/add-resources-expanded.png":::
 
 You can view the resources in the added region as part of the topology.
 
@@ -73,26 +73,25 @@ You can view the resources in the added region as part of the topology.
 
 To drill down to the basic unit of each network, select the plus sign on each resource. When you hover on the resource, you can see the details of that resource. Selecting a resource displays a pane on the right with a summary of the resource. 
 
-   :::image type="content" source="./media/network-insights-topology/resource-details-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/resource-details-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/resource-details-inline.png" alt-text="Screenshot of resource details." lightbox="./media/network-insights-topology/resource-details-expanded.png":::
    
 
 Drilling down into Azure resources such as Application Gateways and Firewalls displays the resource view diagram of that resource. 
 
-   :::image type="content" source="./media/network-insights-topology/drill-down-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/drill-down-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/drill-down-inline.png" alt-text="Screenshot of drilling down a resource." lightbox="./media/network-insights-topology/drill-down-expanded.png":::
 
 ## Integration with diagnostic tools
 
 When you drill down to a VM within the topology, the summary pane contains the **Insights + Diagnostics** section from where you can find the next hop. 
 
-   :::image type="content" source="./media/network-insights-topology/resource-summary-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/resource-summary-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/resource-summary-inline.png" alt-text="Screenshot of summary." lightbox="./media/network-insights-topology/resource-summary-expanded.png":::
 
 Follow these steps to find the next hop.
 
 1. Click **Next hop** and enter the destination IP address. 
 2. Select **Check Next Hop**. The [Next hop](network-watcher-next-hop-overview.md) checks if the destination IP address is reachable from the source VM.
 
-   :::image type="content" source="./media/network-insights-topology/next-hop.png" alt-text="Screenshot of the next hop option.":::
-   :::image type="content" source="./media/network-insights-topology/next-hop-inline.png" alt-text="Screenshot of selecting the scope." lightbox="./media/network-insights-topology/next-hop-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/next-hop-inline.png" alt-text="Screenshot of the next hop option." lightbox="./media/network-insights-topology/next-hop-expanded.png":::
 
 ## Next steps
 
