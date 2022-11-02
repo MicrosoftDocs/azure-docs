@@ -74,7 +74,7 @@ items:
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Record calls
-      href: quickstarts/voice-video-calling/call-recording-sample.md
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
