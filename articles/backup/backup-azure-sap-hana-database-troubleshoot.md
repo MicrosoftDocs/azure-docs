@@ -202,8 +202,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | Found invalid hdbbackint executable.
 --- | ---
-**Possible case** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap//SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
-**Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap//SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
+**Possible case** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
+**Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
 
 ## Restore checks
 
