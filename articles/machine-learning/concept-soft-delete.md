@@ -90,7 +90,7 @@ Calling *Recover* on a soft-deleted workspace, will initiate an operation to res
 
 Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were also deleted, this may prevent the workspace from being recovered or correctly restored. Restore dependent Azure resource first, before recovering a deleted workspace.
 
-Enable [data protection capabilities on Azure Storage](../storage/blobs/soft-delete-blob-overview) to improve chances of successful recovery.
+Enable [data protection capabilities on Azure Storage](/azure/storage/blobs/soft-delete-blob-overview) to improve chances of successful recovery.
 
 ## Permanently delete a soft-deleted workspace
 
