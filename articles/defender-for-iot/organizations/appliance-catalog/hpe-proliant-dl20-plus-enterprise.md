@@ -1,6 +1,6 @@
 ---
-title: HPE ProLiant DL20 Plus for OT monitoring in enterprise deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant DL20 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
+title: HPE ProLiant DL20 Gen10 Plus for OT monitoring in enterprise deployments- Microsoft Defender for IoT
+description: Learn about the HPE ProLiant DL20 Gen10 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
@@ -39,25 +39,30 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 
 |Quantity|PN|Description|
 |----|---|----|
-|1|	P44111-B21|	HPE DL20 Gen10+ 4SFF CTO Server|
-|1|	P45252-B21|	Intel Xeon E-2334 FIO CPU for HPE|
-|1|	869081-B21|	HPE Smart Array P408i-a SR G10 LH Controller|
-|1|	782961-B21|	HPE 12W Smart Storage Battery|
-|1|	P45948-B21|	HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2|	865408-B21|	HPE 500W FS Plat Hot Plug LH Power Supply Kit|
-|1|	775612-B21|	HPE 1U Short Friction Rail Kit|
-|1|	512485-B21|	HPE iLO Adv 1 Server License 1 year support|
-|1|	P46114-B21|	HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
-|1|	P21106-B21|	INT I350 1GbE 4p BASE-T Adapter|
-|3|	P28610-B21|	HPE 1TB SATA 7.2K SFF BC HDD|
-|2|	P43019-B21|	HPE 16GB 1Rx8 PC4-3200AA-E Standard Kit|
+|1|	P44111-B21 | HPE DL20 Gen10+ 4SFF CTO Server|
+|1|	P45252-B21 | Intel Xeon E-2334 FIO CPU for HPE|
+|4|	P28610-B21 | HPE 1TB SATA 7.2K SFF BC HDD|
+|2|	P43019-B21 | HPE 16GB 1Rx8 PC4-3200AA-E Standard Kit|
+|1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
+|1|	P21106-B21 | INT I350 1GbE 4p BASE-T Adapter|
+|1|	P45948-B21 | HPE DL20 Gen10+ RPS FIO Enable Kit|
+|2|	865408-B21 | HPE 500W FS Plat Hot Plug LH Power Supply Kit|
+|1|	775612-B21 | HPE 1U Short Friction Rail Kit|
+|1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
+|1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
+
+Optional Storage Arrays:
+
+|Quantity|PN|Description|
+|----|---|----|
+|1| P26325-B21 | Broadcom MegaRAID MR216i-a x16 Lanes without Cache NVMe/SAS 12G Controller (RAID5)<br><br>**Note**: This RAID controller occupies the PCIe expansion slot and does not allow expansion of networking port expansion |
 
 ## Port expansion
 
 Optional modules for port expansion include:
 
 |Location |Type|Specifications|
-|-------------- | --------------| --------- |
+|--------------|--------------|---------|
 | PCI Slot 1 (Low profile)| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
 | PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
 | PCI Slot 2 (High profile)| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
@@ -74,7 +79,7 @@ Installation includes:
 
 - Enabling remote access and updating the default administrator password
 - Configuring iLO port on network port 1
-- Configuring BIOS and RAID settings
+- Configuring BIOS and RAID10 settings
 - Installing Defender for IoT software
 
 > [!NOTE]
@@ -128,7 +133,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 1. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
 
 > [!NOTE]
-> For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
+> For **Data-at-Rest** encryption, see HPE guidance for activating RAID SR Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus

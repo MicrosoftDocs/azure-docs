@@ -27,7 +27,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20/DL20 Plus (4SFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
@@ -37,7 +37,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
           - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-8106)
             url: ys-techsystems-ys-fit2.md
@@ -67,6 +67,10 @@ landingContent:
             url: hpe-edgeline-el300.md
           - text: Neousys Nuvo-500LP (SMB rugged)
             url: neousys-nuvo-5006lp.md
+          - text: HPE ProLiant DL20 Gen10 (Enterprise)
+            url: hpe-proliant-dl20-legacy.md  
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (SMB)
+            url: hpe-proliant-dl20-smb-legacy.md          
       # - linkListType: reference
       #   links:
       #     - text: Security recommendations for GCP resources

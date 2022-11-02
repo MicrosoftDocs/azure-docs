@@ -255,13 +255,13 @@
         href: appliance-catalog/hpe-proliant-dl360.md
     - name: Large enterprises
       items:
-      - name: HPE ProLiant DL20/DL20 Plus (4SFF)
+      - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
     - name: Production line
       items:
-      - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
+      - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
       - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
@@ -283,6 +283,10 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
+      - name: HPE ProLiant DL20 Gen10 (enterprise)
+        href: appliance-catalog/hpe-proliant-dl20-legacy.md
+      - name: HPE ProLiant DL20 Gen10 (SMB)
+        href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: API reference
