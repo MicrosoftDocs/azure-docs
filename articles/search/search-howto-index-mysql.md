@@ -65,7 +65,7 @@ The data source definition specifies the data to index, credentials, and policie
     api-key: [admin key]
     
     {   
-        "name" : "hotel-mysql-ds"
+        "name" : "hotel-mysql-ds",
         "description" : "[Description of MySQL data source]",
         "type" : "mysql",
         "credentials" : { 
