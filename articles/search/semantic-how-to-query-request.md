@@ -14,7 +14,7 @@ ms.date: 11/01/2022
 # Configure semantic ranking and return captions in search results
 
 > [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. This feature is billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You'll also get semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases.
 
@@ -53,7 +53,7 @@ You'll need a search client that supports preview APIs on the query request. Her
 ## 2 - Create a semantic configuration
 
 > [!IMPORTANT]
-> A semantic configuration is required for the 2021-04-30-Preview REST APIs, Search explorer, and some versions of the beta SDKs. If you're using the 2020-06-30-preview REST API, skip this step and use the "searchFields" approach for field prioritization instead.
+> A semantic configuration is required for the 2021-04-30-Preview REST APIs, Search explorer, and some versions of the beta SDKs. If you're using the 2020-06-30-preview REST API, skip this step and use the ["searchFields" approach for field prioritization](#2b---use-searchfields-for-field-prioritization) instead.
 
 A *semantic configuration* specifies how fields are used in semantic ranking. It gives the underlying models hints about which index fields are most important for semantic ranking, captions, highlights, and answers. 
 
@@ -174,7 +174,7 @@ adminClient.CreateOrUpdateIndex(definition);
 
 This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index through a semantic configuration, you'll set the priority at query time, using the "searchFields" parameter of a query.
 
-Using "searchFields" for field prioritization was an early implementation detail that won't be supported once semantic search exists public preview. We encourage you to use semantic configurations if your application requirements allow it.
+Using "searchFields" for field prioritization was an early implementation detail that won't be supported once semantic search exits public preview. We encourage you to use semantic configurations if your application requirements allow it.
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -208,7 +208,15 @@ When setting "searchFields", choose only fields of the following [supported data
 
 If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
 
-## 3 - Set up the query
+## 3 - Avoid or bracket query features that bypass relevance scoring
+
+Several query capabilities in Cognitive Search don't undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
+
++ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
+
++ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
+
+## 4 - Set up the query
 
 Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string) and the index should contain text fields with rich semantic content.
 
@@ -288,14 +296,6 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set ["select"](search-query-odata-select.md) to specify which fields are returned in the response, and "count" to return the number of matches in the index. These parameters improve the quality of the request and readability of the response.
 
-#### Avoid or bracket query features that bypass relevance scoring
-
-Several query capabilities in Cognitive Search don't undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
-
-+ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
-
-+ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
-
 ### [**.NET SDK**](#tab/dotnet-query)
 
 Beta versions of the Azure SDKs include support for semantic search. Because the SDKs are beta versions, there's no documentation or samples, but you can refer to the REST API section above for insights on how the APIs should work.
@@ -320,11 +320,11 @@ These beta versions use "searchFields" for field prioritization:
 
 ---
 
-## 4 - Evaluate the response
+## 5 - Evaluate the response
 
 Only the top 50 matches from the initial results can be semantically ranked, and all results include captions in the response. As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. A response includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
 
-In semantic search, the response has additional elements: a new semantically ranked relevance score, captions in plain text and with highlights, and optionally [an answer](semantic-answers.md). If your results don't include the extra elements, then your query might be misconfigured. As a first step, check the semantic configuration to ensure it's specified in both the index definition and query.
+In semantic search, the response has additional elements: a new semantically ranked relevance score, captions in plain text and with highlights, and optionally [an answer](semantic-answers.md). If your results don't include the extra elements, then your query might be misconfigured. As a first step towards troubleshooting the problem, check the semantic configuration to ensure it's specified in both the index definition and query.
 
 In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This is useful when individual fields are too dense for the search results page.
 
