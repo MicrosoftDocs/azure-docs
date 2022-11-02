@@ -286,25 +286,6 @@ The console will display restore failures.
 
 - Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
 
-### Clearing sensor data to factory default
-
-In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
-
-> [!NOTE]
-> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
-
-**To clear system data**:
-
-1. Sign in to the sensor as the **cyberx** user.
-
-1. Select **Support** > **Clear data**.
-
-1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset to factory default. 
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
-
-All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
-
 ## Forward sensor failure alerts
 
 You can forward alerts to third parties to provide details about:
@@ -391,6 +372,27 @@ This feature is supported for the following sensor versions:
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
 1. For a locally-managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+
+### Clearing sensor data to factory default
+
+In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
+
+Clearing data deletes all detected or learned data on the sensor. After clearing data on a cloud connected sensor, cloud inventory will be updated accordingly. Additionally, some actions on the corresponding cloud alerts such as downloading PCAPs or learning alerts will not be supported.
+
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+
+**To clear system data**:
+
+1. Sign in to the sensor as the **cyberx** user.
+
+1. Select **Support** > **Clear data**.
+
+1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset to factory default. 
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+
+All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
 
 ## Next steps
 
