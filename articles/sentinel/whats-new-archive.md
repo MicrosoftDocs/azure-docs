@@ -1,8 +1,8 @@
 ---
 title: Archive for What's new in Microsoft Sentinel
 description: A description of what's new and changed in Microsoft Sentinel from six months ago and earlier.
-author: yelevin
-ms.author: yelevin
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 08/31/2022
 ---
