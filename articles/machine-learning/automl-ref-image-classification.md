@@ -46,7 +46,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If you want to specify a different mode for the output, provide an object containing the [Limits](#limits). | | |
 | `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [Training Parameters](#training-parameters) section. | | |
 | `sweep` | object | Dictionary containing sweep parameters for the job. Provide an object which has keys as listed in [Sweep Parameters](#sweep-parameters) section. | | |
-| `search_space` | object | Dictionary containing search space parameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
+| `search_space` | object | Dictionary containing search space (or, range of values) for tuning hyperparameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
 
 ### Limits
 
@@ -139,7 +139,7 @@ The following table describes the hyperparameters that are model agnostic.
 | `training_crop_size` | integer | Image crop size that's input to your neural network for train dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.|  | 224|
 | `validation_crop_size` | integer | Image crop size that's input to your neural network for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.| | 224 |
 | `validation_resize_size` | integer | Image size to which to resize before cropping for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- Training run may get into CUDA OOM if the size is too big. | | 256 |
-| `weighted_loss` | integer | - `0` for no weighted loss. <br>- `1` for weighted loss with sqrt (class_weights). <br>- `2` for weighted loss with class_weights. | `0`, `1`, `2`| `0` |
+| `weighted_loss` | integer | - `0` for no weighted loss. <br>- `1` for weighted loss with sqrt (class_weights). <br>- `2` for weighted loss with class_weights. | 0, 1, 2 | 0 |
 
 ### Sweep Parameters
 When using AutoML for Images, we can perform a hyperparameter sweep over a defined parameter space to find the optimal model. If hyperparameter values are not specified, then default values are used for the specified algorithm. 
@@ -149,25 +149,147 @@ When using AutoML for Images, we can perform a hyperparameter sweep over a defin
 | `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the sections below. |  | |
 
 #### Bandit Early Termination Policy
-Bandit Policy is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job. 
+Bandit Policy is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job. For further details on Bandit policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy)
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
 | `type` | string |Type of early termination policy. | `bandit` | `bandit` |
 | `slack_factor` or `slack_amount` | float | The slack allowed with respect to the best performing training job. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio. | | |
-| `evaluation_interval` | integer | The frequency for applying the policy. | | |
-| `delay_evaluation` | integer | Delays the first policy evaluation for a specified number of intervals. | | |
+| `evaluation_interval` | integer |  (Optional parameter)<br>The frequency for applying the policy. | | |
+| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
 
-For further details on Bandit policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy)
 
 
 #### Median Stopping Early Termination Policy
+Median Stopping is an early termination policy based on running averages of primary metrics reported by the jobs. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#median-stopping-policy)
+
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string |Type of early termination policy. | `median_stopping` | `median_stopping` |
+| `evaluation_interval` | integer | (Optional parameter)<br>The frequency for applying the policy. | | |
+| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
+
+
 
 #### Truncation Selection Early Termination Policy
+Truncation Selection policy cancels a percentage of lowest performing jobs at each evaluation interval. jobs are compared using the primary metric.. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#truncation-selection-policy)
+
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string |Type of early termination policy. | `truncation_selection` | `truncation_selection` |
+| `truncation_percentage` | integer | The percentage of lowest performing jobs to terminate at each evaluation interval. | [1, 99] |  |
+| `evaluation_interval` | integer | (Optional parameter)<br>The frequency for applying the policy. | | |
+| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
+| `exclude_finished_jobs` | integer |  (Optional parameter)<br>Specifies whether to exclude finished jobs when applying the policy. | | |
 
 
-### Search Space Parameters
-This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments.
+
+### Search Space Parameter Expressions
+This section describes the objects for tuning hyperparameters by exploring the range of values defined for each hyperparameter.
+
+There are two types of Hyper parameters: Discrete and Continuous. 
+
+Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be:
+- one or more comma-separated values
+- a `range` object
+- any arbitrary `list` object
+
+The Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`
+
+Below is the list of Hyperparameters that are common across all Automated ML Computer Vision Tasks. The user should find the details on each of these hyper parameters in [Training Parameter](#training-parameter) section.
+- `ams_gradient`
+- `advanced_settings`
+- `augmentations`
+- `beta1`
+- `beta2`
+- `distributed`
+- `early_stopping`
+- `early_stopping_delay`
+- `early_stopping_patience`
+- `evaluation_frequency`
+- `enable_onnx_normalization`
+- `gradient_accumulation_step`
+- `layers_to_freeze`
+- `learning_rate`
+- `learning_rate_scheduler`
+- `momentum`
+- `nesterov`
+- `number_of_epochs`
+- `number_of_workers`
+- `optimizer`
+- `random_seed`
+- `step_lr_gamma`
+- `step_lr_step_size`
+- `training_batch_size`
+- `validation_batch_size`
+- `warmup_cosine_lr_cycles`
+- `warmup_cosine_lr_warmup_epochs`
+- `weight_decay`
+
+Below are the details on Hyperparameters that are specific to Image Classification task. The user should find the details on each of these hyper parameters in [Training Parameter](#training-parameter) section.
+- `model_name`
+- `training_crop_size`
+- `validation_crop_size`
+- `validation_resize_size`
+- `weighted_loss`
+
+##### choice
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `choice` |
+| `values` | array | **Required.** The list of discrete values to choose from. | |
+
+
+##### randint
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `randint` |
+| `upper` | integer | **Required.** The exclusive upper bound for the range of integers. | |
+
+##### qlognormal, qnormal
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `qlognormal`, `qnormal` |
+| `mu` | number | **Required.** The mean of the normal distribution. | |
+| `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
+| `q` | integer | **Required.** The smoothing factor. | |
+
+##### qloguniform, quniform
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `qloguniform`, `quniform` |
+| `min_value` | number | **Required.** The minimum value in the range (inclusive). | |
+| `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
+| `q` | integer | **Required.** The smoothing factor. | |
+
+##### lognormal, normal
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `lognormal`, `normal` |
+| `mu` | number | **Required.** The mean of the normal distribution. | |
+| `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
+
+##### loguniform
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `loguniform` |
+| `min_value` | number | **Required.** The minimum value in the range will be `exp(min_value)` (inclusive). | |
+| `max_value` | number | **Required.** The maximum value in the range will be `exp(max_value)` (inclusive). | |
+
+##### uniform
+
+| Key | Type | Description | Allowed values |
+| --- | ---- | ----------- | -------------- |
+| `type` | const | **Required.** The type of expression. | `uniform` |
+| `min_value` | number | **Required.** The minimum value in the range (inclusive). | |
+| `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
+
 
 
 ## Remarks
