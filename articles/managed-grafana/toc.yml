@@ -41,6 +41,8 @@ items:
     href: how-to-create-api-keys.md
   - name: Enable zone redundancy
     href: how-to-enable-zone-redundancy.md
+  - name: Set up private access
+    href: how-to-set-up-private-access.md 
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
   - name: Transition to grafana.azure.com domain
