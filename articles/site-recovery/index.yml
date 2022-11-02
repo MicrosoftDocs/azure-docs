@@ -104,11 +104,11 @@ landingContent:
           - text: Monitor Site Recovery with Azure Monitor logs
             url: monitor-log-analytics.md
 
-  - title: Disaster recovery for Edge Zones
+  - title: Disaster recovery for Edge Zones (preview)
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Disaster recovery for Edge Zones
+          - text: Disaster recovery for Edge Zones (preview)
             url: tutorial-replicate-vms-edge-zone-to-another-zone.md      
                
   - title: Get involved
