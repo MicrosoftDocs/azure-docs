@@ -77,6 +77,18 @@ To get started with passwordless sign-in, complete the following how-to:
 > [!div class="nextstepaction"]
 > [Enable passwordless sign using the Authenticator app](howto-authentication-passwordless-phone.md)
 
+### FIPS 140 compliance
+
+[Executive Order 14028](https://www.gsa.gov/technology/technology-products-services/it-security/executive-order-14028-improving-the-nations-cybersecurity) requires authenticator apps to comply with Federal Information Protection Standard (FIPS) 140. FIPS 140 defines a minimum set of security requirements for products that implement cryptography. 
+
+The [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program) lists cryptographic modules that have been validated to comply with FIPS requirements. For example, Windows uses Symcrypt... 
+
+As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon [Apple CoreCrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. the platform cryptography. For Android, Microsoft Authenticator uses WolfSSL cryptography, which is pending FIPS 140-3 validation.  
+ 
+
+
+
+
 ## FIDO2 security keys
 
 The FIDO (Fast IDentity Online) Alliance helps to promote open authentication standards and reduce the use of passwords as a form of authentication. FIDO2 is the latest standard that incorporates the web authentication (WebAuthn) standard.
