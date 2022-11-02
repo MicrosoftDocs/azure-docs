@@ -31,7 +31,7 @@ This article gives you an overview of the sign-in activity report with the previ
 
 ## How do you access the sign-in logs?
 
-You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+You can always access your own sign-ins history at [https://mysignins.microsoft.com](https://mysignins.microsoft.com).
 
 To access the sign-ins log for a tenant, you must have one of the following roles:
 
@@ -103,7 +103,7 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ### Non-interactive user sign-ins
 
-Non-interactive user sign-ins are sign-ins that were performed by a client app or OS components on behalf of a user. Like interactive user sign-ins, these sign-ins are done on behalf of a user. Unlike interactive user sign-ins, these sign-ins don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background of the user’s activity.
+Like interactive user sign-ins, non-interactive sign-ins are done on behalf of a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background.
 
 **Report size:** Large </br>
 **Examples:** 
@@ -122,7 +122,11 @@ You can't customize the fields shown in this report.
 
 ![Screenshot of the disabled columns option.](./media/concept-all-sign-ins/disabled-columns.png)
 
-To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period. The non-interactive sign-ins share the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the state of the user or client doesn't change, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the *# sign-ins* column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
+To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period. The non-interactive sign-ins share the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the state of the user or client doesn't change, the IP address, resource, and all other information is the same for each access token request. The only state that does change is the date and time of the sign-in. 
+
+When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+
+Sign-ins are aggregated in the non-interactive users when the following data matches:
 
 - Application
 - User
@@ -188,7 +192,7 @@ There are several filter options to choose from. Below are some notable options 
     - *Not applied:* No policy applied to the user and application during sign-in.
     - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
     - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
-
+- **IP addresses:** There is no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 The following table provides the options and descriptions for the **Client app** filter option.
 
 > [!NOTE]
@@ -226,6 +230,51 @@ If a sign-in failed, you can get more information about the reason in the **Basi
 For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screnshot of the error code lookup tool.](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
+### Authentication details
+
+The **Authentication Details** tab in the details of a sign-in log report provides the following information, for each authentication attempt:
+
+- A list of authentication policies applied, such as Conditional Access or Security Defaults.
+- A list of session lifetime policies applied, such as Sign-in frequency or Remember MFA.
+- The sequence of authentication methods used to sign-in.
+- If the authentication attempt was successful and the reason why.
+
+This information allows you to troubleshoot each step in a user’s sign-in. Use these details to track:
+
+- The volume of sign-ins protected by MFA. 
+- The reason for the authentication prompt, based on the session lifetime policies.
+- Usage and success rates for each authentication method.
+- Usage of passwordless authentication methods, such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business.
+- How frequently authentication requirements are satisfied by token claims, such as when users aren't interactively prompted to enter a password or enter an SMS OTP.
+
+While viewing the sign-ins log, select a sign-in event, and then select the **Authentication Details** tab.
+
+![Screenshot of the Authentication Details tab](media/concept-all-sign-ins/auth-details-tab.png)
+
+**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+
+The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+
+- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+- The **Primary authentication** row isn't initially logged. 
+
+### Risky sign-in data in Azure AD Identity Protection
+
+Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview, which uses the following data:
+
+- Risky users
+- Risky user sign-ins 
+- Risky service principals
+- Risky service principal sign-ins
+
+For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+
+### Microsoft 365 activity logs
+
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Microsoft 365 activity and Azure AD activity logs share a significant number of directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+
+You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

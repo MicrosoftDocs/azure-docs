@@ -33,7 +33,7 @@ You can use the sign-ins log to find answers to questions like:
 
 ## How do you access the sign-in logs?
 
-You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+You can always access your own sign-ins history at [https://mysignins.microsoft.com](https://mysignins.microsoft.com).
 
 To access the sign-ins log for a tenant, you must have one of the following roles:
 
@@ -43,7 +43,7 @@ To access the sign-ins log for a tenant, you must have one of the following role
 - Global Reader
 - Reports Reader
 
-The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API.
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 
 **To access the Azure AD sign-ins log:**
 
@@ -90,6 +90,7 @@ There are several filter options to choose from. Below are some notable options 
     - *Not applied:* No policy applied to the user and application during sign-in.
     - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
     - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+- **IP addresses:** There is no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 The following table provides the options and descriptions for the **Client app** filter option.
 
@@ -114,10 +115,6 @@ The following table provides the options and descriptions for the **Client app**
 |POP3| |A legacy mail client using POP3 to retrieve email.|
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app isn't included or unknown.|
-
-> [!NOTE]
-> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 ## Analyze the sign-in logs
 
@@ -163,11 +160,16 @@ The **Authentication details** tab can initially show incomplete or inaccurate d
 
 ### Risky sign-in data in Azure AD Identity Protection
 
-Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview. Access to other risky sign-in related reports and policies can be accessed from this page. For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview, which uses the following data:
 
-When you select a day in the graph, a sign-ins log is opened with the filters automatically set to capture risky sign-ins. You can adjust the filters and columns just like you would on the main sign-ins log.
+- Risky users
+- Risky user sign-ins 
+- Risky service principals
+- Risky service principal sign-ins
 
-## Microsoft 365 activity logs
+ For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+
+### Microsoft 365 activity logs
 
 You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Microsoft 365 activity and Azure AD activity logs share a significant number of directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
