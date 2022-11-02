@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2022
 ms.subservice: autoscale
 ms.custom: ignite-2022
-ms.author: edbayansh
+ms.author: edbaynash
 ms.reviewer: akkumari
 
 ---
@@ -129,7 +129,7 @@ There are three types of autoscale profiles:
 - **Default profile:** Use the default profile if you don’t need to scale your resource based on a particular date and time, or day of the week, use a regular or default profile. You can only have one default profile. The sample profile used above is an example of a default profile. 
 - **Fixed date profile:** This profile is relevant for a single date and time. Use the fixed date profile to set scaling rules for a specific event. The profile runs only on the event’s date and time. For all other times, autoscale uses the default profile.
 
-    ```json
+```json
     ...
     "profiles": [
         {
@@ -162,7 +162,7 @@ There are three types of autoscale profiles:
 
 The partial schema example below shows a recurring profile, starting at 06:00 and ending at 19:00 on Saturdays and Sundays. The default profile has been modified to start at 19:00 on Saturdays and Sundays.
  
-    ``` JSON
+``` JSON
     {
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -238,8 +238,9 @@ The partial schema example below shows a recurring profile, starting at 06:00 an
             }
     
 ```
-## Autoscale evaluation
 
+## Autoscale evaluation
+ 
 Autoscale settings can have multiple profiles. Each profile can have multiple metric rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Then autoscale evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type. 
 
 ### Which profile will autoscale use?
