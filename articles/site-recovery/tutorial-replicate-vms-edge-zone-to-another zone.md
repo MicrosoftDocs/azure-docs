@@ -298,6 +298,8 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     
     The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes after which you can continue. You can see the status of the replication in the Vault blade under **Replicated items**.     
     
+    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/replicated-items.png" alt-text="Screenshot of replicated items":::
+
     When the replication finishes, the Vault replication items will show:
     
     :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/vault-replication.png" alt-text="Screenshot of Vault replication":::
@@ -315,7 +317,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     
     If you get “Protected” in the ProtectionState column, you are ready to proceed to test failover. 
     
-    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protectionstate.png" alt-text="Screenshot of Protection state":::
+    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protection-state.png" alt-text="Screenshot of Protection state":::
 
 1. Perform, validate, and clean up a test failover. You can skip the Test failover but it is recommended to execute test failover to ensure that your secondary region comes up as expected. 
 
@@ -348,8 +350,8 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     Get-AzRecoveryServicesAsrJob -Job $TFOJob
     ```
 
-> [!NOTE]
-> You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
+    >[!NOTE]
+    >You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
     Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data lost in the target VM. Now you can delete the test failover so you can start the real failover.
