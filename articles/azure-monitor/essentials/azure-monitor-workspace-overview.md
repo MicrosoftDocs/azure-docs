@@ -62,15 +62,18 @@ az resource create --resource-group divyaj-test --namespace microsoft.monitor --
 ```
 
 ### [Resource Manager](#tab/resource-manager)
-Use the following Resource Manager template with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
+Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
 
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
-            "type": "string"
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+              "description": "Specify the name of the workspace."
+            }
         },
         "location": {
             "type": "string",
@@ -81,13 +84,25 @@ Use the following Resource Manager template with any of the [standard deployment
         {
             "type": "microsoft.monitor/accounts",
             "apiVersion": "2021-06-03-preview",
-            "name": "[parameters('name')]",
+            "name": "[parameters('workspaceName')]",
             "location": "[if(empty(parameters('location')), resourceGroup().location, parameters('location'))]"
         }
     ]
 }
 ```
 
+```bicep
+@description('Specify the name of the workspace.')
+param workspaceName string
+
+@description('Specify the location for the workspace.')
+param location string = resourceGroup().location
+
+resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
+  name: workspaceName
+  location: location
+}
+```
 
 ---
 
