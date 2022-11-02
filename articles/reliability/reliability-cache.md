@@ -14,7 +14,7 @@ ms.date: 10/10/2022
 
 # What is reliability in Azure Cache for Redis?
 
-This article describes reliability support in Azure Cache for Redis and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article describes reliability support in Azure Cache for Redis and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
 
 As with any cloud systems,  unexpected outages may occur that result in downtime for a virtual machines (VM) instance, an availability zone, or an entire Azure region. This article provides information that will help you plan for these possible zone or regional outages.
 
@@ -52,8 +52,9 @@ Applicable tiers: **Premium, Enterprise, Enterprise Flash**
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](az-service-support.md).
 
+There are three basic types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](az-service-support.md#azure-services-with-availability-zone-support).
 
-Various high availability options are available in the Standard, Premium, and Enterprise tiers:
+Azure Cache for Redis offers various high availability options are in Standard, Premium, and Enterprise tiers:
 
 | Option | Description | Availability | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |

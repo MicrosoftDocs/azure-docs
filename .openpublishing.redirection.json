@@ -29341,7 +29341,7 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/overview.md",
-            "redirect_URL": "/azure/reliability/overview-reliability",
+            "redirect_URL": "/azure/reliability/overview",
             "redirect_document_id": false
         },
         {

@@ -19,7 +19,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure reliability overview
-            url: overview-reliability.md
+            url: overview.md
   # Card
   - title: Availability zone support
     linkLists:
