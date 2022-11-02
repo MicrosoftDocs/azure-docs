@@ -68,5 +68,5 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 In this document, you learned how to create near-real-time (NRT) analytics rules in Microsoft Sentinel.
 
-- Learn more about about [near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
+- Learn more about [near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 - Explore other [analytics rule types](detect-threats-built-in.md).
