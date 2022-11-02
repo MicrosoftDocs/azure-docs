@@ -56,7 +56,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 ```powershell
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
@@ -64,7 +64,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 ```powershell
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
