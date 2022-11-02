@@ -17,7 +17,7 @@ ms.devlang: python
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your Python app, this article explains what you need to know.
 
 The application is available: 
-* [Sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4-functions-v4)
+* [Sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## Azure SDK azure-search-documents
@@ -49,7 +49,7 @@ The Azure Function pulls in the search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="42-55" :::
+:::code language="javascript" source="~/azure-search-python-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="40-53" :::
 
 ## Azure Function: Suggestions from the catalog
 

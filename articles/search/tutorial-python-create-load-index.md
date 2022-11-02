@@ -96,7 +96,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 
 1. As the code runs, the console displays progress. 
-1. When the upload is complete, the last statement printed to the console is "Done. Press any key to close the terminal.".
+1. When the upload is complete, the last statement printed to the console is "Done! Upload complete".
 
 ## Review the new Search Index
 
