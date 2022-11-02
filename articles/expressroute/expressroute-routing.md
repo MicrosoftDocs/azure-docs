@@ -274,8 +274,12 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Skype For Business Online |12076:5130 |
 | Azure Active Directory |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
-
-* *Office 365 communities are not supported over Microsoft Peering for Azure China region.*
+| **China** |  |
+| Exchange Online |12076:5210 |
+| SharePoint Online |12076:5220 |
+| Skype For Business Online |12076:5230 |
+| CRM Online |12076:5240 |
+| Other Office 365 Online services |12076:5300 |
 
 ## Next steps
 * Configure your ExpressRoute connection.
