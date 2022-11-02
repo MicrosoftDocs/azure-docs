@@ -254,6 +254,6 @@ After all database backups are restored on the instance of SQL Server on Azure V
 
 ## Next steps
 
-- Complete a quickstart to [migrate a database to SQL Server on Azure Virtual Machines by using the T-SQL RESTORE command](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide?view=azuresql).
+- Complete a quickstart to [migrate a database to SQL Server on Azure Virtual Machines by using the T-SQL RESTORE command](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 - Learn more about [SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
 -Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).

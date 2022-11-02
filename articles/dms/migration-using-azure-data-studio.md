@@ -1,5 +1,5 @@
 ---
-title: Migrate using Azure Data Studio
+title: Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to migrate databases with Azure Database Migration Service.
 services: database-migration
 author: croblesm
@@ -13,21 +13,25 @@ ms.date: 09/28/2022
 ms.custom: references_regions
 ---
 
-# Migrate databases with the Azure SQL Migration extension for Azure Data Studio
+# Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 
 Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to assess your database requirements, get right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
 The Azure SQL Migration extension for Azure Data Studio offers these key benefits:
 
 - A responsive UI for an end-to-end migration experience. The extension starts with a migration readiness assessment and SKU recommendation (preview) (based on performance data).
+
 - An enhanced assessment mechanism that can evaluate SQL Server instances. The extension identifies databases that are ready to migrate to Azure SQL targets.
 
   > [!NOTE]
   > You can use the Azure SQL Migration extension to assess SQL Server databases running on Windows or Linux.
 
 - An SKU recommendation engine that collects performance data from the on-premises source SQL Server instance and then generates right-sized SKU recommendations based on your Azure SQL target.
+
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
+
 - You can run your migration online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the migration) depending on your business requirements.
+
 - You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and backups in your on-premises environment.
 
 For information about specific migration scenarios and Azure SQL targets, see the list of tutorials in the following table:
@@ -41,11 +45,13 @@ SQL Server to Azure SQL Database (preview)| [Offline](./tutorial-sql-server-azur
 > [!IMPORTANT]
 > If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 
-The following 16-minute video explains recent updates and features added to the Azure SQL Migration extension in Azure Data Studio. Including the new workflow for SQL Server database assessments and SKU recommendations:
+The following 16-minute video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio, including the new workflow for SQL Server database assessments and SKU recommendations:
 
-> [!VIDEO /_themes/docs.theme/master/_themes/global/video-embed.html?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
+> [!VIDEO /shows/data-exposed/assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
 
-## Architecture of Azure SQL Migration extension for Azure Data Studio
+> [!VIDEO https://learn.microsoft.com/shows/data-exposed/assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
+
+## Architecture of the Azure SQL Migration extension for Azure Data Studio
 
 Azure Database Migration Service is a core component of the Azure SQL Migration extension architecture. Database Migration Service provides a reliable migration orchestrator to support database migrations to Azure SQL. You can create an instance of Database Migration Service or use an existing instance by using the Azure SQL Migration extension in Azure Data Studio.
 
@@ -55,26 +61,26 @@ The workflow of the migration process is illustrated in the following diagram:
 
 :::image type="content" source="media/migration-using-azure-data-studio/architecture-sql-migration.png" border="false" alt-text="Diagram that shows the Azure SQL Migration extension architecture." lightbox="media/migration-using-azure-data-studio/architecture-sql-migration-expanded.png":::
 
-The following list describes details for each step in the workflow:
+The following list describes each step in the workflow:
 
-(1) **Source SQL Server**: An on-premises instance of SQL Server that's in a private cloud or an instance of SQL Server on a virtual machine in a public cloud. SQL Server 2008 and later versions on Windows and Linux are supported.
+(1) **Source SQL Server**: An on-premises instance of SQL Server that's in a private cloud or an instance of SQL Server on a virtual machine in a public cloud. SQL Server 2008 and later versions on Windows or Linux are supported.
 
 (2) **Target Azure SQL**: Supported Azure SQL targets are Azure SQL Managed Instance, SQL Server on Azure Virtual Machines (registered with the SQL infrastructure as a service extension in [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)), and Azure SQL Database.
 
 (3) **Network file share**: A Server Message Block (SMB) network file share where backup files are stored for the databases to be migrated. Azure storage blob containers and Azure storage file share also are supported.
 
-(4) **Azure Data Studio**: Download and install the [Azure SQL Migration extension in Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+(4) **Azure Data Studio**: Download and install the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 
 (5) **Azure Database Migration Service**: An Azure service that orchestrates migration pipelines to do data movement activities from an on-premises environment to Azure. Database Migration Service is associated with the Azure Data Factory self-hosted integration runtime and provides the capability to register and monitor the self-hosted integration runtime.
 
-(6) **Self-hosted integration runtime**: A self-hosted integration runtime should be installed on a computer that can connect to the source SQL Server instance and the location of the backup file. Database Migration Service provides the authentication keys and registers the self-hosted integration runtime.
+(6) **Self-hosted integration runtime**: Install a self-hosted integration runtime on a computer that can connect to the source SQL Server instance and to the location of the backup file. Database Migration Service provides the authentication keys and registers the self-hosted integration runtime.
 
 (7) **Backup files upload to Azure storage**: Database Migration Service uses a self-hosted integration runtime to upload valid backup files from the on-premises backup location to your Azure storage account. Data movement activities and pipelines are automatically created in the migration workflow to upload the backup files.
 
 (8) **Restore backups on target Azure SQL**: Database Migration Service restores backup files from your Azure storage account to the supported target Azure SQL instance.
 
 > [!NOTE]
-> If your migration target is Azure SQL Database (Preview), you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
+> If your migration target is Azure SQL Database, you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
 
 > [!IMPORTANT]
 > In online migration mode, Database Migration Service continuously uploads the backup source files to Azure storage and restores them to the target until you complete the final step of cutting over to the target.
@@ -93,7 +99,7 @@ The following sections walk through the prerequisites for each supported Azure S
 
 [!INCLUDE [dms-ads-sqlvm-prereq](../../includes/dms-ads-sqlvm-prereq.md)]
 
-### [Azure SQL Database (Preview)](#tab/azure-sql-db)
+### [Azure SQL Database (preview)](#tab/azure-sql-db)
 
 [!INCLUDE [dms-ads-sqldb-prereq](../../includes/dms-ads-sqldb-prereq.md)]
 
@@ -123,11 +129,11 @@ To monitor database migrations in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), search for your instance of Database Migration Service by using the resource name.
   
-  :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Screenshot that shows how to search for a resource name in the Azure portal.":::
+   :::image type="content" source="media/migration-using-azure-data-studio/search-dms-portal.png" alt-text="Screenshot that shows how to search for a resource name in the Azure portal.":::
 
 1. In the Database Migration Service instance overview, select **Monitor migrations** to view the details of your database migrations.
 
-  :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Screenshot that shows how to monitor migrations in the Azure portal.":::
+   :::image type="content" source="media/migration-using-azure-data-studio/dms-ads-monitor-portal.png" alt-text="Screenshot that shows how to monitor migrations in the Azure portal.":::
 
 ## Known issues and limitations
 
@@ -145,17 +151,22 @@ To monitor database migrations in the Azure portal:
   - Server audit
 
 - SQL Server 2008 and earlier as target versions aren't supported for migrations to SQL Server on Azure Virtual Machines.
-- If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure storage blob container instead of using the network share option. Store the backup files as page blobs because block blobs are supported only in SQL Server 2016 and later versions.
-- You can't use an existing self-hosted integration runtime that was created from Azure Data Factory for database migrations with Database Migration Service. Initially, the self-hosted integration runtime should be created by using the Azure SQL Migration extension in Azure Data Studio. It can then be reused in future database migrations.
+
+- If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure storage blob container instead of by using the network share option. Store the backup files as page blobs. Block blobs are supported only in SQL Server 2016 and later versions.
+
+- You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
 
 ## Pricing
 
-- Azure Database Migration Service is free to use with the Azure SQL Migration extension in Azure Data Studio. You can migrate multiple SQL Server databases by using Database Migration Service at no charge.
-- No data movement or data ingress costs are assessed when you migrate your databases from an on-premises environment to Azure. If the source database is moved from another region or from an Azure virtual machine, you might incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
-- Use a virtual machine or on-premises server to install Azure Data Studio.
+- Azure Database Migration Service is free to use with the Azure SQL Migration extension for Azure Data Studio. You can migrate multiple SQL Server databases by using Database Migration Service at no charge.
+
+- No data movement or data ingress costs are assessed when you migrate your databases from an on-premises environment to Azure. If the source database is moved from another region or from an Azure virtual machine, you might incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) depending on your bandwidth provider and routing scenario.
+
+- Use a virtual machine or an on-premises server to install Azure Data Studio.
+
 - A self-hosted integration runtime is required to access database backups from your on-premises network share.
 
-## Regional availability
+## Region availability
 
 For the list of Azure regions that support database migrations by using the Azure SQL Migration extension for Azure Data Studio (powered by Azure Database Migration Service), see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 

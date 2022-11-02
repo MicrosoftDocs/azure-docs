@@ -16,12 +16,12 @@ ms.date: 09/28/2022
 
 # Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio
 
-You can use Azure Database Migration Service and the Azure SQL Migration extension in Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
+You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
 
 > [!NOTE]
 > The option to migrate a SQL Server database to Azure SQL Database by using Azure Data Studio currently is in preview. Azure SQL Database migration targets are available only by using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
 
-In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension in Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
+In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -122,7 +122,7 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-view-details.png" alt-text="Screenshot that shows the View details link for the target database recommendations.":::
 
-   1. In **Review Azure SQL Database Recommendations**, review the recommendation. To save a copy of the recommendation, select the **Save recommendation report** checkbox.
+   1. In **Review Azure SQL Database Recommendations**, review the recommendation. To save a copy of the recommendation, select **Save recommendation report**.
 
        :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/azure-sku-recommendation-zoom.png" alt-text="Screenshot that shows SKU recommendation details.":::
 
@@ -142,7 +142,7 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-database.png" alt-text="Screenshot that shows Azure SQL Database details.":::
 
-   1. Next, map the source database and the target database for the migration. In **Target database**, select the Azure SQL Database target. Then, select **Next** to move to the next step in the migration wizard.
+   1. Next, map the source database and the target database for the migration. For **Target database**, select the Azure SQL Database target. Then, select **Next** to move to the next step in the migration wizard.
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/configuration-azure-target-map.png" alt-text="Screenshot that shows source and target mapping.":::
 
@@ -158,7 +158,9 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/migration-source-credentials.png" alt-text="Screenshot that shows source SQL Server credentials.":::
 
-   1. In **Select tables for \<database-name\>**, select the tables that you want to migrate to the target. The **Has rows** column indicates whether the target table has rows in the target database. You can select one or more tables. You can update the list of selected tables anytime before you start the migration. Then, select **Update**.
+   1. In **Select tables for \<database-name\>**, select the tables to migrate to the target. The **Has rows** column indicates whether the target table has rows in the target database. You can select one or more tables. Then, select **Update**.
+
+      You can update the list of selected tables anytime before you start the migration.
 
       In the following example, a text filter is applied to select only tables that contain the word **Employee**. Select a list of tables based on your migration needs.
 
@@ -204,11 +206,15 @@ To create a new instance of Database Migration Service:
 
    1. Select the **Download and install integration runtime** link to open the download link in a web browser. Download the integration runtime, and then install it on a computer that meets the prerequisites to connect to the source SQL Server instance.
 
-      :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-details.png" alt-text="Screenshot that shows the integration runtime.":::
+      :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-download.png" alt-text="Screenshot that shows the Download and install integration runtime link.":::
 
       When installation is finished, Microsoft Integration Runtime Configuration Manager automatically opens to begin the registration process.  
 
-   1. In the **Authentication key** table, copy one of the authentication keys that are provided in the wizard and paste it in Azure Data Studio. If the authentication key is valid, a green check icon appears in Integration Runtime Configuration Manager. A green check indicates that you can continue to **Register**.  
+   1. In the **Authentication key** table, copy one of the authentication keys that are provided in the wizard and paste it in Azure Data Studio.
+
+      :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-authentication-key.png" alt-text="Screenshot that highlights the authentication key table in the wizard.":::
+
+      If the authentication key is valid, a green check icon appears in Integration Runtime Configuration Manager. A green check indicates that you can continue to **Register**.  
 
       After you register the self-hosted integration runtime, close Microsoft Integration Runtime Configuration Manager.
 
@@ -233,13 +239,13 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
    Under **Database migration status**, you can track migrations that are in progress, completed, and failed (if any), or you can view all database migrations.  
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png" alt-text="Screenshot that shows monitor migration dashboard.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png" alt-text="Screenshot that shows monitor migration dashboard." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard.png":::
 
 1. Select **Database migrations in progress** to view active migrations.
 
    To get more information about a specific migration, select the database name.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png" alt-text="Screenshot that shows database migration details.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png" alt-text="Screenshot that shows database migration details." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-details.png":::
 
    Database Migration Service returns the latest known migration status each time migration status refreshes. The following table describes possible statuses:
 
@@ -255,21 +261,21 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
    Here's an example of the AdventureWorks2019 database migration with the status **Creating**:
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png" alt-text="Screenshot that shows creating migration status.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png" alt-text="Screenshot that shows a creating migration status." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-creating.png":::
 
 1. In the menu bar, select **Refresh** to update the migration status.
 
    After migration status is refreshed, the updated status for the example AdventureWorks2019 database migration is **In progress**:
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png" alt-text="Screenshot that shows migration in progress status.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png" alt-text="Screenshot that shows a migration in progress status." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-dashboard-in-progress.png":::
 
 1. Select a database name to open the table view. In this view, you see the current status of the migration, the number of tables that currently are in that status, and a detailed status of each table.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png" alt-text="Screenshot that shows monitoring table migration.":::
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png" alt-text="Screenshot that shows monitoring table migration." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-in-progress.png":::
 
    When all table data is migrated to the Azure SQL Database target, Database Migration Service updates the migration status from **In progress** to **Succeeded**.
 
-   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-succeeded.png" alt-text="Screenshot that shows succeeded migration.":::  
+   :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-succeeded.png" alt-text="Screenshot that shows succeeded migration." lightbox="media/tutorial-sql-server-azure-sql-database-offline-ads/monitor-migration-monitoring-panel-succeeded.png":::  
 
 > [!NOTE]
 > Database Migration Service optimizes migration by skipping tables with no data (0 rows). Tables that don't have data don't appear in the list, even if you select the tables when you create the migration.

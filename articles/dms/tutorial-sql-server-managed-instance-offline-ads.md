@@ -142,7 +142,7 @@ To open the Migrate to Azure SQL wizard:
 
 ## Configure migration settings
 
-1. In **Step 3: Azure SQL target** in the Migrate to Azure SQL wizard, select your Azure account, Azure subscription, the Azure region or location, and the resource group that contains the target Azure SQL Managed Instance instance. Then, select **Next**.
+1. In **Step 3: Azure SQL target** in the Migrate to Azure SQL wizard, select your Azure account, Azure subscription, the Azure region or location, and the resource group that contains the target instance of Azure SQL Managed Instance. Then, select **Next**.
 
 1. In **Step 4: Migration mode**, select **Offline migration**, and then select **Next**.
 
@@ -154,22 +154,22 @@ To open the Migrate to Azure SQL wizard:
    - For backups that are located on a network share, enter or select the following information:
 
      |Name    |Description  |
-    |---------|-------------|
-    |**Source Credentials - Username**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
-    |**Source Credentials - Password**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
-    |**Network share location that contains backups**     |The network share location that contains the full and transaction log backup files. Any invalid files or backup files in the network share that don't belong to the valid backup set are automatically ignored during the migration process.        |
-    |**Windows user account with read access to the network share location**     |The Windows credential (username) that has read access to the network share to retrieve the backup files.       |
-    |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
-    |**Target database name** |You can modify the target database name during the migration process.            |
+     |---------|-------------|
+     |**Source Credentials - Username**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
+     |**Source Credentials - Password**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
+     |**Network share location that contains backups**     |The network share location that contains the full and transaction log backup files. Any invalid files or backup files in the network share that don't belong to the valid backup set are automatically ignored during the migration process.        |
+     |**Windows user account with read access to the network share location**     |The Windows credential (username) that has read access to the network share to retrieve the backup files.       |
+     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
+     |**Target database name** |You can modify the target database name during the migration process.            |
      |**Storage account details** |The resource group and storage account where backup files are uploaded. You don't need to create a container. Database Migration Service automatically creates a blob container in the specified storage account during the upload process.          |
 
    - For backups that are stored in an Azure storage blob container, enter or select the following information:
 
-    |Name    |Description  |
-    |---------|-------------|
-    |**Target database name** |You can modify the target database name during the migration process.            |
-    |**Storage account details** |The resource group, storage account, and container where backup files are located.  
-    |**Last Backup File** |The file name of the last backup of the database you're migrating.
+     |Name    |Description  |
+     |---------|-------------|
+     |**Target database name** |You can modify the target database name during the migration process.            |
+     |**Storage account details** |The resource group, storage account, and container where backup files are located.  
+     |**Last Backup File** |The file name of the last backup of the database you're migrating.
 
    > [!IMPORTANT]
    > If loopback check functionality is enabled and the source SQL Server instance and file share are on the same computer, the source can't access the file share by using an FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
