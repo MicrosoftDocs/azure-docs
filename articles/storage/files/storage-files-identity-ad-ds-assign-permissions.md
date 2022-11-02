@@ -128,7 +128,7 @@ To configure default share-level permissions on your storage account using the [
 1. In the Azure portal, go to the storage account that contains your file share(s) and select **Data storage > File shares**.
 1. You must enable an AD source on your storage account before assigning a default share-level permission. If you've already done so, you can skip this step. To enable an AD source, select **Set up** under the desired AD source. 
 1. After you've configured an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
-1. Select the appropriate role to be enabled as the default share permission from the dropdown list. You can also change an existing default permission to a different role.
+1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list. You can also change an existing default permission to a different role.
 1. Select **Save**.
 
 # [Azure PowerShell](#tab/azure-powershell)
