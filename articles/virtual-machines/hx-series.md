@@ -30,7 +30,7 @@ All HX-series VMs feature 400 Gb/sec NDR InfiniBand from NVIDIA Networking to en
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 <br>
 
-|Size |Physical CPU core |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
+|Size |Physical CPU cores |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
 |Standard_HX176rs    |176 |AMD EPYC Gen oa |1408 |8 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HX176-144rs|144 |AMD EPYC Gen oa |1408 |10|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
