@@ -36,7 +36,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 1. Select **Create** from the button bar, then **NRT query rule (preview)** from the drop-down list.
 
-    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule.":::
+    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
 1. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
 
