@@ -168,7 +168,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
-    * **Encrypted SMB connections to Domain Controller**
+    * <a name="encrypted-smb-dc"></a> **Encrypted SMB connections to Domain Controller**
         
         **Encrypted SMB connections to Domain Controller** specifies whether encryption should be used for communication between SMB server and domain controller. When enabled, only SMB3 will be used for encrypted domain controller connections.
 
