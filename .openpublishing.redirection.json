@@ -769,6 +769,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-create-origin.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-origin",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -6416,11 +6421,6 @@
         {
             "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
             "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
-            "redirect_url": "/azure/storage/blobs/client-side-encryption",
             "redirect_document_id": false
         },
         {

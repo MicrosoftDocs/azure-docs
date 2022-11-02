@@ -38,7 +38,7 @@ You can now monitor your cloud security compliance posture per cloud in a single
 
 Microsoft cloud security benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
 
-Learn more about the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+Learn more about the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
 
 ### Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)
 
