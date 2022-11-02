@@ -2,11 +2,12 @@
 title: Understanding autoscale settings in Azure Monitor
 description: "A detailed breakdown of autoscale settings and how they work. Applies to Virtual Machines, Cloud Services, Web Apps"
 author: EdB-MSFT
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/02/2022
 ms.subservice: autoscale
 ms.custom: ignite-2022
-ms.author: ebayansh
+ms.author: edbayansh
 ms.reviewer: akkumari
 
 ---
@@ -29,16 +30,22 @@ The following example shows an autoscale setting. This autoscale setting has the
 
 ```JSON
 {
-  "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/autoscalesettings/setting1",
-  "name": "setting1",
-  "type": "Microsoft.Insights/autoscaleSettings",
-  "location": "East US",
-  "properties": {
-    "enabled": true,
-    "targetResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Insights/autoscaleSettings",
+            "apiVersion": "2015-04-01",
+            "name": "VMSS1-Autoscale-607",
+            "location": "eastus",
+            "properties": {
+
+                "name": "VMSS1-Autoscale-607",
+                "enabled": true,
+                "targetResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
     "profiles": [
       {
-        "name": "mainProfile",
+        "name": "Auto created default scale condition",
         "capacity": {
           "minimum": "1",
           "maximum": "4",
@@ -48,7 +55,7 @@ The following example shows an autoscale setting. This autoscale setting has the
           {
             "metricTrigger": {
               "metricName": "Percentage CPU",
-              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
+              "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
               "timeGrain": "PT1M",
               "statistic": "Average",
               "timeWindow": "PT10M",
@@ -66,7 +73,7 @@ The following example shows an autoscale setting. This autoscale setting has the
           {
             "metricTrigger": {
               "metricName": "Percentage CPU",
-              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
+              "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
               "timeGrain": "PT1M",
               "statistic": "Average",
               "timeWindow": "PT10M",
@@ -120,10 +127,10 @@ The table below describes the elements in the above autoscale setting's JSON.
 There are three types of autoscale profiles:
 
 - **Default profile:** Use the default profile if you don’t need to scale your resource based on a particular date and time, or day of the week, use a regular or default profile. You can only have one default profile. The sample profile used above is an example of a default profile. 
-- 
 - **Fixed date profile:** This profile is relevant for a single date and time. Use the fixed date profile to set scaling rules for a specific event. The profile runs only on the event’s date and time. For all other times, autoscale uses the default profile.
 
     ```json
+    ...
     "profiles": [
         {
             "name": " regularProfile",
@@ -131,12 +138,7 @@ There are three types of autoscale profiles:
                 ...
             },
             "rules": [
-                {
                 ...
-                },
-                {
-                ...
-                }
             ]
         },
         {
@@ -145,12 +147,7 @@ There are three types of autoscale profiles:
             ...
             },
             "rules": [
-                {
                 ...
-                }, 
-                {
-                ...
-                }
             ],
             "fixedDate": {
                 "timeZone": "Pacific Standard Time",
@@ -161,9 +158,86 @@ There are three types of autoscale profiles:
     ]
     ```
 
-- **Recurrence profile:** A recurrence profile is used for a day or set of days of the week.  The schema for a recurring profile doesn't include an end date. The end of date and time for a recurring profile is set by the start time of the following profile. When using the portal to configure recurring profiles, the default profile is automatically duplicated, and restarts at the time that you specify for the recurring profile to end. For more information on configuring multiple profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
+- **Recurrence profile:** A recurrence profile is used for a day or set of days of the week.  The schema for a recurring profile doesn't include an end date. The end of date and time for a recurring profile is set by the start time of the following profile. When using the portal to configure recurring profiles, the default profile is automatically updated to start at the end time that you specify for the recurring profile. For more information on configuring multiple profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
 
-
+The partial schema example below shows a recurring profile, starting at 06:00 and ending at 19:00 on Saturdays and Sundays. The default profile has been modified to start at 19:00 on Saturdays and Sundays.
+ 
+    ``` JSON
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+            {
+                "type": "Microsoft.Insights/    autoscaleSettings",
+                "apiVersion": "2015-04-01",
+                "name": "VMSS1-Autoscale-607",
+                "location": "eastus",
+                "properties": {
+    
+                    "name": "VMSS1-Autoscale-607",
+                    "enabled": true,
+                    "targetResourceUri": "/subscriptions/    abc123456-987-f6e5-d43c-9a8d8e7f6541/    resourceGroups/rg-vmss1/providers/    Microsoft.Compute/    virtualMachineScaleSets/VMSS1",
+                    "profiles": [
+                        {
+                            "name": "Weekend profile",
+                            "capacity": {
+                                ...
+                            },
+                            "rules": [
+                                ...
+                            ],
+                            "recurrence": {
+                                "frequency": "Week",
+                                "schedule": {
+                                    "timeZone": "E. Europe     Standard Time",
+                                    "days": [
+                                        "Saturday",
+                                        "Sunday"
+                                    ],
+                                    "hours": [
+                                        6
+                                    ],
+                                    "minutes": [
+                                        0
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "{\"name\":\"Auto     created default scale     condition\",\"for\":\"Weekend     profile\"}",
+                            "capacity": {
+                               ...
+                            },
+                            "recurrence": {
+                                "frequency": "Week",
+                                "schedule": {
+                                    "timeZone": "E. Europe     Standard Time",
+                                    "days": [
+                                        "Saturday",
+                                        "Sunday"
+                                    ],
+                                    "hours": [
+                                        19
+                                    ],
+                                    "minutes": [
+                                        0
+                                    ]
+                                }
+                            },
+                            "rules": [   
+                              ...
+                            ]
+                        }
+                    ],
+                    "notifications": [],
+                    "targetResourceLocation": "eastus"
+                }
+    
+            }
+        ]
+            }
+    
+```
 ## Autoscale evaluation
 
 Autoscale settings can have multiple profiles. Each profile can have multiple metric rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Then autoscale evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type. 
@@ -182,7 +256,8 @@ The first suitable profile found will be used.
 
 After autoscale determines which profile to run, it evaluates the scale-out rules in the profile, that is, where **direction = “Increase”**.
 If one or more scale-out rules are triggered, autoscale calculates the new capacity determined by the **scaleAction** specified for each of those rules. If there's more than one scale-out rule triggered, autoscale scales to the maximum specified capacity to ensure service availability. 
-For example, There are two rules: Rule1 specifies scale out by 3 instances and rule 2 specifies scale out by 5. IF Both rules are triggered, autoscale will scale out by 5 instances. Similarly, if one rule specifies scale out by 3 instances and another rule, scale out by 15%, the higher of the two instance counts will be used.
+
+For example, assume that there are two rules: Rule1 specifies scale out by 3 instances and rule 2 specifies scale out by 5. If both rules are triggered, autoscale will scale out by 5 instances. Similarly, if one rule specifies scale out by 3 instances and another rule, scale out by 15%, the higher of the two instance counts will be used.
 
 If no scale-out rules are triggered, autoscale evaluates all the scale-in rules, that is, rules with **direction = “Decrease”**. Autoscale only scales in if all of the scale-in rules are triggered.
 
