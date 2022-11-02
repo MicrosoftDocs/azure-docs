@@ -75,7 +75,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 
 ## Manage the MySQL flexible server, username, or password
 
-- The MySQL Flexible Server is created behind a private [Virtual Network](../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
+- The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
     - Navigate to the URL: https://`<sitename>`.azurewebsites.net/phpmyadmin
     - Login with the flexible server's username and password
 

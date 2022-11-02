@@ -56,7 +56,7 @@ landingContent:
           - text: Document Translation quickstart
             url: document-translation/get-started-with-document-translation.md
           - text: Custom Translator quickstart (preview)
-            url: custom-translator/v2-preview/quickstart.md
+            url: custom-translator/v2.0/quickstart.md
           - text: Custom Translator quickstart (legacy)
             url: custom-translator/quickstart-build-deploy-custom-model.md
 
@@ -112,21 +112,21 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Custom Translation for beginners
-            url: custom-translator/v2-preview/beginners-guide.md
+            url: custom-translator/v2.0/beginners-guide.md
           - text: Create a manage a workspace
-            url: custom-translator/v2-preview/how-to/create-manage-workspace.md
+            url: custom-translator/v2.0/how-to/create-manage-workspace.md
           - text: Create and manage a project
-            url: custom-translator/v2-preview/how-to/create-manage-project.md
+            url: custom-translator/v2.0/how-to/create-manage-project.md
           - text: Build and manage training documents
-            url: custom-translator/v2-preview/how-to/create-manage-training-documents.md
+            url: custom-translator/v2.0/how-to/create-manage-training-documents.md
           - text: Train a custom model
-            url: custom-translator/v2-preview/how-to/train-custom-model.md
+            url: custom-translator/v2.0/how-to/train-custom-model.md
           - text: View custom model details and test translation
-            url: custom-translator/v2-preview/how-to/view-model-test-translation.md
+            url: custom-translator/v2.0/how-to/view-model-test-translation.md
           - text: Publish a custom model
-            url: custom-translator/v2-preview/how-to/publish-model.md
+            url: custom-translator/v2.0/how-to/publish-model.md
           - text: Translate text with a custom model
-            url: custom-translator/v2-preview/how-to/translate-with-custom-model.md
+            url: custom-translator/v2.0/how-to/translate-with-custom-model.md
 
 
   # Card 6
