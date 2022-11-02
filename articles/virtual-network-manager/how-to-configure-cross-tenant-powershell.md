@@ -13,22 +13,24 @@ ms.custom: template-how-to
 
 # Configure cross-tenant connection in Azure Virtual Network Manager - PowerShell
 
-In this article, you'll learn to create [cross-tenant connections](concept-cross-tenant.md) in the Azure Virtual Network Manager with Azure PowerShell. First, you'll create the scope connection on the central network manager. Then you'll create the network manager connection on the connecting tenant, and verify connection. Last, you'll add virtual networks from different tenants and verify. Once completed, You can centrally manage the resources of other tenants from single network manager instance.
+In this article, you'll learn to create [cross-tenant connections](concept-cross-tenant.md) in the Azure Virtual Network Manager with Azure PowerShell. First, you'll create the scope connection on the central network manager. Then you'll create the network manager connection on the connecting tenant, and verify connection. Last, you'll add virtual networks from different tenants and verify. Once completed, You can centrally manage the resources of other tenants from single network manager instance. Once completed, You can centrally manage the resources of other tenants from a central network manager instance.
 
-To learn more, see [how cross-tenant connections work in [Azure Virtual Network Manager](concept-cross-tenant.md).
+> [!IMPORTANT]
+> Azure Virtual Network Manager is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-- Two Azure tenants with virtual networks needing to be managed by Azure Virtual Network Manager Deploy
-- Azure Virtual Network Manager deployed in tenant
-- Permissions <>
-- Tenant-specific information including:
-    - Resource ID
-    - Tenant IDs
-    - Resource Group name
-    - Network manager name
-    - 
+- Two Azure tenants with virtual networks needing to be managed by Azure Virtual Network Manager Deploy. During the how-to, the tenants will be referred to as follows:
+  - **Central management tenant** - The tenant where an Azure Virtual Network Manager instance is installed, and you'll centrally manage network groups from cross-tenant connections.
+  - **Target managed tenant** - The tenant containing virtual networks to be managed. This tenant will be connected to the central management tenant.
+- Azure Virtual Network Manager deployed in the central management tenant.
+- Required permissions include:
+  - Administrator of central management tenant has guest account in target managed tenant.
+  - Administrator guest account has *Network Contributor* permissions applied at appropriate scope level(Management group, subscription, or virtual network).
 
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md), and how to [assign user roles to resources in Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ## Create scope connection within network manager
 Creation of the scope connection begins on the central network manager. This is the network manager where you plan to manager all of your resources. In this task, you'll set up a scope connection with [New-AzNetworkManagerSubscriptionConnection](/powershell/module/az.network/new-aznetworkmanagersubscriptionconnection)
@@ -36,24 +38,26 @@ Creation of the scope connection begins on the central network manager. This is 
 ```azurepowershell
 
 # Create scope connection to target tenant
-New-AzNetworkManagerScopeConnection -Name toFabrikamTenantSub -ResourceGroup $rg.name -NetworkManagerName jaredgorthy -ResourceId "/subscriptions/87654321-abcd-1234-1def-0987654321ab" -Description "this is to manage fabrikam's vnets" -TenantId "12345678-12a3-4abc-5cde-678909876543"
+New-AzNetworkManagerScopeConnection -Name ToTargetManagedTenant -ResourceGroup "myAVNMResourceGroup" -NetworkManagerName "myAVNM" -ResourceId "/subscriptions/87654321-abcd-1234-1def-0987654321ab" -Description "This is a connection to manage resources in the target managed tenant" -TenantId "12345678-12a3-4abc-5cde-678909876543"
 
 
 ```
 
 ## Create network manager connection on subscription in other tenant 
-Once the scope connection is created, you'll switch to your target tenant for the network manager connection. During this task, you'll connect the target tenant to the scope connection created previously
+Once the scope connection is created, you'll switch to your target managed tenant for the network manager connection. During this task, you'll connect the target manged tenant to the scope connection created previously.
 
 ```azurepowershell
 
+# Change context to use target managed tenant
 Set-AzContext -TenantId 12345678-12a3-4abc-5cde-678909876543
 
+# Select subscription to use on target managed tenant
 Select-AzSubscription 87654321-abcd-1234-1def-0987654321ab
 
-New-AzNetworkManagerSubscriptionConnection -Name toContosoTenantNM -Description "this is to be managed by a contoso network manager" -NetworkManagerId "/subscriptions/13579864-1234-5678-abcd-0987654321ab/resourceGroups/$rg.name/providers/Microsoft.Network/networkManagers/jaredgorthy"
+# 
+New-AzNetworkManagerSubscriptionConnection -Name toContosoTenantNM -Description "This connection allows management of the tenant by a central management tenant" -NetworkManagerId "/subscriptions/13579864-1234-5678-abcd-0987654321ab/resourceGroups/$rg.name/providers/Microsoft.Network/networkManagers/"myAVNM""
 
-
-
+#
 Get-AzNetworkManagerSubscriptionConnection -Name toContosoTenantNM
 ```
 
@@ -63,7 +67,7 @@ Switch back to the Contoso tenant, and performing a get on the network manager s
 
 ```azurepowershell
 
-Get-AzNetworkManager -ResourceGroup $rg.name -Name jaredgorthy
+Get-AzNetworkManager -ResourceGroup $rg.name -Name "myAVN"
 
 ```
 
@@ -72,7 +76,7 @@ From Azure Portal and Azure CLI we generate the auth tokens needed for the put s
 
 
 # Get the group you want to add the static members to
-$group = Get-AzNetworkManagerGroup -NetworkManagerName jaredgorthy -ResourceGroup $rg.name -Name containsCrossTenantResources
+$group = Get-AzNetworkManagerGroup -NetworkManagerName "myAVN" -ResourceGroup $rg.name -Name containsCrossTenantResources
 
 # Need to be modified
 $networkManagerTenant = "24680975-1234-abcd-56fg-121314ab5643"
