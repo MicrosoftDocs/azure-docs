@@ -64,7 +64,7 @@ The default deletion behavior when deleting a workspace is soft delete. This exc
 
 Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal. Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
 
-Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-GDPR-implications) to learn more on how deletions are handled when soft delete is enabled.
+Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
 
 > [!TIP]
 > SDK/CLI options for deleting dependent resources are only possible in combination with permanently deleting a workspace, and fails in case a workspace is not permanently deleted to allow for best changes of recovering workspace data.
@@ -90,7 +90,7 @@ Calling *Recover* on a soft-deleted workspace, will initiate an operation to res
 
 Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were also deleted, this may prevent the workspace from being recovered or correctly restored. Restore dependent Azure resource first, before recovering a deleted workspace.
 
-Enable [data protection capabilities on Azure Storage](../storage/blobs/data-protection-overview) to improve chances of successful recovery.
+Enable [data protection capabilities on Azure Storage](../storage/blobs/soft-delete-blob-overview) to improve chances of successful recovery.
 
 ## Permanently delete a soft-deleted workspace
 
