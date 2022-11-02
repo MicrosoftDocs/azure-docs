@@ -142,7 +142,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
             uses: azure/static-web-apps-deploy@latest
             with:
               azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
-              repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+              repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
               action: "upload"
               app_location: "/" # App source code path
               api_location: "" # Api source code path - optional
