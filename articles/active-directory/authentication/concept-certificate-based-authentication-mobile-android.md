@@ -75,7 +75,15 @@ Security keys with certificates:
 - Satisfy the industry requirement to have MFA on separate device 
 - Help in future proofing where multiple credentials can be stored including Fast Identity Online 2 (FIDO2) keys. 
 
-### Steps to test YubiKey on Microsoft apps on Android 
+### Azure AD CBA on Android mobile 
+
+Android needs a middleware application to be able to support smartcard or security keys with certificates. To support YubiKeys with Azure AD CBA, YubiKey Android SDK has been integrated into the Microsoft broker code which can be leveraged through the latest MSAL 
+
+### Azure AD CBA on Android mobile with YubiKey 
+
+Since Azure AD CBA with YubiKey on Android mobile is enabled via the latest MSAL, YubiKey Authenticator app is not a requirement for Android support. 
+
+**Steps to test YubiKey on Microsoft apps on Android 
 
 1. Install the latest Microsoft Authenticator app.
 1. Open Outlook and plug in your YubiKey. 
