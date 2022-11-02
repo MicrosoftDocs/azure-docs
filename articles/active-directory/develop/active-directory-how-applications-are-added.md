@@ -25,7 +25,7 @@ There are two representations of applications in Azure Active Directory (Azure A
 
 ## What are application objects and where do they come from?
 
-You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Azure portal through the [App registrations](https://aka.ms/appregistrations) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include any of the following (and additional information not mentioned here):
+You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Azure portal through the [App registrations](https://aka.ms/appregistrations) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include (but not limited to) any of the following:
 
 - Name, logo, and publisher
 - Redirect URIs
