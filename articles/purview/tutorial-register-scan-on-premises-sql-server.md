@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Register and scan an on-premises SQL Server'
 description: This tutorial describes how to register an on-prem SQL Server to Microsoft Purview, and scan the server using a self-hosted IR. 
-author: viseshag
-ms.author: viseshag
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
