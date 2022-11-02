@@ -98,7 +98,6 @@ sections:
         answer: |
           A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
       - question: |
-      - question: |
         How do I rotate or change the SAS for the Landing Zone for Azure Synapse Link to SQL Server?
       answer: |
       If the SAS has expired for the user managed storage account for the Landing Zone, use [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) to update the database credential for the new SAS. 
