@@ -2,9 +2,9 @@
 author: nadjaklein
 ms.service: machine-learning
 ms.topic: include
-ms.date: 10/15/2021
+ms.date: 11/02/2022
 ms.author: nadjak
 ---
 
 > [!WARNING]
-> Once an Azure Machine Learning workspace has been deleted, it cannot be recovered.
+> If soft-delete is enabled for the workspace, it can be recovered after deletion. If soft-delete isn't enabled, or you select the option to permanently delete the workspace, it can't be recovered. For more information, see [Recover a deleted workspace](/azure/machine-learning/concept-soft-delete).
