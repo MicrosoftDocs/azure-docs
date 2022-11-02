@@ -30,7 +30,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 
 ### [stv2](#tab/stv2)
 
->[!WARNING]
+>[!IMPORTANT]
 > When using stv2, it is required to assign a Network Security Group to your VNET in order for the Azure Load Balancer to work. Learn more in the [Azure Load Balancer documentation](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security-group-support)
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                            | VNet type |
