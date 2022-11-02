@@ -34,7 +34,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Account enrichment fields removed from Azure AD Identity Protection connector
 
-As of **September 30, 2022**, alerts coming from the **Azure Activity Directory Information Protection connector** no longer contain the following fields:
+As of **September 30, 2022**, alerts coming from the **Azure Active Directory Identity Protection connector** no longer contain the following fields:
 
 - CompromisedEntity
 - ExtendedProperties["User Account"]
