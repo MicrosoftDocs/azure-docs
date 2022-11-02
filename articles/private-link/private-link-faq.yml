@@ -3,7 +3,7 @@ metadata:
   title: Azure Private Link frequently asked questions (FAQ)
   description: Learn about Azure Private Link.
   services: private-link
-  author: malopMSFT
+  author: asudbring
   ms.service: private-link
   ms.topic: faq
   ms.date: 10/05/2019
