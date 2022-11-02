@@ -88,6 +88,8 @@ items:
         href: storage-auth-abac-powershell.md
       - name: CLI
         href: storage-auth-abac-cli.md
+    - name: Encrypt and decrypt blobs using Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
   - name: Samples
     items:
     - name: .NET

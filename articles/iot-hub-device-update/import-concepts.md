@@ -28,8 +28,8 @@ For example:
   "isDeployable": false,
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ],
   "instructions": {
@@ -55,7 +55,7 @@ For example:
     }
   ],
   "createdDateTime": "2022-01-19T06:23:52.6996916Z",
-  "manifestVersion": "4.0"
+  "manifestVersion": "5.0"
 }
 ```
 
@@ -94,8 +94,8 @@ Here's an example of an update that can only be deployed to a device that report
 {
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ]
 }

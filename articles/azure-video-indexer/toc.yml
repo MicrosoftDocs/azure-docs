@@ -42,8 +42,8 @@
   items:
   - name: Terminology & concepts overview
     href: concepts-overview.md
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
+  - name: Indexing configuration guide
+    href: indexing-configuration-guide.md  
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
   - name: Using at scale 
@@ -92,6 +92,8 @@
     items:
     - name: Slate detection
       href: slate-detection-insight.md
+  - name: Compare Azure Video Indexer and Media Services presets
+    href: compare-video-indexer-with-media-services-presets.md
 - name: How to guides
   items:
   - name: Manage accounts
