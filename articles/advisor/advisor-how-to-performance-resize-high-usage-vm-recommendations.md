@@ -34,8 +34,8 @@ Advisor recommends resizing virtual machines when use is consistently high (abov
 - Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the average of 1-minute average values while aggregating to 30 minutes)
 - A SKU upgrade for virtual machines is decided given the following criteria: 
   - For each metric, we create a new feature from the P50 (median) of its 30-mins averages aggregated over the observation period. Therefore, a virtual machine is identified as a candidate for a resize if:
-    1) _Both_ `CPU` and `Memory` features are >= *90%* of the current SKU's limits
-    2) Otherwise, _either_ 
+    * _Both_ `CPU` and `Memory` features are >= *90%* of the current SKU's limits
+    * Otherwise, _either_ 
         * The `VM Cached IOPS` feature is >= to *95%* of the current SKU's limits, and the current SKU's max local disk IOPS is >= to its network disk IOPS. _or_
         * the `VM Uncached Bandwidth` feature is >= *95%* of the current SKU's limits, and the current SKU's max network disk throttle limits are >= to its local disk throttle units  
 - We ensure the following:

@@ -47,7 +47,7 @@
   - name: Improve security
     href: advisor-security-recommendations.md
   - name: Improve the performance of highly used VMs
-    href: advisor-how-to-performance-resizehighusagevmrec.md
+    href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
   - name: Use tags to filter recommendations and score
     href: advisor-tag-filtering.md
   - name: Configure recommendations
