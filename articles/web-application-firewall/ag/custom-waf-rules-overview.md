@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/20/2022
+ms.date: 11/02/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -104,7 +104,7 @@ Currently, must be **MatchRule**.
 Must be one of the variables:
 
 - RemoteAddr – IPv4 Address/Range of the remote computer connection
-- RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
+- RequestMethod – HTTP Request method
 - QueryString – Variable in the URI
 - PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
 - RequestUri – URI of the request
@@ -151,6 +151,15 @@ A list of strings with names of transformations to do before the match is attemp
 ### Match values [required]
 
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
+
+Supported HTTP request method values include:
+- GET
+- HEAD
+- POST
+- OPTIONS
+- PUT
+- DELETE
+- PATCH
 
 ### Action [required]
 
