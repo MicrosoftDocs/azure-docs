@@ -35,7 +35,7 @@ Azure RBAC has several Azure built-in roles that you can assign to users, groups
 Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
-- Key Vault Certificate Officer
+- Key Vault Certificates Officer
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
