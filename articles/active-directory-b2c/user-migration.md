@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/3/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,6 +20,10 @@ Migrating from another identity provider to Azure Active Directory B2C (Azure AD
 Watch this video to learn about Azure AD B2C user migration strategies and steps to consider.
 
 >[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
+
+
+> [!NOTE]
+> Before you start the migration, you need to check your Azure AD B2C tenant usage. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage).  
 
 ## Pre migration
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/20/2022
+ms.date: 11/3/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -226,7 +226,11 @@ To get your Azure AD B2C tenant ID, follow these steps:
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the **Overview**, copy the **Tenant ID**.
 
-![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
+![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png) 
+
+## Get your tenant usage
+
+You can read your Azure AD B2C's total directory size, and how much of it is in use. To do so, follow the steps in [Get tenant usage by using Microsoft Graph API](microsoft-graph-operations.md#tenant-usage).
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/12/2022
+ms.date: 11/3/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -18,11 +18,6 @@ ms.custom: "b2c-support"
 
 Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
 
-> [!NOTE]
-> You can create up to **20** tenants per subscription. By default, each tenant can accommodate **1.25 million** user accounts, but you can increase this limit to **5.25 million** user accounts when you add and verify a custom domain. These limits help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase any of these service limits, please contact [Microsoft Support](find-help-open-support-ticket.md).
-> 
-> If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). A role of at least Subscription Administrator is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -31,7 +26,13 @@ In this article, you learn how to:
 > * Switch to the directory containing your Azure AD B2C tenant
 > * Add the Azure AD B2C resource as a **Favorite** in the Azure portal
 
-You learn how to register an application in the next tutorial.
+Before you create you Azure AD B2C, you need to take the following considerations into account: 
+
+- You can create up to **20** tenants per subscription. This limit help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). 
+
+- By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+
+- If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). A role of at least *Subscription Administrator* is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
 
 ## Prerequisites
 
@@ -64,7 +65,8 @@ You learn how to register an application in the next tutorial.
    ![Select the Create a resource button](media/tutorial-create-tenant/create-a-resource.png)
 
 1. Search for **Azure Active Directory B2C**, and then select **Create**.
-2. Select **Create a new Azure AD B2C Tenant**.
+
+1. Select **Create a new Azure AD B2C Tenant**.
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 

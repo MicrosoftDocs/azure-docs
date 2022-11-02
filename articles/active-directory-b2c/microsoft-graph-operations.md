@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 11/3/2022
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -26,7 +26,7 @@ Watch this video to learn about Azure AD B2C user migration using Microsoft Grap
 
 ## Prerequisites
 
-To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
+- To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Register a Microsoft Graph application](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
 
 ## User management
 > [!NOTE]
@@ -161,6 +161,26 @@ For user flows, these extension properties are [managed by using the Azure porta
 > [!NOTE]
 > In Azure AD, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they are used in B2C through the `b2c-extensions-app` app which should not be updated, they are managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
+## Tenant usage 
+
+Follow the steps in [Get organization details](/graph/api/organization-get) to get your directory size quota. You need to use the `$select` query parameter as shown in the HTTP request below:
+
+```http
+    GET https://graph.microsoft.com/v1.0/organization/organization-id?$select=directorySizeQuota
+``` 
+Replace `organization-id` with your organization/tenant ID. 
+
+After successful execution, the response will look similar to the following JSON snippet:
+
+```json
+{
+    .......
+    "directorySizeQuota": {
+        "used": 156,
+        "total": 1250000
+    }
+}
+``` 
 ## Audit logs
 
 - [List audit logs](/graph/api/directoryaudit-list)

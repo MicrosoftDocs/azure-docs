@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 11/3/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -24,7 +24,7 @@ This article describes how to enable custom domains in your redirect URLs for Az
 
 - It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
 
-- You increase the number of user accounts you host in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
+- You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
 ![Screenshot demonstrates an Azure AD B2C custom domain user experience.](./media/custom-domain/custom-domain-user-experience.png)
 
