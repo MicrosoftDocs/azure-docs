@@ -127,7 +127,7 @@ If you're using [semantic search](semantic-search-overview.md), the "@search.rer
 
 The "@search.rerankerScore" range is 1 to 4.00, where a higher score indicates a stronger semantic match.
 
-### How to get consistent ordering with $orderby
+### Ordering with $orderby
 
 If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as "sortable" can be used to order results.
 
@@ -139,7 +139,7 @@ String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCI
 
 + Numeric content in string fields is sorted alphabetically (1, 10, 11, 2, 20).
 
-+ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior.
++ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer ona field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
 
 + Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
 
