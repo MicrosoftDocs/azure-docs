@@ -184,6 +184,16 @@ $virtualMachines | Start-AzVM
 ```
 
 ---
+## Limitations
+
+You can't resize a VM size that has a local temp disk to a VM size with no local temp disk and vice versa.
+The only combinations allowed for resizing are:
+
+1. VM (with local temp disk) -> VM (with local temp disk); and
+2. VM (with no local temp disk) -> VM (with no local temp disk).
+
+If interested in a work around, please see ["How do I migrate from a VM size with local temp disk to a VM size with no local temp disk?"](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-vms-no-temp-disk#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---)
+
 
 ## Next steps
 
