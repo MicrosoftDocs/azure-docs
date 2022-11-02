@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Deploy a Spring Cloud application connected to Azure Database for MySQL with Service Connector'
-description: Create a Spring Boot application connected to Azure Database for MySQL with Service Connector.
+title: 'Tutorial: Deploy a Spring Cloud Application Connected to Azure Database for MySQL Flexible Server with Service Connector'
+description: Create a Spring Boot application connected to Azure Database for MySQL Flexible Server with Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/02/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Tutorial: Deploy Spring Cloud application connected to Azure Database for MySQL with Service Connector
+# Tutorial: Deploy Spring Cloud Application Connected to Azure Database for MySQL Flexible Server with Service Connector
 
 In this tutorial, you will complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
 
@@ -18,9 +18,6 @@ In this tutorial, you will complete the following tasks using the Azure portal o
 > * Provision an instance of Azure Spring Cloud
 > * Build and deploy apps to Azure Spring Cloud
 > * Integrate Azure Spring Cloud with Azure Database for MySQL with Service Connector
-
-> [!NOTE]
-> Azure Database for MySQL is set to be deprecated, in favor of Azure Database for MySQL Flexible Server. To view the tutorial for MySQL Flexible Server, go to [Deploy a Spring Cloud application connected to Azure Database for MySQL Flexible Server](tutorial-java-spring-mysql-flexible.md).
 
 ## Prerequisites
 
@@ -49,34 +46,29 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Create a resource group to contain your Azure Spring Cloud service and an instance of the Azure Spring Cloud service.
 
     ```azurecli
-    az group create --name ServiceConnector-tutorial-rg
+    az group create --name ServiceConnector-tutorial-mysqlf
     ```
 
 1. Create an instance of Azure Spring Cloud.  Its name must be between 4 and 32 characters long and can only contain lowercase letters, numbers, and hyphens.  The first character of the Azure Spring Cloud name must be a letter and the last character must be either a letter or a number.
 
     ```azurecli
-    az spring-cloud create -n <service instance name> -g ServiceConnector-tutorial-rg
+    az spring-cloud create -n my-azure-spring-cloud -g ServiceConnector-tutorial-mysqlf
     ```
 
 ## Create an Azure Database for MySQL
 
-The following procedure uses the Azure CLI extension to provision an instance of Azure Database for MySQL.
+Create a MySQL flexible server and a database. In the command below, replace `<admin-username>` and `<admin-password>` by credentials of your choice to create an administrator user for the MySQL flexible server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters (for example, `!`, `#`, `%`). The password cannot contain `username`.
 
-1. Install the [db-up](/cli/azure/mysql) extension.
+```azurecli-interactive
+az mysql flexible-server create \
+    --resource-group ServiceConnector-tutorial-mysqlf \
+    --name mysqlf-server \
+    --database-name mysqlf-db \
+    --admin-user <admin-username> \
+    --admin-password <admin-password>
+```
 
-    ```azurecli
-    az extension add --name db-up
-    ```
-
-1. Create an Azure Database for MySQL server using the following command:
-
-    ```azurecli
-    az mysql up --resource-group ServiceConnector-tutorial-rg --admin-user <admin-username> --admin-password <admin-password>
-    ```
-
-    For *`<admin-username>`* and *`<admin-password>`*, specify credentials to create an administrator user for this MySQL server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password cannot contain username.
-
-    The server is created with the following default values unless you manually override them:
+ The server is created with the following default values unless you manually override them:
 
 | **Setting**          | **Default value** | **Description**                                                                                                                                                                                                                                                                       |
 |----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -90,29 +82,42 @@ The following procedure uses the Azure CLI extension to provision an instance of
 | version              | 5.7               | The MySQL major version.                                                                                                                                                                                                                                                              |
 
 > [!NOTE]
-> For more information about the `az mysql up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql#az-mysql-up).
+> Standard_B1ms SKU is used by default. Refer to [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) for pricing details.
 
-Once your server is created, it comes with the following settings:
-
-* A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and allows that IP address.
-* "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
-* The `wait_timeout` parameter is set to 8 hours
-* An empty database named `sampledb` is created
-* A new user named "root" with privileges to `sampledb` is created
+> [!NOTE]
+> For more information about the `az mysql flexible-server create` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
 
 ## Build and deploy the app
 
 1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
 
-    ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g ServiceConnector-tutorial-rg --assign-endpoint true
+    ```azurecli-interactive
+    az spring app create -n hellospring -s <service instance name> -g ServiceConnector-tutorial-mysqlfl --assign-endpoint true
     ```
 
-1. Create service connections between Spring Cloud to MySQL database.
+1. Run the `az spring connection create` command to connect the application deployed to Azure Spring Cloud to the MySQL Flexible Server database. Replace the placeholders below with your own information.
 
-    ```azurecli
-    az spring-cloud connection create mysql-flexible
+    ```azurecli-interactive
+    az spring connection create mysql-flexible \
+        --resource-group ServiceConnector-tutorial-mysqlf \
+        --service my-azure-spring-cloud \
+        --app hellospring \
+        --target-resource-group ServiceConnector-tutorial-mysqlf \
+        --server mysqlf-server \
+        --database mysqlf-db \
+        --secret name=<admin-username> secret=<admin-secret>
     ```
+
+    | Setting                   | Description                                                                                  |
+    |---------------------------|----------------------------------------------------------------------------------------------|
+    | `--resource-group`        | The name of the resource group that contains the app hosted by Azure Spring Apps.            |
+    | `--service`               | The name of the Azure Spring Apps resource.                                                  |
+    | `--app`                   | The name of the application hosted by Azure Spring Apps that connects to the target service. |
+    | `--target-resource-group` | The name of the resource group with the storage account.                                     |
+    | `--server`                | The MySQL Flexible Server you want to connect to                                             |
+    | `--database`              | The name of the database you created earlier.                                                |
+    | `--secret name`           | The MySQL Flexible Server username.                                                          |
+    | `--secret`                | The MySQL Flexible Server password.                                                          |
 
     > [!NOTE]
     > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
@@ -133,7 +138,7 @@ Once your server is created, it comes with the following settings:
 1. Deploy the JAR file for the app (`target/demo-0.0.1-SNAPSHOT.jar`).
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g ServiceConnector-tutorial-rg  --artifact-path target/demo-0.0.1-SNAPSHOT.jar
+    az spring app deploy -n hellospring --service <service instance name> -g ServiceConnector-tutorial-rg  --artifact-path target/demo-0.0.1-SNAPSHOT.jar
     ```
 
 1. Query app status after deployment with the following command.
@@ -145,9 +150,9 @@ Once your server is created, it comes with the following settings:
     You should see output like the following:
 
     ```output
-    Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
-    -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    hellospring         eastus    <resource group>   default                                                                       Succeeded              1      2         1/1                 0/1                    -
+    Name               Location    ResourceGroup                      Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
+    -----------------  ----------  --------------------------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
+    hellospring        eastus     ServiceConnector-tutorial-mysqlf    default                                                                       Succeeded              1      2         1/1                 0/1                    -
     ```
 
 ## Next steps
