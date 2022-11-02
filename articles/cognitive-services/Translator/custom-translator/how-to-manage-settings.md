@@ -10,7 +10,6 @@ ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that I can create workspace, share workspace, and manage key in Custom Translator.
 ---
 
 # How to manage settings
@@ -21,7 +20,6 @@ To access the settings page:
 
 1. Sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal.
 2. On Custom Translator portal, select the gear icon in the sidebar.
-    ![Setting Link](media/how-to/how-to-settings.png)
 
 ## Associating Translator Subscription
 
@@ -38,7 +36,7 @@ If you don't have a subscription, follow the steps below:
 
 1. Select the **Create workspace** button in Custom Translator sidebar.
 
-    ![Create new workspace](media/how-to/create-new-workspace.png)
+
 
 2. In the dialog, enter the name of the new workspace.
 3. Select **Next**.
@@ -46,7 +44,7 @@ If you don't have a subscription, follow the steps below:
 5. Select subscription region. The region must match the selected region when Translator resource key was created.
 6. Enter the key for your translator subscription, then select the **Save** button.
 
-    ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
+
 
 >[!Note]
 >Custom Translator does not support creating workspace for Translator Text API resource (a.k.a. Azure key) that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
@@ -56,11 +54,11 @@ If you don't have a subscription, follow the steps below:
 1. Navigate to the "Settings" page for your workspace.
 2. Select **Change Key**.
 
-    ![How to add key](media/how-to/how-to-add-subscription-key.png)
+
 
 3. In the dialog, enter the key for your Translator subscription, then select the **Save** button.
 
-    ![How to add key dialog](media/how-to/how-to-add-subscription-key-dialog.png)
+
 
 ## Manage your workspace
 
@@ -75,11 +73,11 @@ In Custom Translator you can share your workspace with others, if different part
 1. Navigate to the workspace "Settings" page.
 2. Select the **Add people** button in the **Sharing settings** section.
 
-    ![Share workspace](media/how-to/share-workspace.png)
+
 
 3. On the dialog, enter a comma-separated list of email addresses you want this workspace shared with. Make sure you share with the email address that person uses to sign in to Custom Translator with. Select the appropriate level of sharing permission and select the **Save** button.
 
-    ![Share workspace dialog](media/how-to/share-workspace-dialog.png)
+
 
 4. If your workspace still has the default name "My workspace", you'll be required to change it before sharing your workspace.
 5. Select **Save**.
@@ -100,7 +98,7 @@ When a workspace is shared, the **Sharing settings** section shows all email add
 
 2. Choose the dropdown menu and select the new permission level you want to assign to that email address.
 
-    ![Sharing permission settings](media/how-to/sharing-permission-settings.png)
+
 
 ## Pin your workspace
 
@@ -110,7 +108,7 @@ Your first created workspace is by default pinned. Each time you sign in, your p
 2. Navigate to the "Settings" page for your workspace.
 3. Select the **Pin icon**.
 
-    ![Pin workspace](media/how-to/how-to-pin-workspace.png)
+
 
 ## Next steps
 

@@ -10,7 +10,6 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: reference
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
 
 # Custom Translator frequently asked questions

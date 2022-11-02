@@ -10,7 +10,6 @@ ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to understand how to view the model details, so that I can review details of each translation model.
 ---
 
 # View the model details
@@ -72,7 +71,7 @@ For each model in the project, these details are displayed.
 9. Delete: You can use this button if you want to delete the model. Deleting a
     model won't delete any of the documents used to create that model.
 
-    ![View model details](media/how-to/how-to-view-model-details.png)
+
 
 >[!Note]
 >To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
@@ -97,7 +96,7 @@ The model page has two tabs: Training details and Test.
 
     -  Used Sentences: This field shows number of sentences has been used by Custom Translator during this training.
 
-    ![Model training details](media/how-to/how-to-model-training-details.png)
+
 
 2.  **Test:** This tab shows the test details for a successful training.
 

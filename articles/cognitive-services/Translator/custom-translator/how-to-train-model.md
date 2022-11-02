@@ -10,7 +10,6 @@ ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
 # Train a model
@@ -35,7 +34,7 @@ To train a model:
 
     - Target sentences: Shows the number of sentences extracted from the target file.
 
-    ![Train model](media/how-to/how-to-train-model.png)
+
 
 3. Select **Create model** button.
 
@@ -43,12 +42,12 @@ To train a model:
 
 5. Select the **Create model** button.
 
-    ![Train model dialog](media/how-to/how-to-train-model-2.png)
+
 
 6. Custom Translator will submit the training, and show the status of the
     training in the models tab.
 
-    ![Train model page](media/how-to/how-to-train-model-3.png)
+
 
 >[!Note]
 >Custom Translator supports 10 concurrent trainings within a workspace at any point in time.
@@ -62,11 +61,11 @@ You can modify a model name from the Model Details page.
 3. Select the model name to view the model details.
 4. Select the **pencil icon**.
 
-    ![Edit model](media/how-to/how-to-edit-model.png)
+
 
 5. In the dialog, change the model name and give your model a meaningful name.
 
-    ![Edit more dialog](media/how-to/how-to-edit-model-dialog.png)
+
 
 6. Select **Save**.
 

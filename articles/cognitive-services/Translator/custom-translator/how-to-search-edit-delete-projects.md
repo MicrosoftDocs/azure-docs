@@ -10,7 +10,6 @@ ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a Custom Translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
 ---
 # Search, edit, and delete projects
 
@@ -22,13 +21,13 @@ The filter tool allows you to search projects by different filter conditions. It
 
 1. Select the **filter button**.
 
-    ![Search project](media/how-to/how-to-search-project.png)
+
 
 2. You can filter by any (or all) of the following fields: project name, source language, target language, category, and project availability.
 
 3. Select **apply**.
 
-    ![Search project filter options](media/how-to/how-to-search-project-filters.png)
+
 
 4. Clear the filter to view all your projects by tapping "Clear".
 
@@ -38,11 +37,11 @@ Custom Translator gives you the ability to edit the name and description of a pr
 
 1. Select the **pencil icon** that appears when you hover over a project.
 
-    ![Edit project](media/how-to/how-to-edit-project.png)
+
 
 2. In the dialog, you can modify the project name, the description of the project, the category description, and the project label if no model is deployed. You can't modify the category or language pair once the project is created.
 
-    ![Edit project dialog](media/how-to/how-to-edit-project-dialog.png)
+
 
 3. Select the **Save** button.
 
@@ -51,11 +50,11 @@ Custom Translator gives you the ability to edit the name and description of a pr
 You can delete a project when you no longer need it. Make sure the project doesn't have models in an active state such as deployed, training submitted, data processing, or deploying, otherwise, the delete operation will fail. The following steps describe how to delete a project.
 1. Hover on any project record and select on the **trash bin** icon.
 
-   ![Delete project](media/how-to/how-to-delete-project.png)
+
 
 2. Confirm deletion. Deleting a project will delete all models that were created within that project. Deleting project won't affect your  documents.
 
-   ![Delete confirmation dialog](media/how-to/how-to-delete-project-confirm.png)
+
 
 ## Next steps
 

@@ -10,7 +10,6 @@ ms.date: 04/26/2022
 ms.author: lajanuar
 ms.topic: quickstart
 ms.custom: cogserv-non-critical-translator
-#Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
 
@@ -38,13 +37,13 @@ You can also view a full, start to finish walkthrough video of Custom Translator
 
 If you're first-time user, you'll be asked to agree to the Terms of Service to create a workspace associated with your Microsoft Translator Text API subscription.
 
-![Create workspace](media/quickstart/terms-of-service.png)
-![Create workspace image 1](media/quickstart/create-workspace-1.png)
-![Create workspace image 2](media/quickstart/create-workspace-2.png)
-![Create workspace image 3](media/quickstart/create-workspace-3.png)
-![Create workspace image 4](media/quickstart/create-workspace-4.png)
-![Create workspace image 5](media/quickstart/create-workspace-5.png)
-![Create workspace image 6](media/quickstart/create-workspace-6.png)
+
+
+
+
+
+
+
 
 On subsequent visits to the Custom Translator portal, navigate to the Settings page. There you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API key with your workspaces, add co-owners, and change a key.
 
@@ -53,15 +52,15 @@ On subsequent visits to the Custom Translator portal, navigate to the Settings p
 On the Custom Translator portal landing page, select **New Project**. On the dialog you can enter your desired project name, language pair, category, and other relevant field information. Then, save
 your project. For more details, visit [Create Project](how-to-create-project.md).
 
-![Create project](media/how-to/how-to-create-project.png)
+
 ## Upload documents
 
-Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
+Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](concepts/dictionaries.md).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
 
-![Upload documents](media/how-to/how-to-upload-1.png)
+
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
@@ -78,7 +77,7 @@ included in your model. You can select [training](training-and-model.md#training
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
-![Create a model](media/how-to/how-to-train-model-1.png)
+
 
 When you've finished selecting your desired documents, select the **Create Model** button to
 create your model and start training. You can see the status of your training,
@@ -97,13 +96,13 @@ translations provided in your test set by navigating to the **Test** tab and sel
 
 When you're ready to deploy your trained model, select the **Deploy** button. You can have one deployed model per project, and you can view the status of your deployment in the Status column. For more details, visit [Model Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
-![Deploy a trained model](media/how-to/how-to-deploy.png)
+
 
 ## Swap deployed model
 
 To swap a deployed model with another within a project, select the **Swap** button displayed next to the desired model. During the swap process, the deployed model will continue to be available to serve translation requests.
 
-![Swap deployed model](media/how-to/how-to-swap-model.png)
+
 
 ## Use a deployed model
 
