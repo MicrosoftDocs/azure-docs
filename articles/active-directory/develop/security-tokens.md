@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/1/2022
 ms.author: davidmu
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started. engagement-fy23
 #Customer intent: As an application developer, I want to understand the basic concepts of security tokens in the Microsoft identity platform.
 ---
 
@@ -22,7 +22,7 @@ A centralized identity provider is especially useful for apps that have worldwid
 
 **Access token**: An access token is a security token issued by an [authorization server](developer-glossary.md#authorization-server) as part of an [OAuth 2.0](active-directory-v2-protocols.md) flow. It contains information about the user and the resource for which the token is intended. The information can be used to access web APIs and other protected resources. Access tokens are validated by resources to grant access to a client app. To learn more about how the Microsoft identity platform issues access tokens, see [Access tokens](access-tokens.md).
 
-**Refresh token**: Because access tokens are only valid for a limited period, authorization servers will sometimes issue a refresh token at the same time the access token is issued. The client application can then exchange this refresh token for a new access token when needed. To learn more about how the Microsoft identity platform uses refresh tokens to revoke permissions, see [Refresh tokens](refresh-tokens.md).
+**Refresh token**: Because access tokens are valid for only a short period of time, authorization servers will sometimes issue a refresh token at the same time the access token is issued. The client application can then exchange this refresh token for a new access token when needed. To learn more about how the Microsoft identity platform uses refresh tokens to revoke permissions, see [Refresh tokens](refresh-tokens.md).
 
 **ID token**: ID tokens are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent alongside or instead of an access token. ID tokens are used by the client to authenticate the user. To learn more about how the Microsoft identity platform issues ID tokens, see [ID tokens](id-tokens.md).
 
@@ -32,7 +32,7 @@ Many enterprise applications use SAML to authenticate users. For information on 
 
 It's up to the app for which the token was generated, the web app that signed in the user, or the web API being called to validate the token. The token is signed by the authorization server with a private key. The authorization server publishes the corresponding public key. To validate a token, the app verifies the signature by using the authorization server public key to validate that the signature was created using the private key.
 
-Tokens are valid for only a limited period, so the authorization server frequently provides a pair of tokens;
+Tokens are valid for only a limited amount of time, so the authorization server frequently provides a pair of tokens;
 
 * An access token, which accesses the application or protected resource.
 * A refresh token, which is used to refresh the access token when the access token is close to expiring.
@@ -58,7 +58,7 @@ A claim consists of key-value pairs that provide information such as the:
 
 * Security Token Server that generated the token.
 * Date when the token was generated.
-* Subject (such as the user, with the exception of daemons).
+* Subject (like the user, but not daemons).
 * Audience, which is the app for which the token was generated.
 * App (the client) that asked for the token. For web apps, this app might be the same as the audience.
 
