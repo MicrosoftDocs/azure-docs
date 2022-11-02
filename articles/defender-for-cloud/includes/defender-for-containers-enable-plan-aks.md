@@ -8,25 +8,23 @@ ms.date: 10/27/2022
 
 ## Enable the plan
 
+
 **To enable the plan**:
 
-1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
+1. From Defender for Cloud's menu, open the Settings page and select the relevant subscription.
 
-1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**
+1. In the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), select **Defender for Containers** and select **Settings**.
+
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/containers-settings.png" alt-text="screenshot of Defender plans page." lightbox="../media/defender-for-containers-enable-plan-gke/containers-settings.png":::
 
     > [!TIP]
     > If the subscription already has Defender for Kubernetes and/or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace.
+1. Turn the relevant component on to enable it. 
 
-    If you want to disable auto provisioning during the onboarding process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable auto provisioning for each component.
-   
-    In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) by selecting the **Containers** plan and turning the status to On.
-
-    > [!NOTE]
-    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
     You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
 
