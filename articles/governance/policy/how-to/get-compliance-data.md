@@ -2,7 +2,7 @@
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 author: timwarner-msft
-ms.date: 10/26/2022
+ms.date: 11/02/2022
 ms.topic: how-to
 ms.author: timwarner
 ---
@@ -282,10 +282,10 @@ either **Compliant**, **Non-compliant**, or **Exempt**. If either **name** or **
 property in the definition, then all included and non-exempt resources are considered applicable and
 are evaluated.
 
-The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
+The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
 **Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
-resources that are **Compliant** or **Exempt** divided by the sum of all distinct resources. In the
+resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. In the
 image below, there are 20 distinct resources that are applicable and only one is **Non-compliant**.
 The overall resource compliance is 95% (19 out of 20).
 
