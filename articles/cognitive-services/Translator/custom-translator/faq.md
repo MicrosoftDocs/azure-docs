@@ -1,5 +1,5 @@
 ---
-title: "Legacy: Frequently asked questions - Custom Translator"
+title: "Frequently asked questions - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
 author: laujan

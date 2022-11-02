@@ -1,5 +1,5 @@
 ---
-title: "Legacy: What is a workspace and project? - Custom Translator"
+title: test-your-modelWhat is a workspace and project? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article will explain the differences between a workspace and a project as well as project categories and labels for the Custom Translator service.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: "Legacy: Document formats and naming conventions - Custom Translator"
+title: test-your-modelDocument formats and naming conventions - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article is a guide to document formats and naming conventions in Custom Translator to avoid naming conflicts.
 author: laujan

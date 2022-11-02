@@ -1,5 +1,5 @@
 ---
-title: "Legacy: Unsupported language deployments - Custom Translator"
+title: test-your-modelUnsupported language deployments - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article shows you how to deploy unsupported language pairs in Azure Cognitive Services Custom Translator.
 services: cognitive-services
