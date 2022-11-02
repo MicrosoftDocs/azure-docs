@@ -4,12 +4,12 @@ titleSuffix: Azure Private Link
 description: In this article, you'll learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: asudbring
-# Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 08/10/2022
 ms.author: allensu
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
+#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 # What is a private endpoint?
 
@@ -108,7 +108,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure File Sync | Microsoft.StorageSync/storageSyncServices | File Sync Service |
 | Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
-| Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
+| Azure Synapse Analytics | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
@@ -180,7 +180,7 @@ The following information lists the known limitations to the use of private endp
 | No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
 | Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
 | Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
-| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |
 | Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. |
   
 The following table shows an example of a dual port NSG rule:
@@ -198,7 +198,7 @@ The following table shows an example of a dual port NSG rule:
 
 - The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
 
-    - Cosmos DB - For more information see, [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
 
 ### UDR
 

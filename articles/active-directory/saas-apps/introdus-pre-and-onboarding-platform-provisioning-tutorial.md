@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An introdus subscription, that includes Single Sign-On (SSO)
-* A valid introdus API Token. A guide on how to generate Token, can be found [here](https://help.introdus.dk/en/articles/2011815-introdus-open-api).
+* A valid introdus API Token. A guide on how to generate Token, can be found [here](https://api.introdus.dk/docs/#api-OpenAPI).
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

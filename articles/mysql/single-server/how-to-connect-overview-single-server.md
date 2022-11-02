@@ -14,6 +14,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 
 ## Quickstarts

@@ -8,6 +8,8 @@ ms.author: juliako
 
 # What is Azure Video Indexer?
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [regulation](./includes/regulation.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
@@ -104,43 +106,9 @@ When indexing by one channel, partial result for those models will be available.
 
 ## How can I get started with Azure Video Indexer?
 
-### Prerequisite
+Learn how to [get started with Azure Video Indexer](video-indexer-get-started.md).
 
-Before creating a new account, review [Account types](accounts-overview.md).
-
-### Supported browsers
-
-The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
-
-- Edge, version: 16
-- Firefox, version: 54
-- Chrome, version: 58
-- Safari, version: 11
-- Opera, version: 44
-- Opera Mobile, version: 59
-- Android Browser, version: 81
-- Samsung Browser, version: 7
-- Chrome for Android, version: 87
-- Firefox for Android, version: 83
-
-### Supported file formats
-
-See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
-
-### Start using Azure Video Indexer
-
-You can access Azure Video Indexer capabilities in three ways:
-
-* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
-
-    For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
-* API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
-
-    To get started as a developer, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
-* Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app.
-
-    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
+Once you set up, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
 
 ## Next steps
 

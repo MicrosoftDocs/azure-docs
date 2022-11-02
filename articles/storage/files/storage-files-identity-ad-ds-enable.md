@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 10/24/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -28,17 +28,17 @@ To enable AD DS authentication over SMB for Azure file shares, you need to regis
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
-The cmdlets in the AzFilesHybrid PowerShell module make the necessary modifications and enable the feature for you. Because some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Although we recommend using AzFilesHybrid module, if you're unable to do so, we provide [manual steps](#option-two-manually-perform-the-enablement-actions).
+The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuring Azure Files. It includes cmdlets for domain joining storage accounts to your on-premises Active Directory and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature for you. Because some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Although we recommend using AzFilesHybrid module, if you're unable to do so, we provide [manual steps](#option-two-manually-perform-the-enablement-actions).
 
 ### Download AzFilesHybrid module
 
 - If you don't have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It's required for the module to import successfully.
-- [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
-- Install and execute the module on a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
+- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+- Install and execute the module on a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD (such as domain admin).
 
 ### Run Join-AzStorageAccount
 
-The `Join-AzStorageAccount` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in your AD domain. If for whatever reason you can't use a computer account, you can alter the script to create a [service logon account](/windows/win32/ad/about-service-logon-accounts) instead. Note that service logon accounts don't support AES-256 encryption. If you choose to run the command manually, you should select the account best suited for your environment. You must run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either **Owner** or **Contributor** Azure role on the storage account.
+The `Join-AzStorageAccount` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. By default, the script uses the cmdlet to create a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in your AD domain. If for whatever reason you can't use a computer account, you can alter the script to create a [service logon account](/windows/win32/ad/about-service-logon-accounts) instead. Note that service logon accounts don't currently support AES-256 encryption. If you choose to run the command manually, you should select the account best suited for your environment.
 
 The AD DS account created by the cmdlet represents the storage account. If the AD DS account is created under an organizational unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the account password before that date results in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD DS account password](storage-files-identity-ad-ds-update-password.md).
 
@@ -46,7 +46,15 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 > The `Join-AzStorageAccount` cmdlet will create an AD account to represent the storage account (file share) in AD. You can choose to register as a computer account or service logon account, see [FAQ](./storage-files-faq.md#security-authentication-and-access-control) for details. Service logon account passwords can expire in AD if they have a default password expiration age set on the AD domain or OU. Because computer account password changes are driven by the client machine and not AD, they don't expire in AD, although client computers change their passwords by default every 30 days.
 > For both account types, we recommend you check the password expiration age configured and plan to [update the password of your storage account identity](storage-files-identity-ad-ds-update-password.md) of the AD account before the maximum password age. You can consider [creating a new AD Organizational Unit in AD](/powershell/module/activedirectory/new-adorganizationalunit) and disabling password expiration policy on [computer accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) or service logon accounts accordingly.
 
-Replace the placeholder values with your own in the parameters below before executing the script in PowerShell.
+You must run the script below in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS, using an on-premises AD DS credential that's synced to your Azure AD. To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
+
+- **Reader** on the resource group where the target storage account is located.
+- **Contributor** on the storage account to be joined to AD DS.
+
+> [!NOTE]
+> If the account used to join the storage account in AD DS is an **Owner** or **Contributor** in the Azure subscription where the target resources are located, then that account is already enabled to perform the join and no further assignments are required.
+
+The AD DS credential must also have permissions to create a service logon account or computer account in the target AD. Replace the placeholder values with your own before executing the script.
 
 ```PowerShell
 # Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -68,7 +76,7 @@ Connect-AzAccount
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
-# for the object. 
+# for the object. It must be 20 characters or less and has certain character restrictions. 
 # See https://learn.microsoft.com/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"

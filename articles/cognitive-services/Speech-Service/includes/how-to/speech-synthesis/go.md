@@ -58,8 +58,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription := "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription := "YourSpeechKey"
+    region := "YourSpeechRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
 	if err != nil {
@@ -67,13 +67,13 @@ func main() {
 		return
 	}
 	defer audioConfig.Close()
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
 	}
-	defer config.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(config, audioConfig)
+	defer speechConfig.Close()
+	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
@@ -141,7 +141,7 @@ For detailed information about the classes, see the [`SpeechConfig`](https://pkg
 
 ## Text-to-speech to in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
 * Abstract the resulting byte array as a seekable stream for custom downstream services.
 * Integrate the result with other APIs or services.
@@ -192,16 +192,16 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-	subscription := "<paste-your-speech-key-here>"
-	region := "<paste-your-speech-location/region-here>"
+	subscription := "YourSpeechKey"
+	region := "YourSpeechRegion"
 
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
 	}
-	defer config.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(config, nil)
+	defer speechConfig.Close()
+	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, nil)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
@@ -328,3 +328,159 @@ Next, you need to change the speech synthesis request to reference your XML file
 > [!NOTE]
 > To set the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`.
 
+## Subscribe to synthesizer events
+
+You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+
+While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) for text-to-speech, you can subscribe to the events in this table:
+
+[!INCLUDE [Event types](events.md)]
+
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code.
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+	"time"
+
+	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
+	"github.com/Microsoft/cognitive-services-speech-sdk-go/common"
+	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
+)
+
+func bookmarkReachedHandler(event speech.SpeechSynthesisBookmarkEventArgs) {
+	defer event.Close()
+	fmt.Println("BookmarkReached event")
+}
+
+func synthesisCanceledHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("SynthesisCanceled event")
+}
+
+func synthesisCompletedHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("SynthesisCompleted event")
+	fmt.Printf("\tAudioData: %d bytes\n", len(event.Result.AudioData))
+	fmt.Printf("\tAudioDuration: %d\n", event.Result.AudioDuration)
+}
+
+func synthesisStartedHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("SynthesisStarted event")
+}
+
+func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
+	defer event.Close()
+	fmt.Println("Synthesizing event")
+	fmt.Printf("\tAudioData %d bytes\n", len(event.Result.AudioData))
+}
+
+func visemeReceivedHandler(event speech.SpeechSynthesisVisemeEventArgs) {
+	defer event.Close()
+	fmt.Println("VisemeReceived event")
+	fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
+	fmt.Printf("\tVisemeID %d\n", event.VisemeID)
+}
+
+func wordBoundaryHandler(event speech.SpeechSynthesisWordBoundaryEventArgs) {
+	defer event.Close()
+	boundaryType := ""
+	switch event.BoundaryType {
+	case 0:
+		boundaryType = "Word"
+	case 1:
+		boundaryType = "Punctuation"
+	case 2:
+		boundaryType = "Sentence"
+	}
+	fmt.Println("WordBoundary event")
+	fmt.Printf("\tBoundaryType %v\n", boundaryType)
+	fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
+	fmt.Printf("\tDuration %d\n", event.Duration)
+	fmt.Printf("\tText %s\n", event.Text)
+	fmt.Printf("\tTextOffset %d\n", event.TextOffset)
+	fmt.Printf("\tWordLength %d\n", event.WordLength)
+}
+
+func main() {
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+	speechKey := os.Getenv("SPEECH_KEY")
+	speechRegion := os.Getenv("SPEECH_REGION")
+
+	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
+	if err != nil {
+		fmt.Println("Got an error: ", err)
+		return
+	}
+	defer audioConfig.Close()
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(speechKey, speechRegion)
+	if err != nil {
+		fmt.Println("Got an error: ", err)
+		return
+	}
+	defer speechConfig.Close()
+
+	// Required for WordBoundary event sentences.
+	speechConfig.SetProperty(common.SpeechServiceResponseRequestSentenceBoundary, "true")
+
+	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
+	if err != nil {
+		fmt.Println("Got an error: ", err)
+		return
+	}
+	defer speechSynthesizer.Close()
+
+	speechSynthesizer.BookmarkReached(bookmarkReachedHandler)
+	speechSynthesizer.SynthesisCanceled(synthesisCanceledHandler)
+	speechSynthesizer.SynthesisCompleted(synthesisCompletedHandler)
+	speechSynthesizer.SynthesisStarted(synthesisStartedHandler)
+	speechSynthesizer.Synthesizing(synthesizingHandler)
+	speechSynthesizer.VisemeReceived(visemeReceivedHandler)
+	speechSynthesizer.WordBoundary(wordBoundaryHandler)
+
+	speechSynthesisVoiceName := "en-US-JennyNeural"
+
+	ssml := fmt.Sprintf(`<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
+            <voice name='%s'>
+                <mstts:viseme type='redlips_front'/>
+                The rainbow has seven colors: <bookmark mark='colors_list_begin'/>Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark='colors_list_end'/>.
+            </voice>
+        </speak>`, speechSynthesisVoiceName)
+
+	// Synthesize the SSML
+	fmt.Printf("SSML to synthesize: \n\t%s\n", ssml)
+	task := speechSynthesizer.SpeakSsmlAsync(ssml)
+
+	var outcome speech.SpeechSynthesisOutcome
+	select {
+	case outcome = <-task:
+	case <-time.After(60 * time.Second):
+		fmt.Println("Timed out")
+		return
+	}
+	defer outcome.Close()
+	if outcome.Error != nil {
+		fmt.Println("Got an error: ", outcome.Error)
+		return
+	}
+
+	if outcome.Result.Reason == common.SynthesizingAudioCompleted {
+		fmt.Println("SynthesizingAudioCompleted result")
+	} else {
+		cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
+		fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
+
+		if cancellation.Reason == common.Error {
+			fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
+				cancellation.ErrorCode,
+				cancellation.ErrorDetails)
+		}
+	}
+}
+```
+
+You can find more text-to-speech samples at [GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/).

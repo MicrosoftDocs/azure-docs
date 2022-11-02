@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
@@ -193,7 +193,7 @@ Corporation
 
 ### Escaping single quote character
 
-Expression functions use single quote for string value parameters. Use two single quotes to escape a ' character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+Expression functions use single quote for string value parameters. Use two single quotes to escape a `'` character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
 
 ```
 Baba's book store
@@ -3456,6 +3456,9 @@ Following on Example 3, this example finds the value in the
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
 And returns this result: `"Paris"`
+  
+> [!NOTE]
+> One can add comments to data flow expressions, but not in pipeline expressions.
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

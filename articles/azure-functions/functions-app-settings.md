@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 10/04/2022
 ---
 
 # App settings reference for Azure Functions
@@ -87,7 +87,7 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
-## AzureFunctionsWebHost__hostId
+## AzureFunctionsWebHost__hostid
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
@@ -95,7 +95,7 @@ A host ID must be between 1 and 32 characters, contain only lowercase letters, n
 
 |Key|Sample value|
 |---|------------|
-|AzureFunctionsWebHost__hostId|`myuniquefunctionappname123456789`|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
@@ -265,7 +265,16 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
+|FUNCTIONS\_EXTENSION\_VERSION|`~4`|
+
+The following major runtime version values are supported:
+
+| Value | Runtime target | Comment |
+| ------ | -------- | --- |
+| `~4` | 4.x | Recommended |
+| `~3` | 3.x | Support ends December 13, 2022 |
+| `~2` | 2.x | No longer supported |
+| `~1` | 1.x | Supported |
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -274,7 +283,7 @@ This setting enables your function app to run in a version 2.x compatible mode o
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) be set to `~3`.
+Requires that [FUNCTIONS\_EXTENSION\_VERSION](#functions_extension_version) be set to `~3`.
 
 |Key|Sample value|
 |---|------------|
@@ -368,7 +377,7 @@ To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/e
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
@@ -535,6 +544,14 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 
 If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
+## WEBSITE\_SLOT\_NAME
+
+Read-only. Name of the current deployment slot. The name of the production slot is `Production`.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SLOT_NAME|`Production`|
+
 ## WEBSITE\_TIME\_ZONE
 
 Allows you to set the timezone for your function app.
@@ -556,6 +573,47 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
+
+## App Service site settings
+
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+
+### linuxFxVersion 
+
+For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
+
+This value is set for you when you create your Linux function app. You may need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
+
+#### Valid linuxFxVersion values
+
+You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
+
+```azurecli-interactive
+az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table
+```
+
+The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
+
+#### Custom images
+
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+
+```
+linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
+```
+For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+
+### netFrameworkVersion
+
+Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). 
+
+### powerShellVersion 
+
+Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
+
+When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
 ## Next steps
 

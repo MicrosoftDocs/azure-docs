@@ -19,6 +19,10 @@ In this tutorial, you:
 > * Learn how to investigate Defender for IoT alerts in Microsoft Sentinel incidents
 > * Learn about the analytics rules, workbooks, and playbooks deployed to your Microsoft Sentinel workspace with the **Microsoft Defender for IoT** solution
 
+> [!IMPORTANT]
+>
+> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as is the **Microsoft Defender for IoT** solution. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 Before you start, make sure you have:
@@ -336,4 +340,4 @@ For more information, see:
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 - [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
+- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md)

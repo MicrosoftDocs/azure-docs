@@ -45,15 +45,15 @@ Hotpatch is available in all global Azure regions.
 ## How to get started
 
 > [!NOTE]
-> You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
+> You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/AzureEdition).
 
 To start using Hotpatch on a new VM, follow these steps:
 1.  Start creating a new VM from the Azure portal
-    * You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
+    * You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/AzureEdition).
 1.  Supply details during VM creation
     * Ensure that a supported _Windows Server Azure Edition_ image is selected in the Image dropdown.  Use [this guide](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) to determine which images are supported.
     * On the Management tab under section ‘Guest OS updates’, the checkbox for 'Enable hotpatch' will be selected.  Patch orchestration options will be set to 'Azure-orchestrated'. 
-    * If you create a VM using [this link](https://aka.ms/ws2022ae-portal-preview), on the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
+    * If you create a VM using [this link](https://aka.ms/AzureEdition), on the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
     
 1. Create your new VM
 

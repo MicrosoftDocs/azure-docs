@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 10/26/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -47,7 +47,6 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	France Central
 *   Germany West Central
 *   Japan East
-*   Japan West
 *   Korea Central
 *	North Central US
 *   North Europe
@@ -55,8 +54,10 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	South Central US
 *   South India 
 *   Southeast Asia
+*   Sweden Central
 *   Switzerland North
 *   UAE Central
+*   UAE North
 *   UK South
 *	West Europe
 *   West US
@@ -84,10 +85,12 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Conversion between Basic and Standard networking features in either direction is not currently supported.
+> Conversion between Basic and Standard networking features in either direction is not currently supported. 
+>
+> Additionally, you can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
 ### Supported network topologies
 
@@ -106,6 +109,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 

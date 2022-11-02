@@ -225,6 +225,10 @@ When we copy the data over to your Gen2-enabled account, we automatically create
 
 When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
 
+#### Will WebHDFS File System API's supported on Gen2 account post migraiton?
+
+WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibilty layer. Customers should plan to levarage ADLS Gen2-specific APIs for better performance and features.
+
 ## Next steps
 
 - Learn about migration in general. For more information, see [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).

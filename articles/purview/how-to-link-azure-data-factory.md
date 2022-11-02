@@ -14,7 +14,7 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Microsoft Purview to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Microsoft Purview management center. To show the list of Data Factory accounts connected to your Microsoft Purview account, do the following:
+Multiple Azure Data Factories can connect to a single Microsoft Purview to push lineage information. The current limit allows you to connect up to 10 Data Factory accounts at a time from the Microsoft Purview management center. To show the list of Data Factory accounts connected to your Microsoft Purview account, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -57,7 +57,7 @@ Follow the steps below to connect an existing data factory to your Microsoft Pur
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
->We support adding 10 Data Factory at once. If you want to add more than 10 Data Factory, please do so in multiple batches of 10 Data Factory.
+>We support adding up to 10 Azure Data Factory accounts at once. If you want to add more than 10 data factory accounts, do so in multiple batches.
 
 ### How authentication works
 

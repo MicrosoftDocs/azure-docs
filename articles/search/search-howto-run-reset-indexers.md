@@ -6,6 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/07/2022
 ---
@@ -52,7 +53,7 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 [Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
-Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
 <a name="reset-indexers"></a>
 

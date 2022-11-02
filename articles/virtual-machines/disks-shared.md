@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 10/14/2022
 ms.author: rogarana
 ms.subservice: disks
 ---

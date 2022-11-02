@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 09/08/2022
+ms.date: 09/27/2022
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -24,7 +24,7 @@ Azure Active Directory Connect cloud sync can synchronize Azure AD password chan
 - An account with:
   - [Global Administrator](../roles/permissions-reference.md#global-administrator) role 
 - Azure AD configured for self-service password reset. If needed, complete this tutorial to enable Azure AD SSPR. 
-- An on-premises AD DS environment configured with [Azure AD Connect cloud sync version 1.1.972.0 or later](../app-provisioning/provisioning-agent-release-version-history.md). Learn how to [identify the agent's current version](../cloud-sync/how-to-automatic-upgrade.md). If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
+- An on-premises AD DS environment configured with [Azure AD Connect cloud sync version 1.1.977.0 or later](../app-provisioning/provisioning-agent-release-version-history.md). Learn how to [identify the agent's current version](../cloud-sync/how-to-automatic-upgrade.md). If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
 
 
 ## Deployment steps

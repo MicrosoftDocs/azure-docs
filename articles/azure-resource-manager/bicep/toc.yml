@@ -107,7 +107,7 @@
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -392,6 +392,8 @@
         href: linter-rule-admin-username-should-not-be-literal.md
       - name: Artifacts parameters
         href: linter-rule-artifacts-parameters.md
+      - name: Decompiler cleanup
+        href: linter-rule-decompiler-cleanup.md
       - name: Max outputs
         href: linter-rule-max-outputs.md
       - name: Max parameters
@@ -432,6 +434,8 @@
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: use recent API versions
+        href: linter-rule-use-recent-api-versions.md
       - name: use resource ID functions
         href: linter-rule-use-resource-id-functions.md
       - name: Use stable resource identifier

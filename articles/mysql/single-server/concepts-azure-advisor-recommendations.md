@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Learn about how Azure Advisor is applied to Azure Database for MySQL and get answers to common questions.
 ## What is Azure Advisor for MySQL?
 The Azure Advisor system uses telemetry to issue performance and reliability recommendations for your MySQL database. 

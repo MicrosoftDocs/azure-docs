@@ -21,9 +21,6 @@ To improve the security of Linux virtual machines (VMs) in Azure, you can integr
 
 This article shows you how to create and configure a Linux VM and log in with Azure AD by using OpenSSH certificate-based authentication.
 
-> [!IMPORTANT]
-> This capability is now generally available. The previous version that made use of device code flow was [deprecated on August 15, 2021](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad). To migrate from the old version to this version, see the section [Migrate from the previous (preview) version](#migrate-from-the-previous-preview-version).
-
 There are many security benefits of using Azure AD with OpenSSH certificate-based authentication to log in to Linux VMs in Azure. They include:
 
 - Use your Azure AD credentials to log in to Azure Linux VMs.

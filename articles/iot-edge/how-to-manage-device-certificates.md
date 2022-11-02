@@ -177,6 +177,9 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 
 1. Open the IoT Edge security daemon config file: `/etc/aziot/config.toml`
 
+   >[!TIP]
+   >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
+
 1. Find the `trust_bundle_cert` parameter at the beginning of the file. Uncomment this line, and provide the file URI to the root CA certificate on your device.
 
    ```toml

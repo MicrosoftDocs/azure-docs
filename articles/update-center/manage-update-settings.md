@@ -43,7 +43,14 @@ To configure update settings on your machines on a single VM, follow these steps
     - **Patch orchestration** option provides the following:
 
       - **Automatic by operating system** - When the workload running on the VM doesn't have to meet availability targets, operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
-      - **Azure-orchestrated (preview)** - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+      - **Azure-orchestrated** - Patch orchestration set to Azure-orchestrated for an Azure VM (not applicable for Arc-enabled server) has two different implications depending on whether customer [schedule](../update-center/scheduled-patching.md#) is attached to it or not.
+      
+        | Patch orchestration type | Description
+        |----------|-------------|
+        |Azure-orchestrated with no schedule attached | Machine is enabled for [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). It implies that the available Critical and Security patches are downloaded and applied automatically on the Azure VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.|
+        |Azure-orchestrated with schedule attached | Patching will happen according to the schedule and [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) will not take effect on the machine. Patch orchestration set to Azure-orchestrated is a necessary pre-condition for enabling schedules. You cannot enable a machine for custom schedule unless you set Patch orchestration to Azure-orchestrated. | 
+
+      - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
       - **Manual updates** - Configures the Windows Update agent by setting [configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
       - **Image Default** - Only supported for Linux Virtual Machines, this mode honors the default patching configuration in the image used to create the VM.
 

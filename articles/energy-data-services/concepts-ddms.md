@@ -14,10 +14,10 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 **Domain Data Management Service (DDMS)** – is a platform component that extends [OSDU&trade;](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
 
 * delivers optimized handling of data for each (non-overlapping) "domain."
-* single vertical discipline or business area,  for example, Petrophysics, Geophysics, Seismic
-* a functional aspect of one or more vertical disciplines or business areas,  for example, Earth Model
+* pertains to a single vertical discipline or business area,  for example, Petrophysics, Geophysics, Seismic
+* serves a functional aspect of one or more vertical disciplines or business areas,  for example, Earth Model
 * delivers high performance capabilities not supported by OSDU&trade; generic normal APIs.
-* can help achieve the extension of OSDU&trade; scope to new business areas.
+* helps achieve the extension of OSDU&trade; scope to new business areas.
 * may be developed in a distributed manner with separate resources/sponsors.
 
 OSDU&trade; Technical Standard defines the following types of OSDU&trade; application types:
@@ -89,6 +89,6 @@ A DDMS meets the following requirements, further classified into capability, arc
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-Advance to the seismic ddms sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
+Advance to the seismic DDMS sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
 > [!div class="nextstepaction"]
 > [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)

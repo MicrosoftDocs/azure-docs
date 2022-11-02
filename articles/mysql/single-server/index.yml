@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for MySQL - Single Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 06/20/202209/10/2021
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
 
@@ -99,7 +99,7 @@ landingContent:
           - text: Choose the right tools for migration to Azure Database for MySQL
             url: how-to-decide-on-right-migration-tools.md
           - text: Migrate from single server to flexible server
-            url: how-to-migrate-single-flexible-minimum-downtime.md            
+            url:  ../migrate/how-to-migrate-single-flexible-minimum-downtime.md         
           - text: Migrate using Data Migration Service
             url: how-to-migrate-online.md
           - text: Migrate using dump and restore

@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 09/21/2022
+ms.date: 10/19/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -21,9 +21,9 @@ ms.date: 09/21/2022
 > * [v1](v1/how-to-create-manage-compute-instance.md)
 > * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
-Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
+Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 In this article, you learn how to:
 
@@ -62,13 +62,15 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The following example demonstrates how to create a compute instance:
+The fastest way to create a compute instance is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+
+Or use the following examples to create a compute instance with more options:
 
 # [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
@@ -240,7 +242,6 @@ You can also create your own custom Azure policy. For example, if the below poli
 }
 ```
 
-
 ## Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
@@ -269,7 +270,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are particularly useful when you create a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 
@@ -428,6 +429,61 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
+## Assign managed identity (preview)
+
+You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
+
+You can create compute instance with managed identity from Azure ML Studio:
+
+1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
+1.	Select **Next: Advanced Settings**.
+1.	Enable **Assign a managed identity**.
+1.  Select **System-assigned** or **User-assigned** under **Identity type**.
+1.  If you selected **User-assigned**, select subscription and name of the identity.
+
+You can use V2 CLI to create compute instance with assign system-assigned managed identity:
+
+```azurecli
+az ml compute create --name myinstance --identity-type SystemAssigned --type ComputeInstance --resource-group my-resource-group --workspace-name my-workspace
+```
+
+You can also use V2 CLI with yaml file, for example to create a compute instance with user-assigned managed identity:
+
+```azurecli
+azure ml compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+The identity definition is contained in compute.yaml file:
+
+```yaml
+https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json
+name: myinstance
+type: computeinstance
+identity:
+  type: user_assigned
+  user_assigned_identities: 
+    - resource_id: identity_resource_id
+```
+
+Once the managed identity is created, enable [identity-based data access enabled](how-to-datastore.md) to your storage accounts for that identity. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against data stores.
+
+You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
+
+```python
+import requests
+
+def get_access_token_msi(resource):
+    client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
+    resp = requests.get(f"{os.environ['MSI_ENDPOINT']}?resource={resource}&clientid={client_id}&api-version=2017-09-01", headers={'Secret': os.environ["MSI_SECRET"]})
+    resp.raise_for_status()
+    return resp.json()["access_token"]
+
+arm_access_token = get_access_token_msi("https://management.azure.com")
+```
+
+> [!NOTE]
+> To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
+
 ## Add custom applications such as RStudio (preview)
 
 You can set up other applications, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
@@ -437,7 +493,7 @@ You can set up other applications, such as RStudio, when creating a compute inst
 1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
- 
+
 ### Setup RStudio Workbench
 
 RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on your compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
@@ -524,27 +580,27 @@ In the examples below, the name of the compute instance is stored in the variabl
 
 * Get status
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=ci_basic_state)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic_state)]
 
 
 * Stop
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=stop_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=stop_compute)]
 
 
 * Start
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=start_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=start_compute)]
 
 
 * Restart
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=restart_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=restart_compute)]
 
 
 * Delete
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=delete_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=delete_compute)]
 
 
 # [Azure CLI](#tab/azure-cli)

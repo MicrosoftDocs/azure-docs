@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/28/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -68,7 +68,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | US Government | US Gov Arizona | US Gov Virginia |
 
 >[!NOTE]
->There may be a discrepancy in the size of snapshots between source and destination. This discrepancy is expected. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](snapshots-introduction.md).
+>There may be a discrepancy in the size and number of snapshots between source and destination. This discrepancy is expected. Snapshot policies and replication schedules will influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data changed between snapshots, will influence the size of snapshots. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 ## Service-level objectives
 
