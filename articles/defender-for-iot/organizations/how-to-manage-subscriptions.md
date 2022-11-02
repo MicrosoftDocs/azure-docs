@@ -39,7 +39,7 @@ We recommend that you make an initial estimate of your committed devices when on
     - **Broadcast groups**
     - **Inactive devices**: Devices that have no network activity detected for more than 60 days
 
-After you've onboarded your plan, set up a network sensor and have full visibility into your devices, [Edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
+After you've onboarded your plan, [set up a network sensor](tutorial-onboarding.md) and have [full visibility into your devices](how-to-manage-device-inventory-for-organizations.md), [edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
 
 ## Onboard a Defender for IoT plan for OT networks
 
