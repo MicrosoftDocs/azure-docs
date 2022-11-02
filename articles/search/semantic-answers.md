@@ -42,7 +42,7 @@ Answers are returned as an independent, top-level object in the query response p
 
 ## Formulate a query rest for "answers"
 
-The approach for listing fields in priority order has changed recently, with "semanticConfiguration" replacing "searchFields". If you're currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
+The approach for listing fields in priority order has changed, with "semanticConfiguration" replacing "searchFields". If you're currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
 
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
@@ -68,7 +68,7 @@ The "semanticConfiguration" parameter is crucial to returning a high-quality ans
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Configure semantic ranking](semantic-how-to-query-request.md#searchfields) for details. 
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Configure semantic ranking](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details. 
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -95,7 +95,7 @@ The "searchFields" parameter is crucial to returning a high-quality answer, both
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Set searchFields](semantic-how-to-query-request.md#searchfields) for details. 
++ "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Set searchFields](semantic-how-to-query-request.md#2b---use-searchfields-for-field-prioritization) for details. 
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
