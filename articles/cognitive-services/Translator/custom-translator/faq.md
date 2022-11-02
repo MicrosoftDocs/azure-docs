@@ -69,3 +69,9 @@ files.
 ## I tried uploading my TMX, but it says "document processing failed"
 
 Ensure that the TMX conforms to the [TMX 1.4b Specification](https://www.gala-global.org/tmx-14b).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the custom translator quickstart](quickstart.md)
+

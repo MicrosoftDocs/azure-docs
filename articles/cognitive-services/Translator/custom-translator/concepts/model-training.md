@@ -50,3 +50,8 @@ The test data should include parallel documents where the target language senten
 You don't need more than 2,500 sentences as the testing data. When you let the system choose the testing set automatically, it will use a random subset of sentences from your bilingual training documents, and exclude these sentences from the training material itself.
 
 You can view the custom translations of the testing set, and compare them to the translations provided in your testing set, by navigating to the test tab within a model.
+
+## Next Steps
+
+> [!div class="nextstepaction"]
+> [Test and evaluate your model](../how-to/view-model-test-translation.md)

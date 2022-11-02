@@ -10,7 +10,7 @@ ms.date: 11/04/2022
 ms.author: lajanuar
 ms.topic: how-to
 ---
-# View custom model details and test translation 
+# View model details: test translations
 
 Once your model has successfully trained, you can use translations to evaluate the quality of your model. In order to make an informed decision about whether to use our standard model or your custom model, you should evaluate the delta between your custom model [**BLEU score**](#bleu-score) and our standard model **Baseline BLEU**. If your models have been trained on a narrow domain, and your training data is consistent with the test data, you can expect a high BLEU score.
 
