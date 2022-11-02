@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will begin to be enabled by default for all users starting February 28, 2023.<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will begin to be enabled by default for all users starting February 27, 2023.<br> 
 >We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
@@ -358,11 +358,11 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
 
-Number match will be enabled for all users of Microsoft Authenticator app after February 28, 2023. Relevant services will begin deploying these changes after February 28, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
+Number match will be enabled for all users of Microsoft Authenticator app after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
 ### Can I opt out of number matching?
 
-Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 28, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants after Feb 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
 ### What about my Apple Watch?
 
