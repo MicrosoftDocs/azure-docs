@@ -17,7 +17,7 @@ This article applies to the following cluster configurations:
 - Kubernetes cluster running in another cloud or on-premises
 
 > [!NOTE]
-> For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, see [Azure Monitor managed service for Prometheus remote write - managed identity  (preview)](prometheus-remote-write-managed-identity.md).
+> For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, managed identify authentication is recommended. See [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md).
 
 ## Prerequisites
 See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
@@ -107,96 +107,62 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
 3. Create a SecretProviderClass by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId` and the objects to retrieve from your key vault. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) for details on values to use.
 
     ```yml
-    # This is a SecretProviderClass example using user-assigned identity to access your key vault
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-    name: azure-kvname-user-msi
-    spec:
-    provider: azure
-    parameters:
-        usePodIdentity: "false"
-        useVMManagedIdentity: "true"          # Set to true for using managed identity
-        userAssignedIdentityID:  <client-id> # Set the clientID of the user-assigned managed identity to use
-        keyvaultName: <key-vault-name> # Set to the name of your key vault
-        cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
-        objects:  |
-        array:
-            - |
-            objectName: <name-of-cert>
-            objectType: secret        # object types: secret, key, or cert
-            objectFormat: pfx
-            objectEncoding: base64
-            objectVersion: ""
-        tenantId: <tenant-id> # The tenant ID of the key vault
-    ```
-4. Apply the SecretProviderClass by running the following command on your cluster.
-
-    ```
-    kubectl apply -f secretproviderclass.yml
-    ```
-
-## Deploy Side car and configure remote write on the Prometheus server
-
-1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
-
-    ```yml
     prometheus:
-    prometheusSpec:
+      prometheusSpec:
         cluster: <CLUSTER-NAME>
 
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
         remoteWrite:
-        - url: 'http://localhost:8081/api/v1/write'
+          - url: 'http://localhost:8081/api/v1/write'
         
         # Additional volumes on the output StatefulSet definition.
         # Required only for AAD based auth
         volumes:
-        - name: secrets-store-inline
+          - name: secrets-store-inline
         csi:
-        driver: secrets-store.csi.k8s.io
-        readOnly: true
-        volumeAttributes:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
             secretProviderClass: azure-kvname-user-msi
         containers:
-        - name: prom-remotewrite
+          - name: prom-remotewrite
             image: <CONTAINER-IMAGE-VERSION>
             imagePullPolicy: Always
 
             # Required only for AAD based auth
             volumeMounts:
-            - name: secrets-store-inline
+              - name: secrets-store-inline
                 mountPath: /mnt/secrets-store
                 readOnly: true
             ports:
-            - name: rw-port
+              - name: rw-port
                 containerPort: 8081
             livenessProbe:
-            httpGet:
+              httpGet:
                 path: /health
                 port: rw-port
                 initialDelaySeconds: 10
                 timeoutSeconds: 10
             readinessProbe:
-            httpGet:
+              httpGet:
                 path: /ready
                 port: rw-port
                 initialDelaySeconds: 10
                 timeoutSeconds: 10
             env:
-            - name: INGESTION_URL
+              - name: INGESTION_URL
                 value: '<INGESTION_URL>'
-            - name: LISTENING_PORT
+              - name: LISTENING_PORT
                 value: '8081'
-            - name: IDENTITY_TYPE
+              - name: IDENTITY_TYPE
                 value: aadApplication
-            - name: AZURE_CLIENT_ID
+              - name: AZURE_CLIENT_ID
                 value: '<APP-REGISTRATION-CLIENT-ID>'
-            - name: AZURE_TENANT_ID
+              - name: AZURE_TENANT_ID
                 value: '<TENANT-ID>'
-            - name: AZURE_CLIENT_CERTIFICATE_PATH
+              - name: AZURE_CLIENT_CERTIFICATE_PATH
                 value: /mnt/secrets-store/<CERT-NAME>
-            - name: CLUSTER
+              - name: CLUSTER
                 value: '<CLUSTER-NAME>'
     ```
 
@@ -206,7 +172,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221102.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |

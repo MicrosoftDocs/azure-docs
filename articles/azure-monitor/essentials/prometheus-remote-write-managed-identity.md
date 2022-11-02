@@ -88,42 +88,43 @@ This step isn't required if you're using an AKS identity since it will already h
 
     ```yml
     prometheus:
-    prometheusSpec:
-        externalLabels:
+      prometheusSpec:
         cluster: <AKS-CLUSTER-NAME>
 
-        ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
-        ##
+        ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
         remoteWrite:
-        - url: "http://localhost:8081/api/v1/write"
-
+          - url: 'http://localhost:8081/api/v1/write'
         containers:
-        - name: prom-remotewrite
-        image: <CONTAINER-IMAGE-VERSION>
-        imagePullPolicy: Always
-        ports:
-            - name: rw-port
-            containerPort: 8081
-        livenessProbe:
-            httpGet:
+          - name: prom-remotewrite
+            image: <CONTAINER-IMAGE-VERSION>
+            imagePullPolicy: Always
+            ports:
+              - name: rw-port
+                containerPort: 8081
+            livenessProbe:
+              httpGet:
                 path: /health
                 port: rw-port
-        readinessProbe:
-            httpGet:
+                initialDelaySeconds: 10
+                timeoutSeconds: 10
+            readinessProbe:
+              httpGet:
                 path: /ready
                 port: rw-port
-        env:
-            - name: INGESTION_URL
-            value: "<INGESTION_URL>"
-            - name: LISTENING_PORT
-            value: "8081"
-            - name: IDENTITY_TYPE
-            value: "userAssigned"      
-            - name: AZURE_CLIENT_ID
-            value: "<MANAGED-IDENTITY-CLIENT-ID>"
-            # Optional parameters
-            - name: CLUSTER
-            value: "<CLUSTER-NAME>"
+                initialDelaySeconds: 10
+                timeoutSeconds: 10
+            env:
+              - name: INGESTION_URL
+                value: <INGESTION_URL>
+              - name: LISTENING_PORT
+                value: '8081'
+              - name: IDENTITY_TYPE
+                value: userAssigned
+              - name: AZURE_CLIENT_ID
+                value: <MANAGED-IDENTITY-CLIENT-ID>
+              # Optional parameter
+              - name: CLUSTER
+                value: <CLUSTER-NAME>
     ```
 
 
@@ -132,7 +133,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | Value | Description |
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221102.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |

@@ -23,7 +23,7 @@ Azure Monitor provides a reverse proxy container (Azure Monitor side car contain
 The process for configuring remote write depends on your cluster configuration and the type of authentication that you use.
 
 - **Managed identity** is recommended for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster. See [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md)
-- **Managed identity** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md)
+- **Azure Active Directory** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md)
 
 
 
@@ -42,7 +42,7 @@ kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name>
 
 The output from this command should look similar to the following:
 
-`time="2022-10-19T22:11:58Z" level=info msg="Metric packets published in last 1 minute" avgBytesPerRequest=19809 avgRequestDuration=0.17153638698214294 failedPublishingToAll=0 successfullyPublishedToAll=112 successfullyPublishedToSome=0`
+`time="2022-11-02T21:32:59Z" level=info msg="Metric packets published in last 1 minute" avgBytesPerRequest=19713 avgRequestDurationInSec=0.023 failedPublishing=0 successfullyPublished=122`
 
 
 ### PromQL queries
