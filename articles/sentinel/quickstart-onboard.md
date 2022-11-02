@@ -46,9 +46,6 @@ Microsoft Sentinel comes with many connectors for Microsoft products, for exampl
 
 - Single-region data residency is currently provided only in the Southeast Asia (Singapore) region of the Asia Pacific geography, and in the Brazil South (Sao Paulo State) region of the Brazil geography.
 
-    > [!IMPORTANT]
-    > - By enabling certain rules that make use of the machine learning (ML) engine, **you give Microsoft permission to copy relevant ingested data outside of your Microsoft Sentinel workspace's geography** as may be required by the machine learning engine to process these rules.
-
 ## Enable Microsoft Sentinel <a name="enable"></a>
 
 1. Sign in to the Azure portal. Make sure that the subscription in which Microsoft Sentinel is created is selected.

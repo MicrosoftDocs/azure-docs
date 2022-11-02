@@ -20,8 +20,6 @@ This article lists the known limitations and issues with Azure Synapse Link for 
 This is the list of known limitations for Azure Synapse Link for SQL.
 
 ### Azure SQL DB and SQL Server 2022
-* Users must use an Azure Synapse Analytics workspace created on or after May 24, 2022, to get access to Azure Synapse Link for SQL functionality.
-* Running Azure Synapse Analytics in a managed virtual network isn't supported. Users need to check "Disable Managed virtual network" and "Allow connections from all IP addresses" when creating their workspace.
 * Source tables must have primary keys.
 * The following data types aren't supported for primary keys in the source tables:
   * real
@@ -63,13 +61,12 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
-* Source tables with non-default collations: UTF8, Japanese can't be replicated to Synapse. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can’t be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 * Single row updates (including off-page storage) of > 370MB are not supported.
 
 ### Azure SQL DB only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
 * Azure Synapse Link for SQL isn't supported on SQL Managed Instances.
-* Users need to check "Allow Azure services and resources to access this server" in the firewall settings of their source database server.
 * Service principal isn't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication, user-assigned managed identity (UAMI) or service assigned managed Identity (SAMI).
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
 * If you enabled Azure Synapse Link for SQL on your database as an Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR will only work when you enable Azure Synapse Link for SQL on your database as a SQL user.
@@ -77,10 +74,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * When enabling Azure Synapse Link for SQL on your Azure SQL Database, you should ensure that aggressive log truncation is disabled.
 
 ### SQL Server 2022 only
-* Azure Synapse Link for SQL works with SQL Server on Linux, but HA scenarios with Linux Pacemaker aren't supported. Shelf hosted IR cannot be installed on Linux environment.
 * Azure Synapse Link for SQL can't be enabled on databases that are transactional replication publishers or distributors.
-* If the SAS key of landing zone expires and gets rotated during the snapshot process, the new key won't get picked up. The snapshot will fail and restart automatically with the new key.
-* Prior to breaking an Availability Group, disable any running links. Otherwise both databases will attempt to write their changes to the landing zone.
 * When using asynchronous replicas, transactions need to be written to all replicas prior to them being published to Azure Synapse Link for SQL.
 * Azure Synapse Link for SQL isn't supported on databases with database mirroring enabled.
 * Restoring an Azure Synapse Link for SQL-enabled database from on-premises to Azure SQL Managed Instance isn't supported.

@@ -174,7 +174,9 @@ Update Microsoft 365 with the new token signing certificates to be used for the 
 > [!NOTE]
 > If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](how-to-connect-install-multiple-domains.md).
 >
-
+> If your tenant is federated with more than one domain, the Update-MsolFederatedDomain needs to be run for all the domains, listed in the output from `Get-MsolDomain -Authentication Federated`. This will ensure that all of the federated domains are updated to the Token-Signing certificate.
+>You can achieve this by running:
+>`Get-MsolDomain -Authentication Federated | % { Update-MsolFederatedDomain -DomainName $_.Name -SupportMultipleDomain }`
 
 ## Repair Azure AD trust by using Azure AD Connect <a name="connectrenew"></a>
 If you configured your AD FS farm and Azure AD trust by using Azure AD Connect, you can use Azure AD Connect to detect if you need to take any action for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do so.

@@ -203,8 +203,16 @@
           href: ../security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
+        - name: Free tier
+          href: ../free-tier.md
+          displayName: free tier
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+          href: ../limit-total-account-throughput.md
         - name: Plan and manage costs
           href: ../plan-manage-costs.md
         - name: Pricing model
@@ -231,6 +239,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -404,7 +414,7 @@
 - name: Reference
   items:
     - name: .NET
-      href: /dotnet/api/overview/azure/data.tables-readme-pre
+      href: /dotnet/api/overview/azure/data.tables-readme
     - name: Java
       href: /java/api/overview/azure/data-tables-readme
     - name: Node.js

@@ -9,32 +9,29 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy your first container app
-      expanded: true
-      items:
-      - name: With a sample container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: quickstart-portal.md
-        - name: Command line
-          href: get-started.md
-      - name: With an existing container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: get-started-existing-container-image-portal.md
-        - name: Command line
-          href: get-started-existing-container-image.md
-      - name: With code on your local machine
-        expanded: true
-        items:
-        - name: Command line
-          href: quickstart-code-to-cloud.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
+  - name: With a sample container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal.md
+    - name: Command line
+      href: get-started.md
+  - name: With an existing container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: get-started-existing-container-image-portal.md
+    - name: Command line
+      href: get-started-existing-container-image.md
+  - name: With code on your local machine
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -147,12 +144,26 @@
   items:
     - name: ARM and YAML specifications
       href: azure-resource-manager-api-spec.md
-    - name: Azure CLI reference
+    - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: Azure PowerShell
+      href: /powershell/module/az.app/#container-apps
     - name: Azure policy definitions
       href: policy-reference.md
-    - name: REST API reference
+    - name: REST API
       href: /rest/api/containerapps/
+    - name: Management SDKs
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.resourcemanager.appcontainers
+        - name: Go
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers
+        - name: Java
+          href: /java/api/overview/azure/resourcemanager-appcontainers-readme
+        - name: Node.js
+          href: /javascript/api/overview/azure/arm-appcontainers-readme
+        - name: Python
+          href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
 - name: Resources
   items:
     - name: Samples

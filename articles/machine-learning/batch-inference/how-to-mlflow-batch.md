@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Using MLflow models in batch deployments
+# Use MLflow models in batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -43,7 +43,7 @@ The model has been trained using an `XGBBoost` classifier and all the required p
 
 ### Follow along in Jupyter Notebooks
 
-You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: `azureml-examples/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb`.
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mlflow-for-batch-tabular.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb).
 
 ## Steps
 
@@ -196,6 +196,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    Then, create the deployment with the following command:
    
    ```bash
+   DEPLOYMENT_NAME="classifier-xgboost-mlflow"
    az ml batch-endpoint create -f endpoint.yml
    ```
    
@@ -225,7 +226,22 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    > [!NOTE]
    > `scoring_script` and `environment` auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
-6. At this point, our batch endpoint is ready to be used. 
+6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   ```bash
+   az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   ```python
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+
+7. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
@@ -243,7 +259,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    name: heart-dataset-unlabeled
    description: An unlabeled dataset for heart classification.
    type: uri_folder
-   path: heart-dataset
+   path: heart-classifier-mlflow/data
    ```
    
    Then, create the data asset:
@@ -255,7 +271,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    # [Azure ML SDK for Python](#tab/sdk)
    
    ```python
-   data_path = "resources/heart-dataset/"
+   data_path = "heart-classifier-mlflow/data"
    dataset_name = "heart-dataset-unlabeled"
 
    heart_dataset_unlabeled = Data(
@@ -439,7 +455,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        model = mlflow.pyfunc.load(model_path)
 
    def run(mini_batch):
-       resultList = []
+       results = pd.DataFrame(columns=['file', 'predictions'])
 
        for file_path in mini_batch:        
            data = pd.read_csv(file_path)
@@ -447,12 +463,18 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
            df = pd.DataFrame(pred, columns=['predictions'])
            df['file'] = os.path.basename(file_path)
-           resultList.extend(df.values)
+           results = pd.concat([results, df])
 
-       return resultList
+       return results
    ```
 
-1. Let's create an environment where the scoring script can be executed:
+1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see [The MLmodel format](../concept-mlflow-models.md#the-mlmodel-format)). We are going then to build the environment using the conda dependencies from the file. However, __we need also to include__ the package `azureml-core` which is required for Batch Deployments.
+
+   > [!TIP]
+   > If your model is already registered in the model registry, you can download/copy the `conda.yml` file associated with your model by going to [Azure ML studio](https://ml.azure.com) > Models > Select your model from the list > Artifacts. Open the root folder in the navigation and select the `conda.yml` file listed. Click on Download or copy its content. 
+   
+   > [!IMPORTANT]
+   > This example uses a conda environment specified at `/heart-classifier-mlflow/environment/conda.yaml`. This file was created by combining the original MLflow conda dependencies file and adding the package `azureml-core`. __You can't use the `conda.yml` file from the model directly__.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -468,7 +490,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
    )
    ```
-
+   
 1. Let's create the deployment now:
 
    # [Azure ML CLI](#tab/cli)

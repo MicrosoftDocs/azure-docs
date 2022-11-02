@@ -5,8 +5,9 @@ description: Learn how to manage Azure Machine Learning workspaces in the Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022
@@ -337,7 +338,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Examples
 
-Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/resources/workspace/workspace.ipynb).
+Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb).
 
 ## Next steps
 
