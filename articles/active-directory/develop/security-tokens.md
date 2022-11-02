@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/1/2022
 ms.author: davidmu
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started. engagement-fy23
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, engagement-fy23
 #Customer intent: As an application developer, I want to understand the basic concepts of security tokens in the Microsoft identity platform.
 ---
 
