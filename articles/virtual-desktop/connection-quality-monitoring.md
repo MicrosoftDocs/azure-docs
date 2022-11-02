@@ -29,7 +29,9 @@ To check and modify your diagnostics settings in the Azure portal:
 
 3. Select **Diagnostic settings**, then create a new setting if you haven't configured your diagnostic settings yet. If you've already configured your diagnostic settings, select **Edit setting**.
 
-4. Select **allLogs** or select the names of the diagnostics tables you want to collect data for, including **Network Data Logs** and **Connection Graphics Data Logs Preview**. The *allLogs* parameter will automatically add new tables to your data table in the future.
+4. Select **allLogs** if you want to collect data for all tables. The *allLogs* parameter will automatically add new tables to your data table in the future. 
+   
+   If you'd prefer to view more specific tables, first select **Network Data Logs** and **Connection Graphics Data Logs Preview**, then select the names of the other tables you want to see. 
 
 5. Select where you want to send the collected data. Azure Virtual Desktop Insights users should select a Log Analytics workspace. 
 
