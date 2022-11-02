@@ -114,3 +114,9 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
+  - title: Disaster recovery for Edge Zones
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Edge Zones
+            url: tutorial-replicate-vms-edge-zone-to-another zone.md

@@ -1,0 +1,443 @@
+---
+title: Replicate virtual machines running in an Azure Edge Zone to another zone in the same region
+description: This article describes how to replicate, failover, and fail back Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
+author: v-pgaddala
+ms.service: site-recovery
+ms.topic: how-to   
+ms.date: 10/31/2022
+ms.author: v-pgaddala
+---
+
+# Replicate virtual machines running in an Azure Edge Zone to another zone in the same region
+
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
+
+Edge Zones is Microsoft’s fully managed solution deployed close to the customer data center and includes hardware, services, and support. Edge Zones is ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, as it is installed closer to the customer, either in their data center, a co-located site, or a telecommunication providers’ data center.
+
+## Disaster recovery in Azure Edge Zone
+
+In a typical scenario, you might have your virtual machines running in an Edge Zone provisioned by you to assure that your machines are utilizing Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you might want to protect these applications by using Azure Site Recovery for any infrastructure-level failure. 
+
+Site Recovery replicates the data from one zone or region to another. It brings up the machines in disaster recovery (DR) zone in a failover event.
+
+## Considerations
+
+Edge Zones customers will experience a similar Site Recovery flow as in Azure, but they should be aware of the limitations that Edge Zone brings. For instance, Edge Zones operate outside the Azure region in a constrained capacity environment, which reduces the ability to reproduce Azure's high availability and the disaster recovery experience. Key differences include: 
+
+-    Physical separation from the Azure region
+-    The separation of the control plane running at the region and the data plane running at the edge location
+-    Scale differences
+-    The dependencies on customer-provided network connectivity and power
+
+> [!NOTE] 
+> Protection of un-managed disks is not supported for this scenario.
+
+## Set up disaster recovery for VMs in an Edge Zone via PowerShell
+
+### Prerequisites
+
+- Ensure to have the Azure PowerShell Az module. To install or upgrade Azure PowerShell, see the [guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- The minimum Azure PowerShell Az version must be 4.1.0. Use the following command to see the current version:
+
+    ```
+    Get-InstalledModule -Name Az
+    ```
+
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix#linux).
+
+## Edge Zone to Azure
+
+> [!NOTE] 
+> For this example, the primary location is an Azure Edge Zone, and the secondary/recovery location is the Edge Zone’s region.
+
+1. Sign-in to your Azure account and set your subscription.
+
+    ```
+    Connect-AzAccount
+    
+    # Select Right subscription
+    $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>"
+    Set-AzContext $subscription.Id
+    ```
+
+1. Get the details of the virtual machine that you plan to replicate.
+
+    ```
+    # Get details of the virtual machine
+    $VM = Get-AzVM -ResourceGroupName "<ResourceGroupName>" -Name "<VMName>" 
+    
+    Write-Output $VM
+    ```
+
+1. Create your recovery services vault and set the vault context.
+
+    ```
+    #Create a resource group for the recovery services vault in the secondary Azure 
+    region
+    New-AzResourceGroup -Name "edgezonerecoveryrg" -Location "<EdgeZoneRegion>"
+    
+    #Create a new Recovery services vault in the secondary region
+    $vault = New-AzRecoveryServicesVault -Name "EdgeZoneRecoveryVault" -
+    ResourceGroupName "edgezonerecovery" -Location "<EdgeZoneRegion>"
+    Write-Output $vault
+    
+    #Set the vault context
+    Set-AzRecoveryServicesAsrVaultContext -Vault $vault 
+    ```
+
+1. Prepare the vault to start the replication of virtual machine. This step involves creation of an Azure Service Fabric object for the primary region. 
+
+    ```
+    #Create Primary Site Recovery fabric
+
+    $TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location “<EdgeZoneRegion>” -
+    Name "EdgeZoneFabric"
+
+    #Track Job status to check for completion
+
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     #If the job hasn't completed, sleep for 10 seconds before checking the job 
+    status again
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+
+    #Check if the Job completed successfully. The updated job state of a successfully 
+    completed job should be "Succeeded"
+    Write-Output $TempASRJob.State
+    $PrimaryFabric = Get-AzRecoveryServicesAsrFabric -Name "EdgeZoneFabric"
+    ```
+
+1. Use the primary fabric to create both primary and recovery protection containers.
+
+    ```
+    $TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject 
+    $PrimaryFabric -Name "EdgeZoneProtectionContainer"
+    
+    #Track Job status to check for completion
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+    Write-Output $TempASRJob.State
+    $TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject 
+    $PrimaryFabric -Name "EdgeZoneProtectionContainer-t"
+    
+    #Track Job status to check for completion
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+    Write-Output $TempASRJob.State
+    
+    #Both primary and recovery Protection containers will be created in the primary 
+    region (within the Primary fabric)
+    $PrimaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric 
+    $primaryFabric -Name "EdgeZoneProtectionContainer"
+    $RecoveryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric 
+    $primaryFabric -Name "EdgeZoneProtectionContainer-t"
+    ```
+
+1. Create a replication policy.
+
+    ```
+    #Create replication policy
+    
+    $TempASRJob = New-AzRecoveryServicesAsrPolicy -AzureToAzure -Name 
+    "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -
+    ApplicationConsistentSnapshotFrequencyInHours 4
+    
+    #Track Job status to check for completion
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+    
+    #Check if the Job completed successfully. The updated job state of a successfully 
+    completed job should be "Succeeded"
+    Write-Output $TempASRJob.State
+    
+    $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy"
+    ```
+1. Create a protection container mapping between the primary and recovery protection containers.
+
+    ```
+    #Create Protection container mapping between the Primary and Recovery Protection Containers with the Replication policy
+    
+    $TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name 
+    "PrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer 
+    $PrimaryProtectionContainer -RecoveryProtectionContainer 
+    $RecoveryProtectionContainer
+    
+    #Track Job status to check for completion
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+    
+    #Check if the Job completed successfully. The updated job state of a successfully 
+    completed job should be "Succeeded"
+    Write-Output $TempASRJob.State
+    
+    $EdgeZoneToAzurePCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -
+    ProtectionContainer $PrimaryProtectionContainer -Name "PrimaryToRecovery"
+    ```
+
+    1. Create a protection container mapping for failback, between the recovery and primary protection containers.
+    
+    ```
+    #Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
+
+    $TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name 
+    "RecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer 
+    $RecoveryProtectionContainer -RecoveryProtectionContainer 
+    $PrimaryProtectionContainer
+    
+    #Track Job status to check for completion
+
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+    }
+    
+    #Check if the Job completed successfully. The updated job state of a successfully 
+    completed job should be "Succeeded"
+    Write-Output $TempASRJob.State 
+    $AzureToEdgeZonePCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -
+    ProtectionContainer $RecoveryProtectionContainer -Name "RecoveryToPrimary"
+    ```
+
+1. Create a cache storage account. The cache storage account is created in the primary region.
+
+    ``` 
+    #Create Cache storage account for replication logs in the primary region
+
+    $CacheStorageAccount = New-AzStorageAccount -Name "cachestorage" -ResourceGroupName 
+    "<primary ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName Standard_LRS -
+    Kind Storage
+    ```
+
+1. Ensure to create a virtual network in the target location.
+
+    ```
+    #Create a Recovery Network in the recovery region
+    
+    $recoveryVnet = New-AzVirtualNetwork -Name "recoveryvnet" -ResourceGroupName 
+    "recoveryrg" -Location '<EdgeZoneRegion>' -AddressPrefix "10.0.0.0/16"
+    Add-AzVirtualNetworkSubnetConfig -Name "defaultsubnetconf" -VirtualNetwork 
+    $recoveryVnet -AddressPrefix "10.0.0.0/24" | Set-AzVirtualNetwork
+    $recoveryNetwork = $recoveryVnet.Id
+    ```
+
+1. Use the following PowerShell cmdlet to replicate an Edge Zones Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
+
+    ```
+    #Get the resource group that the virtual machine must be created in when it's failed 
+    over.
+    $RecoveryRG = Get-AzResourceGroup -Name "edgezonerecoveryrg" -Location "
+    <EdgeZoneRegion>"
+    
+    #Get VM and display contents
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $primaryResourceGroupName
+    
+    #Specify replication properties for each disk of the VM that is to be replicated (create 
+    disk replication configuration)
+    
+    #OsDisk
+    $OSdiskId = $vm.StorageProfile.OsDisk.ManagedDisk.Id
+    $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+    $RecoveryReplicaDiskAccountType = 
+    $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+    $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -
+    ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+     -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -
+    RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
+     -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
+    
+    # Data disk
+    # If VM has data disk use the following command to create disk configuration. If not,
+    you can skip this section. From $datadiskId to $DataDisk1ReplicationConfig
+    $datadiskId = $vm.StorageProfile.OSDisk.ManagedDisk.Id
+    
+    # Alternatively
+    $RecoveryReplicaDiskAccountType = "Premium_LRS"
+    $RecoveryTargetDiskAccountType = "Premium_LRS"
+    $RecoveryRGId = $RecoveryRG.ResourceId
+    $DataDisk1ReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig 
+    -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+     -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRGId -
+    RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
+     -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+    
+    #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name. If you are not recovering to an Availability Zone, then don’t provide the *-RecoveryAvailabilityZone parameter*.
+    
+    $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId 
+    $VM.Id -Name $vm.Name -ProtectionContainerMapping $EdgeZoneToAzurePCMapping -
+    AzureToAzureDiskReplicationConfiguration $DataDisk1ReplicationConfig -
+    RecoveryResourceGroupId $RecoveryRGId -RecoveryAvailabilityZone “1” -
+    RecoveryAzureNetworkId $recoveryVnet.Id -RecoveryAzureSubnetName “defaultsubnetconf”
+    
+    #Track Job status to check for completion 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+    sleep 10; 
+    $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob 
+    } 
+    
+    #Check if the Job completed successfully. The updated job state of a successfully 
+    completed job should be "Succeeded" 
+    Write-Output $TempASRJob.State
+    ```
+
+    After the operation to start replication succeeds, virtual machine data is replicated to the recovery region.
+    
+    The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes after which you can continue. You can see the status of the replication in the Vault blade under “Replicated items”. 
+    
+    :::image type="content" source="./media/azure-edge-zone/replicated-items.png" alt-text="Vault replication table":::
+    
+    
+    When the replication finishes, the Vault replication items will show:
+    
+    :::image type="content" source="./media/azure-edge-zone/vault-replication.png" alt-text="Vault replication table":::
+    
+    At this point, the virtual machine is protected, and you can perform a test failover operation on it. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication finishes.
+    
+    Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item that corresponds to it:
+    
+    ```
+    $PE = Get-AzRecoveryServicesAsrReplicationProtectedItem
+     -ProtectionContainer $PrimaryProtectionContainer
+    | Select FriendlyName, ProtectionState, ReplicationHealth
+    $PE
+    ```
+    
+    If you get “Protected” in the ProtectionState column, you are ready to proceed to test failover. 
+    
+    :::image type="content" source="./media/azure-edge-zone/protectionstate.png" alt-text="Protection state table":::
+
+1. Perform, validate, and clean up a test failover. You can skip the Test failover but it is recommended to execute test failover to ensure that your secondary region comes up as expected. 
+
+    ```
+    #Create a separate network for test failover (not connected to my DR network)
+    $TFOVnet = New-AzVirtualNetwork -Name "TFOvnet" -ResourceGroupName "edgezonerecoveryrg" 
+    -Location '<EdgeZoneRegion>' -AddressPrefix "10.3.0.0/26"
+    
+    Add-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -AddressPrefix 
+    "10.3.0.0/26" | Set-AzVirtualNetwork
+    
+    $TFONetwork= $TFOVnet.Id
+    
+    #Perform a test failover.
+    $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
+    FriendlyName "<VMName>" -ProtectionContainer $PrimaryProtectionContainer
+    
+    $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem 
+    $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
+    
+    # Wait until job is finished
+    
+    while (($TFOJob.State -eq "InProgress") -or ($TFOJob.State -eq 
+    "NotStarted")){
+     sleep 10;
+     $TFOJob = Get-AzRecoveryServicesAsrJob -Job $TFOJob
+    }
+    
+    #Wait for the test failover to complete 
+    Get-AzRecoveryServicesAsrJob -Job $TFOJob
+    ```
+
+> [!NOTE]
+> You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
+
+    After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
+    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data lost in the target VM. Now you can delete the test failover so you can start the real failover.
+
+    ```
+    $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -
+    ReplicationProtectedItem $ReplicationProtectedItem 
+    Get-AzRecoveryServicesAsrJob -Job $Job_TFOCleanup | Select State
+    ```
+
+1. Next step would be to fail over the virtual machine. This step will create the VM using the replicated disks in recovery region.
+
+    ```
+    $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
+    FriendlyName "<VMName>" -ProtectionContainer $PrimaryProtectionContainer
+    $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem 
+    $ReplicationProtectedItem 
+    
+     #The list of recovery points returned may not be sorted chronologically and will 
+    need to be sorted first, in order to be able to find the oldest or the latest recovery 
+    points for the virtual machine.
+     "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-
+    1].RecoveryPointTime
+    
+    #Start the fail over job
+    $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -
+    ReplicationProtectedItem $ReplicationProtectedItem -Direction PrimaryToRecovery -
+    RecoveryPoint $RecoveryPoints[-1] 
+    do { 
+    $Job_Failover = Get-AzRecoveryServicesAsrJob -Job $Job_Failover; 
+    sleep 30; 
+    } while (($Job_Failover.State -eq "InProgress") -or ($JobFailover.State -eq 
+    "NotStarted")) 
+    $Job_Failover.State
+    ```
+
+1. When the failover job is successful, you can commit the failover.
+
+    ```
+     $CommitFailoverJob = Start-AzRecoveryServicesAsrCommitFailoverJob -
+    ReplicationProtectedItem $ReplicationProtectedItem 
+     
+     # Wait until commit failover job is finished
+    while (($CommitFailoverJob.State -eq "InProgress") -or ($CommitFailoverJob.State 
+    -eq "NotStarted")){
+     sleep 10;
+     $CommitFailoverJob = Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJob
+    }
+     Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJOb
+    ```
+
+1. After a failover, when you're ready to go back to the original region, start reverse replication for the replication protected item using the *Update-AzRecoveryServicesAsrProtectionDirection* cmdlet. 
+
+    ```
+    #Create Cache storage account for replication logs in the recovery region
+    
+    $EdgeZoneCacheStorageAccount = New-AzStorageAccount -Name "cachestorageedgezone" -
+    ResourceGroupName "<ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName 
+    Standard_LRS -Kind Storage
+    
+    # Use the recovery protection container, the new cache storage account in Edge Zone’s region, and the source region VM resource group. 
+    
+    $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
+    FriendlyName $vm.name -ProtectionContainer $PrimaryProtectionContainer
+     $sourceVMResourcegroupId = $(Get-AzResourceGroup -Name $vm.ResourceGroupName).
+    ResourceId
+    Update-ASRProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem `
+     -AzureToAzure `
+     -ProtectionContainerMapping $AzureToEdgeZonePCMapping `
+     -LogStorageAccountId $EdgeZoneCacheStorageAccount.Id `
+     -RecoveryResourceGroupID $sourceVMResourcegroupId
+    
+    ```
+    This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
+
+    :::image type="content" source="./media/azure-edge-zone/protected-items.png" alt-text="Protected items list":::
+
+1. The last step would be to disable replication.
+
+    ```
+    Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem 
+    $ReplicationProtectedItem
+    ```
+1. Clean the environment. This final step is optional and can be used to remove the resource group. 
+
+    ```
+    Remove-AzResourceGroup -Name $Name -Force
+    ```
