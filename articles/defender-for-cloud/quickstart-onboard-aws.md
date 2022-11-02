@@ -171,7 +171,7 @@ Federated authentication is used between Microsoft Defender for Cloud and AWS. A
 
 The architecture of the authentication process across clouds is as follows:
 
-:::image type="content" source="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png" alt-text="diagram showing architecture of authentication  process across clouds." lightbox="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png":::
+:::image type="content" source="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png" alt-text="diagram showing architecture of authentication process across clouds." lightbox="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png":::
 
 1. Microsoft Defender for Cloud CSPM service acquires an Azure AD token with a validity life time of 1 hour that is signed by the Azure AD using the RS256 algorithm. 
 
