@@ -238,3 +238,70 @@ Create a doc with the *product* properties for the `adventureworks` database:
 * A *name* property.
 * An inventory *quantity* property.
 * A *sale* property, indicating whether the product is on sale.
+
+```python
+"""Create new doc and upsert (create or replace) to collection"""
+product = {
+    'category': 'gear-surf-surfboards',
+    'name': 'Yamba Surfboard-'+str(randint(50, 500)),
+    'quantity': 1,
+    'sale': False
+}
+result = collection.update_one(
+    {'name': product['name']},
+    {'$set': product}, 
+    upsert=True)
+print("Upserted document with _id {}".format(result.upserted_id))
+```
+<!---
+:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
+--->
+
+Create an doc in the collection by calling the collection level operation [``update_one``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
+
+### Get a doc
+
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``).
+
+```python
+doc = collection.find_one({"_id": result.upserted_id})
+print("Found a document with _id {}: {}".format(result.upserted_id, doc))
+```
+<!---
+:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc":::
+--->
+
+### Query docs
+
+After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [``Cursor``](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
+
+```python
+docs = collection.find({'category': 'gear-surf-surfboards'})
+```
+<!---
+:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_doc":::
+--->
+
+Troubleshooting:
+
+* If you get an error such as `The index path corresponding to the specified order-by item is excluded.`, make sure you [created the index](#create-an-index).
+
+## Run the code
+
+This app creates a API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
+
+To run the app, use a terminal to navigate to the application directory and run the application.
+
+```python
+python run.py
+```
+
+The output of the app should be similar to this example:
+
+```console
+TBD
+```
+
+<!---
+:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="console_result":::
+--->
