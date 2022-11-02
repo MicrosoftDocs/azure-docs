@@ -51,7 +51,7 @@ If you upload a blob by using the [Put Block](/rest/api/storageservices/put-bloc
 
 ###### Set Blob Tier
 
-If you use the Set Blob Tier operation to move a blob from the cool or hot tier to the archive tier, you're charged the price of an **archive** write operation. 
+If you use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation to move a blob from the cool or hot tier to the archive tier, you're charged the price of an **archive** write operation. 
 
 #### The cost to store
 
