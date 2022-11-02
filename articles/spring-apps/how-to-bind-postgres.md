@@ -72,8 +72,9 @@ Use the following steps to bind your app.
 
 ### [Using a passwordless connection with a managed identity](#tab/Passwordless)
 
-Configure Azure Spring Apps to connect to the PostgreSQL Database Single Server with a system-assigned managed identity using the `az spring connection create` command.
+Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
+### [Flexible Server](#tab/flexible)
 ```azurecli
 az spring connection create postgres \
     --resource-group $SPRING_APP_RESOURCE_GROUP \
@@ -82,9 +83,20 @@ az spring connection create postgres \
     --target-resource-group $POSTGRES_RESOURCE_GROUP \
     --server $POSTGRES_SERVER_NAME \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
+### [Single Server](#tab/single)
+```azurecli
+az spring connection create postgres \
+    --resource-group $SPRING_APP_RESOURCE_GROUP \
+    --service $Spring_APP_SERVICE_NAME \
+    --app $APP_NAME --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $POSTGRES_RESOURCE_GROUP \
+    --server $POSTGRES_SERVER_NAME \
+    --database $DATABASE_NAME \
+    --system-identity
+```
 ---
 
 ## Next steps
