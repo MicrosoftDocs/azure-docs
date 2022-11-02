@@ -1,89 +1,34 @@
 ---
 title: Delete a site
 titleSuffix: Azure Private 5G Core Preview
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+description: This how-to guide shows how to delete a site in your private mobile network. 
+author: James-Green-Microsoft
+ms.author: jamesgreen
+ms.service: private-5g-core
+ms.topic: how-to 
+ms.date: 11/02/2022
+ms.custom: template-how-to
 ---
+# Delete a site using the Azure portal
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
-
-# [H1 heading here]
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
+ In this how-to guide, you'll learn how to delete a site and associated ARM resources using the Azure portal. This includes resources created during site creation and network functions associated with the site.
 
 ## Prerequisites
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+- You must already have a site that you want to delete in your deployment.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+## Delete the mobile network site and resources
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+You can delete your existing sites in the Azure portal.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select the **Site** resource representing the private mobile network site that you want to delete.
+1. Select the **Delete** button.
+1. Review the list of resources that will be deleted. 
+1. If you want to proceed, select the checkbox and select **Delete**.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
 - [Write how-to guides](contribute-how-to-write-howto.md)
 - [Links](links-how-to.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
