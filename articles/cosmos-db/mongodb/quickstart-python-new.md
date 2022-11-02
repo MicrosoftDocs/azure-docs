@@ -16,7 +16,7 @@ ms.custom: devx-track-js, ignite-2022
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Get started with the PyMongo package to create databases, collections, and doc withing your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the PyMongo package to create databases, collections, and documents within your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
@@ -76,7 +76,7 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 Create a new empty folder using your preferred terminal. Or, you can fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub.
 
-Change directory to the root of the project folder. Make sure there is a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+Change directory to the root of the project folder. Make sure there's a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
 ```text
 # requirements.txt
@@ -120,7 +120,7 @@ Let's look at the hierarchy of resources in the API for MongoDB and the object m
 
 * [Collection](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A database can contain one or more collections. A collection is a group of documents stored in MongoDB, and can be thought of as roughly the equivalent of a table in a relational database.
 
-* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection do not need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
+* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
 
 To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
 
@@ -130,9 +130,9 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * [Get database instance](#get-database-instance)
 * [Get collection instance](#get-collection-instance)
 * [Create an index](#create-an-index)
-* [Create a doc](#create-a-doc)
-* [Get an doc](#get-a-doc)
-* [Query docs](#query-docs)
+* [Create a document](#create-a-document)
+* [Get an document](#get-a-document)
+* [Query documents](#query-documents)
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
 
@@ -230,9 +230,9 @@ print("Indexes are: {}".format(sorted(collection.index_information())))
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="create_index":::
 --->
 
-### Create a doc
+### Create a document
 
-Create a doc with the *product* properties for the `adventureworks` database:
+Create a document with the *product* properties for the `adventureworks` database:
 
 * An _id property for the unique identifier of the product.
 * A *category* property. This property can be used as the logical partition key.
@@ -241,7 +241,7 @@ Create a doc with the *product* properties for the `adventureworks` database:
 * A *sale* property, indicating whether the product is on sale.
 
 ```python
-"""Create new doc and upsert (create or replace) to collection"""
+"""Create new document and upsert (create or replace) to collection"""
 product = {
     'category': 'gear-surf-surfboards',
     'name': 'Yamba Surfboard-{}'.format(randint(50, 5000)),
@@ -258,9 +258,9 @@ print("Upserted document with _id {}\n".format(result.upserted_id))
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 --->
 
-Create an doc in the collection by calling the collection level operation [``update_one``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
+Create a document in the collection by calling the collection level operation [``update_one``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
 
-### Get a doc
+### Get a document
 
 In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``).
 
@@ -272,7 +272,7 @@ print("Found a document with _id {}: {}\n".format(result.upserted_id, doc))
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc":::
 --->
 
-### Query docs
+### Query documents
 
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [``Cursor``](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
@@ -295,7 +295,7 @@ Troubleshooting:
 
 ## Run the code
 
-This app creates a API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
+This app creates an API for MongoDB database and collection and creates a document and then reads the exact same document back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
