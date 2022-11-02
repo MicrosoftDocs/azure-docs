@@ -86,6 +86,8 @@ On this panel, you can reference to the Spark job definition to run.
      |Main class name| The fully qualified identifier or the main class that is in the main definition file. <br> Sample: `WordCount`|
      |Command-line arguments| You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br> |
      |Apache Spark pool| You can select Apache Spark pool from the list.|
+     |Python code reference| Additional python code files used for reference in the main definition file. |
+     |Reference files | Additional files used for reference in the main definition file. |
      |Dynamically allocate executors| This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation.|
      |Min executors| Min number of executors to be allocated in the specified Spark pool for the job.|
      |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.|
