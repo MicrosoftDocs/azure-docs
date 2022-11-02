@@ -3,13 +3,13 @@ title: Introduction to Azure Network Watcher Connection Troubleshoot | Microsoft
 description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/11/2017
-ms.author: damendo
+ms.date: 11/02/2022
+ms.author: shijaiswal
 ---
 
 # Introduction to connection troubleshoot in Azure Network Watcher
@@ -23,7 +23,7 @@ The connection troubleshoot feature of Network Watcher provides the capability t
 
 The following table shows the properties returned when connection troubleshoot has finished running.
 
-|Property  |Description  |
+|**Property**  |**Description**  |
 |---------|---------|
 |ConnectionStatus     | The status of the connectivity check. Possible results are **Reachable** and **Unreachable**.        |
 |AvgLatencyInMs     | Average latency during the connectivity check in milliseconds. (Only shown if check status is reachable)        |
@@ -66,11 +66,11 @@ The following is an example of an issue found on a hop.
 
 Connection troubleshoot returns fault types about the connection. The following table provides a list of the current fault types returned.
 
-|Type  |Description  |
+|**Type**  |**Description**  |
 |---------|---------|
 |CPU     | High CPU utilization.       |
 |Memory     | High Memory utilization.       |
-|GuestFirewall     | Traffic is blocked due to a virtual machine firewall configuration.        |
+|GuestFirewall     | Traffic is blocked due to a virtual machine firewall configuration. <br><br> Note that a TCP ping is a unique use case in which, if there is no allowed rule, the firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. This event is not logged. If there is a network rule that allows access to the target IP address/FQDN, the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.   |
 |DNSResolution     | DNS resolution failed for the destination address.        |
 |NetworkSecurityRule    | Traffic is blocked by an NSG Rule (Rule is returned)        |
 |UserDefinedRoute|Traffic is dropped due to a user defined or system route. |
