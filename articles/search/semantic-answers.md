@@ -28,7 +28,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 + Query strings entered by the user must be recognizable as a question (what, where, when, how).
 
-+ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer will be returned.
++ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer will be returned.
 
 ## What is a semantic answer?
 

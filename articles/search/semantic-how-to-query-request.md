@@ -16,32 +16,37 @@ ms.date: 11/01/2022
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. This feature is billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a premium feature in Azure Cognitive Search that invokes a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. It also returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in query requests formulated using the "semantic" query type.
+In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You'll also get semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases.
 
-Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
+There are two main activities in task:
+
++ Add a semantic configuration to an index
++ Add parameters to a query request
 
 ## Prerequisites
 
-+ A search service that meets tier and regional requirements:
++ A search service on Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), in these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe.
 
-  Tiers include Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2).
+  If you have an existing S1 or greater service in one of these regions, you can enable semantic search without having to create a new service.
 
-  Regions include Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe.
-
-  If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
-
-+ [Semantic search enabled on your search service](semantic-search-overview.md#enable-semantic-search).
++ Semantic search [enabled on your search service](semantic-search-overview.md#enable-semantic-search).
 
 + An existing search index with rich content in a [supported query language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
+
+> [!NOTE]
+> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## 1 - Choose a client
 
 You'll need a search client that supports preview APIs on the query request. Here are some options:
 
-+ [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration
-+ [Postman](search-get-started-rest.md) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/)
++ [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
+
++ [Postman Desktop App](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/). See this [Quickstart]((search-get-started-rest.md) for help setting up your requests.
+
 + [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET Preview.
-+ [Azure.Search.Documents 11.3.0b6](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.3.0b6/azure.search.documents.aio.html) in the Azure SDK for Python
+
++ [Azure.Search.Documents 11.3.0b6](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.3.0b6/azure.search.documents.aio.html) in the Azure SDK for Python.
 
 ## 2 - Create a semantic configuration
 
@@ -128,7 +133,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 ### [**.NET SDK**](#tab/sdk)
 
-Use the [SemanticConfiguration class](/dotnet/api/azure.search.documents.indexes.models.semanticconfiguration?view=azure-dotnet-preview) in the Azure SDK for .NET Preview.
+Use the [SemanticConfiguration class](/dotnet/api/azure.search.documents.indexes.models.semanticconfiguration?view=azure-dotnet-preview&preserve-view=true) in the Azure SDK for .NET Preview.
 
 ```c#
 var definition = new SearchIndex(indexName, searchFields);
@@ -163,9 +168,9 @@ adminClient.CreateOrUpdateIndex(definition);
 > To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
 [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
-## 3 - Use searchFields for field prioritization
+## 2b - Use searchFields for field prioritization
 
-This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index, you'll set the priority at query time, using the "searchFields" parameter of a query.
+This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index through a semantic configuration, you'll set the priority at query time, using the "searchFields" parameter of a query.
 
 Using "searchFields" for field prioritization was an early implementation detail that won't be supported once semantic search exists public preview. We encourage you to use semantic configurations if your application requirements allow it.
 
@@ -179,55 +184,9 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-<!-- Semantic search is specified on a query request. In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. This step explains which parameters will invoke semantic search.
+## 3 - Set up the query
 
-As with all queries in Cognitive Search, the request targets the documents collection of a single index. Furthermore, a semantic query undergoes the same sequence of parsing, analysis, scanning, and scoring as a non-semantic query. 
-
-The difference lies in relevance and scoring. As defined in this preview release, a semantic query is one whose *results* are reranked using a semantic language model, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm.
-
-Only the top 50 matches from the initial results can be semantically ranked, and all results include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-answers.md).
-
-## Create a semantic configuration
- -->
-
-
-<!-- ### [**searchFields**](#tab/searchFields)
-
-If you're using the 2020-06-30-Preview REST API, the "searchFields" parameter determines the priority of fields that are evaluated during semantic ranking.
-
-```http
-POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
-{    
-    "search": " Where was Alan Turing born?",    
-    "queryType": "semantic",  
-    "searchFields": "title,url,body",  
-    "queryLanguage": "en-us"  
-}
-```
-
---- -->
-
-<!-- 
-
-### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
-
-The approach for listing fields in priority order has changed recently, with semanticConfiguration replacing searchFields. If you are currently using searchFields, please update your code to the 2021-04-30-Preview API version and use semanticConfiguration instead.
-
-The following request is representative of a minimal semantic query (without answers).
-
-```http
-POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2021-04-30-Preview      
-{    
-    "search": " Where was Alan Turing born?",    
-    "queryType": "semantic",  
-    "semanticConfiguration": "my-semantic-config",
-    "queryLanguage": "en-us"  
-}
-``` -->
-
-## 4 - Run the query
-
-Your next step is run the query. To be successful, your query should be full text search (using the "search" parameter to pass in a string) and the index should contain text fields with rich semantic content.
+Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string) and the index should contain text fields with rich semantic content.
 
 ### [**Azure portal**](#tab/portal-query)
 
@@ -364,7 +323,7 @@ Add a semanticConfiguration to the request. A semantic configuration is required
 "semanticConfiguration": "my-semantic-config",
 ```
 
-The [semantic configuration](#create-a-semantic-configuration) is used to tell semantic search's models which fields are most important for reranking search results based on semantic similarity. 
+The [semantic configuration](#2---create-a-semantic-configuration) is used to tell semantic search's models which fields are most important for reranking search results based on semantic similarity. 
 
 
 #### Step 3: Remove or bracket query features that bypass relevance scoring
@@ -489,11 +448,11 @@ Highlight styling is applied to captions in the response. You can use the defaul
 
 ---
 
-## Evaluate the response
+## 4 - Evaluate the response
 
-As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. It includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
+Only the top 50 matches from the initial results can be semantically ranked, and all results include captions in the response. As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. A response includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
 
-In semantic search, the response has additional elements: a new semantically ranked relevance score, captions in plain text and with highlights, and optionally an answer. If your results don't include the extra elements, then your query might be misconfigured. As a first step, check the semantic configuration to ensure it's specified in both the index definition and query.
+In semantic search, the response has additional elements: a new semantically ranked relevance score, captions in plain text and with highlights, and optionally [an answer](semantic-answers.md). If your results don't include the extra elements, then your query might be misconfigured. As a first step, check the semantic configuration to ensure it's specified in both the index definition and query.
 
 In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This is useful when individual fields are too dense for the search results page.
 
