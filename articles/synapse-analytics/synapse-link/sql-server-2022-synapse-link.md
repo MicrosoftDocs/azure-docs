@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link for SQL Server 2022 (Preview)
+title: Azure Synapse Link for SQL Server 2022
 description: Learn about Azure Synapse Link for SQL Server 2022, the link connection, landing zone, Self-hosted integration runtime, and monitoring the Azure Synapse Link for SQL.
 services: synapse-analytics 
 author: SnehaGunda
@@ -7,18 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
-# Azure Synapse Link for SQL Server 2022 (Preview)
+# Azure Synapse Link for SQL Server 2022
 
 This article helps you to understand the functions of Azure Synapse Link for SQL Server 2022. You can use the Azure Synapse Link for SQL functionality to replicate your operational data into an Azure Synapse Analytics dedicated SQL pool from SQL Server 2022.
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Link connection
 
@@ -73,8 +69,8 @@ You can enable transactional consistency across table for each link connection. 
 
 ## Known limitations
 
-A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL (Preview)](synapse-link-for-sql-known-issues.md).
+A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL](synapse-link-for-sql-known-issues.md).
 
 ## Next steps
 
-* To learn more, see how to [Configure Synapse Link for SQL Server 2022 (Preview)](connect-synapse-link-sql-server-2022.md).
+* To learn more, see how to [Configure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link for Azure SQL Database (Preview)
+title: Azure Synapse Link for Azure SQL Database
 description: Learn about Azure Synapse Link for Azure SQL Database, the link connection, and monitoring the Synapse Link. 
 services: synapse-analytics 
 author: SnehaGunda
@@ -7,18 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
-# Azure Synapse Link for Azure SQL Database (Preview)
+# Azure Synapse Link for Azure SQL Database
 
 This article helps you to understand the functions of Azure Synapse Link for Azure SQL Database. You can use the Azure Synapse Link for SQL functionality to replicate your operational data into an Azure Synapse Analytics dedicated SQL pool from Azure SQL Database.
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Link connection
 
@@ -63,8 +59,8 @@ You can enable transactional consistency across tables for each link connection.
 
 ## <a name="known-issues"></a>Known limitations
 
-A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL (Preview)](synapse-link-for-sql-known-issues.md).
+A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL](synapse-link-for-sql-known-issues.md).
 
 ## Next steps
 
-* To learn more, see how to [Configure Synapse Link for Azure SQL Database (Preview)](connect-synapse-link-sql-database.md).
+* To learn more, see how to [Configure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md).

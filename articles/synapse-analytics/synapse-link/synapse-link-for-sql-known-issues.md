@@ -1,12 +1,12 @@
 ---
-title: Known limitations and issues with Azure Synapse Link for SQL (Preview)
-description: Learn about known limitations and issues with Azure Synapse Link for SQL (Preview).
+title: Known limitations and issues with Azure Synapse Link for SQL
+description: Learn about known limitations and issues with Azure Synapse Link for SQL.
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 11/16/2022
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf
 ---
@@ -61,7 +61,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
-* Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can’t be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 * Single row updates (including off-page storage) of > 370MB are not supported.
 
 ### Azure SQL DB only
@@ -103,7 +103,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 
 ### DateTime2(7) and Time(7) Could Cause Snapshot Hang
 * Applies To - Azure SQL Database
-* Issue - One of the preview limitations with the data types DateTime2(7) and Time(7) is the loss of precision (only 6 digits are supported). When certain database settings are turned on (`NUMERIC_ROUNDABORT`, `ANSI_WARNINGS`, and `ARITHABORT`), the snapthot process can hang, requiring a database failover to recover.
+* Issue - One of the limitations with the data types DateTime2(7) and Time(7) is the loss of precision (only 6 digits are supported). When certain database settings are turned on (`NUMERIC_ROUNDABORT`, `ANSI_WARNINGS`, and `ARITHABORT`), the snapthot process can hang, requiring a database failover to recover.
 * Resolution - To resolve this situation, take the following steps:
 1. Turn off all three database settings.
     ```sql
