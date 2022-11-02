@@ -4,6 +4,7 @@ title: |
 description: |
   Learn how to use built-in Jupyter notebooks to import data to Azure Cosmos DB for NoSQL, analyze the data, and visualize the output.
 ms.service: cosmos-db
+ms.subservice: nosql
 ms.topic: overview 
 ms.date: 09/29/2022
 author: seesharprun
@@ -13,16 +14,16 @@ ms.reviewer: dech
 
 # Tutorial: Create a Jupyter Notebook in Azure Cosmos DB for NoSQL to analyze and visualize data (preview)
 
-[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
 > The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
 
-This article describes how to use the Jupyter Notebooks feature of Azure Cosmos DB to import sample retail data to an Azure Cosmos DB for NoSQL account. You'll see how to use the Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
+This tutorial walks through how to use the Jupyter Notebooks feature of Azure Cosmos DB to import sample retail data to an Azure Cosmos DB for NoSQL account. You'll see how to use the Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
 ## Prerequisites
 
-- [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) (configured with serverless throughput)
+- [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) (configured with serverless throughput).
 
 ## Create a new notebook
 
@@ -303,4 +304,5 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 ## Next steps
 
 - [Learn about the Jupyter Notebooks feature in Azure Cosmos DB](../notebooks-overview.md)
+- [Import notebooks from GitHub into an Azure Cosmos DB for NoSQL account](tutorial-import-notebooks.md)
 - [Review the FAQ on Jupyter Notebook support](../notebooks-faq.yml)

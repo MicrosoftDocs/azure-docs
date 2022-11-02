@@ -127,6 +127,6 @@ Versions 9.x and greater of Grafana support Azure Authentication, but it's not e
 
 ## Next steps
 
-- [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
+- [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
