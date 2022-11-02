@@ -8,22 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 11/02/2022
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to modify the user flow language, when the users are signing up via the self-service sign-up user flow.
 ---
 
 # Language customization in Azure Active Directory
 
-Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). Even if your experience is provided for only a single language, you can customize the attribute names on the attribute collection page.
+Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article you will learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
 ## How language customization works
 
-By default, language customization is enabled for users signing up to ensure a consistent sign up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign up.
-
-> [!NOTE]
-> If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
+By default, language customization is enabled for users signing up to ensure a consistent sign up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign up. If you're using [custom user attributes](user-flow-add-custom-attributes.md), you need to provide your [own translations](#customize-your-strings).
 
 ## Customize your strings
 
@@ -46,11 +44,8 @@ These steps give you a JSON file that you can use to start editing your strings.
 1. Open the JSON file downloaded from previous instructions in a JSON editor.
 1. Find the element that you want to change. You can find `StringId` for the string you're looking for, or look for the `Value` attribute that you want to change.
 1. Update the `Value` attribute with what you want displayed.
-1. For every string that you want to change, change `Override` to `true`.
-1. Save the file and upload your changes. (You can find the upload control in the same place as where you downloaded the JSON file.)
-
-> [!IMPORTANT]
-> If you need to override a string, make sure to set the `Override` value to `true`. If the value isn't changed, the entry is ignored.
+1. For every string that you want to change, change `Override` to `true`. If the `Override` value isn't changed to `true`, the entry is ignored.
+1. Save the file and [upload your changes](#upload-your-changes). 
 
 ### Change extension attributes
 
@@ -196,3 +191,9 @@ Azure AD includes support for the following languages. User flow languages are p
 | Vietnamese            | vi            | ![X indicating no.](./media/user-flow-customize-language/no.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
 | Chinese - Simplified  | zh-hans       | ![Green check mark.](./media/user-flow-customize-language/yes.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
 | Chinese - Traditional | zh-hant       | ![Green check mark.](./media/user-flow-customize-language/yes.png) | ![Green check mark.](./media/user-flow-customize-language/yes.png) |
+
+
+## Next steps
+
+- [Add an API connector to a user flow](self-service-sign-up-add-api-connector.md) 
+- [Define custom attributes for user flows](user-flow-add-custom-attributes.md)
