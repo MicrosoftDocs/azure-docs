@@ -136,9 +136,9 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        ```
     1. Restart the VMs that you had stopped in the earlier step. 
 
-      ```powershell
-      start-vm
-      ```
+       ```powershell
+       start-vm
+       ```
     
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
     
