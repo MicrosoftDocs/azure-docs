@@ -197,7 +197,7 @@ Create a doc with the *product* properties for the `adventureworks` database:
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 
-Create an doc in the collect by calling [``Collection.UpdateOne``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#updateOne). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
+Create an doc in the collection by calling [``Collection.UpdateOne``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#updateOne). In this example, we chose to *upsert* instead of *create* a new doc in case you run this sample code more than once.
 
 ### Get a doc
 
@@ -217,7 +217,7 @@ Troubleshooting:
 
 ## Run the code
 
-This app creates a API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
+This app creates an API for MongoDB database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
