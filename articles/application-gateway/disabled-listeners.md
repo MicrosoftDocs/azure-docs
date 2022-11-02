@@ -2,11 +2,11 @@
 title: Understanding disabled listeners
 titleSuffix: Azure Application Gateway
 description: The article explains the details of a disabled listener and ways to resolve the problem.
-author: jaesoni
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 02/22/2022
-ms.author: jaysoni
+ms.author: greglin
 
 ---
 
@@ -14,7 +14,7 @@ ms.author: jaysoni
 
 The SSL/TLS certificates for Azure Application Gateway’s listeners can be referenced from a customer’s Key Vault resource. Your application gateway must always have access to such linked key vault resource and its certificate object to ensure smooth operations of the TLS termination feature and the overall health of the gateway resource.
 
-It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate its certificate object, it will automatically put that listener in a disabled state. The action is triggered only in the case of configuration errors. Transient connectivity problems do not have any impact on the listeners.
+It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate its certificate object, it will automatically put that listener in a disabled state. The action is triggered only for configuration errors. Transient connectivity problems do not have any impact on the listeners.
 
 A disabled listener doesn’t affect the traffic for other operational listeners on your Application Gateway. For example, the HTTP listeners or HTTPS listeners for which PFX certificate file is directly uploaded on Application Gateway resource will never go in a disabled state.
 

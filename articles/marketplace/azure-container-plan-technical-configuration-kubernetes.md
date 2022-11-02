@@ -17,7 +17,7 @@ For more, see [Prepare Azure Kubernetes technical assets](azure-container-techni
 
 ## Setting cluster extension type name
 
-Cluster extensions enable an Azure Resource Manager driven experience for your application. The following limitations apply when setting the cluster extension type name value:
+[Cluster extensions][cluster-extensions] enable an Azure Resource Manager driven experience for your application. The following limitations apply when setting the cluster extension type name value:
 
 - You must provide the cluster extension type name in the format of 'PublisherName.ApplicationName'.
 
@@ -42,3 +42,6 @@ Select *Add CNAB Bundle* to select the payload reference like so:
 
 - To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](/partner-center/co-sell-overview?context=/azure/marketplace/context/context).
 - If you're not setting up either of these or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).
+
+<!-- LINKS -->
+[cluster-extensions]: ../aks/cluster-extensions.md

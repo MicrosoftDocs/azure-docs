@@ -103,7 +103,7 @@ Currently, must be **MatchRule**.
 
 Must be one of the variables:
 
-- RemoteAddr – IP Address/Range of the remote computer connection
+- RemoteAddr – IPv4 Address/Range of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
 - PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
@@ -120,7 +120,7 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 
 Must be one of the following operators:
 
-- IPMatch - only used when Match Variable is *RemoteAddr*
+- IPMatch - only used when Match Variable is *RemoteAddr,* and only supports IPv4
 - Equal – input is the same as the MatchValue
 - Any – It should not have a MatchValue. It is recommended for Match Variable with a valid Selector.
 - Contains

@@ -39,7 +39,7 @@ ms.custom: devx-track-csharp
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* You'll need a document file at a URL. For this project, you can use the sample forms provided in the table below for each feature:
+* Finally, you'll need a document file at a URL location. For this project, you can use the sample forms provided in the table below for each feature:
 
     **Sample documents**
 
@@ -102,21 +102,21 @@ ms.custom: devx-track-csharp
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
-    > * [prebuilt-read](#read-model)
-    >
-    > * [prebuilt-layout](#layout-model)
-    >
-    > * [prebuilt-document](#general-document-model)
-    >
-    > * [prebuilt-tax.us.w2](#w-2-tax-model)
-    >
-    > * [prebuilt-invoice](#invoice-model)
-    >
-    > * [prebuilt-receipt](#receipt-model)
-    >
-    > * [prebuilt-idDocument](#id-document-model)
-    >
-    > * [prebuilt-businessCard](#business-card-model)
+    * [prebuilt-read](#read-model)
+
+    * [prebuilt-layout](#layout-model)
+
+    * [prebuilt-document](#general-document-model)
+
+    * [prebuilt-tax.us.w2](#w-2-tax-model)
+
+    * [prebuilt-invoice](#invoice-model)
+
+    * [prebuilt-receipt](#receipt-model)
+
+    * [prebuilt-idDocument](#id-document-model)
+
+    * [prebuilt-businessCard](#business-card-model)
 
 1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 

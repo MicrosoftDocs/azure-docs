@@ -7,25 +7,29 @@ author: Sagav28
 ms.author: saggupta
 ms.date: 11/25/2020
 ms.reviewer: shijain
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Azure Monitor Network Insights
 
-Azure Monitor Network Insights provides a comprehensive view of [health](../service-health/resource-health-checks-resource-types.md) and [metrics](../azure-monitor/essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor Network Insights provides a comprehensive and visual representation through [topologies](network-insights-topology.md), of [health](../service-health/resource-health-checks-resource-types.md) and [metrics](../azure-monitor/essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor Network Insights is structured around these key components of monitoring:
+- [Topology](#topology)
 - [Network health and metrics](#networkhealth)
 - [Connectivity](#connectivity)
 - [Traffic](#traffic)
 - [Diagnostic Toolkit](#diagnostictoolkit)
 
+## Topology
+
+[Topology](network-insights-topology.md) helps you visualize how a resource is configured. It provides a graphic representation of the entire hybrid network for understanding network configuration. Topology is a unified visualization tool for resource inventory and troubleshooting.
+
+It provides an interactive interface to view resources and their relationships in Azure, spanning across multiple subscriptions, resource groups, and locations. You can also drill down to the basic unit of each topology and view the resource view diagram of each unit. 
+
 ## <a name="networkhealth"></a>Network health and metrics
 
-The Azure Monitor Network Insights **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
-
-[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
+The Azure Monitor Network Insights **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and resource view.
 
 ### Search and filtering
 You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.
@@ -33,7 +37,6 @@ You can customize the resource health and alerts view by using filters like **Su
 You can use the search box to search for resources and their associated resources. For example, a public IP is associated with an application gateway. A search for the public IP's DNS name will return both the public IP and the associated application gateway:
 
 [![Screenshot that shows Azure Monitor Network Insights search results.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
-
 
 ### Resource health and metrics
 In the following example, each tile represents a resource type. The tile displays the number of instances of that resource type deployed across all selected subscriptions. It also displays the health status of the resource. In this example, there are 105 ER and VPN connections deployed. 103 are healthy, and 2 are unavailable.
@@ -49,12 +52,12 @@ You can select any item in the grid view. Select the icon in the **Health** colu
 ### Alerts
 The **Alert** box on the right side of the page provides a view of all alerts generated for the selected resources across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
-### Dependency view
-Dependency view helps you visualize how a resource is configured. Dependency view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, for Application Gateway, you can access dependency view by selecting the Application Gateway resource name in the metrics grid view. You can do the same thing for Virtual WAN and Load Balancer.
+### Resource view
+The Resource view helps you visualize how a resource is configured. The Resource view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, for Application Gateway, you can access the resource view by selecting the Application Gateway resource name in the metrics grid view. You can do the same thing for Virtual WAN and Load Balancer.
 
 ![Sreenshot that shows Application Gateway view in Azure Monitor Network Insights.](media/network-insights-overview/application-gateway.png)
 
-The dependency view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules, and backend pool. The connecting lines are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools, like virtual machine scale set and VM instances.
+The resource view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules, and backend pool. The connecting lines are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools, like virtual machine scale set and VM instances.
 
 [![Screenshot that shows dependency view in Azure Monitor Network Insights.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
@@ -62,7 +65,7 @@ The dependency graph provides easy navigation to configuration settings. Right-c
 
 ![Screenshot that shows the dependency view menu in Azure Monitor Network Insights.](media/network-insights-overview/dependency-view-menu.png)
 
-The search and filter bar on the dependency view provides an easy way to search through the graph. For example, if you search for **AppGWTestRule** in the previous example, the view will scale down to all nodes connected via AppGWTestRule:
+The search and filter bar on the resource view provides an easy way to search through the graph. For example, if you search for **AppGWTestRule** in the previous example, the view will scale down to all nodes connected via AppGWTestRule:
 
 ![Screenshot that shows an example of a search in Azure Monitor Network Insights.](media/network-insights-overview/search-example.png)
 
@@ -83,7 +86,6 @@ Tests are grouped by **Sources** and **Destinations** tiles and display the reac
 You can select any source or destination tile to open a metric view:
 
 [![Screenshot that shows connectivity metrics in Azure Monitor Network Insights.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
-
 
 You can select any item in the grid view. Select the icon in the **Reachability** column to go to the Connection Monitor portal page and view the hop-by-hop topology and connectivity affecting issues identified. Select the value in the **Alert** column to go to alerts. Select the graphs in the **Checks Failed Percent** and **Round-Trip Time (ms)** columns to go to the metrics page for the selected connection monitor.
 
@@ -109,7 +111,7 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ## Availability of resources 
 
-By default, all networking resources are visible in Network Insights. Customers can click on the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources have been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
+By default, all networking resources are visible in Network Insights. Customers can select the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources has been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
 
 Resources that have been onboarded are: 
 - Application Gateway
@@ -126,46 +128,10 @@ Resources that have been onboarded are:
 - Virtual Network
 - Virtual Network NAT
 - Virtual WAN
-- ER/VPN Gateway
+- ER/VPN Gateway
 - Virtual Hub
-
-## Troubleshooting 
-For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
-This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor Network Insights. 
-
-### How do I resolve performance problems or failures?
-
-To learn about troubleshooting any networking-related problems you identify with Azure Monitor Network Insights, see the troubleshooting documentation for the malfunctioning resource. 
-
-Here are some links to troubleshooting articles for frequently used services. For more troubleshooting articles about these services, see the other articles in the Troubleshooting section of the table of contents for the service.
-* [Azure Virtual Network](../virtual-network/virtual-network-troubleshoot-peering-issues.md)
-* [Azure Application Gateway](../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
-* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-troubleshoot.md)
-* [Azure ExpressRoute](../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
-* [Azure Load Balancer](../load-balancer/load-balancer-troubleshoot.md) 
-* [Azure NAT Gateway](../virtual-network/nat-gateway/troubleshoot-nat.md)
-
-### Why don't I see the resources for all the subscriptions I've selected?
-
-Azure Monitor Network Insights can show resources for only five subscriptions at a time. 
-
-### How do I make changes or add visualizations to Azure Monitor Network Insights?
-
-To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
-
-### What's the time grain after I pin any part of the workbooks?
-
-Azure Monitor Network Insights uses the **Auto** time grain, so the time grain is based on the selected time range.
-
-### What's the time range when any part of a workbook is pinned?
-
-The time range depends on the dashboard settings.
-
-### What if I want to see other data or make my own visualizations? How can I make changes to Azure Monitor Network Insights?
-
-You can edit the workbook you see in any side-panel or detailed metric view by using the edit mode. You can then save your changes as a new workbook.
 
 ## Next steps
 
-- Learn more about network monitoring: [What is Azure Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md)
-- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- Learn more about network monitoring: [What is Azure Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md).
+- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).

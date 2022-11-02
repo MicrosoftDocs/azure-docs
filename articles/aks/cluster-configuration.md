@@ -3,7 +3,8 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/29/2022
+ms.custom: ignite-2022
+ms.date: 10/28/2022
 ---
 
 # Configure an AKS cluster
@@ -123,6 +124,175 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 
 If you want to create node pools with network-attached OS disks, you can do so by specifying `--node-osdisk-type Managed`.
 
+## Mariner OS
+
+Mariner can be deployed on AKS through Azure CLI or ARM templates.
+
+### Prerequisites
+
+1. You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+2. You need the `aks-preview` Azure CLI extension for the ability to select the Mariner 2.0 operating system SKU. Run `az extension remove --name aks-preview` to clear any previous versions, then run `az extension add --name aks-preview`.
+3. If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
+
+### Deploy an AKS Mariner cluster with Azure CLI
+
+Use the following example commands to create a Mariner cluster.
+
+```azurecli
+az group create --name MarinerTest --location eastus
+
+az aks create --name testMarinerCluster --resource-group MarinerTest --os-sku mariner
+
+az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+
+kubectl get pods --all-namespaces
+```
+
+### Deploy an AKS Mariner cluster with an ARM template
+
+To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"` and `"mode": "System"` to `agentPoolProfiles` and set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`). The following deployment uses the ARM template "marineraksarm.yml".
+
+```yml
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.1",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "marinerakscluster",
+      "metadata": {
+        "description": "The name of the Managed Cluster resource."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location of the Managed Cluster resource."
+      }
+    },
+    "dnsPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
+      }
+    },
+    "osDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 0,
+      "minValue": 0,
+      "maxValue": 1023,
+      "metadata": {
+        "description": "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize."
+      }
+    },
+    "agentCount": {
+      "type": "int",
+      "defaultValue": 3,
+      "minValue": 1,
+      "maxValue": 50,
+      "metadata": {
+        "description": "The number of nodes for the cluster."
+      }
+    },
+    "agentVMSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS2_v2",
+      "metadata": {
+        "description": "The size of the Virtual Machine."
+      }
+    },
+    "linuxAdminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Linux Virtual Machines."
+      }
+    },
+    "sshRSAPublicKey": {
+      "type": "string",
+      "metadata": {
+        "description": "Configure all linux machines with the SSH RSA public key string. Your key should include three parts, for example 'ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm'"
+      }
+    },
+    "osType": {
+      "type": "string",
+      "defaultValue": "Linux",
+      "allowedValues": [
+        "Linux"
+      ],
+      "metadata": {
+        "description": "The type of operating system."
+      }
+    },
+    "osSKU": {
+      "type": "string",
+      "defaultValue": "mariner",
+      "allowedValues": [
+        "mariner",
+        "Ubuntu",
+      ],
+      "metadata": {
+        "description": "The Linux SKU to use."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2021-03-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "dnsPrefix": "[parameters('dnsPrefix')]",
+        "agentPoolProfiles": [
+          {
+            "name": "agentpool",
+            "mode": "System",
+            "osDiskSizeGB": "[parameters('osDiskSizeGB')]",
+            "count": "[parameters('agentCount')]",
+            "vmSize": "[parameters('agentVMSize')]",
+            "osType": "[parameters('osType')]",
+            "osSKU": "[parameters('osSKU')]",
+            "storageProfile": "ManagedDisks"
+          }
+        ],
+        "linuxProfile": {
+          "adminUsername": "[parameters('linuxAdminUsername')]",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshRSAPublicKey')]"
+              }
+            ]
+          }
+        }
+      },
+      "identity": {
+          "type": "SystemAssigned"
+      }
+    }
+  ],
+  "outputs": {
+    "controlPlaneFQDN": {
+      "type": "string",
+      "value": "[reference(parameters('clusterName')).fqdn]"
+    }
+  }
+}
+```
+
+Create this file on your system and fill it with the contents of the Mariner AKS YAML file.
+
+```azurecli
+az group create --name MarinerTest --location eastus
+
+az deployment group create --resource-group MarinerTest --template-file marineraksarm.yml --parameters clusterName=testMarinerCluster dnsPrefix=marineraks1 linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
+
+az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
+
+kubectl get pods --all-namespaces
+```
+
 ## Custom resource group name
 
 When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group gets created for the worker nodes. By default, AKS will name the node resource group `MC_resourcegroupname_clustername_location`, but you can also provide your own name.
@@ -190,36 +360,17 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer (Preview)
+## OIDC Issuer 
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
 > [!WARNING]
-> Enable/disable OIDC Issuer changes the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
+> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
 
-### Before you begin
+### Prerequisites
 
-You must have the following resource installed:
-
-* The Azure CLI
-* The `aks-preview` extension version 0.5.50 or higher
-* Kubernetes version 1.19.x or higher
-
-### Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
+* The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, we recommend you upgrade the cluster to the minimum required version supported.
 
 ### Create an AKS cluster with OIDC Issuer
 
@@ -245,9 +396,20 @@ To get the OIDC Issuer URL, run the following command. Replace the default value
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
+### Rotate the OIDC key
+
+To rotate the OIDC key, perform the following command. Replace the default values for the cluster name and the resource group name.
+
+```azurecli-interactive
+az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
+```
+
+> [!Important]
+> Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
+
 ## Next steps
 
-- Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
+- Learn how to [upgrade the node images](node-image-upgrade.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.

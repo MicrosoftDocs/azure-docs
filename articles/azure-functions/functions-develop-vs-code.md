@@ -211,7 +211,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 ## Add a function to your project
 
-You can add a new function to an existing project by using one of the predefined Functions triggers templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
+You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 The results of this action depend on your project's language:
 
@@ -233,7 +233,11 @@ A new folder is created in the project. The folder contains a new function.json 
 
 # [Python](#tab/python)
 
-A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+The results depend on the Python programming model. For more information, see the [Azure Functions Python developer guide](./functions-reference-python.md). 
+
+**Python v1**: A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+
+**Python v2**: New function code is added either to the default function_app.py file or to another Python file you selected. 
 
 ---
 

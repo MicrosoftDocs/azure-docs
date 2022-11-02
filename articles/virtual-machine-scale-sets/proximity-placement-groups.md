@@ -1,13 +1,13 @@
 ---
-title: Proximity placement groups for virtual machine scale sets
-description: Learn about creating  proximity placement groups for Windows virtual machine scale sets in Azure. 
-author: cynthn
-ms.author: cynthn
+title: Proximity placement groups for Virtual Machine Scale Sets
+description: Learn about creating  proximity placement groups for Windows Virtual Machine Scale Sets in Azure. 
+author: ju-shim
+ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: proximity-placement-groups
-ms.date: 07/01/2019
-ms.reviewer: zivr
+ms.date: 11/01/2022
+ms.reviewer: cynthn
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
@@ -21,18 +21,18 @@ To get VMs as close as possible, achieving the lowest possible latency, you can 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
 - Low latency between stand-alone VMs.
-- Low Latency between VMs in a single availability set or a virtual machine scale set. 
+- Low Latency between VMs in a single availability set or a Virtual Machine Scale Set. 
 - Low latency between stand-alone VMs, VMs in multiple Availability Sets, or multiple scale sets. You can have multiple compute resources in a single placement group to bring together a multi-tiered application. 
 - Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and the front end on a D-series instance, in a scale set, in a single proximity placement group.
 
 ## Using Proximity Placement Groups 
 
-A proximity placement group is a resource in Azure. You need to create one before using it with other resources. Once created, it could be used with virtual machines, availability sets, or virtual machine scale sets. 
+A proximity placement group is a resource in Azure. You need to create one before using it with other resources. Once created, it could be used with virtual machines, availability sets, or Virtual Machine Scale Sets. 
 You specify a proximity placement group when creating compute resources providing the proximity placement group ID. 
 
 You can also move an existing resource into a proximity placement group. When moving a resource into a proximity placement group, you should stop (deallocate) the asset first since it will be redeployed potentially into a different data center in the region to satisfy the colocation constraint. 
 
-In the case of availability sets and virtual machine scale sets, you should set the proximity placement group at the resource level rather than the individual virtual machines. 
+In the case of availability sets and Virtual Machine Scale Sets, you should set the proximity placement group at the resource level rather than the individual virtual machines. 
 
 A proximity placement group is a colocation constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, when using a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template when possible or follow a deployment sequence which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size which has failed as the first size to be deployed.
 

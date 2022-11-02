@@ -8,11 +8,11 @@ metadata:
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud. 
   ms.service: virtual-machines
   ms.subservice: confidential-computing
+  ms.custom: ignite-2022
   ms.topic: landing-page
   author: stempesta # ananyagarg 
   ms.author: stempesta
   ms.date: 09/22/2020, 07/13/2022
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -62,12 +62,22 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
+      - linkListType: concept
+        links:
+          - text: Guest attestation for confidential VMs
+            url: guest-attestation-confidential-vms.md
+          - text: Microsoft Defender for Cloud integration
+            url: guest-attestation-defender-for-cloud.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
             url: quick-create-confidential-vm-portal-amd.md
           - text: Create an AMD confidential VM with ARM template
             url: quick-create-confidential-vm-arm-amd.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use sample app for guest attestation
+            url: guest-attestation-example.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
@@ -124,8 +134,8 @@ landingContent:
         links:
           - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
             url: https://aka.ms/ccaci
-          - text: Confidential VM AMD SEV-SNP node pools on AKS - Public -preview
-            url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
+          - text: Confidential VM AMD SEV-SNP node pools on AKS
+            url: https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves

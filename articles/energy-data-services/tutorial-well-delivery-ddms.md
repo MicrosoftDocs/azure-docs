@@ -1,62 +1,95 @@
 ---
-title: Microsoft Energy Data Services Preview - Steps to interact with Well Delivery DDMS  #Required; page title is displayed in search results. Include the brand.
-description: This tutorial shows you how to interact with Well Delivery DDMS #Required; article description that is displayed in search results. 
-author: dprakash-sivakumar #Required; your GitHub user alias, with correct capitalization.
-ms.author: disivakumar #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+title: Tutorial - Work with well data records by using Well Delivery DDMS APIs
+description: Learn how to work with well data records in your Microsoft Energy Data Services Preview instance by using Well Delivery Domain Data Management Services (Well Delivery DDMS) APIs in Postman.
+author: dprakash-sivakumar
+ms.author: disivakumar
+ms.service: energy-data-services
+ms.topic: tutorial
 ms.date: 07/28/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
-# Tutorial: Sample steps to interact with Well Delivery DDMS
+# Tutorial: Work with well data records by using Well Delivery DDMS APIs
 
-Well Delivery DDMS provides the capability to manage well related data in the Microsoft Energy Data Services Preview instance.
+Use Well Delivery Domain Data Management Services (Well Delivery DDMS) APIs in Postman to work with well data in your instance of Microsoft Energy Data Services Preview.
 
 In this tutorial, you'll learn how to:
-
 > [!div class="checklist"]
-> * Utilize Well Delivery DDMS API's to store and retrieve well data
+>
+> - Set up Postman to use a Well Delivery DDMS collection.
+> - Set up Postman to use a Well Delivery DDMS environment.
+> - Send requests via Postman.
+> - Generate an authorization token.
+> - Use Well Delivery DDMS APIs to work with well data records.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
+
 ## Prerequisites
 
-### Get Microsoft Energy Data Services Preview instance details
+- An Azure subscription
+- An instance of [Microsoft Energy Data Services Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 
-* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
+## Get your Microsoft Energy Data Services instance details
 
-```Table
-  | Parameter          | Value to use             | Example                               |
-  | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
-  | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
-  | base_uri           | URI                      | <instance>.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | <instance>-<data-partition-name>                       |
-```
+The first step is to get the following information from your [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
-### How to set up Postman
+| Parameter          | Value             | Example                               |
+| ------------------ | ------------------------ |-------------------------------------- |
+| CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| CLIENT_SECRET      | Client secrets           |  _fl******************                |
+| TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+| SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| base_uri           | URI                      | `<instance>.energy.azure.com`           |
+| data-partition-id  | Data Partition(s)        | `<instance>-<data-partition-name>`                    |
 
-* Download and install [Postman](https://www.postman.com/) desktop app.
-* Import the following files into Postman:
-   * [Well Delivery DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMS.postman_collection.json)
-   * [Well Delivery DDMS Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMSEnviroment.postman_environment.json)
- 
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details).
+You'll use this information later in the tutorial.
 
-### How to execute Postman requests
+## Set up Postman
 
-* The Postman collection for Well Delivery DDMS contains requests that allows interaction with wells, wellbore, well planning, wellbore planning, well activity program and well trajectory data.
-* Make sure to choose the **Well Delivery DDMS Environment** before triggering the Postman collection.
-* Each request can be triggered by clicking the **Send** Button.
-* On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
+Next, set up Postman:
 
-### Generate a token
+1. Download and install the [Postman](https://www.postman.com/downloads/) desktop app.
 
-1. **Get a Token** - Import the CURL command in Postman to generate the bearer token. Update the bearerToken in well delivery DDMS environment. Use Bearer Token as Authorization type in other API calls.
-      ```bash
+1. Import the following files in Postman:
+
+   - [Well Delivery DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMS.postman_collection.json)
+   - [Well Delivery DDMS Postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMSEnviroment.postman_environment.json)
+
+   To import the files:
+
+   1. Create two JSON files on your computer by copying the data that's in the collection and environment files.
+
+   1. In Postman, select **Import** > **Files** > **Choose Files**, and then select the two JSON files on your computer.
+
+   1. In **Import Entities** in Postman, select **Import**.
+
+       :::image type="content" source="media/tutorial-well-delivery/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-well-delivery/postman-import-files.png":::
+  
+1. In the Postman environment, update **CURRENT VALUE** with the information from your [Microsoft Energy Data Services instance](#get-your-microsoft-energy-data-services-instance-details):
+
+   1. In Postman, in the left menu, select **Environments**, and then select **WellDelivery Environment**.
+
+   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Microsoft Energy Data Services instance details](#get-your-microsoft-energy-data-services-instance-details). Scroll to see all relevant variables.
+
+   :::image type="content" source="media/tutorial-well-delivery/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Well Delivery DDMS environment.":::
+
+## Send a Postman request
+
+The Postman collection for Well Delivery DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Microsoft Energy Data Services instance.
+
+For an example of how to send a Postman request, see the [Wellbore DDMS tutorial](tutorial-wellbore-ddms.md#send-an-example-postman-request).
+
+In the next sections, generate a token, and then use it to work with Well Delivery DDMS APIs.
+
+## Generate a token to use in APIs
+
+To generate a token:
+
+1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
+
+     ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
           --header 'Content-Type: application/x-www-form-urlencoded' \
           --data-urlencode 'grant_type=client_credentials' \
@@ -64,32 +97,80 @@ In this tutorial, you'll learn how to:
           --data-urlencode 'client_secret={{CLIENT_SECRET}}' \
           --data-urlencode 'scope={{SCOPE}}'  
       ```
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-generate-token.png" alt-text="Screenshot of the well delivery generate token." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-generate-token.png":::
 
+   :::image type="content" source="media/tutorial-well-delivery/postman-generate-token.png" alt-text="Screenshot of the Well Delivery DDMS generate token cURL code." lightbox="media/tutorial-well-delivery/postman-generate-token.png":::
 
-## Store and retrieve well data with Well Delivery ddms APIs
+1. Use the token output to update `access_token` in your Well Delivery DDMS environment. Then, you can use the bearer token as an authorization type in other API calls.
 
-1. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
-1. **Create Well** - Creates the well record.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well.png" alt-text="Screenshot of the well delivery - create well." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well.png":::
-1. **Create Wellbore** - Creates the wellbore record.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well-bore.png" alt-text="Screenshot of the well delivery - create wellbore." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well-bore.png":::
-1. **Get Well Version** - Returns the well record based on given WellId.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-get-well.png" alt-text="Screenshot of the well delivery - get well." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-get-well.png":::
-1. **Get Wellbore Version** - Returns the wellbore record based on given WellboreId.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-get-well-bore.png" alt-text="Screenshot of the well delivery - get wellbore." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-get-well-bore.png":::
-1. **Create ActivityPlan** - Create the ActivityPlan.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-activity-plan.png" alt-text="Screenshot of the well delivery - create activity plan." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-activity-plan.png":::
-1. **Get ActivityPlan by Well Id** - Returns the Activity Plan object from a wellId generated in Step 1.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-activity-plans-by-well.png" alt-text="Screenshot of the well delivery - get activity plan by well." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-activity-plans-by-well.png":::
-1. **Delete wellbore record** - Deletes the specified wellbore record.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-delete-well-bore.png" alt-text="Screenshot of the well delivery - delete wellbore." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-delete-well-bore.png":::
-1. **Delete well record** - Deletes the specified well record.
-  :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-delete-well.png" alt-text="Screenshot of the well delivery - delete well." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-delete-well.png":::
+## Use Well Delivery DDMS APIs to work with well data records
 
-Completion of the above steps indicates successful creation and retrieval of well and wellbore records. Similar steps could be followed for well planning, wellbore planning, well activity program and wellbore trajectory data.
+Successfully completing the Postman requests that are described in the following Well Delivery DDMS APIs indicates successful ingestion and retrieval of well records in your Microsoft Energy Data Services instance.
 
-## See also
-Advance to the next tutorial to learn how to use sdutil to load seismic data into seismic store
+### Create a well
+
+Create a well record.
+
+API: **UC1** > **entity_create well**
+
+Method: PUT
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-create-well.png" alt-text="Screenshot that shows the API that creates a well." lightbox="media/tutorial-well-delivery/postman-api-create-well.png":::
+
+### Create a wellbore
+
+Create a wellbore record.
+
+API: **UC1** > **entity_create wellbore**
+
+Method: PUT
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-create-well-bore.png" alt-text="Screenshot that shows the API that creates a wellbore." lightbox="media/tutorial-well-delivery/postman-api-create-well-bore.png":::
+
+### Get a well version
+
+Get a well record based on a specific well ID.
+
+API: **UC1** > **entity_create well Copy**
+
+Method: GET
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-get-well.png" alt-text="Screenshot that shows the API that gets a well record based on a specific well ID." lightbox="media/tutorial-well-delivery/postman-api-get-well.png":::
+
+### Create an activity plan
+
+Create an activity plan.
+
+API: **UC1** > **entity_create activityplan**
+
+Method: PUT
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-create-activity-plan.png" alt-text="Screenshot that shows the API that creates an activity plan." lightbox="media/tutorial-well-delivery/postman-api-create-activity-plan.png":::
+
+### Get activity plan by well ID
+
+Get the activity plan object for a specific well ID.
+
+API: **UC2** > **activity_plans_by_well**
+
+Method: GET
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-activity-plans-by-well.png" alt-text="Screenshot of the API that gets an activity plan by well ID." lightbox="media/tutorial-well-delivery/postman-api-activity-plans-by-well.png":::
+
+### Delete a wellbore record
+
+You can delete a wellbore record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs. For example:
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well-bore.png" alt-text="Screenshot that shows how to use an API to delete a wellbore record.":::
+
+### Delete a well record
+
+You can delete a well record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs. For example:
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well.png" alt-text="Screenshot that shows how to use an API to delete a well record.":::
+
+## Next steps
+
+Go to the next tutorial to learn how to use work with well data by using Wellbore DDMS APIs:
+
 > [!div class="nextstepaction"]
-> [Tutorial: Sample steps to interact with Wellbore DDMS](tutorial-wellbore-ddms.md)
+> [Tutorial: Work with well data records by using Wellbore DDMS APIs](tutorial-wellbore-ddms.md)

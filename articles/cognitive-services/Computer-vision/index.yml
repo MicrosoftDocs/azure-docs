@@ -80,7 +80,7 @@ conceptualContent:
           url: /training/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+          url: https://aka.ms/vision-4-0-ref
       footerLink:
         text: More
         url: index-image-analysis.yml

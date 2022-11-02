@@ -33,7 +33,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
   |Built-in Role  |Scope  |Reason  |
   |---------|---------|---------|
-  |[Log Analytics Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- Table        | To set retention policy on tables in Log Analytics       |
+  |[Log Analytics Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription and/or </br>- Resource group and/or</br>- Table        | To set retention policy on tables in Log Analytics       |
 - Log Analytics workspace.
 
 ## Set the retention policy for a table
@@ -80,4 +80,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2)
+> [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md?tabs=portal-1%2cportal-2)
