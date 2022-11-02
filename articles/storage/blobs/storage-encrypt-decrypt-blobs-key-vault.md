@@ -5,7 +5,7 @@ description: Learn how to encrypt and decrypt a blob using client-side encryptio
 author: pauljewellmsft
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/1/2022
+ms.date: 11/2/2022
 ms.author: pauljewell
 ms.reviewer: ozgun
 ms.subservice: blobs
