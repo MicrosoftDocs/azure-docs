@@ -118,7 +118,7 @@ Applications are added to Azure AD to use one or more of the services it provide
 
 ## Who has permission to add applications to my Azure AD instance?
 
-While there are some tasks that only global administrators can do (such as adding applications from the app gallery, and configuring an application to use the Application Proxy) by default all users in your directory have rights to register application objects that they're developing and discretion over which applications they share/give access to their organizational data through consent. If a person is the first user in your directory to sign in to an application and grant consent, that will create a service principal in your tenant; otherwise, the consent grant information will be stored on the existing service principal.
+While there are some tasks that only global administrators can do (such as adding applications from the app gallery, and configuring an application to use the Application Proxy) by default all users in your directory have rights to register application objects that they're developing and discretion over which applications they share/give access to their organizational data through consent. If a person is the first user in your directory to sign in to an application and grant consent, that will create a service principal in your tenant. Otherwise, the consent grant information will be stored on the existing service principal.
 
 Allowing users to register and consent to applications might initially sound concerning, but keep the following reasons in mind:
 
