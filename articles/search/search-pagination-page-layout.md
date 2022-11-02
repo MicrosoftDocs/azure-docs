@@ -105,6 +105,8 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 In a full text search query, results can be ranked by a search score, a semantic reranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request that specifies an explicit sort order.
 
+Sorting methodologies aren't designed to be used together. For example, if you're sorting with **`$orderby`** for primary sorting, you can't apply a secondary sort based on search score (because the search score will be uniform).
+
 ### Ordering by search score
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
