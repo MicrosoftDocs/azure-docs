@@ -29,6 +29,12 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
+  - name: Edge Zone VMs disaster recovery
+    items:
+    - name: Replicate VMs running in an Azure Edge Zone
+      href: tutorial-replicate-vms-edge-zone-to-another-zone.md
+    - name: Set up disaster recovery for Edge Zone VMs
+      href: disaster-recovery-for-edge-zone-vm-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
     - name: Classic to modernized VMware disaster recovery

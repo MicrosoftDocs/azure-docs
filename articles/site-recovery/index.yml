@@ -92,7 +92,7 @@ landingContent:
             url: ./site-recovery-plan-capacity-vmware.md
           - text: Plan Hyper-V capacity
             url: ./hyper-v-deployment-planner-overview.md
-
+            
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
@@ -104,6 +104,13 @@ landingContent:
           - text: Monitor Site Recovery with Azure Monitor logs
             url: monitor-log-analytics.md
 
+  - title: Disaster recovery for Edge Zones
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Edge Zones
+            url: tutorial-replicate-vms-edge-zone-to-another-zone.md      
+               
   - title: Get involved
     linkLists:
       - linkListType: get-started
@@ -114,3 +121,4 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
+  
