@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 04/29/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-azurepowershell
 
 
@@ -218,6 +218,8 @@ spec:
   selector:
     app: sample
 ```
+
+For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your
 YAML manifest:

@@ -58,12 +58,6 @@
           href: how-to/batch-inference.md
         - name: Streaming inference
           href: how-to/streaming-inference.md
-    - name: Enterprise readiness
-      items:
-        - name: Set up Virtual Networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/anomaly-detector/context/context
-        - name: Use Azure AD authentication
-          href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Concepts
   items: 
     - name: Anomaly Detector API best practices (univariate)
@@ -116,6 +110,10 @@
           href: regions.md
         - name: Compliance and certification
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+        - name: Set up Virtual Networks
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/anomaly-detector/context/context
+        - name: Use Azure AD authentication
+          href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Learn modules
