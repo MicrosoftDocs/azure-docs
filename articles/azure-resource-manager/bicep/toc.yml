@@ -392,6 +392,8 @@
         href: linter-rule-admin-username-should-not-be-literal.md
       - name: Artifacts parameters
         href: linter-rule-artifacts-parameters.md
+      - name: Decompiler cleanup
+        href: linter-rule-decompiler-cleanup.md
       - name: Max outputs
         href: linter-rule-max-outputs.md
       - name: Max parameters

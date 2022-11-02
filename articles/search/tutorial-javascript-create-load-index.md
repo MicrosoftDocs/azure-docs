@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -62,7 +62,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
+    :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/bulk-insert/bulk_insert_books.js" highlight="14,16,17,27-38,83,92,119" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, and run the following command to install the dependencies. 
 
@@ -83,30 +83,16 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Review the new Search Index
 
-Once the upload completes, the Search Index is ready to use. Review your new Index.
-
-1. In Visual Studio Code, open the Azure Cognitive Search extension and select your Search resource.  
-
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
-
-1. Expand Indexes, then Documents, then `good-books`, then select a doc to see all the document-specific data.
- 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
+[!INCLUDE [tutorial-load-index-review-index](includes/tutorial-add-search-website-load-index-review.md)]
 
 ## Rollback bulk import file changes
 
-Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to roll back the changes. They aren't needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
-
-```git
-git checkout .
-```
+[!INCLUDE [tutorial-load-index-rollback](includes/tutorial-add-search-website-load-index-rollback-changes.md)]
 
 ## Copy your Search resource name
 
-Note your **Search resource name**. You'll need this to connect the Azure Function app to your Search resource. 
+[!INCLUDE [tutorial-load-index-copy](includes/tutorial-add-search-website-load-index-copy-resource-name.md)]
 
-> [!CAUTION]
-> While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
 
 ## Next steps
 

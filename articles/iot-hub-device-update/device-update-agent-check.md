@@ -69,7 +69,7 @@ The results of agent check can be found in the diagnostics tab of Device Update.
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device health list](/cli/azure/iot/device-update/device/health#az-iot-du-device-health-list) to view the health of your devices.
+Use [az iot du device health list](/cli/azure/iot/du/device/health#az-iot-du-device-health-list) to view the health of your devices.
 
 The `device health list` command takes the following arguments:
 
@@ -101,7 +101,7 @@ Only one device sync operation may be active at a time for each Device Update in
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device import](/cli/azure/iot/device-update/device#az-iot-du-device-import) to import devices and modules to the Device Update instance from a linked IoT hub.
+Use [az iot du device import](/cli/azure/iot/du/device#az-iot-du-device-import) to import devices and modules to the Device Update instance from a linked IoT hub.
 
 ```azurecli
 az iot du device import --account <Device Update account name> --instance <Device Update instance name>
