@@ -25,9 +25,9 @@ Translator service supports language translation for more than 100 languages. If
 
 ## November 2022
 
-### Custom Translator stable GA v2.0.0 release
+### Custom Translator stable GA v2.0 release
 
-Custom Translator version v2.0.0 is generally available and ready for use in your production applications!
+Custom Translator version v2.0 is generally available and ready for use in your production applications!
 
 ## June 2022
 
