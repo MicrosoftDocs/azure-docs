@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/30/2022
+ms.date: 11/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -27,7 +27,7 @@ A monthly active user (MAU) is a unique user that performs an authentication wit
 - Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
 - Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
 
-If [Local Data Residency](data-residency.md#local-data-residency) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About local data residency ad-on](#about-local-data-residency-ad-on)  
+If [Local Data Residency](data-residency.md#local-data-residency) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-local-data-residency-add-on)  
 
 If you choose to provide higher levels of assurance using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
@@ -59,16 +59,16 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 > [!NOTE]
 >  Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features, but the **free tier doesn’t apply to free trial, credit-based, or sponsorship subscriptions**. Once the free trial period or credits expire for these types of subscriptions, you'll begin to be charged for Azure AD B2C MAUs. To determine the total number of MAUs, we combine MAUs from all your tenants (both Azure AD and Azure AD B2C) that are linked to the same subscription.
 
-## About local data residency ad-on 
+## About Local Data Residency add-on 
 
-Azure AD B2C's [local data residency](data-residency.md#local-data-residency) enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). This feature isn't available in all countries. 
+Azure AD B2C's [Local Data Residency](data-residency.md#local-data-residency) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). This feature isn't available in all countries. 
 
-If you're in **Australia**, and you created your Azure AD B2C tenant in Australia since **August 2021** through **March 2022**, you need to [opt-into the local data residency](#) or there's no guarantee that your data will remain within Australia. If you opt-in, billing for the local data residency add-on begins in **July 2022**.
+If you're in **Australia**, and you created your Azure AD B2C tenant in Australia since **August 2021** through **March 2022**, you need to opt-into the Local Data Residency, otherwise, there's no guarantee that your data will remain within Australia. If you opt-in, billing for the Local Data Residency add-on begins in **July 2022**.
 
-If you're in **Australia** and **Japan** and are [creating new Azure AD B2C tenant](tutorial-create-tenant.md) beginning **April 2022**, you can enable local data residency and billing begins in **July 2022**. 
+If you're in **Australia** or **Japan** and are [creating new Azure AD B2C tenant](tutorial-create-tenant.md) beginning **April 2022**, you can enable Local Data Residency and billing begins in **July 2022**. 
 
 > [!NOTE]
-If you enable local data residency, the 50,000 free MAUs per month doesn't apply. You'll incur a charge on the local data residency ad-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
+f you enable Local Data Residency, the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for Local Data Residency add-on. You'll incur a charge on the Local Data Residency ad-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
 
 ## Link an Azure AD B2C tenant to a subscription
 
