@@ -16,6 +16,7 @@ ms.custom: mvc
 ## Update (October 2022)
 
 - Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+- Plan your server replications and migrations using the estimates from the Replication Planner. Currently, the tool only supports VMware agentless migrations. To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
 
 ## Update (September 2022)
 
