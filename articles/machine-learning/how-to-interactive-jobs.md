@@ -100,7 +100,7 @@ Note that you have to import the `JobService` class from the `azure.ai.entities`
             job_service_type = "vs_code"
           ),
           "My_tensorboard": JobService(
-            job_service_type = "tensorboard"
+            job_service_type = "tensor_board"
             logs = "logs/tblogs" # relative path of Tensorboard logs (same as in your training script)
           ),
           "My_ssh": JobService(
@@ -143,7 +143,7 @@ Note that you have to import the `JobService` class from the `azure.ai.entities`
         my_vs_code:
           job_service_type: vs_code
         my_tensor_board:
-          job_service_type: tensorboard
+          job_service_type: tensor_board
           properties:
             logDir: "logs/tblogs" # relative path of Tensorboard logs (same as in your training script)
         my_jupyter_lab:
