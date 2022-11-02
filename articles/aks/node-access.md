@@ -12,11 +12,9 @@ ms.custom: contperf-fy21q4
 
 # Connect to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address. 
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you might need to access an AKS node. This access could be for maintenance, log collection, or troubleshooting operations. You can securely authenticate against AKS Linux and Windows nodes using SSH, and you can also [connect to Windows Server nodes using remote desktop protocol (RDP)][aks-windows-rdp]. For security reasons, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address. 
 
-What's more, AKS now supports [updating SSH key on all existing nodepools][updating SSH key]
-
-This article shows you how to create a connection to an AKS node and update SSH key on existing AKS cluster.
+This article shows you how to create a connection to an AKS node and update the SSH key on an existing AKS cluster.
 
 ## Before you begin
 
@@ -165,7 +163,7 @@ When done, `exit` the SSH session, stop any port forwarding, and then `exit` the
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ```
 
-## Update the SSH key on existing AKS cluster (public preview)
+## Update SSH key on an existing AKS cluster (preview)
 
 ### Prerequisites
 * [Azure CLI][install-azure-cli] and the `aks-preview` 0.5.111 or later CLI extension installed.
@@ -173,27 +171,27 @@ kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ### Limitation
 * Updating SSH key is supported for VMSS AKS clusters.
 
-Use `az aks update` to update new SSH key on AKS cluster. Note that the SSH key of all nodepools will be updated.
+Use the [az aks update][az-aks-update] command to update the SSH key on the cluster. This operation will update the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 ```azurecli
-az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value>
+az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>
 ```
 
-Example:
-You can attach the new SSH key value directly to `--ssh-key-value`.
+Examples:
+In the following example, you can specify the new SSH key value for the `--ssh-key-value` argument.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
 ```
 
-Attaching SSH key file is also supported.
+In the following example, you specify a SSH key file.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value .ssh/id_rsa.pub
 ```
 
 > [!IMPORTANT]
-> During this operation, all VMSS instances will be upgraded and re-imaged to fit the new SSH key. 
+> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH key.
 
 ## Next steps
 
@@ -207,5 +205,6 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[updating SSH key]: #update-the-ssh-key-on-existing-aks-cluster-public-preview
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+
                                               
