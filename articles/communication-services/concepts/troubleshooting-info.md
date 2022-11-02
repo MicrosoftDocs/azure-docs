@@ -321,7 +321,7 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
 | 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
 | 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | Expected behavior. |
-| 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
+| 490, 491, 496, 497, 498 | Local endpoint network issues. | Check your network. |
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 
