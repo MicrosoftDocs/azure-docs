@@ -14,7 +14,7 @@ ms.date: 09/22/2022
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule for 30 days.
+In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule for 8 hours per day over 30 days.
 
 The prices used in this example below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
@@ -33,12 +33,12 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
-| Data Flow Assumptions: execution time per run = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
+| Run Pipeline | 2 Activity runs **per execution** (1 for trigger run, 1 for activity runs) = 480 activity runs, rounded up since the calculator only allows increments of 1000. |
+| Data Flow Assumptions: General purpose 16 vCore hours **per execution** = 10 min + 10 min TTL | 20 min \ 60 min |
 
 ## Pricing calculator example
 
-**Total scenario pricing for 30 days: $1051.28**
+**Total scenario pricing for 30 days: $350.76**
 
 :::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4a-pricing-calculator.png":::
 

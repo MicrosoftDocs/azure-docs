@@ -1,18 +1,18 @@
 ---
-title: Importing updates into Device Update for IoT Hub - schema and other information | Microsoft Docs
-description: Schema and other related information (including objects) that is used when importing updates into Device Update for IoT Hub.
+title: Importing updates into Device Update for IoT Hub - import manifest schema | Microsoft Docs
+description: Schema used to create the import manifest required to import updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 06/27/2022
+ms.date: 09/9/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
 # Importing updates into Device Update for IoT Hub: schema and other information
 
-If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of import manifest schema, or information about API permissions, see below.
+If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of the import manifest schema itself, see below.
 
-The import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-4.0.json).
+The import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-5.0.json).
 
 ## Schema
 
@@ -76,8 +76,8 @@ For example:
 {
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ]
 }
@@ -183,6 +183,8 @@ A *file* object is an update payload file, for example, binary, firmware, script
 |**filename**|`string`|Update payload file name.<br><br>Maximum length: 255 characters|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
 |**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+|**relatedFiles**|`relatedFile[0-4]`|Collection of related files to one or more of your primary payload files. |No|
+|**downloadHandler**|`downloadHandler`|Specifies how to process any related files. |Yes only if using relatedFiles|
 
 Additional properties aren't allowed.
 
@@ -217,6 +219,53 @@ For example:
   "hashes": {
     "sha256": "/CD7Sn6fiknWa3NgcFjGlJ+ccA81s1QAXX4oo5GHiFA="
   }
+}
+```
+## relatedFiles object
+
+Collection of related files to one or more of your primary payload files.
+
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**filename**|`string`|List of related files associated with a primary payload file.|Yes|
+|**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+|**properties**|`relatedFilesProperties` `[0-5]`|Limit of 5 key-value pairs, where key is limited to 64 ASCII characters and value is JObject (with up to 256 ASCII characters). |No|
+
+Additional properties are allowed.
+
+For example:
+
+```json
+"relatedFiles": [
+  {
+    "filename": "in1_in2_deltaupdate.dat",
+    "sizeInBytes": 102910752,
+    "hashes": {
+      "sha256": "2MIldV8LkdKenjJasgTHuYi+apgtNQ9FeL2xsV3ikHY="
+    },
+    "properties": {
+      "microsoft.sourceFileHashAlgorithm": "sha256",
+      "microsoft.sourceFileHash": "YmFYwnEUddq2nZsBAn5v7gCRKdHx+TUntMz5tLwU+24="
+    }
+  }
+],
+```
+## downloadHandler object
+
+Specifies how to process any related files.
+
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**id**|`string`|Identifier for downloadHandler. Limit of 64 ASCII characters.|Yes|
+
+Additional properties are not allowed.
+
+For example:
+
+```json
+"downloadHandler": {
+  "id": "microsoft/delta:1"
 }
 ```
 
