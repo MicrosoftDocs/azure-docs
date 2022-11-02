@@ -356,7 +356,7 @@ items:
     - name: Impact of deleting Microsoft Purview account on access policies
       href: how-to-policies-purview-account-delete.md
     - name: DevOps policies
-    items:
+      items:
       - name: DevOps policies - Create, list, update and delete policies
         href: how-to-policies-devops-authoring-generic.md
       - name: DevOps policies - Azure SQL Database 
@@ -364,7 +364,7 @@ items:
       - name: DevOps policies - Azure Arc enabled SQL Servers
         href: how-to-policies-devops-arc-sql-server.md
     - name: Data owner policies
-    items:
+      items:
       - name: Data owner policies - Author and publish policies
         href: how-to-policies-data-owner-authoring-generic.md
       - name: Data owner policies - Azure Storage
@@ -376,7 +376,7 @@ items:
       - name: Data owner policies - Resource groups or Subscriptions
         href: how-to-policies-data-owner-resource-group.md
     - name: Self-service access policies
-    items:
+      items:
       - name: View self-service data access policy
         href: how-to-view-self-service-data-access-policy.md
       - name: Delete self-service data access policy
