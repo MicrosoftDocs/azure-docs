@@ -39,10 +39,10 @@ To obtain feature importance scores, you must create a feature evaluation over a
 1. Choose _start_ and _end_ times for your evaluation period
 1. Select "Create report"
 
-![Create a Feature Evaluation in your Personalizer resource by clicking on "Monitor" blade, the "Feature" tab, then "Create a report".](media/feature-evaluation/create-report.png)
+![Screenshot that shows how to create a Feature Evaluation in your Personalizer resource by clicking on "Monitor" blade, the "Feature" tab, then "Create a report".](media/feature-evaluation/create-report.png)
 
 
-![In the creation window, fill in the fields for your report including the name, start date, and end date.](media/feature-evaluation/create-report-window.png)
+![Screenshot that shows in the creation window and how to fill in the fields for your report including the name, start date, and end date.](media/feature-evaluation/create-report-window.png)
 
 Next, your report name should appear in the reports table below. Creating a feature evaluation is a long running process, where the time to completion depends on the volume of data sent to Personalizer during the evaluation period. While the report is being generated, the _Status_ column will indicate "Running" for your evaluation, and will update to "Succeeded" once completed. Check back periodically to see if your evaluation has finished.
 
