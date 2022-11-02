@@ -166,10 +166,11 @@ kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ## Update SSH key on an existing AKS cluster (preview)
 
 ### Prerequisites
-* [Azure CLI][install-azure-cli] and the `aks-preview` 0.5.111 or later CLI extension installed.
+* Before you start, ensure the Azure CLI is installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* The aks-preview extension version 0.5.111 or later. To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
 
-### Limitation
-* Updating SSH key is supported for VMSS AKS clusters.
+> [!NOTE]
+> Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
 Use the [az aks update][az-aks-update] command to update the SSH key on the cluster. This operation will update the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
@@ -206,5 +207,6 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
 
                                               
