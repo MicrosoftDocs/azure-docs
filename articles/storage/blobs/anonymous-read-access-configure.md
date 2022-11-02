@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/01/2022
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -24,22 +24,6 @@ Azure Storage supports optional anonymous public read access for containers and 
 
 This article describes how to configure anonymous public read access for a container and its blobs. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md).
 
-## About anonymous public read access
-
-Public access to your data is always prohibited by default. There are two separate settings that affect public access:
-
-1. **Allow public access for the storage account.** By default, a storage account allows a user with the appropriate permissions to enable public access to a container. Blob data is not available for public access unless the user takes the additional step to explicitly configure the container's public access setting.
-1. **Configure the container's public access setting.** By default, a container's public access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's public access setting to enable anonymous access only if anonymous access is allowed for the storage account.
-
-The following table summarizes how both settings together affect public access for a container.
-
-|  | Public access level for the container is set to Private (default setting) | Public access level for the container is set to Container | Public access level for the container is set to Blob |
-|--|--|--|--|
-| **Public access is disallowed for the storage account** | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
-| **Public access is allowed for the storage account (default setting)** | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
-
-When anonymous public access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
-
 ## Allow or disallow public read access for a storage account
 
 By default, a storage account is configured to allow a user with the appropriate permissions to enable public access to a container. When public access is allowed, a user with the appropriate permissions can modify a container's public access setting to enable anonymous public access to the data in that container. Blob data is never available for public access unless the user takes the additional step to explicitly configure the container's public access setting.
@@ -48,131 +32,11 @@ Keep in mind that public access to a container is always turned off by default a
 
 Disallowing public access for the storage account prevents anonymous access to all containers and blobs in that account. When public access is disallowed for the account, it is not possible to configure the public access setting for a container to permit anonymous access. For improved security, Microsoft recommends that you disallow public access for your storage accounts unless your scenario requires that users access blob resources anonymously.
 
-> [!IMPORTANT]
-> Disallowing public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously. For more information, see [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
-To allow or disallow public access for a storage account, configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is either **null** or **true**.
 
-# [Azure portal](#tab/portal)
 
-To allow or disallow public access for a storage account in the Azure portal, follow these steps:
 
-1. Navigate to your storage account in the Azure portal.
-1. Locate the **Configuration** setting under **Settings**.
-1. Set **Blob public access** to **Enabled** or **Disabled**.
-
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow blob public access for account":::
-
-# [PowerShell](#tab/powershell)
-
-To allow or disallow public access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobPublicAccess** property for a new or existing storage account.
-
-The following example creates a storage account and explicitly sets the **AllowBlobPublicAccess** property to **true**. It then updates the storage account to set the **AllowBlobPublicAccess** property to **false**. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$location = "<location>"
-
-# Create a storage account with AllowBlobPublicAccess set to true (or null).
-New-AzStorageAccount -ResourceGroupName $rgName `
-    -Name $accountName `
-    -Location $location `
-    -SkuName Standard_GRS `
-    -AllowBlobPublicAccess $false
-
-# Read the AllowBlobPublicAccess property for the newly created storage account.
-(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
-
-# Set AllowBlobPublicAccess set to false
-Set-AzStorageAccount -ResourceGroupName $rgName `
-    -Name $accountName `
-    -AllowBlobPublicAccess $false
-
-# Read the AllowBlobPublicAccess property.
-(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To allow or disallow public access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowBlobPublicAccess** property for a new or existing storage account.
-
-The following example creates a storage account and explicitly sets the **allowBlobPublicAccess** property to **true**. It then updates the storage account to set the **allowBlobPublicAccess** property to **false**. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
-
-```azurecli-interactive
-az storage account create \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --kind StorageV2 \
-    --location <location> \
-    --allow-blob-public-access true
-
-az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --query allowBlobPublicAccess \
-    --output tsv
-
-az storage account update \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --allow-blob-public-access false
-
-az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --query allowBlobPublicAccess \
-    --output tsv
-```
-
-# [Template](#tab/template)
-
-To allow or disallow public access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
-
-1. In the Azure portal, choose **Create a resource**.
-1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
-1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
-
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {
-            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'template')]"
-        },
-        "resources": [
-            {
-            "name": "[variables('storageAccountName')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "location": "<location>",
-            "properties": {
-                "allowBlobPublicAccess": false
-            },
-            "dependsOn": [],
-            "sku": {
-              "name": "Standard_GRS"
-            },
-            "kind": "StorageV2",
-            "tags": {}
-            }
-        ]
-    }
-    ```
-
-1. Save the template.
-1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **allowBlobPublicAccess** property configured.
-
----
-
-> [!NOTE]
-> Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
->
-> After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
 
 When a container is configured for anonymous public access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block anonymous traffic.
 
