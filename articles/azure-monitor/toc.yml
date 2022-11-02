@@ -328,25 +328,6 @@ items:
                 - name: Log Analytics Linux agent
                   displayName: troubleshoot, troubleshooting
                   href: agents/agent-linux-troubleshoot.md
-    - name: Troubleshoot
-      items:
-      - name: Linux VM
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-      - name: Linux Rsyslog issues
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-      - name: Windows VM
-        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-      - name: Windows Arc-enabled server
-        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-      - name: Troubleshoot legacy agents
-        displayName: Troubleshooting guidance
-        items:
-        - name: Log Analytics VM Extension
-          href: visualize/vmext-troubleshoot.md
-        - name: Log Analytics Windows agent
-          href: agents/agent-windows-troubleshoot.md
-        - name: Log Analytics Linux agent
-          href: agents/agent-linux-troubleshoot.md
   - name: Data collection rules
     items:
     - name: Overview
