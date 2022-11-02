@@ -8,7 +8,7 @@ ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
 ms.date: 11/16/2022
 ms.author: jburchel
-ms.reviewer: jburchel, chuckheinzelman, wiassaf
+ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
 
 # Known limitations and issues with Azure Synapse Link for SQL
@@ -68,6 +68,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
 * Azure Synapse Link for SQL isn't supported on SQL Managed Instances.
 * Service principal isn't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication, user-assigned managed identity (UAMI) or service assigned managed Identity (SAMI).
+* If the Azure SQL Database logical server has both a SAMI and UAMI configured, Azure Synapse Link will use SAMI. 
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
 * If you enabled Azure Synapse Link for SQL on your database as an Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR will only work when you enable Azure Synapse Link for SQL on your database as a SQL user.
 * If you create a database as an Azure AD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Azure AD user will be able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an Azure AD user won't work.
@@ -78,7 +79,9 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * When using asynchronous replicas, transactions need to be written to all replicas prior to them being published to Azure Synapse Link for SQL.
 * Azure Synapse Link for SQL isn't supported on databases with database mirroring enabled.
 * Restoring an Azure Synapse Link for SQL-enabled database from on-premises to Azure SQL Managed Instance isn't supported.
-* Azure Synapse Link for SQL is not supported on databases that are using Managed Instance Link.
+
+> [!CAUTION]
+> Azure Synapse Link for SQL is not supported on databases that are also using Azure SQL Managed Instance Link. Caution that in these scenarios, when the managed instance transitions to read-write mode, you may encounter transaction log full issues. 
 
 ## Known issues
 ### Deleting an Azure Synapse Analytics workspace with a running link could cause log in source database to fill
