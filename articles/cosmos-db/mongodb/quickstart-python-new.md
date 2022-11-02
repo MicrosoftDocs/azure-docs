@@ -190,32 +190,26 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 
 ### Get database instance
 
-When working with PyMongo you access databases using attribute style access on MongoClient instances. The code below also shows that if the database doesn't exist, it is created. You can check the [list_database_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method to see if the database exists.
+When working with PyMongo you access databases using attribute style access on MongoClient instances. The code below also shows that if the database doesn't exist, it is created.
 
 ```python
+# Database reference with creation on first write if it does not already exist.
 db = client[DB_NAME]
-
-# Create database if it doesn't exist
-if DB_NAME not in client.list_database_names():
-    # Database with 400 RU throughput that can be shared across the DB's collections
-    db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
-    print("Created db {} with shared throughput". format(DB_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
 --->
+
+You can check if a database exists with the [list_database_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
+
 
 ### Get collection instance
 
 The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) gets a reference to a collection.
 
 ```python
+# Collection reference with creation on first write if it does not already exist.
 collection = db[UNSHARDED_COLLECTION_NAME]
-
-if UNSHARDED_COLLECTION_NAME not in db.list_collection_names():
-    # Creates a unsharded collection that uses the DBs shared throughput
-    db.command({'customAction': "CreateCollection", 'collection': UNSHARDED_COLLECTION_NAME})
-    print("Created collection {}". format(UNSHARDED_COLLECTION_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
