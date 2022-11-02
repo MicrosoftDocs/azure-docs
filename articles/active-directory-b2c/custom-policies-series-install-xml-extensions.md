@@ -52,6 +52,9 @@ Azure AD B2C extension  allows you to understand the organization of your policy
 
 1. Follow the guidance provided in [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) to learn how to use Azure AD B2C extension.
 
+> [!NOTE] 
+> The community has developed the VS Code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft and is made available strictly as-is.
+
 ## Next step
 
 Next, learn:

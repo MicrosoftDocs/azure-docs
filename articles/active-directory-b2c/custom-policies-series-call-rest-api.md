@@ -25,7 +25,7 @@ In this article, you'll learn how to:
 
 - Make an HTTP call to the Node.js app by using the RESTful technical profile.
 
-- Handle or report errors that result from calling the Node.js app in your custom policy.
+- Handle or report an error that's returned by the Node.js app in your custom policy.
 
 
 ## Scenario overview 
@@ -84,7 +84,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
                     "status" : 409,
                     "code" : "errorCode",
                     "requestId": "requestId",
-                    "userMessage" : "Invalid access code. Please try again.",
+                    "userMessage" : "The access code you entered is incorrect. Please try again.",
                     "developerMessage" : `The The provided code ${req.body.accessCode} does not match the expected code for user.`,
                     "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
@@ -97,15 +97,30 @@ You need to deploy an app, which will serve as your external app. Your custom po
             console.log(`Access code service listening on port !` + 3000);
         });
     ```    
+    <<EXPLAIN why you have to return the response above>>
 
-1. Test app by issuing a POST request by using a HTTP client such as MS PowerShell .... make sure it return the expected result 
+1. To test the app:
+    1. Run command 
+    1. Test app by issuing a POST request by using a HTTP client such as MS PowerShell .... make sure it return the expected result 
+    1. more instructions 
 
 
-At this point, your Node.js app is ready for deploying. 
+At this point, your're ready to deploy your Node.js app. 
 
 ### Deploy the Node.js app in Azure App Service
 
+For your custom policy to reach your Node.js app, it needs to be reachable, So, you need deploy an it. In this article, you'll deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md).
 
+Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
+
+- App URL looks similar to `https://custompolicyapi.azurewebsites.net:3000`.
+
+- Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode`.
+
+
+## Validate the access code
+
+## Technical profile 
 
 - Node rest service:
     - node app
