@@ -591,5 +591,3 @@
       href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
       href: /training/browse/?expanded=azure&terms=kusto%20query%20language
-  - name: Archived what's new (older than six months)
-    href: whats-new-archive.md

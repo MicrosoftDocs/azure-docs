@@ -16,7 +16,7 @@ ms.date: 11/01/2022
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You'll also get semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases.
+In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
 There are two main activities to perform:
 
@@ -61,7 +61,7 @@ You'll add a semantic configuration to your [index definition](/rest/api/searchs
 
 You can add or update a semantic configuration at any time without rebuilding your index. When you issue a query, you'll add the semantic configuration (one per query) that specifies which semantic configuration to use for the query.
 
-1. Review the properties you'll need to specify. A semantic configuration has a name and at least one of the following properties:
+1. Review the properties you'll need to specify. A semantic configuration has a name and at least one each of the following properties:
 
     + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This field could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
     + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the body of a document, the description of a product, or other free-form text.
@@ -71,7 +71,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 1. For the above properties, determine which fields to assign.
 
-   A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings.If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
+   A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings. If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
 
     | Data type | Example from hotels-sample-index |
     |-----------|----------------------------------|
@@ -236,7 +236,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 ### [**REST API**](#tab/rest-query)
 
-Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request programmatically.
+Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request.
 
 A response includes an "@search.rerankerScore"" automatically. If you want captions, spelling correction, or answers in the response, add "captions", "speller", or "answers" to the request.
 
@@ -297,6 +297,8 @@ The following example in this section uses the [hotels-sample-index](search-get-
    Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
 
 1. Set ["select"](search-query-odata-select.md) to specify which fields are returned in the response, and "count" to return the number of matches in the index. These parameters improve the quality of the request and readability of the response.
+
+1. Send the request to execute the query and return results.
 
 ### [**.NET SDK**](#tab/dotnet-query)
 
