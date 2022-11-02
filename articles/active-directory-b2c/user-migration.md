@@ -23,7 +23,7 @@ Watch this video to learn about Azure AD B2C user migration strategies and steps
 
 
 > [!NOTE]
-> Before you start the migration, you need to check your Azure AD B2C tenant usage. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage).  
+> Before you start the migration, make sure your Azure AD B2C tenant's unused quota can accommodate all the users you expect to migrate. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage). If you need to increase your tenant's quota limit, contact [Microsoft Support](find-help-open-support-ticket.md).
 
 ## Pre migration
 
