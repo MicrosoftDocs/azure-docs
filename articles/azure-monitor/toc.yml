@@ -421,7 +421,7 @@ items:
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: logs/azure-monitor-logs.md 
+      href: logs/data-platform-logs.md 
     - name: Platform logs
       href: essentials/platform-logs-overview.md
     - name: Activity log
