@@ -47,6 +47,8 @@ SQL Server to Azure SQL Database (preview)| [Offline](./tutorial-sql-server-azur
 
 The following 16-minute video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio, including the new workflow for SQL Server database assessments and SKU recommendations:
 
+<br />
+
 > [!VIDEO https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
 
 ## Architecture of the Azure SQL Migration extension for Azure Data Studio
