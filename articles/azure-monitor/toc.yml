@@ -380,6 +380,9 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
+      - name: Enable on AKS cluster
+        displayName: Prometheus
+        href: essentials/prometheus-metrics-enable.md      
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -418,9 +421,9 @@ items:
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
-      href: essentials/platform-logs-overview.md
-    - name: Platform logs
       href: logs/data-platform-logs.md 
+    - name: Platform logs
+      href: essentials/platform-logs-overview.md
     - name: Activity log
       href: essentials/activity-log.md
     - name: Resource logs

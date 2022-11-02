@@ -54,8 +54,6 @@
         - name: Conditional Access auth context
           href: developer-guide-conditional-access-authentication-context.md
           displayName: ca
-        - name: Permissions and consent framework
-          href: v2-permissions-and-consent.md
     - name: App registrations and workload identities
       displayName: App configuration
       items:
