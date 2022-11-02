@@ -108,8 +108,8 @@ If you want to provide a set list of values for responses, you need to create a 
 1. Select the language that you want to translate to.
 1. Select **Attribute collection page**.
 1. Select the folder icon, and select the JSON file to upload.
-
-The changes are saved to your user flow automatically.
+1. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
+1. To remove or download your customized override file, click on the language and expand the **Attribute collection page**.  
 
 ## Additional information
 
