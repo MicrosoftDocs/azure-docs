@@ -206,10 +206,26 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ## 5. Create and connect a PostgreSQL database with identity connectivity
 
-Next, create a PostgreSQL Database Single Server and configure your container app to connect to a PostgreSQL Database with a system-assigned managed identity. The Quarkus app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Next, create a PostgreSQL Database and configure your container app to connect to a PostgreSQL Database with a system-assigned managed identity. The Quarkus app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Create the database service.
 
+### [Flexible Server](#tab/postgresqlflexible)
+   ```azurecli
+   DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
+   ADMIN_USERNAME='demoadmin'
+   ADMIN_PASSWORD='<admin-password>'
+
+   az postgres flexible-server create \
+       --resource-group $RESOURCE_GROUP \
+       --name $DB_SERVER_NAME \
+       --location $LOCATION \
+       --admin-user $DB_USERNAME \
+       --admin-password $DB_PASSWORD \
+       --sku-name GP_Gen5_2
+   ```
+
+### [Single Server](#tab/postgresqlsingle)
    ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'
@@ -248,7 +264,18 @@ Next, create a PostgreSQL Database Single Server and configure your container ap
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
+### [Flexible Server](#tab/postgresqlflexible)
+   ```azurecli
+   az containerapp connection create postgres-flexible \
+       --resource-group $RESOURCE_GROUP \
+       --name my-container-app \
+       --target-resource-group $RESOURCE_GROUP \
+       --server $DB_SERVER_NAME \
+       --database fruits \
+       --managed-identity
+   ```
 
+### [Single Server](#tab/postgresqlsingle)
    ```azurecli
    az containerapp connection create postgres \
        --resource-group $RESOURCE_GROUP \
