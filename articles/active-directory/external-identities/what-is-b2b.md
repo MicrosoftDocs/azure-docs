@@ -53,7 +53,7 @@ As an administrator, you can easily add guest users to your organization in the 
 - Assign guest users to apps or groups.
 - [Send an invitation email](invitation-email-elements.md) that contains a redemption link, or send a direct link to an app you want to share.
 
-:::image type="content" source="media/what-is-b2b/add-a-b2b-user-to-azure-portal.png" alt-text="Screenshot showing the Invite a new guest user invitation entry page.":::
+:::image type="content" source="media/what-is-b2b/add-a-b2b-user-to-azure-portal.png" alt-text="Screenshot showing the Invite a new guest user invitation entry page."  lightbox="media/what-is-b2b/add-a-b2b-user-to-azure-portal-large.png":::
 
 - Guest users follow a few simple [redemption steps](redemption-experience.md) to sign in.
 
