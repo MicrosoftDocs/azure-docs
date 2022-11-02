@@ -73,14 +73,15 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
-- name: Azure IoT Edge versions
-  href: version-history.md
-- name: Supported platforms
-  href: support.md
 - name: Overview
+  expanded: true
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
+  - name: Azure IoT Edge versions
+    href: version-history.md
+  - name: Supported platforms
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
