@@ -1541,6 +1541,8 @@ Assign the Microsoft Hardware Warranty Administrator role to users who need to d
 - Create and manage service requests in the Microsoft 365 admin center
 - Read Message center announcements in the Microsoft 365 admin center
 
+A warranty claim is a request to have the hardware repaired or replaced in accordance with the terms of the warranty. For more information, see [Self-serve your Surface warranty & service requests](/surface/self-serve-warranty-service).
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1557,6 +1559,8 @@ Assign the Microsoft Hardware Warranty Specialist role to users who need to do t
 - Read and update existing shipping addresses
 - Read shipping status for open warranty claims they created
 - Create and manage service requests in the Microsoft 365 admin center
+
+A warranty claim is a request to have the hardware repaired or replaced in accordance with the terms of the warranty. For more information, see [Self-serve your Surface warranty & service requests](/surface/self-serve-warranty-service).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
