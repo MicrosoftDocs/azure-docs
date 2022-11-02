@@ -71,9 +71,9 @@ You can now edit the name of the speakers in the transcription using the Azure V
 
 ### Word level time annotation with confidence score
 
-An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
-
 Now supporting word level time annotation with confidence score. 
+
+An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
 
 ### Azure Monitor integration enabling indexing logs 
 
