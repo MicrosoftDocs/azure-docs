@@ -287,37 +287,38 @@ This step takes place once on the IoT Edge device during initial device setup.
 <!-- 1.3 -->
 :::moniker range="=iotedge-2020-11"
 
-   ```toml
-   [agent]
-   name = "edgeAgent"
-   type = "docker"
-
-   [agent.config]
-   image = "mcr.microsoft.com/azureiotedge-agent:1.3"
-
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   # "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
+    ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    # "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
 :::moniker-end
 
 <!-- 1.4 -->
 :::moniker range=">=iotedge-1.4"
 
-   ```toml
-   [agent]
-   name = "edgeAgent"
-   type = "docker"
+    ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    # "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
 
-   [agent.config]
-   image = "mcr.microsoft.com/azureiotedge-agent:1.4"
-
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   # "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
 :::moniker-end
 
 <!-- >= 1.3 -->
@@ -330,31 +331,31 @@ This step takes place once on the IoT Edge device during initial device setup.
 <!-- 1.3 -->
 :::moniker range="=iotedge-2020-11"
 
-   ```toml
-   [agent.config]
-   image = "mcr.microsoft.com/azureiotedge-agent:1.3"
-
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
+    ```toml
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
 
 :::moniker-end
 
 <!-- 1.4 -->
 :::moniker range=">=iotedge-1.4"
 
-   ```toml
-   [agent.config]
-   image = "mcr.microsoft.com/azureiotedge-agent:1.4"
-
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
-
+    ```toml
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
+    
 :::moniker-end
 
 <!-- >= 1.3 -->
