@@ -162,7 +162,7 @@ The native cloud connector requires:
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
-## AWS Authentication process
+## AWS authentication process
 
 Federated authentication is used between Microsoft Defender for Cloud and AWS. All the resources related to the authentication are created as part of the CloudFormation template deployment, including:
 
