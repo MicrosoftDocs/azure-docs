@@ -34,16 +34,6 @@ Azure AD CBA is supported for certificates on-device on native browsers and on M
 
 On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. Since iOS doesn't support hardware protected keys out of the box, customers can use external storage devices for certificates.
 
-## Advantages of external storage for certificates
-
-Customers can use external security keys to store their certificates. Security keys with certificates: 
-
-- Enable the usage on any device and doesn't require the provision on every device the user has
-- Are hardware-secured with a PIN, which makes them phishing-resistant
-- Provide multifactor authentication with a PIN as second factor to access the private key of the certificate in the key
-- Satisfy the industry requirement to have MFA on separate device
-- Future proofing where multiple credentials can be stored including FIDO2 keys
-
 ## Supported platforms
 
 - Only native browsers are supported 
@@ -56,10 +46,6 @@ Customers can use external security keys to store their certificates. Security k
 |Edge | Chrome | Safari | Firefox |
 |--------|---------|------|-------|
 |&#10060; | &#10060; | &#x2705; |&#10060; |
-
-### Vendors for External storage
-
-Azure AD CBA supports certificates on YubiKeys. Users can install YubiKey authenticator application from YubiKey and do Azure AD CBA. Applications that don't use latest MSAL libraries need to also install Microsoft Authenticator.
 
 ## Microsoft mobile applications support
 
