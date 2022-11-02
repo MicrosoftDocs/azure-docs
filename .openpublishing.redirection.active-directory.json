@@ -5542,6 +5542,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/v2-permissions-and-consent.md",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/consent-and-permissions-overview.md",
       "redirect_url": "/azure/active-directory/manage-apps/user-admin-consent-overview",
       "redirect_document_id": false
