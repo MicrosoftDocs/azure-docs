@@ -11,7 +11,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Backup and restore Azure Arc-enabled PostgreSQL servers
+# Back up and restore Azure Arc-enabled PostgreSQL servers
 
 Automated backups can be enabled by including the `--storage-class-backups` argument when creating an Azure Arc-enabled PostgreSQL server. Restore is not supported in the current preview release.
 

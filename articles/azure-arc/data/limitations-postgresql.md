@@ -19,7 +19,7 @@ This article describes limitations of Azure Arc-enabled PostgreSQL.
 
 ## Backup and restore 
 
-Automated backups can be enabled by including the `--storage-class-backups` argument when creating an Azure Arc-enabled PostgreSQL server. Restore has been temporarily removed as we finalize designs and experiences.
+Enable automated backups. Include the `--storage-class-backups` argument when you create an Azure Arc-enabled PostgreSQL server. Restore has been temporarily removed as we finalize designs and experiences.
 
 ## High availability
 
