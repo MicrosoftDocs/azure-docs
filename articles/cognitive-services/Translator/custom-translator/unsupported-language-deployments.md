@@ -1,5 +1,5 @@
 ---
-title: test-your-modelUnsupported language deployments - Custom Translator"
+title: "Unsupported language deployments - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article shows you how to deploy unsupported language pairs in Azure Cognitive Services Custom Translator.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: lajanuar
 ms.custom: cogserv-non-critical-translator
 ---
 
-# Migration guide: unsupported language deployments
+# Unsupported language deployments
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 

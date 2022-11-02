@@ -1,5 +1,5 @@
 ---
-title: test-your-modelWhat is a dictionary? - Custom Translator"
+title: "What is a dictionary? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: How to create an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
 author: laujan

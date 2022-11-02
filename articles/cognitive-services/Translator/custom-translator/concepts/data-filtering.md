@@ -1,5 +1,5 @@
 ---
-title: test-your-modelData Filtering - Custom Translator"
+title: "Data Filtering - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps.
 author: laujan
