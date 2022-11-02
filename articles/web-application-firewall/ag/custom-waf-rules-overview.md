@@ -29,6 +29,9 @@ If you want to use **or** between two different conditions,then the two conditio
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
+> [!CAUTION]
+> Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](https://learn.microsoft.com/azure/application-gateway/redirect-overview) for more information about redirect rules.
+
 ## Allowing vs. blocking
 
 Allowing and blocking traffic is simple with custom rules. For example, you can block all traffic coming from a range of IP addresses. You can make another rule to allow traffic if the request comes from a specific browser.
