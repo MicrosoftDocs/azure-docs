@@ -148,10 +148,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)
@@ -317,10 +314,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)

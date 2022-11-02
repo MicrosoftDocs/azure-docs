@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 10/23/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions
@@ -62,9 +62,9 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 |6|`j`, `i`, `ɪ` |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mouth position when viseme ID is 6">|
 |7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200" alt="The mouth position when viseme ID is 7">|
 |8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200" alt="The mouth position when viseme ID is 8">|
-|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mouth position when viseme ID is 9">|
-|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mouth position when viseme ID is 10">|
-|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mouth position when viseme ID is 11">|
+|9|`aʊ`|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mouth position when viseme ID is 9">|
+|10|`ɔɪ`|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mouth position when viseme ID is 10">|
+|11|`aɪ`|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mouth position when viseme ID is 11">|
 |12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200" alt="The mouth position when viseme ID is 12">|
 |13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200" alt="The mouth position when viseme ID is 13">|
 |14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200" alt="The mouth position when viseme ID is 14">|
@@ -243,7 +243,7 @@ Here's an example of the viseme output.
 
 # [2D SVG](#tab/2dsvg)
 
-The SVG output is a xml string that contains the animation.
+The SVG output is an xml string that contains the animation.
 Render the SVG animation along with the synthesized speech to see the mouth movement.
 
 ```xml

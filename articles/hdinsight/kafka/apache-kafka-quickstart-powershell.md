@@ -94,7 +94,7 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 Create an Apache Kafka on HDInsight cluster with [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```azurepowershell-interactive
-# Create a Kafka 1.1 cluster
+# Create a Kafka 2.4.0 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
 $sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
@@ -105,7 +105,7 @@ $clusterType="Kafka"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.1")
+$kafkaConfig.Add("kafka", "2.4.0")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `

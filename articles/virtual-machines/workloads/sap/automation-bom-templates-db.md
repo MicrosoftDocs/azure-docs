@@ -1,6 +1,6 @@
 ---
 title: Generate Application Installation templates
-description: How to generate SAP Application templates for use with the SAP deployment automation framework on Azure.
+description: How to generate SAP Application templates for use with the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Generate SAP Application templates for automation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM) to define the SAP Application. Before you can deploy a system using a custom BOM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM) to define the SAP Application. Before you can deploy a system using a custom BOM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
 
 ## Prerequisites
 

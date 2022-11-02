@@ -337,6 +337,8 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure CLI
     href: /cli/azure/netappfiles
+  - name: Manage preview features with Terraform Cloud and AzAPI Provider
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure

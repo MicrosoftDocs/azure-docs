@@ -46,7 +46,8 @@ You can analyze images to provide insights about their visual features and chara
 
 ### Extract text from images (preview)
 
-Version 4.0 preview of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the main [OCR service](overview-ocr.md), but in Image Analysis this feature is optimized for image inputs as opposed to documents. [Reading text in images](concept-ocr.md)
+Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
+
 
 ### Detect people in images (preview)
 

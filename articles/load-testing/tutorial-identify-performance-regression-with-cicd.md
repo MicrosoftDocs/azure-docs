@@ -426,7 +426,7 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
         - percentage(error) > 20
     ```
 
-    You've now specified pass/fail criteria for your load test. The test will fail if at least one of these conditions is met:
+    You've now specified fail criteria for your load test based on the average response time and the error rate. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
     - The aggregate percentage of errors is greater than 20%.
@@ -437,13 +437,13 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
 
 1. After the test finishes, notice that the CI/CD pipeline run has failed.
 
-    In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the pass/fail criteria.
+    In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the fail criteria.
 
     :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria to increase the criterion for average response time:
+1. Edit the *SampleApp.yml* file and change the test's fail criteria to increase the criterion for average response time:
 
     ```yaml
     failureCriteria: 
@@ -466,4 +466,4 @@ You've now created a CI/CD workflow that uses Azure Load Testing to automate run
 * Learn more about [Configuring server-side monitoring](./how-to-monitor-server-side-metrics.md).
 * Learn more about [Comparing results across multiple test runs](./how-to-compare-multiple-test-runs.md).
 * Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
-* Learn more about [Defining test pass/fail criteria](./how-to-define-test-criteria.md).
+* Learn more about [Defining test fail criteria](./how-to-define-test-criteria.md).

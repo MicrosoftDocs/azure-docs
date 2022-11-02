@@ -26,7 +26,7 @@ Private mobile networks provide high performance, low latency, and secure connec
 ## Deploy your private mobile network
 In this step, you'll create the Mobile Network resource representing your private mobile network as a whole. You can also provision one or more SIMs, and / or create the default service and SIM policy.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the **Search** bar, type *mobile networks* and then select the **Mobile Networks** service from the results that appear.
 
     :::image type="content" source="media/mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service.":::

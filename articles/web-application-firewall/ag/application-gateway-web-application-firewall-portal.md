@@ -1,12 +1,13 @@
 ---
-title: 'Tutorial: Create using portal - Web Application Firewall'
+title: 'Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal'
 description: In this tutorial, you learn how to create an application gateway with a Web Application Firewall by using the Azure portal.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/19/2022
+ms.date: 10/28/2022
 ms.author: victorh
+ms.custom: template-tutorial, engagement-fy23
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
 
@@ -22,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
 
-![Web application firewall example](../media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example.":::
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -74,9 +75,9 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### Frontends tab
 
-1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
+1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be **Public** or **Both** as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the Application Gateway v2 SKU, **Public** and **Both** Frontend IP address types are supported today.  **Private** frontend IP configuration only is not currently supported.
 
 2. Choose **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
@@ -217,13 +218,14 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 Although IIS isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
+1. Find the public IP address for the application gateway on its **Overview** page.
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
 
    Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 1. Copy the public IP address, and then paste it into the address bar of your browser.
 1. Check the response. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.
 
-   ![Test application gateway](../media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png" alt-text="Screenshot of testing the application gateway.":::
 
 ## Clean up resources
 

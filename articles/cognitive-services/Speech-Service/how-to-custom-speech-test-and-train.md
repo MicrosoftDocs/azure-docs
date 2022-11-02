@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 10/24/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -32,7 +32,7 @@ The following table lists accepted data types, when each data type should be use
 
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio only](#audio-data-for-testing) | Yes (visual inspection) | 5+ audio files | No | Not applicable |
+| [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
 | [Structured text](#structured-text-data-for-training) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
@@ -231,9 +231,12 @@ Refer to the following table to ensure that your pronunciation dataset files are
 | Number of pronunciations per line | 1 |
 | Maximum file size | 1 MB (1 KB for free tier) |
 
-## Audio data for testing
+### Audio data for training or testing
 
 Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
+
+> [!NOTE]
+> Audio only data for training is available in preview for the `en-US` locale. For other locales, to train with audio data you must also provide [human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 Custom Speech projects require audio files with these properties:
 
@@ -256,12 +259,6 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 |---------|-------------|
 | Check the audio file format. | `sox --i <filename>` |
 | Convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
-
-### Audio data for training
-
-Not all base models support [training with audio data](language-support.md?tabs=stt-tts). For a list of base models that support training with audio data, see [Language support](language-support.md?tabs=stt-tts). 
-
-Even if a base model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-service) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
 
 ## Next steps
 
