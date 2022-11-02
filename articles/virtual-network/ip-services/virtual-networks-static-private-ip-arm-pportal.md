@@ -6,8 +6,8 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/27/2022
-ms.custom: template-how-to 
+ms.date: 10/28/2022
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Create a virtual machine with a static private IP address using the Azure portal
@@ -101,9 +101,6 @@ In this section, you'll change the private IP address from **dynamic** to **stat
     > If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address. 
     
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-static-assignment.png" alt-text="Screenshot of select static assignment.":::
-
-    > [!NOTE]
-    > If you notice after selecting **Save** that the assignment is still set to **Dynamic**, the private IP address you entered is already in use. Try another IP address.
 
 To change the IP address back to dynamic set the assignment for your private IP address to **Dynamic**, and then select **Save**.
 

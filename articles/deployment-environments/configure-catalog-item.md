@@ -2,12 +2,12 @@
 title: Configure a Catalog Item in Azure Deployment Environments 
 description: This article helps you configure a Catalog Item in GitHub repo or Azure DevOps repo.
 services: Azure Deployment Environments
-author: anandmeg
+author: RoseHJM
 ms.service: deployment-environments
 ms.topic: how-to
 ms.date: 10/12/2022
 ms.custom: devdivchpfy22, ignite-2022
-ms.author: meghaanand
+ms.author: rosemalcolm
 ---
 # Configure a Catalog Item in GitHub repo or Azure DevOps repo
 

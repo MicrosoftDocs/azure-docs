@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 11/01/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -58,7 +58,7 @@ The required network ports are as follows:
 
 *DNS running on AD DS domain controller
 
-### Network requirements 
+### DNS requirements 
 
 Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client timeouts.
 
@@ -66,7 +66,7 @@ Azure NetApp Files supports the use of [Active Directory integrated DNS](/window
 
 Ensure that you meet the following requirements about the DNS configurations:
 * If you're using standalone DNS servers: 
-* Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
+    * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
 * Ensure that the PTR records for the SRV records registered by the AD DS Net Logon service have been created on the DNS servers.

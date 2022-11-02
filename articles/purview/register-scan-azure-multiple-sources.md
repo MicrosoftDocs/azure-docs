@@ -6,8 +6,8 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 10/28/2022
+ms.custom: template-how-to
 ---
 
 # Connect to and manage multiple Azure sources in Microsoft Purview
@@ -156,6 +156,7 @@ To manage a scan, do the following:
 
 ### Supported policies
 The following types of policies are supported on this data resource from Microsoft Purview:
+- [DevOps policies](concept-policies-devops.md)
 - [Data owner policies](concept-policies-data-owner.md)
 
 
@@ -178,13 +179,14 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 
 ### Create a policy
 To create an access policy on an entire Azure subscription or resource group, follow these guide:
+* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy)
 * [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
 
 
 ## Next steps
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [Devops policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

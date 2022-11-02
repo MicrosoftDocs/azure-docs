@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to configure environment types to define deployment settings and permissions available to developers when deploying environments in a project.
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/12/2022
 ms.topic: how-to
 ---
