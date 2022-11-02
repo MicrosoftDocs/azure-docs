@@ -126,11 +126,17 @@ In this section, you'll populate the relevent SSO values in the Timetabling Solu
 1. Enter the **Custom Domain** name (tts has been used in the example below).
 1. **Save** the settings. 
 
-![SSO settings](https://user-images.githubusercontent.com/112389461/199550610-d352cea6-8804-46e2-9496-20eb4444b8c1.png)
+![SSO settings](https://user-images.githubusercontent.com/112389461/199553097-d5765f69-fe65-4e5c-bfb7-1b291c7a59fe.png)
 
 ## Create Timetabling Solutions test user
 
-In this section, you create a user called Britta Simon in the Timetabling Solutions Administration Console. Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in the Timetabling Solutions Administration Console. 
+
+1. In the [Administration Console](https://admin.timetabling.education/), select **1 Manage Users**, and then **+ Add**.
+2. Enter the mandatory fields **First Name**, **Family Name** and **Email Address**. Add other apprpriate values in the non-mandatory fields.
+3. Ensure **Online** is active in Status.
+4. Click **Save and Next**.
+Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
