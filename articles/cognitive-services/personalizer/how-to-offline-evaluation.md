@@ -15,7 +15,7 @@ ms.date: 02/20/2020
 
 Learn how to create an offline evaluation and interpret the results.
 
-Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior over a period of logged (historical) data, and assess how well other model configuration settings may perform for you model.
+Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior over a period of logged (historical) data, and assess how well other model configuration settings may perform for your model.
 
 When you create an offline evaluation, the _Optimization discovery_ option will run offline evaluations over a variety of learning policy values to find one that may improve the performance of your model. You can also provide additional policies to assess in the offline evaluation.
 

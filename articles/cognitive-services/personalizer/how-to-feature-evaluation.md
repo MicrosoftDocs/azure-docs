@@ -30,31 +30,23 @@ A _feature importance_ score is a measure of the relative impact of the feature 
 
 To obtain feature importance scores, you must create a feature evaluation over a period of logged data to generate a report containing the feature importance scores. This report is viewable in the Azure portal. To create a feature evaluation:
 
-* Go to the [Azure portal](https://portal.azure.com)
-* Select your Personalizer resource
-* Select the _Monitor_ section from the side navigation pane
-* Select the _Features_ tab
-* Select "Create report" and a new screen should appear
-* Choose a name for your report
-* Choose _start_ and _end_ times for your evaluation period
-* Select "Create report"
+1. Go to the [Azure portal](https://portal.azure.com) website
+1. Select your Personalizer resource
+1. Select the _Monitor_ section from the side navigation pane
+1. Select the _Features_ tab
+1. Select "Create report" and a new screen should appear
+1. Choose a name for your report
+1. Choose _start_ and _end_ times for your evaluation period
+1. Select "Create report"
 
-:::row:::
-    :::column span="":::
-        ![Create a Feature Evaluation in the Azure Portal.](media/feature-evaluation/create-report.png)
-    :::column-end:::
-    :::column span="":::
-        ![Choose a name, start date, and end date for your Feature Evaluation report.](media/feature-evaluation/create-report-window.png)
-   :::column-end:::
-:::row-end:::
+![Create a Feature Evaluation in your Personalizer resource by clicking on "Monitor" blade, the "Feature" tab, then "Create a report".](media/feature-evaluation/create-report.png)
+
+
+![In the creation window, fill in the fields for your report including the name, start date, and end date.](media/feature-evaluation/create-report-window.png)
 
 Next, your report name should appear in the reports table below. Creating a feature evaluation is a long running process, where the time to completion depends on the volume of data sent to Personalizer during the evaluation period. While the report is being generated, the _Status_ column will indicate "Running" for your evaluation, and will update to "Succeeded" once completed. Check back periodically to see if your evaluation has finished.
 
 You can run multiple feature evaluations over various periods of time that your Personalizer resource has log data. Make sure that your [data retention period](how-to-settings.md#data-retention) is set sufficiently long to enable you to perform evaluations over older data.
-
-<!-- The feature evaluation report will 
-
-![Viewing feature importance scores in feature evaluation reports.](media/feature-evaluation/feature_importance_report.png) -->
 
 ## Interpreting feature importance scores
 
@@ -91,7 +83,7 @@ Removing features with low importance scores can help speed up model training by
   
 - **Features are too sparse. Values are distinct and rarely occur more than a few times**. Precise timestamps down to the second can be very sparse. It can be made more dense (and therefore, effective) by grouping times into "morning", "midday" or "afternoon", for example. 
 
-Location information also typically benefits from creating broader classifications. For example, a latitude-longitude coordinate such as Lat: 47.67402° N, Long: 122.12154° W is too precise and forces the model to learn latitude and longitude as distinct dimensions. When you're trying to personalize based on location information, it helps to group location information in larger sectors. An easy way to do that is to choose an appropriate rounding precision for the lat-long numbers, and combine latitude and longitude into "areas" by making them one string. For example, a good way to represent Lat: 47.67402° N, Long: 122.12154° W in regions approximately a few kilometers wide would be "location":"34.3 , 12.1".
+Location information also typically benefits from creating broader classifications. For example, a latitude-longitude coordinates such as Lat: 47.67402° N, Long: 122.12154° W is too precise and forces the model to learn latitude and longitude as distinct dimensions. When you're trying to personalize based on location information, it helps to group location information in larger sectors. An easy way to do that is to choose an appropriate rounding precision for the lat-long numbers, and combine latitude and longitude into "areas" by making them one string. For example, a good way to represent Lat: 47.67402° N, Long: 122.12154° W in regions approximately a few kilometers wide would be "location":"34.3 , 12.1".
 
 - **Expand feature sets with extrapolated information**
 You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicits different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it's relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature.

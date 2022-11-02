@@ -24,8 +24,7 @@ Personalizer processes the following types of data:
 
 To understand more about what information you typically use with Personalizer, see [Features are information about Actions and Context](concepts-features.md).
 
-[!TIP] You decide which features to use, how to aggregate them, and where the information comes from when you call the Personalizer Rank API in your application. You also determine how to create reward scores. To make informed decisions about what information to use with Personalizer, see the [Personalizer responsible use guidelines](responsible-use-cases.md).
-
+[!TIP] You decide which features to use, how to aggregate them, and where the information comes from when you call the Personalizer Rank API in your application. You also determine how to create reward scores.
 
 ## How does Personalizer process data?
 

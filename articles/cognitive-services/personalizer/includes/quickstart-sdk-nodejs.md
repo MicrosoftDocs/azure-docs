@@ -10,19 +10,19 @@ ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/27/2020
 ---
 
-You will need to install the Personalizer client library forN ode.js to:
+You'll need to install the Personalizer client library forN ode.js to:
 * Authenticate the quickstart example client with a Personalizer resource in Azure.
 * Send context and action features to the Reward API, which will return the best action from the Personalizer model
 * Send a reward score to the Rank API and train the Personalizer model.
 
-[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Install [Node.js](https://nodejs.org) and NPM (verified with Node.js v14.16.0 and NPM 6.14.11).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Install [Node.js](https://nodejs.org) and npm (verified with Node.js v14.16.0 and npm 6.14.11).
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting Up
@@ -50,7 +50,7 @@ Create a new Node.js application in your preferred editor or IDE named `sample.j
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security see the Cognitive Services [security](../../cognitive-services-security.md) article.
 
 ```javascript
 const uuidv1 = require('uuid/v1');
@@ -74,7 +74,7 @@ Install the Personalizer client library for Node.js with the following command:
 npm install @azure/cognitiveservices-personalizer --save
 ```
 
-Install the remaining NPM packages for this quickstart:
+Install the remaining npm packages for this quickstart:
 
 ```console
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
@@ -88,11 +88,11 @@ To ask for the single best item of the content, create a [RankRequest](/javascri
 
 To send a reward to Personalizer, create a [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest), then pass it to the [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events#reward-string--rewardrequest--servicecallback-void--) method on the Events class.
 
-Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture.
+The reward scoring in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. Reward scores should be one of the primary design decisions in your Personalizer architecture.
 
 ## Code examples
 
-These code snippets show you how to do the following with the Personalizer client library for Node.js:
+These code snippets show you how to do the following tasks with the Personalizer client library for Node.js:
 
 * [Create a Personalizer client](#authenticate-the-client)
 * [Rank API](#request-the-best-action)
@@ -100,7 +100,7 @@ These code snippets show you how to do the following with the Personalizer clien
 
 ## Authenticate the client
 
-Instantiate the `PersonalizerClient` with your `serviceKey` and `baseUri` which you created earlier.
+Instantiate the `PersonalizerClient` with your `serviceKey` and `baseUri` that you created earlier.
 
 ```javascript
 const credentials = new CognitiveServicesCredentials(serviceKey);
@@ -204,7 +204,7 @@ function getActionsList() {
 
 The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 
-The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to select the best action, presenting the selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in its selection.
+The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to select the best action, presenting the selection to the customer to choose from among the list, and then sending a reward to Personalizer signaling how well the service did in its selection.
 
 ```javascript
 let runLoop = true;
@@ -263,7 +263,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request the best action
 
-To make a Rank request, you will need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
+To make a Rank request, you'll need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
