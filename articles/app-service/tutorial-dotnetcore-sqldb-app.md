@@ -105,7 +105,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az-sql-server-create) command.
 
-Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
+Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-password* with a username and password of your choice.
 
 ```azurecli-interactive
 az sql server create \

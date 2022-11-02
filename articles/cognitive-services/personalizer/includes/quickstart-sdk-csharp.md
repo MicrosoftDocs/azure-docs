@@ -534,6 +534,61 @@ Run the application with the dotnet `run` command from your application director
 dotnet run
 ```
 
+## Generate sample events for analysis (Optional)
+
+You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace the `Main()` method of the above code in the `Run a Rank and Reward cycle` section with:
+
+```csharp
+
+   static void Main(string[] args)
+{
+    int iteration = 1;
+    int runLoop = 0;
+
+    // Get the actions list to choose from personalizer with their features.
+    IList<RankableAction> actions = GetActions();
+
+    // Initialize Personalizer client.
+    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
+
+    do
+    {
+        Console.WriteLine("\nIteration: " + iteration++);
+
+        // <rank>
+        // Get context information.
+        Context context = GetContext();
+
+        // Create current context from user specified data.
+        IList<object> currentContext = new List<object>() {
+            context
+        };
+
+        // Generate an ID to associate with the request.
+        string eventId = Guid.NewGuid().ToString();
+
+        // Rank the actions
+        var request = new RankRequest(actions: actions, contextFeatures: currentContext, eventId: eventId);
+        RankResponse response = client.Rank(request);
+        // </rank>
+
+        Console.WriteLine($"\nPersonalizer service thinks {context.User.Name} would like to have: {response.RewardActionId}.");
+
+        // <reward>
+        float reward = GetRewardScore(context, response.RewardActionId);
+
+        // Send the reward for the action based on user response.
+        client.Reward(response.EventId, new RewardRequest(reward));
+        // </reward>
+
+        runLoop = runLoop + 1;
+
+    } while (runLoop < 1000);
+}
+```
+
+then run the program.
+
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer) is available.
