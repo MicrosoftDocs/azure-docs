@@ -114,10 +114,10 @@ Install the Moby engine.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
-Install the Moby engine.
+Install the Moby engine and CLI.
 
    ```bash
-   sudo yum install moby-engine
+   sudo yum install moby-engine moby-cli
    ```
 ---
 
@@ -132,6 +132,10 @@ Once the Moby engine is successfully installed, configure it to use [`local` log
        }
     ```
 * Restart the container engine for the changes to take effect.
+
+    ```bash
+    sudo systemctl restart docker
+    ```
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:

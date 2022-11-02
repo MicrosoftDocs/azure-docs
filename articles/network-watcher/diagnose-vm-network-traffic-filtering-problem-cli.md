@@ -200,7 +200,7 @@ When you ran the `az network watcher test-ip-flow` command to test outbound comm
 }
 ```
 
-The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the `az network nic list-effective-nsg` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
+The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100 because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the `az network nic list-effective-nsg` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
 When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
@@ -235,7 +235,7 @@ When you ran the `az network watcher test-ip-flow` command in [Use IP flow verif
 
 The **DenyAllInBound** rule is applied because, as shown in the output, no other higher priority rule exists in the output from the `az network nic list-effective-nsg` command that allows port 80 inbound to the VM from 172.131.0.100. To allow the inbound communication, you could add a security rule with a higher priority that allows port 80 inbound from 172.131.0.100.
 
-The checks in this quickstart tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
+The checks in this quickstart tested Azure configuration. If the checks return the expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 
 ## Clean up resources
 

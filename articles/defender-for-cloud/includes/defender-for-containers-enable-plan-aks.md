@@ -1,6 +1,6 @@
 ---
-author: ElazarK
-ms.author: elkrieger
+ms.author: benmansheim
+author: bmansheim
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/14/2022
@@ -36,7 +36,8 @@ ms.date: 07/14/2022
 
     - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
-    - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+    - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
     > [!Note]
     > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
@@ -74,7 +75,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation confirmation.
 
-1. Select **Fix *[x]* resources**.
+1. Select **Fix X resources**.
 
 ### [**REST API**](#tab/aks-deploy-rest)
 
@@ -177,7 +178,7 @@ Request body parameters:
     kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the profile is added, you should see a pod called `microsoft-defender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 

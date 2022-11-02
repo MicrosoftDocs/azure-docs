@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 
 
 ms.topic: how-to
-ms.date: 02/12/2018
+ms.date: 10/14/2022
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
@@ -19,33 +19,36 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 
-2. Open your Data Lake Analytics account and select **Diagnostic logs** from the __Monitor__ section. Next, select __Turn on diagnostics__.
+2. Open your Data Lake Analytics account and select **Diagnostic settings** from the **Monitoring** section. Next, select **+ Add diagnostic setting**.
 
-    ![Screenshot that shows the "Diagnostic logs" action selected and "Turn on diagnostics to collect the following logs" highlighted.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Screenshot that shows the "Diagnostic settings" action selected and "+ Add diagnostic setting" highlighted.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. From __Diagnostics settings__, enter a __Name__ for this logging configuration and then select logging options.
+3. From **Diagnostics setting**, enter a name for this logging configuration and then select logging options.
 
-    ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Screenshot showing settings to turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
 
-   * You can choose to store/process the data in three different ways.
+   * You can choose to store/process the data in four different ways.
 
-     * Select __Archive to a storage account__ to store logs in an Azure storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure storage account to save the logs to.
+     * Select **Archive to a storage account** to store logs in an Azure storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure storage account to save the logs to.
 
-     * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+     * Select **Stream to an event hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-     * Select __Send to Log Analytics__ to send the data to the Azure Monitor service. Use this option if you want to use Azure Monitor logs to gather and analyze logs.
+     * Select **Send to Log Analytics workspace** to send the data to the Azure Monitor service. Use this option if you want to use Azure Monitor logs to gather and analyze logs.
+
+     * Select **send to partner solution** if you want to use our partner integration. For more information, you can [follow this link.](../partner-solutions/overview.md)
+
    * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request. An audit log records all operations that are triggered by that API request.
 
-   * For __Archive to a storage account__, specify the number of days to retain the data.
+   * For **Archive to a storage account**, specify the number of days to retain the data.
 
-   * Click __Save__.
+   * Select **Save**.
 
         > [!NOTE]
-        > You must select either __Archive to a storage account__, __Stream to an Event Hub__ or __Send to Log Analytics__ before clicking the __Save__ button.
+        > You must select either **Archive to a storage account**, **Stream to an Event Hub**, **Send to Log Analytics workspace**, or **Send to partner solution** before selecting the **Save** button.
 
 ### Use the Azure Storage account that contains log data
 
-1. To display the blob containers that hold logging data, open the Azure Storage account used for Data Lake Analytics for logging, and then click __Blobs__.
+1. To display the blob containers that hold logging data, open the Azure Storage account used for Data Lake Analytics for logging, and then select **Containers**.
 
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.

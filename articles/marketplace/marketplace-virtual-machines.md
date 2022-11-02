@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/29/2022
+ms.date: 08/22/2022
 ---
 
 # Plan a virtual machine offer
@@ -106,6 +106,13 @@ All calculations are based on 8,760 hours per year. Without VM software reservat
 Private plans restrict the discovery and deployment of your solution to a specific set of customers you choose and offer customized software, terms, and pricing. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software.
 
 For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private offers in the Microsoft commercial marketplace](private-offers.md).
+
+### Hidden plans
+
+A hidden plan is not visible on Azure Marketplace and can only be deployed through a Solution Template, Managed Application, Azure CLI or Azure PowerShell. Hiding a plan is useful when trying to limit exposure to customers that would normally be searching or browsing for it directly via Azure Marketplace.
+
+> [!NOTE]
+> A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private, in which case only the customers configured in the private audience can deploy via these methods.
 
 ### Licensing models
 

@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/telephony/manage-inbound-calls.md",
+            "redirect_url": "/articles/communication-services/how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md",
+            "redirect_document_id": false
+        }
+    ]
+}

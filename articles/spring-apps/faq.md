@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -37,17 +37,17 @@ Security and privacy are among the top priorities for Azure and Azure Spring App
 
 ### How does Azure Spring Apps host my applications?
 
-Each service instance in Azure Spring Apps is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
+Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with 2 or more instances on different nodes.
 
 ### In which regions is Azure Spring Apps Basic/Standard tier available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2 (Mooncake), and China North 2 (Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2 (Mooncake), China North 2 (Mooncake), and China North 3 (Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### In which regions is Azure Spring Apps Enterprise tier available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
 
 ### Is any customer data stored outside of the specified region?
 
@@ -65,11 +65,11 @@ Azure Spring Apps has the following known limitations:
 
 Which one should I use and what are the limits within each tier?
 
-* Azure Spring Apps offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
+* Azure Spring Apps offers three pricing tiers: Basic, Standard, and Enterprise. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. The Enterprise tier is for production workloads with VMware Tanzu components. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
 
-We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named [Service Connector](../service-connector/overview.md). On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
+We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named [Service Connector](../service-connector/overview.md). On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Azure Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
 
 ### How can I provide feedback and report issues?
 
@@ -135,11 +135,11 @@ Yes.
 
 The number of outbound public IP addresses may vary according to the tiers and other factors.
 
-| Azure Spring Apps instance type | Default number of outbound public IP addresses |
-| -------------------------------- | ---------------------------------------------- |
-| Basic Tier instances             | 1                                              |
-| Standard Tier instances          | 2                                              |
-| VNet injection instances         | 1                                              |
+| Azure Spring Apps instance type    | Default number of outbound public IP addresses |
+|------------------------------------|------------------------------------------------|
+| Basic tier instances               | 1                                              |
+| Standard/Enterprise tier instances | 2                                              |
+| VNet injection instances           | 1                                              |
 
 ### Can I increase the number of outbound public IP addresses?
 
@@ -219,7 +219,7 @@ Yes. For more information, see [Monitor app lifecycle events using Azure Activit
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring applications to Azure Spring Apps?
 
-For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
+For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

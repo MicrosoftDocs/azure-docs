@@ -4,7 +4,7 @@ description: Learn how to use the Bash command line in your browser with Azure C
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.service: azure
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

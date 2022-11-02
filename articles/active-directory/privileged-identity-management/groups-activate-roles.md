@@ -4,22 +4,22 @@ description: Learn how to activate your privileged access group roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/24/2022
+ms.date: 08/24/2022
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Activate my privileged access group roles in Privileged Identity Management
 
-Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra,to allow eligible role members for privileged access groups to schedule role activation for a specified date and time. They can also select a activation duration up to the maximum duration configured by administrators.
+Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to allow eligible role members for privileged access groups to schedule role activation for a specified date and time. They can also select an activation duration up to the maximum duration configured by administrators.
 
 This article is for eligible members who want to activate their privileged access group role in Privileged Identity Management.
 

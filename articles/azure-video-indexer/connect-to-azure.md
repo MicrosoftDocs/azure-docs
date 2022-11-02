@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Create a classic Azure Video Indexer account
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 This topic shows how to create a new classic account connected to Azure using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).
@@ -52,7 +54,7 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
 > [!NOTE]
 > Use the same Azure AD user you used when connecting to Azure.
 
-It's mandatory to have the following three accounts located in the same region: 
+It's strongly recommended to have the following three accounts located in the same region: 
 
 * The Azure Video Indexer account that you're creating.
 * The Azure Video Indexer account that you're connecting with the Media Services account.
@@ -90,9 +92,6 @@ If your storage account is behind a firewall, see [storage account that is behin
 
 The following Azure Media Services related considerations apply:
 
-* If you plan to connect to an existing Media Services account, make sure the Media Services account was created with the classic APIs.
-
-    ![Media Services classic API](./media/create-account/enable-classic-api.png)
 * If you connect to a new Media Services account, Azure Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)

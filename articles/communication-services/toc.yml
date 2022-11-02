@@ -73,10 +73,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the call automation APIs
-      href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
-      href: quickstarts/voice-video-calling/call-recording-sample.md
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
@@ -120,7 +118,7 @@ items:
     href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
-  - name: Sign an HTTP request with HMAC using C#
+  - name: Sign an HTTP request with HMAC
     href: tutorials/hmac-header-tutorial.md  
   - name: Build an authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
@@ -145,6 +143,8 @@ items:
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
+    - name: Understand identifiers
+      href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
   - name: Chat
@@ -183,6 +183,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
+      - name: Known limitations
+        href: concepts/telephony/known-limitations-acs-telephony.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -201,8 +203,6 @@ items:
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Call automation
-        href: concepts/voice-video-calling/call-automation-apis.md
       - name: Call recording
         href: concepts/voice-video-calling/call-recording.md
       - name: Network recommendations
@@ -270,7 +270,7 @@ items:
         items:        
           - name: Overview
             href: concepts/interop/guest/overview.md
-          - name: Capabilities
+          - name: Meeting capabilities
             href: concepts/interop/guest/capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
@@ -278,6 +278,8 @@ items:
             href: concepts/interop/guest/teams-administration.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
+          - name: Government clouds
+            href: concepts/interop/guest/government-cloud.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -290,6 +292,10 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Phone capabilities
+            href: concepts/interop/teams-user/phone-capabilities.md
+          - name: Meeting capabilities
+            href: concepts/interop/teams-user/meeting-capabilities.md
           - name: Teams client experience
             href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
@@ -298,6 +304,8 @@ items:
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
+          - name: Government clouds
+            href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy
@@ -370,6 +378,8 @@ items:
     href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
+  - name: UI Library cross platform samples
+    href: samples/ui-library-cross-platform.md
 - name: References
   items:
   - name: Reference documentation overview
@@ -408,6 +418,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
     - name: SMS (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
+  - name: Email libraries
+    items:
+    - name: Email (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+    - name: Email (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+    - name: Email (Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+    - name: Email (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
   - name: Identity libraries
     items:
     - name: Identity (JavaScript)
@@ -435,8 +455,7 @@ items:
     - name: UI Library (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html
-   
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
 - name: Resources
   items:
   - name: Release notes

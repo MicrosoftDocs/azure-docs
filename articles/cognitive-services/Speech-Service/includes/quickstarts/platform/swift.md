@@ -13,7 +13,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 > [!TIP]
 > For details about using the Speech SDK for Swift, see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift).
 
-## Install the Speech SDK
+## Install the Speech SDK for Swift
 
 # [Mac](#tab/mac)
 
@@ -39,7 +39,7 @@ The macOS CocoaPod package is available for download and use with the [Xcode 9.4
     ```
 1. Run `pod install` to install the Speech SDK.
 
-Alternatively, you can download the [binary CocoaPod](https://aka.ms/csspeech/macosbinary) and unzip to extract it's contents. In your Xcode project, add a reference to the extracted "MicrosoftCognitiveServicesSpeech.xcframework" folder and it's contents.
+Alternatively, you can download the [binary CocoaPod](https://aka.ms/csspeech/macosbinary) and unzip to extract its contents. In your Xcode project, add a reference to the extracted "MicrosoftCognitiveServicesSpeech.xcframework" folder and its contents.
 
 > [!NOTE]
 > .NET developers can build native macOS applications by using the Xamarin.Mac application framework. For more information, see [Xamarin.Mac](/xamarin/mac/).

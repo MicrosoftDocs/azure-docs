@@ -6,7 +6,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.reviewer: yuank
-ms.date: 06/23/2022
+ms.date: 09/13/2022
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -23,7 +23,7 @@ Managing permissions for external partners is a key part of your security postur
 
 ## Delegated administration relationships
 
-Delegated administration relationships enable technicians at a Microsoft CSP to administer Microsoft services such as Microsoft 365, Dynamics, 365, and Azure on behalf of your organization. These technicians administer these services for you using the same roles and permissions as administrators in your organization. These roles are assigned to security groups in the CSP’s Azure AD tenant, which is why CSP technicians don’t need user accounts in your tenant in order to administer services for you.
+Delegated administration relationships enable technicians at a Microsoft CSP to administer Microsoft services such as Microsoft 365, Dynamics 365, and Azure on behalf of your organization. These technicians administer these services for you using the same roles and permissions as your organization's own administrators. These roles are assigned to security groups in the CSP’s Azure AD tenant, which is why CSP technicians don’t need user accounts in your tenant in order to administer services for you.
 
 There are two types of delegated administration relationships that are visible in the Azure AD admin portal experience. The newer type of delegated admin relationship is known as Granular Delegated Admin Permission. The older type of relationship is known as Delegated Admin Permission. You can see both types of relationship if you sign in to the Azure AD admin portal and then select **Delegated administration**.
 

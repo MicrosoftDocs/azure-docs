@@ -14,6 +14,9 @@ In this quickstart, you'll learn how to start a call using the Azure Communicati
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
+> [!NOTE] 
+> Outbound calling to an Azure Communication Services user can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-1ton--page). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -22,7 +25,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
@@ -129,7 +132,7 @@ callButton.addEventListener("click", () => {
     // To call an Azure Communication Services communication user, use {communicationUserId: 'ACS_USER_ID'}.
     // To call echo bot, use {id: '8:echo123'}.
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states

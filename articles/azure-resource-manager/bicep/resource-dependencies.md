@@ -2,7 +2,7 @@
 title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 10/05/2022
 ---
 
 # Resource dependencies in Bicep
@@ -43,6 +43,12 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
   }
 }
 ```
+
+A resource that includes the [parent](./child-resource-name-type.md) property has an implicit dependency on the parent resource. It depends on the parent resource, not any of its other child resources.
+
+The following example shows a storage account and file service. The file service has an implicit dependency on the storage account.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" range="1-13":::
 
 When an implicit dependency exists, **don't add an explicit dependency**.
 

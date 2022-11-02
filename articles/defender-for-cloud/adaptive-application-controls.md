@@ -213,7 +213,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programmatically, use our REST API. 
 
-The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/defenderforcloud/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/defenderforcloud/adaptive-application-controls).
 
 Some of the functions that are available from the REST API:
 

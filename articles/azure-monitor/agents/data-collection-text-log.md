@@ -518,7 +518,7 @@ do
     $randomContent = New-Guid
     $logRecord = "$(Get-Date -format s)Z Record number $count with random content $randomContent"
     $logRecord | Out-File "$logFolder\\$logFileName" -Encoding utf8 -Append
-    Sleep $sleepSeconds
+    Start-Sleep $sleepSeconds
 }
 while ($true)
 

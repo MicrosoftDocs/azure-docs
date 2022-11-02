@@ -322,7 +322,7 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
    
 #### Step 3: Ensure that the rule excludes rehydrated blobs
 
-If you rehydrate a blob by changing it's tier, this rule will move the blob back to the archive tier if the last modified time, creation time, or last access time is beyond the threshold set for the policy. 
+If you rehydrate a blob by changing its tier, this rule will move the blob back to the archive tier if the last modified time, creation time, or last access time is beyond the threshold set for the policy. 
 
 If you selected the **Last modified** rule condition, you can prevent this from happening by selecting **Skip blobs that have been rehydrated in the last**, and then entering the number of days you want a rehydrated blob to be excluded from this rule.
 

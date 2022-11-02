@@ -2,7 +2,7 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 10/21/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -35,7 +35,8 @@ The data that's available for backup depends on where the agent is installed.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
 * Ensure the user installing and configuring the MARS agent has local administrator privileges on the server to be protected.
-* To prevent errors during vault registration, ensure that the MARS agent version 2.0.9249.0 or above is installed. If not, we recommend you to install it [from here](https://aka.ms/azurebackup_agent).
+* [Ensure your server is running on TLS 1.2](transport-layer-security.md).
+* To prevent errors during vault registration, ensure that the latest MARS agent version is used. If not, we recommend you to download it [from here](https://aka.ms/azurebackup_agent) or [from the Azure portal as mentioned in this section](#download-the-mars-agent).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -121,6 +122,8 @@ If you've already installed the agent on any machines, ensure you're running the
    :::image type="content" source="./media/backup-configure-vault/encryption-settings-passphrase-to-encrypt-decrypt-backups.png" alt-text="Screenshot showing to specify a passphrase to be used to encrypt and decrypt backups for machines.":::
 
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
+
+   If you are running into issues during vault registration, see the [troubleshooting guide](backup-azure-mars-troubleshoot.md#invalid-vault-credentials-provided).
 
    >[!Note]
    >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](../key-vault/secrets/quick-create-portal.md) how to store a secret in a key vault.

@@ -46,8 +46,9 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 1. Give the policy assignment an easily identifiable **Name** and **Description**.
 1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Next**.
-1. Set the parameter values to be used while creating the `fluxConfigurations` resource.
+1. Set the parameter values to be used.
     * For more information about parameters, see the [tutorial on deploying Flux v2 configurations](./tutorial-use-gitops-flux2.md).
+    * When creating Flux configurations you must provide a value for one (and only one) of these parameters: `repositoryRefBranch`, `repositoryRefTag`, `repositoryRefSemver`, `repositoryRefCommit`.
 1. Select **Next**.
 1. Enable **Create a remediation task**.
 1. Verify **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. 
@@ -66,6 +67,12 @@ For existing clusters, you may need to manually run a remediation task. This tas
 1. In the **Kubernetes resources** section of the sidebar, select **Namespaces** and **Workloads**.
     * You should see the namespace and artifacts that were created by the Flux configuration.
     * You should see the objects described by the manifests in the Git repo deployed on the cluster.
+
+## Customizing a policy
+
+The built-in policies cover the main scenarios for using GitOps with Flux v2 in your Kubernetes clusters. However, due to limitations on the number of parameters allowed in Azure Policy assignments (max of 20), not all parameters are present in the built-in policies. Also, to fit within the 20-parameter limit, only a single Kustomization can be created with the built-in policies.  
+
+If you have a scenario that differs from the built-in policies, you can overcome the limitations by creating [custom policies](../../governance/policy/tutorials/create-custom-policy-definition.md) using the built-in policies as templates. You can create custom policies that contain only the parameters you need, and hard-code the rest, therefore working around the 20-parameter limit.
 
 ## Next steps
 

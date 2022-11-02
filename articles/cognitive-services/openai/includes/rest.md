@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use the OpenAI Service to make your first completions and search calls with the REST API'
+title: 'Quickstart: Use the OpenAI Service to make your first completions call with the REST API'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions and search calls with the REST API. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -14,7 +14,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here:<a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
@@ -97,6 +99,8 @@ The output from the completions API will look as follows.
     ]
     }
 ```
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 

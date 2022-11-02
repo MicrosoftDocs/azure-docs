@@ -33,7 +33,7 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 | Privilege | Description |
 | --------- | ----------- |
 | **Alarms** | Acknowledge alarm<br />Create alarm<br />Disable alarm action<br />Modify alarm<br />Remove alarm<br />Set alarm status |
-| **Content Library** | Add library item<br />Create a subscription for a published library<br />Create local library<br />Create subscribed library<br />Delete library item<br />Delete local library<br />Delete subscribed library<br />Delete subscription of a published library<br />Download files<br />Evict library items<br />Evict subscribed library<br />Import storage<br />Probe subscription information<br />Publish a library item to its subscribers<br />Publish a library to its subscribers<br />Read storage<br />Sync library item<br />Sync subscribed library<br />Type introspection<br />Update configuration settings<br />Update files<br />Update library<br />Update library item<br />Update local library<br />Update subscribed library<br />Update subscription of a published library<br />View configuration settings |
+| **Content Library** | Add library item<br />Add root certificate to trust store<br />Check in a template<br />Check out a template<br />Create a subscription for a published library<br />Create local library<br />Create or delete a Harbor registry<br />Create subscribed library<br />Create, delete or purge a Harbor registry project<br />Delete library item<br />Delete local library<br />Delete root certificate from trust store<br />Delete subscribed library<br />Delete subscription of a published library<br />Download files<br />Evict library items<br />Evict subscribed library<br />Import storage<br />Manage Harbor registry resources on specified compute resource<br />Probe subscription information<br />Publish a library item to its subscribers<br />Publish a library to its subscribers<br />Read storage<br />Sync library item<br />Sync subscribed library<br />Type introspection<br />Update configuration settings<br />Update files<br />Update library<br />Update library item<br />Update local library<br />Update subscribed library<br />Update subscription of a published library<br />View configuration settings |
 | **Cryptographic operations** | Direct access |
 | **Datastore** | Allocate space<br />Browse datastore<br />Configure datastore<br />Low-level file operations<br />Remove files<br />Update virtual machine metadata |
 | **Folder** | Create folder<br />Delete folder<br />Move folder<br />Rename folder |
@@ -53,9 +53,10 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 ### Create custom roles on vCenter Server
 
-Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.
+Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.  You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. 
 
-You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin. You can't assign the role to any users or groups or delete the role.
+   >[!NOTE] 
+   >You can create roles with privileges greater than CloudAdmin. However, you can't assign the role to any users or groups or delete the role.  Roles that have privileges greater than that of CloudAdmin is unsupported.
 
 To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
@@ -71,7 +72,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Provide the name you want for the cloned role.
 
-1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
+1. Remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
 
 #### Apply a custom role
 
@@ -84,8 +85,11 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 1. Search for the user or group after selecting the Identity Source under the **User** section.
 
 1. Select the role that you want to apply to the user or group.
+   >[!NOTE]
+   >Attempting to apply a user or group to a role that has privileges greater than that of CloudAdmin will result in errors.
 
 1. Check the **Propagate to children** if needed, and select **OK**. The added permission displays in the **Permissions** section.
+
 
 ## NSX-T Manager access and identity
 
@@ -163,7 +167,8 @@ Unlike on-premises deployment, not all pre-defined NSX-T Data Center RBAC roles 
  In an Azure VMware Solution deployment, the following NSX-T Data Center predefined RBAC roles are not supported with LDAP integration:
 
 - Enterprise Admin
-- Network AdminSecurity Admin
+- Network Admin
+- Security Admin
 - Netx Partner Admin
 - GI Partner Admin
 

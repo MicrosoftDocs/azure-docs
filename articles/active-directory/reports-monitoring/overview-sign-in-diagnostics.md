@@ -3,19 +3,14 @@
 title: What is the sign-in diagnostic for Azure Active Directory?
 description: Provides a general overview of the sign-in diagnostic in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/12/2021
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
@@ -33,7 +28,7 @@ This article gives you an overview of what the diagnostic is and how you can use
 
 In Azure AD, sign-in attempts are controlled by:
 
-- **Who** - The user performing a sign in attempt.
+- **Who** - The user performing a sign-in attempt.
 - **How** - How a sign-in attempt was performed.
 
 For example, you can configure conditional access policies that enable administrators to configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign into the same account from an untrusted network. 
@@ -61,9 +56,9 @@ To start and complete the diagnostic process, you need to:
 The diagnostic allows two methods to find events to investigate:  
 
 - Sign-in failures users have [flagged for assistance](overview-flagged-sign-ins.md). 
-- Search for specific events by the user and additional criteria. 
+- Search for specific events by the user and other criteria. 
 
-Flagged sign-ins are automatically presented in a list of up to 100. You can run a diagnostics on an event immediately by clicking it.  
+Flagged sign-ins are automatically presented in a list of up to 100. You can run diagnostics on an event immediately by clicking it.  
 
 You can search a specific event by selecting the search tab even when flagged sign-ins are present. 
 When searching for specific events, you can filter based on the following options: 
@@ -96,7 +91,7 @@ You can change the content displayed in the columns based on your preference. Ex
 
 ### Take action
 
-For the selected sign-in event, you get a diagnostic results. Read through the results to identify action that you can take to fix the problem. These results add recommended steps and shed light on relevant information such as the related policies, sign-in details, and supportive documentation. Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
+For the selected sign-in event, you get a diagnostic result. Read through the results to identify action that you can take to fix the problem. These results add recommended steps and shed light on relevant information such as the related policies, sign-in details, and supportive documentation. Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
 
 
 ![Screenshot showing the diagnostic results.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
@@ -105,7 +100,7 @@ For the selected sign-in event, you get a diagnostic results. Read through the r
 
 ## How to access it
 
-To use the diagnostic, you must be signed into the tenant as a global admin or a global reader. If you do not have this level of access, use [Privileged Identity Management, PIM](../privileged-identity-management/pim-resource-roles-activate-your-roles.md), to elevate your access to global admin/reader within the tenant. This will allow you to have temporary access to the diagnostic.  
+To use the diagnostic, you must be signed into the tenant as a Global Administrator or a Global Reader.
 
 With the correct access level, you can find the diagnostic in various places: 
 
@@ -116,14 +111,9 @@ With the correct access level, you can find the diagnostic in various places:
 
 1. Open **Azure Active Directory AAD or Azure AD Conditional Access**. 
 
-2. From the main menu, click **Diagnose & Solve Problems**.  
+1. From the main menu, select **Diagnose & Solve Problems**.  
 
-3. Under the **Troubleshooters**, there is a sign-in diagnostic tile. 
-
-4. Click **Troubleshoot** button.  
-
- 
-
+1. From the **Troubleshooters** section, select the **Troubleshoot** button from the sign-in diagnostic tile. 
  
 
 **Option B**: Sign-in Events 
@@ -137,11 +127,11 @@ With the correct access level, you can find the diagnostic in various places:
 
 2. On the main menu, in the **Monitoring** section, select **Sign-ins**. 
 
-3. From the list of sign-ins, select a sign in with a **Failure** status. You can filter your list by Status to make it easier to find failed sign-ins. 
+3. From the list of sign-ins, select a sign-in with a **Failure** status. You can filter your list by Status to make it easier to find failed sign-ins. 
 
-4. The **Activity Details: Sign-ins** tab will open for the selected sign-in. Click on dotted icon to view more menu icons. Select the **Troubleshooting and support** tab. 
+4. The **Activity Details: Sign-ins** tab will open for the selected sign-in. Select the dotted icon to view more menu icons. Select the **Troubleshooting and support** tab. 
 
-5. Click the link to **Launch the Sign-in Diagnostic**. 
+5. Select the link to **Launch the Sign-in Diagnostic**. 
 
  
 

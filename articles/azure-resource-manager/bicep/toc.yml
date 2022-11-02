@@ -21,6 +21,8 @@
   - name: Create Bicep templates - VS Code
     displayname: vscode
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Create Bicep templates - Visual Studio
+    href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
   - name: Use loops
@@ -47,20 +49,16 @@
     href: /events/learntv/learnlive-iac-and-bicep/
 - name: Samples - Azure Services
   items:
-  - name: Advisor
-    items:
-    - name: Alerts
-      href: ../../advisor/advisor-alerts-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cognitive Services
       href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Azure Machine Learning secure workspace
-      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Machine Learning secure workspace
+      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
@@ -81,7 +79,7 @@
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Stream Analytics
       href: ../../stream-analytics/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Azure Synapse Analytics - Dedicated SQL pool
+    - name: Synapse Analytics - Dedicated SQL pool
       href: ../../synapse-analytics/sql-data-warehouse/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
@@ -97,15 +95,19 @@
       href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers
     items:
+    - name: AKS
+      href: ../../aks/learn/quick-kubernetes-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Container Registry
+      href: ../../container-registry/container-registry-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Fabric
       href: ../../service-fabric/quickstart-cluster-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -113,6 +115,8 @@
       href: ../../mysql/quickstart-create-mysql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for PostgreSQL
       href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Database for PostgreSQL - Flexible Server
+      href: ../../postgresql/flexible-server/quickstart-create-server-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
@@ -127,28 +131,48 @@
       href: ../../azure-app-configuration/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DevTest Labs
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Pipelines
+      href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Integration
     items:
     - name: API for FHIR
       href: ../../healthcare-apis/fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Event Grid
+      href: ../../event-grid/blob-event-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Logic Apps
       href: ../../logic-apps/quickstart-create-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Service Bus
+      href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Internet of Things
     items:
+    - name: IoT Edge
+      href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: IoT Hub
       href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: IoT Hub Device Provisioning Service
+      href: ../../iot-dps/quick-setup-auto-provision-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Management and Governance
     items:
+    - name: Advisor
+      href: ../../advisor/advisor-alerts-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Backup
+      href: ../../backup/quick-backup-vm-bicep-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cost Management + Billing
       href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Microsoft Purview account
       href: ../../purview/quickstart-bicep-create-azure-purview.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Monitor
+      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Policy
+      href: ../../governance/policy/assign-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Role-based access control - custom roles
       href: ../../role-based-access-control/custom-roles-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Role-based access control - role assignment
       href: ../../role-based-access-control/quickstart-role-assignments-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Service Health
+      href: ../../service-health/alerts-activity-log-service-notifications-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Site Recovery
       href: ../../site-recovery/quickstart-create-vault-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
@@ -169,6 +193,10 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall - Availability Zones
       href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall - IP Groups
+      href: ../../firewall/quick-create-ipgroup-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall - multiple addresses
+      href: ../../firewall/quick-create-multiple-ip-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall Manager - policy
       href: ../../firewall-manager/quick-firewall-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall Manager - virtual hub
@@ -179,6 +207,8 @@
       href: ../../frontdoor/create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
       href: ../../load-balancer/quickstart-load-balancer-standard-internal-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Load Balancer - public
+      href: ../../load-balancer/quickstart-load-balancer-standard-public-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: NAT gateway
       href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Private Endpoint
@@ -197,12 +227,16 @@
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Defender for Cloud
       href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Key Vault - key
+      href: ../../key-vault/keys/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
       href: ../../data-share/share-your-data-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Storage account
+      href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/bicep/toc.json&tabs=bicep
   - name: Web
     items:
     - name: API Management
@@ -278,6 +312,8 @@
       href: bicep-functions-deployment.md
     - name: File functions
       href: bicep-functions-files.md
+    - name: Lambda functions
+      href: bicep-functions-lambda.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions
@@ -356,6 +392,8 @@
         href: linter-rule-admin-username-should-not-be-literal.md
       - name: Artifacts parameters
         href: linter-rule-artifacts-parameters.md
+      - name: Decompiler cleanup
+        href: linter-rule-decompiler-cleanup.md
       - name: Max outputs
         href: linter-rule-max-outputs.md
       - name: Max parameters
@@ -366,7 +404,7 @@
         href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
         href: linter-rule-no-hardcoded-environment-urls.md
-      - name: No hard-coded locations
+      - name: No hardcoded locations
         href: linter-rule-no-hardcoded-location.md
       - name: No location expressions outside of parameter default values
         href: linter-rule-no-loc-expr-outside-params.md
@@ -388,12 +426,18 @@
         href: linter-rule-protect-commandtoexecute-secrets.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure parameters in nested deployments
+        href: linter-rule-secure-params-in-nested-deploy.md
       - name: Secure secrets in parameters
         href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: use recent API versions
+        href: linter-rule-use-recent-api-versions.md
+      - name: use resource ID functions
+        href: linter-rule-use-resource-id-functions.md
       - name: Use stable resource identifier
         href: linter-rule-use-stable-resource-identifier.md
       - name: Use stable VM image

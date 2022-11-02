@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use the OpenAI Service via the Python SDK'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions and search calls with the Python SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 11/02/2022
 keywords: 
 ---
 
@@ -16,7 +16,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here:<a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
@@ -28,6 +30,9 @@ keywords:
 ```console
 pip install openai
 ```
+
+> [!NOTE]
+> This library is maintained by OpenAI and is currently a preview release. Use the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 
@@ -91,6 +96,8 @@ Run the code a few more times to see what other types of responses you get as th
 ### Understanding your results
 
 Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 11/02/2022
 ms.author: greglin
 
 ---
@@ -15,7 +15,7 @@ ms.author: greglin
 Today, you can deploy your critical workloads securely behind Application Gateway, gaining the flexibility of Layer 7 load balancing features. Access to the backend workloads is possible in two ways:
 
 - Public IP address - your workloads are accessible over the Internet. 
-- Private IP address- your workloads are accessible via a private IP address, but within the same VNet as the Application Gateway.
+- Private IP address- your workloads are accessible privately via your virtual network / connected networks
 
 Private Link for Application Gateway allows you to connect workloads over a private connection spanning across VNets and subscriptions. When configured, a private endpoint will be placed into a defined virtual network's subnet, providing a private IP address for clients looking to communicate to the gateway. For a list of other PaaS services that support Private Link functionality, see [What is Azure Private Link?](../private-link/private-link-overview.md).
 
@@ -59,8 +59,8 @@ Four components are required to implement Private Link with Application Gateway:
 - API version 2020-03-01 or later should be used to configure Private Link configurations.
 - Static IP allocation method in the Private Link Configuration object isn't supported.
 - The subnet used for PrivateLinkConfiguration cannot be same as the Application Gateway subnet.
-- Private link configuration for Application Gateway does not expose the "Alias" property and must be referenced via resource URI.
-- Private Endpoint creation does not create a \*.privatelink DNS record/zone. All DNS records should be entered in existing zones used for your Application Gateway.
+- Private link configuration for Application Gateway doesn't expose the "Alias" property and must be referenced via resource URI.
+- Private Endpoint creation doesn't create a \*.privatelink DNS record/zone. All DNS records should be entered in existing zones used for your Application Gateway.
 - Azure Front Door and Application Gateway do not support chaining via Private Link.
 - Source IP address and x-forwarded-for headers will contain the Private link IP addresses
 

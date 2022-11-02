@@ -10,11 +10,13 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
+
+This article describes the collection of Windows Security Events. For Windows DNS events, learn about the [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md).
+
+## Types of connections
 
 This article discusses the following types of connectors:
 
@@ -130,6 +132,10 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
 You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page. For more information, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD) in the Azure Monitor documentation.
 
 ## Windows agent-based connections
+
+> [!NOTE]
+>
+> The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also uses the Azure Monitor Agent. This connector streams and filter events from Windows Domain Name System (DNS) server logs.
 
 # [Azure Monitor Agent](#tab/AMA)
 

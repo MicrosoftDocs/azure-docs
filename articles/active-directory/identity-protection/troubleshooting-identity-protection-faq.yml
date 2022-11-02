@@ -78,7 +78,7 @@ sections:
           
           **Confirm safe** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was performed by the identity owner and doesn't indicate a compromise.
           
-          - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
+          - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **None**.
           
           - In addition, we provide the information to our machine learning systems for future improvements in risk assessment. 
           

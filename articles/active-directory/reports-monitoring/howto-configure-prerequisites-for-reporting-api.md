@@ -2,26 +2,21 @@
 title: Prerequisites for Azure Active Directory reporting API | Microsoft Docs
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: ada19f69-665c-452a-8452-701029bf4252
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/21/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a number of programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from many programming languages and tools.
 
 The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
@@ -126,7 +121,7 @@ This section shows you how to get the following settings from your directory:
 - Client ID
 - Client secret or certificate
 
-You need these values when configuring calls to the reporting API. We recommend using a certificate because it is more secure.
+You need these values when configuring calls to the reporting API. We recommend using a certificate because it's more secure.
 
 ### Get your domain name
 
@@ -147,7 +142,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 **To get your application's client ID:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
    
     ![Screenshot shows Azure Active Directory selected from the Azure portal menu to get application's client ID.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
@@ -162,13 +157,13 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 **To get your application's client secret:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
    
     ![Screenshot shows Azure Active Directory selected from the Azure portal menu to get application's client secret.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Select your application from the **App Registrations** page.
 
-3.  Select **Certificates and Secrets** on the **API Application** page, in the **Client Secrets** section, click **+ New Client Secret**. 
+3.  Select **Certificates and Secrets** on the **API Application** page, in the **Client Secrets** section, select **+ New Client Secret**. 
 
     ![Screenshot shows the Certificates & secrets page where you can add a client secret.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
@@ -178,7 +173,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
     b. As **Expires**, select **In 2 years**.
 
-    c. Click **Save**.
+    c. Select **Save**.
 
     d. Copy the key value.
 
@@ -214,15 +209,15 @@ If you run into this error message while trying to access sign-ins using Graph E
 
 ![Modify permissions UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
-### Error: Tenant is not B2C or tenant doesn't have premium license
+### Error: Tenant isn't B2C or tenant doesn't have premium license
 
 Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
 
-### Error: The allowed roles does not include User. 
+### Error: The allowed roles doesn't include User. 
 
  Avoid errors trying to access audit logs or sign-in using the API. Make sure your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant.
 
-### Error: Application missing AAD 'Read directory data' permission 
+### Error: Application missing Azure AD 'Read directory data' permission 
 
 ### Error: Application missing Microsoft Graph API 'Read all audit log data' permission
 

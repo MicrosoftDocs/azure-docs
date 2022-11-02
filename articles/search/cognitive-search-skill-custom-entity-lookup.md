@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 05/19/2022
+ms.date: 09/07/2022
 
 ---
 
@@ -36,7 +36,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `entitiesDefinitionUri` | Path to an external JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This file must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|`defaultLanguageCode` | (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
+|`defaultLanguageCode` | (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
 |`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
 |`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity isn't specified, this value will become the `defaultAccentSensitive` value for that entity. |
 |`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity isn't specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |

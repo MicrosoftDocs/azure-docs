@@ -484,15 +484,7 @@ When you report an issue to GitHub, you might be asked to gather certain logs to
 
 ### Storage Explorer logs
 
-Starting with version 1.16.0, Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, add an environment variable with the name of `STG_EX_LOG_LEVEL`, and any of the following values:
-
-- `silent`
-- `critical`
-- `error`
-- `warning`
-- `info` (default level)
-- `verbose`
-- `debug`
+Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, go to **Settings** (the **gear** symbol on the left) > **Application** > **Logging** > **Log Level**. You can then set the log level as needed. For troubleshooting, it is recommended to use the `debug` log level.
 
 Logs are split into folders for each session of Storage Explorer that you run. For whatever log files you need to share, place them in a zip archive, with files from different sessions in different folders.
 
@@ -524,7 +516,7 @@ If you're having trouble transferring data, you might need to get the AzCopy log
 
 ### Network logs
 
-For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this step by using Fiddler.
+For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this by using Fiddler.
 
 > [!NOTE]
 > Fiddler traces might contain passwords you entered or sent in your browser during the gathering of the trace. Make sure to read the instructions on how to sanitize a Fiddler trace. Don't upload Fiddler traces to GitHub. You'll be told where you can securely send your Fiddler trace.
@@ -538,21 +530,9 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 1. Make sure **Capture CONNECTs** and **Decrypt HTTPS traffic** are selected.
 1. Select **Actions**.
 1. Select **Trust Root Certificate** and then select **Yes** in the next dialog.
-1. Select **Actions** again.
-1. Select **Export Root Certificate to Desktop**.
-1. Go to your desktop, find the *FiddlerRoot.cer* file, and double-click it.
-1. Go to the **Details** tab.
-1. Select **Copy to File**.
-1. In the export wizard, choose the following options:
-
-    - Base-64 encoded X.509.
-    - For file name, browse to *C:\Users\\<your user dir\>\AppData\Roaming\StorageExplorer\certs*. Then you can save it as any file name.
-
-1. Close the certificate window.
 1. Start Storage Explorer.
-1. Go to **Edit** > **Configure Proxy**.
-1. In the dialog, select **Use app proxy settings**. Set the URL to http://localhost and the port to **8888**.
-1. Select **OK**.
+1. Go to **Settings** (the **gear** symbol on the left) > **Application** > **Proxy**
+1. Change the proxy source dropdown to be **Use system proxy (preview)**. 
 1. Restart Storage Explorer.
 1. You should start seeing network calls from a `storageexplorer:` process show up in Fiddler.
 
@@ -560,8 +540,8 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 1. Close all apps other than Fiddler.
 1. Clear the Fiddler log by using the **X** in the top left, near the **View** menu.
-1. Optional/recommended: Let Fiddler set for a few minutes. If you see network calls appear that aren't related to Storage Explorer, right-click them and select **Filter Now** > **Hide (process name)**.
-1. Start Storage Explorer.
+1. Optional/recommended: Let Fiddler set for a few minutes. If you see network calls appear that aren't related to Storage Explorer, right-click them and select **Filter Now** > **Hide \<process name\>**.
+1. Start/restart Storage Explorer.
 1. Reproduce the issue.
 1. Select **File** > **Save** > **All Sessions**. Save it somewhere you won't forget.
 1. Close Fiddler and Storage Explorer.

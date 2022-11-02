@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.author: larryfr
-author: blackmist
+ms.author: hancwang
+author: luigiw
+ms.reviewer: larryfr
 ms.date: 04/12/2022
 ---
 
@@ -21,7 +22,62 @@ ms.date: 04/12/2022
 In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
-`https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+`https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2022-10-10
+
+### Azure Machine Learning CLI (v2) v2.10.0
+
+- The CLI is depending on GA version of azure-ai-ml.
+- Dropped support for Python 3.6.
+- `az ml registry`
+  - New command group added to manage ML asset registries.
+- `az ml job`
+  - Added `az ml job show-services` command.
+  - Added model sweeping and hyperparameter tuning to AutoML NLP jobs.
+- `az ml schedule`
+  - Added `month_days` property in recurrence schedule.
+- `az ml compute`
+  - Added custom setup scripts support for compute instances.
+
+## 2022-09-22
+
+### Azure Machine Learning CLI (v2) v2.8.0
+
+- `az ml job`
+  - Added spark job support.
+  - Added shm_size and docker_args to job.
+- `az ml compute`
+  - Compute instance supports managed identity.
+  - Added idle shutdown time support for compute instance.
+- `az ml online-deployment`
+  - Added support for data collection for eventhub and data storage.
+  - Added syntax validation for scoring script.
+- `az ml batch-deployment`
+  - Added syntax validation for scoring script.
+
+## 2022-08-10
+
+### Azure Machine Learning CLI (v2) v2.7.0
+
+- `az ml component`
+  - Added AutoML component.
+- `az ml dataset`
+  - Deprecated command group (Use `az ml data` instead).
+
+## 2022-07-16
+
+### Azure Machine Learning CLI (v2) v2.6.0
+
+- Added MoonCake cloud support.
+- `az ml job`
+  - Allow Git repo URLs to be used as code.
+  - AutoML jobs use the same input schema as other job types.
+  - Pipeline jobs now supports registry assets.
+- `az ml component`
+  - Allow Git repo URLs to be used as code.
+- `az ml online-endpoint`
+  - MIR now supports registry assets.
 
 ## 2022-05-24
 
@@ -155,6 +211,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-05-25
 
-### Announcing the CLI (v2) (preview) for Azure Machine Learning
+### Announcing the CLI (v2) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).

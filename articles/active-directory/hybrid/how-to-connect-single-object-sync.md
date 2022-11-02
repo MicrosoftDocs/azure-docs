@@ -3,7 +3,7 @@ title: 'Azure AD Connect Single Object Sync '
 description: Learn how to synchronize one object from Active Directory to Azure AD for troubleshooting.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

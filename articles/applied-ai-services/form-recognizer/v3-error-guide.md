@@ -7,8 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 10/07/2022
 ms.author: paulhsu
+monikerRange: 'form-recog-3.0.0'
+recommendations: false
 ---
 
 # Form Recognizer error guide v3.0

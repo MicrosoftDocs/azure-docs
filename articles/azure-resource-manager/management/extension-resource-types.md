@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 10/20/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -121,6 +121,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * Reportconfigs
 * Reports
 * ScheduledActions
+* Settings
 * Views
 
 ## Microsoft.CustomProviders
@@ -203,9 +204,14 @@ An extension resource is a resource that adds to another resource's capabilities
 * cloudServiceSlots
 * networkManagerConnections
 
+## Microsoft.OperationalInsights
+
+* storageInsightConfigs
+
 ## Microsoft.PolicyInsights
 
 * attestations
+* componentPolicyStates
 * eventGridFilters
 * policyEvents
 * policyStates
@@ -230,7 +236,9 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Resources
 
+* deploymentStacks
 * links
+* snapshots
 * tags
 
 ## Microsoft.Security
@@ -262,6 +270,8 @@ An extension resource is a resource that adds to another resource's capabilities
 * automationRules
 * bookmarks
 * cases
+* contentPackages
+* contentTemplates
 * dataConnectorDefinitions
 * dataConnectors
 * enrichment

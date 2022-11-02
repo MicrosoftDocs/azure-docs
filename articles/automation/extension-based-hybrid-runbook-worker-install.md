@@ -257,11 +257,13 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
-## Use Azure Resource Manager template
+## Manage Hybrid Worker extension using ARM template, REST API, and Azure CLI
+
+#### [ARM template](#tab/arm-template)
 
 You can use an Azure Resource Manager (ARM) template to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group. To learn more about ARM templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
 
-### Review the template
+**Review the template**
 
 ```json
 {
@@ -546,7 +548,7 @@ The following Azure resources are defined in the template:
 - [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
 - [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
-### Review parameters
+**Review parameters**
 
 Review the parameters used in this template.
 
@@ -563,14 +565,14 @@ Review the parameters used in this template.
 | osVersion | The OS for the new Windows VM. The default value is `2019-Datacenter`. |
 | dnsNameForPublicIP | The DNS name for the public IP. |
 
+ 
+#### [REST API](#tab/rest-api)
 
-## Install Hybrid worker extension using REST API
-
-### Prerequisites
+**Prerequisites**
 
 You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
 
-### Install and use Hybrid Worker extension using REST API
+**Install and use Hybrid Worker extension**
 
 To install and use Hybrid Worker extension using REST API, follow these steps. The West Central US region is considered in this example.
 
@@ -676,6 +678,14 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
+#### [Azure CLI](#tab/cli)
+
+**Manage Hybrid Worker Extension**
+
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+
+---
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 

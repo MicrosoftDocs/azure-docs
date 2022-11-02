@@ -11,7 +11,7 @@ Azure Arc-enabled servers lets you manage Windows and Linux physical servers and
 
 When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
-To connect hybrid machines, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
+To connect hybrid machines to Azure, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
 
 * Proactively monitor the OS and workloads running on the machine
 * Manage it using Automation runbooks or solutions like Update Management
@@ -82,6 +82,10 @@ If a machine remains disconnected for 45 days, its status may change to **Expire
 Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level.
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
+
+## Data residency
+
+Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 

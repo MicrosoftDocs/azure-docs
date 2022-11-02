@@ -11,7 +11,7 @@ ms.custom: "include file"
 
 ---
 
-:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.png" alt-text="Application overview":::
+:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.svg" alt-text="Application overview":::
 
 This diagram depicts the workflow of the solution you build in this tutorial: 
 

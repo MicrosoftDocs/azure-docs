@@ -80,6 +80,18 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace. Trace data can be accessed for up to 24 hours.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-message-1.png" alt-text="Trace location in Azure Storage":::
+
+## Enable tracing using Ocp-Apim-Trace header
+
+When making requests to API Management using `curl`, a REST client such as Postman, or a client app, enable tracing by adding the following request headers:
+
+* **Ocp-Apim-Trace** - set value to `true`
+* **Ocp-Apim-Subscription-Key** - set value to the key for a tracing-enabled subscription that allows access to the API
+
+The response includes the **Ocp-Apim-Trace-Location** header, with a URL to the location of the trace data in Azure blob storage.
+
+For information about customizing trace information, see the [trace](api-management-advanced-policies.md#Trace) policy.
+
 ## Next steps
 
 In this tutorial, you learned how to:

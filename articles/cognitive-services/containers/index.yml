@@ -70,12 +70,10 @@ landingContent:
           text: Speech to text
         - url: ../speech-service/speech-container-howto.md?tabs=cstt
           text: Custom Speech to text
-        - url: ../speech-service/speech-container-howto.md?tabs=tts
-          text: Text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=ntts
           text: Neural text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=lid
-          text: Speech language detection
+          text: Speech language identification
 - title: Decision container
   linkLists:
       - linkListType: how-to-guide

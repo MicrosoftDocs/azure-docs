@@ -5,7 +5,7 @@ author: taiyee
 ms.service: orbital
 ms.topic: overview
 ms.custom: ga
-ms.date: 08/18/2022
+ms.date: 08/31/2022
 ms.author: taiyee
 ---
 
@@ -15,7 +15,7 @@ Azure Orbital Analytics are Azure capabilities using spaceborne data and AI that
 
 ## What it provides
 
-Azure Orbital Analytics provides the ability to downlink spaceborne data from Azure Orbital Ground Station (AOGS), first- or third-party archives, or customer-acquired data directly into Azure. This data is efficiently stored using Azure Data and Storage services. From there, you can convert raw spaceborne sensor data into analysis-ready data using Azure Orbital Analytics processing pipelines. 
+Azure Orbital Analytics informs customers of the ability to downlink spaceborne data from Azure Orbital Ground Station (AOGS), first- or third-party archives, or customer-acquired data directly into Azure. Data is efficiently stored using Azure Data Platform components. From there, raw spaceborne sensor data can be converted into analysis-ready data using Azure Orbital Analytics processing pipeline reference architectures.
 
 ## Integrations
 

@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-microsoft-managed.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-authentication-default-enablement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-mobile.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication-mobile-ios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/authentication/troubleshoot-certificate-based-authentication.md",
+      "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/my-apps-deployment-plan.md",
       "redirect_url": "/azure/active-directory/manage-apps/myapps-overview",
       "redirect_document_id": false
@@ -27,6 +42,41 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/bridgelineunbound-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-offboard-custom-workflow-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-offboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-scheduled-leaver-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-scheduled-leaver",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/set-employee-leave-date-time.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/keylight-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navex-irm-keylight-lockpath-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
@@ -368,6 +418,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/carlsonwagonlit-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cwt-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/eopen-cm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/e2open-cm-tutorial",
       "redirect_document_id": false
     },
     {
@@ -3378,17 +3433,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-scopes.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
@@ -4178,12 +4233,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-troubleshooting-support-howto.md",
-      "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-get-support",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/get-support.md",
-      "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-get-support",
       "redirect_document_id": false
     },
     {
@@ -5480,6 +5535,21 @@
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/consent-framework.md",
+      "redirect_url": "/azure/active-directory/develop/application-consent-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/v2-permissions-and-consent.md",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/consent-and-permissions-overview.md",
+      "redirect_url": "/azure/active-directory/manage-apps/user-admin-consent-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-enable.md",
@@ -10832,11 +10902,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/manage-apps/howto-enforce-signed-saml-authentication.md",
-      "redirect_url": "/azure/active-directory/manage-apps/howto-saml-token-encryption",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
       "redirect_document_id": false
@@ -10845,8 +10910,66 @@
       "source_path": "articles/azure-percept/voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md",
       "redirect_url": "/azure/azure-percept/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-members-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-delete-group.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-membership-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-settings-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-manage-groups.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-learn-about-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
+      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-integrations.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-get-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/support-help-options.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-get-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-playbook.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide",
+      "redirect_document_id": false
     }
-
-
   ]
 }

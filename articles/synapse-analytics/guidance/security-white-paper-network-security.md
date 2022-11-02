@@ -35,7 +35,7 @@ These endpoints are automatically created when the Synapse workspace is created.
 
 ### Synapse Studio
 
-[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Azure Synapse. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
+[*Synapse Studio*](/training/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Azure Synapse. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
 
 Use Synapse Studio to perform various data and management operations in Azure Synapse, such as:
 

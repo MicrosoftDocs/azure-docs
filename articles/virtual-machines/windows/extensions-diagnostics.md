@@ -83,6 +83,10 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 [See this article](../../azure-monitor/agents/diagnostics-extension-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
 
+#### Error: "Profile operation failed"
+
+To enable profiling, please follow [Enable Profiler for web apps on an Azure virtual machine](../../azure-monitor/profiler/profiler-vm.md#enable-profiler-for-web-apps-on-an-azure-virtual-machine).
+
 ### Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

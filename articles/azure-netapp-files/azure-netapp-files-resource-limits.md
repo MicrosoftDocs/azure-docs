@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 09/07/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -43,7 +43,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 1 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
@@ -89,7 +89,10 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 |    > 3 TiB but <= 4 TiB    |    80 million     |
 |    > 4 TiB                 |    100 million    |
 
-If you have allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#request-limit-increase) to increase the `maxfiles` (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the `maxfiles` limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+>[!IMPORTANT]
+> If your volume has a quota of at least 4 TiB and you want to increase the quota, you must initiate [a support request](#request-limit-increase).
+
+For volumes with at least 4 TiB of quota, you can increase the `maxfiles` (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the `maxfiles` limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the `maxfiles` limit to 500 million if your volume quota is at least 20 TiB. 
 
@@ -132,3 +135,4 @@ You can create an Azure support request to increase the adjustable limits from t
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
 - [Request region access for Azure NetApp Files](request-region-access.md)
+- [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

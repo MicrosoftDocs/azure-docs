@@ -157,7 +157,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/hello",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/tasks-api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/tasks-api/tasks.read"],
   },
 }
 ```
@@ -171,7 +171,7 @@ In the sample folder, open the *config.json* file. This file contains informatio
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|credentials|tenantName| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso`.|
+|credentials|tenantName| Your Azure AD B2C [domain/tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
 |credentials|clientID| The web API application ID from step [2.1](#21-register-the-web-api-application). In the [earlier diagram](#app-registration), it's the application with **App ID: 2**.|
 |credentials| issuer| (Optional) The token issuer `iss` claim value. Azure AD B2C by default returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
 |policies|policyName|The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). If your application uses multiple user flows or custom policies, specify only one. For example, use the sign-up or sign-in user flow.|
@@ -182,7 +182,7 @@ Your final configuration file should look like the following JSON:
 ```json
 {
     "credentials": {
-        "tenantName": "<your-tenant-name>",
+        "tenantName": "<your-tenant-name>.ommicrosoft.com",
         "clientID": "<your-webapi-application-ID>",
         "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },

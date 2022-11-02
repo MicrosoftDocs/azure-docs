@@ -45,6 +45,9 @@ You can send a `POST` request to the following endpoint:
 POST {{endpoint}}/api/atlas/v2/types/typedefs
 ```
 
+>[!TIP]
+> The **applicableEntityTypes** property tells which data types the metadata will be applied to.
+
 Sample JSON:
 
 ```json

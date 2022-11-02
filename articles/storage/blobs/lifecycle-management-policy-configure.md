@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 08/18/2021
+ms.date: 09/16/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -18,8 +18,9 @@ ms.devlang: azurecli
 
 Azure Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle. A lifecycle policy acts on a base blob, and optionally on the blob's versions or snapshots. For more information about lifecycle management policies, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
 
-A lifecycle management policy is comprised of one or more rules that define a set of actions to take based on a condition being met. For a base blob, you can choose to check one of two conditions:
+A lifecycle management policy is comprised of one or more rules that define a set of actions to take based on a condition being met. For a base blob, you can choose to check one of the following conditions:
 
+- The number of days since the blob was created.
 - The number of days since the blob was last modified.
 - The number of days since the blob was last accessed. To use this condition in an action, you must first [optionally enable access time tracking](#optionally-enable-access-time-tracking).
 
@@ -218,6 +219,12 @@ A lifecycle management policy must be read or written in full. Partial updates a
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
+> [!NOTE]
+> A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+
+> [!NOTE]
+> The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 
 ## See also
 

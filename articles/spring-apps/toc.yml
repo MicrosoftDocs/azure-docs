@@ -67,7 +67,7 @@ items:
     - name: Custom DNS name
       href: tutorial-custom-domain.md
     - name: Managed identity to connect MySQL
-      href: tutorial-managed-identities-mysql.md
+      href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
     - name: Managed identity to invoke Azure Functions
@@ -82,10 +82,22 @@ items:
     href: quotas.md
   - name: Understand app status
     href: concept-app-status.md
+  - name: Memory
+    items:
+    - name: Java memory management
+      href: concepts-for-java-memory-management.md
+    - name: Tools to troubleshoot memory issues
+      href: tools-to-troubleshoot-memory-issues.md
+    - name: Fix app restart issues caused by OOM
+      href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Metrics
     href: concept-metrics.md
   - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: concept-outbound-type.md
 - name: Security
   items:
   - name: Security controls
@@ -127,7 +139,7 @@ items:
     - name: Use IntelliJ to deploy apps
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
-      href: https://code.visualstudio.com/docs/java/java-spring-cloud
+      href: https://code.visualstudio.com/docs/java/java-spring-apps
     - name: Deploy Spring apps with Maven
       href: how-to-maven-deploy-apps.md
     - name: Deploy Spring apps with Azure PowerShell
@@ -136,6 +148,8 @@ items:
       href: how-to-enterprise-deploy-non-java-apps.md
     - name: Deploy with a custom container
       href: how-to-deploy-with-custom-container-image.md
+    - name: Deploy static files in Azure Spring Enterprise tier
+      href: how-to-enterprise-deploy-static-file.md
   - name: Manage
     items:
     - name: Start or stop a service
@@ -166,6 +180,8 @@ items:
       href: how-to-bind-redis.md
     - name: Azure Database for MySQL
       href: how-to-bind-mysql.md
+    - name: Azure Database for Postgres
+      href: how-to-bind-postgres.md
     - name: Azure SQL Database with Managed identity
       href: connect-managed-identity-to-azure-sql.md
     - name: Azure Load Balance Solutions
@@ -214,7 +230,11 @@ items:
       href: how-to-access-app-from-internet-virtual-network.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
-    - name: Customer responsibilities running Azure Spring Apps in VNET
+    - name: Control egress traffic for an Azure Spring Apps instance
+      href: how-to-create-user-defined-route-instance.md
+    - name: Customize the ingress configuration in Azure Spring Apps
+      href: how-to-configure-ingress.md
+    - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
@@ -248,18 +268,18 @@ items:
       href: github-actions-key-vault.md
   - name: Disaster recovery
     items:
-    - name: Enable availability zone
-      href: how-to-enable-availability-zone.md
-    - name: Plan for disaster recovery
-      href: disaster-recovery.md
+    - name: Redundancy and high availability
+      href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
       href: how-to-self-diagnose-solve.md
-    - name: Self diagnose running in VNET
+    - name: Self diagnose running in virtual networks
       href: how-to-self-diagnose-running-in-vnet.md
-    - name: Troubleshooting guide
+    - name: Troubleshoot common issues
       href: troubleshoot.md
+    - name: Troubleshoot common exit code issues
+      href: troubleshoot-exit-code.md
     - name: Capture heap/thread dump and use JFR
       href: how-to-capture-dumps.md
     - name: Use JVM options for troubleshooting
@@ -269,11 +289,11 @@ items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Reference architecture
