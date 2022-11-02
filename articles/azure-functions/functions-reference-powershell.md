@@ -397,9 +397,9 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
-### Running local on a specific version
+### Running locally on PowerShell 7.2
 
-When running locally the Azure Functions runtime defaults to using PowerShell Core 6. To instead use PowerShell 7 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7, your local.settings.json file looks like the following example: 
+When running locally, the Azure Functions runtime defaults to using PowerShell 7.0. Support for PowerShell 7.0 in Azure Functions is ending on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
 
 ```json
 {
@@ -407,14 +407,14 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "powershell",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7.2"
   }
 }
 ```
 
 ### Changing the PowerShell version
 
-Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Support for PowerShell 7.0 in Azure Functions is ending on 3 December 2022. Your function app must be running on version 4.x to be able to upgrade to PowerShell 7.2. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
@@ -424,9 +424,9 @@ Use the following steps to change the PowerShell version used by your function a
 1. In the [Azure portal](https://portal.azure.com), browse to your function app.
 
 1. Under **Settings**, choose **Configuration**. In the **General settings** tab, locate the **PowerShell version**. 
-
-    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Choose the PowerShell version used by the function app"::: 
-
+ 
+ 	![image](https://user-images.githubusercontent.com/108835427/199586564-25600629-44c7-439c-91f9-a500ad2989c4.png)
+ 
 1. Choose your desired **PowerShell Core version** and select **Save**. When warned about the pending restart choose **Continue**. The function app restarts on the chosen PowerShell version. 
 
 # [PowerShell](#tab/powershell)
@@ -438,7 +438,7 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with either `~6` or `~7`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `~7.2`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
 
