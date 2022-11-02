@@ -34,7 +34,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 2 Activity runs **per execution** (1 for trigger run, 1 for activity runs) = 480 activity runs, rounded up since the calculator only allows increments of 1000. |
-| Data Flow Assumptions: General purpose 16 vCore hours **per execution** = 10 min + 10 min TTL | 20 min \ 60 min |
+| Data Flow Assumptions: General purpose 16 vCore hours **per execution** = 10 min | 10 min \ 60 min |
 
 ## Pricing calculator example
 
