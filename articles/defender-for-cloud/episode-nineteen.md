@@ -28,7 +28,7 @@ ms.date: 10/31/2022
 - [08:22](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=08m22s) -  Demonstration
 
 ## Recommended resources
-  - [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction)
+  - [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) about Defender for DevOps.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
