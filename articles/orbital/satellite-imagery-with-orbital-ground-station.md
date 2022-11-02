@@ -196,6 +196,9 @@ cd ~/drl/data/pub/gsfcdata/aqua/modis/
 
 ## Next steps
 
+To easily deploy downstream components necessary to receive and process spaceborne Earth Observation (EO) data using Azure Orbital Ground Station(AOGS), see:
+- [Azure Orbital Integration](https://github.com/Azure/azure-orbital-integration)
+
 For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
 
 - [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
