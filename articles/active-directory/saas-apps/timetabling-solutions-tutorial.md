@@ -116,11 +116,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timetabling Solutions SSO
 
-To configure single sign-on on **Timetabling Solutions** side, you need to populate the **Thumbprint Value** and appropriate copied URLs from the Azure portal to the Timetabling Solutions [Administration Console](https://admin.timetabling.education/).
+In this section, you'll populate the relevent SSO values in the Timetabling Solutions Administration Console.
 
-### Create Timetabling Solutions test user
+1. In the [Administration Console](https://admin.timetabling.education/), select **5 Settings**, and then select the **SAML SSO** tab.
+1. Enable SAML Integration.
+1. Enter the **SAML Login Path** (See step 7 in the Configure Azure AD SSO section above).
+1. Enter the **SAML Logout Path** (See step 7 in the Configure Azure AD SSO section above).
+1. Enter the **SAML Certificate Fingerprint** (See step 6 in the Configure Azure AD SSO section above).
+1. Enter the **Custom Domain** name (tts has been used in the example below).
+1. **Save** the settings. 
 
-In this section, you create a user called Britta Simon in Timetabling Solutions. Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
+![SSO settings](https://user-images.githubusercontent.com/112389461/199550610-d352cea6-8804-46e2-9496-20eb4444b8c1.png)
+
+## Create Timetabling Solutions test user
+
+In this section, you create a user called Britta Simon in the Timetabling Solutions Administration Console. Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
