@@ -15,11 +15,11 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## October 2022
+## November 2022
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)<br>- [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+|**OT networks**     | [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)|
 
 ### New OT monitoring software release notes
 
@@ -46,13 +46,19 @@ In contrast, the new OT monitoring software release notes:
 
 For more information, see [OT monitoring software release notes](release-notes.md).
 
+## October 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+
 ### Enhanced OT monitoring alert reference
 
 Our alert reference article now includes the following details for each alert:
 
 - **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities
 
-- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. Modify alert thresholds as needed from the sensor's **Support** page.
+- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. The *cyberx* user can modify alert thresholds as needed from the sensor's **Support** page.
 
 For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md), specifically [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
 
