@@ -134,7 +134,7 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * [Get an document](#get-a-document)
 * [Query documents](#query-documents)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
+The sample code described in this article creates a database named `adventureworks` with a collection named `products`. The `products` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
 
 For the steps below, the database won't use sharding and shows a synchronous application uisng PyMongo. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
 
@@ -174,7 +174,7 @@ For the steps below, the database won't use sharding and shows a synchronous app
 
 ### Connect to the database
 
-Use the [``MongoClient``](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
+Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
 
 ```python
 client = pymongo.MongoClient(CONNECTION_STRING)
@@ -212,11 +212,11 @@ print("Using collection: {}\n".format(COLLECTION_NAME))
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
 --->
 
-You can check if a collection exists with the [list_collection_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
+You can check if a collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
 
 ### Create an index
 
-Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#createIndex) to create an index on the document's properties you intend to use for sorting with the MongoDB's [``FindCursor.sort``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html#sort) method.
+Use the collection operation [createIndex](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.create_index) to create an index on the document's properties you intend to use for sorting with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method.
 
 ```python
 result = collection.create_index([('name', pymongo.ASCENDING)], unique=True)
@@ -254,11 +254,11 @@ print("Upserted document with _id {}\n".format(result.upserted_id))
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 --->
 
-Create a document in the collection by calling the collection level operation [``update_one``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
+Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
 
 ### Get a document
 
-In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``).
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and partition key (`category`).
 
 ```python
 doc = collection.find_one({"_id": result.upserted_id})
@@ -270,7 +270,7 @@ print("Found a document with _id {}: {}\n".format(result.upserted_id, doc))
 
 ### Query documents
 
-After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [``Cursor``](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
+After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [`Collection.find`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [`Cursor`](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
 ```python
 """Query for documents in the collection"""
@@ -278,7 +278,7 @@ print("Products with category 'gear-surf-surfboards':\n")
 allProductsQuery = {
     "category": "gear-surf-surfboards"
 } 
-for doc in collection.find(allProductsQuery):
+for doc in collection.find(allProductsQuery).sort('name', pymongo.ASCENDING):
     print("Found a product with _id {}: {}\n".format(doc["_id"], doc))
 ```
 <!---
