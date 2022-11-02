@@ -66,7 +66,7 @@ A [semantic answer](semantic-answers.md) will also be returned if you specified 
 
 ## Next steps
 
-Semantic ranking is offered on Standard tiers, in specific regions. For more information about availability and sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md).
+Semantic ranking is offered on Standard tiers, in specific regions. For more information about availability and sign-up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md).
 
 Alternatively, review the following articles about default ranking. Semantic ranking depends on the similarity ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
 

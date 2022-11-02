@@ -63,7 +63,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 1. Review the properties you'll need to specify. A semantic configuration has a name and at least one of the following properties:
 
-    + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
+    + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This field could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
     + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the body of a document, the description of a product, or other free-form text.
     + **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
 
@@ -194,7 +194,7 @@ Field order is critical because the semantic ranker limits the amount of content
 
   + The first field should always be concise (such as a title or name), ideally a string that is under 25 words.
 
-  + If the index has a URL field that is human readable such as `www.domain.com/name-of-the-document-and-other-details`, (rather than machine focused, such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there's no concise title field).
+  + If the index has a URL field that is human readable such as `www.domain.com/name-of-the-document-and-other-details` (rather than machine focused, such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there's no concise title field).
 
   + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
 
@@ -218,7 +218,7 @@ Several query capabilities in Cognitive Search don't undergo relevance scoring, 
 
 ## 4 - Set up the query
 
-Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string) and the index should contain text fields with rich semantic content.
+Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string), and the index should contain text fields with rich semantic content.
 
 ### [**Azure portal**](#tab/portal-query)
 
@@ -232,7 +232,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 1. In Search explorer, set query options that enable semantic queries, semantic configurations, and spell correction. You can also paste the required query parameters into the query string.
 
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screen shot showing query options in Search explorer." border="true":::
+:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
 
 ### [**REST API**](#tab/rest-query)
 
@@ -286,7 +286,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "answers" to specify whether [semantic answers](semantic-answers.md) are included in the result. Currently, the only valid value for this parameter is "extractive". Answers can be configured to return a maximum of 10. The default is one. This example shows a count of three answers: `extractive|count-3`.
 
-   Answers are extracted from passages found in fields listed in the semantic configuration. This is why you want to include content-rich fields in the prioritizedContentFields of a semantic configuration, so that you can get the best answers and captions in a response. Answers aren't guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
+   Answers are extracted from passages found in fields listed in the semantic configuration. This behavior is why you want to include content-rich fields in the prioritizedContentFields of a semantic configuration, so that you can get the best answers and captions in a response. Answers aren't guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
 
 1. Set "captions" to specify whether semantic captions are included in the result. If you're using a semantic configuration, you should set this parameter. While the ["searchFields" approach](#2b---use-searchfields-for-field-prioritization) automatically included captions, "semanticConfiguration" doesn't. 
 
@@ -326,9 +326,9 @@ These beta versions use "searchFields" for field prioritization:
 
 Only the top 50 matches from the initial results can be semantically ranked. As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. A response includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
 
-In semantic search, the response has additional elements: a new semantically ranked relevance score, an optional caption in plain text and with highlights, and an optional [answer](semantic-answers.md). If your results don't include these extra elements, then your query might be misconfigured. As a first step towards troubleshooting the problem, check the semantic configuration to ensure it's specified in both the index definition and query.
+In semantic search, the response has more elements: a new semantically ranked relevance score, an optional caption in plain text and with highlights, and an optional [answer](semantic-answers.md). If your results don't include these extra elements, then your query might be misconfigured. As a first step towards troubleshooting the problem, check the semantic configuration to ensure it's specified in both the index definition and query.
 
-In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This is useful when individual fields are too dense for the search results page.
+In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This approach is useful when individual fields are too dense for the search results page.
 
 The response for the above example query returns the following match as the top pick. Captions are returned because the  "captions" property is set, with plain text and highlighted versions. Answers are omitted from the example because one couldn't be determined for this particular query and corpus.
 
