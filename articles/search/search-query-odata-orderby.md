@@ -15,7 +15,7 @@ ms.date: 07/18/2022
 
 In Azure Cognitive Search, the **$orderby** parameter specifies custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
 
-Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting and search results composition, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting algorithms, see [Ordering results](search-pagination-page-layout.md#ordering-results).
 
 ## Syntax
 
@@ -77,7 +77,7 @@ Sort hotels in descending order by search.score and rating, and then in ascendin
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 ```
 
-## Next steps  
+## See also 
 
 - [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
