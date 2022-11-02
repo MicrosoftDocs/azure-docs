@@ -72,9 +72,9 @@ To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet cor
 
 IP packets from UEs are tunnelled through from the RAN, which adds overhead from encapsulation. Due to this, the MTU value for the UE should be smaller than the MTU value used between the RAN and the Packet Core to avoid transmission issues.
 
-RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is 1300 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU due to generating larger packets that require IPv4 fragmentation that may be dropped by the network.
+RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is 1300 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation that may be dropped by the network.
 
-If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher which allows a sufficient overhead for the encapsulation and avoid fragmentation with a UE using a standard MTU of 1500.
+If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
 
 ### Signal coverage
 
