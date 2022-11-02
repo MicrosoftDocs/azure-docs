@@ -71,7 +71,11 @@ To determine if your email application supports Azure AD CBA, contact your appli
 
 ## Support for certificates on hardware security key (preview)
 
-Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. Azure AD supports CBA with YubiKey.  
+Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. 
+Microsoft's mobile certificate-based solution coupled with the hardware security keys is a simple, convenient, FIPS (Federal Information Processing Standards) certified phishing-resistant MFA method. 
+
+As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 will see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or 3rd party apps. Azure AD CBA will work on these USB-A or USB-C, or Lightning connected CCID-compliant smart cards. 
+
 
 ### Advantages of certificates on hardware security key 
 
@@ -82,6 +86,10 @@ Security keys with certificates:
 - Provide multifactor authentication with a PIN as second factor to access the private key of the certificate 
 - Satisfy the industry requirement to have MFA on separate device 
 - Help in future proofing where multiple credentials can be stored including Fast Identity Online 2 (FIDO2) keys 
+
+### Azure AD CBA on iOS mobile with YubiKey 
+
+Even though the native Smartcard/CCID driver is available on iOS/iPadOS for Lightning connected CCID-compliant smart cards, the YubiKey 5Ci Lightning connector is not seen as a connected smart card on these devices without the use of PIV (Personal Identity Verification) middleware like the Yubico Authenticator.  
 
 ### One-time registration prerequisite
 
