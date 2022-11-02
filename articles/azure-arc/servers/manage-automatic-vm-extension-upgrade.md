@@ -46,13 +46,18 @@ If you continue to have trouble upgrading an extension, you can [disable automat
 
 ## Supported extensions
 
-Automatic extension upgrade supports the following extensions (and more are added periodically):
+Automatic extension upgrade supports the following extensions:
 
-- Azure Monitor Agent - Linux and Windows
-- Azure Security agent - Linux and Windows
-- Dependency agent – Linux and Windows
-- Key Vault Extension - Linux only
+- Azure Monitor agent - Linux and Windows
 - Log Analytics agent (OMS agent) - Linux only
+- Dependency agent – Linux and Windows
+- Azure Security agent - Linux and Windows
+- Key Vault Extension - Linux only
+- Azure Update Management Center - Linux and Windows
+- Azure Automation Hybrid Runbook Worker - Linux and Windows
+- Azure Arc-enabled SQL Server agent - Windows only
+
+More extensions will be added over time. Extensions that do not support automatic extension upgrade today are still configured to enable automatic upgrades by default. This setting will have no effect until the extension publisher chooses to support automatic upgrades.
 
 ## Manage automatic extension upgrade
 

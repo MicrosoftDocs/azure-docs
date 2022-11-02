@@ -49,4 +49,4 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |[Azure Table Storage](../../storage/tables/table-storage-overview.md)|*.table.core.windows.net|
 |[Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)|*.trafficmanager.net|
 |Azure Websites|*.azurewebsites.net|
-|[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|*.visualstudio.com|
+|[GitHub Codespaces](https://visualstudio.microsoft.com/services/github-codespaces/)|*.visualstudio.com|

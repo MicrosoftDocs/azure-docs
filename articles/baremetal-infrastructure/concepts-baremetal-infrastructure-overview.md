@@ -11,7 +11,7 @@ ms.date: 09/27/2021
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. In some cases, though, you may need to run services on bare metal servers without a virtualization layer. You may need root access and control over the operating system (OS). To meet this need, Azure offers BareMetal Infrastructure for several high-value, mission-critical applications.
 
 BareMetal Infrastructure is made up of dedicated BareMetal instances (compute instances). It features:
-- High-performance storage appropriate to the application (NFS, ISCSI, and Fiber Channel). Storage can also be shared across BareMetal instances to enable features like scale-out clusters or high availability pairs with STONITH.
+- High-performance storage appropriate to the application (NFS, ISCSI, and Fiber Channel). Storage can also be shared across BareMetal instances to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability.
 - A set of function-specific virtual LANs (VLANs) in an isolated environment.
 
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription. The entire environment is represented as a resource group in your Azure subscription.

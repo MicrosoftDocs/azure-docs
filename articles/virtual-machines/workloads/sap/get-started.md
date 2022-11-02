@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/18/2022
+ms.date: 10/31/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -25,9 +25,9 @@ When you use Microsoft Azure, you can reliably run your mission-critical SAP wor
 
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure.
 
-We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
+We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP Deployment Automation Framework (SDAF) to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
@@ -64,6 +64,10 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- October 31, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) to fix script location for DRBD 9.0 
+- October 31, 2022: Change in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) to update the guideline for sizing `/hana/shared`
+- October 27, 2022: Adding Ev4 and Ev5 VM families and updated OS releases to table in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
+- October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we are de-emphasizing SAP reference architectures, utilizing NFS clusters  
 - October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)
 - October 17, 2022: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add guidance for setting up parameter `AUTOMATED_REGISTER`    
 - September 29, 2022: Announcing HANA Large Instances being in sunset mode in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) and [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md). Adding some statements around Azure VMware and Azure Active Directory support status in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)

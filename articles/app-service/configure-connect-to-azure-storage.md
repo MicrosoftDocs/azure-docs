@@ -50,7 +50,7 @@ The following features are supported for Windows containers:
 
 ::: zone pivot="container-linux"
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). For using Azure Storage in an ARM template, see [Bring your own storage](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json). The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 

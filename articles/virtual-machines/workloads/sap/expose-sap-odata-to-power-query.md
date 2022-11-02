@@ -40,13 +40,13 @@ Integrations between SAP products and the Microsoft 365 portfolio range from cus
 
 The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query-what-is-power-query#where-can-you-use-power-query).
+For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Setup considerations
 
 End users have a choice between local desktop or web-based clients (for instance Excel or Power BI). The client execution environment needs to be considered for the network path between the client application and the target SAP workload. Network access solutions such as VPN aren't in scope for apps like Excel for the web.
 
-[Azure API Management](/services/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
+[Azure API Management](/azure/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
 or [external](../../../api-management/api-management-using-with-vnet.md?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
 Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](../../../api-management/configure-custom-domain.md) to meet the requirement.
@@ -155,6 +155,19 @@ honoring the SAP named user mapping.
 ## SAP OData access via other Power Query enabled applications and services
 
 Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](../../../data-factory/control-flow-power-query-activity.md), [Azure Synapse Analytics Pipelines](../../../data-factory/control-flow-power-query-activity.md), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+
+## Tackle SAP write-back scenarios with Power Automate
+
+The described approach is also applicable to write-back scenarios. For example, you can use [Power Automate](/flow/) to update a business partner in SAP using OData with the [http-enabled connectors](/training/modules/http-connectors/) (alternatively use [RFCs or BAPIs](/connectors/saperp/)). See below an example of a [Power BI service](/power-bi/fundamentals/power-bi-service-overview) dashboard that is connected to Power Automate through [value-based alerts](/power-bi/create-reports/service-set-data-alerts) and a [button](/power-bi/create-reports/power-bi-automate-visual?tabs=powerbi-desktop) (highlighted on the screenshot). Learn more about triggering flows from Power BI reports on the [Power Automate documentation](/power-automate/trigger-flow-powerbi-report).
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/powerbi-flow-enabled-dashboard.png" alt-text="Screenshot that shows the flow-enabled Power BI service dashboard.":::
+
+The highlighted button triggers a flow that forwards the OData PATCH request to the SAP Gateway to change the business partner role.
+
+> [!NOTE]
+> Use the Azure API Management [policy for SAP](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to handle the authentication, refresh tokens, [CSRF tokens](https://blogs.sap.com/2021/06/04/how-does-csrf-token-work-sap-gateway/) and overall caching of tokens outside of the flow.
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/power-automate-powerbi-button-flow.png" alt-text="Screenshot that shows the flow on Power Automate requesting the business partner change on the SAP back end.":::
 
 ## Next steps
 
