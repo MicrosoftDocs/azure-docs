@@ -28,7 +28,7 @@ Pre-configured physical appliances have been validated for Defender for IoT OT s
 
 ## Appliances for OT network sensors
 
-You can [order](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsoft.com&subject=Information%20about%20MD4IoT%20pre-configured%20appliances). any of the following preconfigured appliances for monitoring your OT networks:
+You can [order](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsoft.com&subject=Information%20about%20MD4IoT%20pre-configured%20appliances) any of the following pre-configured appliances for monitoring your OT networks:
 
 |Hardware profile  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|
