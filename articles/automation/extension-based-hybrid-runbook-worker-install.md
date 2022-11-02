@@ -108,7 +108,7 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Setting $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait
 ```
 
 # [Linux](#tab/linux)
@@ -263,7 +263,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 Hybrid Worker extension supports [Automatic upgrade](/articles/virtual-machines/automatic-extension-upgrade.md) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep template, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
 
-```
+```powershell
 $extensionType = "HybridWorkerForLinux/HybridWorkerForWindows"
 $extensionName = "HybridWorkerExtension"
 $publisher = "Microsoft.Azure.Automation.HybridWorker"
@@ -271,13 +271,17 @@ Set-AzVMExtension -ResourceGroupName <RGName> -Location <Location>  -VMName <vmN
 ```
 Major version upgrades must be managed manually. Run the below cmdlets with the latest TypeHandlerVersion.
 
+> [!NOTE]
+> If you had installed the Hybrid Worker extension during the public preview, ensure to upgrade it to the latest major version.
+
 **Azure VMs**
-```
+
+```powershell
 Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings
 ```
 **Azure Arc-enabled VMs**
 
-```
+```powershell
 New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait
 ```
 
@@ -950,20 +954,21 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 - To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
 
 
+
 #### [PowerShell](#tab/ps)
 
 You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and Hybrid Runbook Worker groups:
 
 | PowerShell cmdlet | Description |
 | ----- | ----------- |
-|[`Get-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Get-AzAutomationHybridRunbookWorkerGroup.md) | Gets Hybrid Runbook Worker group|
-|[`Remove-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Remove-AzAutomationHybridRunbookWorkerGroup.md) | Removes Hybrid Runbook Worker group|
-|[`Set-AzAutomationHybridRunbookWorkerGroup`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Set-AzAutomationHybridRunbookWorkerGroup.md) | Updates Hybrid Worker group with Hybrid Worker credentials|
-|['New-AzAutomationHybridRunbookWorkerGroup'](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/New-AzAutomationHybridRunbookWorkerGroup.md) | Creates new Hybrid Runbook Worker group|
-|[`Get-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Get-AzAutomationHybridRunbookWorker.md) | Gets Hybrid Runbook Worker|
-|[`Move-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Move-AzAutomationHybridRunbookWorker.md) | Moves Hybrid Worker from one group to other|
-|[`New-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/New-AzAutomationHybridRunbookWorker.md) | Creates new Hybrid Runbook Worker|
-|[`Remove-AzAutomationHybridRunbookWorker`](https://github.com/Azure/azure-powershell/blob/main/src/Automation/Automation/help/Remove-AzAutomationHybridRunbookWorker.md)| Removes Hybrid Runbook Worker|
+|[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Gets Hybrid Runbook Worker group|
+|[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Removes Hybrid Runbook Worker group|
+|[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Updates Hybrid Worker group with Hybrid Worker credentials|
+|['New-AzAutomationHybridRunbookWorkerGroup'](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Creates new Hybrid Runbook Worker group|
+|[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker?view=azps-9.1.0) | Gets Hybrid Runbook Worker|
+|[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker?view=azps-9.1.0) | Moves Hybrid Worker from one group to other|
+|[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker?view=azps-9.1.0) | Creates new Hybrid Runbook Worker|
+|[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker?view=azps-9.1.0)| Removes Hybrid Runbook Worker|
 
 ---
 
