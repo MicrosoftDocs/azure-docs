@@ -30,7 +30,8 @@ These metrics are surfaced through [Azure Monitor](../../azure-monitor/data-plat
 | Active Queries | Number of active queries executing on the system | Sum |
 | Queued Queries | Number of queued queries waiting to start executing | Sum |
 | Successful Connections | Number of successful connections (logins) against the database | Sum, Count |
-| Failed Connections | Number of failed connections (logins) against the database | Sum, Count |
+| Failed Connections: User Errors | Number of user failed connections (logins) against the database | Sum, Count |
+| Failed Connections: System Errors | Number of system failed connections (logins) against the database | Sum, Count |
 | Blocked by Firewall | Number of logins to the data warehouse which was blocked | Sum, Count |
 | DWU limit | Service level objective of the data warehouse | Avg, Min, Max |
 | DWU percentage | Maximum between CPU percentage and Data IO percentage | Avg, Min, Max |
