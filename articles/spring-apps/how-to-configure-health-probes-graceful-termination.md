@@ -23,86 +23,90 @@ A probe is a diagnostic activity performed periodically by Azure Spring Apps on 
 - Establishes a TCP socket connection.
 - Makes an HTTP request.
 
-Azure Spring Apps uses liveness probes to determine when to restart an application. For example, liveness probes could catch a deadlock, where an application is running but unable to make progress. Restarting the application in such a state can help to make the application more available despite bugs.
+Azure Spring Apps offers default health probe rules for every application. This article shows you how to customize your application with three kinds of health probes:
 
-Azure Spring Apps uses readiness probes to determine when an app instance is ready to start accepting traffic. One use of this signal is to control which app instances are used as backends for the application. When an app instance isn't ready, it's removed from Kubernetes Service Discovery. For more information, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
+- *Liveness probes* determine when to restart an application. For example, liveness probes can identify a deadlock, such as when an application is running but unable to make progress. Restarting the application in a deadlock state can make the application available despite errors.
 
-Azure Spring Apps uses startup probes to determine when an application has started. If such a probe is configured, it disables liveness and readiness checks until it succeeds, making sure those probes don't interfere with the application startup. You can use this behavior to adopt liveness checks on slow starting applications, preventing them from getting killed before they're up and running.
+- *Readiness probes* determine when an app instance is ready to start accepting traffic. For example, readiness probes can control which app instances are used as backends for the application. When an app instance isn't ready, it's removed from Kubernetes service discovery. For more information, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
 
-Azure Spring Apps offers default health probe rules for every application. This article shows you how to customize your application with three kinds of health probes.
+- *Startup probes* determine when an application has started. A startup probe disables liveness and readiness checks until startup succeeds, ensuring that liveness and readiness probes don't interfere with application startup. You can use use startup probes to perform liveness checks on slow starting applications, preventing the app from terminating before it's up and running.
 
 ## Prerequisites
 
-- The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI.
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension.
 
 ## Configure health probes and graceful termination for applications
 
-The following sections describe the properties available for configuration and how to set the properties using the Azure CLI.
+The following sections describe how to configure health probes and graceful termination using the Azure CLI.
 
 ### Graceful termination
 
-The following table describes the property available for configuring graceful termination.
+The following table describes the `terminationGracePeriodSeconds` property, which you can use to configure graceful termination.
 
-| Property name                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| terminationGracePeriodSeconds | The duration in seconds after processes running in the app instance are sent a termination signal before they're forcibly halted. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. The value zero indicates to stop immediately via the kill signal (with no opportunity to shut down). If this value is nil, the default grace period will be used instead. The default value is 90 seconds. |
+| Property name                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `terminationGracePeriodSeconds` | The duration in seconds after processes running in the app instance are sent a termination signal before they're forcibly halted. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. Setting the grace period to zero stops the app instance immediately via the kill signal, with no opportunity to shut down. If the value is nil, Azure Spring Apps uses the default grace period. The default value is 90 seconds. |
 
 ### Health probe properties
 
-The following table describes the properties available for configuring health probes.
+The following table describes the properties you can use to configure health probes.
 
-| Property name       | Description                                                                                                                                                                                              |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| initialDelaySeconds | The number of seconds after the app instance has started before probes are initiated. The default value is 0 seconds. The minimum value is 0.                                                            |
-| periodSeconds       | How often (in seconds) to perform the probe. The default value is 10 seconds. The minimum value is 1 second.                                                                                             |
-| timeoutSeconds      | The number of seconds after which the probe times out. The default value is 1 second. The minimum value is 1 second.                                                                                     |
-| failureThreshold    | The minimum number of consecutive failures for the probe to be considered failed after having succeeded. The default value is 3. The minimum value is 1.                                                 |
-| successThreshold    | The minimum number of consecutive successes for the probe to be considered successful after having failed. The default value is 1. The value must be 1 for liveness and startup. The minimum value is 1. |
+| Property name         | Description                                                                                                                                                                                              |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `initialDelaySeconds` | The number of seconds after the app instance has started before probes are initiated. The default value is 0, the minimum value.                                                                         |
+| `periodSeconds`       | The frequency in seconds to perform the probe. The default value is 10. The minimum value is 1.                                                                                                          |
+| `timeoutSeconds`      | The number of seconds until the probe times out. The default value is 1, the minimum value.                                                                                                              |
+| `failureThreshold`    | The minimum number of consecutive failures for the probe to be considered failed after having succeeded. The default value is 3. The minimum value is 1.                                                 |
+| `successThreshold`    | The minimum number of consecutive successes for the probe to be considered successful after having failed. The default value is 1. The value must be 1 for liveness and startup. The minimum value is 1. |
 
 ### Probe action properties
 
-There are three different ways to check an app instance using a probe. Each probe must define exactly one of these three probe actions:
+There are three ways you can check an app instance using a probe. Each probe must define one of the following probe actions:
 
 - `HTTPGetAction`
 
   Performs an HTTP GET request against the app instance on a specified path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
 
   | Property name | Description                                                                    |
-  |---------------|--------------------------------------------------------------------------------|
-  | scheme        | The scheme to use for connecting to the host. Defaults to HTTP.                |
-  | path          | The path to access on the HTTP server of the app instance, such as `/healthz`. |
+  |----------------|---------------------------------------------------------------------------------|
+  | `scheme`      | The scheme to use for connecting to the host. The default is HTTP.             |
+  | `path`        | The path to access on the HTTP server of the app instance, such as */healthz*. |
 
 - `ExecAction`
 
   Executes a specified command inside the app instance. The diagnostic is considered successful if the command exits with a status code of 0.
 
   | Property name | Description                                                                                                                                                                                                                                                                                                                                                                            |
-  |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  | command       | The command line to execute inside the app instance. The working directory for the command is root ('/') in the app instance's filesystem. The command is run using `exec`, not inside a shell, so traditional shell instructions won't work. To use a shell, you need to explicitly call out to that shell. An exit status of 0 is treated as live/healthy and non-zero is unhealthy. |
+  |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | `command`       | The command to execute inside the app instance. The working directory for the command is the root directory (*/*) in the app instance's file system. Because the command is run using `exec` rather than inside a shell, shell instructions won't work. To use a shell, explicitly call out to the shell. An exit status of 0 is treated as live/healthy, and non-zero is unhealthy. |
 
 - `TCPSocketAction`
 
   Performs a TCP check against the app instance.
 
-  There are no available properties to be customized for now.
+  There are no available properties for the `TCPSocketAction` action.
 
 ### Customize your application
 
 #### [Azure portal](#tab/azure-portal)
 
-The following steps show you how to customize your application using Azure portal.
+Use the following steps to customize your application using Azure portal:
 
-1. Under **Settings**, select Apps and select the application from the list.
-![Screenshot that shows select apps.](./media/spring-apps-health-probes/select-app.jpg)
-2. Select **Configuration** from the left table of contents, and then select **Health probes**.
-3. You could enable/disable any health probe and config all properties provided here.
-![Screenshot that shows config probes.](./media/spring-apps-health-probes/probe-config.jpg)
-4. To set the termination grace period seconds, select **General settings** and config here.
-![Screenshot that shows config termination grace period.](./media/spring-apps-health-probes/termination-grace-period-config.jpg)
+1. Under **Settings**, select **Apps**, and then select the application from the list.
+
+   :::image type="content" source="media/how-to-configure-health-probes-graceful-termination/select-app.jpg" lightbox="media/how-to-configure-health-probes-graceful-termination/select-app.jpg" alt-text="Screenshot of Azure portal showing the Apps page.":::
+
+1. Select **Configuration** in the left naviation pane, select **Health probes**, and then specify Health proble properties.
+
+   :::image type="content" source="media/how-to-configure-health-probes-graceful-termination/probe-config.jpg" lightbox="media/how-to-configure-health-probes-graceful-termination/probe-config.jpg" alt-text="Screenshot of the Azure portal Configuration page showing the Health probes tab.":::
+
+1. To set the termination grace period, select **General settings**, and specify a value in the Termination grade period box.
+
+   :::image type="content" source="media/how-to-configure-health-probes-graceful-termination/termination-grace-period-config.jpg" lightbox="media/how-to-configure-health-probes-graceful-termination/termination-grace-period-config.jpg" alt-text="Screenshot of the Azure portal Configuration page showing the General settings tab.":::
 
 #### [Azure CLI](#tab/azure-cli)
 
-The following steps show you how to customize your application using Azure CLI.
+Use the following steps show you how to customize your application using Azure CLI.
 
 1. Use the following command to create an application with liveness probe and readiness probe:
 
