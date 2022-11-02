@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 11/02/2022
 ms.author: sipastak
 ---
 
@@ -28,6 +28,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 2 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | 64 GB RAM |
 | Memory: usable | 51 GB RAM |
+| GPU | None |
 
 # [Model 128G4T1GPU](#tab/sku-b)
 
@@ -39,6 +40,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | 128 GB RAM |
 | Memory: usable | 102 GB RAM |
+| GPU | 1 |
 
 # [Model 256G6T2GPU](#tab/sku-c)
 
@@ -50,6 +52,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 64 GB DDR4-2933 RDIMM |
 | Memory: raw   | 256 GB RAM |
 | Memory: usable | 204 GB RAM |
+| GPU | 2 |
 
 ---
 
