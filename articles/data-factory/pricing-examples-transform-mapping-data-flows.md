@@ -38,7 +38,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Pricing calculator example
 
-**Total scenario pricing for 30 days: $350.76**
+**Total scenario pricing for 30 days: $175.88**
 
 :::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4a-pricing-calculator.png":::
 
