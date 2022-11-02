@@ -305,3 +305,49 @@ TBD
 <!---
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="console_result":::
 --->
+
+## Clean up resources
+
+When you no longer need the Azure Cosmos DB for NoSQL account, you can delete the corresponding resource group.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
+
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
+
+### [PowerShell](#tab/azure-powershell)
+
+Use the [``Remove-AzResourceGroup``](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group.
+
+```azurepowershell-interactive
+$parameters = @{
+    Name = $RESOURCE_GROUP_NAME
+}
+Remove-AzResourceGroup @parameters
+```
+
+### [Portal](#tab/azure-portal)
+
+1. Navigate to the resource group you previously created in the Azure portal.
+
+    > [!TIP]
+    > In this quickstart, we recommended the name ``msdocs-cosmos-javascript-quickstart-rg``.
+1. Select **Delete resource group**.
+
+   :::image type="content" source="media/quickstart-nodejs/delete-resource-group-option.png" lightbox="media/quickstart-nodejs/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+
+1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
+
+   :::image type="content" source="media/quickstart-nodejs/delete-confirmation.png" lightbox="media/quickstart-nodejs/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+
+---
+
+## Next steps
+
+In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the MongoDB driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
+
+> [!div class="nextstepaction"]
+> [Migrate MongoDB to Azure Cosmos DB for MongoDB offline](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%3ftoc%3d%2fazure%2fcosmos-db%2ftoc.json)
