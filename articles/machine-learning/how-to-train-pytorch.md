@@ -19,7 +19,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-train-pytorch.md)
-> * [v2 (preview)](how-to-train-pytorch.md)
+> * [v2 (current version)](how-to-train-pytorch.md)
 
 In this article, you'll learn to train, hyperparameter tune, and deploy a [PyTorch](https://pytorch.org/) model using the Azure Machine Learning (AzureML) Python SDK v2.
 
