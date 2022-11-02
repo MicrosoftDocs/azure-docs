@@ -29,6 +29,9 @@ You can delete your existing sites in the Azure portal.
 1. If you want to proceed, select the checkbox and select **Delete**.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+
+deploy a new site, if required.
+
+- [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)
+- [Collect the required information for a site](collect-required-information-for-a-site.md)
+- [Create a site](create-a-site.md)
