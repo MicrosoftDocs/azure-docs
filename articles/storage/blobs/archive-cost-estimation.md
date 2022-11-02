@@ -82,7 +82,7 @@ This scenario assumes that you plan to remove on-premises tapes or file servers 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates three months of spending. 
 
-This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB in size to archive. It also assumes one-time read each month of about 1% of archived capacity.
+This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB in size to archive. It also assumes one-time read each month of about 1% of archived capacity. The operation used this scenario is the [Put Blob](/rest/api/storageservices/put-blob) operation. 
 
 <br>
 <table>
@@ -188,7 +188,7 @@ Each month, you'd assume the cost of writing to the archive tier. The cost to st
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates three months of spending. 
 
-This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes a one-time read each month of about 1% of archived capacity.
+This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes a one-time read each month of about 1% of archived capacity. The operation used this scenario is the [Put Blob](/rest/api/storageservices/put-blob) operation. 
 <br><br>
 
 <table>
