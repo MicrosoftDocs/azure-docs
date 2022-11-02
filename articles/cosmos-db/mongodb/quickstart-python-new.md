@@ -354,7 +354,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the MongoDB driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
+In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the PyMongo driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
 
 > [!div class="nextstepaction"]
-> [Migrate MongoDB to Azure Cosmos DB for MongoDB offline](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%3ftoc%3d%2fazure%2fcosmos-db%2ftoc.json)
+> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/migration-choices)
