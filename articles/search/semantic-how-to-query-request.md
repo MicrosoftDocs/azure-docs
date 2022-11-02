@@ -18,7 +18,7 @@ ms.date: 11/01/2022
 
 In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You'll also get semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases.
 
-There are two main activities in task:
+There are two main activities to perform:
 
 + Add a semantic configuration to an index
 + Add parameters to a query request
