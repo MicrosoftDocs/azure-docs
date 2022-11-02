@@ -246,18 +246,7 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 
 In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
 
-> [!NOTE]
-> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
-
-**To clear system data**:
-1. Sign in to the sensor as the **cyberx** user.
-1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
-
-All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
-
-
+For more information on how to clear system data, see [Clearing sensor data to factory default](how-to-manage-individual-sensors.md#clearing-sensor-data-to-factory-default).
 
 ## Troubleshoot an on-premises management console
 
