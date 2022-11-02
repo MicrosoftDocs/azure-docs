@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 05/16/2022
+ms.date: 11/02/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -197,6 +197,13 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ------ | -----------
 **Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
 **Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
+
+### UserErrorInvalidBackint
+
+**Error message** | Found invalid hdbbackint executable.
+--- | ---
+**Possible case** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
+**Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
 
 ## Restore checks
 
