@@ -90,16 +90,7 @@ The following table summarizes the two plans.
 
 Each workspace has a default retention policy that's applied to all tables, but you can [set table-level retention policies](../logs/data-retention-archive.md) on individual tables.
 
-:::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Diagram that shows an overview of data retention and archive periods.":::
+Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation.
 
-During the interactive retention period, data is available for monitoring, troubleshooting, and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs.
-
-Archived data stays in the same table, alongside the data that's available for interactive queries. When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period.
-
-If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 30 days of interactive retention and no archive period. You decide to change the retention policy to eight days of interactive retention and one year total retention. Log Analytics immediately archives any data that's older than eight days.
-
-You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md).
-
-> [!NOTE]
-> The archive period can only be set at the table level, not at the workspace level.
+To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
 
