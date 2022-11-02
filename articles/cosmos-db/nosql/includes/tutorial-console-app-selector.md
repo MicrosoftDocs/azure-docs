@@ -12,7 +12,5 @@ ms.custom: include file
 
 > [!div class="op_single_selector"]
 >
-> * [.NET](../tutorial-dotnet-web-app.md)
-> * [Java](../tutorial-java-web-app.md)
-> * [Node.js](../tutorial-nodejs-web-app.md)
+> * [.NET](../tutorial-dotnet-console-app.md)
 >

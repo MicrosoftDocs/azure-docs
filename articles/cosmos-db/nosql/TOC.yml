@@ -29,6 +29,14 @@
       href: quickstart-terraform.md
 - name: Tutorials
   items:
+    - name: Build web applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-console-app.md
+    - name: Build console applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-web-app.md
     - name: Create and manage data
       items:
         - name: Build a console app

@@ -18,7 +18,7 @@ ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[Language selector]](includes/tutorial-web-app-selector.md)
+[!INCLUDE[Web app language selector](includes/tutorial-web-app-selector.md)]
 
 The Azure SDK for .NET allows you to query data in an API for NoSQL container using [LINQ in C#](how-to-dotnet-query-items.md#query-items-using-linq-asynchronously) or a [SQL query string](how-to-dotnet-query-items.md#query-items-using-a-sql-query-asynchronously). This tutorial will walk through the process of updating an existing ASP.NET web application that uses placeholder data to instead query from the API.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 >
 > - Create and populate a database and container using API for NoSQL
 > - Create an ASP.NET web application from a template
-> - Query data from the API for NoSQL container using the .NET SDK
+> - Query data from the API for NoSQL container using the Azure SDK for .NET
 >
 
 ## Prerequisites
@@ -490,7 +490,7 @@ Finally, you'll run the application with **hot reloads** enabled. Running the ap
 
 ## Clean up resources
 
-When no longer needed, delete the container used in this tutorial. To do so, navigate to the account page, select **Data Explorer**, select the `cosmicworks` database, and then select **Delete**.
+When no longer needed, delete the database used in this tutorial. To do so, navigate to the account page, select **Data Explorer**, select the `cosmicworks` database, and then select **Delete**.
 
 ## Next steps
 
