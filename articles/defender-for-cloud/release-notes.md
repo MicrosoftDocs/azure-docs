@@ -32,7 +32,7 @@ Updates in October include:
 
 ### Announcing the Microsoft cloud security benchmark
 
-The [microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
+The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
 
 You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
 
@@ -48,13 +48,13 @@ One of the biggest challenges that security teams face today is the number of se
 
 Defender for Cloud's new cloud security graph and attack path analysis capabilities give security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
 
-Learn more about the new [cloud security graph, attack path analysis and the cloud security explorer](concept-attack-path.md).
+Learn more about the new [cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
 ### Agentless scanning for Azure and AWS machines (Preview)
 
 Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
 
-With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
 
 Agentless vulnerability scanning is available in both Defender Cloud Security Posture Management (CSPM) and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
 
@@ -63,27 +63,27 @@ Agentless vulnerability scanning is available in both Defender Cloud Security Po
 
 ### Defender for DevOps (Preview)
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, Google, and on-premises resources. 
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources. 
 
 Now, the new Defender for DevOps service integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
 
-Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high level overview of the discovered security issues that exist within them in a unified DevOps Security page.
+Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
-Security Teams can configure pull request annotations to help Developers address secret scanning findings in Azure DevOps directly on their pull requests.
+Security teams can configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
-You can configure the Microsoft Security DevOps tools on Azure DevOps pipelines and GitHub workflows to enable the following security scans: 
+You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans: 
 
 | Name | Language | License |
 |--|--|--|
 | [Bandit](https://github.com/PyCQA/bandit) | python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/main/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary – Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [ESlint](https://github.com/eslint/eslint) | Javascript | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) (Azure DevOps Only) | Credential Scanner (aka CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files common types: default passwords, SQL connection strings, Certificates with private keys| Not Open Source |
+| [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) (Azure DevOps Only) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files common types: default passwords, SQL connection strings, Certificates with private keys| Not Open Source |
 | [Template Analyze](https://github.com/Azure/template-analyzer)r | ARM template, Bicep file | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [Terrascan](https://github.com/tenable/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
-| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | Container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
 
-The following new recommendations are now available for DevOps Security assessments:
+The following new recommendations are now available for DevOps security assessments:
 
 | Recommendation | Description | Severity | 
 |--|--|--|
@@ -99,7 +99,7 @@ The Defender for DevOps recommendations replace the deprecated vulnerability sca
 
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md)
 
-### Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status
+### Regulatory Compliance dashboard now supports manual control management and detailed information on Microsoft's compliance status
 
 The compliance dashboard in Defender for Cloud is a key tool for customers to help them understand and track their compliance status. Customers can do this by continuously monitoring environments in accordance with requirements from many different standards and regulations.
 
@@ -115,7 +115,7 @@ Some of the new benefits include:
 
 - Microsoft actions provide transparency into Microsoft’s compliance status that include audit assessment procedures, test results, and Microsoft responses to deviations.
 
-- **Compliance Offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications.
+- **Compliance offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications.
 
 Learn more on how to [Improve your regulatory compliance](regulatory-compliance-dashboard.md) with Defender for Cloud.
 
@@ -150,7 +150,7 @@ We are announcing the addition of the new Defender Cloud Security Posture Manage
 - Attack path analysis
 - Agentless scanning for machines
 
-You can learn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
+Larn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
@@ -171,7 +171,7 @@ Microsoft Defender for Containers now provides agentless vulnerability assessmen
 
 Agentless vulnerability assessment scanning for images in ECR repositories helps reduce the attack surface of your containerized estate by continuously scanning images to identify and manage container vulnerabilities. With this new release, Defender for Cloud scans container images after they are pushed to the repository and continually reassess the ECR container images in the registry. The findings are available in Microsoft Defender for Cloud as recommendations, and you can use Defender for Cloud's built-in automated workflows to take action on the findings, such as opening a ticket for fixing a high severity vulnerability in an image.
 
-Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-va-ecr.md).
+Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-vulnerability-assessment-elastic.md).
 
 ## September 2022
 
@@ -236,14 +236,16 @@ The new release contains the following capabilities:
     > [!TIP]
     > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
 
-    |Recommendation| Assessment key|
-    |-|-|
-    |MFA should be enabled on accounts with owner permissions on your subscription|94290b00-4d0c-d7b4-7cea-064a9554e681|
-    |MFA should be enabled on accounts with read permissions on your subscription|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
-    |MFA should be enabled on accounts with write permissions on your subscription|57e98606-6b1e-6193-0e3d-fe621387c16b|
-    |External accounts with owner permissions should be removed from your subscription|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
-    |External accounts with read permissions should be removed from your subscription|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
-    |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    | Recommendation | Assessment key |
+    |--|--|
+    |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
+    |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
+    |Accounts with read permissions on Azure resources should be MFA enabled|dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c|
+    |Guest accounts with owner permissions on Azure resources should be removed|20606e75-05c4-48c0-9d97-add6daa2109a|
+    |Guest accounts with write permissions on Azure resources should be removed|0354476c-a12a-4fcc-a79d-f0ab7ffffdbb|
+    |Guest accounts with read permissions on Azure resources should be removed|fde1c0c9-0fd2-4ecc-87b5-98956cbc1095|
+    |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
+    |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 ||
 
 The recommendations although in preview, will appear next to the recommendations that are currently in GA.
 
@@ -333,7 +335,7 @@ Note, if you're using the preview version, the `AKS-AzureDefender` feature flag 
 
 Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities included in language specific packages.
 
-This feature is in `preview` and is only available for Linux images.
+This feature is in preview and is only available for Linux images.
 
 To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
 
@@ -371,13 +373,13 @@ We deprecated the following policies to corresponding policies that already exis
 | To be deprecated | Changing to |
 |--|--|
 |`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
-| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
+| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest Python version'` |
 | `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
 | `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
 | `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
 | `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
 | `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
-| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
+| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version'` |
 | `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
 ## June 2022
@@ -494,7 +496,7 @@ There are now connector-level settings for Defender for Servers in multicloud.
 
 The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
 
-All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
+All auto-provisioning components available in the connector-level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
 
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 

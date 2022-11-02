@@ -142,7 +142,7 @@ sections:
       - question: |
           Does the ACI service reserve ports for service functionality?
         answer: |
-          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 191000, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
 
   - name: Pricing
     questions:

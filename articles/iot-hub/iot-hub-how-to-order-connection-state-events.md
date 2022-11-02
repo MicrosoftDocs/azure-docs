@@ -12,7 +12,7 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-[Azure Event Grid](/azure/event-grid/overview) helps you build event-based applications and easily integrates IoT events in your business solutions. This article walks you through a setup using Cosmos DB, Logic App, IoT Hub Events, and a simulated Raspberry Pi to collect and store connection and disconnection events of a device.
+[Azure Event Grid](../event-grid/overview.md) helps you build event-based applications and easily integrates IoT events in your business solutions. This article walks you through a setup using Cosmos DB, Logic App, IoT Hub Events, and a simulated Raspberry Pi to collect and store connection and disconnection events of a device.
 
 From the moment your device runs, an order of operations activates:
 
@@ -20,6 +20,8 @@ From the moment your device runs, an order of operations activates:
 1. An IoT Hub event captures the device activity, then sends an HTTP request to your Logic App
 1. The Logic App processes the HTTP request based on a condition you set 
 1. The Logic App logs connection or disconnection events into a new document in Cosmos DB
+
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png" alt-text="Screenshot of the setup we'll create for this article. This setup shows how all services and devices are connected." lightbox="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png":::
 
 <!--
 A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
@@ -238,7 +240,7 @@ This sample app will trigger a device connected event.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/raspmsg.png" alt-text="Screenshot of what to expect in your output console when you run the Raspberry Pi." lightbox="media/iot-hub-how-to-order-connection-state-events/raspmsg.png":::
 
-1. You can check your Logic App **Overview** page to check if your logic is being triggered. It'll say **Succeeded** or **Failed**. Checking here let's you know your logic app state if troubleshooting is needed. Expect a 15-30 second delay from when your trigger runs. If you need to troubleshoot your logic app, view this [Troubleshoot errors](/azure/logic-apps/logic-apps-diagnosing-failures?tabs=consumption) article.
+1. You can check your Logic App **Overview** page to check if your logic is being triggered. It'll say **Succeeded** or **Failed**. Checking here let's you know your logic app state if troubleshooting is needed. Expect a 15-30 second delay from when your trigger runs. If you need to troubleshoot your logic app, view this [Troubleshoot errors](../logic-apps/logic-apps-diagnosing-failures.md?tabs=consumption) article.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg" alt-text="Screenshot of the status updates on your logic app Overview page." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg":::
 

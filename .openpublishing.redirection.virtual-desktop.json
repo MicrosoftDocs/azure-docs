@@ -34,6 +34,46 @@
             "source_path": "articles/virtual-desktop/azure-stack-hci-faq.yml",
             "redirect_url": "/azure/virtual-desktop/azure-stack-hci",
             "redirect_document_id": false
-        }       
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-android.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-android-chrome-os",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-ios.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-ios-ipados",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-macos.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-macos",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-microsoft-store.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-microsoft-store",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-web.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-web",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-windows-7-10.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/index.yml",
+            "redirect_url": "/azure/virtual-desktop/users/",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
+            "redirect_document_id": true
+        }
     ]
 }

@@ -16,6 +16,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 It’s important to plan your issuance solution so that in addition to issuing credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t done so, we recommend you view the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md) for foundational information.
 
 ## Scope of guidance

@@ -9,11 +9,18 @@ ms.reviewer: cawa
 
 # Migrate to workspace-based Application Insights resources
 
-This article walks you through migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace. This behavior allows you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
+This article walks through migrating a classic Application Insights resource to a workspace-based resource.
 
-Workspace-based resources enable common Azure role-based access control across your resources and eliminate the need for cross-app/workspace queries.
+Workspace-based resources:
 
-Workspace-based resources are currently available in all commercial regions and Azure US Government.
+> [!div class="checklist"]
+> - Support full integration between Application Insights and [Log Analytics](../logs/log-analytics-overview.md)
+> - Send Application Insights telemetry to a common [Log Analytics workspace](../logs/log-analytics-workspace-overview.md)
+> - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location
+> - Enable common [Azure role-based access control](../../role-based-access-control/overview.md) across your resources
+> - Eliminate the need for cross-app/workspace queries
+> - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml)
+> - Do not require changing instrumentation keys after migration from a Classic resource
 
 ## New capabilities
 
@@ -58,7 +65,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to the desired longer retention period.
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to the desired longer retention period.
     > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention will continue to be billed through that Application Insights resource until the data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 

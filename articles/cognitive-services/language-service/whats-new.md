@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 10/04/2022
+ms.date: 11/01/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -28,7 +28,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * Expanded language support for:
     * [Sentiment analysis](./sentiment-opinion-mining/language-support.md)
     * [Key phrase extraction](./key-phrase-extraction/language-support.md)
-    * [Named entity recognition](./key-phrase-extraction/language-support.md)
+    * [Named entity recognition](./named-entity-recognition/language-support.md)
+    * [Text Analytics for health](./text-analytics-for-health/language-support.md)
 * [Multi-region deployment](./concepts/custom-features/multi-region-deployment.md) and [project asset versioning](./concepts/custom-features/project-versioning.md) for: 
     * [Conversational language understanding](./conversational-language-understanding/overview.md)
     * [Orchestration workflow](./orchestration-workflow/overview.md)
@@ -40,7 +41,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Conversational language understanding](./conversational-language-understanding/service-limits.md#regional-availability)
     * [Orchestration workflow](./orchestration-workflow/service-limits.md#regional-availability)
     * [Custom text classification](./custom-text-classification/service-limits.md#regional-availability) 
-    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability)
+    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability) 
+* Document type as an input supported for [Text Analytics for health](./text-analytics-for-health/how-to/call-api.md) FHIR requests 
 
 ## September 2022
 
@@ -113,7 +115,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations)
 * v1.1.0b1 client library for [conversation summarization](summarization/quickstart.md?tabs=conversation-summarization&pivots=programming-language-python) is available as a preview for:
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md)
-* There is a new endpoint URL and request format for making REST API calls to prebuilt Language service features. See the following quickstart guides and [reference documentation](/rest/api/language/) for information on structuring your API calls. All text analytics 3.2-preview.2 API users can begin migrating their workloads to this new endpoint.
+* There is a new endpoint URL and request format for making REST API calls to prebuilt Language service features. See the following quickstart guides and reference documentation for information on structuring your API calls. All text analytics 3.2-preview.2 API users can begin migrating their workloads to this new endpoint.
     * [Entity linking](./entity-linking/quickstart.md?pivots=rest-api)
     * [Language detection](./language-detection/quickstart.md?pivots=rest-api)
     * [Key phrase extraction](./key-phrase-extraction/quickstart.md?pivots=rest-api)

@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer custom and composed models
+title: Custom document models - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn to create, use, and manage Form Recognizer custom and composed models.
+description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,7 +12,7 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
-# Form Recognizer custom models
+# Custom document models
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
@@ -20,9 +20,9 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 To create a custom model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
-## Custom model types
+## Custom document model types
 
-Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
+Custom document models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
 
 ### Custom template model (v3.0)
 
@@ -81,10 +81,10 @@ The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
+|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
 
 
-### Try Form Recognizer
+### Try building a custom model
 
 Try extracting data from your specific or unique documents using custom models. You need the following resources:
 
@@ -113,7 +113,7 @@ Try extracting data from your specific or unique documents using custom models. 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-## Model capabilities
+## Custom model extraction summary
 
 This table compares the supported data extraction areas:
 

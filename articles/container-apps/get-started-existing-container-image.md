@@ -25,7 +25,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+- Access to a public or private container registry, such as the [Azure Container Registry](../container-registry/index.yml).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

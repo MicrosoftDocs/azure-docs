@@ -14,7 +14,7 @@ ms.date: 08/26/2022
 
 # Azure Machine Learning data exfiltration prevention (Preview)
 
-<!-- Learn how to use a [Service Endpoint policy](/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning. -->
+<!-- Learn how to use a [Service Endpoint policy](../virtual-network/virtual-network-service-endpoint-policies-overview.md) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning. -->
 
 Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
@@ -151,4 +151,4 @@ When using Azure ML curated environments, make sure to use the latest environmen
 For more information, see the following articles:
 
 * [How to configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md)
-* [Azure Batch simplified node communication](/azure/batch/simplified-compute-node-communication)
+* [Azure Batch simplified node communication](../batch/simplified-compute-node-communication.md)

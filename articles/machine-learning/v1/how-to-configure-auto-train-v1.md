@@ -141,7 +141,7 @@ Next determine where the model will be trained. An automated ML training experim
 
  * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
 
- * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.[Azure Machine Learning Managed Compute](../concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
+ * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.[Azure Machine Learning Managed Compute](../concept-compute-target.md#azure-machine-learning-compute-managed) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
 
  * An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](../how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
 
@@ -521,7 +521,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -540,8 +540,8 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
++ Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md).
 
-+ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 
++ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).

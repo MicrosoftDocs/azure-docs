@@ -36,32 +36,32 @@ There are data considerations around agents and extensions used by Defender for 
 
 Agents are used in the Defender for Servers plan as follows:
 
-- Non-Azure public clouds connect to Azure by leveraging the [Azure Arc](/azure/azure-arc/servers/overview) service.
-- The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) is installed on multicloud machines that onboard as Azure Arc machines. Defender for Cloud should be enabled in the subscription in which the Azure Arc machines are located.
-- Defender for Cloud leverages the Connected Machine agent to install extensions (such as Microsoft Defender for Endpoint) that are needed for [Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction) functionality.
-- [Log analytics agent/Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is needed for some [Defender for Service Plan 2](/azure/defender-for-cloud/defender-for-servers-introduction) functionality.
+- Non-Azure public clouds connect to Azure by leveraging the [Azure Arc](../azure-arc/servers/overview.md) service.
+- The [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) is installed on multicloud machines that onboard as Azure Arc machines. Defender for Cloud should be enabled in the subscription in which the Azure Arc machines are located.
+- Defender for Cloud leverages the Connected Machine agent to install extensions (such as Microsoft Defender for Endpoint) that are needed for [Defender for Servers](./defender-for-servers-introduction.md) functionality.
+- [Log analytics agent/Azure Monitor Agent (AMA)](../azure-monitor/agents/agents-overview.md) is needed for some [Defender for Service Plan 2](./defender-for-servers-introduction.md) functionality.
   - The agents can be provisioned automatically by Defender for Cloud.
   - When you enable auto-provisioning, you specify where to store collected data. Either in the default Log Analytics workspace created by Defender for Cloud, or in any other workspace in your subscription. [Learn more](/azure/defender-for-cloud/enable-data-collection?tabs=autoprovision-feature).
-  - If you select to continuously export data, you can drill into and configure the types of events and alerts that are saved. [Learn more](/azure/defender-for-cloud/continuous-export?tabs=azure-portal).
+  - If you select to continuously export data, you can drill into and configure the types of events and alerts that are saved. [Learn more](./continuous-export.md?tabs=azure-portal).
 - Log Analytics workspace:
   - You define the Log Analytics workspace you use at the subscription level. It can be either a default workspace, or a custom-created workspace.
-  - There are [several reasons](/azure/azure-monitor/logs/workspace-design) to select the default workspace rather than the custom workspace.
+  - There are [several reasons](../azure-monitor/logs/workspace-design.md) to select the default workspace rather than the custom workspace.
   - The location of the default workspace depends on your Azure Arc machine region. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-).
   - The location of the custom-created workspace is set by your organization. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/faq-data-collection-agents#how-can-i-use-my-existing-log-analytics-workspace-) about using a custom workspace.
 
 ## Defender for Containers plan
 
-[Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) protects your multicloud container deployments running in:
+[Defender for Containers](./defender-for-containers-introduction.md) protects your multicloud container deployments running in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 - **Amazon Elastic Kubernetes Service (EKS) in a connected AWS account** - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 - **Google Kubernetes Engine (GKE) in a connected GCP project** - Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.
-- **Other Kubernetes distributions** - using [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview), which allows you to attach and configure Kubernetes clusters running anywhere, including other public clouds and on-premises.
+- **Other Kubernetes distributions** - using [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md), which allows you to attach and configure Kubernetes clusters running anywhere, including other public clouds and on-premises.
 
 Defender for Containers has both agent-based and agentless components.
 
 - **Agentless collection of Kubernetes audit log data**:  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or GCP Cloud Logging enables and collects audit log data, and sends the collected information to Defender for Cloud for further analysis. Data storage is based on the EKS cluster AWS region, in accordance with GDPR - EU and US.
-- **Agent-based Azure Arc-enabled Kubernetes**: Connects your EKS and GKE clusters to Azure using [Azure Arc agents](/azure/azure-arc/kubernetes/conceptual-agent-overview), so that they’re treated as Azure Arc resources.
+- **Agent-based Azure Arc-enabled Kubernetes**: Connects your EKS and GKE clusters to Azure using [Azure Arc agents](../azure-arc/kubernetes/conceptual-agent-overview.md), so that they’re treated as Azure Arc resources.
 - **Microsoft Defender extension**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
 - **Azure Policy extension**: configuration information is collected by the Azure Policy add-on.
   - The Azure Policy add-on extends the open-source Gatekeeper v3 admission controller webhook for Open Policy Agent.
@@ -69,9 +69,9 @@ Defender for Containers has both agent-based and agentless components.
 
 ## Defender for Databases plan
 
-For the [Defender for Databases plan](/azure/defender-for-cloud/quickstart-enable-database-protections) in a multicloud scenario, you leverage Azure Arc to manage the multicloud SQL Server databases. The SQL Server instance is installed in a virtual or physical machine connected to Azure Arc.
+For the [Defender for Databases plan](./quickstart-enable-database-protections.md) in a multicloud scenario, you leverage Azure Arc to manage the multicloud SQL Server databases. The SQL Server instance is installed in a virtual or physical machine connected to Azure Arc.
 
-- The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) is installed on machines connected to Azure Arc.
+- The [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) is installed on machines connected to Azure Arc.
 - The Defender for Databases plan should be enabled in the subscription in which the Azure Arc machines are located.
 - The Log Analytics agent for Microsoft Defender SQL Servers should be provisioned on the Azure Arc machines. It collects security-related configuration settings and event logs from machines.
 - Automatic SQL server discovery and registration needs to be set to On to allow SQL database discovery on the machines.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 08/23/2022
+ms.date: 10/31/2022
 ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed
 ---
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
   * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
 
-  * [**Azure Functions Core Tools**](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x isn't supported for this project).
+  * [**Azure Functions Core Tools**](../../azure-functions/functions-run-local.md?tabs=v3%2cwindows%2ccsharp%2cportal%2cbash) version 3.x (Version 4.x isn't supported for this project).
 
   * [**Python Extension**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
@@ -149,6 +149,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     import time
     from requests import get, post
     import os
+    import requests
     from collections import OrderedDict
     import numpy as np
     import pandas as pd
@@ -192,7 +193,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 
     if resp.status_code != 202:
         print("POST analyze failed:\n%s" % resp.text)
-    quit()
+        quit()
     print("POST analyze succeeded:\n%s" % resp.headers)
     get_url = resp.headers["operation-location"]
 
@@ -212,7 +213,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
         results = resp_json
     else:
         print("GET Layout results failed:\n%s")
-    quit()
+        quit()
 
     results = resp_json
 

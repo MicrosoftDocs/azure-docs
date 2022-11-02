@@ -75,8 +75,8 @@ If your organization uses Azure AD, you can use an Azure AD join, sometimes call
 If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality provided by Azure AD by using hybrid Azure AD joined dev boxes. These dev boxes are joined to your on-premises Active Directory and registered with Azure Active Directory. Hybrid Azure AD joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. 
 
 You can learn more about each type of join and how to plan for them here:  
--	[Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan)
--	[Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan)
+-	[Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md)
+-	[Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md)
 
 ### Create a network connection
 1. Sign in to the [Azure portal](https://portal.azure.com).

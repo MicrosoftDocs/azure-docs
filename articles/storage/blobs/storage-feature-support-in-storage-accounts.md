@@ -137,4 +137,4 @@ The following table describes whether a feature is supported in a premium block 
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 
-- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)

@@ -260,7 +260,7 @@
       items:
       - name: BambooHR
         href: bamboo-hr-tutorial.md
-      - name: Bambu by Sprout Social
+      - name: Employee Advocacy by Sprout Social
         href: bambubysproutsocial-tutorial.md
       - name: Baldwin Safety and Compliance
         href: baldwin-safety-&-compliance-tutorial.md  
@@ -775,7 +775,7 @@
       - name: Envoy
         href: envoy-tutorial.md
       - name: e2open CM-Global
-        href: eopen-cm-tutorial.md
+        href: e2open-cm-tutorial.md
       - name: E2open LSP
         href: e2open-lsp-tutorial.md
       - name: EPHOTO DAM
@@ -841,8 +841,8 @@
       items:
       - name: Fabric
         href: fabric-tutorial.md
-      - name: F5
-        href: headerf5-tutorial.md
+      - name: F5 BIG-IP Easy Button for header-based SSO
+        href: f5-big-ip-headers-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to Oracle EBS
         href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to Oracle JD Edwards using Azure AD
@@ -1673,8 +1673,6 @@
         href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
-      - name: Oracle PeopleSoft - Protected by F5 BIG-IP APM
-        href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
       - name: OrgVitality SSO
@@ -2948,6 +2946,8 @@
         href: kpn-grip-provisioning-tutorial.md
       - name: LanSchool Air
         href: lanschool-air-provisioning-tutorial.md
+      - name: LawVu
+        href: lawvu-provisioning-tutorial.md
       - name: LimbleCMMS
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
@@ -3154,6 +3154,8 @@
         href: tribeloo-provisioning-tutorial.md
       - name: Twingate
         href: twingate-provisioning-tutorial.md
+      - name: Uber
+        href: uber-provisioning-tutorial.md
       - name: UNIFI
         href: unifi-provisioning-tutorial.md
       - name: Velpic

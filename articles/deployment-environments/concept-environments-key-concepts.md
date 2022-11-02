@@ -4,8 +4,8 @@ description: Learn the key concepts behind Azure Deployment Environments.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/12/2022
 ---
 
@@ -42,7 +42,7 @@ Project Environment Types are a subset of the environment types configured per d
 
 ## Catalogs
 
-Catalogs help you provide a set of curated infra-as-code templates for your development teams to create Environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
+Catalogs help you provide a set of curated infra-as-code templates for your development teams to create Environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
 
 ## Catalog Items
 

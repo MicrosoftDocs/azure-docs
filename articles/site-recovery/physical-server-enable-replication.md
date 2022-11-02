@@ -6,14 +6,14 @@ manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: v-pgaddala
-ms.date: 09/21/2022
+ms.date: 10/20/2022
 ---
 
 # Enable replication for a physical server – Modernized
 
 This article describes how to enable replication for on-premises physical servers for disaster recovery to Azure using the Azure Site Recovery service - Modernized.
 
-See the [tutorial](/azure/site-recovery/physical-azure-disaster-recovery) for information on how to set up disaster recovery in Azure Site Recovery Classic releases. 
+See the [tutorial](./physical-azure-disaster-recovery.md) for information on how to set up disaster recovery in Azure Site Recovery Classic releases. 
 
 This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises physical servers. In the previous tutorial, we prepared the Azure Site Recovery replication appliance for disaster recovery to Azure.
 
@@ -25,7 +25,7 @@ Physical server to Azure replication includes the following procedures:
 
 - Sign in to the [Azure portal](https://ms.portal.azure.com/#home)
 - [Prepare Azure account](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview#prepare-azure-account)
-- [Create a recovery Services vault](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+- [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
 - [Prepare infrastructure](#prepare-infrastructure---set-up-azure-site-recovery-replication-appliance)
 - [Enable replication](#enable-replication-for-physical-servers)
 
@@ -53,13 +53,13 @@ You can add details of the physical servers, which you plan to protect, when you
 
 This will add your physical server details to the appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
 
-To perform credential-less protection on physical servers, you must manually install the mobility service and enable replication. [Learn more](/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui-modernized).
+To perform credential-less protection on physical servers, you must manually install the mobility service and enable replication. [Learn more](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized).
 
 ## Enable replication for Physical servers
 
 Protect the machines, after an Azure Site Recovery replication appliance is added to a vault.
 
-Ensure that you meet the [pre-requisites](/azure/site-recovery/vmware-physical-azure-support-matrix) across storage and networking.
+Ensure that you meet the [pre-requisites](./vmware-physical-azure-support-matrix.md) across storage and networking.
 
 Follow these steps to enable replication:
 
@@ -107,7 +107,7 @@ Lists all the machines  discovered by various appliances registered to the vault
 
      - **Managed disks**
 
-       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](/azure/virtual-machines/disks-types#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
  
        >[!Note]
        >If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Otherwise, one managed disk type can be chosen at a machine level by default.
@@ -128,4 +128,3 @@ Lists all the machines  discovered by various appliances registered to the vault
     :::image type="Review." source="./media/physical-server-enable-replication/review.png" alt-text="Screenshot of review tab."::: 
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
-

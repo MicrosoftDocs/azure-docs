@@ -28,12 +28,12 @@ In the event when a zone is down, there's no action required by you to recover f
 - All existing Automation accounts would become zone redundant automatically. It requires no action from your end.
 - In a zone-down scenario, you might expect a brief performance degradation until the service self-healing rebalances the underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; the service self-healing state will compensate for a lost zone, using the capacity from other zones.
 - In a zone-wide failure scenario, you must follow the guidance provided to set up a disaster recovery for Automation accounts in a secondary region.   
-- Availability zone support for Automation accounts supports only [Process Automation](/azure/automation/overview#process-automation) feature to provide an improved resiliency for runbook automation.   
+- Availability zone support for Automation accounts supports only [Process Automation](./overview.md#process-automation) feature to provide an improved resiliency for runbook automation.   
 
 ## Supported regions with availability zones
 
 See [Regions and Availability Zones in Azure](../availability-zones/az-overview.md) for the Azure regions that have availability zones. 
-Automation accounts currently support the following regions in preview: 
+Automation accounts currently support the following regions: 
  
 - China North 3
 - Qatar Central
@@ -54,8 +54,8 @@ Automation accounts currently support the following regions in preview:
 
 ## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:
-- [Azure portal](/azure/automation/automation-create-standalone-account?tabs=azureportal)
-- [Azure Resource Manager (ARM) template](/azure/automation/quickstart-create-automation-account-template)
+- [Azure portal](./automation-create-standalone-account.md?tabs=azureportal)
+- [Azure Resource Manager (ARM) template](./quickstart-create-automation-account-template.md)
 
 > [!Note]
 > There is no option to select or see Availability zone in the creation flow of the Automation Accounts. It’s a default setting enabled and managed at the service level.  

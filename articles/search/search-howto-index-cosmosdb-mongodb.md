@@ -3,12 +3,12 @@ title: Indexing with Azure Cosmos DB for MongoDB
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data in Azure Cosmos DB for MongoDB.
 
-author: mgottein 
-ms.author: magottei
+author: gmndrg 
+ms.author: gimondra
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 10/20/2022
 ---
 
 # Indexing with Azure Cosmos DB for MongoDB
@@ -32,7 +32,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
++ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer. 
 
 ## Limitations
 
@@ -40,7 +40,9 @@ These are the limitations of this feature:
 
 + Custom queries aren't supported for specifying the data set.
 
-+ The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. You could use the [push API](search-what-is-data-import.md). Or, you could use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an Azure Cognitive Search index as the sink.
++ The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. 
+
+As an alternative to this connector, if your scenario has any of those requirements, you could use the [Push API/SDK](search-what-is-data-import.md) or consider [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an [Azure Cognitive Search index](../data-factory/connector-azure-search.md) as the sink.
 
 ## Define the data source
 
