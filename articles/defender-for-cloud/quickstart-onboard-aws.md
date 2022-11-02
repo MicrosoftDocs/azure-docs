@@ -161,13 +161,9 @@ The native cloud connector requires:
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
-## Understanding CloudFormation
+## CloudFormation deployment source
 
-As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template is generated. This CloudFormation template creates all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
-
-
-
-### AWS CloudFormation deployment 
+As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template should be deployed to the AWS account. This CloudFormation template creates all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
 
 The CloudFormation template should be deployed using Stack (or StackSet if you have a management account).
 
@@ -175,13 +171,10 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 
 :::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
 
-- **Amazon S3 URL** - Create a new S3 bucket where a template will be auto-generated for you.
+1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Here you should provide the URL to this S3 bucket in the AWS deployment wizard. 
 
-- **Upload a template file** -Here you can upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations.
+1. **Upload a template file** – AWS will automatically create an S3 bucket in which the CloudFormation template will be saved. Please note that with this automation the S3 bucket will be created with a security misconfiguration which will result in a security recommendation “S3 buckets should require requests to use Secure Socket Layer”. This recommendation can be fixed by applying the following policy: 
 
-- **Amazon S3 URL** - Enter a previously created S3 URL. AWS will automatically create a S3 bucket in which the CloudFormation template will be saved.
-
-   This automated S3 bucket will be created with a security misconfiguration which will result in the security recommendation `S3 buckets should require requests to use Secure Socket Layer`. This recommendation can be fixed by applying the following policy:
 ```bash
 {
   "Id": "ExamplePolicy",
