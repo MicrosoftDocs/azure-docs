@@ -23,7 +23,7 @@ You can migrate Azure Active Directory (Azure AD) policy settings that separatel
 
 For more information about how these policies work together during migration, see [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md).
 
-## Pre-migration
+## Prepare for migration
 
 Start by conducting an audit of your existing settings for every authentication method available to users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
@@ -89,7 +89,7 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 After you update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
-When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD ignores the legacy MFA and SSPR policies for authentication and only follows the Authentication methods policy. Any changes made to the legacy policies are ignored if **Migration Complete** is set.
+When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD only follows the Authentication methods policy. No changes can be made to the legacy policies if **Migration Complete** is set, except for security questions.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/migration-complete.png" alt-text="Screenshot of Migration complete.":::
 
