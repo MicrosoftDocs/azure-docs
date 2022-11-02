@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/04/2022
+ms.date: 11/02/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -116,18 +116,26 @@ You can use the **Elements** list to explore all the elements and active alerts 
 
 [!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
 
-## Recommended limits
+## Limits and performance
 
-When working with 3D Scenes Studio, it's recommended to stay within the following limits. 
+When working with 3D Scenes Studio, it's recommended to stay within the following limits. If you exceed these recommended limits, you may experience degraded performance or unintended application behavior.
 
 | Capability | Recommended limit |
 | --- | --- |
-| Number of elements | 50 |
+| Number of linked twins (including all unique primary twins and secondary twins on elements) | 50 |
 | Size of 3D file | 100 MB |
 
-If you exceed these recommended limits, you may experience degraded performance or unintended application behavior.
+These limits are recommended because 3D Scenes Studio leverages the standard [Azure Digital Twins APIs](concepts-apis-sdks.md), and therefore is subject to the published [API rate limits](reference-service-limits.md#rate-limits). As the number of digital twins linked to the scenes increases, so does the amount of data that is pulled into your scene on a regular data refresh (see the [next part of this section](#refresh-rate-and-performance) for more detail about refresh rates). This means that you will see these additional API calls reflected in billing meters and operation throughput. 
 
-These limits are recommended because 3D Scenes Studio leverages the standard [Azure Digital Twins APIs](concepts-apis-sdks.md), and therefore is subject to the published [API rate limits](reference-service-limits.md#rate-limits). 3D Scenes Studio requests all relevant digital twins data every **10 seconds**. As the number of digital twins linked to the scenes increases, so does the amount of data that is pulled on this cadence. This means that you will see these additional API calls reflected in billing meters and operation throughput.
+### Refresh rate and performance
+
+The default refresh rate of the 3D scene viewer starts at 10 seconds for <100 twins, and increases by one second for each set of 10 twins above this (11 seconds for 100-109 twins, 12 seconds for 110-120 twins, and so on).
+
+The **minimum refresh rate** can be configured manually, however, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise the **actual** refresh rate as the number of twins increases, in an effort to improve performance.
+
+For instance, if there are 10 twins linked to a scene and you set the minimum refresh rate to 20 seconds, the actual refresh rate will stay at 20 seconds (since it can't drop below the minimum). If instead there are 300 twins linked to a scene, and you again set the minimum refresh rate to 20 seconds, the actual refresh rate will automatically increase to 30 seconds to avoid degraded performance.
+
+For instructions on how to configure the minimum refresh rate for the viewer, see [Configure minimum refresh rate](how-to-use-3d-scenes-studio.md#configure-minimum-refresh-rate).
 
 ## Next steps
 
