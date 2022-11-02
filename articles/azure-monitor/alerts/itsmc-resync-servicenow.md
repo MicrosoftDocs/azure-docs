@@ -15,7 +15,7 @@ Azure Monitor can connect to third-party IT Service Management (ITSM) providers.
 For security reasons, you may need to refresh the authentication token used for your connection with ServiceNow.
 Use the following synchronization process to reactivate the connection and refresh the token:
 
-1. Search for the solution in the top search banner, then select the relevant solutions
+1. In the top search banner, search for and select **Solutions**.
 
     ![Screenshot that shows the top search banner and where to select the relevant solutions.](media/itsmc-resync-servicenow/solution-search-8-bit.png)
 
