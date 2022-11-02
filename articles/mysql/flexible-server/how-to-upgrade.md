@@ -107,7 +107,7 @@ To perform a major version upgrade of an Azure Database for MySQL 5.7 server to 
 
 2.	Create a [read replica](./how-to-read-replicas-portal.md) from your primary server.
 
-3.	Upgrade your [read replica to version](how-to-upgrade.md/#Perform-a-Planned-major-version-upgrade-from-MySQL-57-to-MySQL-80-using-the-Azure-CLI) 8.0.
+3.	[Upgrade](#perform-a-planned-major-version-upgrade-from-mysql-57-to-mysql-80-using-the-azure-cli) your read replica to version 8.0.
 
 4.	After you confirm that the replica server is running version 8.0, stop your application from connecting to your primary server.
 
