@@ -206,7 +206,7 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
 
                                               
