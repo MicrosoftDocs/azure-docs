@@ -164,7 +164,7 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 
 ## AWS authentication process
 
-Federated authentication is used between Microsoft Defender for Cloud and AWS. All the resources related to the authentication are created as part of the CloudFormation template deployment, including:
+Federated authentication is used between Microsoft Defender for Cloud and AWS. All of the resources related to the authentication are created as a part of the CloudFormation template deployment, including:
 
 - An identity provider (OpenID connect) 
 -  Identity and Access Management (IAM) roles with a federated principal (connected to the identity providers).
