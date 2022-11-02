@@ -53,7 +53,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values will be used throughout the tutorial.
 
-    :::image type="content" source="media/tutorial-dotnet-web-app/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String options highlighted.":::
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String fields highlighted.":::
 
 1. In the resource menu, select **Data Explorer**.
 
@@ -75,6 +75,9 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     :::image type="content" source="media/tutorial-dotnet-web-app/dialog-new-container.png" alt-text="Screenshot of the New Container dialog in the Data Explorer with various values in each field.":::
 
+    > [!IMPORTANT]
+    > In this tutorial, we will first scale the database up to 4,000 RU/s in shared throughput to maximize performance for the data migration. Once the data migration is complete, we will scale down to 400 RU/s of provisioned throughput.
+
 1. Select **OK** to create the database and container.
 
 1. Open a terminal to run commands to populate the container with data.
@@ -82,10 +85,10 @@ First, you'll create a database and container in the existing API for NoSQL acco
     > [!TIP]
     > You can optionally use the Azure Cloud Shell here.
 
-1. Install version `2.0.0-beta-01` of the `cosmicworks` dotnet tool from NuGet.
+1. Install a **pre-release**version of the `cosmicworks` dotnet tool from NuGet.
 
     ```bash
-    dotnet tool install --global cosmicworks --version 2.0.0-beta-01
+    dotnet tool install --global cosmicworks  --prerelease
     ```
 
 1. Use the `cosmicworks` tool to populate your API for NoSQL account with sample product data using the **URI** and **PRIMARY KEY** values you recorded earlier in this lab. Those recorded values will be used for the `endpoint` and `key` parameters respectively.
@@ -208,7 +211,7 @@ Now, you'll create a new ASP.NET web application using a sample project template
     dotnet new install cosmicworks.template.web
     ```
 
-1. Create a new web application project using the newly installed `
+1. Create a new web application project using the newly installed `dotnet new cosmosdbnosql-webapp` template.
 
     ```bash
     dotnet new cosmosdbnosql-webapp
@@ -290,7 +293,7 @@ Now, you'll create a new ASP.NET web application using a sample project template
 
 Next, you'll add the Azure SDK for .NET to this sample project and use the library to query data from the API for NoSQL container.
 
-1. Back in the terminal, add a reference to the `Microsoft.Azure.Cosmos` library.
+1. Back in the terminal, add the `Microsoft.Azure.Cosmos` package from NuGet.
 
     ```bash
     dotnet add package Microsoft.Azure.Cosmos
@@ -311,7 +314,7 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
     using Microsoft.Azure.Cosmos.Linq;
     ```
 
-1. Within the CosmosService class, add a new `private readonly` member of type `CosmosClient` named `_client`.
+1. Within the **CosmosService** class, add a new `private readonly` member of type `CosmosClient` named `_client`.
 
     ```csharp
     private readonly CosmosClient _client;
@@ -327,9 +330,12 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
 1. Within the constructor, create a new instance of the `CosmosClient` class passing in a string parameter with the **PRIMARY CONNECTION STRING** value you previously recorded in the lab. Store this new instance in the `_client` member.
 
     ```csharp
-    _client = new CosmosClient(
-        connectionString: "<primary-connection-string>"
-    );
+    public CosmosClient()
+    { 
+        _client = new CosmosClient(
+            connectionString: "<primary-connection-string>"
+        );
+    }
     ```
 
 1. Back within the **CosmosClient** class, create a new `private` property of type `Container` named `container`. Set the **get accessor** to return the `cosmicworks` database and `products` container.
