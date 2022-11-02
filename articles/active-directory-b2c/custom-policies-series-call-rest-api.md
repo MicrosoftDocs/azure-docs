@@ -88,22 +88,52 @@ You need to deploy an app, which will serve as your external app. Your custom po
                     "developerMessage" : `The The provided code ${req.body.accessCode} does not match the expected code for user.`,
                     "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
-                res.status(409).send(errorResponse);
-                
+                res.status(409).send(errorResponse);                
             }
         });
         
         app.listen(3000, () => {
             console.log(`Access code service listening on port !` + 3000);
         });
+    ```
+    
+    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allows you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse`. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
+
+1. To test the app works as expected:
+    1. In your terminal, run the `node index.js` command to start your app server on port `3000`. 
+    1. Use an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview?view=powershell-7.2) or [Postman](https://www.postman.com/) to make a POST request similar to the one shown below:
+    
+    ```http
+        POST http://localhost:3000/validate-accesscode HTTP/1.1
+        Host: localhost
+        Content-Type: application/x-www-form-urlencoded
+    
+        accessCode=user-code-code
+    ```
+    
+    Replace `user-code-code` with an access code input by the user, such as `54321`. If you're using PowerShell, run the following script. 
+
+    ```powershell
+        $accessCode="54321"
+        $endpoint="http://localhost:3000/validate-accesscode"
+        $body=$accessCode
+        $response=Invoke-RestMethod -Method Post -Uri $endpoint -Body $body
+        echo $response
     ```    
-    <<EXPLAIN why you have to return the response above>>
 
-1. To test the app:
-    1. Run command 
-    1. Test app by issuing a POST request by using a HTTP client such as MS PowerShell .... make sure it return the expected result 
-    1. more instructions 
-
+    If you use an incorrect access code, the response looks similar to the following JSON snippet:  
+    
+    ```json
+        {
+            "version": "1.0",
+            "status": 409,
+            "code": "errorCode",
+            "requestId": "requestId",
+            "userMessage": "The access code you entered is incorrect. Please try again.",
+            "developerMessage": "The The provided code 54321 does not match the expected code for user.",
+            "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+        }
+    ```
 
 At this point, your're ready to deploy your Node.js app. 
 
@@ -117,10 +147,37 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode`.
 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview?view=powershell-7.2) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode` as the endpoint. 
 
-## Validate the access code
+## Call the REST API
 
-## Technical profile 
+Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTiful Technical Profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
+
+
+### Define a RESTful Technical profile 
+
+1. In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define the a new RESTiful Technical Profile by using the following code: 
+
+    ```xml
+        <ClaimsProvider>
+            <DisplayName>HTTP Request Technical Profiles</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="ValidateAccessCodeViaHttp">
+                    <DisplayName>Check that the user has entered a valid access code by using Claims Transformations</DisplayName>
+                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                    <Metadata>
+                        <Item Key="ServiceUrl">https://custompolicyapi.azurewebsites.net:3000/validate-accesscode</Item>
+                        <Item Key="SendClaimsIn">Body</Item>
+                        <Item Key="AuthenticationType">None</Item>
+                        <Item Key="AllowInsecureAuthInProduction">true</Item>
+                    </Metadata>
+                    <InputClaims>
+                        <InputClaim ClaimTypeReferenceId="accessCode" PartnerClaimType="accessCode" />
+                    </InputClaims>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+    ``` 
 
 - Node rest service:
     - node app

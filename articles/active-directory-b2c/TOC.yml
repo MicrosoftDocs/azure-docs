@@ -477,6 +477,9 @@
         href: custom-policies-series-branch-in-user-journey-using-pre-conditions.md
       - name: Validate custom policy files
         href: custom-policies-series-install-xml-extensions.md
+      - name: Make HTTP call custom policy
+        href: custom-policies-series-call-rest-api.md
+        displayName: call rest api, http call, http request
     # Secure
   - name: Secure
     items:

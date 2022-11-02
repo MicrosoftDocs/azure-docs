@@ -1,7 +1,7 @@
 ---
-title: Create branching in user journey by using Azure AD B2C custom policies 
+title: Create branching in user journey by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys.      
+description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys by enabling and disabling Azure AD B2C custom policy technical profiles.      
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Create branching in user journey by using Azure AD B2C custom policies
+# Create branching in user journey by using Azure AD B2C custom policy
 
 Different users of the same app can follow different user journeys depending on the values of the data in a custom policy. Azure Active Directory B2C (Azure AD B2C) custom policies allows you to conditionally enable or disable a technical profile to achieve this capability. For example, in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), we used a `Precondition` to determine whether or not we should run a Validation Technical Profile based on the value of *accountType* claim. 
 
