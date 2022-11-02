@@ -12,13 +12,13 @@ ms.author: v-pgaddala
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
 
-Edge Zones is Microsoft’s fully managed solution deployed close to the customer data center and includes hardware, services, and support. Edge Zones is ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, as it is installed closer to the customer, either in their data center, a co-located site, or a telecommunication providers’ data center.
+Edge Zones is Microsoft’s fully managed solution deployed close to the customer data center and includes hardware, services, and support. Edge Zones are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, as it is installed closer to the customer, either in their data center, a co-located site, or a telecommunication provider's data center.
 
 ## Disaster recovery in Azure Edge Zone
 
 In a typical scenario, you might have your virtual machines running in an Edge Zone provisioned by you to assure that your machines are utilizing Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you might want to protect these applications by using Azure Site Recovery for any infrastructure-level failure. 
 
-Site Recovery replicates the data from one zone or region to another. It brings up the machines in disaster recovery (DR) zone in a failover event.
+Site Recovery replicates the data from one zone or region to another. It brings up the machines in the disaster recovery (DR) zone in a failover event.
 
 ## Considerations
 
@@ -30,7 +30,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
 -    The dependencies on customer-provided network connectivity and power
 
 > [!NOTE] 
-> Protection of un-managed disks is not supported for this scenario.
+> Unmanaged disks Protection is not supported for this scenario.
 
 ## Set up disaster recovery for VMs in an Edge Zone via PowerShell
 
@@ -84,7 +84,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     
     ```
     $vault = New-AzRecoveryServicesVault -Name "EdgeZoneRecoveryVault" -
-    ResourceGroupName "edgezonerecovery" -Location "<EdgeZoneRegion>"
+    ResourceGroupName "edgezonerecovery" -Location "\<EdgeZoneRegion\>"
     Write-Output $vault
     ```
 
