@@ -73,8 +73,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 ```
 
 > [!NOTE]
-> Services support different KEK lengths; Azure SQL, for instance, only supports key lengths of [2048 or 3072 bytes](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=azuresql#requirements-for-configuring-tde-protector). Consult the documentation for your service for specifics.
-
+> Services support different KEK lengths; Azure SQL, for instance, only supports key lengths of [2048 or 3072 bytes](/azure/azure-sql/database/transparent-data-encryption-byok-overview#requirements-for-configuring-customer-managed-tde). Consult the documentation for your service for specifics.
 
 ### Step 2: Retrieve the public key of the KEK
 
