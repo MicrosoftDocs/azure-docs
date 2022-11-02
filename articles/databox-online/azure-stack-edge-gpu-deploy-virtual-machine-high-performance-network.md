@@ -118,28 +118,29 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
     1. Validate the vCPU reservation. You do not need to specify type or hostname.
 
-    ```powershell
-    Get-HcsNumaLpMapping
-    ```
+       ```powershell
+       Get-HcsNumaLpMapping
+       ```
 
-    The output should not show the indexes you set. If you see the indexes you set in the output, the Set command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
+       The output should not show the indexes you set. If you see the indexes you set in the output, the Set command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
 
-    Here's an example output:
+       Here's an example output:
 
-    ```powershell
-    [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
-    [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
-    { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-    { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       ```powershell
+       [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
+       [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+       { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
         
-    [dbe-1csphq2.microsoftdatabox.com]:PS>
-    ```
-  9. Restart the VMs that you had stopped in the earlier step. 
+       [dbe-1csphq2.microsoftdatabox.com]:PS>
+       ```
+    1. Restart the VMs that you had stopped in the earlier step. 
 
       ```powershell
       start-vm
       ```
-    6. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
+    
+    1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
     
        - You can use policy instead of indexes with versions 2210 and higher.
        - You can still use a customized policy.
@@ -150,7 +151,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
          > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
          > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM. 
 
-    7. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+    1. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 ### [2209 and lower](#tab/2209)
 
