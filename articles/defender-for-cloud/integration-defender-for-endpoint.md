@@ -346,7 +346,7 @@ If you enabled the integration, but still don't see the extension running on you
 
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
-Licenses for Defender for Endpoint for servers are included with **Microsoft Defender for Servers**. Alternatively, you can [purchase licenses for Defender for Endpoint](https://www.microsoft.com/en-us/security/business/get-started/contact-us) for servers separately.
+Licenses for Defender for Endpoint for servers are included with **Microsoft Defender for Servers**.
 
 ### Do I need to buy a separate anti-malware solution to protect my machines?
 No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
