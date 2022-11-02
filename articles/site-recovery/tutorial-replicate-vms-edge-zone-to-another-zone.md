@@ -12,7 +12,7 @@ ms.author: v-pgaddala
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
 
-Edge Zones is fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, as you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
+Edge Zones is fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, that you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
 
 ## Disaster recovery in Azure Edge Zone
 
@@ -111,7 +111,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         }
         ```
     
-    1. Check if the Job is successfully completed. The job state of a successfully completed job must be **Succeeded**.
+    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
 
         ```
         Write-Output $TempASRJob.State
@@ -164,7 +164,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         }
         ```
     
-    1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**.
+    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -190,7 +190,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         }
         ```
     
-    1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**.
+    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -218,7 +218,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
             }
             ```
     
-       1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**.
+       1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
     
             ```
             Write-Output $TempASRJob.State 
@@ -260,7 +260,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         $vm = Get-AzVM -Name $vmName -ResourceGroupName $primaryResourceGroupName
         ```
     
-    1. Specify replication properties for each disk of the VM that is to be replicated (create 
+    1. Specify replication properties for each disk of the VM that must be replicated (create 
     disk replication configuration).
     
         ```
@@ -343,7 +343,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     
     :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
 
-1. Perform, validate, and clean up a test failover. You can skip the Test failover but is recommended to execute test failover to ensure that your secondary region comes up as expected. 
+1. Perform, validate, and clean up a test failover. You can skip the Test failover. However, we recommend to execute test failover to ensure that your secondary region comes up as expected. 
 
     1. Create a separate network for test failover (not connected to my DR network).
     
@@ -387,7 +387,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     >You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
-    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data lost in the target VM. Now you can delete the test failover so you can start the real failover.
+    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover so you can start the real failover.
 
     ```
     $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -
