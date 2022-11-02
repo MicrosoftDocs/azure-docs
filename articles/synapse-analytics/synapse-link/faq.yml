@@ -98,10 +98,19 @@ sections:
         answer: |
           A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
       - question: |
-          What is the Azure SQL DB and Landing Zone impact when a Synapse workspace is removed/deleted that contains Azure Synapse Links?
+      - question: |
+        How do I rotate or change the SAS for the Landing Zone for Azure Synapse Link to SQL Server?
+      answer: |
+      If the SAS has expired for the user managed storage account for the Landing Zone, use [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) to update the database credential for the new SAS. 
+      - question: |
+        What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link to Azure SQL DB?
         answer: |
-        Azure SQL DB retrieves Shared Access Signature (SAS) tokens from Synapse Gateway every 8 hours. This token is used to publish initial and incremental
-        changed to the landing zone. In between the 8 hours prior to token retrieval, Azure SQL DB will continue to write to the Landing Zone. When Synapse workspace
-        is removed, a) Azure SQL DB will be invoked by ADF/Synapse process to stop data replication from landing zone into Synapse  b) For SQL Server 2022, since landing zone 
-        storage account is user managed, the user will get I/O operation error. Error # 15856, 22771, 22782 or 22777
-
+        If the Azure Synapse workspace is removed, Azure SQL DB will stop data replication from landing zone into Azure Synapse. The system stored procedure [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group) will be called automatically, and the storage account for the landing zone is managed and will be cleaned up automatically. 
+      - question: |
+        What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link to SQL Server?
+        answer: | 
+        SQL Server 2022, since landing zone storage account is user managed, data will continue to be published to the landing zone. You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group), and manually remove the storage account for the landing zone.
+      - question: |
+        What is the impact when a user intentionally removes the Azure Synapse Link landing zone for Azure Synapse Link to SQL Server?
+        answer: | 
+        In SQL Server 2022, the landing zone storage account is user managed. If the landing zone storage account is no longer accessible, and there will be errors in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group).
