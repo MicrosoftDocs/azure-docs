@@ -43,7 +43,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     Get-InstalledModule -Name Az
     ```
 
-- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix#linux).
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
 
 ## Edge Zone to Azure
 
@@ -296,14 +296,11 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
 
     After the operation to start replication succeeds, virtual machine data is replicated to the recovery region.
     
-    The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes after which you can continue. You can see the status of the replication in the Vault blade under “Replicated items”. 
-    
-    :::image type="content" source="./media/azure-edge-zone/replicated-items.png" alt-text="Vault replication table":::
-    
+    The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes after which you can continue. You can see the status of the replication in the Vault blade under **Replicated items**.     
     
     When the replication finishes, the Vault replication items will show:
     
-    :::image type="content" source="./media/azure-edge-zone/vault-replication.png" alt-text="Vault replication table":::
+    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/vault-replication.png" alt-text="Screenshot of Vault replication":::
     
     At this point, the virtual machine is protected, and you can perform a test failover operation on it. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication finishes.
     
@@ -318,7 +315,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     
     If you get “Protected” in the ProtectionState column, you are ready to proceed to test failover. 
     
-    :::image type="content" source="./media/azure-edge-zone/protectionstate.png" alt-text="Protection state table":::
+    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protectionstate.png" alt-text="Screenshot of Protection state":::
 
 1. Perform, validate, and clean up a test failover. You can skip the Test failover but it is recommended to execute test failover to ensure that your secondary region comes up as expected. 
 
@@ -428,7 +425,7 @@ Edge Zones customers will experience a similar Site Recovery flow as in Azure, b
     ```
     This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
 
-    :::image type="content" source="./media/azure-edge-zone/protected-items.png" alt-text="Protected items list":::
+    :::image type="Protected items list" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protected-items.png" alt-text="Screenshot of Protected items list":::
 
 1. The last step would be to disable replication.
 
