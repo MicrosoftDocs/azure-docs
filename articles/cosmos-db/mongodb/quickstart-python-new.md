@@ -141,37 +141,37 @@ For this procedure, the database won't use sharding.
 
 ### Authenticate the client
 
-1. In the project directory, create an *run.py* file. In your editor, add requires statements to reference the PyMongo and python-dotenv
-packages.
+1. In the project directory, create an *run.py* file. In your editor, add require statements to reference packages you'll use, including the PyMongo and python-dotenv packages.
 
-```python
-import pymongo
-from dotenv import load_dotenv
-```
-<!--- 
-    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="package_dependencies":::
---->
-
+    ```python
+    import os
+    import pymongo
+    from dotenv import load_dotenv
+    from random import randint
+    ```
+    <!--- 
+        :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="package_dependencies":::
+    --->
+    
 2. Get the connection information from the environment variable defined in an *.env* file.
 
-```python
-load_dotenv()
-CONNECTION_STRING = os.environ.get('COSMOS_CONNECTION_STRING')
-```
-<!--
-    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
---->
+    ```python
+    load_dotenv()
+    CONNECTION_STRING = os.environ.get('COSMOS_CONNECTION_STRING')
+    ```
+    <!--
+        :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
+    --->
 
 3. Define some constants you'll use through the code.
 
-```python
-DB_NAME = "adventureworks"
-UNSHARDED_COLLECTION_NAME = "products"
-```
-<!--
-    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
---->
-
+    ```python
+    DB_NAME = "adventureworks"
+    UNSHARDED_COLLECTION_NAME = "products"
+    ```
+    <!--
+        :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
+    --->
 
 ### Set up asynchronous operations
 
