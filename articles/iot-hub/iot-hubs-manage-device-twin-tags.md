@@ -101,8 +101,7 @@ The following section walk through several examples of tagging using the Azure C
 
     Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
 
-2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts](/cli/azure/account) available for you to use:
-
+2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the [az account list](/cli/azure/account) to view the full list of accounts:
     ```azurecli
     az account list
     ```
