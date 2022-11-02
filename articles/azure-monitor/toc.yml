@@ -462,21 +462,28 @@ items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
-        - name: Create workspaces
-          href: logs/quick-create-workspace.md
-        - name: Configure
+        - name: Manage Log Analytics workspaces
           items:
+          - name: Create a Log Analytics workspace
+            href: logs/quick-create-workspace.md
           - name: Manage access
-            displayName: Log Analytics workspace
+            displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
           - name: Change pricing tier
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Configure Basic Logs
-            href: logs/basic-logs-configure.md
           - name: Use Azure AD authentication
             href: logs/azure-ad-authentication-logs.md
+        - name: Manage tables
+          displayName: Azure Monitor Logs tables
+          items:            
+          - name: Overview
+            href: logs/manage-logs-tables.md      
+          - name: Create a custom table or column
+            href: logs/create-custom-table.md
+          - name: Set log data plan
+            href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
           - name: Set retention and archive policy
