@@ -127,22 +127,27 @@ Total supported language codes: 7
 
 | Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|------------------------------------|-------------------|
-| Arabic	 | `ar` | 2022-06-01 | |
-| Chinese (Simplified) | `zh-hans` | 2019-10-01 | `zh` also accepted |
+| Arabic (new)	 | `ar` | 2022-11-01 | |
+| Chinese (Simplified) (new) | `zh-hans` | 2022-11-01 | `zh` also accepted |
 | English               |     `en`      |  2020-04-01              |                    |
 | French                |     `fr`      |         2021-10-01        |                    |
 | German                |     `de`      |         2021-10-01         |                    |
-| Hindi	 | `hi` | 2020-04-01 | |
+| Hindi (new)	 | `hi` | 2022-11-01 | |
 | Italian               |     `it`      |         2021-10-01         |                    |
-| Japanese	 | `ja` | 2019-10-01 | |
-| Korean	 | `ko` | 2019-10-01 | |
+| Japanese (new)	 | `ja` | 2022-11-01 | |
+| Korean	 | `ko` | 2022-11-01 | |
 | Portuguese (Brazil)   |    `pt-BR`    |         2021-10-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`    |         2021-10-01         | `pt` also accepted |
-| Russian	 | `ru` | 2022-06-01 | |
+| Russian (new)	 | `ru` | 2022-11-01 | |
 | Spanish               |     `es`      |         2021-10-01         |                    |
-| Spanish               |     `es`      |         2021-10-01         |                    |
-| Swedish	 | `sv` | 2022-06-01 | |
-| Turkish	 | `tr` | 2022-10-01 | |
+| Swedish (new)	 | `sv` | 2022-11-01 | |
+| Turkish (new)	 | `tr` | 2022-11-01 | |
+
+
+<!--ar, ko, ru, tr, hi, ja, zhs, sv, 
+
+nl, no, fi, hu, pl, da, mr, el, id, bn, ta, te-->
+
 
 ## Next steps
 
