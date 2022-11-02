@@ -16,7 +16,7 @@ Edge Zones is fully managed solution deployed close to your data center and incl
 
 ## Disaster recovery in Azure Edge Zone
 
-In a typical scenario, you might have your virtual machines running in an Edge Zone provisioned by you to ensure that your machines utilise Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you may use Azure Site Recovery to protect these applications for any infrastructure-level failure. 
+In a typical scenario, you might have your virtual machines running in an Edge Zone provisioned by you to ensure that your machines utilize Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you may use Azure Site Recovery to protect these applications for any infrastructure-level failure. 
 
 Site Recovery replicates the data from one zone or region to another. It brings up the machines in the disaster recovery (DR) zone in a failover event.
 
@@ -136,7 +136,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         Write-Output $TempASRJob.State
         ```
     
-    1. Both primary and recovery Protection containers gets created in the primary 
+    1. Both primary and recovery Protection containers get created in the primary 
     region (within the Primary fabric).
 
         ```
@@ -322,11 +322,11 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     
     The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes. See the status of the replication in the Vault blade under **Replicated items**.     
     
-    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/replicated-items.png" alt-text="Screenshot of replicated items":::
+    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/replicated-items.png" alt-text="Screenshot of replicated items.":::
 
     When the replication completes, the Vault replication items will show as below:
     
-    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/vault-replication.png" alt-text="Screenshot of Vault replication":::
+    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/vault-replication.png" alt-text="Screenshot of Vault replication.":::
     
     Now the virtual machine is protected, and you can perform a test failover operation. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication completes.
     
@@ -341,7 +341,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     
     If you see **Protected** in the *ProtectionState*, you are ready to proceed to test failover. 
     
-    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protection-state.png" alt-text="Screenshot of Protection state":::
+    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
 
 1. Perform, validate, and clean up a test failover. You can skip the Test failover but is recommended to execute test failover to ensure that your secondary region comes up as expected. 
 
@@ -469,7 +469,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         ```
     This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
 
-    :::image type="Protected items list" source="./media/tutorial-replicate-vms-edge-zone-to-another zone/protected-items.png" alt-text="Screenshot of Protected items list":::
+    :::image type="Protected items list" source="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-inline.png" alt-text="Screenshot of Protected items list." lightbox="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-expanded.png":::
 
 1. Disable replication.
 
