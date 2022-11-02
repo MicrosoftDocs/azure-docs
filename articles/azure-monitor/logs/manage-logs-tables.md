@@ -40,7 +40,7 @@ Your Log Analytics workspace can contain the following types of tables:
 | Table type                           | Data source                                                                                          | Setup                                                                                                                                                     |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure table            | Logs from Azure resources or required by Azure services and solutions.                                                                                        |Configure the resource's [diagnostic settings](../essentials/diagnostic-settings.md). <br/>Azure Monitor Logs creates the table and begins collecting data.                                                                                       |
-| Custom table | Non-Azure resource and any other data source, such as Data Hubs and file-based logs.| 1. [Create table]().<br/>2. Set up [Azure Monitor Agent](../agents/agents-overview.md) or [Log ingestion API](../logs/logs-ingestion-api-overview.md) to collect logs from the data source.<br/>3. Configure data collection rule. <br/>4. Set up data collection endpoint for API, or association with Azure Monitor Agent.<br/> For more information, see [Collect logs with API](./tutorial-logs-ingestion-portal.md) and [Collect logs with Azure Monitor Agent](../agents/agents-overview.md#install-the-agent-and-configure-data-collection).|
+| Custom table | Non-Azure resource and any other data source, such as Data Hubs and file-based logs.| 1. [Create table]().<br/>2. Set up [Azure Monitor Agent](../agents/agents-overview.md) or [Log ingestion API](../logs/logs-ingestion-api-overview.md) to collect logs from the data source.<br/>3. Set up data collection endpoint for API, or association with Azure Monitor Agent.<br/> For more information, see [Collect logs with API](./tutorial-logs-ingestion-portal.md) and [Collect logs with Azure Monitor Agent](../agents/agents-overview.md#install-the-agent-and-configure-data-collection).|
 | Search results | Logs within the workspace. | Azure Monitor creates a search job results table when you run a [search job](../logs/search-jobs.md). |
 | Restored logs | Archived logs. | Azure Monitor creates a restored logs table when you [restore archived logs](../logs/restore.md). |
 
@@ -74,6 +74,18 @@ You can't edit the schema of search results and restored logs tables.
 
 The Basic log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. Basic log data tables contain data that you don't need to query or use for other services and features, alerts and Logic Apps. 
 
+The following table summarizes the two plans. 
+
+| Category | Analytics | Basic |
+|:---|:---|:---|
+| Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
+| Log queries | No extra cost. Full query capabilities. | Extra cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
+| Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
+| Alerts | Supported. | Not supported. |
+
+> [!NOTE]
+> The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+ 
 ## Retention and archive
 
 Each workspace has a default retention policy that's applied to all tables, but you can [set table-level retention policies](../logs/data-retention-archive.md) on individual tables.

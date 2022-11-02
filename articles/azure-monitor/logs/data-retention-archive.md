@@ -1,7 +1,7 @@
 ---
-title: Configure data retention and archive in Azure Monitor Logs (preview)
+title: Configure data retention and archive in Azure Monitor Logs
 description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
-ms.reviewer: osalzberg
+ms.reviewer: adi.biran
 ms.topic: conceptual
 ms.date: 10/01/2022
 # Customer intent: As an Azure account administrator, I want to set data retention and archive policies to save retention costs.

@@ -1,19 +1,34 @@
 ---
-title: Configure Basic Logs in Azure Monitor
-description: Learn how to configure a table for Basic Logs in Azure Monitor.
-ms.topic: conceptual
-ms.custom: event-tier1-build-2022
-ms.date: 10/01/2022
+title: Set a table's log data plan in Azure Monitor Logs
+description: Learn how to configure a table's log data plan in Azure Monitor Logs.
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: adi.biran
+ms.topic: how-to
+ms.date: 09/10/2022
 ---
 
-# Configure Basic Logs in Azure Monitor
+# Set a table's log data plan in Azure Monitor Logs
 
 Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-plans) to **Basic Logs** lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
 > You can switch a table's plan once a week. The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
-## Which tables support Basic Logs?
+## Define a table's log data plan based on data availability needs 
+
+The following table summarizes the two plans. 
+
+| Category | Analytics | Basic |
+|:---|:---|:---|
+| Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
+| Log queries | No extra cost. Full query capabilities. | Extra cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
+| Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
+| Alerts | Supported. | Not supported. |
+
+> [!NOTE]
+> The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+
 
 By default, all tables in your Log Analytics workspace are Analytics tables, and they're available for query and alerts. You can currently configure the following tables for Basic Logs:
 
@@ -25,7 +40,7 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.
 
-## Set table configuration
+## Set a table's log data plan
 
 # [Portal](#tab/portal-1)
 
@@ -137,7 +152,7 @@ For example:
 
 ---
 
-## Check table configuration
+## View a table's log data plan
 
 # [Portal](#tab/portal-2)
 
