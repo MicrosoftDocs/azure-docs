@@ -1,9 +1,9 @@
 ---
-author: nadjaklein
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
 ms.date: 11/02/2022
-ms.author: nadjak
+ms.author: larryfr
 ---
 
 > [!WARNING]
