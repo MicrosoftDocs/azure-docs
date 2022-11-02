@@ -25,7 +25,7 @@ Private endpoints of secured resources that are created through Azure SignalR Se
 > * The resource ID of the Azure SignalR Service instance is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
 > * The resource ID of the key vault is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv_.
 
-The examples show how the *contoso-signalr* service can be configured so that its outbound calls to the key vault go through a private endpoint rather than public network.
+The examples show how the *contoso-signalr* service can be configured so that its outbound calls to the key vault go through a private endpoint rather than a public network.
 
 ## Create a shared private link resource to the key vault
 
