@@ -237,10 +237,10 @@ items:
     items:
     - name: Release notes
       href: custom-translator/release-notes.md
+    - name: Unsupported language deployment
+      href: custom-translator/unsupported-language-deployments.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
-  - name: Unsupported language deployment
-    href: custom-translator/unsupported-language-deployments.md
 - name: Resources
   items:
   - name: Translator in sovereign clouds
