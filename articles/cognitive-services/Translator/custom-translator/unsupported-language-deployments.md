@@ -38,7 +38,7 @@ Within the **Unsupported Translator Hub Trainings** selection page, the **Unrequ
  
 ![Screenshot that shows the Unrequested trainings tab.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Once submitted, the model will no longer be available on the **Unrequested trainings** tab and will instead appear on the **Requested trainings** tab.  You can view your requested trainings at any time.
+Once submitted, the model will no longer be available on the **Unrequested trainings** tab, and will instead appear on the **Requested trainings** tab.  You can view your requested trainings at any time.
 
 ![How to migrate from Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 

@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: how-to
 ---
 
-# Build and manage training documents 
+# Build and manage training documents
 
 [Custom Translator](../overview.md) enables you to build translation models that reflect your business, industry, and domain-specific terminology and style. Training and deploying a custom model is easy and doesn't require any programming skills. Custom Translator allows you to upload parallel files, translation memory files, or zip files.
 
@@ -76,6 +76,23 @@ Document types are associated with the language pair selected when you create a 
 At this point, Custom Translator is processing your documents and attempting to extract sentences as indicated in the upload notification. Once done processing, you'll see the upload successful notification.
 
    :::image type="content" source="../media/quickstart/document-upload-notification.png" alt-text="Screenshot illustrating the upload document processing dialog window.":::
+
+## View upload history
+
+In workspace page you can view history of all document uploads details like document type, language pair, upload status etc.
+
+1. From the [Custom Translator](https://portal.customtranslator.azure.ai) portal workspace page,
+    click Upload History tab to view history.
+
+   :::image type="content" source="../media/how-to/upload-history-tab.png" alt-text="Screenshot showing the upload history tab.":::
+
+2. This page shows the status of all of your past uploads. It displays
+    uploads from most recent to least recent. For each upload, it shows the document name, upload status, the upload date, the number of files uploaded, type of file uploaded, the language pair of the file, and created by. You can use Filter to quickly find documents by name, status, language, and date range.
+
+   :::image type="content" source="../media/how-to/upload-history-page.png" alt-text="Screenshot showing the upload history page.":::
+
+3. Click on any upload history record. In upload history details page,
+    you can view the files uploaded as part of the upload, uploaded status of the file, language of the file and error message (if there is any error in upload).
 
 ## Next steps
 
