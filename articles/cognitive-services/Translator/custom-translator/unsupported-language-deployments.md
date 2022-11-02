@@ -13,17 +13,18 @@ ms.author: lajanuar
 ms.custom: cogserv-non-critical-translator
 ---
 
-# Unsupported language deployments
+# Migration guide: unsupported language deployments
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
-With the upcoming retirement of the Microsoft Translator Hub, Microsoft will be undeploying all models currently deployed through the Hub. Many of you have models deployed in the Hub whose language pairs aren't supported in Custom Translator.  We don't want users in this situation to have no recourse for translating their content.
+With the retirement of the Microsoft Translator Hub, Microsoft will be undeploying all models currently deployed through the Hub. Many of you have models deployed in the Hub whose language pairs aren't supported in Custom Translator.  We don't want users in this situation to have no recourse for translating their content.
 
 We now have a process that allows you to deploy your unsupported models through the Custom Translator.  This process enables you to continue to translate content using the latest V3 API.  These models will be hosted until you choose to undeploy them or the language pair becomes available in Custom Translator.  This article explains the process to deploy models with unsupported language pairs.
 
 ## Prerequisites
 
 In order for your models to be candidates for deployment, they must meet the following criteria:
+
 * The project containing the model must have been migrated from the Hub to the Custom Translator using the Migration Tool.  
 * The model must be in the deployed state when the migration happens.  
 * The language pair of the model must be an unsupported language pair in Custom Translator.  Language pairs in which a language is supported to or from English, but the pair itself doesn't include English, are candidates for unsupported language deployments.  For example, a Hub model for a French to German language pair is considered an unsupported language pair even though French to English and English to German are supported language pair.
