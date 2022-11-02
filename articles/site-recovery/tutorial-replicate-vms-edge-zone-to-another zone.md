@@ -210,21 +210,21 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     
        1. Track Job status to check for completion
 
-        ```
-        while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
-        "NotStarted")){
-         sleep 10;
-         $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-        }
-        ```
+            ```
+            while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
+            "NotStarted")){
+             sleep 10;
+             $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
+            }
+            ```
     
        1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**.
     
-        ```
-        Write-Output $TempASRJob.State 
-        $AzureToEdgeZonePCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -
-        ProtectionContainer $RecoveryProtectionContainer -Name "RecoveryToPrimary"
-        ```
+            ```
+            Write-Output $TempASRJob.State 
+            $AzureToEdgeZonePCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -
+            ProtectionContainer $RecoveryProtectionContainer -Name "RecoveryToPrimary"
+            ```
 
 1. Create a cache storage account for replication logs in the primary region. The cache storage account is created in the primary region.
 
@@ -280,20 +280,20 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         1. If VM has data disk, use the following command to create disk configuration. If not,
     you can skip this section. From `$datadiskId` to `$DataDisk1ReplicationConfig $datadiskId = $vm.StorageProfile.OSDisk.ManagedDisk.Id`
     
-        Alternatively
+            Alternatively
 
-        ```
-        $RecoveryReplicaDiskAccountType = "Premium_LRS"
-        $RecoveryTargetDiskAccountType = "Premium_LRS"
-        $RecoveryRGId = $RecoveryRG.ResourceId
-        $DataDisk1ReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig 
-        -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRGId -
-        RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
-         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
-        ```
+            ```
+            $RecoveryReplicaDiskAccountType = "Premium_LRS"
+            $RecoveryTargetDiskAccountType = "Premium_LRS"
+            $RecoveryRGId = $RecoveryRG.ResourceId
+            $DataDisk1ReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig 
+            -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+             -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRGId -
+            RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
+             -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+            ```
     
-    1. Start replication by creating replication protected item. Use a GUID for the name of the replication protected item to ensure uniqueness of name. If you are not recovering to an Availability Zone, then don’t provide the *-RecoveryAvailabilityZone parameter*.
+    1. Start replication by creating replication protected item. Use a GUID for the name of the replication protected item to ensure uniqueness of name. If you are not recovering to an Availability Zone, then don’t provide the `-RecoveryAvailabilityZone parameter`.
     
         ```
         $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId 
@@ -312,7 +312,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         } 
         ```
     
-    1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**
+    1. Check if the Job is successfully completed. The updated job state of a successfully completed job must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -367,7 +367,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
         ```
     
-    1. Wait until job is finished
+    1. Wait until job is finished.
     
         ```
         while (($TFOJob.State -eq "InProgress") -or ($TFOJob.State -eq 
@@ -377,7 +377,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         }
         ```
     
-    1. Wait for the test failover to complete 
+    1. Wait for the test failover to complete.
 
         ```
         Get-AzRecoveryServicesAsrJob -Job $TFOJob
@@ -412,7 +412,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     1].RecoveryPointTime
     ```
     
-    1. Start the fail over job
+    1. Start the failover job.
     
         ```
         $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -
@@ -433,7 +433,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     ReplicationProtectedItem $ReplicationProtectedItem 
      ```
 
-    1. Wait until commit failover job is finished
+    1. Wait until commit failover job is finished.
     
         ```
         while (($CommitFailoverJob.State -eq "InProgress") -or ($CommitFailoverJob.State 
@@ -444,7 +444,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
          Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJOb
         ```
 
-1. After a failover, when you're ready to go back to the original region, start reverse replication for the replication protected item using the *Update-AzRecoveryServicesAsrProtectionDirection* cmdlet. 
+1. After a failover, when you're ready to go back to the original region, start reverse replication for the replication protected item using the `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet. 
 
     1. Create Cache storage account for replication logs in the recovery region
     
