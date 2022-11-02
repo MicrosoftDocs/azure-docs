@@ -59,7 +59,7 @@ The following example shows how to assign the **Key Vault Crypto Officer** role 
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="./media/storage-blob-encryption-keyvault/assign-role-kv.png" lightbox="./media/storage-blob-encryption-keyvault/assign-role-kv.png" alt-text="A screenshot showing how to assign a role in Azure portal.":::
+    :::image type="content" source="./media/storage-blob-encryption-keyvault/assign-role-key-vault.png" lightbox="./media/storage-blob-encryption-keyvault/assign-role-key-vault.png" alt-text="A screenshot showing how to assign a role in Azure portal.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Key Vault Crypto Officer* and select the matching result and then choose **Next**.
 
