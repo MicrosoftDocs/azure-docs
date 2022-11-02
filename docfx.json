@@ -365,7 +365,7 @@
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
-        "articles/site-recovery/*.md": "jsuri",
+        "articles/site-recovery/*.md": "ankitadutta",
         "articles/stream-analytics/*.md": "sidramadoss",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
