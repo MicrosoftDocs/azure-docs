@@ -49,7 +49,7 @@ Here are some of the metrics emitted by dedicated SQL pools created in Azure Syn
 | ConnectionsBlockedByFirewall | Connections blocked by firewall | Count | Sum (default) | Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high |
 | AdaptiveCacheHitPercent | Adaptive cache hit percentage | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
 | AdaptiveCacheUsedPercent | Adaptive cache used percentage | Percent | Max (default), Min, Avg | Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache |
-| LocalTempDBUsedPercent | Local `tempdb` used percentage | Percent | Max (default), Min, Avg | Local `tempdb` utilization across all compute nodes - values are emitted every five minute |
+| LocalTempDBUsedPercent | Local `tempdb` used percentage | Percent | Max (default), Min, Avg | Local `tempdb` utilization across all compute nodes - values are emitted every five minutes |
 | MemoryUsedPercent | Memory used percentage | Percent | Max (default), Min, Avg | Memory utilization across all nodes in the SQL pool |
 | CPUPercent | CPU used percentage | Percent | Max (default), Min, Avg | CPU utilization across all nodes in the SQL pool |
 | Connections | Connections | Count | Sum (default) | Count of total logins to the SQL pool |
@@ -147,12 +147,12 @@ Use diagnostic settings to configure diagnostic logs for non-compute resources. 
 With Azure Monitor diagnostic settings, you can route diagnostic logs for analysis to multiple different targets.
 
 * **Storage account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
+* **Event Hubs**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
 * **Log Analytics workspace**: Analyze the logs with Log Analytics. The Azure Synapse integration with Log Analytics is useful in the following scenarios:
   * You want to write complex queries on a rich set of metrics that are published by Azure Synapse to Log Analytics. You can create custom alerts on these queries via Azure Monitor.
   * You want to monitor across workspaces. You can route data from multiple workspaces to a single Log Analytics workspace.
 
-You can also use a storage account or Event Hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
+You can also use a storage account or Event Hubs namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
 
 #### Configure diagnostic settings
 
