@@ -306,28 +306,28 @@ items:
             href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
           - name: Collect metrics with Telegraf
             href: essentials/collect-custom-metrics-linux-telegraf.md
-          - name: Troubleshoot
-            items:
-            - name: Linux VM
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-            - name: Linux Rsyslog issues
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-            - name: Windows VM
-              href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-            - name: Windows Arc-enabled server
-              href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-            - name: Troubleshoot legacy Agents
-              displayName: Troublshooting guidance
-              items:  
-                - name: Log Analytics VM Extension
-                  displayName: troubleshoot, troubleshooting
-                  href: visualize/vmext-troubleshoot.md
-                - name: Log Analytics Windows agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-windows-troubleshoot.md
-                - name: Log Analytics Linux agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-linux-troubleshoot.md
+    - name: Troubleshoot
+      items:
+      - name: Linux VM
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Linux Rsyslog issues
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+      - name: Windows VM
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+      - name: Windows Arc-enabled server
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
+      - name: Troubleshoot legacy Agents
+        displayName: Troublshooting guidance
+        items:  
+          - name: Log Analytics VM Extension
+            displayName: troubleshoot, troubleshooting
+            href: visualize/vmext-troubleshoot.md
+          - name: Log Analytics Windows agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-windows-troubleshoot.md
+          - name: Log Analytics Linux agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-linux-troubleshoot.md
   - name: Data collection rules
     items:
     - name: Overview
