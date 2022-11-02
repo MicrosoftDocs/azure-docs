@@ -70,27 +70,11 @@ The schema of a search results table is based on the query you define when you [
 You can't edit the schema of search results and restored logs tables.
 ## Log data plan
 
-[Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table.    
+[Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table. The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. The **Analytics** plan makes log data available for interactive queries and use by features and services. 
 
-The Basic log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. Basic log data tables contain data that you don't need to query or use for other services and features, alerts and Logic Apps. 
-
-The following table summarizes the two plans. 
-
-| Category | Analytics | Basic |
-|:---|:---|:---|
-| Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No extra cost. Full query capabilities. | Extra cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
-| Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
-| Alerts | Supported. | Not supported. |
-
-> [!NOTE]
-> The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
- 
 ## Retention and archive
 
-Each workspace has a default retention policy that's applied to all tables, but you can [set table-level retention policies](../logs/data-retention-archive.md) on individual tables.
+ [Set table-level retention policies](../logs/data-retention-archive.md) to override the default workspace retention policy and to archive data within your workspace. 
 
-Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation.
-
-To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
+Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
 
