@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 11/07/2022
 ms.author: helohr
 manager: femila
 ---

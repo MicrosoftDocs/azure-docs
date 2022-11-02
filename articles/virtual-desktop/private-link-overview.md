@@ -3,7 +3,7 @@ title: Use Azure Private Link with Azure Virtual Desktop preview - Azure
 description: Learn how Azure Private Link (preview) can help you keep network traffic private.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 11/07/2022
 ms.author: helohr
 manager: femila
 ---
@@ -43,6 +43,8 @@ When adding Private Link, you can connect to Azure Virtual Desktop in the follow
 ## Public preview limitations
 
 The public preview of using Private Link with Azure Virtual Desktop has the following limitations:
+
+- All Azure Virtual Desktop clients support Private Link, but we currently only offer troubleshooting support for the web client version of Private Link.
 
 - A private endpoint to the global sub-resource of any workspace controls the shared FQDN for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint.
 
