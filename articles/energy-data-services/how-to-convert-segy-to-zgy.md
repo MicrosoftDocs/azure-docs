@@ -102,7 +102,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
 
 5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
-Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
+    Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
 
     ```bash
     curl --location --request POST '<url>/seistore-svc/api/v3/subproject/tenant/<data-partition>/subproject/<subproject>' \
