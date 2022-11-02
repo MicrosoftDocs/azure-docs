@@ -135,7 +135,29 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * [Get an doc](#get-a-doc)
 * [Query docs](#query-docs)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
 
 For this procedure, the database won't use sharding.
+
+### Authenticate the client
+
+1. In the project directory, create an *run.py* file. In your editor, add requires statements to reference the PyMongo and python-dotenv
+packages.
+
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="package_dependencies":::
+
+2. Get the connection information from the environment variable defined in an *.env* file.
+
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
+
+### Set up asynchronous operations
+
+TBD: is applicable to Python?
+
+### Connect to the database
+
+Use the [``MongoClient``](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
+
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="connect_client":::
+
 
