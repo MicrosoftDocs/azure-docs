@@ -64,9 +64,6 @@ az resource create --resource-group divyaj-test --namespace microsoft.monitor --
 ### [Resource Manager](#tab/resource-manager)
 Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
 
-### [Resource Manager](#tab/resource-manager)
-Use the following Resource Manager template with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
-
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
