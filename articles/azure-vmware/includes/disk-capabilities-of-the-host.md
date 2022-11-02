@@ -14,9 +14,9 @@ Azure VMware Solution clusters are based upon hyper-converged infrastructure. Th
 
 | Host Type | CPU (GHz)   | RAM (GB)  | vSAN Cache Tier (TB, raw)  | vSAN Capacity Tier (TB, raw)  | Network Interface Cards | Regional availability |
 | :---      | :---: | :---:     | :---:                      | :---:                         | :---:                 | :---:                 |
-| AV36      | Dual Intel Xeon Gold 6140 CPUs with 18 cores/CPU @ 2.3 GHz, Total 36 physical cores (72 logical cores with hyperthreading) |  576  | 3.2 (NVMe)               | 15.20 (SSD)  | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | All product regions |
-| AV36P     |  Dual Intel Xeon Gold 6240 CPUs with 18 cores/CPU @ 2.6 GHz / 3.9 GHz Turbo, Total 36 physical cores (72 logical cores with hyperthreading) |  768  | 1.5 (Intel Cache) | 19.20 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
-| AV52      | Dual Intel Xeon Platinum 8270 CPUs with 26 cores/CPU @ 2.7 GHz / 4.0 GHz Turbo, Total 52 physical cores (104 logical cores with hyperthreading) | 1,536  | 1.5 (Intel Cache) | 38.40 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
+| AV36      | Dual Intel Xeon Gold 6140 Skylake CPUs with 18 cores/CPU @ 2.3 GHz, Total 38 physical cores (72 logical cores with hyperthreading) |  576  | 3.2 (NVMe)               | 15.20 (SSD)  | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | All product regions |
+| AV36P     |  Dual Intel Xeon Gold 6240 Cascade Lake CPUs with 18 cores/CPU @ 2.6 GHz / 3.9 GHz Turbo, Total 38 physical cores (72 logical cores with hyperthreading) |  768  | 1.5 (Intel Optane Cache) | 19.20 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
+| AV52      | Dual Intel Xeon Platinum 8270 Cascade Lake CPUs with 26 cores/CPU @ 2.7 GHz / 4.0 GHz Turbo, Total 52 physical cores (104 logical cores with hyperthreading) | 1,536  | 1.5 (Intel Optane Cache) | 38.40 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
 
 An Azure VMware Solution cluster requires a minimum number of three hosts. You can only use hosts of the same type in a single Azure VMware Solution private cloud.
 Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted before being added to a cluster. 

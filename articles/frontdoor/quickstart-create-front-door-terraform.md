@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Service using Terraform'
+title: 'Quickstart: Create an Azure Front Door (classic) using Terraform'
 description: This quickstart describes how to create an Azure Front Door Service using Terraform.
 services: front-door
 documentationcenter: 

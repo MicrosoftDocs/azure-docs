@@ -3154,6 +3154,8 @@
         href: tribeloo-provisioning-tutorial.md
       - name: Twingate
         href: twingate-provisioning-tutorial.md
+      - name: Uber
+        href: uber-provisioning-tutorial.md
       - name: UNIFI
         href: unifi-provisioning-tutorial.md
       - name: Velpic
