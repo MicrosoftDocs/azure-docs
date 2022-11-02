@@ -21,13 +21,13 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI
 
-In this quickstart, you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
+In this quickstart, you deploy a virtual machine (VM) and then check communications to and from an IP address and to a URL. You determine the cause of a communication failure and how to resolve it.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This quickstart requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+- This quickstart requires version 2.0 or later of the Azure CLI. If you are using Azure Cloud Shell, the latest version is already installed. 
 
 - The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
 
@@ -39,7 +39,7 @@ Before you can create a VM, you must create a resource group to contain the VM. 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
+Create a VM with [az vm create](/cli/azure/vm). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -49,7 +49,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the Azure CLI returns output.
+The VM takes a few minutes to create. Don't continue with the remaining steps until the VM is created and the Azure CLI returns output.
 
 ## Test network communication
 
