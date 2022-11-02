@@ -20,7 +20,7 @@ Create a `SpeechConfig` instance by using your key and region. Create a Speech r
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 
-auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
 ```
 
 You can initialize `SpeechConfig` in a few other ways:

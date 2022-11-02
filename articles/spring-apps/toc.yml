@@ -67,7 +67,7 @@ items:
     - name: Custom DNS name
       href: tutorial-custom-domain.md
     - name: Managed identity to connect MySQL
-      href: tutorial-managed-identities-mysql.md
+      href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
     - name: Managed identity to invoke Azure Functions
@@ -96,6 +96,8 @@ items:
     href: concept-metrics.md
   - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: concept-outbound-type.md
 - name: Security
   items:
   - name: Security controls
@@ -146,6 +148,8 @@ items:
       href: how-to-enterprise-deploy-non-java-apps.md
     - name: Deploy with a custom container
       href: how-to-deploy-with-custom-container-image.md
+    - name: Deploy static files in Azure Spring Enterprise tier
+      href: how-to-enterprise-deploy-static-file.md
   - name: Manage
     items:
     - name: Start or stop a service
@@ -226,7 +230,11 @@ items:
       href: how-to-access-app-from-internet-virtual-network.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
-    - name: Customer responsibilities running Azure Spring Apps in VNET
+    - name: Control egress traffic for an Azure Spring Apps instance
+      href: how-to-create-user-defined-route-instance.md
+    - name: Customize the ingress configuration in Azure Spring Apps
+      href: how-to-configure-ingress.md
+    - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
@@ -266,7 +274,7 @@ items:
     items:
     - name: Self diagnose and solve problems
       href: how-to-self-diagnose-solve.md
-    - name: Self diagnose running in VNET
+    - name: Self diagnose running in virtual networks
       href: how-to-self-diagnose-running-in-vnet.md
     - name: Troubleshoot common issues
       href: troubleshoot.md
@@ -281,11 +289,11 @@ items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Reference architecture

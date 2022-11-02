@@ -1,5 +1,5 @@
 ---
-title: Host keys for SFTP support for Azure Blob Storage (preview) | Microsoft Docs
+title: Host keys for SFTP support for Azure Blob Storage| Microsoft Docs
 description: Find a list of valid host keys when using an SFTP client to connect with Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
@@ -11,19 +11,13 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
 This article contains a list of valid host keys used to connect to Azure Blob Storage from SFTP clients.
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
-When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. During the public preview, you can verify the host key by finding that key in the list presented in this article. 
-
-> [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
+When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. You can verify the host key by finding that key in the list presented in this article. 
 
 ## Valid host keys
 

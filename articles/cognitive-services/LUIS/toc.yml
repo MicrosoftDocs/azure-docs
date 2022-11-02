@@ -80,6 +80,8 @@ items:
       href: how-to/orchestration-projects.md
   - name: Migrate
     items:
+    - name: Migrate to conversational language understanding
+      href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/cognitive-services/LUIS/context/context
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
@@ -245,9 +247,9 @@ items:
           href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
       - name: Node.js
         items:
-        - name: NPM - authoring
+        - name: npm - authoring
           href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring
-        - name: NPM - runtime
+        - name: npm - runtime
           href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis

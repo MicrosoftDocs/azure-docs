@@ -19,9 +19,13 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Create captions from speech
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to build and run the captioning quickstart code example.
 
 1. Copy the  <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnetcore/captioning/"  title="Copy the samples"  target="_blank">scenarios/csharp/dotnetcore/captioning/</a> sample files from GitHub. If you have [Git installed](https://git-scm.com/downloads), open a command prompt and run the `git clone` command to download the Speech SDK samples repository.
     ```dotnetcli
@@ -37,39 +41,22 @@ Follow these steps to create a new console application and install the Speech SD
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```dotnetcli
-    dotnet run --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
+    dotnet run --input caption.this.mp4 --format any --output caption.output.txt --srt --realTime --threshold 5 --delay 0 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
-    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
-
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+    > Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
+    > 
+    > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
 
-    The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
-    ```console
-    00:00:00,180 --> 00:00:01,600
-    Welcome to
-    
-    00:00:00,180 --> 00:00:01,820
-    Welcome to applied
-    
-    00:00:00,180 --> 00:00:02,420
-    Welcome to applied mathematics
-    
-    00:00:00,180 --> 00:00:02,930
-    Welcome to applied mathematics course
-    
-    00:00:00,180 --> 00:00:03,100
-    Welcome to applied Mathematics course 2
-    
-    00:00:00,180 --> 00:00:03,230
-    Welcome to applied Mathematics course 201.
-    ```
+## Check results
+
+[!INCLUDE [Example output](example-output-v2.md)]
 
 ## Usage and arguments
 
-Usage: `captioning --key <key> --region <region> --input <input file>`
+Usage: `captioning --input <input file>`
 
-[!INCLUDE [Usage arguments](usage-arguments.md)]
+[!INCLUDE [Usage arguments](usage-arguments-v2.md)]
 
 ## Clean up resources
 

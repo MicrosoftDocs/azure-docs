@@ -2,7 +2,7 @@
 title: Scopes for v1.0 apps (MSAL)
 description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: marsma
+ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn scopes for a v1.0 application so I can decide if this platform meets my application development needs and requirements.

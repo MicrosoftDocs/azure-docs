@@ -272,8 +272,30 @@
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference
   items:
-  - name: Azure Files API reference
-    href: ../files/reference.md
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/file-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage/management
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
   - name: Spring Cloud Azure
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference

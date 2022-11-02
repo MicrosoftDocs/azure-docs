@@ -38,12 +38,12 @@ Many Azure services support passwordless connections through Azure AD and Role B
 
 `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
 
-The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition.
+The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). No code changes are required for this transition.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Diagram of the credential flow.":::
 
 > [!NOTE]
-> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
+> A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation.
 
 The following code example demonstrates how to connect to an Azure Storage account using passwordless connections. The next section describes how to migrate to this setup in more detail.
 
@@ -67,7 +67,7 @@ The following steps explain how to migrate an existing application to use passwo
 
 For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 Next you will need to update your code to use passwordless connections.
 
@@ -106,11 +106,11 @@ Once your application is configured to use passwordless connections and runs loc
 
 #### Create the managed identity using the Azure portal
 
-The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
+The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
 
 ### [Service Connector](#tab/service-connector)
 
-Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information.  You can learn more about Service Connector and which scenarios are supported on the [overview page](/azure/service-connector/overview).
+Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information.  You can learn more about Service Connector and which scenarios are supported on the [overview page](../../service-connector/overview.md).
 
 The following compute services are currently supported:
 
@@ -240,7 +240,7 @@ az spring app identity assign \
 
 ### [Azure Container Apps](#tab/container-apps-identity)
 
-You can assign a managed identity to an Azure Container Apps instance with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+You can assign a managed identity to an Azure Container Apps instance with the [az container app identity assign](/cli/azure/containerapp/identity) command.
 
 ```azurecli
 az containerapp identity assign \
@@ -332,7 +332,7 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
-* [Authorize with Azure roles](/azure/storage/blobs/authorize-access-azure-active-directory)
+* For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md).
+* [Authorize with Azure roles](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* To learn more about authorizing from a web application, visit [Authorize from a native or web application](/azure/storage/common/storage-auth-aad-app)
+* To learn more about authorizing from a web application, visit [Authorize from a native or web application](./storage-auth-aad-app.md)

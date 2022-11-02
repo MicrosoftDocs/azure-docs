@@ -130,6 +130,15 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 For more information about FastPath, including limitations and requirements, see [About FastPath](about-fastpath.md).
 
+## Connectivity to Private Endpoints
+
+The ExpressRoute virtual network gateway facilitates connectivity to private endpoints deployed in the same virtual network as the virtual network gateway and across virtual network peers. 
+
+> [!IMPORTANT]
+> * Throughput and control plane capacity may be half compared to connectivity to non-private-endpoint resources.
+> * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
+
+
 ## Route Server
 
 When you create or delete an Azure Route Server from a virtual network that contains a Virtual Network Gateway (ExpressRoute or VPN), expect downtime until the operation gets completed.

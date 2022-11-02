@@ -7,6 +7,8 @@ ms.date: 11/02/2022
 ms.subservice: autoscale
 ms.custom: ignite-2022
 ms.author: ebayansh
+ms.reviewer: akkumari
+
 ---
 # Understand autoscale settings
 
@@ -160,6 +162,7 @@ There are three types of autoscale profiles:
     ```
 
 - **Recurrence profile:** A recurrence profile is used for a day or set of days of the week.  The schema for a recurring profile doesn't include an end date. The end of date and time for a recurring profile is set by the start time of the following profile. When using the portal to configure recurring profiles, the default profile is automatically duplicated, and restarts at the time that you specify for the recurring profile to end. For more information on configuring multiple profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
+
 
 ## Autoscale evaluation
 

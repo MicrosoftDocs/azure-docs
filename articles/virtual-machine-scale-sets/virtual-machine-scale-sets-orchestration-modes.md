@@ -95,7 +95,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |---|---|---|---|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  | Scale Set specific VMs (Microsoft.compute/virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines) |
 | Maximum Instance Count (with FD guarantees)  | 1000  | 100  | 200 |
-| SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported | All SKUs  | All SKUs |
+| SKUs supported  | All SKUs | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
 | Cross tenant shared image gallery | No | Yes | Yes |
@@ -173,7 +173,6 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 
 The following virtual machine scale set parameters are not currently supported with virtual machine scale sets in Flexible orchestration mode:
 - Single placement group - you must choose `singlePlacementGroup=False`
-- Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
 - Virtual machine scale set Overprovisioning
 - Image-based Automatic OS Upgrades

@@ -6,10 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 10/21/2021
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.author: vijetaj
+author: vijetajo
+ms.reviewer: sgilley
+ms.date: 10/19/2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -20,19 +21,19 @@ A *compute target* is a designated compute resource or environment where you run
 In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
-1. Scale up to larger data, or do [distributed training](how-to-train-distributed-gpu.md) by using one of these [training compute targets](#train).
-1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#deploy).
+1. Scale up to larger data, or do [distributed training](how-to-train-distributed-gpu.md) by using one of these [training compute targets](#training-compute-targets).
+1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#compute-targets-for-inference).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
-## <a name="train"></a> Training compute targets
+## Training compute targets
 
 Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
 
-## <a name="deploy"></a> Compute targets for inference
+## Compute targets for inference
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
@@ -40,7 +41,6 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
 
-<a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes.
@@ -116,8 +116,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#azureml-core-compute-amlcompute-amlcompute-supported-vmsizes)
->
+> * The [Azure CLI extension 2.0 for machine learning](how-to-configure-cli.md) command, [az ml compute list-sizes](/cli/azure/ml/compute#az-ml-compute-list-sizes).
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
 

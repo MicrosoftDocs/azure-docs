@@ -13,6 +13,8 @@ ms.date: 07/22/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Learn how to get best performance while working with your Azure Database for MySQL server. As we add new capabilities to the platform, we'll continue refining our recommendations in this section.
 
 ## Physical proximity

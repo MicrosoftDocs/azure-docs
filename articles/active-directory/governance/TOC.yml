@@ -49,15 +49,15 @@
       - name: Automate employee onboarding tasks - Azure portal (Preview)
         href: tutorial-onboard-custom-workflow-portal.md 
       - name: Automate employee onboarding tasks - Microsoft Graph (Preview)
-        href: tutorial-onboard-custom-workflow-graph.md
+        href: /graph/tutorial-lifecycle-workflows-onboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Offboarding employees in real-time - Azure portal (Preview)
         href: tutorial-offboard-custom-workflow-portal.md
       - name: Offboarding employees in real-time - Microsoft Graph (Preview)
-        href: tutorial-offboard-custom-workflow-graph.md
+        href: /graph/tutorial-lifecycle-workflows-offboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Automate employee offboarding tasks - Azure portal (preview)
         href: tutorial-scheduled-leaver-portal.md  
       - name: Automate employee offboarding tasks - Microsoft Graph (preview)
-        href: tutorial-scheduled-leaver-graph.md 
+        href: /graph/tutorial-lifecycle-workflows-scheduled-leaver?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concepts
   expanded: true
   items:
@@ -202,6 +202,10 @@
         href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Azure AD Privileged Access Groups (Preview)
+      items:
+      - name: Create an access review
+        href: create-access-review-privileged-access-groups.md
   - name: Lifecycle Workflows (Preview)
     items:
       - name: Deployment (Preview)
@@ -244,9 +248,9 @@
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
-    href: lifecycle-workflows-developer-reference.md  
-  - name: Set employeeLeaveDateTime for leaver workflows
-    href: set-employee-leave-date-time.md  
+    href: lifecycle-workflows-developer-reference.md
+  - name: Set EmployeeLeaveDateTime for leaver workflows
+    href: /graph/tutorial-lifecycle-workflows-set-employeeleavedatetime?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
   - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
     href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)

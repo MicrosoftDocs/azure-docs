@@ -7,7 +7,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 
 ---
 
@@ -23,11 +23,9 @@ On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Be
 We recommend that you upgrade your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
 
 The open-source Redis version 4 was released several years ago and is now retired. Version 4 no longer receives critical bug or security fixes from the community. Azure Cache for Redis offers open-source Redis as a managed service on Azure. To stay in sync with the open-source offering, we'll also retire version 4.
-<!-- Can we be more specific about when open-source Redis 4 was retired -->
-
 Microsoft continues to backport security fixes from recent versions to version 4 until retirement. We encourage you to upgrade your cache to version 6 sooner, so you can use the rich feature set that Redis version 6 has to offer. For more information, See the Redis 6 GA announcement for more details.
 
-To upgrade your version 4 Azure Cache for Redis instance, see our [Upgrade an existing Redis 4 cache to Redis 6](cache-how-to-version.md#upgrade-an-existing-redis-4-cache-to-redis-6. If your cache instances have geo-replication enabled, you’re required to unlink the caches before upgrade.
+To upgrade your version 4 Azure Cache for Redis instance, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md). If your cache instances have geo-replication enabled, you’re required to unlink the caches before upgrade.
 
 ### Important upgrade timelines
 

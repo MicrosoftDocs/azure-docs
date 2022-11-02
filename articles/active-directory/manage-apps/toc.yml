@@ -77,8 +77,8 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
       - name: Admin consent workflow overview
         href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
@@ -212,11 +212,13 @@
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:

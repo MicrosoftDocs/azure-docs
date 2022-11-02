@@ -35,18 +35,19 @@
       items:
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
+        - name: Delegated access
+          href: delegated-access-primer.md
+        - name: Scopes and permissions
+          href: scopes-oidc.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
           href: custom-rbac-for-developers.md
-        - name: Scopes, permissions, and consent
-          displayName: Scopes
-          href: v2-permissions-and-consent.md
+        - name: Requesting permissions through consent
+          href: consent-types-developer.md
         - name: Application consent experiences
           displayName: App consent experiences
           href: application-consent-experience.md
-        - name: Consent framework
-          href: consent-framework.md
         - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
           displayName: ca
@@ -146,8 +147,10 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
@@ -783,6 +786,8 @@
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md
+            - name: Federated identity credentials considerations and limitations
+              href: workload-identity-federation-considerations.md
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
