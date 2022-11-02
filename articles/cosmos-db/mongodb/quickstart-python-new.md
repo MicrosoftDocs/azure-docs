@@ -136,7 +136,7 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
 
-For this procedure, the database won't use sharding.
+For the steps below, the database won't use sharding and shows a synchronous application uisng PyMongo. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
 
 ### Authenticate the client
 
@@ -171,10 +171,6 @@ For this procedure, the database won't use sharding.
     <!--
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
     --->
-
-### Set up asynchronous operations
-
-TBD: is applicable to Python?
 
 ### Connect to the database
 
