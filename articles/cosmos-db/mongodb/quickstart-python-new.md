@@ -167,7 +167,7 @@ For this procedure, the database won't use sharding.
 
     ```python
     DB_NAME = "adventureworks"
-    UNSHARDED_COLLECTION_NAME = "products"
+    COLLECTION_NAME = "products"
     ```
     <!--
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
@@ -193,8 +193,9 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 When working with PyMongo, you access databases using attribute style access on MongoClient instances.
 
 ```python
-# Database reference with creation on first write if it doesn't already exist.
+# Database reference with creation on first write if it doesn't already exist
 db = client[DB_NAME]
+print("Using database: {}\n".format(DB_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
@@ -208,8 +209,9 @@ You can check if a database exists with the [list_database_names()](https://pymo
 Access collection with the database object `db` returned from the previous step.
 
 ```python
-# Collection reference with creation on first write if it doesn't already exist.
-collection = db[UNSHARDED_COLLECTION_NAME]
+# Collection reference with creation on first write if it doesn't already exist
+collection = db[COLLECTION_NAME]
+print("Using collection: {}\n".format(COLLECTION_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
@@ -251,7 +253,7 @@ result = collection.update_one(
     {'name': product['name']},
     {'$set': product}, 
     upsert=True)
-print("Upserted document with _id {}".format(result.upserted_id))
+print("Upserted document with _id {}\n".format(result.upserted_id))
 ```
 <!---
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
@@ -265,7 +267,7 @@ In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblo
 
 ```python
 doc = collection.find_one({"_id": result.upserted_id})
-print("Found a document with _id {}: {}".format(result.upserted_id, doc))
+print("Found a document with _id {}: {}\n".format(result.upserted_id, doc))
 ```
 <!---
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc":::
@@ -276,7 +278,13 @@ print("Found a document with _id {}: {}".format(result.upserted_id, doc))
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [``Cursor``](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
 ```python
-docs = collection.find({'category': 'gear-surf-surfboards'})
+"""Query for documents in the collection"""
+print("Products with category 'gear-surf-surfboards':\n")
+allProductsQuery = {
+    "category": "gear-surf-surfboards"
+} 
+for doc in collection.find(allProductsQuery):
+    print("Found a product with _id {}: {}\n".format(doc["_id"], doc))
 ```
 <!---
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_doc":::
@@ -292,14 +300,24 @@ This app creates a API for MongoDB database and collection and creates a doc and
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
-```python
+```console
 python run.py
 ```
 
 The output of the app should be similar to this example:
 
 ```console
-TBD
+Using database: adventureworks
+
+Using collection: products
+
+Upserted document with _id <ID>
+
+Found a document with _id <ID>: {'_id': <ID>, 'category': 'gear-surf-surfboards', 'name': 'Yamba Surfboard-50', 'quantity': 1, 'sale': False}
+
+Products with category 'gear-surf-surfboards':
+Found a product with _id <ID>: {'_id': ObjectId('<ID>'), 'name': 'Yamba Surfboard-386', 'category': 'gear-surf-surfboards', 'quantity': 1, 'sale': False}
+
 ```
 
 <!---
