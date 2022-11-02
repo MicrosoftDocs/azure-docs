@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/28/2022
+ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: sureshja
 ms.custom: mode-other
