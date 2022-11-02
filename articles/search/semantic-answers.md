@@ -40,7 +40,7 @@ Answers are returned as an independent, top-level object in the query response p
 
 <a name="query-params"></a>
 
-## Formulate a REST query rest "answers"
+## Formulate a REST query for "answers"
 
 The approach for listing fields in priority order has changed, with "semanticConfiguration" replacing "searchFields". If you're currently using "searchFields", update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
 
