@@ -129,7 +129,6 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * [Authenticate the client](#authenticate-the-client)
 * [Get database instance](#get-database-instance)
 * [Get collection instance](#get-collection-instance)
-* [Chained instances](#chained-instances)
 * [Create an index](#create-an-index)
 * [Create a doc](#create-a-doc)
 * [Get an doc](#get-a-doc)
@@ -163,7 +162,7 @@ For this procedure, the database won't use sharding.
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
     --->
 
-3. Define some constants you'll use through the code.
+3. Define constants you'll use through the code.
 
     ```python
     DB_NAME = "adventureworks"
@@ -245,7 +244,7 @@ Create a doc with the *product* properties for the `adventureworks` database:
 """Create new doc and upsert (create or replace) to collection"""
 product = {
     'category': 'gear-surf-surfboards',
-    'name': 'Yamba Surfboard-'+str(randint(50, 500)),
+    'name': 'Yamba Surfboard-{}'.format(randint(50, 5000)),
     'quantity': 1,
     'sale': False
 }
@@ -316,8 +315,8 @@ Upserted document with _id <ID>
 Found a document with _id <ID>: {'_id': <ID>, 'category': 'gear-surf-surfboards', 'name': 'Yamba Surfboard-50', 'quantity': 1, 'sale': False}
 
 Products with category 'gear-surf-surfboards':
-Found a product with _id <ID>: {'_id': ObjectId('<ID>'), 'name': 'Yamba Surfboard-386', 'category': 'gear-surf-surfboards', 'quantity': 1, 'sale': False}
 
+Found a product with _id <ID>: {'_id': ObjectId('<ID>'), 'name': 'Yamba Surfboard-386', 'category': 'gear-surf-surfboards', 'quantity': 1, 'sale': False}
 ```
 
 <!---
@@ -349,17 +348,11 @@ Remove-AzResourceGroup @parameters
 
 ### [Portal](#tab/azure-portal)
 
-1. Navigate to the resource group you previously created in the Azure portal.
+1. Navigate to the resource group you previously created in the [Azure portal](https://portal.azure.com).
 
-    > [!TIP]
-    > In this quickstart, we recommended the name ``msdocs-cosmos-javascript-quickstart-rg``.
 1. Select **Delete resource group**.
 
-   :::image type="content" source="media/quickstart-nodejs/delete-resource-group-option.png" lightbox="media/quickstart-nodejs/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
-
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
-
-   :::image type="content" source="media/quickstart-nodejs/delete-confirmation.png" lightbox="media/quickstart-nodejs/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
 
