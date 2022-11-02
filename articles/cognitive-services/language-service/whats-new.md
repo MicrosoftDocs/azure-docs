@@ -8,11 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-<<<<<<< HEAD
-ms.date: 10/31/2022
-=======
 ms.date: 11/01/2022
->>>>>>> 86e856202fb3c5181b057882cfe909f1bb59d5a9
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
