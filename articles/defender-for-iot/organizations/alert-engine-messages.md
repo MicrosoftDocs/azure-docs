@@ -1,19 +1,19 @@
 ---
-title: Alert types and descriptions
-description: Review Defender for IoT Alert descriptions.
-ms.date: 12/13/2021
-ms.topic: how-to
+title: OT monitoring alert types and descriptions
+description: Learn more about the alerts that are triggered for traffic on OT networks.
+ms.date: 11/01/2022
+ms.topic: reference
 ---
 
-# Alert types and descriptions
+# OT monitoring alert types and descriptions
 
 This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define Forwarding rules, Exclusion rules, and custom alerts and define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event.
 
 ### Alert news
 
-New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts that can be re-enabled are marked with an asterisk (*) in the tables below.
+New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the **Support** page of the sensor console. Alerts that can be re-enabled are marked with an asterisk (*) in the tables below.
 
-You may have configured newly disabled alerts in your Forwarding rules. If so, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.  
+You may have configured newly disabled alerts in your Forwarding rules. If so, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.
 
 See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-microsoft-defender-for-iot) for detailed information about changes made to alerts.
 
@@ -27,6 +27,40 @@ See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-m
 | Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
 | Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but isn't defined as a scanning device. |
 
+## Supported alert categories
+
+Each alert has one of the following categories:
+
+:::row:::
+   :::column span="":::
+      - Abnormal Communication Behavior
+      - Abnormal HTTP Communication Behavior
+      - Authentication
+      - Backup
+      - Bandwidth Anomalies
+      - Buffer overflow
+      - Command Failures
+      - Configuration changes
+      - Custom Alerts
+      - Discovery
+      - Firmware change
+      - Illegal commands
+   :::column-end:::
+   :::column span="":::
+      - Internet Access
+      - Operation Failures
+      - Operational issues
+      - Programming
+      - Remote access
+      - Restart/Stop Commands
+      - Scan
+      - Sensor traffic
+      - Suspicion of malicious activity
+      - Suspicion of Malware
+      - Unauthorized Communication Behavior
+      - Unresponsive
+   :::column-end:::
+:::row-end:::
 
 ## Policy engine alerts
 
