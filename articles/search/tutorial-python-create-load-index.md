@@ -57,14 +57,14 @@ The script uses the Azure SDK for Cognitive Search:
 * [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
 * [Reference Documentation](/python/api/azure-search-documents)
 
-1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website/bulk-upload`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website-functions-v4/bulk-upload`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-SERVICE-NAME
     * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="20-22,46-48,53-54,75-80,83,69,83,135,142" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" highlight="20-22,46-48,53-54,75-80,83,69,83,135,142" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, and run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-upload`, and run the following command to install the dependencies. 
 
     # [macOS/Linux](#tab/linux-install)
     
@@ -80,7 +80,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, to run the following bash command to run the `bulk_upload.py` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-upload`, to run the following bash command to run the `bulk_upload.py` script:
 
     # [macOS/Linux](#tab/linux-run)
     
