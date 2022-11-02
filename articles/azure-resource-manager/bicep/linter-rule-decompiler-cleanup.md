@@ -7,7 +7,7 @@ ms.date: 11/01/2022
 
 # Linter rule - decompiler cleanup
 
-The [Bicep CLI decompile](./bicep-cli.md#decompile) command converts ARM template JSON to a Bicep file. If a variable name, or a parameter name, or a resource symbolic symbolic name is ambiguous, the Bicep CLI adds a suffix to the name, for example *accountName_var* or *virtualNetwork_resource*. This rule finds these names in Bicep files.
+The [Bicep CLI decompile](./bicep-cli.md#decompile) command converts ARM template JSON to a Bicep file. If a variable name, or a parameter name, or a resource symbolic name is ambiguous, the Bicep CLI adds a suffix to the name, for example *accountName_var* or *virtualNetwork_resource*. This rule finds these names in Bicep files.
 
 ## Linter rule code
 
