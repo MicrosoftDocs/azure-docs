@@ -7,13 +7,7 @@ ms.date: 11/01/2022
 ---
 
 # Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)
-Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into our managed service.
-
-This article describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication.
-
-## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
-
+This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication.
 
 ## Cluster configurations
 This article applies to the following cluster configurations:
@@ -26,14 +20,7 @@ This article applies to the following cluster configurations:
 > For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, see [Azure Monitor managed service for Prometheus remote write - managed identity  (preview)](prometheus-remote-write-managed-identity.md).
 
 ## Prerequisites
-
-- You must have self-managed Prometheus running on your Kubernetes cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
-- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you set up Prometheus on your cluster.
-
-
-## Create Azure Monitor workspace
-Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace) if you don't already have one.
-
+See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
 
 ## Create Azure Active Directory application
 Follow the procedure at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
@@ -85,6 +72,8 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
+> [!WARNING]
+> Certificates have an expiration date, and its the responsibility of the user to keep these certificates valid.
 
 ## Add CSI driver and storage for cluster
 
@@ -154,14 +143,12 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     ```yml
     prometheus:
     prometheusSpec:
-        externalLabels:
         cluster: <CLUSTER-NAME>
 
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
-        ##
         remoteWrite:
-        - url: "http://localhost:8081/api/v1/write"
-
+        - url: 'http://localhost:8081/api/v1/write'
+        
         # Additional volumes on the output StatefulSet definition.
         # Required only for AAD based auth
         volumes:
@@ -171,54 +158,46 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
         readOnly: true
         volumeAttributes:
             secretProviderClass: azure-kvname-user-msi
-
-        # Additional VolumeMounts on the output StatefulSet definition.
-        # Required only for AAD based auth
-        # volumeMounts:
-        # - name: secrets-store-inline
-        #   mountPath: "/mnt/secrets-store"
-        #   readOnly: true
-
         containers:
         - name: prom-remotewrite
-        image: <CONTAINER-IMAGE-VERSION>
-        imagePullPolicy: Always
-        # Required only for AAD based auth
-        volumeMounts:
-        - name: secrets-store-inline
-            mountPath: "/mnt/secrets-store"
-            readOnly: true
-        ports:
+            image: <CONTAINER-IMAGE-VERSION>
+            imagePullPolicy: Always
+
+            # Required only for AAD based auth
+            volumeMounts:
+            - name: secrets-store-inline
+                mountPath: /mnt/secrets-store
+                readOnly: true
+            ports:
             - name: rw-port
-            containerPort: 8081
-        livenessProbe:
+                containerPort: 8081
+            livenessProbe:
             httpGet:
                 path: /health
                 port: rw-port
-        readinessProbe:
+                initialDelaySeconds: 10
+                timeoutSeconds: 10
+            readinessProbe:
             httpGet:
                 path: /ready
                 port: rw-port
-        env:
+                initialDelaySeconds: 10
+                timeoutSeconds: 10
+            env:
             - name: INGESTION_URL
-            value: "<INGESTION_URL>"
-            # Default is Prod, if you have MDM account in INT, please use this.
-            # - name: CLOUD
-            #   value: INT
+                value: '<INGESTION_URL>'
             - name: LISTENING_PORT
-            value: "8081"
+                value: '8081'
             - name: IDENTITY_TYPE
-            value: "aadApplication"      
+                value: aadApplication
             - name: AZURE_CLIENT_ID
-            value: "<APP-REGISTRATION-CLIENT-ID>"
-            # Required only for AAD based auth
+                value: '<APP-REGISTRATION-CLIENT-ID>'
             - name: AZURE_TENANT_ID
-            value: "<TENANT-ID>"  # TenantId of the AAD app
-            # Required only for AAD based auth
+                value: '<TENANT-ID>'
             - name: AZURE_CLIENT_CERTIFICATE_PATH
-            value: /mnt/secrets-store/<CERT-NAME>
+                value: /mnt/secrets-store/<CERT-NAME>
             - name: CLUSTER
-            value: "<CLUSTER-NAME>"
+                value: '<CLUSTER-NAME>'
     ```
 
 
@@ -249,6 +228,8 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack -namespace <namespace where Prometheus pod resides> 
     ```
 
+## Verification and troubleshooting
+See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
 ## Next steps
 

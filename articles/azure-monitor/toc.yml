@@ -385,6 +385,9 @@ items:
         href: essentials/prometheus-rule-groups.md
       - name: Remote-write
         items:
+        - name: Overview
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write.md
         - name: Managed identity
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-managed-identity.md
