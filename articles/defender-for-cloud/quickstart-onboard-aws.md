@@ -169,7 +169,7 @@ Federated authentication is used between Microsoft Defender for Cloud and AWS. A
 - An identity provider (OpenID connect) 
 - Identity and Access Management (IAM) roles with a federated principal (connected to the identity providers).
 
-The architecture of the authentication process across clouds is described as follows:
+The architecture of the authentication process across clouds is as follows:
 
 :::image type="content" source="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png" alt-text="diagram showing architecture of authentication  process across clouds." lightbox="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png":::
 
