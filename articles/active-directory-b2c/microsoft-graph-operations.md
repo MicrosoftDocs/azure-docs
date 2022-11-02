@@ -163,7 +163,7 @@ For user flows, these extension properties are [managed by using the Azure porta
 
 ## Tenant usage 
 
-Use the [Get organization details](/graph/api/organization-get) API to get your directory size quota. You need to use the `$select` query parameter as shown in the following HTTP request:
+Use the [Get organization details](/graph/api/organization-get) API to get your directory size quota. You need to add the `$select` query parameter as shown in the following HTTP request:
 
 ```http
     GET https://graph.microsoft.com/v1.0/organization/organization-id?$select=directorySizeQuota
