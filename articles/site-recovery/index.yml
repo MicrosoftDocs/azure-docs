@@ -103,7 +103,13 @@ landingContent:
             url: site-recovery-monitor-and-troubleshoot.md
           - text: Monitor Site Recovery with Azure Monitor logs
             url: monitor-log-analytics.md
-
+  - title: Disaster recovery for Edge Zones
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Edge Zones
+            url: tutorial-replicate-vms-edge-zone-to-another zone.md
+            
   - title: Get involved
     linkLists:
       - linkListType: get-started
@@ -114,9 +120,4 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
-  - title: Disaster recovery for Edge Zones
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Disaster recovery for Edge Zones
-            url: tutorial-replicate-vms-edge-zone-to-another zone.md
+  
