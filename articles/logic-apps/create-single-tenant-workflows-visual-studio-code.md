@@ -1,13 +1,14 @@
 ---
 title: Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code
-description: Create logic app workflows that run in single-tenant Azure Logic Apps to automate integration tasks across apps, data, services, and systems using Visual Studio Code.
+description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps to automate integration tasks across apps, data, services, and systems using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/01/2022
 ms.custom: ignite-fall-2021, engagement-fy23
-## As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
+
+# Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
 # Create a Standard logic app workflow for single-tenant Azure Logic Apps using Visual Studio Code
@@ -81,20 +82,10 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.4585) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
-    > [!IMPORTANT]
-    >
-    > If you have an installation that's earlier than these versions, uninstall that version first, or 
-    > make sure that the PATH environment variable points at the version that you download and install.
-    >
-    > Azure Functions v3 support is ending in late 2022. Starting mid-October 2022, new Standard logic app 
-    > workflows in the Azure portal automatically use Azure Functions v4. During November 2022, existing 
-Standard workflows in the Azure portal are 
-    > automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as 
-    > NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is 
-    > designed to require no action from you nor have an impact at runtime.
-    >
-    > If the exceptions apply to you, or for more information about the approaching end for Azure Functions v3 support, see 
-    > [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+    * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
+
+    * Azure Functions v3 support ends in late 2022. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have 
+    a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
