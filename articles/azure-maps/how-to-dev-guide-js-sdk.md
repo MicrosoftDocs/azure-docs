@@ -32,7 +32,7 @@ The Azure Maps JavaScript SDK supports searching using the [Azure Maps search Re
 
 ## Install the search package
 
-To use Azure Maps JavaScript SDK, you will need to install the search package. Each of the Azure Maps services including search, routing, rendering and geolocation are each in their own package.
+To use Azure Maps JavaScript SDK, you'll need to install the search package. Each of the Azure Maps services including search, routing, rendering and geolocation are each in their own package.
 
 ```bash
 npm install @azure/maps-search
@@ -66,22 +66,22 @@ npm init
 
 ## Create and authenticate a MapsSearchClient
 
-You will need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
+You'll need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
 
 > [!TIP]
 > The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [search][search] in the REST API documentation to learn more about the search methods available.
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Azure Identity library]. To use the [DefaultAzureCredential][defaultazurecredential] provider you will need to install the `@azure/identity` package:
+You can authenticate with Azure AD using the [Azure Identity library][Azure Identity library]. To use the [DefaultAzureCredential][defaultazurecredential] provider, you'll need to install the `@azure/identity` package:
 
 ```bash
 npm install @azure/identity
 ```
 
-You will need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host a daemon on non-Azure resources]. During this process you will get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You will need them in the following steps.
+You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host a daemon on non-Azure resources]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
 
-Set the values of the Application (client)client ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
 | Environment Variable  | Description                                                     |
 |-----------------------|-----------------------------------------------------------------|
@@ -90,7 +90,7 @@ Set the values of the Application (client)client ID, Directory (tenant) ID, and 
 | AZURE_TENANT_ID       | Directory (tenant) ID in your registered application            |
 | MAPS_CLIENT_ID        | The client ID in your Azure Map account                         |
 
-You can use a `.env` file for these variables. You will need to install the [dotenv][dotenv] package to do this:
+You can use a `.env` file for these variables. You'll need to install the [dotenv][dotenv] package:
 
 ```bash
 npm install dotenv
@@ -105,7 +105,7 @@ AZURE_TENANT_ID="<tenant-id>"
 MAPS_CLIENT_ID="<maps-client-id>"
 ```
 
-Once your environent variables are created, you can access them in your JavaScript code:
+Once your environment variables are created, you can access them in your JavaScript code:
 
 ```JavaScript
 const { MapsSearchClient } = require("@azure/maps-search"); 
@@ -118,67 +118,25 @@ const client = new MapsSearchClient(credential, process.env.MAPS_CLIENT_ID);
 
 ### Using a subscription key credential
 
-You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account (see previous screenshot).
+You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-```javascript
-const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section in an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
 
-const credential = new AzureKeyCredential("<subscription-key>");
-const client = new MapsSearchClient(credential);
-```
+You need to pass the subscription key to the `AzureKeyCredential` class provided by the @azure/maps-search SDK. For security reasons, we suggest specifying the key in the environment variable. To expose the variables in .env, we need to install dotenv package:
 
-
-
-
-```bash
-npm install @azure/identity
-```
-
-You will also need to register a new Azure AD application and grant access to Azure Maps by assigning the suitable role to your service principal. For more information, see [Manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-Set the values of the client ID, tenant ID, and client secret of the AAD application as environment variables: AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_CLIENT_SECRET. 
-We suggest using a .env file to handle these variables. To expose the variables in .env file, we need to install dotenv package:
+You can use a `.env` file for the subscription key variable. This is a more secure approach that hard coding the value in your source code. You'll need to install the [dotenv][dotenv] package:
 
 ```bash
 npm install dotenv
 ```
 
-Under `mapsDemo/` add a `.env` file and specify the properties:
-
-```text
-AZURE_CLIENT_ID="<client-id>"
-AZURE_CLIENT_SECRET="<client-secret>"
-AZURE_TENANT_ID="<tenant-id>"
-MAPS_CLIENT_ID="<maps-client-id>"
-```
-
-You will also need to specify the Azure Maps resource you intend to use by specifying the MAPS_CLIENT_ID in the client options. The Azure Maps resource client id can be found in the Authentication sections in the Azure Maps resource. Please refer to the Manage Authentication Documentation on how to find it.
-After setting up the environment variables, we’re good to go:
-
-```JavaScript
-const { MapsSearchClient } = require("@azure/maps-search");
-const { DefaultAzureCredential } = require("@azure/identity");
-require("dotenv").config();
-
-const credential = new DefaultAzureCredential();
-const client = new MapsSearchClient(credential, process.env.MAPS_CLIENT_ID);
-```
-
-Using a Subscription Key Credential
-You can authenticate with your Azure Maps Subscription Key. You can find your subscription key following Manage Authentication Documentation.
-You need to feed the subscription key to the `AzureKeyCredential` class provided by the @azure/maps-search SDK. For security reasons, we suggest specifying the key in the environment variable. To expose the variables in .env, we need to install dotenv package:
-
-```poweshell
-npm install dotenv
-```
-
-Under `mapsDemo/` add a `.env` file and specify the property:
+Next, add a `.env` file in the **mapsDemo** directory and specify the property:
 
 ```text
 MAPS_SUBSCRIPTION_KEY="<subscription-key>"
 ```
 
-Once the environment variable is ready, we’re good to go.
+Once your environment variable is created, you can access it in your JavaScript code:
 
 ```JavaScript
 const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
@@ -188,242 +146,216 @@ const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
 const client = new MapsSearchClient(credential);
 ```
 
-### Fuzzy search an entity
+## Fuzzy search an entity
 
-The following code snippet demonstrates how, in a simple console application, to import the `Azure.Maps.Search` package and perform a fuzzy search on“Starbucks” near Seattle. In `Program.cs`:
+The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and perform a fuzzy search on“Starbucks” near Seattle:
 
-```csharp
-using Azure; 
-using Azure.Core.GeoJson; 
-using Azure.Maps.Search; 
-using Azure.Maps.Search.Models; 
+```JavaScript
 
-// Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key"); 
-var client = new MapsSearchClient(credential); 
+const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search"); 
+require("dotenv").config(); 
+ 
+async function main() { 
+  // Authenticate with Azure Map Subscription Key 
+  const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY); 
+  const client = new MapsSearchClient(credential); 
+ 
+  // Setup the fuzzy search query 
+  const response = await client.fuzzySearch({ 
+    query: "Starbucks", 
+    coordinates: [47.639557, -122.128159], 
+    countryCodeFilter: ["US"], 
+  }); 
+ 
+  // Log the result 
+  console.log(`Find ${response.numberResults} results:`); 
+  response.results.forEach((r) => { 
+    console.log("============="); 
 
-SearchAddressResult searchResult = client.FuzzySearch( 
-    "Starbucks", new FuzzySearchOptions 
-    { 
-        Coordinates = new GeoPosition(-122.31, 47.61), 
-        Language = SearchLanguage.EnglishUsa 
-    }); 
+    console.log(`Phone: ${r.pointOfInterest.phone || "Not provided"}`); 
 
-
-// Print the search results 
-foreach (var result in searchResult.Results) 
-{ 
-    Console.WriteLine($""" 
-        * {result.PointOfInterest.Name} 
-          {result.Address.StreetNumber} {result.Address.StreetName} 
-          {result.Address.Municipality} {result.Address.CountryCode} {result.Address.PostalCode} 
-          Coordinate: ({result.Position.Latitude:F4}, {result.Position.Longitude:F4}) 
-        """); 
+    console.log(`Address: ${r.address.freeformAddress}`); 
+  }); 
 } 
+ 
+main().catch((err) => { 
+  console.error(err); 
+}); 
+
 ```
 
-In the above code snippet, you create a `MapsSearchClient` object using your Azure credentials, then use that Search Client's [FuzzySearch][FuzzySearch] method passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. This all gets wrapped up by the SDK and sent to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
+In the above code snippet, you create a `MapsSearchClient` object using your Azure credentials. This is done using your Azure Maps Subscription Key, however you could use the [Azure AD credential](#using-an-azure-ad-credential) discussed in the previous section. You then pass the search query and options to the `fuzzySearch` method. Here we want to search for Starbucks (`query: "Starbucks"`) near Seattle (`coordinates: [47.639557, -122.128159], countryFilter: ["US"]`). For more information, see [FuzzySearchRequest][FuzzySearchRequest] in the [Azure Maps Search client library for JavaScript/TypeScript][client library].
 
-The following libraries are used:
+The method `fuzzySearch` provided by `MapsSearchClient` will forward the request to Azure Maps REST endpoints. When the results are returned, they're written to the console. For more information, see [SearchAddressResult][SearchAddressResult].
 
-1. `Azure.Maps.Search` is required for the `MapsSearchClient` class.
-1. `Azure.Maps.Search.Models` is required for the `SearchAddressResult` class.
-1. `Azure.Core.GeoJson` is required for the `GeoPosition` struct used by the `FuzzySearchOptions` class.
+Run `search.js` with Node.js:
 
-To run your application, go to the project folder and execute `dotnet run` in PowerShell:
-
-```bash
-dotnet run 
+```powershell
+node search.js 
 ```
 
-You should see a list of Starbucks address and coordinate results:
+## Search an Address
 
-```text
-* Starbucks 
-  1600, East Jefferson Street 
-  Seattle US 98122 
-  Coordinate: (47.6065, -122.3110) 
-* Starbucks 
-  800, 12th Avenue 
-  Seattle US 98122
-  Coordinate: (47.6093, -122.3165) 
-* Starbucks 
-  2201, East Madison Street 
-  Seattle US 98112 
-  Coordinate: (47.6180, -122.3036) 
-* Starbucks
-  101, Broadway East 
-  Seattle US 98102 
-  Coordinate: (47.6189, -122.3213) 
-* Starbucks 
-  2300, South Jackson Street 
-  Seattle US 98144 
-  Coordinate: (47.5995, -122.3020) 
-* Starbucks 
-  1600, East Olive Way 
-  Seattle US 98102 
-  Coordinate: (47.6195, -122.3251) 
-* Starbucks 
-  1730, Howell Street 
-  Seattle US 98101 
-  Coordinate: (47.6172, -122.3298) 
-* Starbucks 
-  505, 5Th Ave S 
-  Seattle US 98104 
-  Coordinate: (47.5977, -122.3285) 
-* Starbucks 
-  121, Lakeside Avenue South 
-  Seattle US 98122 
-  Coordinate: (47.6020, -122.2851) 
-* Starbucks Regional Office 
-  220, 1st Avenue South 
-  Seattle US 98104 
-  Coordinate: (47.6003, -122.3338) 
+The `searchAddress` method can be used to get the coordinate of an address. Modify the `search.js` from the sample as follows:
+
+```JavaScript
+const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+require("dotenv").config();
+
+async function main() {
+  const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
+  const client = new MapsSearchClient(credential);
+
+  const response = await client.searchAddress(
+    "1301 Alaskan Way, Seattle, WA 98101, US"
+  );
+
+  console.log(`The coordinate is: ${response.results[0].position}`);}
+
+main().catch((err) => {
+  console.error(err);
+});
 ```
 
-## Search an address
-
-Call the `SearchAddress` method to get the coordinate of an address. Modify the Main program from the sample as follows:
-
-```csharp
-// Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
-var client = new MapsSearchClient(credential);
-
-SearchAddressResult searchResult = client.SearchAddress(
-    "1301 Alaskan Way, Seattle, WA 98101, US");
-
-if (searchResult.Results.Count > 0) 
-{
-    SearchAddressResultItem result = searchResult.Results.First(); 
-    Console.WriteLine($"The Coordinate: ({result.Position.Latitude:F4}, {result.Position.Longitude:F4})"); 
-}
-```
-
-Results returned by the `SearchAddress` method are ordered by confidence score and because `searchResult.Results.First()` is used, only the coordinates of the first result will be returned.
+The results returned from `client.searchAddress` are ordered by confidence score and in this example only the first result returned with be displayed to the screen.
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The example below demonstrates how to call the batched reverse search methods:
+Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so you can wait until completion or query the result periodically. The example below demonstrates how to call batched reverse search method:
 
-```csharp
-var queries = new List<ReverseSearchAddressQuery>() 
-{ 
-    new ReverseSearchAddressQuery(new ReverseSearchOptions() 
-    { 
-        Coordinates = new GeoPosition(2.294911, 48.858561) 
-    }), 
-    new ReverseSearchAddressQuery(new ReverseSearchOptions() 
-    { 
-        Coordinates = new GeoPosition(-122.127896, 47.639765), 
-        RadiusInMeters = 5000 
-    }) 
-};
-```
-
-In the above example, two queries are passed to the batched reverse search request. To get the LRO results, you have few options. The first option is to pass `WaitUntil.Completed` to the method. The request will wait until all requests are finished and return the results:
-
-```csharp
-// Wait until the LRO return batch results 
-Response<ReverseSearchAddressBatchOperation> waitUntilCompletedResults = client.ReverseSearchAddressBatch(WaitUntil.Completed, queries); 
-
-// Print the result addresses 
-printReverseBatchAddresses(waitUntilCompletedResults.Value); 
-```
-
-Another option is to pass `WaitUntil.Started`. The request will return immediately, and you'll need to manually poll the results:
-
-```csharp
-// Manual polling the batch results 
-Response<ReverseSearchAddressBatchOperation> manualPollingOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
-
-// Keep polling until we get the results
-while (true)
-{
-    manualPollingOperation.Value.UpdateStatus();
-    if (manualPollingOperation.Value.HasCompleted) break;
-    Task.Delay(1000);
-}
-printReverseBatchAddresses(manualPollingOperation);
-```
-
-We can also call `WaitUntilCompletion()` to explicitly wait for the result:
-
-```csharp
-Response<ReverseSearchAddressBatchOperation> manualPollingResult = manualPollingResults.WaitUntilCompleted();
-
-printReverseBatchAddresses(manualPollingResult.Value);
-```
-
-The third method requires the operation ID to get the results, which will be cached on the server side for 14 days:
-
-```csharp
-  ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
-
-  // Get batch results by ID 
-  string operationId = longRunningOperation.Value.Id;
-
-  // After the LRO completes, create a new operation
-  // to get the results from the server
-  ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
-  Response<ReverseSearchAddressBatchOperation> newOperationResult = newOperation.WaitForCompletion();
-
-printReverseBatchAddresses(newOperationResult);
-```
-
-The complete code for reverse address batch search with operation ID:
-
-```csharp
-using Azure;
-using Azure.Core.GeoJson;
-using Azure.Maps.Search;
-using Azure.Maps.Search.Models;
-
-// Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
-var client = new MapsSearchClient(credential);
-
-var queries = new List<ReverseSearchAddressQuery>()
-{
-    new ReverseSearchAddressQuery(new ReverseSearchOptions()
+```JavaScript
+    const poller = await client.beginReverseSearchAddressBatch([
+    // This is an invalid query
+    { coordinates: [148.858561, 2.294911] },
     {
-        Coordinates = new GeoPosition(2.294911, 48.858561)
-    }),
-    new ReverseSearchAddressQuery(new ReverseSearchOptions()
-    {
-        Coordinates = new GeoPosition(-122.127896, 47.639765),
-        RadiusInMeters = 5000
-    })
-};
+      coordinates: [47.639765, -122.127896],
+      options: { radiusInMeters: 5000 },
+    },
+    { coordinates: [47.621028, -122.34817] },
+  ]);
+```
 
-// Manual polling the batch results
-ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
+In this example, three queries are passed into the _batched reverse search_ request. The first query is invalid, see [Handing failed requests](#handing-failed-requests) for an example showing how to handle the invalid query.
 
-// Get batch results by ID
-string operationId = longRunningOperation.Id;
+Use the `getResult` method from the poller to check the current result. You check the status using `getOperationState` to see if the poller is still running. If it is, you can keep calling `poll` until the operation is finished:
 
-// A few days later, create a new operation and get the result from server
-ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
-Response<ReverseSearchAddressBatchResult> newOperationResult = newOperation.WaitForCompletion();
-printReverseBatchAddresses(newOperationResult.Value);
-void printReverseBatchAddresses(ReverseSearchAddressBatchResult batchResult)
-{
-    // Print the search results
-    for (int i = 0; i < batchResult.Results.Count; i++)
-    {
-        Console.WriteLine($"Possible addresses for query {i}:");
-        var result = batchResult.Results[i];
-        foreach (var address in result.Addresses)
-        {
-            Console.WriteLine($"{address.Address.FreeformAddress}");
-        }
+```JavaScript
+  while (poller.getOperationState().status === "running") {
+    const partialResponse = poller.getResult();
+    logResponse(partialResponse)
+    await poller.poll();
+  }
+```
+
+Alternatively, you can wait until the operation is finished by using `pollUntilDone()`:
+
+```JavaScript
+const response = await poller.pollUntilDone();
+logResponse(response)
+```
+
+A common scenario for LRO is to resume a previous operation later. You do that by serializing the poller’s state with the `toString` method, and rehydrating the state with a new poller with `resumeReverseSearchAddressBatch`:
+
+```JavaScript
+  const serializedState = poller.toString();
+  const rehydratedPoller = await client.resumeReverseSearchAddressBatch(
+    serializedState
+  );
+  const response = await rehydratedPoller.pollUntilDone();
+  logResponse(response);
+```
+
+Once you get the response, you can log it:
+
+```JavaScript
+function logResponse(response) {
+  console.log(
+    `${response.totalSuccessfulRequests}/${response.totalRequests} succeed.`
+  );
+  response.batchItems.forEach((item, idx) => {
+    console.log(`The result for ${idx + 1}th request:`);
+   // Check if the request is failed
+    if (item.response.error) {
+      console.error(item.response.error);
+    } else {
+      item.response.results.forEach((result) => {
+        console.log(result.address.freeformAddress);
+      });
     }
+  });
 }
+```
+
+### Handing failed requests
+
+Handle failed requests by checking for the `error` property in the response batch item. See the `logResponse` function in the complete example.
+
+### Completed Batch reverse search example
+
+The complete code for the reverse address batch search example:
+
+```JavaScript
+const { MapsSearchClient, AzureKeyCredential } = require("@azure/maps-search");
+require("dotenv").config();
+
+async function main() {
+  const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
+  const client = new MapsSearchClient(credential);
+
+  const poller = await client.beginReverseSearchAddressBatch([
+    // This is an invalid query
+    { coordinates: [148.858561, 2.294911] },
+    {
+      coordinates: [47.639765, -122.127896],
+      options: { radiusInMeters: 5000 },
+    },
+    { coordinates: [47.621028, -122.34817] },
+  ]);
+
+  // Get the partial result and keep polling
+  while (poller.getOperationState().status === "running") {
+    const partialResponse = poller.getResult();
+    logResponse(partialResponse);
+    await poller.poll();
+  }
+
+  // You can simply wait for the operation is done
+  // const response = await poller.pollUntilDone();
+  // logResponse(response)
+
+  // Resume the poller
+  const serializedState = poller.toString();
+  const rehydratedPoller = await client.resumeReverseSearchAddressBatch(
+    serializedState
+  );
+  const response = await rehydratedPoller.pollUntilDone();
+  logResponse(response);
+}
+
+function logResponse(response) {
+  console.log(
+    `${response.totalSuccessfulRequests}/${response.totalRequests} succeed.`
+  );
+  response.batchItems.forEach((item, idx) => {
+    console.log(`The result for ${idx + 1}th request:`);
+    if (item.response.error) {
+      console.error(item.response.error);
+    } else {
+      item.response.results.forEach((result) => {
+        console.log(result.address.freeformAddress);
+      });
+    }
+  });
+}
+
+main().catch((err) => {
+  console.error(err);
+});
 ```
 
 ## Additional information
 
-The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
+- The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 
 [search]: /rest/api/maps/search
 [Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
@@ -436,14 +368,13 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
 [Host a daemon on non-Azure resources]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
-[tenant ID]: /azure/active-directory/fundamentals/active-directory-how-to-find-tenant
-[client-secret]: /azure/key-vault/secrets/quick-create-powershell#retrieve-a-secret-from-key-vault
 
-[Rest API]: /rest/api/maps/
+[FuzzySearchRequest]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/interfaces/fuzzysearchrequest.html
+[SearchAddressResult]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/interfaces/searchaddressresult.html
+[client library]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/index.html
 
 [search package]: https://www.nuget.org/packages/Azure.Maps.Search
 [search readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Search/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Search/samples
 
-[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [Azure.Maps Namespace]: /dotnet/api/azure.maps
