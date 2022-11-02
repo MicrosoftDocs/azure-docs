@@ -16,7 +16,7 @@ Azure SignalR Service can access your Azure Key Vault instance in a private netw
 
 :::image type="content" alt-text="Diagram that shows the architecture of a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
-## Resource management through a shared private link
+## Management of shared private link resources
 
 Private endpoints of secured resources that are created through Azure SignalR Service APIs are called *shared private link resources*. This is because you're "sharing" access to a resource, such a key vault, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside an Azure SignalR Service execution environment and aren't directly visible to you.
 
