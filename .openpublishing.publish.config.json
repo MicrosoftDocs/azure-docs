@@ -867,7 +867,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "reusable-content",
+      "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
@@ -908,6 +908,7 @@
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
     ".openpublishing.redirection.azure-australia.json",
+    ".openpublishing.redirection.iot-hub-device-update.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -948,7 +949,7 @@
     ".openpublishing.redirection.virtual-desktop.json",
     ".openpublishing.redirection.deployment-environments.json",
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
-    "articles/applied-ai-services/.openpublishing.archived.json",
+    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
     ".openpublishing.redirection.baremetal-infrastructure.json",
     "articles/iot-dps/.openpublishing.redirection.iot-dps.json"

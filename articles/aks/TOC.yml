@@ -186,7 +186,7 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
-        - name: Use cluster snapshots
+        - name: Use cluster snapshots (preview)
           href: managed-cluster-snapshot.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
@@ -374,10 +374,14 @@
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
+        - name: Use Azure CNI Powered by Cilium (Preview)
+          href: azure-cni-powered-by-cilium.md
         - name: Create an internal load balancer
           href: internal-lb.md
         - name: Use a Standard Load Balancer
           href: load-balancer-standard.md
+        - name: Use kube-proxy configuration (IPVS)
+          href: configure-kube-proxy.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
         - name: Use an HTTP proxy

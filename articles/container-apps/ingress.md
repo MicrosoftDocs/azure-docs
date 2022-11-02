@@ -39,8 +39,6 @@ TCP ingress is useful for exposing container apps that use a TCP-based protocol 
 
 > [!NOTE]
 > TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
->
-> To enable TCP ingress, use ARM or Bicep (API version `2022-06-01-preview` or above), or the Azure CLI.
 
 With TCP ingress enabled, your container app features the following characteristics:
 

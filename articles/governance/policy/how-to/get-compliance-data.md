@@ -2,7 +2,7 @@
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 author: timwarner-msft
-ms.date: 08/05/2022
+ms.date: 10/26/2022
 ms.topic: how-to
 ms.author: timwarner
 ---
@@ -39,7 +39,7 @@ operations of the Azure Policy Insights REST API, see
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
-- A policy or initiative is newly assigned to a scope. It takes around 30 minutes for the assignment
+- A policy or initiative is newly assigned to a scope. It takes around five minutes for the assignment
   to be applied to the defined scope. Once it's applied, the evaluation cycle begins for resources
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant, non-compliant, or exempt. A
@@ -354,9 +354,6 @@ details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. Th
 pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
-
-> [!NOTE]
-> Currently "reason for non-compliance" cannot be retrieved from Command line.  We are working on mapping the reason code to the "reason for non-compliance" and at this point there is no ETA on this.
 
 ### Summarize results
 
