@@ -250,7 +250,7 @@
         - name: Origins in origin group
           href: how-to-configure-origin.md
         - name: Set up managed identity
-          href: managed-identity.md
+          href: configure-managed-identity.md
         - name: Add a custom domain
           href: standard-premium/how-to-add-custom-domain.md
         - name: Add a root or apex domain
