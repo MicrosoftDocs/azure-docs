@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Click **Save**.
 
-1. Select the **JIT Proisioning** tab.
+1. Select the **JIT Provisioning** tab.
 
     ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/jit-1.png "JIT Provisioning")
 
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Basic Settings** section, for **User Data Updates**, select **Prefer Veracode User Data**.
 
-1. In the **Access Settings** section, under **User Roles**, select from the following (*Note*: For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions)):
+1. In the **Access Settings** section, under **User Roles**, select from the following For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions):
 
     ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/jit-2.png "JIT Provisioning")
 
