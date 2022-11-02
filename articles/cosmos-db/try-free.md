@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 11/02/2022
 ---
 
 # Try Azure Cosmos DB free
