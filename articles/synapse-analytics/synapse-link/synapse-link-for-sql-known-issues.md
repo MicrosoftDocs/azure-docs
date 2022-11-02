@@ -6,9 +6,9 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 11/02/2022
 ms.author: jburchel
-ms.reviewer: jburchel, chuckheinzelman, wiassaf
+ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
 
 # Known limitations and issues with Azure Synapse Link for SQL
