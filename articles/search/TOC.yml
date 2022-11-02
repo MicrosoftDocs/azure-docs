@@ -426,20 +426,6 @@
       href: search-query-simple-examples.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
-    - name: Search results 
-      items:
-      - name: Paging, sorting, and formatting
-        href: search-pagination-page-layout.md
-      - name: Return a semantic answer
-        href: semantic-answers.md
-    - name: Advanced queries
-      items:
-      - name: Use full Lucene (examples)
-        href: search-query-lucene-examples.md
-      - name: Partial terms and special characters
-        href: search-query-partial-matching.md
-      - name: Fuzzy search
-        href: search-query-fuzzy.md
     - name: Autocomplete "Search-as-you-type"
       items:
       - name: Create a suggester
@@ -458,6 +444,20 @@
         href: search-query-understand-collection-filters.md
       - name: Normalize text
         href: search-normalizers.md
+    - name: Search results 
+      items:
+      - name: Paging, sorting, and formatting
+        href: search-pagination-page-layout.md
+      - name: Return a semantic answer
+        href: semantic-answers.md
+    - name: Advanced queries
+      items:
+      - name: Use full Lucene (examples)
+        href: search-query-lucene-examples.md
+      - name: Partial terms and special characters
+        href: search-query-partial-matching.md
+      - name: Fuzzy search
+        href: search-query-fuzzy.md
   - name: Relevance
     items:
     - name: Configure scoring
