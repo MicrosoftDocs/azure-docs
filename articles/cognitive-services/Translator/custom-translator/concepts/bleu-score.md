@@ -45,5 +45,5 @@ BLEU score.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [BLEU score evaluation](../how-to/view-model-test-translation.md)
+> [BLEU score evaluation](../how-to/test-your-model.md)
 

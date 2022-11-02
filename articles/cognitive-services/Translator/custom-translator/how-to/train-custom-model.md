@@ -77,6 +77,6 @@ For better results, we recommended letting the system learn from your training d
 
 ## Next steps
 
-- Learn [how to test and evaluate model quality](view-model-test-translation.md).
+- Learn [how to test and evaluate model quality](test-your-model.md).
 - Learn [how to publish model](publish-model.md).
 - Learn [how to translate with custom models](translate-with-custom-model.md).

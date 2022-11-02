@@ -23,7 +23,7 @@ If only training data is provided when queuing a training, Custom Translator wil
 
 Documents included in training set are used by the Custom Translator as the basis for building your model. During training execution, sentences that are present in these documents are aligned (or paired). You can take liberties in composing your set of training documents. You can include documents that you believe are of tangential relevance in one model. Again exclude them in another to see the impact in [BLEU (Bilingual Evaluation Understudy) score](bleu-score.md). As long as you keep the tuning set and test set constant, feel free to experiment with the composition of the training set. This approach  is an effective way to modify the quality of your translation system.
 
-You can run multiple trainings within a project and compare the [BLEU scores](bleu-score.md) across all training runs. When you're running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the ["Testing"](../how-to/view-model-test-translation.md) tab.
+You can run multiple trainings within a project and compare the [BLEU scores](bleu-score.md) across all training runs. When you're running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the ["Testing"](../how-to/test-your-model.md) tab.
 
 ## Tuning document type for Custom Translator
 
@@ -54,4 +54,4 @@ You can view the custom translations of the testing set, and compare them to the
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Test and evaluate your model](../how-to/view-model-test-translation.md)
+> [Test and evaluate your model](../how-to/test-your-model.md)

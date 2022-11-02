@@ -197,9 +197,9 @@ items:
     - name: Train a custom model
       displayName: full,dictionary,duplicate
       href: custom-translator/how-to/train-custom-model.md
-    - name: "View model details: test translations"
+    - name: Test your model
       displayName: bleu,baseline
-      href: custom-translator/how-to/view-model-test-translation.md
+      href: custom-translator/how-to/test-your-model.md
     - name: Publish a custom model
       displayName: replace
       href: custom-translator/how-to/publish-model.md

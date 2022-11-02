@@ -122,7 +122,7 @@ landingContent:
           - text: Train a custom model
             url: custom-translator/how-to/train-custom-model.md
           - text: View custom model details and test translation
-            url: custom-translator/how-to/view-model-test-translation.md
+            url: custom-translator/how-to/test-your-model.md
           - text: Publish a custom model
             url: custom-translator/how-to/publish-model.md
           - text: Translate text with a custom model
