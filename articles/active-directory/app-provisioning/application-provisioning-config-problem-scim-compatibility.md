@@ -73,7 +73,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "False"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
@@ -89,7 +89,7 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": false
         }
     ]
-}
+  }
   ```
 
 **Requests made to add a single-value string attribute:**

@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for Azure role assignment conditions (preview)
-description: Prerequisites for Azure role assignment conditions (preview).
+title: Prerequisites for Azure role assignment conditions - Azure ABAC
+description: Prerequisites for Azure role assignment conditions.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,18 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 
 #Customer intent: 
 ---
 
-# Prerequisites for Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Prerequisites for Azure role assignment conditions
 
 To add or edit Azure role assignment conditions, you must have the following prerequisites.
 
@@ -58,6 +53,10 @@ Just like role assignments, to add or update conditions, you must be signed in t
 
 ## Principal attributes
 
+> [!IMPORTANT]
+> Principal attributes are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 To use principal attributes ([custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-overview.md)), you must have **all** of the following:
 
 - Azure AD Premium P1 or P2 license
@@ -71,5 +70,5 @@ For more information about custom security attributes, see:
 
 ## Next steps
 
-- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../storage/blobs/storage-auth-abac-portal.md)

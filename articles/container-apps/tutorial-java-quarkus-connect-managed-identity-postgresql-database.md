@@ -2,9 +2,9 @@
 title: 'Tutorial: Access data with managed identity in Java using Service Connector'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and deploy it to Azure Container Apps.
 ms.devlang: java
-author: shizn
+author: KarlErickson
 ms.topic: tutorial
-ms.author: xshi
+ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
 ---
@@ -28,7 +28,7 @@ What you will learn:
 
 ## 1. Prerequisites
 
-* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)

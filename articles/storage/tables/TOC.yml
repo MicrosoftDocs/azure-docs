@@ -241,9 +241,9 @@
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK
-      href: /python/api/overview/azure/storage/management
+      href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
-      href: /javascript/api/overview/azure/storage/management
+      href: /javascript/api/overview/azure/storage#management
   - name: Monitoring Azure Table storage reference
     href: monitor-table-storage-reference.md
   - name: Scalability and performance targets

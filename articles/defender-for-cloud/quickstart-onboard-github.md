@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
-ms.date: 09/20/2022
+ms.date: 11/02/2022
 ms.topic: quickstart
 ms.custom: ignite-2022
 ---
@@ -47,7 +47,7 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 
     :::image type="content" source="media/quickstart-onboard-github/select-github.png" alt-text="Screenshot that shows you where to select, to select GitHub." lightbox="media/quickstart-onboard-github/select-github.png":::
 
-1. Enter a name, select your subscription, resource group, and region.
+1. Enter a name (limit of 20 characters), select your subscription, resource group, and region.
 
     > [!NOTE] 
     > The subscription will be the location where Defender for DevOps will create and store the GitHub connection.
@@ -56,10 +56,11 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 
 1. Select **Next: Authorize connection**.
 
-1. Select **Authorize** to grant your Azure subscription access to your GitHub repositories. Sign in, if necessary, with an account that has permissions to the repositories you want to protect
+1. Select **Authorize** to grant your Azure subscription access to your GitHub repositories. Sign in, if necessary, with an account that has permissions to the repositories you want to protect.
 
     > [!NOTE] 
     > The authorization will auto-login using the session from your browser tab. After you select Authorize, if you do not see the GitHub organizations you expect to see, check whether you are logged in to MDC in one browser tab and logged in to GitHub in another browser tab. 
+    > After authorization, if you wait too long to install the DevOps application, the session will time out and you will receive an error message.
 
 1. Select **Install**.
 
@@ -89,4 +90,4 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [configure the MSDO GitHub action](github-action.md).
 
-Learn how to [configure pull request annotations](tutorial-enable-pull-request-annotations.md) in Defender for Cloud.
+Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.

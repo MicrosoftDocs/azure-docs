@@ -8,7 +8,7 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 03/22/2021
+ms.date: 10/20/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022
 ---

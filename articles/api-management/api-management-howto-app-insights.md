@@ -146,3 +146,4 @@ To improve performance issues, skip:
 
 + Learn more about [Azure Application Insights](/azure/application-insights/).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).
++ - Learn about visualizing data from Application Insights using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)
