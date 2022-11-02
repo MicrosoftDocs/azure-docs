@@ -144,11 +144,34 @@ For this procedure, the database won't use sharding.
 1. In the project directory, create an *run.py* file. In your editor, add requires statements to reference the PyMongo and python-dotenv
 packages.
 
+```python
+import pymongo
+from dotenv import load_dotenv
+```
+<!--- 
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="package_dependencies":::
+--->
 
 2. Get the connection information from the environment variable defined in an *.env* file.
 
+```python
+load_dotenv()
+CONNECTION_STRING = os.environ.get('COSMOS_CONNECTION_STRING')
+```
+<!--
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
+--->
+
+3. Define some constants you'll use through the code.
+
+```python
+DB_NAME = "adventureworks"
+UNSHARDED_COLLECTION_NAME = "products"
+```
+<!--
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
+--->
+
 
 ### Set up asynchronous operations
 
@@ -158,6 +181,68 @@ TBD: is applicable to Python?
 
 Use the [``MongoClient``](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
 
+```python
+client = pymongo.MongoClient(CONNECTION_STRING)
+```
+<!--- 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="connect_client":::
+--->
 
+### Get database instance
 
+When working with PyMongo you access databases using attribute style access on MongoClient instances. The code below also shows that if the database doesn't exist, it is created. You can check the [list_database_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method to see if the database exists.
+
+```python
+db = client[DB_NAME]
+
+# Create database if it doesn't exist
+if DB_NAME not in client.list_database_names():
+    # Database with 400 RU throughput that can be shared across the DB's collections
+    db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
+    print("Created db {} with shared throughput". format(DB_NAME))
+```
+<!---
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
+--->
+
+### Get collection instance
+
+The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) gets a reference to a collection.
+
+```python
+collection = db[UNSHARDED_COLLECTION_NAME]
+
+if UNSHARDED_COLLECTION_NAME not in db.list_collection_names():
+    # Creates a unsharded collection that uses the DBs shared throughput
+    db.command({'customAction': "CreateCollection", 'collection': UNSHARDED_COLLECTION_NAME})
+    print("Created collection {}". format(UNSHARDED_COLLECTION_NAME))
+```
+<!---
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
+--->
+
+### Chained instances
+
+Does this apply to Python?
+
+### Create an index
+
+Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#createIndex) to create an index on the document's properties you intend to use for sorting with the MongoDB's [``FindCursor.sort``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html#sort) method.
+
+```python
+result = collection.create_index([('name', pymongo.ASCENDING)], unique=True)
+print("Indexes are: {}".format(sorted(collection.index_information())))
+```
+<!---
+:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="create_index":::
+--->
+
+### Create a doc
+
+Create a doc with the *product* properties for the `adventureworks` database:
+
+* An _id property for the unique identifier of the product.
+* A *category* property. This property can be used as the logical partition key.
+* A *name* property.
+* An inventory *quantity* property.
+* A *sale* property, indicating whether the product is on sale.
