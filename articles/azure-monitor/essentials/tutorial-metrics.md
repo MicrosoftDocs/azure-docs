@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Analyze metrics for an Azure resource
+title: Analyze metrics for an Azure resource
 description: Learn how to analyze metrics for an Azure resource using metrics explorer in Azure Monitor
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.date: 11/08/2021
 ms.reviewer: priyamishra
 ---
 
-# Tutorial: Analyze metrics for an Azure resource
+# Analyze metrics for an Azure resource
 Metrics are numerical values that are automatically collected at regular intervals and describe some aspect of a resource. For example, a metric might tell you the processor utilization of a virtual machine, the free space in a storage account, or the incoming traffic for a virtual network. Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to plot charts from metrics created by your Azure resources and investigate their health and utilization. 
 
 In this tutorial, you learn how to:
@@ -20,12 +20,12 @@ In this tutorial, you learn how to:
 > * Modify the time range and granularity for the chart
 
 
-Following is a video that shows a more extensive scenario than the procedure outlined in this article. If you are new to metrics, we suggest you read through this article first and then view the video to see more specifics. 
+Following is a video that shows a more extensive scenario than the procedure outlined in this tutorial. If you are new to metrics, we suggest you read through this article first and then view the video to see more specifics. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## Prerequisites
-To complete this tutorial you need the following: 
+To complete the steps in this tutorial, you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports metrics. To determine whether a resource supports metrics, go to its menu in the Azure portal and verify that there's a **Metrics** option in the **Monitoring** section of the menu.
 

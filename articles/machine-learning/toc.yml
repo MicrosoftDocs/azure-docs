@@ -212,6 +212,11 @@
           href: concept-data.md
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+          - name: Export and delete data
+            displayName: GDPR
+            href: how-to-export-delete-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -508,7 +513,7 @@
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
             - name: Safe rollout for online endpoints
-              href: how-to-safely-rollout-managed-endpoints.md
+              href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
               items:
                 - name: Deploy a MLflow model with an online endpoint

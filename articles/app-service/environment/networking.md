@@ -76,6 +76,9 @@ The normal app access ports inbound are as follows:
 |Visual Studio remote debugging|4022, 4024, 4026|
 |Web Deploy service|8172|
 
+> [!NOTE]
+> For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range, as this is used for internal health ping traffic for the ftp service specifically.
+
 ## Network routing
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
