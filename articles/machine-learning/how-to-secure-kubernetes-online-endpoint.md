@@ -4,7 +4,7 @@ description: Learn about how to use TLS/SSL to configure secure Kubernetes onlin
 titleSuffix: Azure Machine Learning
 author: jiaochenlu
 ms.author: chenlujiao
-ms.reviewer: 
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/10/2022
