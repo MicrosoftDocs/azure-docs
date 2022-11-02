@@ -325,7 +325,7 @@ When reporting an issue with the Linux emulator, provide as much information as 
 - Description of the workload
 - Sample of the database/collection and item used
 - Include the console output from starting the Docker container for the emulator in attached mode
-- Send all of the above to [Azure Cosmos DB team](mailto:cdbportalfeedback@microsoft.com).
+- Post feedback on our [Azure Cosmos DB Q&A forums](/answers/topics/azure-cosmos-db.html).
 
 ## Next steps
 

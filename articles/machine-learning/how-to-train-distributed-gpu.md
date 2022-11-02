@@ -2,8 +2,8 @@
 title: Distributed GPU training guide 
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: fuhuifang
-ms.author: fufang
+author: rtanase
+ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core

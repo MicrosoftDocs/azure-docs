@@ -18,14 +18,15 @@ No restrictions, all Microsoft Purview regions are supported
 - East US2
 - South Central US
 - West Central US
-- West US3
 - Canada Central
+- Brazil South
 - West Europe
 - North Europe
 - France Central
 - UK South
 - Central India
-- Japan East
+- East Asia
+- South East Asia
 - Australia East
 
 #### Configure the Azure SQL Database for policies from Microsoft Purview

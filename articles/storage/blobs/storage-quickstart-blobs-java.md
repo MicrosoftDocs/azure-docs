@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 10/07/2022
+ms.date: 10/24/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -195,7 +195,7 @@ Use the following Java classes to interact with these resources:
 
 These example code snippets show you how to perform the following actions with the Azure Blob Storage client library for Java:
 
-- [Authenticate the client](#authenticate-the-client)
+- [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
@@ -205,19 +205,15 @@ These example code snippets show you how to perform the following actions with t
 > [!IMPORTANT]
 > Make sure you have the correct dependencies in pom.xml and the necessary directives for the code samples to work, as described in the [setting up](#setting-up) section.
 
-### Authenticate the client
+### Authenticate to Azure and authorize access to blob data
 
-Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the **azure-identity** client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
-
-You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../includes/storage-quickstart-passwordless-auth-intro.md)]
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
-
-:::image type="content" source="./media/storage-quickstart-blobs-java/defaultazurecredential-flow-java.png" alt-text="A diagram of the credential flow.":::
 
 For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -277,14 +273,14 @@ You can authorize access to data in your storage account using the following ste
     :::image type="content" source="./media/storage-quickstart-blobs-java/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
-    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
+    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/java/sdk/identity-azure-hosted-auth) tutorial.
 
 ### [Connection String](#tab/connection-string)
 
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role), but any role which includes this action will work.
+> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
@@ -434,9 +430,11 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
+Before you begin the cleanup process, check your *data* folder for the two files. You can compare them and observe that they're identical.
 
-After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
+## Clean up resources
+
+After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
 
 ## Next steps
 

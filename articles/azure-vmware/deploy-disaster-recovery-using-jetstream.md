@@ -9,7 +9,7 @@ ms.custom: references_regions
 
 # Deploy disaster recovery using JetStream DR software
 
-[JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
+[JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there is a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
 JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware vSphere API for I/O filtering (VAIO) framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
 
@@ -27,11 +27,11 @@ To learn more about JetStream DR, see:
 
 | Items | Description |
 | --- | --- |
-| **JetStream Management Server Virtual Appliance (MSA)**  | MSA enables both Day 0 and Day 2 configuration, such as primary sites, protection domains, and recovering VMs.  MSA is installed on a vSphere node by the cloud admin.  The MSA implements a vCenter Server plugin that allows you to manage JetStream DR natively from vCenter Server. The MSA doesn't handle replication data of protected VMs.  | 
-| **JetStream DR Virtual Appliance (DRVA)**  | Linux-based Virtual Machine appliance receives protected VMs replication data from the source ESXi host. It's responsible for storing the replication data at the DR site, typically in an object store such as Azure Blob Storage. Depending on the number of protected VMs and the amount of storage to replicate, the private cloudadmin can create one or more DRVA instances.  | 
-| **JetStream ESXi host components (IO Filter packages)**  | JetStream software installed on each ESXi host configured for JetStream DR. The host driver intercepts the vSphere VMs IO and sends the replication data to the DRVA.   | 
-| **JetStream protection domain**  | Logical group of VMs that will be protected together using the same policies and run book. The data for all VMs in a protection domain is stored in the same Azure Blob container instance. The same DRVA instance handles replication to remote DR storage for all VMs in a protection domain.   | 
-| **Azure Blob Storage containers**  | The protected VMs replicated data is stored in Azure Blobs. JetStream software creates one Azure Blob container instance for each JetStream protection domain.    | 
+| **JetStream Management Server Virtual Appliance (MSA)**  | MSA enables both Day 0 and Day 2 configuration, such as primary sites, protection domains, and recovering VMs.  The MSA is deployed from an OVA on a vSphere node by the cloud admin.  The MSA collects and maintains statistics relevant to VM protection and implements a vCenter plugin that allows you to manage JetStream DR natively with the vSphere Client. The MSA doesn't handle replication data of protected VMs.  | 
+| **JetStream DR Virtual Appliance (DRVA)**  | Linux-based Virtual Machine appliance receives protected VMs replication data from the source ESXi host. It maintains the replication log and manages the transfer of the VMs and their data to the object store such as Azure Blob Storage. Depending on the number of protected VMs and the amount of VM data to replicate, the private cloud admin can create one or more DRVA instances.  | 
+| **JetStream ESXi host components (IO Filter packages)**  | JetStream software installed on each ESXi host configured for JetStream DR. The host driver intercepts the vSphere VMs IO and sends the replication data to the DRVA. The IO filters also monitor relevant events, such as vMotion, Storage vMotion, snapshots, etc.   | 
+| **JetStream Protected Domain**  | Logical group of VMs that will be protected together using the same policies and runbook. The data for all VMs in a protection domain is stored in the same Azure Blob container instance. A single DRVA instance handles replication to remote DR storage for all VMs in a Protected Domain.   | 
+| **Azure Blob Storage containers**  | The protected VMs replicated data is stored in Azure Blobs. JetStream software creates one Azure Blob container instance for each JetStream Protected Domain.    | 
 
 
 
@@ -70,7 +70,7 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
   - Configure the cluster with the IO filter package (install JetStream VIB). 
   - Provision Azure Blob (Azure Storage Account) in the same region as the DR Azure VMware Solution cluster.
   - Deploy the disaster recovery virtual appliance (DRVA) and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
-  - Create protected domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
+  - Create Protected Domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
   - Start protection. 
 
 - Install JetStream DR in the Azure VMware Solution private cloud: 
@@ -194,7 +194,7 @@ Azure VMware Solution supports the installation of JetStream using either static
    | **Datastore**  | Name of the datastore where you'll deploy the JetStream MSA.  |
    | **VMName** | Name of JetStream MSA VM, for example, **jetstreamServer**. |
    | **Cluster** | Name of the Azure VMware Solution private cluster where the JetStream MSA is deployed, for example, **Cluster-1**. |
-   | **Netmask** | Netmask of the MSA to be deployed, for example, **22** or **24**. |
+   | **Netmask** | Netmask of the MSA to be deployed, for example, **255.255.255.0**. |
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Dns** | DNS IP that the JetStream MSA VM should use.   |
    | **Gateway** | IP address of the network gateway for the JetStream MSA VM.  |

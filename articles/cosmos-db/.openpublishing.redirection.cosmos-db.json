@@ -896,6 +896,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/table/dotnet-standard-sdk.md",
+      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-introduction.md",
       "redirect_url": "/azure/cosmos-db/cassandra/introduction",
       "redirect_document_id": false
@@ -4347,7 +4352,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/table/dotnet-sdk.md",
-      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme-pre",
+      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme",
       "redirect_document_id": false
     },
     {
