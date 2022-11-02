@@ -190,10 +190,10 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 
 ### Get database instance
 
-When working with PyMongo you access databases using attribute style access on MongoClient instances. The code below also shows that if the database doesn't exist, it is created.
+When working with PyMongo, you access databases using attribute style access on MongoClient instances.
 
 ```python
-# Database reference with creation on first write if it does not already exist.
+# Database reference with creation on first write if it doesn't already exist.
 db = client[DB_NAME]
 ```
 <!---
@@ -205,19 +205,17 @@ You can check if a database exists with the [list_database_names()](https://pymo
 
 ### Get collection instance
 
-The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) gets a reference to a collection.
+Access collection with the database object `db` returned from the previous step.
 
 ```python
-# Collection reference with creation on first write if it does not already exist.
+# Collection reference with creation on first write if it doesn't already exist.
 collection = db[UNSHARDED_COLLECTION_NAME]
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
 --->
 
-### Chained instances
-
-Does this apply to Python?
+You can check if a collection exists with the [list_collection_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
 
 ### Create an index
 
