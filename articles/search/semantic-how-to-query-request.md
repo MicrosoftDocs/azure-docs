@@ -208,7 +208,7 @@ When setting "searchFields", choose only fields of the following [supported data
 
 If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
 
-## 3 - Avoid or bracket query features that bypass relevance scoring
+## 3 - Avoid features that bypass relevance scoring
 
 Several query capabilities in Cognitive Search don't undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
 
