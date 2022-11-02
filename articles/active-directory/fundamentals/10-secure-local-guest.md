@@ -71,12 +71,6 @@ If local accounts for external users were being synced from on-premises, admins 
 
 - Randomize the passwords of existing local accounts for external users to ensure they can't authenticate locally to on-premises resources. This will increase security by ensuring that authentication and user lifecycle is tied to the external user's home identity.
 
-## Support reference
-
-Audit log created will be as follows:
-
-![Screenshot shows the audit log attributes.](./media/secure-local-guest/audit-log.png)
-
 ## Next steps
 
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
