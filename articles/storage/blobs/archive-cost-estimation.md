@@ -33,14 +33,23 @@ For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/b
 
 #### The cost to write
 
-You can calculate the cost of writing to the archive tier by multiplying the <u>number of write operations</u> by the <u>price of each operation</u>. Operations are billed per 10,000. Therefore, if the cost per 10,000 operations is $0.10, then the cost of a single operation is $0.10 / 10,000 = $0.00001. The price of each operation depends on which operations you use to write data to the archive tier. 
+You can calculate the cost of writing to the archive tier by multiplying the <u>number of write operations</u> by the <u>price of each operation</u>. The price of an operation depends on which ones you use to write data to the archive tier.
 
-If you use the [Put Blob]() operation, then the number of operations is the same as the number of blobs. For example, if you plan to write 30,000 blobs to the archive tier, then that will require 30,000 operations. Each operation is charged the price of an **archive** write operation. 
+###### Put Blob
 
-If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then that will require multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation.
+If you use the [Put Blob](/rest/api/storageservices/put-blob) operation, then the number of operations is the same as the number of blobs. For example, if you plan to write 30,000 blobs to the archive tier, then that will require 30,000 operations. Each operation is charged the price of an **archive** write operation. 
+
+> [!TIP]
+> Operations are billed per 10,000. Therefore, if the price per 10,000 operations is $0.10, then the price of a single operation is $0.10 / 10,000 = $0.00001. 
+
+###### Put Block and Put Block List
+
+If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then an upload will require multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation</u>.
 
 > [!NOTE]
 > If you're not using an SDK or the REST API directly, you might have to investigate which operations your data transfer tool is using to upload files. You might be able to determine this by reaching out the tool provider or by using storage logs. 
+
+###### Set Blob Tier
 
 If you use the Set Blob Tier operation to move a blob from the cool or hot tier to the archive tier, you're charged the price of an **archive** write operation. 
 
