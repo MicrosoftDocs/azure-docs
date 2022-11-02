@@ -122,18 +122,16 @@ When working with 3D Scenes Studio, it's recommended to stay within the followin
 
 | Capability | Recommended limit |
 | --- | --- |
-| Number of linked twins (including all unique primary twins and secondary twins on elements) | 50 |
+| Number of linked twins (including all unique primary twins and secondary twins on elements) | No limit, but consider performance implications as number of twins increases. For more detail, see [Refresh rate and performance](#refresh-rate-and-performance) below. |
 | Size of 3D file | 100 MB |
 
 These limits are recommended because 3D Scenes Studio leverages the standard [Azure Digital Twins APIs](concepts-apis-sdks.md), and therefore is subject to the published [API rate limits](reference-service-limits.md#rate-limits). As the number of digital twins linked to the scenes increases, so does the amount of data that is pulled into your scene on a regular data refresh (see the [next part of this section](#refresh-rate-and-performance) for more detail about refresh rates). This means that you will see these additional API calls reflected in billing meters and operation throughput. 
 
 ### Refresh rate and performance
 
-The default refresh rate of the 3D scene viewer starts at 10 seconds for <100 twins, and increases by one second for each set of 10 twins above this (11 seconds for 100-109 twins, 12 seconds for 110-120 twins, and so on).
+The default refresh rate of the 3D scene viewer starts at 10 seconds, and increases as the number of twins increases.
 
-The **minimum refresh rate** can be configured manually, however, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise the **actual** refresh rate as the number of twins increases, in an effort to improve performance.
-
-For instance, if there are 10 twins linked to a scene and you set the minimum refresh rate to 20 seconds, the actual refresh rate will stay at 20 seconds (since it can't drop below the minimum). If instead there are 300 twins linked to a scene, and you again set the minimum refresh rate to 20 seconds, the actual refresh rate will automatically increase to 30 seconds to avoid degraded performance.
+The **minimum refresh rate** can also be configured manually, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise the **actual** refresh rate as the number of twins increases, in an effort to improve performance.
 
 For instructions on how to configure the minimum refresh rate for the viewer, see [Configure minimum refresh rate](how-to-use-3d-scenes-studio.md#configure-minimum-refresh-rate).
 
