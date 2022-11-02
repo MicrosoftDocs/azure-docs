@@ -98,7 +98,7 @@ For each site you're deploying, do the following.
 
 The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
-You should set these up in addition to [the ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
+You should set these up in addition to the [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
 
 | Port | ASE interface | Description|
 |--|--|--|

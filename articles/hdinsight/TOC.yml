@@ -53,8 +53,6 @@ items:
           href: ./hdinsight-50-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
-        - name: HDInsight version 3.6
-          href: ./hdinsight-36-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
@@ -387,10 +385,6 @@ items:
           href: ./spark/optimize-memory-usage.md
         - name: Optimize cluster configuration
           href: ./spark/optimize-cluster-configuration.md
-      - name: Migrate to Spark 2.3 or 2.4
-        href: ./spark/migrate-versions.md
-      - name: Update .NET for Apache Spark to 1.0
-        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools

@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -91,6 +91,10 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 ### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+
+### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
 
 ## <a name="vm"></a>VM features and connection FAQs
 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 11/01/2022
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -26,7 +26,7 @@ When you perform data integration and ETL processes in the cloud, your jobs can 
 
 ### Native change data capture in mapping data flow
 
-The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you will see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data.
+The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you will see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
 
 **Supported connectors**
 -   [SAP CDC](connector-sap-change-data-capture.md)

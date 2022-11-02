@@ -5,11 +5,12 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 author: lrtoyou1223
 ms.author: lle 
 ms.custom: devx-track-azurepowershell, synapse
 ---
+
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,7 +34,7 @@ Integration Runtime can be created using the **Set-AzDataFactoryV2IntegrationRun
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
-```  
+```
 For Azure IR, the type must be set to **Managed**. You do not need to specify compute details because it is fully managed elastically in cloud. Specify compute details like node size and node count when you would like to create Azure-SSIS IR. For more information, see [Create and Configure Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
 You can configure an existing Azure IR to change its location using the Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet. For more information about the location of an Azure IR, see [Introduction to integration runtime](concepts-integration-runtime.md).
@@ -44,33 +45,36 @@ Use the following steps to create an Azure IR using UI.
 1. On the home page for the service, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
     # [Azure Data Factory](#tab/data-factory)
-    
-    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
+
+    :::image type="content" source="media/create-azure-integration-runtime/get-started-page-manage-button.png" alt-text="Screenshot showing the home page Manage button.":::
 
     # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Screenshot showing the home page Manage button.":::
 
-2. Select **Integration runtimes** on the left pane, and then select **+New**.
+    ---
+       
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
     # [Azure Data Factory](#tab/data-factory)
+    
+    :::image type="content" source="media/create-azure-integration-runtime/manage-new-integration-runtime.png" alt-text="Screenshot that highlights integration runtimes in the left pane and the +New button.":::
 
-    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
-   
     # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
+    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights integration runtimes in the left pane and the +New button.":::
+    
+    ---
 
-3. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
-
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
+   :::image type="content" source="media/create-azure-integration-runtime/integration-runtime-setup.png" alt-text="Screenshot showing the Azure self-hosted integration runtime option."::: 
 1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
-   :::image type="content" source="media/create-azure-integration-runtime/new-azure-integration-runtime.png" alt-text="Create an integration runtime":::
-
+   :::image type="content" source="media/create-azure-integration-runtime/new-azure-integration-runtime.png" alt-text="Screenshot that shows create an Azure integration runtime.":::
 1. Enter a name for your Azure IR, and select **Create**.
-   :::image type="content" source="media/create-azure-integration-runtime/create-azure-integration-runtime.png" alt-text="Create an Azure IR":::
-
+   :::image type="content" source="media/create-azure-integration-runtime/create-azure-integration-runtime.png" alt-text="Screenshot that shows the final step to create the Azure integration runtime.":::
 1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
-
+   :::image type="content" source="media/create-azure-integration-runtime/integration-runtime-in-the-list.png" alt-text="Screenshot showing the Azure integration runtime in the list.":::
+   
 > [!NOTE]
 > If you want to enable managed virtual network on Azure IR, please see [How to enable managed virtual network](managed-virtual-network-private-endpoint.md)
 
@@ -100,3 +104,4 @@ See the following articles on how to create other types of integration runtimes:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)
 - [Create Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md)
+

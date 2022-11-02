@@ -8,7 +8,7 @@ metadata:
   ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
-  ms.date: 06/23/2022
+  ms.date: 10/24/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -563,7 +563,7 @@ sections:
           
           You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
           
-          You can [use Power BI](app/export-power-bi.md) to display your request telemetry on a map.
+          You can [use Power BI](logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](app/convert-classic-resource.md).
           
       - question: How long is data retained in the portal? Is it secure?
         answer: |
@@ -827,7 +827,7 @@ sections:
       - question: |
           What is the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021 and released stable [Metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) in March 2022. Azure Monitor's OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging]https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) API/SDK specification, and we plan to add logging to our OpenTelemetry-based offerings in a subsequent milestone.
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021 and released stable [Metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) in March 2022. Azure Monitor's OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) API/SDK specification, and we plan to add logging to our OpenTelemetry-based offerings in a subsequent milestone.
 
       - question: |
           How can I test out OpenTelemetry?
