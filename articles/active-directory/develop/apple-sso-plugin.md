@@ -134,7 +134,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 #### Enable SSO for all apps with a specific bundle ID prefix
 - **Key**: `AppPrefixAllowList`
 - **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO.
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO.
 - **Example**: `com.contoso., com.fabrikam.`
 
 #### Disable SSO for specific apps
@@ -157,7 +157,7 @@ If your users have problems signing in to an application even after you've enabl
 
 - **Key**: `AppCookieSSOAllowList`
 - **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO. Please note that this key is to be used only for iOS apps and not for macOS apps.
 - **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
 
 **Other requirements**: To enable SSO for applications by using `AppCookieSSOAllowList`, you must also add their bundle ID prefixes `AppPrefixAllowList`.
@@ -171,8 +171,8 @@ Try this configuration only for applications that have unexpected sign-in failur
 | `Enable_SSO_On_All_ManagedApps` | Integer | `1` to enable SSO for all managed apps, `0` to disable SSO for all managed apps. |
 | `AppAllowList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications allowed to participate in SSO. |
 | `AppBlockList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications not allowed to participate in SSO. |
-| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. |
-| `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. |
+| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO. |
+| `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. Please note that this key is to be used only for iOS apps and not for macOS apps. |
 
 #### Settings for common scenarios
 
@@ -226,7 +226,7 @@ Use these parameters to enable the flag:
 
 - **Key**: `browser_sso_interaction_enabled`
 - **Type**: `Integer`
-- **Value**: 1 or 0
+- **Value**: 1 or 0.This value is set to 1 by default. 
 
 macOS requires this setting so it can provide a consistent experience across all apps. iOS and iPadOS don't require this setting because most apps use the Authenticator application for sign-in. But we recommend that you enable this setting because if some of your applications don't use the Authenticator app on iOS or iPadOS, this flag will improve the experience. The setting is disabled by default.
 
@@ -256,7 +256,7 @@ Disable the app prompt and display the account picker:
 
 - **Key**: `disable_explicit_app_prompt`
 - **Type**: `Integer`
-- **Value**: 1 or 0
+- **Value**: 1 or 0. This value is set to 1 by default and this default setting reduces the prompts.
   
 Disable app prompt and select an account from the list of matching SSO accounts automatically:
 - **Key**: `disable_explicit_app_prompt_and_autologin`
