@@ -27,8 +27,8 @@ An example update manifest with one inline step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -59,8 +59,8 @@ An example update manifest with two inline steps:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -103,8 +103,8 @@ An example update manifest with one reference step:
       "isDeployable": true,
       "compatibility": [
           {
-              "deviceManufacturer": "du-device",
-              "deviceModel": "e2e-test"
+              "manufacturer": "du-device",
+              "model": "e2e-test"
           }
       ],
       "instructions": {
