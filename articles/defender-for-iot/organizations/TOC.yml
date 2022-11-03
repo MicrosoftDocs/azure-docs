@@ -31,10 +31,16 @@
       href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:
-    - name: System architecture
+    - name: OT system architecture
       href: architecture.md
+    - name: Enterprise IoT system architecture
+      href: concept-eiot.md
     - name: Subscription billing for Defender for IoT
       href: billing.md
+    - name: OT sensor cloud connection methods
+      href: architecture-connections.md
+    - name: Monitor OT threats in enterprise SOCs
+      href: concept-sentinel-integration.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
@@ -43,24 +49,16 @@
         href: best-practices/plan-network-monitoring.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
-    - name: Monitor OT threats in enterprise SOCs
-      href: concept-sentinel-integration.md
-    - name: Secure IoT devices in the enterprise
-      href: concept-eiot.md
-    - name: OT security system architecture
+    - name: OT monitoring appliance catalog
       items:
-      - name: OT sensor cloud connection methods
-        href: architecture-connections.md
-      - name: OT monitoring appliance catalog
-        items:
-        - name: Which appliances do I need?
-          href: ot-appliance-sizing.md
-        - name: Pre-configured appliances
-          href: ot-pre-configured-appliances.md
-        - name: OT monitoring with virtual appliances
-          href: ot-virtual-appliances.md
-      - name: Supported OT protocols
-        href: concept-supported-protocols.md
+      - name: Which appliances do I need?
+        href: ot-appliance-sizing.md
+      - name: Pre-configured appliances
+        href: ot-pre-configured-appliances.md
+      - name: OT monitoring with virtual appliances
+        href: ot-virtual-appliances.md
+    - name: Supported OT protocols
+      href: concept-supported-protocols.md
 - name: How-to guides
   items:
   - name: Visualize devices
