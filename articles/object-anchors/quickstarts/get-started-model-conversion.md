@@ -60,7 +60,7 @@ Now, you can go ahead and convert your 3D model.
     | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, and `glb`. |
     | AssetDimensionUnit       | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
-    | DisableDetectScaleUnits  | Whether or not disable automatic detection of `fbx` scale units. This value is only for `fbx`, it will be ignored for other file formats. |
+    | DisableDetectScaleUnits  | As of Azure.MixedReality.ObjectAnchors.Conversion `0.3.0-beta.6`, embedded scale units are used by default when available for `fbx` files. This behavior can be disabled by setting the value to `true`. This option is ignored for file formats other than `fbx`. |
 
 3. Build and run the project to upload your 3D model, register a new conversion job with the service, and wait for it to be completed. Once the job is completed, the Object Anchors model will be downloaded next to the file specified in the `InputAssetPath`. You should see something similar to the following console output:
 
