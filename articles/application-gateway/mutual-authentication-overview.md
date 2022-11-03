@@ -24,27 +24,22 @@ To configure mutual authentication, a trusted client CA certificate is required 
 
 For example, if your client certificate contains a root CA certificate, multiple intermediate CA certificates, and a leaf certificate, make sure that the root CA certificate and all the intermediate CA certificates are uploaded onto Application Gateway in one file. For more information on how to extract a trusted client CA certificate, see [how to extract trusted client CA certificates](./mutual-authentication-certificate-management.md).
 
-If you're uploading a certificate chain with root CA and intermediate CA certificates, the certificate chain must be uploaded as a PEM or CER file to the gateway. 
+If you're uploading a certificate chain with root CA and intermediate CA certificates, the certificate chain must be uploaded as a PEM or CER file to the gateway.
+
+> [!IMPORTANT]
+> Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
+
+Each SSL profile can support up to five trusted client CA certificate chains. 
 
 > [!NOTE] 
 > Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs. 
 
 ### Certificates supported for mutual authentication
 
-Application Gateway supports the following types of certificates:
+Application Gateway supports certificates issued from both public and privately established certificate authorities.
 
-- CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA).
-- Self-signed CA certificates: Client browsers do not trust these certificates and will warn the user that the virtual service's certificate is not part of a trust chain. Self-signed CA certificates are good for testing or in environments where administrators control the clients and can safely bypass the browser's security alerts.  
-
-> [!IMPORTANT]
-> Production workloads should never use self-signed CA certificates.
-
-For more information on how to set up mutual authentication, see [configure mutual authentication with Application Gateway](./mutual-authentication-portal.md).
-
-> [!IMPORTANT]
-> Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
-
-Each SSL profile can support up to five trusted client CA certificate chains. 
+- CA certificates issued from well-known certificate authorities: Intermediate and root certificates are commonly found in trusted certificate stores and enable trusted connections with little to no additional configuration on the device.
+- CA certificates issued from private certificate authorities (self-signed): These certificates are typically issued privately via your organization and not trusted by other entities. Certificates may need to be loaded on to devices or trusted certificate stores to establish trust.
 
 ## Additional client authentication validation
 
