@@ -78,9 +78,6 @@ You'll use the following Python classes to interact with these resources:
 - [Authenticate the client](#authenticate-the-client)
 - [Create a database](#create-a-database)
 - [Create a container](#create-a-container)
-- [Create an item](#create-an-item)
-- [Get an item](#get-an-item)
-- [Query items](#query-items)
 
 The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
@@ -129,14 +126,6 @@ The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/az
 ```python
 container = database.create_container_if_not_exists(id='products', partition_key=partitionKeyPath,offer_throughput=400)
 ```
-
-### Create an item
-
-### Get an item
-
-### Query items
-
-## Run the code
 
 ## Clean up resources
 
