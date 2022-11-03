@@ -2932,6 +2932,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Keepabl
+        href: keepabl-provisioning-tutorial.md
       - name: Kisi Physical Security
         href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
