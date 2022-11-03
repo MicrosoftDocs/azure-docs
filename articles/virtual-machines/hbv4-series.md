@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 11/1/2022
-ms.reviewer: cynthn
+ms.reviewer: wwilliams
 ---
 
 # HBv4-series
