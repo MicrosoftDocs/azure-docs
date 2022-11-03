@@ -80,7 +80,7 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 > [!NOTE]
 > Azure Key Vault CSI driver configuration is just one of the ways to get certificate mounted on the pod. The remote write container only needs a local path to a certificate in the pod for the setting `AZURE_CLIENT_CERTIFICATE_PATH` value in the [Deploy Side car and configure remote write on the Prometheus server](#deploy-side-car-and-configure-remote-write-on-the-prometheus-server) step below.
 
-This step is only required if you didn't enable Azure Key Vault Provider for Secrets Store CSI Driver when you created your AKS cluster.
+This step is only required if you didn't enable Azure Key Vault Provider for Secrets Store CSI Driver when you created your cluster.
 
 1. Run the following Azure CLI command to enable Azure Key Vault Provider for Secrets Store CSI Driver for your cluster.
 
@@ -104,7 +104,43 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-3. Create a SecretProviderClass by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId` and the objects to retrieve from your key vault. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) for details on values to use.
+3. Create a *SecretProviderClass* by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId` and the objects to retrieve from your key vault. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) for details on values to use.
+
+    ```yml
+    # This is a SecretProviderClass example using user-assigned identity to access your key vault
+    apiVersion: secrets-store.csi.x-k8s.io/v1
+    kind: SecretProviderClass
+    metadata:
+    name: azure-kvname-user-msi
+    spec:
+    provider: azure
+    parameters:
+        usePodIdentity: "false"
+        useVMManagedIdentity: "true"          # Set to true for using managed identity
+        userAssignedIdentityID:  <client-id> # Set the clientID of the user-assigned managed identity to use
+        keyvaultName: <key-vault-name> # Set to the name of your key vault
+        cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+        objects:  |
+        array:
+            - |
+            objectName: <name-of-cert>
+            objectType: secret        # object types: secret, key, or cert
+            objectFormat: pfx
+            objectEncoding: base64
+            objectVersion: ""
+        tenantId: <tenant-id> # The tenant ID of the key vault
+    ```
+
+4. Apply the *SecretProviderClass* by running the following command on your cluster.
+
+    ```
+    kubectl apply -f secretproviderclass.yml
+    ```
+
+## Deploy Side car and configure remote write on the Prometheus server
+
+1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
+
 
     ```yml
     prometheus:
