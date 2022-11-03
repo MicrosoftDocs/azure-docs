@@ -23,7 +23,7 @@ Batch endpoints can be used to perform batch scoring on large amounts of data. S
 
 ## Supported data inputs
 
-Batch endpoints support reading files located in tje following storage options:
+Batch endpoints support reading files located in the following storage options:
 
 * Azure Machine Learning Data Stores. The following stores are supported:
     * Azure Blob Storage
@@ -54,8 +54,11 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     # [Azure ML CLI](#tab/cli)
 
     ```azurecli
-    az ml workspace show --query storage_account
+    DATASTORE_ID=$(az ml datastore show -n workspaceblobstore | jq -r '.id')
     ```
+    
+    > [!NOTE]
+    > Data stores ID would look like `azureml:/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
 
     # [Azure ML SDK for Python](#tab/sdk)
 
@@ -66,20 +69,24 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     # [REST](#tab/rest)
 
     Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the data store information.
+    
+    ---
+    
+    > [!TIP]
+    > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
 
-1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/heart-classifier/data` in the folder `heart-classifier/data` in the blob storage account.
+1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/heart-classifier/data` in the folder `heart-classifier/data` in the blob storage account. Ensure you have done that before moving forward.
 
 1. Create a data input:
 
     # [Azure ML CLI](#tab/cli)
+    
+    Let's place the file path in the following variable:
 
     ```azurecli
     DATA_PATH="heart-disease-uci-unlabeled"
-    DATASTORE_ID=$(az ml workspace show | jq -r '.storage_account')
+    INPUT_PATH="$DATASTORE_ID/paths/$DATA_PATH"
     ```
-
-    > [!TIP]
-    > You can skip this step if you already know the name of the data store you want to use. Here it is used only to know the name of the default data store of the workspace.
 
     # [Azure ML SDK for Python](#tab/sdk)
 
@@ -90,23 +97,23 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     # [REST](#tab/rest)
 
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the data store information.
+    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subscription ID, resource group, workspace, and name of the data store. You will need them later.
+   
     ---
-
+    
     > [!NOTE]
-    > Data stores ID would look like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/microsoft.storage/storageaccounts/<storage-account-name>`.
+    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
 
+    > [!TIP]
+    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
 
 1. Run the deployment:
 
     # [Azure ML CLI](#tab/cli)
    
     ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASTORE_ID/paths/$DATA_PATH)
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH)
     ```
-
-    > [!TIP]
-    > You can also use `--input azureml:/datastores/<data_store_name>/paths/<data_path>` as a way to indicate the input.
    
     # [Azure ML SDK for Python](#tab/sdk)
    
@@ -127,7 +134,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
             "InputData": {
                 "mnistinput": {
                     "JobInputType" : "UriFolder",
-                    "Uri": "azureml://subscriptions/<subscription>/resourcegroups/<resource-group>/providers/microsoft.storage/storageaccounts/<storage-account-name>/paths/<data_path>"
+                    "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
                 }
             }
         }
@@ -136,7 +143,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
 ## Reading data from a data asset
 
-Azure Machine Learning data assets (formaly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
+Azure Machine Learning data assets (formerly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
 
 > [!WARNING]
 > Data assets of type Table (`MLTable`) aren't currently supported.
@@ -185,8 +192,10 @@ Azure Machine Learning data assets (formaly known as datasets) are supported as 
 1. Create a data input:
 
     # [Azure ML CLI](#tab/cli)
-
+    
+    ```azurecli
     DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest --query id)
+    ```
 
     # [Azure ML SDK for Python](#tab/sdk)
 
@@ -201,7 +210,7 @@ Azure Machine Learning data assets (formaly known as datasets) are supported as 
     ---
 
     > [!NOTE]
-    > Data stores ID would look like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/microsoft.storage/storageaccounts/<storage-account-name>`.
+    > Data assets ID would look like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/data/<data-asset>/versions/<version>`.
 
 
 1. Run the deployment:
