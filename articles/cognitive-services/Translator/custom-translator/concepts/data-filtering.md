@@ -62,4 +62,5 @@ Custom Translator removes sentences that contain Unicode character U+FFFD. The c
 
 ## Next steps
 
-* [Train a model](../how-to/train-custom-model.md) in Custom Translator.
+> [!div class="nextstepaction"]
+> [Learn how to train a model](../how-to/train-custom-model.md)

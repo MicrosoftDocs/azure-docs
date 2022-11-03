@@ -171,7 +171,7 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: Document Translation FAQ
       href: document-translation/faq.md
-- name: Custom Translator v2.0
+- name: Custom Translator
   items:
   - name: What is Custom Translator?
     href: custom-translator/overview.md
@@ -237,8 +237,6 @@ items:
     items:
     - name: Release notes
       href: custom-translator/release-notes.md
-    - name: Unsupported language deployment
-      href: custom-translator/unsupported-language-deployments.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
 - name: Resources

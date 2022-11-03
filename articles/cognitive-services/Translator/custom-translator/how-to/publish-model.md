@@ -40,4 +40,4 @@ To replace a published model, you can exchange the published model with a differ
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to translate documents with custom models](translate-with-custom-model.md)
+> [Learn how to translate with custom models](../quickstart.md)

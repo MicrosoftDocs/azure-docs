@@ -46,4 +46,3 @@ BLEU score.
 
 > [!div class="nextstepaction"]
 > [BLEU score evaluation](../how-to/test-your-model.md)
-

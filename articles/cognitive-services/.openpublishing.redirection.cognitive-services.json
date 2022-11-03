@@ -6001,9 +6001,10 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/view-model-test-translation.md",
-            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/unsupported-language-deployments.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/beginners-guide",
             "redirect_document_id": false
         }
+
     ]
 }

@@ -56,4 +56,5 @@ For a training to succeed, the table below shows the minimum number of sentences
 
 ## Next steps
 
-- Learn how to use a [dictionary](dictionaries.md) in Custom Translator.
+> [!div class="nextstepaction"]
+> [Learn how to use a dictionary](dictionaries.md)
