@@ -9,11 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-<<<<<<< HEAD
 ms.date: 11/03/2022
-=======
-ms.date: 09/23/2022
->>>>>>> 07342141f28bbd157b1136054b0e133a4722f09c
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp, ignite-2022
 ---
