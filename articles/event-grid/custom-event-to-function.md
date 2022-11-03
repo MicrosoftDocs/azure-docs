@@ -20,7 +20,7 @@ ms.devlang: azurecli
 1. Select **Compute** in the list of **Categories**.
 1. Hover (not select) the mouse over **Function App**, and select **Create**.
 
-    :::image type="content" source="./media/custom-event-to-function/create-function-app-link.png" lightbox="./media/custom-event-to-function/create-function-app-link.png" alt-text="Screenshot showing the select of **Create** link for a **Function App**.":::    
+    :::image type="content" source="./media/custom-event-to-function/create-function-app-link.png" lightbox="./media/custom-event-to-function/create-function-app-link.png" alt-text="Screenshot showing the select of Create link for a Function App.":::    
 1. On the **Basics** page of the **Create Function App** wizard, follow these steps: 
     1. Select your **Azure subscription** in which you want to create the function app.
     1. Create a new **resource group** or select an existing resource group.
@@ -29,10 +29,10 @@ ms.devlang: azurecli
     1. Select the **region** closest to you. 
     1. Select **Next: Hosting** at the bottom of the page. 
     
-        :::image type="content" source="./media/custom-event-to-function/create-function-app-page.png" alt-text="Screenshot showing the **Basics** tab of the **Create Function App** page.":::    
+        :::image type="content" source="./media/custom-event-to-function/create-function-app-page.png" alt-text="Screenshot showing the Basics tab of the Create Function App page.":::    
 1. On the **Hosting** page, create a new storage account or select an existing storage account to be associated with the function app, and then select **Review + create** at the bottom of the page. 
         
-    :::image type="content" source="./media/custom-event-to-function/create-function-app-hosting-page.png" alt-text="Screenshot showing the **Hosting** tab of the **Create Function App** page.":::  
+    :::image type="content" source="./media/custom-event-to-function/create-function-app-hosting-page.png" alt-text="Screenshot showing the Hosting tab of the Create Function App page.":::  
 1. On the **Review + create** page, review settings, and select **Create** at the bottom of the page to create the function app.   
 1. Once the deployment is successful, select **Go to resource** to navigate to the home page for the function app. 
 
@@ -42,7 +42,7 @@ Before subscribing to the custom topic, create a function to handle the events.
 1. On the **Function App** page, select **Functions** on the left menu. 
 1. Select **+ Create** on the toolbar to create a function.
 
-    :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of **Create function** link.":::  
+    :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of Create function link.":::  
     
 1. On the **Create Function** page, follow these steps:
     1. This step is optional. For **Development environment**, select the development environment that you want to use to work with the function code. 
