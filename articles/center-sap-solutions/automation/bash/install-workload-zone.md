@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 title: install_workloadzone.sh
 description: Deploy a new SAP Workload Zone using a shell script.
 ---

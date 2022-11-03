@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 title: set_secrets.sh
 description: Sets the SPN Secrets in Azure Key vault using a shell script.
 ---

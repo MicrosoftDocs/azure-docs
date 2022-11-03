@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ---
 
 # Supportability matrix for the SAP Automation Framework

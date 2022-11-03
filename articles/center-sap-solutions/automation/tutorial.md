@@ -6,7 +6,7 @@ ms.author: hdamecharla
 ms.reviewer: kimforss
 ms.date: 12/14/2021
 ms.topic: tutorial
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ---
 
 

@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 title: Prepare region
 description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---

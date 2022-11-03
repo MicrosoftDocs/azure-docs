@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 06/09/2022
 ms.topic: conceptual
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ---
 
 # Change the disk configuration for the SAP deployment automation

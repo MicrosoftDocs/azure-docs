@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: kimforss
 manager: kimforss
 keywords: 'Azure, SAP'
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/17/2021

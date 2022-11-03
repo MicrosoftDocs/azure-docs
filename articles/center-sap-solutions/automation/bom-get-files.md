@@ -6,7 +6,7 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ---
 
 # Acquire media for BOM creation

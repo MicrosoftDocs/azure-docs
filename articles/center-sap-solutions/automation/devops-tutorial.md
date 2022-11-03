@@ -6,7 +6,7 @@ ms.author: mimergel
 ms.reviewer: kimforss
 ms.date: 10/19/2022
 ms.topic: tutorial
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ---
 
 # SAP on Azure Deployment Automation Framework DevOps - Hands-on lab
