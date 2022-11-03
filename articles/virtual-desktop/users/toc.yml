@@ -9,16 +9,16 @@ items:
   - name: What's new for Remote Desktop clients
     items:
     - name: Windows Desktop client
-      href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+      href: whats-new-client-windows.md
     - name: Web client
       href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-    - name: macOS
+    - name: macOS client
       href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-    - name: iOS/iPadOS
+    - name: iOS/iPadOS client
       href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-    - name: Android
+    - name: Android client
       href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-    - name: Windows (Microsoft Store)
+    - name: Windows Microsoft Store client
       href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
 - name: Concepts
   items:
