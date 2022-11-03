@@ -32,7 +32,7 @@ SecurityEvent
 | project TimeGenerated , Account , AccountType , Computer
 ```
 
-When you export the data on a schedule, use the `ingestion_time()` function in your query to ensure that you don't miss late-arriving data. If data is delayed because of network or platform issues, using the ingestion time ensures that data is included in the next Logic Apps execution. For an example, see the step "Add Azure Monitor Logs action" in the [Logic Apps procedure](#logic-app-procedure) section.
+When you export the data on a schedule, use the `ingestion_time()` function in your query to ensure that you don't miss late-arriving data. If data is delayed because of network or platform issues, using the ingestion time ensures that data is included in the next Logic Apps execution. For an example, see the step "Add Azure Monitor Logs action" in the [Logic Apps procedure](#logic-apps-procedure) section.
 
 ## Prerequisites
 The following prerequisites must be completed before you start this procedure:
