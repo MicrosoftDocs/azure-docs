@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 11/03/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -93,6 +93,8 @@ You can use the Azure Edge Hardware Center to explore and order various hardware
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
 Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You’ll have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
+
+[!INCLUDE [Web form for first-time hardware orders](../../includes/azure-edge-hardware-center-first-time-order.md)]
 
 [!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
 
