@@ -964,7 +964,7 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 |[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Gets Hybrid Runbook Worker group|
 |[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Removes Hybrid Runbook Worker group|
 |[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Updates Hybrid Worker group with Hybrid Worker credentials|
-|['New-AzAutomationHybridRunbookWorkerGroup'](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Creates new Hybrid Runbook Worker group|
+|[`New-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Creates new Hybrid Runbook Worker group|
 |[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker?view=azps-9.1.0) | Gets Hybrid Runbook Worker|
 |[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker?view=azps-9.1.0) | Moves Hybrid Worker from one group to other|
 |[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker?view=azps-9.1.0) | Creates new Hybrid Runbook Worker|
