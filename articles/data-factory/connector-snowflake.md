@@ -90,7 +90,7 @@ This Snowflake connector supports the following authentication types. See the co
  
 
 - [Basic authentication](#basic-authentication)
-- [OAuth2 authentication](#oauth2-authentication) 
+- [OAuth authentication](#oauth-authentication) 
 
 ### Basic authentication 
 
@@ -149,10 +149,10 @@ The following properties are supported for a Snowflake linked service when using
 }
 ```
 
-### OAuth2 authentication 
+### OAuth authentication 
 
 >[!Note] 
->Currently, the OAuth2 authentication is not supported in data flow. 
+>Currently, the OAuth authentication is not supported in mapping data flow and script activity. 
 
 The following properties are supported for a Snowflake linked service when using **OAuth2** authenticaition. 
 
