@@ -272,8 +272,7 @@ For more information about the available options for CFNotificationAddObserver o
 - [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
 
-> [!NOTE]
-> For iOS, your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+For iOS, your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
 
 ## Next steps
 
