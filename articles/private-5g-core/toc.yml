@@ -66,6 +66,8 @@ items:
       href: upgrade-packet-core-azure-portal.md
     - name: Upgrade a packet core instance - ARM template
       href: upgrade-packet-core-arm-template.md
+    - name: Reinstall a packet core instance
+      href: reinstall-packet-core.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
