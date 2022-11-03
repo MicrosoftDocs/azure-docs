@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 11/01/2022
 ---
 
-# Azure Monitor managed service for Prometheus remote write - managed identity (preview)
+# Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication (preview)
 This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. You either use an existing identity created by AKS or [create one of your own](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Both options are described here.
 
 ## Cluster configurations
@@ -19,7 +19,7 @@ This article applies to the following cluster configurations:
 > For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md).
 
 ## Prerequisites
-See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
+See prerequisites at [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
 
 ## Locate AKS node resource group
 The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can locate it from the **Resource groups** menu in the Azure portal. Start by making sure that you can locate this resource group since other steps below will refer to it.
