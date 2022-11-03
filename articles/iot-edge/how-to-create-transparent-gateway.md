@@ -114,7 +114,15 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge](#tab/iotedge)
 
-If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario. Copy your certificates and keys to the preferred `/var/secrets` directory to allow for rotation.
+1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Change the ownership and permissions of the certificates and keys.
+
+   ```bash
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/*.key.pem
+   ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
@@ -123,7 +131,7 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
 1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
 
    ```powershell
-   # Copy the IoT Edge device CA certificates
+   # Copy the IoT Edge device CA certificate and key
    Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
    Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile ~/iot-edge-device-ca-<cert name>.key.pem -pushFile
 
@@ -138,26 +146,28 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    Connect-EflowVm
    ```
 
-1. Create the certificates directory. You should store your certificates and keys to the preferred `/var/certs` directory to allow for rotation.
+1. Create the certificates directory. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash
-   sudo mkdir /var/certs
-   sudo mkdir /var/certs/certs
-   sudo mkdir /var/certs/private
+   sudo mkdir -p /var/aziot/certs
+   sudo mkdir -p /var/aziot/secrets
    ```
 
-1. Move the certificates and keys to the `/var/certs` directory.
+1. Move the certificates and keys to the preferred `/var/aziot` directory.
 
    ```bash
-   sudo mv ~/.pem /var/certs/certs/.pem
-   ...
+   # Move the IoT Edge device CA certificate and key to preferred location
+   sudo mv ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem /var/aziot/certs
+   sudo mv ~/iot-edge-device-ca-<cert name>.key.pem /var/aziot/secrets
+   sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
    ```
 
 1. Change the ownership and permissions of the certificates and keys.
 
    ```bash
-   sudo chown -R iotedge /var/secrets/certs/
-   sudo chmod 0644 /var/secrets/certs/
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
    ```
  
 1. Exit the EFLOW VM connection.
