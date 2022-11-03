@@ -72,5 +72,5 @@ Looking for the status of an authentication registration or reset event of a use
 
 ## Next steps
 
-- [Sign-ins report](concept-sign-ins.md)
+- [Learn about the sign-ins report](concept-sign-ins.md)
 - [Learn about Azure AD authentication](../authentication/overview-authentication.md)
