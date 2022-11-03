@@ -1,6 +1,16 @@
+---
+title: Configure access control lists on NFSv4.1 with Azure NetApp Files | Microsoft Docs
+description: This article shows you how to configure access control lists (ACLs) on NFSv4.1 with Azure NetApp Files.
+author: sluce
+ms.service: azure-netapp-files
+ms.workload: storage
+ms.topic: how-to
+ms.date: 11/03/2022
+ms.author: anfdocs
+---
+# Configure access control lists on NFSv4.1 with Azure NetApp Files
 
-Azure NetApp Files supports ACLs on NFSv4.1. 
-ACLs on NFSv4.1 can provide granular file security via NFSv4.1 without Kerberbos or access via SMB from Windows clients.
+Azure NetApp Files supports access control lists on NFSv4.1. ACLs on NFSv4.1 can provide granular file security via NFSv4.1 without Kerberbos or access via SMB from Windows clients.
 
 Can be done with AD configuration
 
