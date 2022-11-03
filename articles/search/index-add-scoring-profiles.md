@@ -8,7 +8,7 @@ author: shmed
 ms.author: ramero
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 11/03/2022
 ---
 
 # Add scoring profiles to boost search scores
@@ -56,14 +56,20 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-Parameters are specified on invocation. To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request.
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. Queries are specified through GET and POST requests.
+
+```http
+GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30
+```
+
+Notice the syntax differences when using POST. In POST, "scoringParameters" is plural and it's an array.
 
 ```http
 POST /indexes/hotels/docs&api-version=2020-06-30
 {
     "search": "inn",
     "scoringProfile": "geo",
-    "scoringParameter": currentLocation--122.123,44.77233
+    "scoringParameters": [currentLocation--122.123,44.77233]
 }
 ```  
 
@@ -75,9 +81,9 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries for ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
-You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
+You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request extra scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
 
@@ -91,7 +97,7 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 1. Start with an index definition. You can add and update scoring profiles on an existing index without having to rebuild it. Use an [Update Index](/rest/api/searchservice/update-index) request to post your revision.
 
-1. Paste in the [Template](#bkmk_template) provided in this topic.  
+1. Paste in the [Template](#bkmk_template) provided in this article.  
 
 1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
@@ -216,9 +222,9 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 | functions > magnitude > boostingRangeStart | Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.|  
 | functions > magnitude > boostingRangeEnd | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4.|  
 | functions > magnitude > constantBoostBeyondRange | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.|  
-| functions > freshness | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. </br></br>It is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future. </br></br>In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the boostingDuration. To boost a range of times in the future, use a negative boostingDuration. </br></br>The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.|  
+| functions > freshness | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. </br></br>It's also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future. </br></br>In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the boostingDuration. To boost a range of times in the future, use a negative boostingDuration. </br></br>The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.|  
 | functions > freshness > boostingDuration | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration](#bkmk_boostdur) in the following section for syntax and examples.|  
-| functions > distance | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the scoringParameter query parameter) as a `lon,lat` argument.|  
+| functions > distance | The distance scoring function is used to affect the score of documents based on how close or far they're relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the scoringParameter query parameter) as a `lon,lat` argument.|  
 |functions >  distance > referencePointParameter | A parameter to be passed in queries to use as reference location (using the scoringParameter query parameter). |  
 | functions > distance > boostingDistance | A number that indicates the distance in kilometers from the reference location where the boosting range ends.|  
 | functions > tag | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query are provided as a scoring parameter in each search request (using the scoringParameter query parameter). |  
@@ -236,8 +242,8 @@ Interpolations allow you to set the shape of the slope used for scoring. Because
 |-|-|  
 |`linear`|For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.|  
 |`constant`|For items that are within the start and ending range, a constant boost will be applied to the rank results.|  
-|`quadratic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.|  
-|`logarithmic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.|  
+|`quadratic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option isn't allowed in tag scoring functions.|  
+|`logarithmic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option isn't allowed in tag scoring functions.|  
 
  ![Constant, linear, quadratic, log10 lines on graph](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
