@@ -123,7 +123,8 @@ This section describes languages supported by Azure Video Indexer API.
 You can specify to use other supported languages (listed in the table above) as default languages, when [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API and passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
-> To change the default languages that you want for LID or MLID to use when auto-detecting, call [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and set the `customLanguages` parameter. 
+> Language identification (LID) and Multi-language identification (MLID) compares speech at the language level, such as English and German. 
+> Do not include multiple locales of the same language in the custom languages list.
 
 ## Language support in frontend experiences
 
