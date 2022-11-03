@@ -5954,11 +5954,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/availability-zones/index.md",
-            "redirect_url": "/azure/availability-zones/az-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
             "redirect_url": "/azure/fxt-edge-filer/add-nodes",
             "redirect_document_id": false
