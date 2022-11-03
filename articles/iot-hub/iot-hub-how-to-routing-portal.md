@@ -27,7 +27,7 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
 
-* (Optional) An Event Hubs resource. If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
+* (Optional) An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
 
 * (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
 
@@ -43,7 +43,7 @@ You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be
 
 Go to your IoT hub in the Azure portal and select **Message routing** from the **Hub settings** menu. Select **+ Add** to add a new route.
 
-   :::image type="content" source="media/iot-hub-how-to-routing-portal/message-routing-add.jpg" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
+:::image type="content" source="media/iot-hub-how-to-routing-portal/message-routing-add.jpg" alt-text="Screenshot that shows location of the add button, to add a new route in your IoT hub.":::
 
 Next, decide which route type (Event Hubs, Service Bus queue or topic, or Azure Storage) you want to create and do the steps in the following tab.
 
@@ -73,9 +73,8 @@ If you need to create an Event Hubs resource, see [Quickstart: Create an event h
 
    > [!NOTE]
    > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create an additional new route with an **events** endpoint if needed.
-
+   
    :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-route.jpg" alt-text="Screenshot that shows the new route you created on the 'Message routing' page.":::
-
 
 # [Service Bus queue](#tab/servicebusqueue)
 
@@ -133,7 +132,7 @@ If you need to create a Service Bus topic (with subscription), see [Use the Azur
 
 # [Azure Storage](#tab/azurestorage)
 
-If you need to create a storage account (with new container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
+If you need to create an Azure storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
 
 1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-service-bus-topic-route**.
 

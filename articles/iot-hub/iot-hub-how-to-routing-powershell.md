@@ -27,7 +27,7 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 * An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps in [Create an IoT hub using the New-AzIotHub cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
 
-* (Optional) An Event Hubs resource. If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+* (Optional) An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
 
 * (Optional) A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
 
