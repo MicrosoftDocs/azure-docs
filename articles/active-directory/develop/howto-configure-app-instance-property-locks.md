@@ -48,7 +48,7 @@ To configure an app instance lock using the Azure portal:
    | **Enable property lock**                 | Specifies if the property locks are enabled.    | 
    | **All properties**                 | Locks all sensitive properties without needing to select each property scenario. |
    | **Credentials used for verification**                                | Locks the ability to add or update credential properties (`keyCredentials`, `passwordCredentials`) where usage type is `verify`. | 
-   | **Credentials used for signing tokens**                                | Locks the ability to add or update credential properties (`keyCredentials`, `passwordCredentials`) where usage type is `sign` | 
+   | **Credentials used for signing tokens**                                | Locks the ability to add or update credential properties (`keyCredentials`, `passwordCredentials`) where usage type is `sign`. | 
    | **Token Encryption KeyId**                                | Locks the ability to change the `tokenEncryptionKeyId` property.  | 
 
 3. Select **Save** to save your changes.
