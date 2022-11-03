@@ -16,7 +16,7 @@ This article describes the upcoming deprecation plan, the corresponding implicat
 Classic experience to protect VMware and physical machines to Azure using Site Recovery
 
 > [!IMPORTANT]
-> Customers are advised to take the remediation steps at the earliest to avoid any disruption to their environment and minimize security risk. 
+> On November 15, 2023, the support for classic experience to protect VMware and Physical machines using Azure Site Recovery will be deprecated. It is advised to move to the [modernized experience](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md) at the earliest to avoid any disruption to environment and minimize security risk. 
 
 ## What changes should you expect?
 
