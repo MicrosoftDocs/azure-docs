@@ -72,11 +72,7 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
     
     - Pass Through Authentication
     
-    - Seamless single sign on
-
-
-
-
+    - Seamless single sign-on
 
 
 

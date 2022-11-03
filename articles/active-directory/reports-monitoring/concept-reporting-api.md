@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with the Azure Active Directory reporting API
 
-Azure Active Directory provides you with a variety of [reports](overview-reports.md), containing useful information for applications such as security information and event management (SIEM) systems, audit, and business intelligence tools. By using the Microsoft Graph API for Azure AD reports, you can gain programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
+Azure Active Directory provides you with several [reports](overview-reports.md), containing useful information such as security information and event management (SIEM) systems, audit, and business intelligence tools. By using the Microsoft Graph API for Azure AD reports, you can gain programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
 
 This article provides you with an overview of the reporting API, including ways to access it. If you run into issues, see [how to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
