@@ -572,7 +572,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 ## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
 
-You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts, which is currently in public preview.
+You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts.
 
 ### Error - Grant admin consent disabled
 
@@ -593,7 +593,7 @@ When enabling Azure AD Kerberos authentication, you might encounter this error i
     - Has no start date, or has a start date before 2019-01-01
     - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
 
-There is currently no workaround for this error during the public preview.
+There is currently no workaround for this error.
 
 #### Cause 2: an application already exists for the storage account
 
@@ -705,7 +705,7 @@ If you don't want to rotate the service principal password every six months, you
 
 1. [Disable Azure AD Kerberos](storage-files-identity-auth-azure-active-directory-enable.md#disable-azure-ad-authentication-on-your-storage-account)
 1. [Delete the existing application](#cause-2-an-application-already-exists-for-the-storage-account)
-1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts-preview)
+1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts)
 
 Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
 
