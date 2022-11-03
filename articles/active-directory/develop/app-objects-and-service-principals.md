@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/20/2022
+ms.date: 11/02/2022
 ms.author: ryanwi
 ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40
 ms.reviewer: sureshja
