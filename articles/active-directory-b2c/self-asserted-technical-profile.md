@@ -50,8 +50,6 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 
 ## Display claims
 
-The display claims feature is currently in **preview**.
-
 The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of display claims, use the input claims that were previously described. The element may also contain a default value.
 
 The order of the claims in **DisplayClaims** specifies the order in which Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific claim, set the **Required** attribute of the **DisplayClaim** element to `true`.
