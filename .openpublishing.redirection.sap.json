@@ -258,6 +258,66 @@
       "redirect_url": "/azure/center-sap-solutions/automation/tutorial",
       "redirect_document_id": true
     },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-advanced_state_management.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/advanced-state-management",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_deployer.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_library.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/install-library",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_workloadzone.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/install-workloadzone",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-installer.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/installer",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-prepare-region.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/prepare-region",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remove-region.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/remove-region",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remover.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/remover",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-set-secrets.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/set-secrets",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-update_sas_token.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/bash/update-sas-token",
+      "redirect_document_id": true
+    },
     
   ]
 }
