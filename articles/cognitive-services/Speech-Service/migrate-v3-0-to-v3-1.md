@@ -19,11 +19,11 @@ ms.custom: devx-track-csharp
 The Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
-> Speech-to-text REST API v3.1 is currently in public preview. Once it's generally available, version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be deprecated.
+> Speech-to-text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired.
 
 ## Base path
 
-You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1-preview.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
+You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
 
 Please note these additional changes:
 - The `/models/{id}/copyto` operation (includes '/') in version 3.0 is replaced by the `/models/{id}:copyto` operation (includes ':') in version 3.1.
@@ -95,7 +95,7 @@ Added the [Models_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/servi
 
 ## Operation IDs
 
-You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
+You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
 
 The name of each `operationId` in version 3.1 is prefixed with the object name. For example, the `operationId` for "Create Model" changed from [CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel) in version 3.0 to [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) in version 3.1.
 

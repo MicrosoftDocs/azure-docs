@@ -321,7 +321,7 @@ to access the content of each file. To control the validity duration of the SAS 
 The `kind` property indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
 
 >[!IMPORTANT]
->To get the results of operations, use a `GET` on `/speechtotext/v3.1-preview.1/{collection}/{id}/files`, they are no longer contained in the responses of `GET` on `/speechtotext/v3.1-preview.1/{collection}/{id}` or `/speechtotext/v3.1-preview.1/{collection}`.
+>To get the results of operations, use a `GET` on `/speechtotext/v3.0/{collection}/{id}/files`, they are no longer contained in the responses of `GET` on `/speechtotext/v3.0/{collection}/{id}` or `/speechtotext/v3.0/{collection}`.
 
 ### Customizing models
 
@@ -332,17 +332,17 @@ With this change, the need for a `kind` in the `POST` operation has been removed
 To improve the results of a trained model, the acoustic data is automatically used internally during language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
 
 >[!IMPORTANT]
->To customize both the acoustic and language model part, pass all of the required language and acoustic datasets in `datasets[]` of the POST to `/speechtotext/v3.1-preview.1/models`. This will create a single model with both parts customized.
+>To customize both the acoustic and language model part, pass all of the required language and acoustic datasets in `datasets[]` of the POST to `/speechtotext/v3.0/models`. This will create a single model with both parts customized.
 
 ### Retrieving base and custom models
 
 To simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
-`GET /speechtotext/v3.1-preview.1/models/base` and `GET /speechtotext/v3.1-preview.1/models/`.
+`GET /speechtotext/v3.0/models/base` and `GET /speechtotext/v3.0/models/`.
 
 In v2, all models were returned together in a single response.
 
 >[!IMPORTANT]
->To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.1-preview.1/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.1-preview.1/models`.
+>To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.0/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.0/models`.
 
 ### Name of an entity
 

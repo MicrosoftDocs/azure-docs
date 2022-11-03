@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Speech-to-text REST API v3.1 is currently in public preview. Once it's generally available, version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be deprecated. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
+> Speech-to-text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
 
 > [!div class="nextstepaction"]
 > [See the Speech to Text API v3.1 preview reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
@@ -46,7 +46,7 @@ Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can 
 
 See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?pivots=rest-api) for examples of how to upload datasets. This table includes all the operations that you can perform on datasets.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/datasets`|GET|[Datasets_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_List)|[GetDatasets](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasets)|
 |`/datasets`|POST|[Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create)|[CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)|
@@ -67,7 +67,7 @@ Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You mus
 
 See [Deploy a model](how-to-custom-speech-deploy-model.md?pivots=rest-api) for examples of how to manage deployment endpoints. This table includes all the operations that you can perform on endpoints.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/endpoints`|GET|[Endpoints_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_List)|[GetEndpoints](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpoints)|
 |`/endpoints`|POST|[Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create)|[CreateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEndpoint)|
@@ -90,7 +90,7 @@ Evaluations are applicable for [Custom Speech](custom-speech-overview.md). You c
 
 See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-api) and [Test accuracy](how-to-custom-speech-evaluate-data.md?pivots=rest-api) for examples of how to test and evaluate Custom Speech models. This table includes all the operations that you can perform on evaluations.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/evaluations`|GET|[Evaluations_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_List)|[GetEvaluations](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluations)|
 |`/evaluations`|POST|[Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create)|[CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation)|
@@ -105,7 +105,7 @@ See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-
 
 Health status provides insights about the overall health of the service and sub-components.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/HealthStatus_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
 
@@ -115,7 +115,7 @@ Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch 
 
 See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md?pivots=rest-api) for examples of how to train and manage Custom Speech models. This table includes all the operations that you can perform on models.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/models`|GET|[Models_ListCustomModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListCustomModels)|[GetModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModels)|
 |`/models`|POST|[Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create)|[CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel)|
@@ -137,7 +137,7 @@ Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom S
 
 See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) for examples of how to create projects. This table includes all the operations that you can perform on projects.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/projects`|GET|[Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List)|[GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects)|
 |`/projects`|POST|[Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create)|[CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject)|
@@ -158,7 +158,7 @@ Transcriptions are applicable for [Batch Transcription](batch-transcription.md).
 
 See [Create a transcription](batch-transcription-create.md?pivots=rest-api) for examples of how to create a transcription from multiple audio files. This table includes all the operations that you can perform on transcriptions.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/transcriptions`|GET|[Transcriptions_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List)|[GetTranscriptions](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)|
 |`/transcriptions`|POST|[Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)|[CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription)|
@@ -176,7 +176,7 @@ Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Bat
 
 This table includes all the web hook operations that are available with the speech-to-text REST API.
 
-|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
 |`/webhooks`|GET|[WebHooks_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_List)|[GetHooks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHooks)|
 |`/webhooks`|POST|[WebHooks_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_Create)|[CreateHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateHook)|
