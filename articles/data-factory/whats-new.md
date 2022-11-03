@@ -52,7 +52,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Region expansion
 
-Continued region expansion – Qatar Central now supported [Learn more]()
+Continued region expansion – Qatar Central now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
 
 ### Continuous integration and continuous deployment
 
