@@ -83,16 +83,16 @@ sections:
               | mcr.microsoft.com/windows/servercore/iis | mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019 |
               | mcr.microsoft.com/windows/servercore:ltsc2016 | mcr.microsoft.com/windows/servercore:ltsc2019 |
 
-              Read about [image discovery](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-base-images#image-discovery) to learn more.
+              Read about [image discovery](/virtualization/windowscontainers/manage-containers/container-base-images#image-discovery) to learn more.
 
               > [!NOTE]
               > If you would like assistance selecting your new base image, please create an Azure Support Ticket.
 
           3. Follow the [Update containers in Azure Container Instances how-to guide](container-instances-update.md) to update your ACI container group to use your new base image.
 
-              If you're using MCR for your container registry, you can pass the MCR image name directly into the [container group image parameter](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#containerproperties).
+              If you're using MCR for your container registry, you can pass the MCR image name directly into the [container group image parameter](/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#containerproperties).
 
-              If you're using a private container registry, please follow the steps in [Upgrade containers to a new version of the Windows operating system](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/upgrade-windows-containers#create-new-container-instances-using-the-new-os-version). Make sure the container group's [image registry parameters](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#imageregistrycredential) are updated if you have changed them.
+              If you're using a private container registry, please follow the steps in [Upgrade containers to a new version of the Windows operating system](/virtualization/windowscontainers/deploy-containers/upgrade-windows-containers#create-new-container-instances-using-the-new-os-version). Make sure the container group's [image registry parameters](/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#imageregistrycredential) are updated if you have changed them.
           
 
   - name: Availability and quotas
@@ -142,7 +142,7 @@ sections:
       - question: |
           Does the ACI service reserve ports for service functionality?
         answer: |
-          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 191000, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
 
   - name: Pricing
     questions:

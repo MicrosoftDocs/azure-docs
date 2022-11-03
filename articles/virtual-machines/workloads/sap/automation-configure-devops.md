@@ -1,15 +1,15 @@
 ---
-title: Configure Azure DevOps Services for SAP Deployment Automation Framework
-description: Configure your Azure DevOps Services for the SAP Deployment Automation Framework on Azure.
+title: Configure Azure DevOps Services for SAP on Azure Deployment Automation Framework
+description: Configure your Azure DevOps Services for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 08/30/2022
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Use SAP Deployment Automation Framework from Azure DevOps Services
+# Use SAP on Azure Deployment Automation Framework from Azure DevOps Services
 
 Using Azure DevOps will streamline the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
 You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application.
@@ -18,14 +18,14 @@ You can use Azure Repos to store your configuration files and Azure Pipelines to
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account.
 
-## Configure Azure DevOps Services for the SAP Deployment Automation Framework
+## Configure Azure DevOps Services for the SAP on Azure Deployment Automation Framework
 
-You can use the following script to do a basic installation of Azure Devops Services for the SAP Deployment Automation Framework.
+You can use the following script to do a basic installation of Azure Devops Services for the SAP on Azure Deployment Automation Framework.
 
 Log in to Azure Cloud Shell
 ```bash
    export ADO_ORGANIZATION=https://dev.azure.com/<yourorganization>
-   export ADO_PROJECT=SAP Deployment Automation
+   export ADO_PROJECT='SAP Deployment Automation'
    wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/create_devops_artifacts.sh -O devops.sh
    chmod +x ./devops.sh
    ./devops.sh
@@ -38,21 +38,26 @@ Validate that the project has been created by navigating to the Azure DevOps por
 You can finalize the Azure DevOps configuration by running the following scripts on your local workstation. Open a PowerShell Console and define the environment variables. Replace the bracketed values with the actual values.
 
 > [!IMPORTANT]
-> Run the following steps on your local workstation, also make sure that you have logged on to Azure using az login first.
+> Run the following steps on your local workstation, also make sure that you have logged on to Azure using az login first. Please also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
 
 
 ```powershell
    $Env:ADO_ORGANIZATION="https://dev.azure.com/<yourorganization>"
 
-   $Env:ADO_PROJECT="<yourProject>"
-   $Env:YourPrefix="<yourPrefix>"
+   $Env:ADO_PROJECT="SAP Deployment Automation"
 
    $Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
+   $Env:ControlPlaneSubscriptionName="<YourControlPlaneSubscriptionName>"
+
    $Env:DevSubscriptionID="<YourDevSubscriptionID>"
+   $Env:DevSubscriptionName="<YourDevSubscriptionName>"
 
 ```
 > [!NOTE]
-> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID.
+> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID. 
+> 
+> You can use the environment variable $Env:SDAF_APP_NAME for an existing Application registration, $Env:SDAF_MGMT_SPN_NAME for an existing service principal for the control plane and $Env:SDAF_DEV_SPN_NAME for an existing service principal for the workload zone plane. For the names use the Display Name of the existing resources.
+
 
 
 Once the variables are defined run the following script to create the service principals and the application registration.
@@ -62,8 +67,14 @@ Once the variables are defined run the following script to create the service pr
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
 
 ```
+> [!NOTE]
+> In PowerShell navigate to a folder where you have write permissions before running the Invoke-WebRequest command.
 
-## Manual configuration of Azure DevOps Services for the SAP Deployment Automation Framework
+### Create a sample Control Plane configuration
+
+You can run the 'Create Sample Deployer Configuration' pipeline to create a sample configuration for the Control Plane. When running choose the appropriate Azure region.
+
+## Manual configuration of Azure DevOps Services for the SAP on Azure Deployment Automation Framework
 
 ### Create a new project
 
@@ -77,11 +88,11 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 Record the URL of the project.
 ### Import the repository
 
-Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos.
+Start by importing the SAP on Azure Deployment Automation Framework GitHub repository into Azure Repos.
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP on Azure Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -100,7 +111,7 @@ Clone the repository to a local folder by clicking the  _Clone_ button in the Fi
 
 ### Manually importing the repository content using a local clone
 
-You can also download the content from the SAP Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
+You can also download the content from the SAP on Azure Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
 
 Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_.
 
@@ -115,10 +126,10 @@ Select the source control icon and provide a message about the change, for examp
 ### Create configuration root folder
 
 > [!IMPORTANT]
-   > In order to ensure that your configuration files are not overwritten by changes in the SAP Deployment Automation Framework, store them in a separate folder hierarchy.
+   > In order to ensure that your configuration files are not overwritten by changes in the SAP on Azure Deployment Automation Framework, store them in a separate folder hierarchy.
 
 
-Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP Deployment Automation Framework.
+Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP on Azure Deployment Automation Framework.
 
 Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you created, this will allow you to experiment with sample deployments.
 
@@ -222,18 +233,6 @@ Create the SAP configuration and software installation pipeline by choosing _New
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-## Configuration Web App pipeline
-
-Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
-
-| Setting | Value                                              |
-| ------- | -------------------------------------------------- |
-| Branch  | main                                               |
-| Path    | `deploy/pipelines/21-deploy-web-app.yaml` |
-| Name    | Configuration Web App                              |
-
-Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
-
 ## Deployment removal pipeline
 
 Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
@@ -268,7 +267,7 @@ Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the P
 | Path    | `deploy/pipelines/11-remover-arm-fallback.yaml` |
 | Name    | Deployment removal using ARM                    |
 
-Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM' by choosing 'Rename/Move' from the three-dot menu on the right.
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM processor' by choosing 'Rename/Move' from the three-dot menu on the right.
 
 > [!NOTE]
 > Only use this pipeline as last resort, removing just the resource groups will leave remnants that may complicate re-deployments.
@@ -313,7 +312,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
 ## Variable definitions
 
-The deployment pipelines are configured to use a set of predefined parameter values. In Azure DevOps the variables are defined using variable groups.
+The deployment pipelines are configured to use a set of predefined parameter values defined using variable groups.
 
 
 ### Common variables
@@ -367,8 +366,13 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | FENCING_SPN_TENANT              | 'Service principal tenant ID' for the fencing agent.               | Required for highly available deployments using a service principal for fencing agent.               |
 | PAT                             | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous step      |
 | POOL                            | `<Agent Pool name>`                                                | The Agent pool to use for this environment               |
+|                                 |                                                                    |                                                          |
 | APP_REGISTRATION_APP_ID         | 'App registration application ID'                                  | Required if deploying the web app                        |
 | WEB_APP_CLIENT_SECRET           | 'App registration password'                                        | Required if deploying the web app                        |
+|                                 |                                                                    |                                                          |
+| SDAF_GENERAL_GROUP_ID           | The group ID for the SDAF-General group                            | The ID can be retrieved from the URL parameter 'variableGroupId' when accessing the variable group using a browser. For example: 'variableGroupId=8 |
+| WORKLOADZONE_PIPELINE_ID        | The ID for the 'SAP workload zone deployment' pipeline             | The ID can be retrieved from the URL parameter 'definitionId' from the pipeline page in Azure DevOps. For example: 'definitionId=31. |
+| SYSTEM_PIPELINE_ID              | The ID for the 'SAP system deployment (infrastructure)' pipeline   | The ID can be retrieved from the URL parameter 'definitionId' from the pipeline page in Azure DevOps. For example: 'definitionId=32. |
 
 Save the variables.
 
@@ -377,7 +381,8 @@ Save the variables.
 >
 > When using the web app, ensure that the Build Service has at least Contribute permissions.
 >
-> You can use the clone functionality to create the next environment variable group.
+> You can use the clone functionality to create the next environment variable group. APP_REGISTRATION_APP_ID, WEB_APP_CLIENT_SECRET, SDAF_GENERAL_GROUP_ID, WORKLOADZONE_PIPELINE_ID and SYSTEM_PIPELINE_ID are only needed for the SDAF-MGMT group.
+
 
 
 ## Create a service connection

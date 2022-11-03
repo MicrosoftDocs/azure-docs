@@ -58,7 +58,7 @@ Use rooms when you need any of the following capabilities:
 
 The picture below illustrates the concept of managing and joining the rooms.
 
-:::image type="content" source="../media/rooms/rooms-management.png" alt-text="Diagram showing Rooms Management.":::
+:::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
  
 ### Rooms API/SDKs
 
@@ -74,6 +74,8 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 ### Calling SDKs
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
+
+Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
 
 ## Control access to room calls
 

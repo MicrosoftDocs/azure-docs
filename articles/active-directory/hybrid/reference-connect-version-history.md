@@ -77,6 +77,28 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.19.0
+
+### Release status: 
+11/2/2022: Released for download
+
+### Functional changes
+
+ - We added a new attribute 'employeeLeaveDateTime' for syncing to Azure AD 
+
+### Bug fixes
+
+ - we fixed a bug where Azure AD Connect Password writeback stopped with error code "SSPR_0029 ERROR_ACCESS_DENIED"
+
+## 2.1.18.0
+
+### Release status: 
+10/5/2022: Released for download
+
+### Bug fixes
+ - we fixed a bug where upgrade from version 1.6 to version 2.1 got stuck in a loop due to IsMemberOfLocalGroup enumeration.
+ - we fixed a bug where the Azure AD Connect Configuration Wizard was sending incorrect credentials (username format) while validating if Enterprise Admin. 
+
 ## 2.1.16.0
 
 ### Release status

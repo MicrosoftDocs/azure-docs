@@ -3,13 +3,14 @@ title: Optimize your Azure Cosmos DB application using rate limiting
 description: This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 author: plasne
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: pelasne
 ---
 
 # Optimize your Azure Cosmos DB application using rate limiting
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 
@@ -80,15 +81,15 @@ There are some key concepts when measuring cost:
 
 The method to determine the cost of a request, is different for each API:
 
-* [Core API](find-request-unit-charge.md)
-* [Cassandra API](cassandra/find-request-unit-charge-cassandra.md)
-* [Gremlin API](find-request-unit-charge-gremlin.md)
-* [Mongo DB API](mongodb/find-request-unit-charge-mongodb.md)
-* [Table API](table/find-request-unit-charge.md)
+* [API for NoSQL](find-request-unit-charge.md)
+* [API for Cassandra](cassandra/find-request-unit-charge.md)
+* [API for Gremlin](gremlin/find-request-unit-charge.md)
+* [API for MongoDB](mongodb/find-request-unit-charge.md)
+* [API for Table](table/find-request-unit-charge.md)
 
 ## Write requests
 
-The cost of write operations tends to be easy to predict. You will insert records and document the cost that Azure Cosmos reported.
+The cost of write operations tends to be easy to predict. You will insert records and document the cost that Azure Cosmos DB reported.
 
 If you have documents of different size and/or documents that will use different indexes, it is important to measure all of them.
 You may find that your representative documents are close enough in cost that you can assign a single value across all writes.
@@ -105,7 +106,7 @@ The cost of query operations can be much harder to predict for the following rea
 * The number of results can vary and unless you have statistics, you cannot predict the RU impact from the return payload.
 
 It is likely you will not have a single cost of query operations, but rather some function that evaluates the query and calculates a cost.
-If you are using the Core API, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
+If you are using the API for NoSQL, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
 (tuning of this estimation could even happen automatically within the code).
 
 ## Transient fault handling
@@ -127,7 +128,7 @@ Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the thro
 
 Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale.
 
-For more information on autoscaling, see [Create Azure Cosmos containers and databases with autoscale throughput
+For more information on autoscaling, see [Create Azure Cosmos DB containers and databases with autoscale throughput
 ](provision-throughput-autoscale.md).
 
 ### Queue-Based Load Leveling pattern

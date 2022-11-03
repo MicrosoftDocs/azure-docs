@@ -1,15 +1,17 @@
 ---
 title: Install Azure Percept development tools
 description: Learn more about using the Dev Tools Pack Installer to accelerate advanced development with Azure Percept
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Install Azure Percept development tools
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 The Dev Tools Pack Installer is a one-stop solution that installs and configures all the tools required to develop an advanced intelligent edge solution.
 

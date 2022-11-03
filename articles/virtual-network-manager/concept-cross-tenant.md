@@ -57,7 +57,5 @@ Need help with setting up permissions? Check out how to [add guest users in the 
 Currently, cross-tenant virtual networks can only be [added to network groups manually](concept-network-groups.md#group-membership). Adding cross-tenant virtual networks to network groups dynamically through Azure Policy is a future capability. 
 
 ## Next steps 
-
-- Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
-
+- Learn how to [configure a cross-tenant connection with Azure Virtual Network Manager using the Azure portal](how-to-configure-cross-tenant-portal.md)
 - Check out the [Azure Virtual Network Manager FAQ](faq.md)

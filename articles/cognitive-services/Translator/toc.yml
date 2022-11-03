@@ -98,9 +98,9 @@ items:
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
-      href: /learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Build a Translator app with Flask and Python
-      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -181,33 +181,33 @@ items:
     items:
     - name: Custom Translator for beginners
       displayName: use case,usage,train,training,bleu,tuning,tune
-      href: custom-translator/v2-preview/beginners-guide.md
+      href: custom-translator/v2.0/beginners-guide.md
     - name: Quickstart
       displayName: workspace,project,parallel,train,upload,publish,
-      href: custom-translator/v2-preview/quickstart.md
+      href: custom-translator/v2.0/quickstart.md
     - name: How-to guides
       items:
       - name: Create and manage a workspace
         displayName: share
-        href: custom-translator/v2-preview/how-to/create-manage-workspace.md
+        href: custom-translator/v2.0/how-to/create-manage-workspace.md
       - name: Create and manage a project
         displayName: models,pairs,label,edit,delete
-        href: custom-translator/v2-preview/how-to/create-manage-project.md
+        href: custom-translator/v2.0/how-to/create-manage-project.md
       - name: Create and manage training documents
         displayName: parallel,document sets,tuning,phrase,sentence,upload
-        href: custom-translator/v2-preview/how-to/create-manage-training-documents.md
+        href: custom-translator/v2.0/how-to/create-manage-training-documents.md
       - name: Train a custom model
         displayName: full,dictionary,duplicate
-        href: custom-translator/v2-preview/how-to/train-custom-model.md
+        href: custom-translator/v2.0/how-to/train-custom-model.md
       - name: View the model details and test translation
         displayName: bleu,baseline
-        href: custom-translator/v2-preview/how-to/view-model-test-translation.md
+        href: custom-translator/v2.0/how-to/view-model-test-translation.md
       - name: Publish a custom model
         displayName: replace
-        href: custom-translator/v2-preview/how-to/publish-model.md
+        href: custom-translator/v2.0/how-to/publish-model.md
       - name: Translate text with a custom model
         displayName: category,ID,category ID,
-        href: custom-translator/v2-preview/how-to/translate-with-custom-model.md
+        href: custom-translator/v2.0/how-to/translate-with-custom-model.md
   - name: Custom Translator | Legacy
     items:
     - name: Quickstart

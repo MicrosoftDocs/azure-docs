@@ -65,8 +65,17 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
+* [Cognitive Services multi-key](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows)
 * [Computer Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
+* [Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview)
+* [Content Moderator](/azure/cognitive-services/content-moderator/overview)
+* [Custom Vision (Prediction)](/azure/cognitive-services/custom-vision-service/overview)
+* [Immersive Reader](/azure/applied-ai-services/immersive-reader/overview)
+* [LUIS](/azure/cognitive-services/luis/what-is-luis)
+* [Metrics Advisor](/azure/applied-ai-services/metrics-advisor/overview)
+* [Personalizer](/azure/cognitive-services/personalizer/what-is-personalizer)
+* [QnAMaker](/azure/cognitive-services/qnamaker/overview/overview)
 * [Form Recognizer](../applied-ai-services/form-recognizer/overview.md?tabs=v3-0)
 
 ### Can I test this feature using a free subscription?
@@ -78,4 +87,4 @@ No, the autoscale feature is not available to free tier subscriptions.
 - [Plan and Manage costs for Azure Cognitive Services](./plan-manage-costs.md).
 - [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

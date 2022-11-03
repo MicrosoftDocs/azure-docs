@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.date: 03/22/2022
 ms.service: storage
 ms.subservice: common
+ms.custom: ignite-2022
 ---
 
 # Running ISV file services in Azure
 
 Azure offers various options for storing file data. Azure native services are:
-- [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure files offer two different types (standard and premium) with different performance characteristics.
+- [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure Files offer two different types (standard and premium) with different performance characteristics.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) – Fully managed file shares in the cloud designed to meet the performance requirements for enterprise line-of-business applications. Azure NetApp Files offer multiple service levels with different performance limitations (standard, premium, and ultra).
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics. 
   
@@ -192,7 +193,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Ransomware protection
 
 **XenData**
-- Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
+- The Azure Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
 - Each gateway has highly granular control of locally cached content
 - Supports video streaming and partial file restores
 - Supports Azure Data Box uploads

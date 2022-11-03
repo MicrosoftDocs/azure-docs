@@ -29,7 +29,7 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 At the end of this article, you run two .NET console apps:
 
-* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# samples repository that you download in the prerequisites.
+* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# SDK repository that you download in the prerequisites.
 
 * **ReadFileUploadNotification**. This service app receives file upload notifications from your IoT hub. You'll create this app.
 
@@ -54,7 +54,7 @@ At the end of this article, you run two .NET console apps:
     dotnet --version
     ```
 
-* Download the Azure IoT C# samples from [Download sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) and extract the ZIP archive.
+* Download the Azure IoT C# SDK from [Download sample](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip) and extract the ZIP archive.
 
 * Port 8883 should be open in your firewall. The sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -62,9 +62,9 @@ At the end of this article, you run two .NET console apps:
 
 ## Upload file from a device app
 
-In this article, you use a sample from the Azure IoT C# samples repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
+In this article, you use a sample from the Azure IoT C# SDK repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
 
-The sample is located at **azure-iot-samples-csharp/iot-hub/Samples/device/FileUploadSample** in the folder where you extracted the Azure IoT C# samples.
+The sample is located at **azure-iot-sdk-csharp/iothub/device/samples/getting started/FileUploadSample** in the folder where you extracted the Azure IoT C# SDK.
 
 Examine the code in **FileUpLoadSample.cs**. This file contains the main sample logic. After creating an IoT Hub device client, it follows the standard three-part procedure for uploading files from a device:
 
@@ -212,7 +212,7 @@ Now you're ready to run the applications.
 
 
 
-1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** under the folder where you expanded the Azure IoT C# samples. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT Hub.
+1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\FileUploadSample** under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT Hub.
 
     ```cmd/sh
     dotnet restore

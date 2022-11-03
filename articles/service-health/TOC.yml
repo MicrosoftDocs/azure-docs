@@ -52,10 +52,14 @@
   items:
   - name: Service health notifications properties
     href: service-health-notifications-properties.md
+  - name: Stay Informed About Azure Security Issues
+    href: stay-informed-security.md 
   - name: Resource health types and checks
     href: resource-health-checks-resource-types.md
   - name: Resource Health FAQ
     href: resource-health-faq.yml
+  - name: Resource Health VM status annotations
+    href: resource-health-vm-annotation.md
   - name: Admin roles for tenant scope view
     href: admin-access-reference.md
 - name: Resources

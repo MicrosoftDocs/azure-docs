@@ -12,11 +12,11 @@ You've decided to contribute, that's great! To contribute to the documentation, 
 
 #### Github
 
-Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
+Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://learn.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
 #### Tools
 
-To install necessary tools, follow the instructions for [Install content authoring tools](https://docs.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
+To install necessary tools, follow the instructions for [Install content authoring tools](https://learn.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
 
 ## License
 

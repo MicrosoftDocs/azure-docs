@@ -14,6 +14,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
 > [!IMPORTANT]

@@ -4,8 +4,7 @@ description: Learn the features and benefits of Azure Kubernetes Service to depl
 services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
-
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ---
 
 # Azure Kubernetes Service
@@ -82,6 +81,12 @@ For more information, see [Using GPUs on AKS][aks-gpu].
 AKS supports the creation of Intel SGX-based, confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware-based, trusted execution environment (enclaves). Isolation between containers, combined with code integrity through attestation, can help with your defense-in-depth container security strategy. Confidential computing nodes support both confidential containers (existing Docker apps) and enclave-aware containers.
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
+
+### Mariner nodes
+
+Mariner is an open-source Linux distribution created by Microsoft, and it’s now available for preview as a container host on Azure Kubernetes Service (AKS). The Mariner container host provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Mariner node pools in a new cluster, add Mariner node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Mariner nodes.
+
+For more information, see [Use the Mariner container host on Azure Kubernetes Service (AKS)](use-mariner.md)
 
 ### Storage volume support
 

@@ -26,6 +26,8 @@ items:
       href: storage-mover-create.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
+    - name: Define a migration job
+      href: job-definition-create.md
   - name: Manage
     items:
       - name: Register or unregister an agent
@@ -39,6 +41,9 @@ items:
   expanded: true
 - name: Resources
   items:
+  - name: Collect a support bundle
+    href: troubleshooting.md
   - name: Release notes
     href: release-notes.md
+
   

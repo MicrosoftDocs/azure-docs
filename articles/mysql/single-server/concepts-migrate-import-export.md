@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
 
 For detailed and comprehensive migration guidance, see the [migration guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
@@ -138,7 +140,7 @@ You can use the **Data Export** pane to export your MySQL data.
 
 You can use the **Data Import** pane to import or restore exported data from the data export operation or from the mysqldump command.
 
-1. In MySQL Workbench, on the **Navigator** pane, select **Data Export/Restore**.
+1. In MySQL Workbench, on the **Navigator** pane, select **Data Import/Restore**.
 1. Select the project folder or self-contained SQL file, select the schema to import into, or select the **New** button to define a new schema.
 1. Select **Start Import** to begin the import process.
 

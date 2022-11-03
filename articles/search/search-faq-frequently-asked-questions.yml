@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ
+  title: Cognitive Search FAQ
   titleSuffix: Azure Cognitive Search
   description: Get answers to common questions about Microsoft Azure Cognitive Search service, a cloud hosted search service on Microsoft Azure.
   
@@ -9,16 +9,30 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 05/24/2022
-title: Azure Cognitive Search FAQ
-summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
-
+  ms.date: 10/12/2022
+title: Cognitive Search Frequently Asked Questions
+summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
 sections:
   - name: General
     questions:
       - question: |
-          How do integrate search into my solution?
+          What is Azure Cognitive Search?
+        answer: | 
+          Azure Cognitive Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text search scenarios. It includes integrated AI used during indexing to extract more text and structure from raw content. It provides APIs and tools for integration and all search-related operations, including rich support in Azure portal for configuring and using most search features.
+
+      - question: |
+          Are "Azure Search" and "Azure Cognitive Search" the same service?
+        answer: |
+          Azure Search was renamed to Azure Cognitive Search in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. 
+
+      - question: |
+          What languages are supported?
+        answer: |
+          The default analyzer used for tokenization is standard Lucene and it's language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic search](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+
+      - question: |
+          How do I integrate search into my solution?
         answer: |
           Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
@@ -47,6 +61,11 @@ sections:
   - name: Indexing 
     questions:
       - question: |
+          What does "indexing" mean in Cognitive Search?
+        answer: |
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indices and other physical data structures that support information retrieval.
+
+      - question: |
           Can I move, backup, and restore indexes?
         answer: |
           There's no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
@@ -54,7 +73,7 @@ sections:
           However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
                    
       - question: |
-          Can I restore my index or service once it is deleted?
+          Can I restore my index or service once it's deleted?
         answer: |
           No, if you delete an Azure Cognitive Search index or service, it can't be recovered. When you delete a search service, all indexes in the service are deleted permanently.   
                     
@@ -64,7 +83,12 @@ sections:
           If you're using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there's no guarantee you get all of the data.
 
   - name: Queries
-    questions:         
+    questions:
+      - question: |
+          Where does query execution occur?
+        answer: |
+          Queries execute over a single search index that's hosted on your search service. You can't join multiple indices to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
+              
       - question: |
           Why are there zero matches on terms I know to be valid?
         answer: |
@@ -104,7 +128,7 @@ sections:
       - question: |
           Can I control access to search results based on user identity?
         answer: |
-          Typically, users who are authorized to run your application are also authorized to see all search results. Cognitive Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
+          Not exactly. Typically, users who are authorized to run your application are also authorized to see all search results. Cognitive Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
 
       - question: |
           Can I control access to operations based on user identity?

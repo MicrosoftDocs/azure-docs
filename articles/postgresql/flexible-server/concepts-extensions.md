@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
@@ -153,6 +153,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.6.1           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
+> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
@@ -211,6 +212,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
+> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
@@ -269,6 +271,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | prewarm relation data|
+> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/12/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
@@ -327,6 +330,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | prewarm relation data|
+> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|

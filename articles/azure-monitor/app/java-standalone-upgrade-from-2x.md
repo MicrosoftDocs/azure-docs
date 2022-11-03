@@ -19,20 +19,20 @@ auto-instrumentation which is provided by the 3.x Java agent.
 
 | 2.x dependency | Action | Remarks                                                                                                                                                                                     |
 |----------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `applicationinsights-core` | Update the version to `3.4.0` or later |                                                                                                                                                                                             |
-| `applicationinsights-web` | Update the version to `3.4.0` or later, and remove the Application Insights web filter your `web.xml` file. |                                                                                                                                                                                             |
-| `applicationinsights-web-auto` | Replace with `3.4.0` or later of `applicationinsights-web` |                                                                                                                                                                                             |
+| `applicationinsights-core` | Update the version to `3.4.2` or later |                                                                                                                                                                                             |
+| `applicationinsights-web` | Update the version to `3.4.2` or later, and remove the Application Insights web filter your `web.xml` file. |                                                                                                                                                                                             |
+| `applicationinsights-web-auto` | Replace with `3.4.2` or later of `applicationinsights-web` |                                                                                                                                                                                             |
 | `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 1.2 is auto-instrumented in the 3.x Java agent.                                                                                                                |
 | `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 2 is auto-instrumented in the 3.x Java agent.                                                                                                                  |
 | `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | No longer needed since Logback is auto-instrumented in the 3.x Java agent.                                                                                                                  |
-| `applicationinsights-spring-boot-starter` | Replace with `3.4.0` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
+| `applicationinsights-spring-boot-starter` | Replace with `3.4.2` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
 
 ## Step 2: Add the 3.x Java agent
 
 Add the 3.x Java agent to your JVM command-line args, for example
 
 ```
--javaagent:path/to/applicationinsights-agent-3.4.0.jar
+-javaagent:path/to/applicationinsights-agent-3.4.2.jar
 ```
 
 If you were using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the above.

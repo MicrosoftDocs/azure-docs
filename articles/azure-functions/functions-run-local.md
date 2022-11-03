@@ -279,13 +279,13 @@ The function app settings values can also be read in your code as environment va
 * [PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
-When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
+When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
-Even when using the Microsoft Azure Storage Emulator for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
+Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
 
 # [Portal](#tab/portal)
 
@@ -607,7 +607,7 @@ This type of streaming logs requires that Application Insights integration be en
 
 ## Next steps
 
-Learn how to [develop, test, and publish Azure functions by using Azure Functions core tools](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/). Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
+Learn how to [develop, test, and publish Azure functions by using Azure Functions core tools](/training/modules/develop-test-deploy-azure-functions-with-core-tools/). Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 

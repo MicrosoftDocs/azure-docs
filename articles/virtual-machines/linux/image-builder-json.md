@@ -146,6 +146,7 @@ The location is the region where the custom image will be created. The following
 - East Asia
 - Korea Central
 - South Africa North
+- Qatar Central
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
 
@@ -535,7 +536,7 @@ Customize properties:
 - **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
 
 > [!NOTE]
-> There's no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There's a 20min SSH timeout to the build VM.
+> There is no Linux restart customizer.
 
 ### PowerShell customizer
 
@@ -598,7 +599,8 @@ Customize properties:
 
 ### File customizer
 
-The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
+The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image. 
+
 
 # [JSON](#tab/json)
 
@@ -635,7 +637,7 @@ File customizer properties:
 - **sourceUri** - an accessible storage endpoint, this endpoint can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
 
   > [!NOTE]
-  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll need to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
 - **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set up these paths up beforehand. You can use the script customizers to create the path.
 
@@ -647,7 +649,7 @@ This customizer is supported by Windows directories and Linux paths, but there a
 If there's an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
 
 > [!NOTE]
-> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`. For files that are in Azure storage, ensure that you assign an identity with permissions to view that file to the build VM by following the documentation here: [User Assigned Identity for the Image Builder Build VM](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell#user-assigned-identity-for-the-image-builder-build-vm). Any file that is not stored in Azure must be publicly accessible for Azure Image Builder to be able to download it.
 
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
@@ -1150,6 +1152,9 @@ properties: {
 - **The stagingResourceGroup property is specified with a resource group that exists**
 
   If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
+  
+> [!IMPORTANT]
+> You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image. For the CLI command and portal instructions on how to assign the contributor role to the resource group see the following documentation [Troubleshoot VM Azure Image Builder: Authorization error creating disk](/azure/virtual-machines/linux/image-builder-troubleshoot#authorization-error-creating-disk)
 
 - **The stagingResourceGroup property is specified with a resource group that doesn't exist**
 

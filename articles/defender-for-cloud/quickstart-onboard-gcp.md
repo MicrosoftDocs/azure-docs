@@ -2,14 +2,16 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 07/11/2022
+ms.date: 09/20/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: connect-gcp-accounts
-ms.custom: mode-other
+ms.custom: mode-other, ignite-2022
 ---
 
 # Quickstart: Connect your GCP projects to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub and Azure DevOps (ADO).
 
 To protect your GCP-based resources, you can connect a GCP project with either:
 
@@ -31,7 +33,7 @@ To protect your GCP-based resources, you can connect a GCP project with either:
 |Aspect|Details|
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
+|Pricing:|The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project| 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
@@ -90,28 +92,6 @@ Follow the steps below to create your GCP cloud connector.
     |--|--|
     | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br> Microsoft Defender Data Collector service account role <br> Microsoft Defender for cloud identity pool |
 
-(**Servers/SQL only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
-
-:::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric ID to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
-
-To locate the unique numeric ID in the GCP portal, navigate to **IAM & Admin** > **Service Accounts**, locate `Azure-Arc for servers onboarding` in the Name column, and copy the unique numeric ID number (OAuth 2 Client ID).
-
-1. Navigate back to the Microsoft Defender for Cloud portal.
-
-1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate fields.
-
-1. (**Servers/SQL only**) Select **Azure-Arc for servers onboarding**
-
-    :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen." lightbox="media/quickstart-onboard-gcp/unique-numeric-id.png":::
-
-    Enter the service account unique ID, which is generated automatically after running the GCP Cloud Shell. 
-
-1. Select the **Next: Review and generate >**.
-
-1. Ensure the information presented is correct.
-
-1. Select the **Create**. 
-
 After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc and any enabled extensions will install automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
@@ -139,16 +119,16 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
-- Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
+- Ensure you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
     - VA solution (TVM/ Qualys)
-    - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+    - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA). Ensure the selected workspace has security solution installed.
     
-        The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent.
+        The LA agent and AMA are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent and AMA.
 
-    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
     > [!NOTE]
     > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
@@ -195,7 +175,7 @@ To have full visibility to Microsoft Defender for SQL security content, ensure y
 
         The LA agent and SQL servers on machines plan are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings and may result in additional charges.
 
-    Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#quickstart-configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+        Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
     > [!NOTE]
     > Defender for SQL assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:

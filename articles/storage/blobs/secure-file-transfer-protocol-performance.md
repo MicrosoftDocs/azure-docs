@@ -1,26 +1,20 @@
 ---
-title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview) | Microsoft Docs
+title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage | Microsoft Docs
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
-author: mikewill4
+author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 10/20/2022
 ms.custom: references_regions
-ms.author: michawil
+ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview)
+# SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage
 
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that will help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
-
-> [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 ## Use concurrent connections to increase throughput
 
@@ -30,6 +24,11 @@ For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple
 
 > [!IMPORTANT]
 > Concurrent uploads will only improve performance when uploading multiple files at the same time. Using multiple connections to upload a single file is not supported.
+  
+- Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level** is checked, select **Reduced** or **Normal**.
+
+> [!CAUTION]
+> Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
 
 ## Use premium block blob storage accounts
 

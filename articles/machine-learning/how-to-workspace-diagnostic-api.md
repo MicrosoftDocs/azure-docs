@@ -10,7 +10,7 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # How to use workspace diagnostics
@@ -60,20 +60,20 @@ The response is a JSON document that contains information on any problems detect
 
 ```json
 {
-    'value': {
-        'user_defined_route_results': [], 
-        'network_security_rule_results': [], 
-        'resource_lock_results': [], 
-        'dns_resolution_results': [{
-            'code': 'CustomDnsInUse', 
-            'level': 'Warning', 
-            'message': "It is detected VNet '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>' of private endpoint '/subscriptions/<subscription-id>/resourceGroups/larrygroup0916/providers/Microsoft.Network/privateEndpoints/<workspace-private-endpoint>' is not using Azure default dns. You need to configure your DNS server and check https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns to make sure the custom dns is set up correctly."
-        }], 
-        'storage_account_results': [], 
-        'key_vault_results': [], 
-        'container_registry_results': [], 
-        'application_insights_results': [], 
-        'other_results': []
+    "value": {
+        "user_defined_route_results": [],
+        "network_security_rule_results": [],
+        "resource_lock_results": [],
+        "dns_resolution_results": [{
+            "code": "CustomDnsInUse",
+            "level": "Warning",
+            "message": "It is detected VNet '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>' of private endpoint '/subscriptions/<subscription-id>/resourceGroups/larrygroup0916/providers/Microsoft.Network/privateEndpoints/<workspace-private-endpoint>' is not using Azure default DNS. You need to configure your DNS server and check https://learn.microsoft.com/azure/machine-learning/how-to-custom-dns to make sure the custom DNS is set up correctly."
+        }],
+        "storage_account_results": [],
+        "key_vault_results": [],
+        "container_registry_results": [],
+        "application_insights_results": [],
+        "other_results": []
     }
 }
 ```

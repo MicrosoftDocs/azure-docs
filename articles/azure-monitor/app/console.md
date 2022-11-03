@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights for Console Applications | Microsoft Docs
-description: Monitor web applications for availability, performance and usage.
+title: Application Insights for console applications | Microsoft Docs
+description: Monitor web applications for availability, performance, and usage.
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.devlang: csharp
@@ -12,47 +12,49 @@ ms.reviewer: casocha
 
 [Application Insights](./app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
 
-You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
+You need an [Azure](https://azure.com) subscription. Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure. Ask the owner to add you to it by using your Microsoft account.
 
 > [!NOTE]
-> It is *highly recommended* to use the newer [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
+> We recommend using the newer [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [Application Insights for Worker Service applications (non-HTTP applications)](./worker-service.md) for any console applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Getting started
+## Get started
 
 * In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md).
-* Take a copy of the connection string. Find the connection string in the **Essentials** drop-down of the new resource you created.
-* Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
-* Set the connection string in your code before tracking any telemetry (or set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
+* Take a copy of the connection string. Find the connection string in the **Essentials** dropdown of the new resource you created.
+* Install the latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
+* Set the connection string in your code before you track any telemetry (or set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable). After that, you should be able to manually track telemetry and see it in the Azure portal.
+    
+    ```csharp
+    // You may use different options to create configuration as shown later in this article
+    TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+    configuration.ConnectionString = <Copy connection string from Application Insights Resource Overview>;
+    var telemetryClient = new TelemetryClient(configuration);
+    telemetryClient.TrackTrace("Hello World!");
+    ```
+    
+    > [!NOTE]
+    > Telemetry isn't sent instantly. Items are batched and sent by the ApplicationInsights SDK. Console apps exit after calling `Track()` methods.
+    >
+    > Telemetry might not be sent unless `Flush()` and `Sleep`/`Delay` are done before the app exits, as shown in the [full example](#full-example) later in this article. `Sleep` isn't required if you're using `InMemoryChannel`.
 
-```csharp
-// you may use different options to create configuration as shown later in this article
-TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
-configuration.ConnectionString = <Copy connection string from Application Insights Resource Overview>;
-var telemetryClient = new TelemetryClient(configuration);
-telemetryClient.TrackTrace("Hello World!");
-```
+* Install the latest version of the [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package. It automatically tracks HTTP, SQL, or some other external dependency calls.
+
+You can initialize and configure Application Insights from the code or by using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
 
 > [!NOTE]
-> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exit right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> *ApplicationInsights.config* isn't supported by .NET Core applications.
 
-* Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
+### Use the config file
 
-You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
-
-> [!NOTE]
-> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
-
-### Using config file 
-
-For .NET Framework based application, by default, Application Insights SDK looks for `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created. Reading config file is not supported on .NET Core.
+For .NET Framework-based applications, by default, the Application Insights SDK looks for the `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created. Reading the config file isn't supported on .NET Core.
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present
 ```
 
-You may also specify path to the config file.
+You can also specify a path to the config file:
 
 ```csharp
 using System.IO;
@@ -60,9 +62,9 @@ TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfigur
 var telemetryClient = new TelemetryClient(configuration);
 ```
 
-For more information, see [configuration file reference](configuration-with-applicationinsights-config.md).
+For more information, see [Configuration file reference](configuration-with-applicationinsights-config.md).
 
-You may get a full example of the config file by installing latest version of [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) package. Here's the **minimal** configuration for dependency collection that is equivalent to the code example.
+You can get a full example of the config file by installing the latest version of the [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) package. Here's the *minimal* configuration for dependency collection that's equivalent to the code example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -92,44 +94,45 @@ You may get a full example of the config file by installing latest version of [M
 
 ```
 
-### Configuring telemetry collection from code
+### Configure telemetry collection from code
+
 > [!NOTE]
-> Reading config file is not supported on .NET Core. 
+> Reading the config file isn't supported on .NET Core.
 
-* During application start-up, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
+* During application startup, create and configure a `DependencyTrackingTelemetryModule` instance. It must be singleton and must be preserved for the application lifetime.
 
-```csharp
-var module = new DependencyTrackingTelemetryModule();
+    ```csharp
+    var module = new DependencyTrackingTelemetryModule();
+    
+    // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
+    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
+    //...
+    
+    // enable known dependency tracking, note that in future versions, we will extend this list. 
+    // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
+    
+    module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
+    module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
+    //....
+    
+    // initialize the module
+    module.Initialize(configuration);
+    ```
 
-// prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-//...
+* Add common telemetry initializers:
 
-// enable known dependency tracking, note that in future versions, we will extend this list. 
-// please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
+    ```csharp
+    // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
+    configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+    ```
+    
+    If you created configuration with a plain `TelemetryConfiguration()` constructor, you need to enable correlation support additionally. *It isn't needed* if you read configuration from a file or used `TelemetryConfiguration.CreateDefault()` or `TelemetryConfiguration.Active`.
+    
+    ```csharp
+    configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+    ```
 
-module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
-module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
-//....
-
-// initialize the module
-module.Initialize(configuration);
-```
-
-* Add common telemetry initializers
-
-```csharp
-// ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
-```
-
-If you created configuration with plain `TelemetryConfiguration()` constructor, you need to enable correlation support additionally. **It is not needed** if you read configuration from file, used `TelemetryConfiguration.CreateDefault()` or `TelemetryConfiguration.Active`.
-
-```csharp
-configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-```
-
-* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
+* You might also want to install and initialize the Performance Counter collector module as described at [this website](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/).
 
 #### Full example
 
@@ -208,5 +211,6 @@ namespace ConsoleApp
 ```
 
 ## Next steps
+
 * [Monitor dependencies](./asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.

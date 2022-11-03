@@ -4,7 +4,7 @@ description: Troubleshoot problems with SMB Azure file shares in Windows. See co
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/09/2022
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -39,8 +39,8 @@ Windows 8, Windows Server 2012, and later versions of each system negotiate requ
 ### Solution for cause 1
 
 1. Connect from a client that supports SMB encryption (Windows 8/Windows Server 2012 or later).
-2. Connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
-3. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client does not support SMB encryption.
+2. Connect from a virtual machine (VM) in the same datacenter as the Azure storage account that is used for the Azure file share.
+3. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client doesn't support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
 Network traffic is denied if virtual network (VNET) and firewall rules are configured on the storage account, unless the client IP address or virtual network is allow-listed.
@@ -51,16 +51,16 @@ Verify that virtual network and firewall rules are configured properly on the st
 
 ### Cause 3: Share-level permissions are incorrect when using identity-based authentication
 
-If end-users are accessing the Azure file share using Active Directory (AD) or Azure Active Directory Domain Services (Azure AD DS) authentication, access to the file share fails with "Access is denied" error if share-level permissions are incorrect. 
+If end users are accessing the Azure file share using Active Directory (AD) or Azure Active Directory Domain Services (Azure AD DS) authentication, access to the file share fails with "Access is denied" error if share-level permissions are incorrect. 
 
 ### Solution for cause 3
 
 Validate that permissions are configured correctly:
 
-- **Active Directory (AD)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
+- **Active Directory Domain Services (AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
 
-    Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (Azure AD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
+    Share-level permission assignments are supported for groups and users that have been synced from AD DS to Azure Active Directory (Azure AD) using Azure AD Connect sync or Azure AD Connect cloud sync. Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an Azure AD identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-azure-ad-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -109,12 +109,12 @@ TcpTestSucceeded : True
  
 
 > [!Note]  
-> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
+> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Don't hardcode this IP address into any scripts, or into a firewall configuration.
 
 ### Solution for cause 1
 
 #### Solution 1 — Use Azure File Sync as a QUIC endpoint
-Azure File Sync can be used as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
+You can use Azure File Sync as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
 #### Solution 2 — Use VPN or ExpressRoute
 By setting up a VPN or ExpressRoute from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
@@ -129,7 +129,7 @@ Azure Files also supports REST in addition to SMB. REST access works over port 4
 
 System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
-To determine whether this is the cause of the error, verify that the following registry subkey is not set to a value less than 3:
+To determine whether this is the cause of the error, verify that the following registry subkey isn't set to a value less than 3:
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
@@ -156,15 +156,28 @@ To view open handles for a file share, directory or file, use the [Get-AzStorage
 
 To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
 
-> [!Note]  
-> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+> [!Note]
+> The `Get-AzStorageFileHandle` and `Close-AzStorageFileHandle` cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+
+<a id="networkerror59"></a>
+## ERROR_UNEXP_NET_ERR (59) when doing any operations on a handle
+
+### Cause
+
+If you cache/hold a large number of open handles for a long time, you might see this server-side failure due to throttling reasons. When a large number of handles are cached by the client, many of those handles can go into a reconnect phase at the same time, building up a queue on the server which needs to be throttled. The retry logic and the throttling on the backend for reconnect takes longer than the client's timeout. This situation manifests itself as a client not being able to use an existing handle for any operation, with all operations failing with ERROR_UNEXP_NET_ERR (59).
+
+There are also edge cases in which the client handle becomes disconnected from the server (for example, a network outage lasting several minutes) that could cause this error.
+
+### Solution
+
+Don’t keep a large number of handles cached. Close handles and then retry. See preceding troubleshooting entry for PowerShell cmdlets to view/close open handles.
 
 <a id="noaaccessfailureportal"></a>
-## Error "No access" when you try to access or delete an Azure File Share  
+## Error "No access" when you try to access or delete an Azure File Share
 When you try to access or delete an Azure file share in the portal, you might receive the following error:
 
 No access  
-Error code: 403 
+Error code: 403
 
 ### Cause 1: Virtual network or firewall rules are enabled on the storage account
 
@@ -233,7 +246,7 @@ When you open a file from a mounted Azure file share over SMB, your application/
 - `ReadWrite`: a combination of both the `Read` and `Write` sharing modes.
 - `Delete`: others may delete the file while you have it open. 
 
-Although as a stateless protocol, the FileREST protocol does not have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it is treated as equivalent to a file handle with a file sharing mode of `None`. 
+Although as a stateless protocol, the FileREST protocol doesn't have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it's treated as equivalent to a file handle with a file sharing mode of `None`. 
 
 Although file handles and leases serve an important purpose, sometimes file handles and leases might be orphaned. When this happens, this can cause problems modifying or deleting files. You may see error messages like:
 
@@ -333,7 +346,7 @@ If you map an Azure file share as an administrator by using net use, the share a
 
 ### Cause
 
-By default, Windows File Explorer does not run as an administrator. If you run net use from an administrative command prompt, you map the network drive as an administrator. Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account.
+By default, Windows File Explorer doesn't run as an administrator. If you run net use from an administrative command prompt, you map the network drive as an administrator. Because mapped drives are user-centric, the user account that is logged in doesn't display the drives if they're mounted under a different user account.
 
 ### Solution
 Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) to configure the **EnableLinkedConnections** registry value.
@@ -405,11 +418,11 @@ Be aware that setting the registry key affects all copy operations that are made
 
 ### Cause
 
-This problem can occur if there is no enough cache on client machine for large directories.
+This problem can occur if there isn't enough cache on the client machine for large directories.
 
 ### Solution
 
-To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry value  to allow caching of larger directory listings in the client machine:
+To resolve this problem, adjust the **DirectoryCacheEntrySizeMax** registry value to allow caching of larger directory listings in the client machine:
 
 - Location: `HKLM\System\CCS\Services\Lanmanworkstation\Parameters`
 - Value name: `DirectoryCacheEntrySizeMax` 
@@ -421,7 +434,7 @@ For example, you can set it to `0x100000` and see if the performance improves.
 
 ### Cause
 
-Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [Azure AD Domain Service(Azure AD DS)](../../active-directory-domain-services/overview.md) is not created on the Azure AD tenant of the associated subscription.  
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [Azure AD Domain Service(Azure AD DS)](../../active-directory-domain-services/overview.md) isn't created on the Azure AD tenant of the associated subscription.  
 
 ### Solution
 
@@ -432,11 +445,11 @@ Enable Azure AD DS on the Azure AD tenant of the subscription that your storage 
 ## Unable to mount Azure Files with AD credentials 
 
 ### Self diagnostics steps
-First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](./storage-files-identity-auth-active-directory-enable.md).
+First, make sure that you've followed through all four steps to [enable Azure Files AD Authentication](./storage-files-identity-auth-active-directory-enable.md).
 
-Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If you failed to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, give prescriptive guidance on self-fix and collect the diagnostics traces.
+Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If the share fails to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, give prescriptive guidance on self-fix, and collect the diagnostics traces.
 
-Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
+Third, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -459,8 +472,8 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 ### Symptom
 
 You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
-- After you click on Edit permission under the Security tab, the Permission wizard does not load. 
-- When you try to select a new user or group, the domain location does not display the right AD DS domain. 
+- After you click on Edit permission under the Security tab, the Permission wizard doesn't load. 
+- When you try to select a new user or group, the domain location doesn't display the right AD DS domain. 
 
 ### Solution
 
@@ -474,11 +487,11 @@ This error may occur if a domain controller that holds the RID Master FSMO role 
 
 ### Error: "Cannot bind positional parameters because no names were given"
 
-This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
+This error is most likely triggered by a syntax error in the `Join-AzStorageAccountforAuth` command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
 
 ## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES-256 Kerberos encryption for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). AES-256 is the recommended authentication method. If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended authentication method. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
@@ -501,7 +514,7 @@ Navigate to the desired storage account in the Azure portal. In the table of con
 ![A screenshot of the access key pane](./media/storage-troubleshoot-windows-file-connection-problems/access-keys-1.png)
 
 # [PowerShell](#tab/azure-powershell)
-The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
@@ -521,7 +534,7 @@ New-AzStorageAccountKey `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you will need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```bash
 resourceGroupName="<resource-group>"

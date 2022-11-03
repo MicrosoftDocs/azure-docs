@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2022
+ms.date: 11/01/2022
 ms.author: radeltch
 
 ---
@@ -96,7 +96,7 @@ The example configurations and installation commands use the following instance 
 | Instance name | Instance number |
 | ---------------- | ------------------ |
 | ASCS | 00 |
-| Evaluated Receipt Settlement (ERS) | 01 |
+| Enqueue Replication Server (ERS) | 01 |
 | Primary Application Server (PAS) | 02 |
 | Additional Application Server (AAS) | 03 |
 | SAP system identifier | NW1 |
@@ -118,7 +118,7 @@ This article assumes that you've already deployed an [Azure virtual network](../
    > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
 2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
-   1. Create front-end IP address 0.27.0.9 for the ASCS instance:
+   1. Create front-end IP address 10.27.0.9 for the ASCS instance:
       1. Open the load balancer, select **Frontend IP pool**, and then select **Add**.
       1. Enter the name of the new front-end IP pool (for example, **frontend.NW1.ASCS**).
       1. Set **Assignment** to **Static** and enter the IP address (for example, **10.27.0.9**).
@@ -268,10 +268,10 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 1. Delegate a subnet to Azure NetApp Files, as described in [these instructions](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 1. Deploy Azure NetApp Files volumes by following [these instructions](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. 
 
-   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. This example uses two Azure NetApp Files volumes: `sapNW1` and `trans`. The file paths that are mounted to the corresponding mount points are:  
+   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. This example uses two Azure NetApp Files volumes: `sapnw1` and `trans`. The file paths that are mounted to the corresponding mount points are:  
 
-   - Volume `sapNW1` (`nfs://10.27.1.5/usrsapnw1/sapmntNW1`)
-   - Volume `sapNW1` (`nfs://10.27.1.5/usrsapnw1/usrsapNW1`)
+   - Volume `sapnw1` (`nfs://10.27.1.5/sapnw1/sapmntNW1`)
+   - Volume `sapnw1` (`nfs://10.27.1.5/sapnw1/usrsapNW1`)
    - Volume `trans` (`nfs://10.27.1.5/trans`)
    
    
@@ -391,7 +391,7 @@ The following items are prefixed with:
     ```bash
     # Temporarily mount the volume.
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
     # Create the SAP directories.
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -455,7 +455,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
        cat /sys/module/nfs/parameters/nfs4_disable_idmapping
        # If you need to set nfs4_disable_idmapping to Y:
        mkdir /mnt/tmp
-       mount 10.27.1.5:/sapmnt/<b>qas</b> /mnt/tmp
+       mount 10.27.1.5:/sapnw1 /mnt/tmp
        umount  /mnt/tmp
        echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
        # Make the configuration permanent.
@@ -650,7 +650,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Remove Autostart from the ERS profile.
-    Autostart = 1
+    # Autostart = 1
     ```
 
 6. **[A]** Configure `keepalive`.
@@ -695,10 +695,10 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
     
     sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_nw1ascs
+     params InstanceName=NW1_ASCS00_sapascs
 
     sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_nw1ers
+     params InstanceName=NW1_ERS01_sapers
 
 	# If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -728,7 +728,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      AUTOMATIC_RECOVER=false IS_ERS=true MINIMAL_PROBE=true \
      meta priority=1000
 
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ERS add rsc_sapstartsrv_NW1_ERS01
     sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
@@ -749,10 +749,10 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
    
     sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_nw1ascs
+     params InstanceName=NW1_ASCS00_sapascs
 
     sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_nw1ers
+     params InstanceName=NW1_ERS01_sapers
 
 	# If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -780,7 +780,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
      AUTOMATIC_RECOVER=false IS_ERS=true MINIMAL_PROBE=true
 
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ERS add rsc_sapstartsrv_NW1_ERS01
     sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01

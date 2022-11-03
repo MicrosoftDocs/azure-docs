@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 09/25/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech
@@ -41,7 +41,7 @@ Here's more information about neural text-to-speech features in the Speech servi
 
 * **Asynchronous synthesis of long audio**: Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
-* **Prebuilt neural voices**: Microsoft neural text-to-speech capability uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. You can use neural voices to:
+* **Prebuilt neural voices**: Microsoft neural text-to-speech capability uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. You can use neural voices to:
 
   - Make interactions with chatbots and voice assistants more natural and engaging.
   - Convert digital texts such as e-books into audiobooks.
@@ -51,7 +51,7 @@ Here's more information about neural text-to-speech features in the Speech servi
 
 * **Fine-tuning text-to-speech output with SSML**: Speech Synthesis Markup Language (SSML) is an XML-based markup language that's used to customize text-to-speech outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document.
 
-  You can use SSML to define your own lexicons or switch to different speaking styles. With the [multilingual voices](https://techcommunity.microsoft.com/t5/azure-ai/azure-text-to-speech-updates-at-build-2021/ba-p/2382981), you can also adjust the speaking languages via SSML. To fine-tune the voice output for your scenario, see [Improve synthesis with Speech Synthesis Markup Language](speech-synthesis-markup.md).
+  You can use SSML to define your own lexicons or switch to different speaking styles. With the [multilingual voices](https://techcommunity.microsoft.com/t5/azure-ai/azure-text-to-speech-updates-at-build-2021/ba-p/2382981), you can also adjust the speaking languages via SSML. To fine-tune the voice output for your scenario, see [Improve synthesis with Speech Synthesis Markup Language](speech-synthesis-markup.md) and [Speech synthesis with the Audio Content Creation tool](how-to-audio-content-creation.md).
 
 * **Visemes**: [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw, and tongue in producing a particular phoneme. Visemes have a strong correlation with voices and phonemes.
 
@@ -65,6 +65,9 @@ Here's more information about neural text-to-speech features in the Speech servi
 ## Get started
 
 To get started with text-to-speech, see the [quickstart](get-started-text-to-speech.md). Text-to-speech is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md).
+
+> [!TIP]
+> To convert text-to-speech with a no-code approach, try the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://aka.ms/speechstudio/audiocontentcreation).
 
 ## Sample code
 

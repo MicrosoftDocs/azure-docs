@@ -112,7 +112,7 @@ The following steps will guide you through enabling the profiling component on t
          }
       }
    ```
-   Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
+   Alternatively, set the `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED` environment variable to true.
    
 1. Restart your process with the updated configuration.
 
@@ -138,7 +138,7 @@ Profiles can be generated/edited in the JDK Mission Control (JMC) user interface
 
 ### Environment variables
 
-- `APPLICATIONINSIGHTS_PROFILER_ENABLED`: boolean (default: `false`)
+- `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED`: boolean (default: `false`)
     Enables/disables the profiling feature.
 
 ### Configuration file
@@ -204,13 +204,13 @@ JFR recording can be viewed and analyzed with your preferred tool, for example [
 
 On-demand is user triggered profiling in real-time whereas automatic profiling is with preconfigured triggers. 
 
-Use [Profile Now](https://github.com/johnoliver/azure-docs-pr/blob/add-java-profiler-doc/articles/azure-monitor/profiler/profiler-settings.md) for the on-demand profiling option. [Profile Now](https://github.com/johnoliver/azure-docs-pr/blob/add-java-profiler-doc/articles/azure-monitor/profiler/profiler-settings.md) will immediately profile all agents attached to the Application Insights instance. 
-          
+Use [Profile Now](../profiler/profiler-settings.md) for the on-demand profiling option. [Profile Now](../profiler/profiler-settings.md) will immediately profile all agents attached to the Application Insights instance. 
+
 Automated profiling is triggered a breach in a resource threshold. 
-    
+
 ### Which Java profiling triggers can I configure?
 Application Insights Java Agent currently supports monitoring of CPU and memory consumption. CPU threshold is configured as a percentage of all available cores on the machine. Memory is the current Tenured memory region (OldGen) occupancy against the maximum possible size of the region. 
-          
+
 ### What are the required prerequisites to enable Java Profiling? 
 
 Review the [Pre-requisites](#prerequisites) at the top of this article.

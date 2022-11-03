@@ -6,10 +6,10 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 08/24/2022
+ms.date: 10/07/2022
 ms.author: stevehow
 ms.reviewer: joanpo
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, engagement-fy23
 ---
 
 # Restore an existing dedicated SQL pool
@@ -32,11 +32,16 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
 8. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
 
-    ![Restore points](../media/sql-pools/restore-point.PNG)
+   ![Restore points](../media/sql-pools/restore-point.PNG)
 
-    If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
+   * If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
 
-    If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore. 
+   * If you want to restore a dedicated SQL pool from a different workspace, select **New dedicated SQL pool** from your current workspace. Under the **Additional settings** tab find the **Use existing data** and select the **Restore point** option. As shown in the above screenshot, you can then select the **Server or workspace** name from which you can restore.
+
+   * If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore.
+
+   > [!NOTE]
+   > You cannot perform an in-place restore of a SQL pool with the same name as an existing pool. Regardless of the SQL pool being in the same workspace or a different workspace.
 
 9. Select **Review + Create**.
 
@@ -48,7 +53,7 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
     ![ Restore Overview](../media/sql-pools/restore-sqlpool-01.png)
 
-4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
 
     If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user-defined restore point before restoring. 
 

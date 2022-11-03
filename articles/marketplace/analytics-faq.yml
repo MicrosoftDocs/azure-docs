@@ -42,8 +42,8 @@ sections:
           How do I enroll in the commercial marketplace?
         answer: |
           There are two ways to create an account:
-          - If you're new to Partner Center and don't have a Microsoft Partner Network (MPN) account, continue to [Create a Partner Center account and enroll in the commercial marketplace](create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
-          - If you're already enrolled in the Microsoft Partner Network or a developer program, create an account directly from Partner Center. See [Use an existing Partner Center account to enroll in the commercial marketplace](create-account.md#use-an-existing-partner-center-account-to-enroll-in-the-commercial-marketplace).
+          - If you're new to Partner Center and don't have a Microsoft Cloud Partner Program (MPN) account, continue to [Create a Partner Center account and enroll in the commercial marketplace](create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
+          - If you're already enrolled in the Microsoft Cloud Partner Program or a developer program, create an account directly from Partner Center. See [Use an existing Partner Center account to enroll in the commercial marketplace](create-account.md#use-an-existing-partner-center-account-to-enroll-in-the-commercial-marketplace).
 
       - question: |
           Where can I create a commercial marketplace offer?

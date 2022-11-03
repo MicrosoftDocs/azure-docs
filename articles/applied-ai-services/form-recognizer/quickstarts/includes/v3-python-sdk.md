@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
-[SDK reference](/https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -65,7 +65,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
 
 <!-- markdownlint-disable MD036 -->
 

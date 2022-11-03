@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 09/15/2022
+ms.date: 10/12/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -28,9 +28,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   > * The identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
   > * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) can be used for this identity. This role is useful for at-scale onboarding, as it has only the granular permissions required to connect clusters to Azure Arc, and doesn't have permission to update, delete, or modify any other clusters or other Azure resources.
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-* Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
+* Install the latest version of **connectedk8s** Azure CLI extension:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -40,11 +40,6 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
-  * If you want to connect an OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `New-AzConnectedKubernetes`:
-
-    ```azurecli-interactive
-    oc adm policy add-scc-to-user privileged -z <service account name> -n <service account namespace>
-    ```
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
@@ -154,6 +149,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
+> [!IMPORTANT]
+> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
 
 ## Create a resource group
 
@@ -309,6 +307,10 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 For outbound proxy servers where only a trusted certificate needs to be provided without the proxy server endpoint inputs, `az connectedk8s connect` can be run with just the `--proxy-cert` input specified. In case multiple trusted certificates are expected, the combined certificate chain can be provided in a single file using the `--proxy-cert` parameter.
 
+> [!NOTE]
+>
+> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honour the one passed last.
+
 ### [Azure CLI](#tab/azure-cli)
 
 Run the connect command with the `--proxy-cert` parameter specified:
@@ -411,6 +413,14 @@ You can delete the Azure Arc-enabled Kubernetes resource, any associated configu
 ```azurecli
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
+
+If the deletion process fails, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
+
+```azurecli
+az connectedk8s delete -g AzureArcTest1 -n AzureArcTest --force
+```
+
+This command can also be used if you experience issues when creating a new cluster deployment (due to previously created resources not being completely removed).
 
 >[!NOTE]
 > Deleting the Azure Arc-enabled Kubernetes resource using the Azure portal removes any associated configuration resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc-enabled Kubernetes resource using `az connectedk8s delete` rather than deleting the resource in the Azure portal.

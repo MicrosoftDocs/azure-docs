@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 10/21/2022
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
@@ -44,6 +44,8 @@ Azure Bastion is deployed to a virtual network and supports virtual network peer
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, as well as further inside the network.
 
+Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+
 :::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing the Azure Bastion architecture.":::
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
@@ -76,5 +78,5 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 * [Quickstart: Deploy Bastion using default settings](quickstart-host-portal.md).
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md).
-* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion/).
+* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

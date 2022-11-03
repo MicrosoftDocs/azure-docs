@@ -1,15 +1,14 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
-description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
+description: Learn how to prepare and generalize a Windows VHD or VHDX to upload it to Azure.
 author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
-ms.subservice: disks
-ms.collection: windows
-ms.workload: infrastructure-services
+ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 08/04/2022
 ms.author: genli
+ms.custom: engagement-fy23
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure
@@ -151,7 +150,7 @@ Make sure the following settings are configured correctly for remote access:
 
 > [!NOTE]
 > If you receive an error message when running
-> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>`,
+> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name <string> -Value <object>`,
 > you can safely ignore it. It means the domain isn't setting that configuration through a Group
 > Policy Object.
 

@@ -607,7 +607,7 @@ Get the ID of the image version. The value will be used in the VM deployment req
 
 ```rest
 GET 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/CommunityGalleries/{CommunityGalleryPublicName}/Images/{galleryImageName}/Versions/{1.0.0}?api-version=2021-07-01 
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/sharedGalleries/{galleryUniqueName}/Images/{galleryImageName}/Versions/{1.0.0}?api-version=2021-07-01 
 
 ```
 
@@ -616,7 +616,7 @@ Response:
 ```json 
 "location": "West US",
   "identifier": {
-    "uniqueId": "/CommunityGalleries/{PublicGalleryName}/Images/{imageName}/Versions/{verionsName}"
+    "uniqueId": "/sharedGalleries/{PublicGalleryName}/Images/{imageName}/Versions/{verionsName}"
   },
   "name": "1.0.0"
 ```
@@ -636,7 +636,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
  	 	}, 
  	 	"storageProfile": { 
  	 	 	"imageReference": { 
- 	 	 	 	"communityGalleryImageId":"/communityGalleries/{publicGalleryName}/images/{galleryImageName}/versions/1.0.0" 
+ 	 	 	 	"sharedGalleryImageId":"/sharedGalleries/{galleryUniqueName}/images/{galleryImageName}/versions/1.0.0" 
  	 	 	}, 
  	 	 	"osDisk": { 
  	 	 	 	"caching": "ReadWrite", 

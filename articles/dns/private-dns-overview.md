@@ -2,11 +2,11 @@
 title: What is Azure Private DNS?
 description: In this article, get started with an overview of the private DNS hosting service on Microsoft Azure.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 04/09/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
@@ -58,7 +58,7 @@ Azure Private DNS has the following limitations:
 * A specific virtual network can be linked to only one private zone if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
 * Reverse DNS for a private IP address in linked virtual network will return `internal.cloudapp.net` as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP address  returns two FQDNs: one with default the suffix `internal.cloudapp.net` and another with the private zone suffix.
-* Conditional forwarding isn't currently natively supported. To enable resolution between Azure and on-premises networks, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Conditional forwarding is supported using [Azure DNS Private Resolver](dns-private-resolver-overview.md). To enable resolution between Azure and on-premises networks, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
  
 ## Pricing
 
@@ -76,4 +76,4 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

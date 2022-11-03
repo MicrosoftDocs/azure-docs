@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/14/2022
+ms.date: 10/31/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -25,9 +25,9 @@ When you use Microsoft Azure, you can reliably run your mission-critical SAP wor
 
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure.
 
-We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
+We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP Deployment Automation Framework (SDAF) to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
@@ -39,10 +39,8 @@ Changes to documents in the SAP on Azure workload section are listed at the [end
 
 If you have specific questions, we are going to point you to specific documents or flows in this section of the start page. You want to know:
 
-- What Azure VMs and HANA Large Instance units are supported for which SAP software releases and which operating system versions. Read the document [What SAP software is supported for Azure deployment](./sap-supported-product-on-azure.md) for answers and the process to find the information
-- What SAP deployment scenarios are supported with Azure VMs and HANA Large Instances. Information about the supported scenarios can be found in the documents:
-  - [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
-  - [Supported scenarios for HANA Large Instance](./hana-supported-scenario.md)
+- Is Azure accepting new customers for HANA Large Instances? HANA Large Instance service is in sunset mode and doesn't accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
+- Can Azure Active Directory acounts be used to run the SAP ABAP stack in Windows guest OS. No, due to shortcomings in feature set of AAD, it can not be used for running the ABAP stack within the Windows guest OS
 - What Azure Services, Azure VM types and Azure storage services are available in the different Azure regions, check the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
 - Are third-party HA frameworks, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
@@ -66,6 +64,14 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- October 31, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) to fix script location for DRBD 9.0 
+- October 31, 2022: Change in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) to update the guideline for sizing `/hana/shared`
+- October 27, 2022: Adding Ev4 and Ev5 VM families and updated OS releases to table in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
+- October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we are de-emphasizing SAP reference architectures, utilizing NFS clusters  
+- October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)
+- October 17, 2022: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add guidance for setting up parameter `AUTOMATED_REGISTER`    
+- September 29, 2022: Announcing HANA Large Instances being in sunset mode in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) and [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md). Adding some statements around Azure VMware and Azure Active Directory support status in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
+- September 27, 2022: Minor changes in [HA for SAP ASCS/ERS with NFS simple mount](./high-availability-guide-suse-nfs-simple-mount.md) on SLES 15 for SAP Applications to adjust mount instructions
 - September 14, 2022 Release of updated SAP on Oracle guide with new and updated content [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 8, 2022: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
 - September 6, 2022: Add managed identity for pacemaker fence agent [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](high-availability-guide-suse-pacemaker.md) on SLES and [Setting up Pacemaker on RHEL in Azure](high-availability-guide-rhel-pacemaker.md) RHEL
