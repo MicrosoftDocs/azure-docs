@@ -15,7 +15,11 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## October 2022
+## November 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes) |
 
 ### New OT monitoring software release notes
 
@@ -23,22 +27,13 @@ Defender for IoT documentation now has a new [release notes](release-notes.md) p
 
 :::image type="content" source="media/release-notes/ot-release-notes.png" alt-text="Screenshot of the new OT monitoring software release notes page in docs." lightbox="media/release-notes/ot-release-notes.png":::
 
-We continue to update the main **What's new** page, which lists updates by month, and includes new features for:
+We continue to update this page, our main **What's new** page, with new features and enhancements for both OT and Enterprise IoT networks. New items listed include both on-premises and cloud features, and are listed by month.
 
-- OT networks
-- Enterprise IoT networks
-- On-premises features
-- Cloud features
+In contrast, the new [OT monitoring software release notes](release-notes.md) lists only OT network monitoring updates that require you to update your on-premises software. Items are listed by major and minor version:
 
-In contrast, the new OT monitoring software release notes:
+- **For each major version**, we show a table of release and support dates, and a high level description for each version, such as whether the version includes new features or bug fixes only.
 
-- Lists only updates that need an on-premises software update
-- Lists updates by major and minor version
-
-
-**For each major version**, we show a table of release and support dates, and a high level description for each version, such as whether the version includes new features or bug fixes only.
-
-**For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
+- **For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
 
 For more information, see [OT monitoring software release notes](release-notes.md).
 
