@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 11/03/2022
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,8 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## November 2022 
+
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) now generally available (GA)
 
 * [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
 
