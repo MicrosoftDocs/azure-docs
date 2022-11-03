@@ -70,7 +70,7 @@ Under **Start with a common trigger**, select **Recurrence**. This setting creat
 
 ### Add an Azure Monitor Logs action
 
-The Azure Monitor Logs action lets you specify the query to run. The log query used in this example is optimized for hourly recurrence. It collects the data ingested for the particular execution time. For example, if the workflow runs at 4:35, the time range would be 3:00 to 4:00. If you change the logic app to run at a different frequency, you need to change the query too. For example, if you set the recurrence to run daily, you set startTime in the query to startofday(make_datetime(year,month,day,0,0)).
+The Azure Monitor Logs action lets you specify the query to run. The log query used in this example is optimized for hourly recurrence. It collects the data ingested for the particular execution time. For example, if the workflow runs at 4:35, the time range would be 3:00 to 4:00. If you change the logic app to run at a different frequency, you need to change the query too. For example, if you set the recurrence to run daily, you set `startTime` in the query to startofday(make_datetime(year,month,day,0,0)).
 
 You're prompted to select a tenant to grant access to the Log Analytics workspace with the account that the workflow will use to run the query.
 
