@@ -72,7 +72,7 @@ To get the training and transcription expiration dates for a base model, use the
 Here's an example Speech CLI command to get the training and transcription expiration dates for a base model:
 
 ```azurecli-interactive
-spx csr model status --model https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/b0bbc1e0-78d5-468b-9b7c-a5a43b2bb83f
+spx csr model status --model https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/b0bbc1e0-78d5-468b-9b7c-a5a43b2bb83f
 ```
 
 In the response, take note of the date in the `adaptationDateTime` property. This is the last date that you can use the base model for training. Also take note of the date in the `transcriptionDateTime` property. This is the last date that you can use the base model for transcription.
@@ -81,10 +81,10 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
   "datasets": [],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
   },
   "properties": {
     "deprecationDates": {
@@ -116,7 +116,7 @@ To get the training and transcription expiration dates for a base model, use the
 Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/BaseModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/BaseModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 In the response, take note of the date in the `adaptationDateTime` property. This is the last date that you can use the base model for training. Also take note of the date in the `transcriptionDateTime` property. This is the last date that you can use the base model for transcription.
@@ -125,10 +125,10 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
   "datasets": [],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
   },
   "properties": {
     "deprecationDates": {
@@ -180,7 +180,7 @@ To get the transcription expiration date for your custom model, use the `spx csr
 Here's an example Speech CLI command to get the transcription expiration date for your custom model:
 
 ```azurecli-interactive
-spx csr model status --model https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId
+spx csr model status --model https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/YourModelId
 ```
 
 In the response, take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for transcription. The `adaptationDateTime` property is not applicable, since custom models are not used to train other custom models.
@@ -189,21 +189,21 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
   "baseModel": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "datasets": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
     }
   ],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
   },
   "properties": {
     "deprecationDates": {
@@ -235,7 +235,7 @@ To get the transcription expiration date for your custom model, use the [Models_
 Make an HTTP GET request using the model URI as shown in the following example. Replace `YourModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/YourModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 In the response, take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for transcription. The `adaptationDateTime` property is not applicable, since custom models are not used to train other custom models.
@@ -244,21 +244,21 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
   "baseModel": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "datasets": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
     }
   ],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
   },
   "properties": {
     "deprecationDates": {

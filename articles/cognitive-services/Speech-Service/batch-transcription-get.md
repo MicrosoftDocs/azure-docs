@@ -36,12 +36,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -80,19 +80,19 @@ To get the status of the transcription job, call the [GetTranscription](https://
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/YourTranscriptionId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -141,7 +141,7 @@ You should receive a response body in the following format:
 {
   "values": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
       "name": "contenturl_0.json",
       "kind": "Transcription",
       "properties": {
@@ -153,7 +153,7 @@ You should receive a response body in the following format:
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
       "name": "contenturl_1.json",
       "kind": "Transcription",
       "properties": {
@@ -165,7 +165,7 @@ You should receive a response body in the following format:
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
       "name": "report.json",
       "kind": "TranscriptionReport",
       "properties": {
@@ -194,7 +194,7 @@ The [GetTranscriptionFiles](https://eastus.dev.cognitive.microsoft.com/docs/serv
 Make an HTTP GET request using the "files" URI from the previous response body. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/YourTranscriptionId/files" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId/files" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 You should receive a response body in the following format:
@@ -203,7 +203,7 @@ You should receive a response body in the following format:
 {
   "values": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
       "name": "contenturl_0.json",
       "kind": "Transcription",
       "properties": {
@@ -215,7 +215,7 @@ You should receive a response body in the following format:
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
       "name": "contenturl_1.json",
       "kind": "Transcription",
       "properties": {
@@ -227,7 +227,7 @@ You should receive a response body in the following format:
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
       "name": "report.json",
       "kind": "TranscriptionReport",
       "properties": {

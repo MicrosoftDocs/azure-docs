@@ -78,21 +78,21 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
   "baseModel": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "datasets": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
     }
   ],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
   },
   "properties": {
     "deprecationDates": {
@@ -132,25 +132,25 @@ To create a model with datasets for training, use the [Models_Create](https://ea
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
 - Set the required `locale` property. The model locale must match the locale of the project and base model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
-- Optionally, you can set the `baseModel` property. For example: `"baseModel": {"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"}`. If you don't specify the `baseModel`, the default base model for the locale is used. 
+- Optionally, you can set the `baseModel` property. For example: `"baseModel": {"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"}`. If you don't specify the `baseModel`, the default base model for the locale is used. 
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
   },
   "displayName": "My Model",
   "description": "My Model Description",
   "baseModel": null,
   "datasets": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
     }
   ],
   "locale": "en-US"
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models"
 ```
 
 > [!NOTE]
@@ -160,21 +160,21 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
   "baseModel": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "datasets": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
     }
   ],
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
   },
   "properties": {
     "deprecationDates": {
@@ -239,7 +239,7 @@ Make an HTTP POST request using the URI as shown in the following example. Use t
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "targetSubscriptionKey": "ModelDestinationSpeechResourceKey"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId/copyto"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/YourModelId/copyto"
 ```
 
 > [!NOTE]
@@ -249,13 +249,13 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
   "baseModel": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
   },
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
   },
   "properties": {
     "deprecationDates": {
@@ -313,7 +313,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```
@@ -337,9 +337,9 @@ Make an HTTP PATCH request using the URI as shown in the following example. Use 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models"
 ```
 
 You should receive a response body in the following format:
@@ -347,7 +347,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```

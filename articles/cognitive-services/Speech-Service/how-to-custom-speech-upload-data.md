@@ -68,14 +68,14 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
   "kind": "Acoustic",
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "properties": {
     "acceptedLineCount": 0,
@@ -124,25 +124,25 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Acoustic Dataset",
   "description": "My Acoustic Dataset Description",
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "locale": "en-US",
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/datasets"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/datasets"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
   "kind": "Acoustic",
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "properties": {
     "acceptedLineCount": 0,

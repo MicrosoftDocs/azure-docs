@@ -81,12 +81,12 @@ The example below is the Response body of a `Create Transcription` request. GUID
 
 ```json
 {
-  "self": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/537216f8-0620-4a10-ae2d-00bdb423b36f",
+  "self": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/537216f8-0620-4a10-ae2d-00bdb423b36f",
   "model": {
-    "self": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/824bd685-2d45-424d-bb65-c3fe99e32927"
+    "self": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/824bd685-2d45-424d-bb65-c3fe99e32927"
   },
   "links": {
-    "files": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/537216f8-0620-4a10-ae2d-00bdb423b36f/files"
+    "files": "https://japaneast.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/537216f8-0620-4a10-ae2d-00bdb423b36f/files"
   },
   "properties": {
     "diarizationEnabled": false,

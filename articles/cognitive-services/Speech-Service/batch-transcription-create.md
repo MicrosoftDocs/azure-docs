@@ -38,12 +38,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -97,7 +97,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
 
@@ -105,12 +105,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -182,7 +182,7 @@ Optionally, you can modify the previous [create transcription example](#create-a
 ::: zone pivot="speech-cli"
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end
@@ -198,12 +198,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
 ::: zone-end

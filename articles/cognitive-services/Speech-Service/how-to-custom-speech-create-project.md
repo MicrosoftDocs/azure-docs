@@ -53,13 +53,13 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
   },
   "properties": {
     "datasetCount": 0,
@@ -99,20 +99,20 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Project",
   "description": "My Project Description",
   "locale": "en-US"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/projects"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/projects"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
   },
   "properties": {
     "datasetCount": 0,
