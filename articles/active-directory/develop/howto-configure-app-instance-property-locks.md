@@ -27,7 +27,7 @@ The following property usage scenarios are considered as sensitive:
 - Credentials (`keyCredentials`, `passwordCredentials`) where usage type is `Verify`. In this scenario, your application supports an OIDC client credentials flow.
 - `TokenEncryptionKeyId` which specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key to which this property points. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
 
-## App instance lock UI
+## Configure an app instance lock
 
 To configure an app instance lock using the Azure portal's user interface:
 
