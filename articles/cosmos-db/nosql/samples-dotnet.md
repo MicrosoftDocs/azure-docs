@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > * [.NET](samples-dotnet.md)
 >
 
-The [cosmos-db-sql-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
+The [cosmos-db-sql-api-dotnet-samples](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
 
 ## Prerequisites
 
@@ -37,30 +37,30 @@ The sample projects are all self-contained and are designed to be ran individual
 
 | Task | API reference |
 | :--- | ---: |
-| [Create a client with endpoint and key](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/101-client-endpoint-key/Program.cs#L11-L14) |[``CosmosClient(string, string)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-system-string-microsoft-azure-cosmos-cosmosclientoptions)) |
-| [Create a client with connection string](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/102-client-connection-string/Program.cs#L11-L13) |[``CosmosClient(string)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-microsoft-azure-cosmos-cosmosclientoptions)) |
-| [Create a client with ``DefaultAzureCredential``](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/103-client-default-credential/Program.cs#L20-L23) |[``CosmosClient(string, TokenCredential)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-azure-core-tokencredential-microsoft-azure-cosmos-cosmosclientoptions)) |
-| [Create a client with custom ``TokenCredential``](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/104-client-secret-credential/Program.cs#L25-L28) |[``CosmosClient(string, TokenCredential)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-azure-core-tokencredential-microsoft-azure-cosmos-cosmosclientoptions)) |
+| [Create a client with endpoint and key](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/101-client-endpoint-key/Program.cs#L11-L14) |[``CosmosClient(string, string)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-system-string-microsoft-azure-cosmos-cosmosclientoptions)) |
+| [Create a client with connection string](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/102-client-connection-string/Program.cs#L11-L13) |[``CosmosClient(string)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-microsoft-azure-cosmos-cosmosclientoptions)) |
+| [Create a client with ``DefaultAzureCredential``](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/103-client-default-credential/Program.cs#L20-L23) |[``CosmosClient(string, TokenCredential)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-azure-core-tokencredential-microsoft-azure-cosmos-cosmosclientoptions)) |
+| [Create a client with custom ``TokenCredential``](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/104-client-secret-credential/Program.cs#L25-L28) |[``CosmosClient(string, TokenCredential)``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.-ctor#microsoft-azure-cosmos-cosmosclient-ctor(system-string-azure-core-tokencredential-microsoft-azure-cosmos-cosmosclientoptions)) |
 
 ### Databases
 
 | Task | API reference |
 | :--- | ---: |
-| [Create a database](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/200-create-database/Program.cs#L19-L21) |[``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) |
+| [Create a database](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/200-create-database/Program.cs#L19-L21) |[``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) |
 
 ### Containers
 
 | Task | API reference |
 | :--- | ---: |
-| [Create a container](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/225-create-container/Program.cs#L26-L30) |[``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) |
+| [Create a container](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/225-create-container/Program.cs#L26-L30) |[``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) |
 
 ### Items
 
 | Task | API reference |
 | :--- | ---: |
-| [Create an item](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/250-create-item/Program.cs#L35-L46) |[``Container.CreateItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) |
-| [Point read an item](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/275-read-item/Program.cs#L51-L54) |[``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) |
-| [Query multiple items](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples/blob/v3/300-query-items/Program.cs#L64-L80) |[``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
+| [Create an item](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/250-create-item/Program.cs#L35-L46) |[``Container.CreateItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) |
+| [Point read an item](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/275-read-item/Program.cs#L51-L54) |[``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) |
+| [Query multiple items](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples/blob/v3/300-query-items/Program.cs#L64-L80) |[``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
 
 ## Next steps
 
