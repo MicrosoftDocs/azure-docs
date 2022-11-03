@@ -41,7 +41,7 @@ While in the edit mode, select the three dots icon. The editing options were enh
 
 Lines can now be deleted through the same three dots icon. 
 
-### Example: how to consolidate two lines as one 
+### Consolidate two lines as one 
 
 To consolidate two lines, which you believe should appear as one. 
 
