@@ -156,7 +156,7 @@ There are three types of autoscale profiles:
             }
         }
     ]
-    ```
+```
 
 - **Recurrence profile:** A recurrence profile is used for a day or set of days of the week.  The schema for a recurring profile doesn't include an end date. The end of date and time for a recurring profile is set by the start time of the following profile. When using the portal to configure recurring profiles, the default profile is automatically updated to start at the end time that you specify for the recurring profile. For more information on configuring multiple profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
 
