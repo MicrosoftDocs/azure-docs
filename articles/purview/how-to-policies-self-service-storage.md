@@ -65,32 +65,13 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 ### Known issues
 
 **Known issues** related to Policy creation
-- Do not create policy statements based on Microsoft Purview resource sets. Even if displayed in Microsoft Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
-
-### Policy action mapping
-
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Storage.
-
-| **Microsoft Purview policy action** | **Data source specific actions**                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------|
-|||
-| *Read*                    |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|||
-| *Modify*                  |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
-|                           |Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
-|||
+- self-service policies are not supported for Microsoft Purview resource sets. Even if displayed in Microsoft Purview, it is not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 
 
 ## Next steps
 Check blog, demo and related tutorials:
 
-* [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
+* [self-service policies concept](./concept-self-service-data-access-policy.md)
+* [Demo of self-service policies for storage](https://www.youtube.com/watch?v=AYKZ6_imorE)
 * [Blog: Accessing data when folder level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
 * [Blog: Accessing data when file level permission is granted](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
