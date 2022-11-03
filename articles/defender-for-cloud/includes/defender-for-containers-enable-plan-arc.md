@@ -30,10 +30,10 @@ By default, when enabling the plan through the Azure portal, [Microsoft Defender
 
    In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier).
 
-        > [!NOTE]
+    > [!NOTE]
     > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
 
-    You can [assign a custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#assign-a-custom-workspace) through Azure Policy.
+You can [assign a custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#assign-a-custom-workspace) through Azure Policy.
 
 If you disable the automatic installation of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
