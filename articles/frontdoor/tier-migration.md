@@ -1,45 +1,43 @@
 ---
-title: About Azure Front Door (classic) to Standard/Premium tier migration
-description: This article explains the migration process and changes expected when using the migration tool from Azure Front Door (classic) to Standard/Premium tier.
+title: About Azure Front Door (classic) to Standard/Premium tier migration (Preview)
+description: This article explains the migration process and changes expected when using the migration tool to Azure Front Door Standard/Premium tier.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 10/11/2022
+ms.date: 11/3/2022
 ms.author: duau
 ---
 
-# About Azure Front Door (classic) to Standard/Premium tier migration
+# About Azure Front Door (classic) to Standard/Premium tier migration (Preview)
 
-Azure Front Door Standard and Premium tiers were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
+Azure Front Door Standard and Premium tiers were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and advanced diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
 
-Azure recommends migrating to the newer tiers to benefit from the new features and improvements over the Classic tier. To help with the migration process, Azure Front Door provides a zero-downtime migration tool to migrate your workload from Azure Front Door (class) to either Standard or Premium tier.
+Azure recommends migrating to the newer tiers to benefit from the new features and improvements over the Classic tier. To help with the migration process, Azure Front Door provides a zero-downtime migration to migrate your workload from Azure Front Door (class) to either Standard or Premium tier.
 
 In this article you'll learn about the migration process, understand the breaking changes involved, and what to do before, during and after the migration.
 
 ## Migration process overview
 
-Azure Front Door zero-down time migration happens in three stages. The first stage is validation, followed by preparation for migration, and then migrate/abort. The time it takes for a migration to complete depends on the complexity of the Azure Front Door profile. You can expect the migration to take a few minutes for a simple Azure Front Door profile and longer for a profile that has many frontend domains, backend pools, routing rules and rule engine rules.
+Azure Front Door zero-down time migration happens in three stages. The first stage is validation, followed by preparing for migration, and then migrate. The time it takes for a migration to complete depends on the complexity of the Azure Front Door profile. You can expect the migration to take a few minutes for a simple Azure Front Door profile and longer for a profile that has many frontend domains, backend pools, routing rules and rule engine rules.
 
 ### Five steps of migration
 
-**Validate compatibility** - The migration tool will validate if the Azure Front Door (classic) profile is eligible for migration. You'll be prompted with messages on what needs to be fixed before you can move onto the preparation phase. For more information, see [Pre-requisites]() or [preparations for migration]().
+**Validate compatibility** - The migration will validate if the Azure Front Door (classic) profile is eligible for migration. You'll be prompted with messages on what needs to be fixed before you can move onto the preparation phase. For more information, see [prerequisites](#prerequisites).
 
 **Prepare for migration** - Azure Front Door will create a new Standard or Premium profile based on your Classic profile configuration in a disabled state. The new Front Door profile created will depend on the Web Application Firewall (WAF) policy you've associated to the profile.
 
 * **Premium tier** - If you have *managed WAF* policies associated to the Azure Front Door (classic) profile. A premium tier profile **can't** be downgraded to a standard tier after migration.
 * **Standard tier** - If you have *custom WAF* policies associated to the Azure Front Door (classic) profile. A standard tier profile **can** be upgraded to premium tier after migration.
 
-    During the preparation stage, Azure Front Door will create copies of WAF policies specific to the Front Door tier with default names. You can change the name for the WAF policies at this time. You can also select an existing WAF policy that matches the tier you're migrating to.
-
-    At this time, a read-only view of the newly created profile is provided for you to verify configurations.
+    During the preparation stage, Azure Front Door will create copies of WAF policies specific to the Front Door tier with default names. You can change the name for the WAF policies at this time. You can also select an existing WAF policy that matches the tier you're migrating to. At this time, a read-only view of the newly created profile is provided for you to verify configurations.
 
     > [!NOTE]
     > No changes can be to the Front Door (classic) configuration once this step has been initiated.
 
-**Enable managed identities** - During this step you can configure managed identities for Azure Front Door to access your certificate in a Key Vault.
+**Enable managed identity** - During this step you can configure managed identities for Azure Front Door to access your certificate in a Key Vault.
 
-**Grant managed identities to Key Vault for Front Door (classic) profile** - This step adds managed identity access to all the Key Vaults used in the Front Door (classic) profile. 
+**Grant managed identity to Key Vault** - This step adds managed identity access to all the Key Vaults used in the Front Door (classic) profile. 
 
 **Migrate/Abort migration**
     
@@ -47,11 +45,11 @@ Azure Front Door zero-down time migration happens in three stages. The first sta
 * **Abort migration** - If you decided you no longer want to move forward with the migration process, selecting this option will delete the new Front Door profile that was created.  
 
 > [!NOTE]
+> * If you cancel the migration only the new Front Door profile gets deleted, any WAF policy copies will need to be manually deleted.
 > * Traffic to your Azure Front Door (classic) will continue to be serve until migration has been completed. 
 > * Each Azure Front Door (classic) profile can create one Azure Front Door Standard or Premium profile.
-> * If you cancel the migration only the new Front Door profile gets deleted, any WAF policy copies will need to be manually deleted.
 
-Migration steps can be completed using the Azure portal, Azure PowerShell, or Azure CLI. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
+Migration is only available can be completed using the Azure portal. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
 
 ## Breaking changes between tiers
 
@@ -84,7 +82,7 @@ Diagnostic logs and metrics won't be migrated. Azure Front Door Standard/Premium
 The default Azure Front Door tier created during migration is determined by the type of rules contain in the WAF policy. In this section we'll, cover scenarios for different rule type for a WAF policy.
 
 * Classic WAF policy contains only custom rules.
-    * The new Azure Front Door profile defaults to Standard tier and can be upgraded to Premium during migration. If you use the portal for migration, Azure will create custom WAF rules for Standard. If you upgrade to Premium during migration, custom WAF rules will be created by the migration tool, but managed WAF rules will need to be created manually after migration.
+    * The new Azure Front Door profile defaults to Standard tier and can be upgraded to Premium during migration. If you use the portal for migration, Azure will create custom WAF rules for Standard. If you upgrade to Premium during migration, custom WAF rules will be created by the migration capability, but managed WAF rules will need to be created manually after migration.
 * Classic WAF policy has only managed WAF rules, or both managed and custom WAF rules.
     * The new Azure Front Door profile defaults to Premium tier and isn't eligible for downgrade during migration. Remove the WAF policy association or delete the manage WAF rules from the Classic WAF policy.
 
