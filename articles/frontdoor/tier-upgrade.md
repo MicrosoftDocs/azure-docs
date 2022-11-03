@@ -11,9 +11,9 @@ ms.author: duau
 
 # Upgrade from Azure Front Door Standard to Premium tier (Preview)
 
-Azure Front Door supports upgrading from Standard to Premium tier to get more advanced capabilities and increase quota limits. This upgrade will happen without creating downtime to your service and applications. For more information about the differences between Standard and Premium tier, see [Tier comparison](standard-premium/tier-comparison.md).
+Azure Front Door supports upgrading from Standard to Premium tier for more advanced capabilities and an increase in quota limits. The upgrade won't cause any downtime to your services and applications. For more information about the differences between Standard and Premium tier, see [Tier comparison](standard-premium/tier-comparison.md).
 
-This article shows you how to perform the tier upgrade through the configuration page of the Front Door Standard profile. Once the upgrade completes, you'll be charge the Azure Front Door Premium monthly base fee at an hourly rate.
+This article shows you how to perform the tier upgrade through the configuration page of a Front Door Standard profile. Once upgraded, you'll be charge for the Azure Front Door Premium monthly base fee at an hourly rate.
 
 > [!IMPORTANT]
 > Downgrading from Premium to Standard tier is not supported.
@@ -24,7 +24,7 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
 
 ## Upgrade tier
 
-1. Go to the Front Door Standard profile you want to upgrade and select **Configuration (preview)** 
+1. Go to the Azure Front Door Standard profile you want to upgrade and select **Configuration (preview)** from under *Settings*
 
     :::image type="content" source="./media/tier-upgrade/overview.png" alt-text="Screenshot of the configuration button under settings for a Front Door standard profile.":::
 
@@ -39,7 +39,7 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
     > [!NOTE]
     > To use managed WAF rules for the new premium WAF policy copies, you'll need to manually enable them after the upgrade.
 
-1. Select **Upgrade** once you finish setting up the WAF policies upgrade. Select **Yes** to confirm you would like to proceed with the upgrade.
+1. Select **Upgrade** once you done setting up the WAF policies. Select **Yes** to confirm you would like to proceed with the upgrade.
 
     :::image type="content" source="./media/tier-upgrade/confirm-upgrade.png" alt-text="Screenshot of the confirmation message from upgrade WAF policies page.":::
 
