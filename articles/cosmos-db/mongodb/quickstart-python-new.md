@@ -188,9 +188,14 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 When working with PyMongo, you access databases using attribute style access on MongoClient instances.
 
 ```python
-# Database reference with creation on first write if it doesn't already exist
+# Create database if it doesn't exist
 db = client[DB_NAME]
-print("Using database: {}\n".format(DB_NAME))
+if DB_NAME not in client.list_database_names():
+    # Database with 400 RU throughput that can be shared across the DB's collections
+    db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
+    print("Created db {} with shared throughput.\n". format(DB_NAME))
+else:
+    print("Using database: {}\n".format(DB_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
@@ -204,9 +209,14 @@ You can check if a database exists with the [list_database_names()](https://pymo
 Access collection with the database object `db` returned from the previous step.
 
 ```python
-# Collection reference with creation on first write if it doesn't already exist
+# Create collection if it doesn't exist
 collection = db[COLLECTION_NAME]
-print("Using collection: {}\n".format(COLLECTION_NAME))
+if COLLECTION_NAME not in db.list_collection_names():
+    # Creates a unsharded collection that uses the DBs shared throughput
+    db.command({'customAction': "CreateCollection", 'collection': COLLECTION_NAME})
+    print("Created collection '{}'.\n". format(COLLECTION_NAME))
+else:
+    print("Using collection: '{}'.\n".format(COLLECTION_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
@@ -302,9 +312,9 @@ python run.py
 The output of the app should be similar to this example:
 
 ```console
-Using database: adventureworks
+Created db 'adventureworks' with shared throughput.
 
-Using collection: products
+Created collection 'products'.
 
 Indexes are: ['_id_', 'name_1']
 
