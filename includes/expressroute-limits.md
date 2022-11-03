@@ -52,3 +52,7 @@
 
 > [!NOTE]
 > Global Reach connections count against the limit of virtual network connections per ExpressRoute Circuit. For example, a 10 Gbps Premium Circuit would allow for 5 Global Reach connections and 95 connections to the ExpressRoute Gateways or 95 Global Reach connections and 5 connections to the ExpressRoute Gateways or any other combination up to the limit of 100 connections for the circuit.
+
+#### ExpressRoute gateway performance limits
+
+[!INCLUDE [expressroute-gateway-preformance-include](../../includes/expressroute-gateway-performance-include.md)]
