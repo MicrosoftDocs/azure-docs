@@ -29,16 +29,16 @@ If you're unable to complete the process or are experiencing unexpected behavior
 Below are some common issues that may occur during the process. 
 
 - **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is** 
-    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
-    2. Sign in with a user account in the org's primary Azure AD tenant 
-    3. If an MPN account already exists, this will be recognized and you'll be added to the account 
-    4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
+    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
+    2. Sign in with a user account in the org's primary Azure AD tenant. 
+    3. If an MPN account already exists, this will be recognized and you'll be added to the account. 
+    4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed.
 
 - **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
-    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
-    2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    3. Select the desired admin role
-    4. The list of users assigned that role will be displayed
+    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
+    2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
+    3. Select the desired admin role.
+    4. The list of users assigned that role will be displayed.
 
 - **I don't know who the admin(s) for my MPN account are**
     Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and filter the user list to see what users are in various admin roles.
@@ -55,7 +55,7 @@ Below are some common issues that may occur during the process.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
     Ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you're signing in with and for this scenario. For example, MFA could be:
-    - Always required for the user you're signing in with
+    - Always required for the user you're signing in with.
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you're signing in with.
 
@@ -184,7 +184,7 @@ Most commonly caused by the wrong MPN ID being provided.
 
 The target application (`AppId`) can’t be found. Provide a valid application ID and try again.
     
-Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. Note- the ID of the application must be provided, not the AppId/ClientId.
+Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. Note that the ID of the application must be provided, not the AppId/ClientId.
 
 ### ApplicationObjectisInvalid 
 
@@ -193,7 +193,7 @@ The target application's object ID is invalid. Please provide a valid ID and try
 Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
 
 > [!NOTE] 
-> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) 
+> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/graph/api/resources/application?view=graph-rest-1.0).
 
  
 
@@ -217,11 +217,11 @@ The target application's Publisher Domain (`publisherDomain`) either doesn't mat
     
 Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Azure AD tenant match the domain used to perform email verification in Partner Center or has not been verified.
 
-See [requirements] (publisher-verification-overview.md) for a list of allowed domain or sub-domain matches. 
+See [requirements](publisher-verification-overview.md) for a list of allowed domain or sub-domain matches. 
 
 ### NotAuthorizedToVerifyPublisher
 
-You aren't authorized to set the verified publisher property on application (<`AppId`) 
+You aren't authorized to set the verified publisher property on application (<`AppId`).
   
 Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
@@ -256,7 +256,7 @@ Self-remediation guidance: https://docs.microsoft.com/azure/active-directory/ide
 Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
 
 > [!NOTE] 
-> Please give some time after remediation for the risk state to update, and then try again
+> Please give some time after remediation for the risk state to update, and then try again.
 
 ### UnableToAddPublisher
 
