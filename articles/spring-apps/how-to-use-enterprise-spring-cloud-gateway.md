@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/04/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -18,9 +18,9 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
 
-[VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html), a commercial VMware Tanzu component, is based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway also has the following features:
+Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
 - Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
@@ -44,13 +44,11 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway.
 
-### Define route config
-
 The route configuration definition includes the following parts:
 
-- OpenAPI URI: This URI references an OpenAPI specification. A public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition may be used. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in API portal if enabled.
+- OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in the API portal if enabled.
 - routes: A list of route rules to direct traffic to apps and apply filters.
-- protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
+- protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. The protocol's supported values are `HTTP` or `HTTPS`, and the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -61,7 +59,7 @@ az spring gateway route-config create \
     --routes-file <routes-file.json>
 ```
 
-The following is an example of a JSON file that is passed to the `--routes-file` parameter in the create command:
+The following example shows a JSON file that's passed to the `--routes-file` parameter in the create command:
 
 ```json
 {
@@ -89,13 +87,13 @@ The following is an example of a JSON file that is passed to the `--routes-file`
 }
 ```
 
-The following tables list the route definitions. All the properties are optional.
+The following table lists the route definitions. All the properties are optional.
 
 | Property    | Description                                                                                                                                                                            |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                    |
 | description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                              |
-| uri         | The full URI, which will override the name of app that requests route to.                                                                                                              |
+| uri         | The full URI, which will override the name of app that the requests route to.                                                                                                          |
 | ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
 | predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates). |
@@ -113,7 +111,7 @@ The following tables list the route definitions. All the properties are optional
 
 Use the following steps to create an sample application using Spring Cloud Gateway.
 
-1. Create a test application in Azure Spring Apps.
+1. Create a test application in Azure Spring Apps by using the following command:
 
    ```azurecli
    az spring app create test-app
@@ -121,7 +119,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
 1. Assign a public endpoint to the gateway to access it.
 
-   To view the running state and resources given to Spring Cloud Gateway, select the **Spring Cloud Gateway** section, then select **Overview**.
+   To view the running state and resources given to Spring Cloud Gateway, open your Azure Spring Apps instance in the Azure portal, select the **Spring Cloud Gateway** section, then select **Overview**.
 
    To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
 
@@ -133,11 +131,9 @@ Use the following steps to create an sample application using Spring Cloud Gatew
    az spring gateway update --assign-endpoint
    ```
 
-1. Configure a routing rule to this app.
+1. Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
-   Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
-
-   Save the following content to a *test-api.json* file.  It includes a RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
+   Save the following content to a *test-api.json* file. This configuration includes a RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
    [
@@ -162,7 +158,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
    ]
    ```
 
-   Use the following command to apply the rule to the app `test-app`:
+   Then, use the following command to apply the rule to the app `test-app`:
 
    ```azurecli
    az spring gateway route-config create \
@@ -171,7 +167,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
        --routes-file test-api.json
    ```
 
-   You can also view the routes in the portal.
+   You can also view the routes in the portal, as shown in the following screenshot:
 
    :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
@@ -194,11 +190,11 @@ Use the following steps to create an sample application using Spring Cloud Gatew
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
 
-## Commercial filters
+## Use filters
 
 The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes a number of built-in filters for use in Gateway routes. Spring Cloud Gateway provides a number of custom filters in addition to those included in the OSS project.
 
-### Filters included in Spring Cloud Gateway OSS
+### Use filters included in Spring Cloud Gateway OSS
 
 You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kubernetes. Spring Cloud Gateway OSS includes a number of `GatewayFilter` factories that are used to create filters for routes. For a complete list of these factories, see the [GatewayFilter Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories) section in the Spring Cloud Gateway documentation.
 
