@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 11/03/2022
 ms.author: jammart
 ms.reviewer: nachakra 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -22,9 +22,44 @@ When you disallow Shared Key authorization for a storage account, Azure Storage 
 
 This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
 
+## Plan for disallowing Shared Key authorization
+
+When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To minimize the impact to clients, applications and other services, it is important to create a plan that includes:
+
+[Identify storage accounts with Shared Key authorization enabled](#identify-storage-accounts-with-shared-key-authorization-enabled)
+[Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications)
+[Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
+[Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
+[Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
+[Transition Azure Files and Table storage workloads](#transition-azure-files-and-table-storage-workloads)
+
+## Identify storage accounts with Shared Key authorization enabled
+
+There are two ways to identify storage accounts with Shared Key access enabled:
+
+1. [Check the Shared Key access setting for multiple accounts](#check-the-shared-key-access-setting-for-multiple-accounts)
+1. [Configure the Azure Policy for Shared Key access in audit mode](#configure-the-azure-policy-for-shared-key-access-in-audit-mode)
+
+### Check the Shared Key access setting for multiple accounts
+
+To check the Shared Key access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
+
+Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the Shared Key access setting for each account:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowSharedKeyAccess = parse_json(properties).allowSharedKeyAccess
+| project subscriptionId, resourceGroup, name, allowSharedKeyAccess
+```
+
+### Configure the Azure Policy for Shared Key access in audit mode
+
+Azure Policy **Storage accounts should prevent shared key access** prevents Shared Key authorization on existing storage accounts and creating new storage accounts with that property set.
+
 ## Detect the type of authorization used by client applications
 
-When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
+To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
 
 Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a shared access signature (SAS). Use logs to determine which clients are sending those requests.
 
@@ -113,6 +148,27 @@ The **AllowSharedKeyAccess** property is not set by default and does not return 
 > [!WARNING]
 > If any clients are currently accessing data in your storage account with Shared Key, then Microsoft recommends that you migrate those clients to Azure AD before disallowing Shared Key access to the storage account.
 
+### Permissions for allowing or disallowing Shared Key access
+
+To set the **AllowSharedKeyAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** or **Microsoft.Storage/storageAccounts/\*** action. Built-in roles with this action include:
+
+- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
+- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
+- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
+
+These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+
+Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow Shared Key access for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
+### Disable Shared Key authorization
+
+Using an account that has the necessary permissions, disable Shared Key authorization in the Azure portal, with PowerShell or using the Azure CLI.
+
 # [Azure portal](#tab/portal)
 
 To disallow Shared Key authorization for a storage account in the Azure portal, follow these steps:
@@ -154,7 +210,7 @@ After you disallow Shared Key authorization, making a request to the storage acc
 
 The **AllowSharedKeyAccess** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
 
-### Verify that Shared Key access is not allowed
+## Verify that Shared Key access is not allowed
 
 To verify that Shared Key authorization is no longer permitted, you can attempt to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Remember to replace the placeholder values in brackets with your own values:
 
@@ -168,36 +224,6 @@ az storage container create \
 
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
-
-### Check the Shared Key access setting for multiple accounts
-
-To check the Shared Key access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
-
-Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the Shared Key access setting for each account:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowSharedKeyAccess = parse_json(properties).allowSharedKeyAccess
-| project subscriptionId, resourceGroup, name, allowSharedKeyAccess
-```
-
-## Permissions for allowing or disallowing Shared Key access
-
-To set the **AllowSharedKeyAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** or **Microsoft.Storage/storageAccounts/\*** action. Built-in roles with this action include:
-
-- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
-- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
-- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
-
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
-
-Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow Shared Key access for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
-
-Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
-
-> [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Understand how disallowing Shared Key affects SAS tokens
 
