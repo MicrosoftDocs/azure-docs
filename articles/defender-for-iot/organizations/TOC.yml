@@ -21,7 +21,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Set up OT network security
+  - name: Onboard and activate a virtual OT sensor
     href: tutorial-onboarding.md
   - name: Integrate with Microsoft Sentinel
     items:
