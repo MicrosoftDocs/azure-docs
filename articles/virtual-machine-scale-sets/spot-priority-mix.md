@@ -7,8 +7,9 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/01/2022
 ms.reviewer: cynthn
+ms.custom: engagement-fy23
 ---
 
 # Spot Priority Mix for high availability and cost savings (preview)
@@ -29,7 +30,7 @@ Azure allows you to have the flexibility of running a mix of uninterruptible reg
 
 You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
-## Template
+## [Template](#tab/template-1)
 
 You can set your Spot Priority Mix by using a template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
 
@@ -46,11 +47,11 @@ You can set your Spot Priority Mix by using a template to add the following prop
 
 You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f83-f6bf-4d24-aa03-175b0c43da32) for more context.
 
-## Azure portal 
+## [Portal](#tab/portal-1) 
 
 You can set your Spot Priority Mix in the Scaling tab of the Virtual Machine Scale Sets creation process in the Azure portal. The following steps will instruct you on how to access this feature during that process. 
 
-1. Log in to the [Azure portal](https://portal.azure.com) through the [public preview access link](https://aka.ms/SpotMix).
+1. Log in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, search for and select **Virtual machine scale sets**.
 1. Select **Create** on the **Virtual machine scale sets** page.
 1. In the **Basics** tab, fill out the required fields and select **Flexible** as the **Orchestration** mode.
@@ -62,7 +63,7 @@ You can set your Spot Priority Mix in the Scaling tab of the Virtual Machine Sca
 
 1. Continue through the Virtual Machine Scale Set creation process. 
 
-## Azure CLI
+## [Azure CLI](#tab/cli-1)
 
 You can set your Spot Priority Mix using Azure CLI by setting the `priority` flag to `Spot` and including the `regular-priority-count` and `regular-priority-percentage` flags.  
 
@@ -80,7 +81,7 @@ az vmss create -n myScaleSet \
 		--single-placement-group False \
 ```
 
-## Azure PowerShell
+## [Azure PowerShell](#tab/powershell-1)
 
 You can set your Spot Priority Mix using Azure PowerShell by setting the `Priority` flag to `Spot` and including the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
 
@@ -102,6 +103,8 @@ New-AzVmss `
             -VirtualMachineScaleSet $vmssConfig;
 
 ```
+
+---
 
 ## Next steps
 
