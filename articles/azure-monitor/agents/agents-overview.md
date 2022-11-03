@@ -68,7 +68,6 @@ In addition to the generally available data collection listed above, Azure Monit
 |	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
 |	Text logs and Windows IIS logs	|	Public preview	|	None	|	[Collect text logs with Azure Monitor Agent (Public preview)](data-collection-text-log.md)	|
-|	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
 |	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights overview](../vm/vminsights-enable-overview.md)	|
 
 In addition to the generally available data collection listed above, Azure Monitor Agent also supports these Azure services in preview:
