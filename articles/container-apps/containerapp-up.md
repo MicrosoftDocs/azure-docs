@@ -28,10 +28,11 @@ The `up` command can create or use existing resources including:
 - Resource group
 - Azure Container Registry
 - Container Apps environment and Log Analytics workspace
+- the container app
 
-The command can build and push a container image to an Azure Container Registry (ACR) when you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Action that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
+The command can build and push a container image to an Azure Container Registry (ACR) when you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Actions workflow that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
 
- If you need to customize the Container App environment, first create the environment using the `az containerapp env create` command.  If you don't provide an existing environment, the `up` command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
+ If you need to customize the Container Apps environment, first create the environment using the `az containerapp env create` command.  If you don't provide an existing environment, the `up` command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
 
 To learn more about the `az containerapp up` command and its options, see [`az containerapp up`](/cli/azure/containerapp#az_containerapp_up).
 
@@ -42,14 +43,13 @@ To learn more about the `az containerapp up` command and its options, see [`az c
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
 | GitHub Account | If you use a GitHub repo, sign up for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker Desktop | If you're using local source code with a Dockerfile, you'll need to install Docker Desktop.  Docker provides installers that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). After installation, type `docker` from your command prompt to ensure Docker is running. |
 |Local source code | You need to have a local source code directory if you use local source code. |
 | Existing Image | If you use an existing image, you'll need your registry server, image name, and tag. If you're using a private registry, you'll need your credentials. |
 
 ## Set up
 
 1. Log in to Azure with the Azure CLI. 
-    
+
     ```azurecli
     az login
     ```
@@ -61,21 +61,19 @@ To learn more about the `az containerapp up` command and its options, see [`az c
 
 1. Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
-    
     ```azurecli
     az provider register --namespace Microsoft.App
     ```
 
 1. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace.
 
-    
     ```azurecli
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
 ## Deploy from an existing image
 
-You can deploy a container app that uses an existing image in a public or private container registry.
+You can deploy a container app that uses an existing image in a public or private container registry.  If you are deploying from a private registry, you'll need to provide your credentials using the  `registry-server`, `--registry-username`, and `--registry-password` options.  
 
 In this example, the `az containerapp up` command performs the following actions:
 
@@ -110,9 +108,14 @@ az containerapp up \
 
 When you use the `up` command to deploy from a local source, it builds the container image, pushes it to a registry, and deploys the container app.  It creates the registry in Azure Container Registry if you don't provide one.  
 
-The command can build the image with or without a Dockerfile.  If building without a Dockerfile, there are two requirements:
+The command can build the image with or without a Dockerfile.  If building without a Dockerfile the following languages are supported:
 
-TODO:  What are the requirements?
+- .NET
+- Node.js
+- PHP
+- Python
+- Ruby
+- Go
 
 The following example shows how to deploy a container app from local source code.  
 
@@ -125,26 +128,22 @@ In the example, the `az containerapp up` command performs the following actions:
 1. Pushes the image to the registry.
 1. Creates and deploys the container app.
 
-Follow these steps to deploy a container app from local source code:
+Run the following command to deploy a container app from local source code:
 
-1. Change to the directory containing your source code and, optionally, your Dockerfile, for the container image.
-
-    TODO: Since they're specifying the source directory in the command, do they need to be in the source directory?  And if they are in the source directory, do they need to specify the source directory in the command?
-
-1. Run the following command:
-
-    ```azurecli
+```azurecli
     az containerapp up \
       --name <CONTAINER_APP_NAME> \
-      --source <SOURCE_DIRECTORY>
+      --source <SOURCE_DIRECTORY>\
+      --ingress external 
+```
 
-When the Dockerfile includes the EXPOSE instruction, the `up` command configures the container app's ingress and target port using the information in the Dockerfile.
+When the Dockerfile includes the EXPOSE instruction, the `up` command configures the container app's ingress and target port using the information in the Dockerfile.  
+
+If you've configured ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
 
 The output of the command includes the URL for the container app.
 
-If there's a failure, you can run the command again with the `--debug` option to get more information about the failure.
-
-TODO:  What do we  want to say if there's a failure?
+If there's a failure, you can run the command again with the `--debug` option to get more information about the failure. If the build fails without a Dockerfile, you can try adding a Dockerfile and running the command again.
 
 To use the `az containerapp up` command to redeploy your container app with an updated image, include the `--resource-group` and `--environment` arguments.  The following example shows how to redeploy a container app from local source code.
 
@@ -161,16 +160,10 @@ To use the `az containerapp up` command to redeploy your container app with an u
 
 ## Deploy from a GitHub repository
 
-When you use the `az containerapp up` command to deploy from a GitHub repository, it builds the container image, pushes it to a registry, and deploys the container app.  The command creates the registry in Azure Container Registry if you don't provide one.
+When you use the `az containerapp up` command to deploy from a GitHub repository, it generates a GitHub Actions workflow that builds the container image, pushes it to a registry, and deploys the container app.  The command creates the registry in Azure Container Registry if you don't provide one.  
 
-When your repository contains a Dockerfile, the `up` command builds the image using the Dockerfile.  When the Dockerfile includes the EXPOSE instruction, the command configures the container app's ingress and target port using the information in the Dockerfile.
+A Dockerfile is required to build the image.  When the Dockerfile includes the EXPOSE instruction, the command configures the container app's ingress and target port using the information in the Dockerfile.
 
-The `up` command can also build the image without a Dockerfile.  If building without a Dockerfile, there are two requirements:
-
-TODO: What are the requirements?
-
-The command will create a GitHub Actions workflow that builds the image and deploys the container app when changes are pushed to the repository.
- 
 The following example shows how to deploy a container app from a GitHub repository.  
 
 In the example, the `az containerapp up` command performs the following actions:
@@ -188,8 +181,11 @@ To deploy an app from a GitHub repository, run the following command:
 ```azurecli
 az containerapp up \
   --name <CONTAINER_APP_NAME> \
-  --repo <GitHub repository URL>
+  --repo <GitHub repository URL> \
+  --ingress external 
 ```
+
+If you've configured ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
 
 Because the `up` command creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image will have the unwanted effect of creating multiple workflows.  Instead, push changes to your GitHub repository, and the GitHub workflow will automatically build and deploy your app.  To change the workflow, edit the workflow file in GitHub.
 
