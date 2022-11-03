@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify the packet core instance in a site
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core and access network configuration. You'll also learn how to modify the data network attached to the packet core instance.
+Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge device, and access network configuration. You'll also learn how to modify the data network attached to the packet core instance.
 
 ## Prerequisites
 
@@ -83,10 +83,10 @@ To make changes to the data network attached to your packet core instance:
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
-3. Select **Go to resource group**.
+3. Navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance).
 
-    - If you made changes to the packet core configuration, navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance). Check that the fields under **Configuration** and **Access network** contain the updated information.
-    - If you made changes to the attached data network, select the **Mobile Network** resource, and then select **Data networks** in the resource menu. Check that the data network that you modified is listed and shows as **Succeeded** in the **Status** column.
+    - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Custom ARC location** and **Access network** contain the expected information.
+    - If you made changes to the attached data network, check that the fields under **Data network** contain the updated information.
 
 ## Next steps
 
