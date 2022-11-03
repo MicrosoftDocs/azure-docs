@@ -46,13 +46,13 @@ Follow the instruction [here](https://dev.azure.com/azure-sdk/public/_artifacts/
 
 Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/versions)
 
-And then add it to your POM file like this (using version 1.0.0-alpha.20221018.2 as example)
+And then add it to your POM file like this (using version 1.0.0-alpha.20221101.1 as example)
 
 ```xml
 <dependency>
 <groupId>com.azure</groupId>
 <artifactId>azure-communication-callautomation</artifactId>
-<version>1.0.0-alpha.20221018.2</version>
+<version>1.0.0-alpha.20221101.1</version>
 </dependency>
 ```
 
@@ -67,6 +67,16 @@ This section is for adding references for packages that will be used in the foll
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventgrid</artifactId>
     <version>4.11.2</version>
+</dependency>
+```
+
+*gson* - Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.google.code.gson/gson) is a serialization/deserialization library to handle conversion between Java Objects and JSON.
+
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.9.0</version>
 </dependency>
 ```
 
@@ -98,14 +108,15 @@ import com.azure.communication.callautomation.models.CallMediaRecognizeDtmfOptio
 import com.azure.communication.callautomation.models.DtmfTone;
 import com.azure.communication.callautomation.models.FileSource;
 import com.azure.communication.callautomation.models.events.CallAutomationEventBase;
-import com.azure.communication.callautomation.models.events.CallConnectedEvent;
-import com.azure.communication.callautomation.models.events.RecognizeCompletedEvent;
+import com.azure.communication.callautomation.models.events.CallConnected;
+import com.azure.communication.callautomation.models.events.RecognizeCompleted;
 import com.azure.communication.common.CommunicationIdentifier;
 import com.azure.communication.common.CommunicationUserIdentifier;
-import com.azure.communication.common.PhoneNumberIdentifier;
 import com.azure.messaging.eventgrid.EventGridEvent;
 import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationEventData;
 import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationResponse;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -113,26 +124,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-public class Controller {
+public class ActionController {
     @Autowired
     private Environment environment;
+    private CallAutomationAsyncClient client;
+
+    private CallAutomationAsyncClient getCallAutomationAsyncClient() {
+        if (client == null) {
+            client = new CallAutomationClientBuilder()
+                .connectionString(environment.getProperty("connectionString"))
+                .buildAsyncClient();
+        }
+        return client;
+    }
 
     @RequestMapping(value = "/api/incomingCall", method = POST)
     public ResponseEntity<?> handleIncomingCall(@RequestBody(required = false) String requestBody) {
-        CallAutomationAsyncClient client = new CallAutomationClientBuilder()
-                .connectionString(environment.getProperty("connectionString"))
-                .buildAsyncClient();
         List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(requestBody);
 
         for (EventGridEvent eventGridEvent : eventGridEvents) {
@@ -146,33 +165,30 @@ public class Controller {
             }
 
             // Answer the incoming call and pass the callbackUri where Call Automation events will be delivered
-            String incomingCallContext = eventGridEvent.getData().toString().split("\"incomingCallContext\":\"")[1].split("\"}")[0];
-            String callerId = eventGridEvent.getSubject().split("caller/")[1].split("/recipient/")[0];
-            String callbackUri = environment.getProperty("callbackUriBase") + String.format("/api/calls/%s", callerId);
+            JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class); // Extract body of the event
+            String incomingCallContext = data.get("incomingCallContext").getAsString(); // Query the incoming call context info for answering
+            String callerId = data.getAsJsonObject("to").get("rawId").getAsString(); // Query the id of caller for preparing the Recognize prompt.
 
-            // Only answer incoming call that is to the call server
-            if (Objects.equals(eventGridEvent.getSubject().split("recipient/")[1], environment.getProperty("serverPhoneNum"))) {
-                AnswerCallResult answerCallResult = client.answerCall(incomingCallContext, callbackUri).block();
-            }
+            // Call events of this call will be sent to an url with unique id.
+            String callbackUri = environment.getProperty("callbackUriBase") + String.format("/api/calls/%s?callerId=%s", UUID.randomUUID(), callerId);
+
+            AnswerCallResult answerCallResult = getCallAutomationAsyncClient().answerCall(incomingCallContext, callbackUri).block();
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/calls/{callerId}", method = POST)
-    public ResponseEntity<?> handleCallEvents(@RequestBody(required = false) String requestBody, @PathVariable String callerId) {
-        CallAutomationAsyncClient client = new CallAutomationClientBuilder()
-                .connectionString(environment.getProperty("connectionString"))
-                .buildAsyncClient();
+    @RequestMapping(value = "/api/calls/{contextId}", method = POST)
+    public ResponseEntity<?> handleCallEvents(@RequestBody String requestBody, @PathVariable String contextId, @RequestParam(name = "callerId", required = true) String callerId) {
         List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(requestBody);
 
         for (CallAutomationEventBase acsEvent : acsEvents) {
             if (acsEvent instanceof CallConnected) {
-                CallConnectedEvent event = (CallConnected) acsEvent;
+                CallConnected event = (CallConnected) acsEvent;
 
                 // Call was answered and is now established
                 String callConnectionId = event.getCallConnectionId();
-                PhoneNumberIdentifier target = new PhoneNumberIdentifier(callerId);
+                CommunicationIdentifier target = CommunicationIdentifier.fromRawId(callerId);
 
                 // Play audio then recognize 3-digit DTMF input with pound (#) stop tone
                 CallMediaRecognizeDtmfOptions recognizeOptions = new CallMediaRecognizeDtmfOptions(target, 3);
@@ -183,16 +199,16 @@ public class Controller {
                         .setPlayPrompt(new FileSource().setUri(environment.getProperty("mediaSource")))
                         .setOperationContext("MainMenu");
 
-                client.getCallConnectionAsync(callConnectionId)
+                getCallAutomationAsyncClient().getCallConnectionAsync(callConnectionId)
                         .getCallMediaAsync()
                         .startRecognizing(recognizeOptions)
                         .block();
             } else if (acsEvent instanceof RecognizeCompleted) {
-                RecognizeCompletedEvent event = (RecognizeCompleted) acsEvent;
+                RecognizeCompleted event = (RecognizeCompleted) acsEvent;
 
                 // This RecognizeCompleted correlates to the previous action as per the OperationContext value
                 if (event.getOperationContext().equals("MainMenu")) {
-                    CallConnectionAsync callConnectionAsync = client.getCallConnectionAsync(event.getCallConnectionId());
+                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());
 
                     // Invite other participants to the call
                     List<CommunicationIdentifier> participants = new ArrayList<>(
@@ -210,11 +226,11 @@ public class Controller {
 
 ## Start Ngrok
 
-In this quick-start, we'll use [Ngrok tool](https://ngrok.com/) to make our localhost java application reachable from the internet. This tool will be needed to receive the Event Grid `IncomingCall` event and the Call Automation events using webhooks.
+In this quick-start, we use [Ngrok tool](https://ngrok.com/) to project a public URI to your local port so that your local application can be visited by the Internet. This tool will be needed for the quick-start application to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-Determine the root URI of the java application. By default, it should be `http://localhost:8080/`.
+First, determine the port of your java application. `8080` is the default endpoint of a spring boot application.
 
-Install and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
 ## Set up environment variables
 

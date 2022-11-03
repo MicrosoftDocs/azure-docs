@@ -57,12 +57,13 @@ using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using Azure.Messaging.EventGrid.SystemEvents;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Nodes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var client = new CallAutomationClient(builder.Configuration["ACS:ConnectionString"]);
-var callbackUriBase = builder.Configuration["ACS:CallbackUriBase"]; // i.e. https://someguid.ngrok.io
+var client = new CallAutomationClient(builder.Configuration["ConnectionString"]);
+var callbackUriBase = builder.Configuration["callbackUriBase"]; // i.e. https://someguid.ngrok.io
 
 var app = builder.Build();
 app.MapPost("/api/incomingCall", async (
@@ -84,21 +85,19 @@ app.MapPost("/api/incomingCall", async (
             }
         }
         var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
-        var callerId = eventGridEvent.Subject.Split("caller/")[1].Split("/recipient/")[0];
+        var callerId = (string)(jsonObject["to"]["rawId"]);
         var incomingCallContext = (string)jsonObject["incomingCallContext"];
-        var callbackUri = new Uri(callbackUriBase + $"/api/calls/{callerId}");
+        var callbackUri = new Uri(callbackUriBase + $"/api/calls/{Guid.NewGuid()}?callerId={callerId}");
 
-        if (eventGridEvent.Subject.Split("recipient/")[1] == builder.Configuration["ACS:ServerPhoneNum"])
-        {
-            AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
-        }
+        AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
     }
     return Results.Ok();
 });
 
-app.MapPost("/api/calls/{callerId}", async (
+app.MapPost("/api/calls/{contextId}", async (
     [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string callerId) =>
+    [FromRoute] string contextId,
+    [Required] string callerId) =>
 {
     foreach (var cloudEvent in cloudEvents)
     {
@@ -107,12 +106,12 @@ app.MapPost("/api/calls/{callerId}", async (
         {
             // play audio then recognize 3-digit DTMF input with pound (#) stop tone
             var recognizeOptions =
-                new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier(callerId), 3)
+                new CallMediaRecognizeDtmfOptions(CommunicationIdentifier.FromRawId(callerId), 3)
                 {
                     InterruptPrompt = true,
                     InterToneTimeout = TimeSpan.FromSeconds(10),
                     InitialSilenceTimeout = TimeSpan.FromSeconds(5),
-                    Prompt = new FileSource(new Uri(builder.Configuration["ACS:MediaSource"])),
+                    Prompt = new FileSource(new Uri(builder.Configuration["MediaSource"])),
                     StopTones = new[] { DtmfTone.Pound },
                     OperationContext = "MainMenu"
                 };
@@ -127,43 +126,43 @@ app.MapPost("/api/calls/{callerId}", async (
                 .AddParticipantsAsync(new AddParticipantsOptions(
                     new List<CommunicationIdentifier>()
                     {
-                        new CommunicationUserIdentifier(builder.Configuration["ACS:ParticipantToAdd"])
-                    }));
+                        new CommunicationUserIdentifier(builder.Configuration["ParticipantToAdd"])
+                    })
+                );
         }
     }
     return Results.Ok();
 }).Produces(StatusCodes.Status200OK);
 
-app.Run("http://localhost:8080");
+app.Run();
 ```
 
 ## Start Ngrok
 
-In this quick-start, we'll use [Ngrok tool](https://ngrok.com/) to make our localhost java application reachable from the internet. This tool will be needed to receive the Event Grid `IncomingCall` event and the Call Automation events using webhooks.
+In this quick-start, we use [Ngrok tool](https://ngrok.com/) to project a public URI to your local port so that your local application can be visited by the Internet. This tool will be needed for the quick-start application to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-Determine the root URI of the java application. According to the code snippet, it should be `http://localhost:8080/`, therefore the port would be `8080`.
+First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the port in <PROJECT_ROOT>\Properties\launchSettings.json.
 
-Install and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
 ## Set up environment variables
 
-Some environment variables are used in the shown code snippet, configure them in <PROJECT_ROOT>\appsettings.json file.
+In Visual Studio, right click at your project and then select "Manage User Secrets" to configure confidential environment variables.
+
+:::image type="content" source="./../../media/call-automation/dotNetUserSecret.jpg" alt-text="Screenshot of how to find out 'Manage User Secrets'":::
+
+Reading more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets)
 
 ``` json
 {
   ...
-
-  "ACS": {
     "ConnectionString": "Your_ACS_resource_connection_string",
     "CallbackUriBase": "Your_Ngrok_FQDN",
-    "ServerPhoneNum": "Your_ACS_resource_phone_number",
     "MediaSource": "The_media_prompt_source",
     "ParticipantToAdd": "The_participant_to_be_added_after_recognizing_tones"
-  }
+  ...
 }
 ```
-
-Input phone number with country code, for example: +18001234567
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
 
