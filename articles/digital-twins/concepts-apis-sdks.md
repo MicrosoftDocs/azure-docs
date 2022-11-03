@@ -120,11 +120,7 @@ Service methods return strongly typed objects wherever possible. However, becaus
 
 API metrics such as requests, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the **Metrics** page.
-
-:::image type="content" source="media/how-to-monitor-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
-
-From here, you can view the metrics for your instance and create custom views.
+For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of API metrics available for Azure Digital Twins, see [Azure Digital Twins API request metrics](how-to-monitor.md#api-request-metrics).
 
 ## Next steps
 

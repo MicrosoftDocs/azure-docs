@@ -438,6 +438,9 @@
         href: sap/deploy-sap-security-content.md
       - name: Configure Microsoft Sentinel Solution for SAP
         href: sap/deployment-solution-configuration.md
+      - name: Disable the connector
+        displayName: disable, stop ingestion, stop
+        href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
@@ -588,5 +591,3 @@
       href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
       href: /training/browse/?expanded=azure&terms=kusto%20query%20language
-  - name: Archived what's new (older than six months)
-    href: whats-new-archive.md

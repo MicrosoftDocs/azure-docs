@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2022
+ms.date: 10/31/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- October 31, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) to fix script location for DRBD 9.0 
+- October 31, 2022: Change in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) to update the guideline for sizing `/hana/shared`
 - October 27, 2022: Adding Ev4 and Ev5 VM families and updated OS releases to table in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we are de-emphasizing SAP reference architectures, utilizing NFS clusters  
 - October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)

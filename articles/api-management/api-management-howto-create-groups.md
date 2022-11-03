@@ -21,7 +21,11 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable system groups:
 
-* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
+
+    > [!NOTE]
+    > You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
+
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 

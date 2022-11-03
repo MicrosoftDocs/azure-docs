@@ -2,7 +2,7 @@
 title: 'Quickstart: Data streaming with Azure Event Hubs using the Kafka protocol'
 description: 'Quickstart: This article provides information on how to stream into Azure Event Hubs using the Kafka protocol and APIs.'
 ms.topic: quickstart
-ms.date: 09/26/2022
+ms.date: 11/02/2022
 ms.custom: mode-other
 ---
 
@@ -32,6 +32,55 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 > Event Hubs for Kafka isn't supported in the **basic** tier.
 
 ## Send and receive messages with Kafka in Event Hubs
+
+
+### [Connection string](#tab/connection-string)
+
+1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
+
+1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/producer*.
+
+1. Update the configuration details for the producer in *src/main/resources/producer.config* as follows:
+
+   ```xml
+   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+   security.protocol=SASL_SSL
+   sasl.mechanism=PLAIN
+   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+   ```
+
+   > [!IMPORTANT]
+   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
+1. Run the producer code and stream events into Event Hubs:
+
+   ```shell
+   mvn clean package
+   mvn exec:java -Dexec.mainClass="TestProducer"
+   ```
+
+1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/consumer*.
+
+1. Update the configuration details for the consumer in *src/main/resources/consumer.config* as follows:
+
+   ```xml
+   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+   security.protocol=SASL_SSL
+   sasl.mechanism=PLAIN
+   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+   ```
+
+   > [!IMPORTANT]
+   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
+1. Run the consumer code and process events from event hub using your Kafka clients:
+
+   ```java
+   mvn clean package
+   mvn exec:java -Dexec.mainClass="TestConsumer"
+   ```
+
+If your Event Hubs Kafka cluster has events, you'll now start receiving them from the consumer.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 1. Enable a system-assigned managed identity for the virtual machine. For more information about configuring managed identity on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
@@ -91,54 +140,6 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
     You should see messages about events sent in the producer window. Now, check the consumer app window to see the messages that it receives from the event hub.
 
       :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/producer-consumer-output.png" alt-text="Screenshot showing the Producer and Consumer app windows showing the events.":::
-
-### [Connection string](#tab/connection-string)
-
-1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
-
-1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/producer*.
-
-1. Update the configuration details for the producer in *src/main/resources/producer.config* as follows:
-
-   ```xml
-   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-   security.protocol=SASL_SSL
-   sasl.mechanism=PLAIN
-   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-   ```
-
-   > [!IMPORTANT]
-   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
-
-1. Run the producer code and stream events into Event Hubs:
-
-   ```shell
-   mvn clean package
-   mvn exec:java -Dexec.mainClass="TestProducer"
-   ```
-
-1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/consumer*.
-
-1. Update the configuration details for the consumer in *src/main/resources/consumer.config* as follows:
-
-   ```xml
-   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-   security.protocol=SASL_SSL
-   sasl.mechanism=PLAIN
-   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-   ```
-
-   > [!IMPORTANT]
-   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
-
-1. Run the consumer code and process events from event hub using your Kafka clients:
-
-   ```java
-   mvn clean package
-   mvn exec:java -Dexec.mainClass="TestConsumer"
-   ```
-
-If your Event Hubs Kafka cluster has events, you will now start receiving them from the consumer.
 
 ---
 
