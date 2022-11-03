@@ -264,8 +264,6 @@ If you don't see your programming language, go select it from the [top of the pa
 - Output serialization in Node.js apps was updated to address previous inconsistencies. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-- PowerShell 6 isn't supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
-
 - Default thread count has been updated. Functions that aren't thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
