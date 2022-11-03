@@ -1,5 +1,5 @@
 ---
-title: self-service policies for Azure Storage (preview)
+title: Self-service policies for Azure Storage (preview)
 description: Step-by-step guide on how self-service policy is created for storage through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
