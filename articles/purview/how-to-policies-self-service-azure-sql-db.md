@@ -1,5 +1,5 @@
 ---
-title: self-service policies for Azure SQL DB (preview)
+title: Self-service policies for Azure SQL DB (preview)
 description: Step-by-step guide on how self-service policy is created for Azure SQL DB through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/13/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# self-service policies for Azure SQL DB (preview)
+# Self-service policies for Azure SQL DB (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 This how-to guide describes how self-service policies get created in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *Read Tables*, and *Read Views*. 
 

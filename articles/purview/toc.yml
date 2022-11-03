@@ -381,6 +381,10 @@ items:
         href: how-to-view-self-service-data-access-policy.md
       - name: Delete self-service data access policy
         href: how-to-delete-self-service-data-access-policy.md
+      - name: Self-service policies Azure SQL DB
+        href: how-to-policies-self-service-azure-sql-db.md
+      - name: Self-service policies Azure Storage
+        href: how-to-policies-self-service-storage.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access
