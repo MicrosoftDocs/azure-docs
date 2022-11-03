@@ -16,7 +16,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
 ## Prerequisites
 
- To use the [Custom Translator](https://portal.customtranslator.azure.ai/) portal, you'll need the resources:
+ To use the [Custom Translator](https://portal.customtranslator.azure.ai/) portal, you'll need the following resources:
 
 * A [Microsoft account](https://signup.live.com).
 
@@ -26,7 +26,9 @@ Translator is a cloud-based neural machine translation service that is part of t
 
     :::image type="content" source="../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-  See [how to create a Translator resource](../how-to-create-translator-resource.md).
+For more information, *see* [how to create a Translator resource](../how-to-create-translator-resource.md).
+
+## Visit the Custom Translator portal
 
 Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
