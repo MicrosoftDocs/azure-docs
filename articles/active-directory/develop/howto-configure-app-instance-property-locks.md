@@ -29,7 +29,7 @@ The following property usage scenarios are considered as sensitive:
 
 ## Configure an app instance lock
 
-To configure an app instance lock using the Azure portal's user interface:
+To configure an app instance lock using the Azure portal:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration you want to configure. 
