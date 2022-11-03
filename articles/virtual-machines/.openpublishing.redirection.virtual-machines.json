@@ -3449,7 +3449,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-hana.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/automation-bom-templates-db",
+            "redirect_url": "/azure/center-sap-solutions/automation/bom-templates-db",
             "redirect_document_id": false
         },
         {

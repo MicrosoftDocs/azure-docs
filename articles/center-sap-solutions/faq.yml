@@ -56,7 +56,7 @@ sections:
 
                 Azure Center for SAP solutions doesn't allow customization of the names of the Azure 
                 resources deployed through it. Azure Center for SAP solutions follows a prescriptive naming convention for all Azure resources deployed.
-                Consider the open-source [SAP on Azure Deployment Automation Framework](../virtual-machines/workloads/sap/automation-deployment-framework.md) 
+                Consider the open-source [SAP on Azure Deployment Automation Framework](./automation/deployment-framework.md) 
                 if you need the ability to customize names for your deployments. Then register your open-source deployments in Azure Center for SAP solutions to unlock intelligent management capabilities.
 
       - question:  What is a VIS resource?

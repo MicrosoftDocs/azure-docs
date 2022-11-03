@@ -1,0 +1,52 @@
+### YamlMime:Landing
+
+title: SAP on Azure Deployment Automation Framework documentation
+summary:  The SAP on Azure Deployment Automation Framework is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
+metadata:
+  title: SAP on Azure Deployment Automation Framework
+  description: Learn about the SAP on Azure Deployment Automation Framework. This framework is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
+  ms.service: azure-center-sap-solutions
+  ms.topic: landing-page
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 11/03/2022
+
+landingContent:
+  - title: About SAP on Azure Deployment Automation Framework
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Deployment Automation Framework?
+            url: deployment-framework.md
+          - text: Frequently asked questions
+            url: faq.yml   
+      - linkListType: concept
+        links:
+          - text: Supported platforms and features
+            url: supportability.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get started with automation framework
+            url: get-started.md
+          - text: Plan your automated deployment
+            url: plan-deployment.md
+          - text: Download and prepare software media
+            url: software.md
+          - text: Get SAP media for BOM
+            url: bom-get-files.md
+          - text: Prepare BOM
+            url: bom-prepare.md
+          - text: Create automation template files
+            url: bom-templates-db.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+            - text: Bash scripts for automation framework
+              url: reference-bash.md
+            - text: PowerShell cmdlets for automation framework
+              url: reference-powershell.md
