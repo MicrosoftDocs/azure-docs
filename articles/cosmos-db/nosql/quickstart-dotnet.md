@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/azure-samples/cosmos-db-sql-api-dotnet-samples) are available on GitHub as a .NET project.
+> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples) are available on GitHub as a .NET project.
 
 [API reference documentation](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | [Samples](samples-dotnet.md)
 
