@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: vankitadutta
+ms.author: ankitadutta
 ms.custom: MVC
 ---
 
