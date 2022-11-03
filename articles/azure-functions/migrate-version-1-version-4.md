@@ -5,9 +5,27 @@ ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 10/19/2022
 ms.custom: template-how-to-pattern 
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Migrate apps from Azure Functions version 1.x to version 4.x 
+
+::: zone pivot="programming-language-java"
+> [!IMPORTANT]
+> Java isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Java app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+::: zone-end
+::: zone pivot="programming-language-typescript"
+> [!IMPORTANT]
+> TypeScript isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your TypeScript app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+::: zone-end
+::: zone pivot="programming-language-powershell"
+> [!IMPORTANT]
+> PowerShell isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your PowerShell app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+::: zone-end
+::: zone pivot="programming-language-python"
+> [!IMPORTANT]
+> Python isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Python app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.  
+::: zone-end
 
 If you're running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
@@ -37,8 +55,9 @@ Before you upgrade your app to version 4.x of the Functions runtime, you should 
 * Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
 * Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 
-## Update your C# project files
+## Update your project files
 
+::: zone pivot="programming-language-csharp
 The following sections describes the updates you must make to your C# project files to be able to run on one of the supported versions of .NET in Functions version 4.x. The updates shown are ones common to most projects. Your project code may require updates not mentioned in this article, especially when using custom NuGet packages.
 
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
@@ -320,6 +339,34 @@ In version 4.x, the HTTP trigger template looks like the following example:
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 ---
+::: zone-end
+::: zone pivot="programming-language-javascript" 
+To update your project to Azure Functions 4.x:
+
+1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
+
+1. Move to one of the [Node.js versions supported on version 4.x](functions-reference-node.md#node-version).
+
+1. Add both `version` and `extensionBundle` elements to the host.json, so that it looks like the following:
+
+    [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
+ 
+    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](/functions-bindings-register.md#extension-bundles).
+
+1. Update your local.settings.json file so that it has at least the following elements:
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "node"
+        }
+    }
+    ```   
+
+    The `AzureWebJobsStorage` setting can be either the Azurite storage emulator or an actual Azure storage account. For more information, see [Local storage emulator](/functions-develop-local.md#local-storage-emulator).
+::: zone-end  
 
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
 
@@ -342,8 +389,6 @@ In version 2.x, the following changes were made:
 * Keys for calling HTTP endpoints are always stored encrypted in Azure Blob storage. In version 1.x, keys were stored in Azure Files by default. When you upgrade an app from version 1.x to version 2.x, existing secrets that are in Azure Files are reset.
 
 * The version 2.x runtime doesn't include built-in support for webhook providers. This change was made to improve performance. You can still use HTTP triggers as endpoints for webhooks.
-
-* The host configuration file (host.json) should be empty or have the string `"version": "2.0"`.
 
 * To improve monitoring, the WebJobs dashboard in the portal, which used the [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) setting is replaced with Azure Application Insights, which uses the [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) setting. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
