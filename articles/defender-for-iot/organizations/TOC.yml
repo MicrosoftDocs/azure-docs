@@ -144,7 +144,7 @@
         href: integrations/service-now-legacy.md
   - name: Setup OT network monitoring
     items:
-    - name: Set up OT network monitoring
+    - name: Prepare your network
       href: how-to-set-up-your-network.md
     - name: Configure traffic mirroring
       items:
@@ -190,44 +190,42 @@
       href: eiot-sensor.md
     - name: Extra deployment steps and samples
       href: extra-deploy-enterprise-iot.md
-  - name: System maintenance
+  - name: Manage sensors from the Azure portal
+    href: how-to-manage-sensors-on-the-cloud.md
+  - name: OT system maintenance
     items:
-    - name: Manage sensors from the Azure portal
-      href: how-to-manage-sensors-on-the-cloud.md
-    - name: OT system maintenance
+    - name: Update OT monitoring software
+      href: update-ot-software.md
+      displayName: upgrade
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
+    - name: Manage OT sensors
       items:
-      - name: Update OT monitoring software
-        href: update-ot-software.md
-        displayName: upgrade
-      - name: Maintain threat intelligence packages
-        href: how-to-work-with-threat-intelligence-packages.md
-      - name: Manage OT sensors
+      - name: Manage individual sensors
+        href: how-to-manage-individual-sensors.md
+      - name: Control OT traffic monitoring
+        href: how-to-control-what-traffic-is-monitored.md
+      - name: Detect Windows workstations and servers by script
+        href: detect-windows-endpoints-script.md
+      - name: Configure active monitoring
         items:
-        - name: Manage individual sensors
-          href: how-to-manage-individual-sensors.md
-        - name: Control OT traffic monitoring
-          href: how-to-control-what-traffic-is-monitored.md
-        - name: Detect Windows workstations and servers by script
-          href: detect-windows-endpoints-script.md
-        - name: Configure active monitoring
-          items:
-          - name: Planning and prerequisites
-            href: configure-active-monitoring.md
-          - name: Configure Windows Endpoint Monitoring
-            href: configure-windows-endpoint-monitoring.md
-          - name: Configure reverse DNS lookup
-            href: configure-reverse-dns-lookup.md
-        - name: Manage sensors from the on-premises management console
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: Manage OT sensor users
-        items:
-        - name: Create and manage users
-          href: how-to-create-and-manage-users.md
-        - name: Integrate with active directory
-          href: integrate-with-active-directory.md
-        - name: Define global user access control
-          href: how-to-define-global-user-access-control.md
-      - name: Enrich device information
+        - name: Planning and prerequisites
+          href: configure-active-monitoring.md
+        - name: Configure Windows Endpoint Monitoring
+          href: configure-windows-endpoint-monitoring.md
+        - name: Configure reverse DNS lookup
+          href: configure-reverse-dns-lookup.md
+      - name: Manage sensors from the on-premises management console
+        href: how-to-manage-sensors-from-the-on-premises-management-console.md
+    - name: Manage OT sensor users
+      items:
+      - name: Create and manage users
+        href: how-to-create-and-manage-users.md
+      - name: Integrate with active directory
+        href: integrate-with-active-directory.md
+      - name: Define global user access control
+        href: how-to-define-global-user-access-control.md
+    - name: Enrich device information
         items:
         - name: Work with device notifications
           href: how-to-work-with-device-notifications.md
@@ -235,19 +233,19 @@
           href: how-to-enhance-port-and-vlan-name-resolution.md
         - name: Import device information
           href: how-to-import-device-information.md
-      - name: Track sensor activity
+    - name: Track sensor activity
         href: how-to-track-sensor-activity.md
-      - name: Set up SNMP MIB monitoring
+    - name: Set up SNMP MIB monitoring
         href: how-to-set-up-snmp-mib-monitoring.md
-      - name: Manage proprietary protocols (Horizon)
+    - name: Manage proprietary protocols (Horizon)
         href: resources-manage-proprietary-protocols.md
-      - name: Manage an OT on-premises management console
+    - name: Manage an OT on-premises management console
         items:
         - name: Set up high availability
           href: how-to-set-up-high-availability.md
         - name: Manage the on-premises management console
           href: how-to-manage-the-on-premises-management-console.md
-      - name: Troubleshoot the sensor and on-premises management console
+    - name: Troubleshoot the sensor and on-premises management console
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
