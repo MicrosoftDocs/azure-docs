@@ -9,7 +9,7 @@ items:
   - name: What's new for Remote Desktop clients
     items:
     - name: Windows Desktop client
-      href: whats-new-client-windows.md
+      href: ../whats-new-client-windows.md
     - name: Web client
       href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: macOS client
