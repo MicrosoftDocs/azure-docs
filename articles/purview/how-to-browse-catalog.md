@@ -1,8 +1,8 @@
 ---
 title: 'How to: browse the Data Catalog'
 description: This article gives an overview of how to browse the Microsoft Purview data catalog by asset type
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
