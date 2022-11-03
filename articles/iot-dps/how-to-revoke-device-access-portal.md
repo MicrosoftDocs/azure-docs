@@ -17,7 +17,7 @@ Enrollment in the Device Provisioning Service enables a device to be [provisione
 
 ## Temporarily revoke a device from provisioning and reprovisioning
 
-To disallow a device from being provisioned through Device Provisioning Service, you can change the provisioning status of an enrollment wihtout deleting the enrollment. This allows you to track the existence of the device and its enrollment without allowing the device the ability to provision and reprovision. You can leverage this capability if the device is behaving outside its normal parameters or is notified to be compromised, you can also use this as a way to test out retry mechanism of your devices.
+To disallow a device from being provisioned through Device Provisioning Service, you can change the provisioning status of an enrollment to prevent the device from provisioning and reprovisioning without deletion. You can leverage this capability if the device is behaving outside its normal parameters or is assumed to be compromised, or as a way to test out provisioning retry mechanism of your devices.
 
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to disallow your device from.
