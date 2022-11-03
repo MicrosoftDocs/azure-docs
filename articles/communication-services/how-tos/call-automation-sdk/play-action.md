@@ -1,18 +1,18 @@
 ---
-title: Play Audio
-titleSuffix: An Azure Communication Services quickstart document
+title: Customize voice prompts to users with Play action
+titleSuffix: An Azure Communication Services how-to document
 description: Provides a quick start for playing audio to participants as part of a call.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: kpunjabi
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Play action
+# Customize voice prompts to users with Play action
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
@@ -35,4 +35,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 - Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md)
-- Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md)
+- Learn more about [Gathering user input in a call](../../concepts/voice-video-calling/recognize-action.md)
