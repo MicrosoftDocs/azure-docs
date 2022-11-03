@@ -22,7 +22,7 @@ You can upgrade your C# project to one of the following versions of .NET, all of
 | .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
 | .NET&nbsp;Framework&nbsp;4.8 | [Isolated worker process](./dotnet-isolated-process-guide.md) |  
 
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md).
+<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md). For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md). 
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime.
 

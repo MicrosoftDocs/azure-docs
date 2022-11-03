@@ -24,9 +24,9 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 | .NET 6 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
 | .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
 
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md).
+<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md). 
 
-Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. 
+Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 
 ## Prepare for migration

@@ -1,12 +1,11 @@
 ---
 title: Differences between in-process and isolate worker process .NET Azure Functions
-description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
+description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process. 
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 09/29/2022
-ms.custom: template-concept 
 recommendations: false
-#Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
+#Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best execution mode for my functions.
 ---
 
 # Differences between in-process and isolate worker process .NET Azure Functions
@@ -29,15 +28,15 @@ Use the following table to compare feature and functional differences between th
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
 | Model types exposed by bindings | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>Service SDK types such as [BlobClient]<br/>`IAsyncCollector` (for output bindings) | Simple types<br/>JSON serializable types<br/>Arrays/enumerations |
 | HTTP trigger model types| [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
-| Output binding interaction | Return values (single output only)<br/>`out` parameters<br/>`IAsyncCollector` | Return values (expanded model with single or [multiple outputs](#multiple-output-bindings)) |
+| Output binding interaction | Return values (single output only)<br/>`out` parameters<br/>`IAsyncCollector` | Return values (expanded model with single or [multiple outputs](dotnet-isolated-process-guide.md#multiple-output-bindings)) |
 | Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
-| Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](#dependency-injection) |
-| Middleware | Not supported | [Supported](#middleware) |
-| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](#dependency-injection)|
+| Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) |
+| Middleware | Not supported | [Supported](dotnet-isolated-process-guide.md#middleware) |
+| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
-| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](#cancellation-tokens) |
+| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
-| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](#readytorun) | 
+| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](dotnet-isolated-process-guide.md#readytorun) | 
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
