@@ -24,7 +24,7 @@ Language customization in Azure Active Directory (Azure AD) allows your user flo
 
 By default, language customization is enabled for users signing up to ensure a consistent sign up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign up. If you're using [custom user attributes](user-flow-add-custom-attributes.md), you need to provide your [own translations](#customize-your-strings).
 
-## Customize your strings
+## Customize your strings 
 
 Language customization enables you to customize any string in your user flow.
 
@@ -40,6 +40,8 @@ Language customization enables you to customize any string in your user flow.
 
 These steps give you a JSON file that you can use to start editing your strings.
 
+  :::image type="content" source="media/user-flow-customize-language/language-customization-download-defaults.png" alt-text="Screenshot of downloading the default language customization json file.":::
+
 ### Change any string on the page
 
 1. Open the JSON file downloaded from previous instructions in a JSON editor.
@@ -47,6 +49,8 @@ These steps give you a JSON file that you can use to start editing your strings.
 1. Update the `Value` attribute with what you want displayed.
 1. For every string that you want to change, change `Override` to `true`. If the `Override` value isn't changed to `true`, the entry is ignored.
 1. Save the file and [upload your changes](#upload-your-changes). 
+
+  :::image type="content" source="media/user-flow-customize-language/language-customization-upload-override.png" alt-text="Screenshot of uploading the language customization json file.":::
 
 ### Change extension attributes
 
@@ -109,7 +113,9 @@ If you want to provide a set list of values for responses, you need to create a 
 1. Select **Attribute collection page**.
 1. Select the folder icon, and select the JSON file to upload.
 1. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
-1. To remove or download your customized override file, click on the language and expand the **Attribute collection page**.  
+1. To remove or download your customized override file, click on the language and expand the **Attribute collection page**. 
+
+  :::image type="content" source="media/user-flow-customize-language/language-customization-remove-download-overrides.png" alt-text="Screenshot of removing or downloading the language customization json file."::: 
 
 ## Additional information
 
