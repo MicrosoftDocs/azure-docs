@@ -5,7 +5,7 @@ manager: evansma
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/09/2021
-
+ms.author: ankitadutta
 ---
 
 # Enable global disaster recovery using Azure Site Recovery
