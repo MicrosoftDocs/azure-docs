@@ -26,7 +26,7 @@ The scaleset must be created in Flex orchestration mode, and any VM settings on 
 Because of this, it is easiest to create it through the az CLI:
 
 ```bash
-az vmss create --orchestration-mode Flexible -g MyResourceGroup -n MyScaleSet --platform-fault-domain-count 3
+az vmss create --orchestration-mode Flexible -g MyResourceGroup -n MyScaleSet --platform-fault-domain-count 1
 ```
 
 Finally, specify the fully qualified id for this scaleset on the node or nodearray that should use it on the cluster template:
