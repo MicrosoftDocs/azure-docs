@@ -36,18 +36,20 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. **Note:** jobs in pipeline don't support `local` as `compute` | | `local` |
+| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. <br> <br>  *Note:* jobs in pipeline don't support `local` as `compute`. * | | `local` |
 | `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
 | `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`, `auc_weighted`, `average_precision_score_weighted`, `norm_macro_recall`, `precision_score_weighted` | `accuracy` |
 | `target_column_name` | string |  **Required.** The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
 | `training_data` | object |  **Required.** The data to be used within the job. It should contain both training feature columns and a target column. the parameter training_data must always be provided. Refer to [Training or Validation Data](#training-or-validation-data) section for further details on how to write this object.| |  |
-| `validation_data` | object |  The validation data to be used within the job. It should contain both training features and label column (optionally a sample weights column). If 'validation_data' is specified, then 'training_data' and 'target_column_name' parameters must be specified. Refer to [Training or Validation Data](#training-or-validation-data) for further details on how to write this object.| |  |
+| `validation_data` | object |  The validation data to be used within the job. It should contain both training features and label column (optionally a sample weights column). If `validation_data` is specified, then `training_data` and `target_column_name` parameters must be specified. Refer to [Training or Validation Data](#training-or-validation-data) for further details on how to write this object.| |  |
 | `validation_data_size` | float |  What fraction of the data to hold out for validation when user validation data is not specified. | A value in range (0.0, 1.0) |  |
 | `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If the user wants to specify a different mode for the output, provide an object containing the [Limits](#limits). | | |
-| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [Training Parameters](#training-parameters) section. | | |
-| `sweep` | object | Dictionary containing sweep parameters for the job. Provide an object which has keys as listed in [Sweep Parameters](#sweep-parameters) section. | | |
-| `search_space` | object | Dictionary containing search space (or, range of values) for tuning hyperparameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
-| `outputs` | object | Dictionary containing search space (or, range of values) for tuning hyperparameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in [Training Parameters](#training-parameters). | | |
+| `sweep` | object | Dictionary containing sweep parameters for the job. Provide an object which has keys as listed in [Sweep Parameters](#sweep-parameters). | | |
+| `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. The user can find the possible hyperparameters in [Training Parameters](#training-parameters). | | |
+| `search_space<hyperparameter>` | object | See [Parameter expressions](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions) for the set of possible expressions to use. <br>- For discrete hyperparameters, the user should use [`choice` parameter expression](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#choice). <br>- For continuous hyperparameters, the user should use one of the following parameter espressions according to the distribution that user wants to explore, [`randint`](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#randint), [`qlognormal`, `qnormal`](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#qlognormal-qnormal), [`lohnormal`, `normal`](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#lognormal-normal), [`loguniform`](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#loguniform), [`uniform`](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#uniform).  | | |
+| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
+| `outputs.best_model` | object | Dictionary of output configurations for best model. For further details, please refer to [Best Model Output Configuration](#best-model-output-configuration). | | |
 
 
 ### Limits
@@ -57,6 +59,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `max_trials` | integer | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If using `enable_early_termination` the number of trials used can be smaller.  | | 1000 |
 | `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | 1 |
 | `timeout_minutes` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), the user should make sure dataset's size is not greater than 10,000,000 (rows times column) or an error results. | | 8640 |
+| `trial_timeout_minutes` | integer |Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used. | | 43200 |
 
 
 ### Training Or Validation Data
@@ -64,14 +67,14 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `description` | string | The detailed information that describes this input data. | | |
-| `path` | sring | Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(* and *\*) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-core-syntax) for more information on how to use the `azureml://` URI format. URI of the location of the artifact file. If this URI does not have a scheme (e.g. http:, azureml:, etc.), then it is considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | |
+| `path` | sring | Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(`*` and `**`) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-core-syntax) for more information on how to use the `azureml://` URI format. URI of the location of the artifact file. If this URI does not have a scheme (e.g. http:, azureml:, etc.), then it is considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | |
 | `mode` | string | | |
 | `type` | const |  In order to generate computer vision models, the user needs to bring labeled image data as input for model training in the form of an MLTable. | mltable | mltable|
 
 ### Training Parameters
-This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments.
-
-With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
+This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific. There are two types of hyperparameters: 
+- **Discrete Hyperparameters**: Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. 
+- **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`
 
 Please note that the `training_parameters` object can have properties from [Model Specific Hyperparameters](#model-specific-hyperparameters), [Model Agnostic Hyperparameters](#model-agnostic-hyperparameters) and [Image Classification (multi-class and multi-label) Specific Hyperparameters](#image-classification-multi-class-and-multi-label-specific-hyperparameters).
 
@@ -135,13 +138,11 @@ The following table describes the hyperparameters that are model agnostic.
 | `warmup_cosine_lr_warmup_epochs` | integer | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. | | 2 |
 | `weight_decay` | float | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. | A value in the range [0, 1] | 1e-4 |
 
-
-
 #### Image Classification (Multi-Class and Multi-Label) Specific Hyperparameters
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `model_name` | string | Model name to be used for image classification task at hand. | `mobilenetv2`, `resnet18`, `resnet34`, `resnet50`, `resnet101`, `resnet152`, `resnest50`, `resnest101`, `seresnext`, `vits16r224`, `vitb16r224`, `vitl16r224` | |
+| `model_name` | string | Model name to be used for image classification task at hand. | `mobilenetv2`, `resnet18`, `resnet34`, `resnet50`, `resnet101`, `resnet152`, `resnest50`, `resnest101`, `seresnext`, `vits16r224`, `vitb16r224`, `vitl16r224` | `seresnext` |
 | `training_crop_size` | integer | Image crop size that's input to your neural network for train dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.|  | 224|
 | `validation_crop_size` | integer | Image crop size that's input to your neural network for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- ViT-variants should have the same `validation_crop_size` and `training_crop_size`. <br>- Training run may get into CUDA OOM if the size is too big.| | 224 |
 | `validation_resize_size` | integer | Image size to which to resize before cropping for validation dataset. <br><br> Notes: <br>- `seresnext` doesn't take an arbitrary size. <br>- Training run may get into CUDA OOM if the size is too big. | | 256 |
@@ -153,10 +154,10 @@ When using AutoML for Images, we can perform a hyperparameter sweep over a defin
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
 | `sampling_algorithm` | string | **Required.** When sweeping hyperparameters, the user needs to specify the sampling method to use for sweeping over the defined parameter space. <br> Notes: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
-| `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the [Bandit Early Termination Policy](#bandit-early-termination-policy), [Median Stopping Early Termination Policy](#median-stopping-early-termination-policy), [Truncation Selection Early Termination Policy](#truncation-selection-early-termination-policy) below. |  | |
+| `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the [Bandit Early Termination Policy](#bandit-early-termination-policy), [Median Stopping Early Termination Policy](#median-stopping-early-termination-policy), [Truncation Selection Early Termination Policy](#truncation-selection-early-termination-policy). |  | |
 
 #### Bandit Early Termination Policy
-Bandit Policy is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job. For further details on Bandit policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy)
+Bandit Policy is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job. For further details on Bandit policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy).
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
@@ -167,7 +168,7 @@ Bandit Policy is based on slack factor/slack amount and evaluation interval. Ban
 | `delay_evaluation` | integer | Delays the first policy evaluation for a specified number of intervals. | | |
 
 #### Median Stopping Early Termination Policy
-Median Stopping is an early termination policy based on running averages of primary metrics reported by the jobs. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#median-stopping-policy)
+Median Stopping is an early termination policy based on running averages of primary metrics reported by the jobs. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#median-stopping-policy).
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
@@ -176,7 +177,7 @@ Median Stopping is an early termination policy based on running averages of prim
 | `delay_evaluation` | integer |  Delays the first policy evaluation for a specified number of intervals. | | |
 
 #### Truncation Selection Early Termination Policy
-Truncation Selection policy cancels a percentage of lowest performing jobs at each evaluation interval. jobs are compared using the primary metric.. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#truncation-selection-policy)
+Truncation Selection policy cancels a percentage of lowest performing jobs at each evaluation interval. jobs are compared using the primary metric.. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#truncation-selection-policy).
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
@@ -186,105 +187,13 @@ Truncation Selection policy cancels a percentage of lowest performing jobs at ea
 | `delay_evaluation` | integer |  Delays the first policy evaluation for a specified number of intervals. | | |
 | `exclude_finished_jobs` | integer |  Specifies whether to exclude finished jobs when applying the policy. | | |
 
+### Best Model Output Configuration
 
-### Search Space Parameter 
-This section describes the objects for tuning hyperparameters by exploring the range of values defined for each hyperparameter. There are two types of hyperparameters: 
-- **Discrete Hyperparameters**: Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. 
-- **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`
-
-Below is the list of Hyperparameters that are common across all Automated ML Computer Vision Tasks. The user should find the details on each of these hyper parameters in [Training Parameter](#training-parameter) section.
-- `ams_gradient`
-- `advanced_settings`
-- `augmentations`
-- `beta1`
-- `beta2`
-- `distributed`
-- `early_stopping`
-- `early_stopping_delay`
-- `early_stopping_patience`
-- `evaluation_frequency`
-- `enable_onnx_normalization`
-- `gradient_accumulation_step`
-- `layers_to_freeze`
-- `learning_rate`
-- `learning_rate_scheduler`
-- `momentum`
-- `nesterov`
-- `number_of_epochs`
-- `number_of_workers`
-- `optimizer`
-- `random_seed`
-- `step_lr_gamma`
-- `step_lr_step_size`
-- `training_batch_size`
-- `validation_batch_size`
-- `warmup_cosine_lr_cycles`
-- `warmup_cosine_lr_warmup_epochs`
-- `weight_decay`
-
-Below are the details on Hyperparameters that are specific to Image Classification task. The user should find the details on each of these hyper parameters in [Training Parameter](#training-parameter) section.
-- `model_name`
-- `training_crop_size`
-- `validation_crop_size`
-- `validation_resize_size`
-- `weighted_loss`
-
-##### choice
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `choice` |
-| `values` | array | **Required.** The list of discrete values to choose from. | |
-
-
-##### randint
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `randint` |
-| `upper` | integer | **Required.** The exclusive upper bound for the range of integers. | |
-
-##### qlognormal, qnormal
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `qlognormal`, `qnormal` |
-| `mu` | number | **Required.** The mean of the normal distribution. | |
-| `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
-| `q` | integer | **Required.** The smoothing factor. | |
-
-##### qloguniform, quniform
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `qloguniform`, `quniform` |
-| `min_value` | number | **Required.** The minimum value in the range (inclusive). | |
-| `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
-| `q` | integer | **Required.** The smoothing factor. | |
-
-##### lognormal, normal
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `lognormal`, `normal` |
-| `mu` | number | **Required.** The mean of the normal distribution. | |
-| `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
-
-##### loguniform
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `loguniform` |
-| `min_value` | number | **Required.** The minimum value in the range will be `exp(min_value)` (inclusive). | |
-| `max_value` | number | **Required.** The maximum value in the range will be `exp(max_value)` (inclusive). | |
-
-##### uniform
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** The type of expression. | `uniform` |
-| `min_value` | number | **Required.** The minimum value in the range (inclusive). | |
-| `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string | **Required.** Type of best model. AutoML allows only mlflow models. | `mlflow_model` | `mlflow_model` |
+| `path` | string | **Required.** URI of the location where the model-artifact file(s) are stored. If this URI does not have a scheme (e.g. http:, azureml:, etc.), then it is considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created. |  |  |
+| `storage_uri` | string | The HTTP URL of the Model. Use this URL with `az storage copy -s THIS_URL -d DESTINATION_PATH --recursive` to download the data.  | | |
 
 
 ## Remarks
@@ -303,65 +212,31 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
 
-## YAML: environment variables
+## YAML: hello pipeline
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
 
-## YAML: source code
+## YAML: pipeline input/output dependency
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-code.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
 
-## YAML: literal inputs
+## YAML: common pipeline job settings
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
 
-## YAML: write to default outputs
+## YAML: top-level input and overriding common pipeline job settings
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
 
-## YAML: write to named data output
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
+## YAML: autoML image classification job
 
-## YAML: datastore URI file input
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multiclass-task-fridge-items.yml":::
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
+## YAML: autoML image classification pipeline job
 
-## YAML: datastore URI folder input
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-multiclass-classification-fridge-items-pipeline/pipeline.yml":::
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
-
-## YAML: URI file input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
-
-## YAML: URI folder input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
-
-## YAML: Notebook via papermill
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-notebook.yml":::
-
-## YAML: basic Python model training
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
-
-## YAML: basic R model training with local Docker build context
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/r/iris/job.yml":::
-
-## YAML: distributed PyTorch
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
-
-## YAML: distributed TensorFlow
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
-
-## YAML: distributed MPI
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## Next steps
 
