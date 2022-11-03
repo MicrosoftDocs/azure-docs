@@ -26,18 +26,25 @@ ms.date: 10/27/2022
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
-    You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
+ By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
+    
+You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
 
-1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
+ If you want to disable automatic installation of components during the onboarding process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable automatic installation for each component.
 
-    - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
-    - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
-    - Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier).
+
+If you disable the automatic installation of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
+
+ - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
+ - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
+- Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+- Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
     > [!Note]
     > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
     >
-    > If you choose to disable all of the auto provision configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
+    > If you choose to disable all of the automatic installation configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
 
 ## Deploy the Defender profile
 
