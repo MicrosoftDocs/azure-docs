@@ -21,7 +21,7 @@ This feature provides application developers with the ability to lock certain pr
 
 ## What are sensitive properties?
 
-The following property usage scenarios are considered as sensitive.
+The following property usage scenarios are considered as sensitive:
 
 - Credentials (`keyCredentials`, `passwordCredentials`) where usage type is `Sign`. This is scenario where your application support SAML flow.
 - Credentials (`keyCredentials`, `passwordCredentials`) where usage type is `Verify`. In this scenario your application would be supporting OIDC client credentials flow.
