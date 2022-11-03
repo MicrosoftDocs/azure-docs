@@ -96,7 +96,7 @@ Now that the virtual network is in the network group, configurations will be app
 ```azurecli
 
 # Delete static member group
-az network manager group static-member delete --network-group-name  "CrossTenantNetworkGroup" --network-manager-name " myAVNM" --resource-group "myRG" --static-member-name "fabrikamVnet” 
+az network manager group static-member delete --network-group-name  "CrossTenantNetworkGroup" --network-manager-name " myAVNM" --resource-group "myRG" --static-member-name "targetVnet01” 
 
 # Delete scope connections
 az network manager scope-connection delete --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" 
