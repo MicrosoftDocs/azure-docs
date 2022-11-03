@@ -1,35 +1,23 @@
 ---
-title: Require MFA for Azure management with Conditional Access - Azure Active Directory
-description: Create a custom Conditional Access policy to require multifactor authentication for Azure management tasks
+title: Require MFA for guest users with Conditional Access - Azure Active Directory
+description: Create a custom Conditional Access policy requiring guest users perform multifactor authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 09/27/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, lhuangnorth
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Common Conditional Access policy: Require MFA for Azure management
+# Common Conditional Access policy: Require multifactor authentication for guest access
 
-Organizations use many Azure services and manage them from Azure Resource Manager based tools like:
-
-* Azure portal
-* Azure PowerShell
-* Azure CLI
-
-These tools can provide highly privileged access to resources that can make the following changes: 
-
-- Alter subscription-wide configurations 
-- Service settings
-- Subscription billing
-
-To protect these privileged resources, Microsoft recommends requiring multifactor authentication for any user accessing these resources. In Azure AD, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this suite should be the Azure Government Cloud Management API app. 
+Require guest users perform multifactor authentication when accessing your organization's resources.
 
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
@@ -37,19 +25,15 @@ To protect these privileged resources, Microsoft recommends requiring multifacto
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require users who access the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) suite do multifactor authentication.
-
-> [!CAUTION]
-> Make sure you understand how Conditional Access works before setting up a policy to manage access to Microsoft Azure Management. Make sure you don't create conditions that could block your own access to the portal.
-
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
+   1. Under **Include**, select **All guest and external users**
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management**, and select **Select**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+   1. Under **Exclude**, select any applications that don't require multifactor authentication.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.

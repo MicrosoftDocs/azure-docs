@@ -1,6 +1,6 @@
 ---
-title: Require compliant, hybrid joined devices, or MFA - Azure Active Directory
-description: Create a custom Conditional Access policy to require compliant, hybrid joined devices, or multifactor authentication
+title: Require administrators use compliant or hybrid joined devices - Azure Active Directory
+description: Create a custom Conditional Access policy to require compliant or hybrid joined devices for admins
 
 services: active-directory
 ms.service: active-directory
@@ -15,18 +15,32 @@ ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users
+# Common Conditional Access policy: Require compliant or hybrid Azure AD joined device for administrators
 
-Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet compliance requirements such as:
+Accounts that are assigned administrative rights are targeted by attackers. Requiring users with these highly privileged rights to perform actions from devices marked as compliant or hybrid Azure AD joined can help limit possible exposure.
 
-* Requiring a PIN to unlock
-* Requiring device encryption
-* Requiring a minimum or maximum operating system version
-* Requiring a device isn't jailbroken or rooted
-
-Policy compliance information is sent to Azure AD where Conditional Access decides to grant or block access to resources. More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
+More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
 
 Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+
+Microsoft recommends you require enable this policy for the following roles at a minimum, based on [identity score recommendations](../fundamentals/identity-secure-score.md):
+
+- Global administrator
+- Application administrator
+- Authentication Administrator
+- Billing administrator
+- Cloud application administrator
+- Conditional Access administrator
+- Exchange administrator
+- Helpdesk administrator
+- Password administrator
+- Privileged authentication administrator
+- Privileged Role Administrator
+- Security administrator
+- SharePoint administrator
+- User administrator
+
+Organizations can choose to include or exclude roles as they see fit.
 
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
@@ -41,12 +55,29 @@ The following steps will help create a Conditional Access policy to require mult
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Under **Include**, select **Directory roles** and choose built-in roles like:
+      - Global Administrator
+      - Application administrator
+      - Authentication Administrator
+      - Billing Administrator
+      - Cloud application Administrator
+      - Conditional Access Administrator
+      - Exchange Administrator
+      - Helpdesk Administrator
+      - Password Administrator
+      - Privileged authentication Administrator
+      - Privileged Role Administrator
+      - Security Administrator
+      - SharePoint Administrator
+      - User Administrator
+   
+      > [!WARNING]
+      > Conditional Access policies support built-in roles. Conditional Access policies are not enforced for other role types including [administrative unit-scoped](../roles/admin-units-assign-roles.md) or [custom roles](../roles/custom-create.md).
+
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-   1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
+   1. Select **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
