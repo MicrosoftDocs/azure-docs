@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 11/01/2022
-ms.reviewer: jushiman
+ms.reviewer: wwilliams
 ---
 
 # HX-series
