@@ -55,7 +55,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new storage accounts with it enabled.
+Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new storage accounts with that setting enabled. Configure this policy in audit mode to identify storage accounts that have Shared Key access enabled. After you have identified client applications that access those storage accounts using Shared Key authorization and changed them to use Azure AD authorization, you can change the **Effect** of the policy from `Audit` to `Deny` to block non-compliant changes.
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -68,9 +68,12 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 1. Choose **Assign policy**.
 1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
 1. For the **Policy definition** field, select the **More** button, and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
-1. Select **Next**
 
     :::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
+
+1. Select **Next**
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
 
 1. On the **Parameters** tab uncheck the **Only show parameters that need input or review** checkbox.
 1. Click the **Effect** drop-down to review the available parameter values, then select `Audit` (the default) and select **Next**.
@@ -93,13 +96,15 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 
 To monitor your storage accounts for compliance with the Shared Key access policy, follow these steps:
 
-1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for *Storage accounts should prevent shared key access* in the **Search** box to filter for the built-in policy.
-1. Select the policy name with the desired scope.
-1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
+1. On the Azure Policy dashboard, locate and select the policy assignment you created in the previous section.
+1. Select the **View compliance** tab.
+1. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
 
     :::image type="content" source="media/shared-key-authorization-prevent/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/shared-key-authorization-prevent/policy-compliance-report-portal.png":::
 
-To bring a storage account into compliance, [disable Shared Key access](#remediate-authorization-via-shared-key).
+To get more information about why a storage is non-compliant, select **Details** under **Compliance reason**.
+
+To bring a storage account into compliance, follow the remaining steps in this article to [detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to access the storage account and change those applications to use Azure AD authorization. Continue to monitor the policy for compliance until you are satisfied it is safe to [disable Shared Key access](#remediate-authorization-via-shared-key).
 
 ## Detect the type of authorization used by client applications
 
