@@ -50,10 +50,28 @@ Before subscribing to the custom topic, create a function to handle the events.
     1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
 
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" lightbox="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger.":::
-4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu. You can see the existing code for the function and update it on this page.
+4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu. 
 
     :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
+5. Replace the code with the following code.
 
+    ```csharp
+    #r "Azure.Messaging.EventGrid"
+    #r "System.Memory.Data"
+    
+    using Azure.Messaging.EventGrid;
+    using System;
+    
+    public static void Run(EventGridEvent eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.Data.ToString());
+    }        
+    ```
+    :::image type="content" source="./media/custom-event-to-function/function-updated-code.png" alt-text="Screenshot showing the Code + Test view of an Azure function with the updated code.":::    
+6. Select **Monitor** on the left menu, and then select **Logs**. 
+
+    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::    
+7. Keep this window or tab of the browser open so that you can see the received event information. 
 
 ## Create a custom topic
 
@@ -77,7 +95,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
     1. On the **Review + create** page, review settings and select **Create**. 
 5. After the custom topic has been created, select **Go to resource** link to see the following Event Grid topic page for the topic you created. 
 
-    :::image type="content" source="./media/custom-event-to-function/event-grid-topic-home-page.png" alt-text="Image showing the home page for your Event Grid custom topic.":::
+    :::image type="content" source="./media/custom-event-to-function/event-grid-topic-home-page.png" lightbox="./media/custom-event-to-function/event-grid-topic-home-page.png" alt-text="Image showing the home page for your Event Grid custom topic.":::
 
 ## Subscribe to custom topic
 
@@ -115,9 +133,13 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
     :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Image showing Cloud Shell - Bash window":::
 1. Set the `topicname` and `resourcegroupname` variables that will be used in the commands. 
 
+    Replace `TOPICNAME` with the name of your Event Grid topic. 
+
     ```azurecli
     topicname="TOPICNAME"
     ```
+
+    Replace `RESOURCEGROUPNAME` with the name of the Azure resource group that contains the Event Grid topic. 
 
     ```azurecli
     resourcegroupname="RESOURCEGROUPNAME"
@@ -196,7 +218,7 @@ The second example uses PowerShell to perform similar steps.
 ### Verify that function received the event
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Navigate to your Event Grid triggered function and open the logs. You should see a copy of the data payload of the event in the logs. If you don't make sure you open the logs window first, or hit reconnect, and then try sending a test event again.
 
-:::image type="content" source="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
+:::image type="content" source="./media/custom-event-to-function/successful-function.png" lightbox="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, delete the resources you created in this article.
