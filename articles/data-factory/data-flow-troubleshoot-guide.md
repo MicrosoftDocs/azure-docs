@@ -197,7 +197,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-CSVWriter-InvalidQuoteSetting 
 
 - **Message**: Job failed while writing data with error: Quote character and escape character cannot be empty if column value contains column delimiter 
-- **Cause**: Both quote characters and the escape characters are empty when column value contains column delimiter. 
+- **Cause**: Both quote characters and escape characters are empty when the column value contains column delimiter. 
 - **Recommendation**: Set your quote character or escape character. 
 
 ### Error code: DF-Delimited-ColumnDelimiterMissed
@@ -501,12 +501,13 @@ F-D
 - **Cause**: You are not permitted to access the storage account either due to missing roles for managed identity/service principal authentication or network firewall settings. 
 - **Recommendation**: When using managed identity/service principal authentication, 
     1. For source: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Reader** role. 
-    2. For sink: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Contributor** role. 
+    2. For sink: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Contributor** role. <br>
+
     Also please ensure that the network firewall settings in the storage account are configured correctly, as turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. 
 
 ### Error code: DF-Executor-UnreachableStorageAccount 
 
-- **Message**: System is not able to resolve the IP address of the host. Please verify that your host name is correct or check if your DNS server can resolve the host to an IP address successfully 
+- **Message**: System is not able to resolve the IP address of the host. Please verify that your host name is correct or check if your DNS server is able to resolve the host to an IP address successfully 
 - **Cause**: Unable to reach the given storage account. 
 - **Recommendation**: Check the name of the storage account and make sure the storage account exists. 
 
