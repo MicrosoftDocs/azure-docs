@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to calculate the cost of storing and maintaining data in the archive storage tier.
 author: normesta
 ms.author: normesta
-ms.date: 10/17/2022
+ms.date: 11/02/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
