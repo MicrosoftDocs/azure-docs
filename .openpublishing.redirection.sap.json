@@ -318,6 +318,60 @@
       "redirect_url": "/azure/center-sap-solutions/automation/bash/update-sas-token",
       "redirect_document_id": true
     },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapautomationregion.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/new-sapautomationregion",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapdeployer.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/new-sapdeployer",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-saplibrary.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/new-saplibrary",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapsystem.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/new-sapsystem",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapworkloadzone.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/new-sapworkloadzone",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapautomationregion.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/remove-sapautomationregion",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapsystem.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/remove-sapsystem",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-set-sapsecrets.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/set-sapsecrets",
+      "redirect_document_id": true
+    },
+    
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-update-tfstate.md",
+      "redirect_url": "/azure/center-sap-solutions/automation/module/update-tfstate",
+      "redirect_document_id": true
+    },
     
   ]
 }
