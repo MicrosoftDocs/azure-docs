@@ -21,12 +21,12 @@ Machine learning model training is usually an iterative process and requires sig
 Note that interactive training is supported on **AzureML Compute Cluster** and **Azure Arc-enabled Kubernetes Cluster**.
 
 ## Pre-requisites
-- [Get started with training on AzureML](./how-to-train-model.md) 
-- To use **VS Code**, please [follow this guide](/how-to-setup-vs-code) to set-up the Azure Machine Learning & the Azure Machine Learning -- Remote extension.
-- Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these installed by default)
+- Review [getting started with training on AzureML](./how-to-train-model.md).
+- To use **VS Code**, please [follow this guide](/how-to-setup-vs-code) to set-up the Azure Machine Learning extension.
+- Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these installed by default).
 - Interactive jobs cannot be used on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported. 
 
-  ![screenshot supported-distribution-type](media/interactive-jobs/supported-distribution-type.png) 
+  ![screenshot supported-distribution-types](media/interactive-jobs/supported-distribution-types.png)
 
 ## Interact with your job container
 
@@ -94,18 +94,22 @@ Note that you have to import the `JobService` class from the `azure.ai.entities`
         compute="<name-of-compute>",
         services={
           "My_jupyterlab": JobService(
-            job_service_type = "jupyter_lab"
+            job_service_type="jupyter_lab",
+            nodes="all"
           ),
           "My_vscode": JobService(
-            job_service_type = "vs_code"
+            job_service_type="vs_code",
+            nodes="all"
           ),
           "My_tensorboard": JobService(
-            job_service_type = "tensor_board"
-            logs = "logs/tblogs" # relative path of Tensorboard logs (same as in your training script)
+            job_service_type="tensor_board"
+            logs = "logs/tblogs" # relative path of Tensorboard logs (same as in your training script),
+            nodes="all"
           ),
           "My_ssh": JobService(
-            job_service_type = "ssh",
-            sshPublicKeys = "<add-public-key>"
+            job_service_type="ssh",
+            sshPublicKeys="<add-public-key>",
+            nodes="all"
           ),
         }
     )
@@ -142,16 +146,20 @@ Note that you have to import the `JobService` class from the `azure.ai.entities`
     services:
         my_vs_code:
           job_service_type: vs_code
+          nodes: all
         my_tensor_board:
           job_service_type: tensor_board
           properties:
             logDir: "logs/tblogs" # relative path of Tensorboard logs (same as in your training script)
+          nodes: all
         my_jupyter_lab:
           job_service_type: jupyter_lab
+          nodes: all
         my_ssh:
          job_service_type: ssh
          properties:
            sshPublicKeys: <paste the entire pub key content>
+         nodes: all
     ```
     The `services` section specifies the training applications you want to interact with.  
 
