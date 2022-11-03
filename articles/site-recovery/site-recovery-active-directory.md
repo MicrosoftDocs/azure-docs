@@ -1,12 +1,12 @@
 ---
 title: Set up Active Directory/DNS disaster recovery with Azure Site Recovery
 description: This article describes how to implement a disaster recovery solution for Active Directory and DNS with Azure Site Recovery.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Set up disaster recovery for Active Directory and DNS

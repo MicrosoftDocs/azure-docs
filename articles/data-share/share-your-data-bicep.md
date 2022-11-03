@@ -1,11 +1,11 @@
 ---
 title: 'Share outside your org (Bicep) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and Bicep.
-author: whhender 
-ms.author: whhender 
+author: sidontha 
+ms.author: sidontha 
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 04/04/2022
+ms.date: 10/27/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 

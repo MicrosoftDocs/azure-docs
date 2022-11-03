@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/03/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -64,7 +64,7 @@ After pre migration of the accounts is complete, your custom policy and REST API
 
 To see an example custom policy and REST API, see the [seamless user migration sample](https://aka.ms/b2c-account-seamless-migration) on GitHub.
 
-![Flowchart diagram of the seamless migration approach to user migration](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagram: Seamless migration flow*
+:::image type="content" source="./media/user-migration/diagram-01-seamless-migration.png" alt-text="Flowchart diagram of the seamless migration approach to user migration":::
 
 ## Security
 
@@ -76,10 +76,10 @@ The seamless migration approach uses your own custom REST API to validate a user
 
 Not all information in the legacy identity provider should be migrated to your Azure AD B2C directory. Identify the appropriate set of user attributes to store in Azure AD B2C before migrating.
 
-- **DO** store in Azure AD B2C
+- **DO** store in Azure AD B2C:
   - Username, password, email addresses, phone numbers, membership numbers/identifiers.
   - Consent markers for privacy policy and end-user license agreements.
-- **DO NOT** store in Azure AD B2C
+- **DON'T** store in Azure AD B2C:
   - Sensitive data like credit card numbers, social security numbers (SSN), medical records, or other data regulated by government or industry compliance bodies.
   - Marketing or communication preferences, user behaviors, and insights.
 
