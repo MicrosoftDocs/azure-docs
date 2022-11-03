@@ -51,11 +51,11 @@ The SAP on Azure deployment automation framework has two main components:
 
 The following diagram shows the dependency between the control plane and the application plane.
 
- :::image type="content" source="media/automation-devops/automation-devops-tutorial-design.png" alt-text="DevOps tutorial infrastructure design":::
+ :::image type="content" source="media/devops/automation-devops-tutorial-design.png" alt-text="DevOps tutorial infrastructure design":::
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework environment.":::
+:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework environment.":::
 
 
 
@@ -63,7 +63,7 @@ The framework uses Terraform for infrastructure deployment, and Ansible for the 
 
 The management zone contains the control plane infrastructure from which other environments are deployed. Once the management zone is deployed, you rarely, if ever, need to redeploy.
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
+:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
 
 The **Deployer** is the execution engine of the SAP automation framework. This  pre-configured virtual machine (VM) is used for executing Terraform and Ansible commands.
 
@@ -77,7 +77,7 @@ You configure the deployer and library in a Terraform `.tfvars` variable file. S
 
 An SAP application typically has multiple deployment tiers. For example, you might have development, quality assurance, and production tiers. The SAP on Azure Deployment Automation Framework refers to these tiers as workload zones.
 
-:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Workload zone.":::
+:::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Workload zone.":::
 
 The **SAP Workload zone** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](automation-configure-workload-zone.md)
 
@@ -357,13 +357,13 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
     The contents of the Deployer and SAP Library resource group are shown below.
 
-    :::image type="content" source="media/automation-tutorial/deployer-resource-group.png" alt-text="Deployer resources":::
+    :::image type="content" source="media/tutorial/deployer-resource-group.png" alt-text="Deployer resources":::
 
-    :::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="Library resources":::
+    :::image type="content" source="media/tutorial/sap-library-resource-group.png" alt-text="Library resources":::
 
     The Terraform state file is now placed in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. The contents of the 'tfstate' container after a successful control plane deployment can be seen below.
 
-    :::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
+    :::image type="content" source="media/tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
 ### Common issues and solutions
 

@@ -15,7 +15,7 @@ The control plane for the [SAP on Azure Deployment Automation Framework](automat
  - Deployer
  - SAP library
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
+:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
 
 ## Deployer
 

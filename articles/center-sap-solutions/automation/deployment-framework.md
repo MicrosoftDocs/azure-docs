@@ -39,7 +39,7 @@ The Distributed (Highly Available) deployment is similar to the Distributed arch
 
 The dependency between the control plane and the application plane is illustrated in the diagram below. In a typical deployment, a single control plane is used to manage multiple SAP deployments.
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework's dependency between the control plane and application plane.":::
+:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework's dependency between the control plane and application plane.":::
 
 ## About the control plane
 
@@ -64,7 +64,7 @@ The key components of the control plane are:
 
 The following diagram shows the key components of the control plane and workload zone.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework environment.":::
+:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP on Azure Deployment Automation Framework environment.":::
 
 The application configuration will be performed from the Ansible Controller in the Control plane using a set of pre-defined playbooks. These playbooks will:
 
@@ -137,7 +137,7 @@ The following terms are important concepts for understanding the automation fram
 
 The following diagram shows the relationships between SAP systems, workload zones (environments), and landscapes. In this example setup, the customer has three SAP landscapes: ECC, CRM, and BW. Each landscape contains three workload zones: production, quality assurance, and development. Each workload zone contains one or more systems.
 
-:::image type="content" source="./media/automation-deployment-framework/sap-terms.png" alt-text="Diagram of SAP configuration with landscapes, workflow zones, and systems.":::
+:::image type="content" source="./media/deployment-framework/sap-terms.png" alt-text="Diagram of SAP configuration with landscapes, workflow zones, and systems.":::
 
 ### Deployment components
 

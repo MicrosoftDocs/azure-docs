@@ -91,7 +91,7 @@ The following sample folder hierarchy shows how to structure your configuration 
 | LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](automation-deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
 | SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](automation-configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
 
-:::image type="content" source="./media/automation-plan-deployment/folder-structure.png" alt-text="Screenshot of example folder structure, showing separate folders for SAP HANA and multiple workload environments.":::
+:::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot of example folder structure, showing separate folders for SAP HANA and multiple workload environments.":::
 
 ## Supported deployment scenarios
 

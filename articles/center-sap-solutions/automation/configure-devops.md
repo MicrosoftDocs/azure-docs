@@ -107,7 +107,7 @@ Choose the repository type 'Git' and provide a name for the repository, for exam
 In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally.
 Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal. For more info, see [Cloning a repository](/azure/devops/repos/git/clone?view=azure-devops#clone-an-azure-repos-git-repo&preserve-view=true)
 
-:::image type="content" source="./media/automation-devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
+:::image type="content" source="./media/devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
 
 ### Manually importing the repository content using a local clone
 
@@ -119,7 +119,7 @@ Copy the content from the zip file to the root folder of your local clone.
 
 Open the local folder in Visual Studio code, you should see that there are changes that need to be synchronized by the indicator by the source control icon as is shown in the picture below.
 
-:::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
+:::image type="content" source="./media/devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
 
 Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
@@ -304,11 +304,11 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
 1. From your home page, open your user settings, and then select _Personal access tokens_.
 
-   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+   :::image type="content" source="./media/devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
 1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_, _Read & execute_ is selected for _Build_, and _Read, create, & manage_ is selected for _Variable Groups_. Write down the created token value.
 
-   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
+   :::image type="content" source="./media/devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
 ## Variable definitions
 
@@ -391,7 +391,7 @@ To remove the Azure resources, you need an Azure Resource Manager service connec
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
-:::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
+:::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
 
 Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Enter the target subscription, typically the control plane subscription, and provide the service principal details. Validate the credentials using the _Verify_ button. For more information on how to create a service principal, see [Creating a Service Principal](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
@@ -402,7 +402,7 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 > [!NOTE]
 > Most of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign "Contribute" permissions to the 'Build Service' using the Security tab of the source code repository in the Repositories section in Project settings.
 
-:::image type="content" source="./media/automation-devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
+:::image type="content" source="./media/devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
 
 ## Deploy the Control Plane
 

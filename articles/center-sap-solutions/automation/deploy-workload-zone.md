@@ -22,7 +22,7 @@ The following services are provided by the SAP workload zone:
 - Storage account for boot diagnostics
 - Storage account for cloud witnesses
 
-:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Diagram SAP Workload Zone.":::
+:::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Diagram SAP Workload Zone.":::
 
 The workload zones are typically deployed in spokes in a hub and spoke architecture. They may be in their own subscriptions.
 

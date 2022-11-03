@@ -41,7 +41,7 @@ Once you have downloaded the ssh key for the deployer, you can use it to connect
 
 1. Find the resource group for the Deployer. The name starts with `MGMT-[REGION_CODE]-DEP00` unless you have deployed the control plane using a custom naming convention. The contents of the Deployer resource group should look like the image shown below.
 
-    :::image type="content" source="media/automation-tutorial/deployer-resource-group.png" alt-text="Screenshot of Deployer resources":::
+    :::image type="content" source="media/tutorial/deployer-resource-group.png" alt-text="Screenshot of Deployer resources":::
 
 1. Find the public IP for the deployer. The name should end with `-pip`. Filter by the **type** if necessary. 
 

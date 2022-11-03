@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
 
-:::image type="content" source="./media/automation-deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
+:::image type="content" source="./media/deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
 
 
 ## Workload zone deployment configuration

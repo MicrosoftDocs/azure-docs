@@ -60,7 +60,7 @@ These steps reference and use the [default naming convention](automation-naming.
 
 The deployed infrastructure is shown in the diagram below.
 
- :::image type="content" source="media/automation-devops/automation-devops-tutorial-design.png" alt-text="Picture showing the DevOps tutorial infrastructure design":::
+ :::image type="content" source="media/devops/automation-devops-tutorial-design.png" alt-text="Picture showing the DevOps tutorial infrastructure design":::
 
 
 > [!Note]
@@ -78,11 +78,11 @@ Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' v
 
 Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
 
-:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Screenshot of the DevOps tutorial run pipeline dialog.":::
+:::image type="content" source="media/devops/automation-run-pipeline.png" alt-text="Screenshot of the DevOps tutorial run pipeline dialog.":::
 
 You can track the progress in the Azure DevOps Services portal. Once the deployment is complete, you can see the Control Plane details in the _Extensions_ tab.
 
- :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="Screenshot of the DevOps run pipeline results.":::
+ :::image type="content" source="media/devops/automation-run-pipeline-control-plane.png" alt-text="Screenshot of the DevOps run pipeline results.":::
 
 
 ## Deploy the Workload zone
@@ -114,7 +114,7 @@ Run the pipeline by selecting the _Configuration and SAP installation_ pipeline 
 
 Choose the playbooks to execute.
 
-:::image type="content" source="media/automation-devops/automation-os-sap.png" alt-text="Screenshot showing the DevOps tutorial, OS and SAP configuration.":::
+:::image type="content" source="media/devops/automation-os-sap.png" alt-text="Screenshot showing the DevOps tutorial, OS and SAP configuration.":::
 
 You can track the progress in the Azure DevOps Services portal. 
 

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
 
-:::image type="content" source="./media/automation-deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
+:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
 
 > [!IMPORTANT]
 > Control Plane Web Application is currently in PREVIEW and not yet available in the main branch.
