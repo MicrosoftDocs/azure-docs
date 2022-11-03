@@ -30,7 +30,7 @@ Before you can set up managed identities for Front Door, you must have a Front D
 
 1. Go to an existing Azure Front Door Standard or Premium profile. Select **Identity (preview)** under *Settings*.
 
-    :::image type="content" source="./media/configure-managed-identity/overview.png" alt-text="Screenshot of the identity button under settings for a Front Door profile.":::
+    :::image type="content" source="./media/managed-identity/overview.png" alt-text="Screenshot of the identity button under settings for a Front Door profile.":::
 
 1. Select either **System assigned** or **User assigned**.
 
@@ -42,15 +42,15 @@ Before you can set up managed identities for Front Door, you must have a Front D
 
 1. Toggle the *Status* to **On** and then select **Save**.
 
-    :::image type="content" source="./media/configure-managed-identity/system-assigned.png" alt-text="Screenshot of the system assigned managed identity configuration page.":::
+    :::image type="content" source="./media/managed-identity/system-assigned.png" alt-text="Screenshot of the system assigned managed identity configuration page.":::
 
 1. You'll be prompted with a message to confirm you would like to create a system managed identity for the Front Door profile. Select **Yes** to confirm.
 
-    :::image type="content" source="./media/configure-managed-identity/system-assigned-confirm.png" alt-text="Screenshot of the system assigned managed identity confirmation message.":::
+    :::image type="content" source="./media/managed-identity/system-assigned-confirm.png" alt-text="Screenshot of the system assigned managed identity confirmation message.":::
 
 1. Once the system assigned managed identity has been created and registered with Azure AD, you can use the **Object (principal) ID** to allow Azure Front Door access to your Key Vault.
 
-    :::image type="content" source="./media/configure-managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Azure Active Directory.":::
+    :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Azure Active Directory.":::
 
 ### User assigned
 
@@ -58,51 +58,51 @@ Before you can set up managed identities for Front Door, you must have a Front D
 
 1. Select the **User assigned** tab and then select **+ Add**.
 
-    :::image type="content" source="./media/configure-managed-identity/user-assigned.png" alt-text="Screenshot of the user assigned managed identity configuration page.":::
+    :::image type="content" source="./media/managed-identity/user-assigned.png" alt-text="Screenshot of the user assigned managed identity configuration page.":::
 
 1. Search and select the user assigned manage identity. Then select **Add** to add the user managed identity to the Azure Front Door profile.
 
-    :::image type="content" source="./media/configure-managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add user assigned managed identity page.":::
+    :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add user assigned managed identity page.":::
 
 1. You'll now see the name of the user assigned managed identity you've selected show in the Azure Front Door profile.
 
-    :::image type="content" source="./media/configure-managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add user assigned managed identity added to Front Door profile.":::
+    :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add user assigned managed identity added to Front Door profile.":::
 
 ## Configure Key Vault access policy
 
 1. Navigate to your Azure Key Vault.
 
-    :::image type="content" source="./media/configure-managed-identity/key-vault-list.png" alt-text="Screenshot of the Key Vault resource list.":::
+    :::image type="content" source="./media/managed-identity/key-vault-list.png" alt-text="Screenshot of the Key Vault resource list.":::
 
 1. Select **Access policies** from under *Settings* and then select **+ Create**.
 
-    :::image type="content" source="./media/configure-managed-identity/access-policies.png" alt-text="Screenshot of the access policies page for a Key Vault.":::
+    :::image type="content" source="./media/managed-identity/access-policies.png" alt-text="Screenshot of the access policies page for a Key Vault.":::
 
 1. On the **Permissions** tab of the *Create an access policy* page, select **List** and **Get** under *Secret permissions*. Then select **Next** to configure the next tab.
 
-    :::image type="content" source="./media/configure-managed-identity/permissions.png" alt-text="Screenshot of the permissions tab for the Key Vault access policy.":::
+    :::image type="content" source="./media/managed-identity/permissions.png" alt-text="Screenshot of the permissions tab for the Key Vault access policy.":::
 
 1. On the *Principal* tab, paste the **object (principal) ID** if you're using a system managed identity or enter a **name** if you're using a user assigned manged identity. Then select **Next** to configure the next tab.
 
-    :::image type="content" source="./media/configure-managed-identity/system-principal.png" alt-text="Screenshot of the principal tab for the Key Vault access policy.":::
+    :::image type="content" source="./media/managed-identity/system-principal.png" alt-text="Screenshot of the principal tab for the Key Vault access policy.":::
 
 1. On the *Application* tab, the application has already been selected for you. Select **Next** to go to the *Review + create* tab.
 
-    :::image type="content" source="./media/configure-managed-identity/application.png" alt-text="Screenshot of the application tab for the Key Vault access policy.":::
+    :::image type="content" source="./media/managed-identity/application.png" alt-text="Screenshot of the application tab for the Key Vault access policy.":::
 
 1. Review the access policy settings and then select **Create** to set up the access policy.
 
-    :::image type="content" source="./media/configure-managed-identity/create.png" alt-text="Screenshot of the review and create tab for the Key Vault access policy.":::
+    :::image type="content" source="./media/managed-identity/create.png" alt-text="Screenshot of the review and create tab for the Key Vault access policy.":::
 
 ## Verify access
 
 1. Go to the Azure Front Door profile you enabled managed identity and select **Secret** from under *Settings*.
 
-    :::image type="content" source="./media/configure-managed-identity/secrets.png" alt-text="Screenshot of accessing secrets from under settings of a Front Door profile.":::
+    :::image type="content" source="./media/managed-identity/secrets.png" alt-text="Screenshot of accessing secrets from under settings of a Front Door profile.":::
 
 1. Confirm **Managed identity** appears under the *Access status* column for the certificate used in Front Door.
 
-    :::image type="content" source="./media/configure-managed-identity/confirm-set-up.png" alt-text="Screenshot of Azure Front Door using managed identity to access certificate in Key Vault.":::
+    :::image type="content" source="./media/managed-identity/confirm-set-up.png" alt-text="Screenshot of Azure Front Door using managed identity to access certificate in Key Vault.":::
 
 ## Next steps
 
