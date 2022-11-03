@@ -41,6 +41,9 @@ Application Gateway supports certificates issued from both public and privately 
 - CA certificates issued from well-known certificate authorities: Intermediate and root certificates are commonly found in trusted certificate stores and enable trusted connections with little to no additional configuration on the device.
 - CA certificates issued from private certificate authorities (self-signed): These certificates are typically issued privately via your organization and not trusted by other entities. Certificates must be loaded on to devices or trusted certificate stores to establish trust.
 
+> [!NOTE]
+> When issuing client certificates from well established certificate authorities, consider working with the certificate authority to see if an intermediate certificate can be issued for your organization to prevent inadvertent cross-organizational client certificate authentication.
+
 ## Additional client authentication validation
 
 ### Verify client certificate DN
