@@ -1586,7 +1586,6 @@ Assign the Organizational Messages Writer role to users who need to do the follo
 - Write, publish, and delete organizational messages using Microsoft 365 admin center or Microsoft Endpoint Manager
 - Manage organizational message delivery options using Microsoft 365 admin center or Microsoft Endpoint Manager
 - Read organizational message delivery results using Microsoft 365 admin center or Microsoft Endpoint Manager
-- Enable or disable permission options for organizational messages using Microsoft 365 admin center or Microsoft Endpoint Manager
 - View usage reports and most settings in the Microsoft 365 admin center, but can't make changes 
 
 > [!div class="mx-tableFixed"]
