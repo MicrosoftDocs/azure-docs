@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
 ms.author: erd
-ms.date: 09/07/2022
+ms.date: 11/03/2022
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -21,8 +21,7 @@ The Run Command feature uses the virtual machine (VM) agent to scripts within an
 The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action orientated Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 
 - Parallel execution of multiple scripts 
-- Sequential execution of scripts 
-- RunCommand script can be canceled  
+- Sequential execution of scripts   
 - User specified script timeout 
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
@@ -40,7 +39,7 @@ az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group
 ```
 
 ### List all deployed RunCommand resources on a VM 
-This command will return a full list of previously deployed Run Commands along with their properties. 
+This command will return a full list of previously deployed Run Commands along with their properties.
 
 ```azurecli-interactive
 az vm run-command list --vm-name "myVM" --resource-group "myRG"
@@ -52,6 +51,9 @@ This command will retrieve current execution progress, including latest output, 
 ```azurecli-interactive
 az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
+
+>[!Note] Output and error fields in `instanceView` is limited to last 4KB.
+>If you'd like to access the full output and error, you have the option of forwarding the output and error data to storage append blobs using `-outputBlobUri` and `-errorBlobUri` parameters while executing Run Command using `Set-AzVMRunCommand` or `Set-AzVMssRunCommand`.
 
 ### Delete RunCommand resource from the VM
 Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
@@ -267,9 +269,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?$expand=instanceView&api-version=2019-12-01 
 ```
 
-### Cancel a specific Run Command deployment 
-
-To cancel a running deployment, you can PUT or PATCH on the running instance of Run Command and specify a blank script in the request body. This will cancel the ongoing execution. 
+### Delete a specific Run Command deployment
 
 You can also delete the instance of Run Command.  
 
