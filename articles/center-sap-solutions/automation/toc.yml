@@ -1,20 +1,24 @@
 items:
-- name: SAP deployment automation framework
+- name: SAP on Azure Deployment Automation Framework documentation
   href: index.yml
-- name: Automation framework (Azure VMs)
+
+- name: Overview
   items:
-  - name: About deployment automation framework
+  - name: About SAP on Azure Deployment Automation Framework
     href: deployment-framework.md
-  - name: Supported platforms and features
-    href: supportability.md
-  - name: Get started with automation framework
-    href: get-started.md
-  - name: Plan your automated deployment
-    href: plan-deployment.md
-  - name: Naming conventions
-    href: naming.md
   - name: Frequently asked questions
     href: faq.yml
+
+- name: Concepts
+  items:
+  - name: Supported platforms and features
+    href: supportability.md
+  - name: Naming
+    items:
+    - name: Naming conventions
+      href: naming.md
+    - name: Using a custom naming convention
+      href: naming-module.md
   - name: Configuration
     items:
     - name: Configure Azure DevOps
@@ -31,12 +35,45 @@ items:
       href: configure-sap-parameters.md
     - name: Configure custom disk sizing
       href: configure-extra-disks.md
-    - name: Using a custom naming convention
-      href: naming-module.md
     - name: Configure external tools
       href: tools-configuration.md
-  - name: Script reference
+
+- name: How-to guides
+  - name: Get started with automation framework
+    href: get-started.md
+  - name: Plan your automated deployment
+    href: plan-deployment.md
+  - name: Deployment
     items:
+    - name: Deploy the control plane
+      href: deploy-control-plane.md
+    - name: Deploy the workload zone
+      href: deploy-workload-zone.md
+    - name: Deploy the SAP system
+      href: deploy-system.md
+    - name: Use Ansible for system configuration
+      href: run-ansible.md
+    - name: Deployment hands-on lab
+      href: tutorial.md
+    - name: Deployment DevOps hands-on lab
+      href: devops-tutorial.md
+    - name: Manual infrastructure deployment
+      href: manual-deployment.md
+    - name: Sample deployment configurations
+      href: new-vs-existing.md
+  - name: SAP Bill of Materials
+    items:
+    - name: Download and prepare software media
+      href: software.md
+    - name: Get SAP media for BOM
+      href: bom-get-files.md
+    - name: Prepare BOM
+      href: bom-prepare.md
+    - name: Create automation template files
+      href: bom-templates-db.md
+
+- name: Reference
+  items:
     - name: Bash
       items:
       - name: Bash scripts for automation framework
@@ -83,31 +120,3 @@ items:
         href: module/set-sapsecrets.md
       - name: Update the Terraform state file using PowerShell
         href: module/update-tfstate.md
-  - name: Tutorials
-    items:
-    - name: Deploy the control plane
-      href: deploy-control-plane.md
-    - name: Deploy the workload zone
-      href: deploy-workload-zone.md
-    - name: Deploy the SAP system
-      href: deploy-system.md
-    - name: Use Ansible for system configuration
-      href: run-ansible.md
-    - name: Deployment hands-on lab
-      href: tutorial.md
-    - name: Deployment DevOps hands-on lab
-      href: devops-tutorial.md
-    - name: Manual infrastructure deployment
-      href: manual-deployment.md
-    - name: Sample deployment configurations
-      href: new-vs-existing.md
-  - name: SAP software
-    items:
-    - name: Download and prepare software media
-      href: software.md
-    - name: Get SAP media for BOM
-      href: bom-get-files.md
-    - name: Prepare BOM
-      href: bom-prepare.md
-    - name: Create automation template files
-      href: bom-templates-db.md
