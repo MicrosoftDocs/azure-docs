@@ -24,9 +24,9 @@ Note that interactive training is supported on **AzureML Compute Cluster** and *
 - [Get started with training on AzureML](./how-to-train-model.md) 
 - To use **VS Code**, please [follow this guide](/how-to-setup-vs-code) to set-up the Azure Machine Learning & the Azure Machine Learning -- Remote extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these installed by default)
-- Interactive jobs cannot be used on distributed training runs where the distribution type is anything other than Pytorch or Tensorflow (for example, MPI or custom)
-  
-  ![screenshot select-distribution](media/select-distribution.png) 
+- Interactive jobs cannot be used on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported. 
+
+  ![screenshot supported-distribution-type](media/interactive-jobs/supported-distribution-type.png) 
 
 ## Interact with your job container
 
@@ -235,7 +235,7 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 
 > [!NOTE]
-> If you use debugpy to start your job, your job will **not** execute unless you attach the debugger in VS Code and execute the script. If this is not done, the compute will be reserved until the job timesout (default is ) or until the job is [cancelled](./how-to-interactive-jobs.md#end-job).
+> If you use debugpy to start your job, your job will **not** execute unless you attach the debugger in VS Code and execute the script. If this is not done, the compute will be reserved until the job is [cancelled](./how-to-interactive-jobs.md#end-job).
 
 ## Next steps
 
