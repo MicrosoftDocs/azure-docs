@@ -42,6 +42,22 @@ In contrast, the new OT monitoring software release notes:
 
 For more information, see [OT monitoring software release notes](release-notes.md).
 
+## October 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+
+### Enhanced OT monitoring alert reference
+
+Our alert reference article now includes the following details for each alert:
+
+- **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities
+
+- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. The *cyberx* user can modify alert thresholds as needed from the sensor's **Support** page.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md), specifically [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
+
 ## September 2022
 
 |Service area  |Updates  |
