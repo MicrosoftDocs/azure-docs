@@ -29,7 +29,7 @@ Azure Spring Apps offers default health probe rules for every application. This 
 
 - *Readiness probes* determine when an app instance is ready to start accepting traffic. For example, readiness probes can control which app instances are used as backends for the application. When an app instance isn't ready, it's removed from Kubernetes service discovery. For more information, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
 
-- *Startup probes* determine when an application has started. A startup probe disables liveness and readiness checks until startup succeeds, ensuring that liveness and readiness probes don't interfere with application startup. You can use use startup probes to perform liveness checks on slow starting applications, preventing the app from terminating before it's up and running.
+- *Startup probes* determine when an application has started. A startup probe disables liveness and readiness checks until startup succeeds, ensuring that liveness and readiness probes don't interfere with application startup. You can use startup probes to perform liveness checks on slow starting applications, preventing the app from terminating before it's up and running.
 
 ## Prerequisites
 
@@ -90,13 +90,13 @@ There are three ways you can check an app instance using a probe. Each probe mus
 
 #### [Azure portal](#tab/azure-portal)
 
-Use the following steps to customize your application using Azure portal:
+Use the following steps to customize your application using Azure portal.
 
 1. Under **Settings**, select **Apps**, and then select the application from the list.
 
    :::image type="content" source="media/how-to-configure-health-probes-graceful-termination/select-app.jpg" lightbox="media/how-to-configure-health-probes-graceful-termination/select-app.jpg" alt-text="Screenshot of Azure portal showing the Apps page.":::
 
-1. Select **Configuration** in the left naviation pane, select **Health probes**, and then specify Health proble properties.
+1. Select **Configuration** in the left navigation pane, select **Health probes**, and then specify Health probe properties.
 
    :::image type="content" source="media/how-to-configure-health-probes-graceful-termination/probe-config.jpg" lightbox="media/how-to-configure-health-probes-graceful-termination/probe-config.jpg" alt-text="Screenshot of the Azure portal Configuration page showing the Health probes tab.":::
 
@@ -106,14 +106,14 @@ Use the following steps to customize your application using Azure portal:
 
 #### [Azure CLI](#tab/azure-cli)
 
-Use the following steps show you how to customize your application using Azure CLI.
+Use the following steps to customize your application using Azure CLI.
 
-1. Use the following command to create an application with liveness probe and readiness probe:
+1. Use the following command to create an application with a liveness probe and readiness probe:
 
    ```azurecli
    az spring app create \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <service-instance-name> \
        --name <application-name> \
        --enable-liveness-probe true \
        --liveness-probe-config <path-to-liveness-probe-json-file> \ 
@@ -138,110 +138,109 @@ Use the following steps show you how to customize your application using Azure C
    }
    ```
 
-   > [!NOTE]
-   > Azure Spring Apps also support two more kinds of probe actions, as shown in the following JSON file examples:
-   >
-   > ```json
-   > "probeAction": {
-   >     "type": "HTTPGetAction",
-   >     "scheme": "HTTP",
-   >     "path": "/anyPath"
-   > }
-   > ```
-   >
-   > and
-   >
-   > ```json
-   > "probeAction": {
-   >     "type": "ExecAction",
-   >     "command": ["cat", "/tmp/healthy"]
-   > }
-   > ```
+   The following example shows an `HTTPGetAction` action:
 
-1. Optionally, protect slow starting containers with a startup probe by using the following command:
+   ```json
+   "probeAction": {
+       "type": "HTTPGetAction",
+       "scheme": "HTTP",
+       "path": "/anyPath"
+   }
+   ```
+
+   The following example shows an ``ExecAction` action:
+
+   ```json
+   "probeAction": {
+       "type": "ExecAction",
+       "command": ["cat", "/tmp/healthy"]
+   }
+   ```
+
+1. Optionally, use the following command to protect slow starting containers with a startup probe:
 
    ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <service-instance-name> \
        --name <application-name> \
        --enable-startup-probe true \
        --startup-probe-config <path-to-startup-probe-json-file>
    ```
 
-1. Optionally, disable any specific health probe using the following command:
+1. Optionally, use the following command to disable a health probe:
 
    ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <service-instance-name> \
        --name <application-name> \
        --enable-liveness-probe false
    ```
 
-1. Optionally, set the termination grace period seconds using the following command:
+1. Optionally, use the following command to set the termination grace period:
 
    ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <service-instance-name> \
        --name <application-name> \
        --grace-period <termination-grace-period-seconds>
    ```
 
-## Use best practices
+## Best practices
 
-Use the following best practices when adding your own persistent storage to Azure Spring Apps.
+Use the following best practices when adding your own persistent storage to Azure Spring Apps:
 
-- Use liveness and readiness probe together. The reason for this recommendation is that Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance will be removed only from Kubernetes Service Discovery. A properly configured liveness probe can remove the issued app instance from Eureka Service Discovery to avoid unexpected cases. For more information about Service Discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
-- When an app instance starts, the first check is done after the delay specified by `initialDelaySeconds`, and subsequent checks happen periodically, with the period length specified by `periodSeconds`. If the app has failed to respond to the requests for several times as specified by `failureThreshold`, the app instance will be restarted. Be sure your application can start fast enough, or update these parameters, so the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
-- For Spring Boot applications, Spring Boot shipped with the [Health Groups](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups) support, allowing developers to select a subset of health indicators and group them under a single, correlated, health status. For more information, see [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot) on the Spring Blog.
+- Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
 
-  The following examples show Liveness and Readiness probes with Spring Boot:
+- When an app instance starts, the first check occurs after the delay specified by `initialDelaySeconds`. Subsequent checks occur periodically, according to the period length specified by `periodSeconds`. If the app fails to respond to the requests for several times as specified by `failureThreshold`, the app instance is restarted. Make sure your application can start fast enough, or update these parameters, so that the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 
-  - Liveness probe:
+- For Spring Boot applications, Spring Boot shipped with the [Health Groups](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups) support, allowing developers to select a subset of health indicators and group them under a single, correlated health status. For more information, see [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot) on the Spring Blog.
 
-    ```json
-    "probe": {
-           "initialDelaySeconds": 30,
-           "periodSeconds": 10,
-           "timeoutSeconds": 1,
-           "failureThreshold": 30,
-           "successThreshold": 1,
-           "probeAction": {
-               "type": "HTTPGetAction",
-               "scheme": "HTTP",
-               "path": "/actuator/health/liveness"
-           }
-       }
-    ```
+  The following example shows a liveness probe with Spring Boot:
 
-  - Readiness probe:
+  ```json
+  "probe": {
+         "initialDelaySeconds": 30,
+         "periodSeconds": 10,
+         "timeoutSeconds": 1,
+         "failureThreshold": 30,
+         "successThreshold": 1,
+         "probeAction": {
+             "type": "HTTPGetAction",
+             "scheme": "HTTP",
+             "path": "/actuator/health/liveness"
+         }
+     }
+  ```
 
-    ```json
-    "probe": {
-           "initialDelaySeconds": 0,
-           "periodSeconds": 10,
-           "timeoutSeconds": 1,
-           "failureThreshold": 3,
-           "successThreshold": 1,
-           "probeAction": {
-               "type": "HTTPGetAction",
-               "scheme": "HTTP",
-               "path": "/actuator/health/readiness"
-           }
-       }
-    ```
+  The following example shows a readiness probe with Spring Boot:
 
-## FAQs
+  ```json
+  "probe": {
+         "initialDelaySeconds": 0,
+         "periodSeconds": 10,
+         "timeoutSeconds": 1,
+         "failureThreshold": 3,
+         "successThreshold": 1,
+         "probeAction": {
+             "type": "HTTPGetAction",
+             "scheme": "HTTP",
+             "path": "/actuator/health/readiness"
+         }
+     }
+  ```
 
-The following list shows frequently asked questions (FAQ) about using health probes with Azure Spring Apps.
+## Frequently asked questions
 
-- I received 400 response when I created applications with customized health probes. What does this mean?
+This section provides answers to frequently asked questions about using health probes with Azure Spring Apps.
 
-  *The error message will point out which probe is responsible for the provision failure. Be sure the health probe rules are correct and the timeout is long enough for the application to be in the running state.*
+- I received a 400 response when I created applications with customized health probes. What does this mean?
 
-- What's the default probe settings for existing application?
+  *The error message will point out which probe is responsible for the provision failure. Make sure that the health probe rules are correct and that the timeout is long enough for the application to be in the running state.*
+
+- What's the default probe settings for and existing application?
 
   *The following example shows the default settings:*
 
