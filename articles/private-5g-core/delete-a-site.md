@@ -25,8 +25,9 @@ You can delete your existing sites in the Azure portal.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Site** resource representing the private mobile network site that you want to delete.
 1. Select the **Delete** button.
-1. Review the list of resources that will be deleted. 
-1. If you want to proceed, select the checkbox and select **Delete**.
+1. Review the list of resources that will be deleted.
+1. If you want to proceed, type the name of the site and select **Delete**.
+1. Confirm that you want to delete this site on the confirmation modal by selecting **Delete**.
 
 ## Next steps
 
