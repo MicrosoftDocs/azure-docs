@@ -56,7 +56,7 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. Queries are specified through GET and POST requests.
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're suing the REST API, queries are specified through GET and POST requests.
 
 ```http
 GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30
