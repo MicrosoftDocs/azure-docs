@@ -32,7 +32,7 @@ This article provides a summary of the options available, and guidance on what t
 **API** | <ul><li><a href="/rest/api/purview/" target="_blank">REST API</a></li></ul> | On-Demand | ✓ | ✓ | ✓ | |
 **Streaming** (Apache Atlas) | <ul><li><a href="/azure/purview/manage-kafka-dotnet" target="_blank">Event Hubs</a></li></ul> | Real-Time | | ✓ | | |
 **Monitoring** | <ul><li><a href="/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#destinations" target="_blank">Azure Monitor</a></li></ul> | Monitoring | | | | ✓ |
-**SDK** | <ul><li><a href="/dotnet/api/overview/azure/purviewresourceprovider?view=azure-dotnet-preview" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure/purview?view=azure-java-preview" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure/purview?view=azure-node-latest" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure/purview?view=azure-python-preview" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ | |
+**SDK** | <ul><li><a href="/dotnet/api/overview/azure/purviewresourceprovider" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure/purview" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure/purview" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure/purview" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ | |
 
 ## Resource Management
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
@@ -92,10 +92,10 @@ When to use?
 ## SDK
 Microsoft provides Azure SDKs to programmatically manage and interact with Azure services. Microsoft Purview client libraries are available in several languages (.NET, Java, JavaScript, and Python), designed to be consistent, approachable, and idiomatic.
 
-* [.NET](/dotnet/api/overview/azure/purviewresourceprovider?view=azure-dotnet-preview")
-* [Java](/java/api/overview/azure/purview?view=azure-java-preview)
-* [JavaScript](/javascript/api/overview/azure/purview?view=azure-node-latest)
-* [Python](/python/api/overview/azure/purview?view=azure-python-preview)
+* [.NET](/dotnet/api/overview/azure/purviewresourceprovider)
+* [Java](/java/api/overview/azure/purview)
+* [JavaScript](/javascript/api/overview/azure/purview)
+* [Python](/python/api/overview/azure/purview)
 
 When to use?
 * Recommended over the REST API as the native client libraries (where available) will follow standard programming language conventions in line with the target language that will feel natural to the developer.
