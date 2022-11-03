@@ -45,7 +45,7 @@ The following Message Routes are automatically configured in your linked IoT hub
 
 ### Consumer group
 
- The IoT hub also creates an event hub consumer group called **adum** that is required by the Device Update management services. This should be added automatically as aprt of the resource creation process. 
+ The IoT hub also creates an event hub consumer group called **adum** that is required by the Device Update management services. This should be added automatically as part of the resource creation process. 
 
 :::image type="content" source="media/device-update-resources/consumer-group.png" alt-text="Screenshot of consumer groups." lightbox="media/device-update-resources/consumer-group.png":::
 
