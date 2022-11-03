@@ -49,7 +49,7 @@ This article walks you through the process of safely migrating your function app
 Before you upgrade your app to version 4.x of the Functions runtime, you should do the following tasks:
 
 * Review the list of [behavior changes after version 1.x](#behavior-changes-after-version-1x). Migrating from version 1.x to version 4.x also can affect bindings.
-* Review [Update your C# project files](#update-your-c-project-files) and decide which version of .NET you want to migrate to. Complete the steps to migrate your local project to your chosen version of .NET. 
+* Review [Update your C# project files](#update-your-project-files) and decide which version of .NET you want to migrate to. Complete the steps to migrate your local project to your chosen version of .NET. 
 * After migrating your local project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
 * Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 * Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
@@ -57,7 +57,7 @@ Before you upgrade your app to version 4.x of the Functions runtime, you should 
 
 ## Update your project files
 
-::: zone pivot="programming-language-csharp
+::: zone pivot="programming-language-csharp"
 The following sections describes the updates you must make to your C# project files to be able to run on one of the supported versions of .NET in Functions version 4.x. The updates shown are ones common to most projects. Your project code may require updates not mentioned in this article, especially when using custom NuGet packages.
 
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
