@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/03/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -31,15 +31,11 @@ Both of these methods use the Kerberos authentication protocol. In order to use 
 
 Azure Files doesn't currently support using identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. 
 
-Only the following client operating systems are currently supported:
-
-- Ubuntu 18.04 and later
-
 ## Prerequisites
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- Linux VM running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- An Ubuntu Linux VM (18.04 or later) running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
 - User credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - Winbind should be configured correctly to perform Kerberos authentication with the AD, and collect the Kerberos tickets in the local cred cache. If access control is needed, Winbind should be configured to map Linux UID/GID consistently to corresponding SID on the AD (idmap configure).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
@@ -66,13 +62,14 @@ localadmin@lxsmb-canvm15:~$ sudo systemctl restart systemd-timesyncd.service
 
 ## Access control models
 
-Three access control models are available while mounting SMB Azure file shares:
+Three access control models are available for mounting SMB Azure file shares:
 
-1. **Server enforced access control (default):** Uses NT access control lists (ACLs) for enforcing access control. Linux tools that update NT ACLs are minimal, so use accordingly. 
+1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no modebits).
 
-2. **Client enforced access control (modefromsid,idsfromsid)**: File permissions and ownership information are encoded into NT ACLs. This method should be used when all clients accessing the files are Linux machines.
+2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users.
 
-3. **Client translated access control (cifsacl)**: File permissions and ownership information are translated to NT ACLs.
+3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Modebits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
+
 
 ## Enable AD Kerberos authentication
 
