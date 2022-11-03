@@ -14,7 +14,7 @@ ms.topic: overview
 
 Custom Translator is a feature of the Microsoft Translator service, which enables enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
-Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl) that powers billions of translations  every day.
+Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through Microsoft Translator [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl), the same cloud-based, secure, high performance system powering billions of translations every day.
 
 The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
 
