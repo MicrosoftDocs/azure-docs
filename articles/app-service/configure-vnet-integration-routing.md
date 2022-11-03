@@ -54,15 +54,15 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 
 We recommend that you use the site property to enable routing image pull traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_PULL_IMAGE_OVER_VNET` app setting with the value `true` can still be used, and you can enable routing through the virtual network with either setting.
 
-### Content storage
+### Content share
 
-Routing content storage over virtual network integration can be configured using the Azure CLI. In addition to enabling the feature, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
+Routing content share over virtual network integration can be configured using the Azure CLI. In addition to enabling the feature, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --properties.vnetContentStorageEnabled [true|false]
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --properties.vnetContentShareEnabled [true|false]
 ```
 
-We recommend that you use the site property to enable content storage traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_CONTENTOVERVNET` app setting with the value `1` can still be used, and you can enable routing through the virtual network with either setting.
+We recommend that you use the site property to enable content share traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_CONTENTOVERVNET` app setting with the value `1` can still be used, and you can enable routing through the virtual network with either setting.
 
 ## Next steps
 
