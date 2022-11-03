@@ -64,7 +64,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ## Parameters
 
 ### `-Parameterfile`
-Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../automation-configure-workload-zone.md).
+Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../configure-workload-zone.md).
 
 ```yaml
 Type: String
@@ -169,7 +169,7 @@ Accept wildcard characters: False
 ```
 
 ### `-SPN_id`
-Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -183,7 +183,7 @@ Accept wildcard characters: False
 ```
 
 ### `-SPN_password`
-Sets the service principal's password. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
+Sets the service principal's password. For more information, see [Prepare the deployment credentials](../deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
 Type: String
@@ -198,7 +198,7 @@ Accept wildcard characters: False
 ```
 
 ### `-Tenant_id`
-Sets the tenant ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
+Sets the tenant ID. For more information, see [Prepare the deployment credentials](../deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
 Type: String
