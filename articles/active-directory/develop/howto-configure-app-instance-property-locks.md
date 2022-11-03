@@ -16,7 +16,7 @@ ms.reviewer:
 # How to configure app instance property lock for your applications
 
 Application instance lock is a feature in Azure Active Directory (Azure AD) that allows sensitive properties of a multi-tenant application object to be locked for modification after the application is provisioned in another tenant. 
-This feature provides application developers with the ability to lock certain properties if they application does not support scenarios that require configuring those properties.  
+This feature provides application developers with the ability to lock certain properties if the application doesn't support scenarios that require configuring those properties.  
 
 
 ## What are sensitive properties?
