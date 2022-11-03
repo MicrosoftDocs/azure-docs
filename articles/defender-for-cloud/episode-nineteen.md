@@ -13,19 +13,19 @@ ms.date: 11/03/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=f1e5ec4f-1e65-400d-915b-4db6cf550014" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:16](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=01m16s) - What is Defender for DevOps?
+- [01:16](/shows/mdc-in-the-field/defender-for-devops#time=01m16s) - What is Defender for DevOps?
 
-- [02:22](https://learn.microsoft.com/shows/mdc-in-the-field/defender-defender-for-devops#time=02m22s) - Current Integrations
+- [02:22](/shows/mdc-in-the-field/defender-for-devops) - Current Integrations
 
-- [02:47](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=02m47s) - GitHub connector
+- [02:47](/shows/mdc-in-the-field/defender-for-devops)- GitHub connector
 
-- [04:16](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=04m16s) - Security recommendations
+- [04:16](/shows/mdc-in-the-field/defender-for-devops) - Security recommendations
 
-- [05:54](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=05m54s) -  Protection for infrastructure as a code
+- [05:54](/shows/mdc-in-the-field/defender-for-devops) -  Protection for infrastructure as a code
 
-- [07:03](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=07m03s) -  Azure ADO connector
+- [07:03](/shows/mdc-in-the-field/defender-for-devops) -  Azure ADO connector
 
-- [08:22](https://learn.microsoft.com/shows/mdc-in-the-field/defender-for-devops#time=08m22s) -  Demonstration
+- [08:22](/shows/mdc-in-the-field/defender-for-devops#time=08m22s) -  Demonstration
 
 ## Recommended resources
   - [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) about Defender for DevOps.
