@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/18/2022
 
 ms.author: justinha
 author: justinha
@@ -46,7 +46,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
     - Explorer.exe is replaced with a custom shell
     - Interactive logon: Require smart card is set to enabled or 1
 - The combination of the following specific three settings can cause this feature to not work.
-    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
+    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled (only for Windows 10 version 1710 and earlier)
     - *DisableLockScreenAppNotifications* = 1 or Enabled
     - Windows SKU is Home edition
 
