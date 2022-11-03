@@ -1,9 +1,0 @@
-sequenceDiagram
-    participant EdgeGateway
-    participant ContosoIotHub
-    
-    EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
-    ContosoIotHub->>EdgeGateway: Ok, here's my certificate 📜
-    EdgeGateway->>EdgeGateway: Check trusted root certificate store
-    note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
-    EdgeGateway->>ContosoIotHub: Looks good 🙂, let's connect

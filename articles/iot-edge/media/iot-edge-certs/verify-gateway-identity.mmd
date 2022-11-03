@@ -1,9 +1,0 @@
-sequenceDiagram
-    participant TempSensor
-    participant EdgeGateway
-    
-    TempSensor->>EdgeGateway: Let's talk securely with TLS 🔒
-    EdgeGateway-)TempSensor: Ok, this certificate chain proves my legitimacy 📜
-    TempSensor->>TempSensor: Check trusted root certificate store
-    note over TempSensor, EdgeGateway: Cryptographic algorithms
-    TempSensor->>EdgeGateway: Name checks out, private root CA found 🙂, let's connect

@@ -4,7 +4,7 @@ description: How Azure IoT Edge uses certificate to validate devices, modules, a
 author: jlian
 
 ms.author: jlian
-ms.date: 11/02/2022
+ms.date: 11/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -306,15 +306,15 @@ You could also inspect the certificates where they're stored by default in `/var
 
 ```bash
 sudo ls -l /var/lib/aziot/certd/certs
+```
 
+```Output
 total 24
 -rw-r--r-- 1 aziotcs aziotcs 1090 Jul 27 21:27 aziotedgedca-86f154be7ff14480027f0d00c59c223db6d9e4ab0b559fc523cca36a7c973d6d.cer
 -rw-r--r-- 1 aziotcs aziotcs 2589 Jun 22 18:25 aziotedgedmoduleIoTEdgeAPIProxy637913460334654299server-c7066944a8d35ca97f1e7380ab2afea5068f39a8112476ffc89ea2c46ca81d10.cer
 -rw-r--r-- 1 aziotcs aziotcs 2576 Jun 22 18:25 aziotedgedmoduleedgeHub637911101449272999server-a0407493b6b50ee07b3fedbbb9d181e7bb5f6f52c1d071114c361aca628daa92.cer
 -rw-r--r-- 1 aziotcs aziotcs 1450 Jul 27 21:27 deviceid-bd732105ef89cf8edd2606a5309c8a26b7b5599a4e124a0fe6199b6b2f60e655.cer
 ```
-
-<!-- ![](media/certs-browse.png)   -->
 
 In summary, *TempSensor* can trust *EdgeGateway* because:
 

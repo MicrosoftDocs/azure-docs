@@ -63,7 +63,7 @@ The various types of certificates that you can bring for your device are as foll
 - Encryption certificates
     - Support session certificates
 
-Each of these certificates are described in detail in the following sections.
+Each type of certificate is described in detail in the following sections.
 
 ## Signing chain certificates
 
@@ -182,7 +182,7 @@ If VPN (Point-to-site) is configured on your  device, you can bring your own VPN
 #### Caveats
 
 - The VPN certificate must be uploaded as a *.pfx* format with a  private key.
-- The VPN certificate is not dependant on the device name, device serial number, or device configuration. It only requires the external FQDN.
+- The VPN certificate is not dependent on the device name, device serial number, or device configuration. It only requires the external FQDN.
 - Make sure that the client OID is set.
 
 For more information, see [Generate and export certificates for Point-to-Site using PowerShell](../vpn-gateway/vpn-gateway-certificates-point-to-site.md#generate-and-export-certificates-for-point-to-site-using-powershell).

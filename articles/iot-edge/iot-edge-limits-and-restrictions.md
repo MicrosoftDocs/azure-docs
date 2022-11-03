@@ -21,7 +21,7 @@ This article explains the limits and restrictions when using IoT Edge.
 
 Each IoT Edge parent device in gateway hierarchies can have up to 100 connected child devices by default.
 
-However, it's imporant to know that each IoT Edge device in a nested topology open a separate logical connection to the parent EdgeHub (or IoT Hub) on behalf of each connected client (device or module), plus one connection for itself. So the connections at each layer are not aggregated, but added.
+However, it's important to know that each IoT Edge device in a nested topology must open a separate logical connection to the parent EdgeHub (or IoT Hub) on behalf of each connected client (device or module), plus one connection for itself. So the connections at each layer are not aggregated, but added.
 
 For example, if there are 2 IoT Edge child devices in one layer L4, each in turn has 100 clients, then the parent IoT Edge device in the layer above L5 would have 202 total incoming connections from L4.
 

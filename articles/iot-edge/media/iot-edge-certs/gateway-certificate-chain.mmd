@@ -1,9 +1,0 @@
-flowchart TB
-    id4["📃 CN = my private root CA"]
-    id3["📃 CN = my optional intermediate CA"]
-    id2["📃 CN = iotedged workload ca edgegateway"]
-    id1["📃 CN = edgegateway.local"] 
-    
-    id3-- Issued by ---> id4
-    id2-- Issued by ---> id3
-    id1-- Issued by ---> id2

@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/02/2022
+ms.date: 11/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -61,8 +61,8 @@ If you get a `.pfx` file from your PKI provider, it's likely the certificate and
 
 If your PKI provider provides a `.cer` file, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To verify, inspect the file with the `openssl x509` command. If it's the issuing certificate:
 
-1. If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
-1. Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
+* If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
+* Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
 ## Manage trusted root CA (trust bundle)
 
