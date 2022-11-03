@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/03/2022
 ms.author: sarahlipsey
-ms.reviewer: tspring  
+ms.reviewer: besiler  
 ms.collection: M365-identity-device-management
 # Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
 ---
