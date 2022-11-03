@@ -11,9 +11,9 @@ ms.author: duau
 
 # Upgrade from Azure Front Door Standard to Premium tier (Preview)
 
-Azure Front Door supports upgrading from Standard to Premium tier for more advanced capabilities and an increase in quota limits. The upgrade won't cause any downtime to your services and applications. For more information about the differences between Standard and Premium tier, see [Tier comparison](standard-premium/tier-comparison.md).
+Azure Front Door supports upgrading from Standard to Premium tier for more advanced capabilities and an increase in quota limits. The upgrade won't cause any downtime to your services or applications. For more information about the differences between Standard and Premium tier, see [Tier comparison](standard-premium/tier-comparison.md).
 
-This article shows you how to perform the tier upgrade through the configuration page of a Front Door Standard profile. Once upgraded, you'll be charge for the Azure Front Door Premium monthly base fee at an hourly rate.
+This article will walk you through how to perform the tier upgrade on the configuration page of a Front Door Standard profile. Once upgraded, you'll be charge for the Azure Front Door Premium monthly base fee at an hourly rate.
 
 > [!IMPORTANT]
 > Downgrading from Premium to Standard tier is not supported.
@@ -24,7 +24,7 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
 
 ## Upgrade tier
 
-1. Go to the Azure Front Door Standard profile you want to upgrade and select **Configuration (preview)** from under *Settings*
+1. Go to the Azure Front Door Standard profile you want to upgrade and select **Configuration (preview)** from under *Settings*.
 
     :::image type="content" source="./media/tier-upgrade/overview.png" alt-text="Screenshot of the configuration button under settings for a Front Door standard profile.":::
 
@@ -43,11 +43,11 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
 
     :::image type="content" source="./media/tier-upgrade/confirm-upgrade.png" alt-text="Screenshot of the confirmation message from upgrade WAF policies page.":::
 
-1. The upgrade process will create new premium WAF policies if you chose to create copies and associate them to the upgraded Front Door profile. The upgrade can take a few minutes to complete depending on the complexity of your Front Door profile.
+1. The upgrade process will create new premium WAF policy copies and associate them to the upgraded Front Door profile. The upgrade can take a few minutes to complete depending on the complexity of your Front Door profile.
 
     :::image type="content" source="./media/tier-upgrade/upgrade-in-progress.png" alt-text="Screenshot of the configuration page with upgrade in progress status.":::
 
-1. Once the upgrade completes, you'll see **Tier: Premium** display on the *Configuration* page.
+1. Once upgraded, you'll see **Tier: Premium** display on the *Configuration* page.
 
     :::image type="content" source="./media/tier-upgrade/upgrade-complete.png" alt-text="Screenshot of the Front Door tier upgraded to premium on the configuration page.":::
 
