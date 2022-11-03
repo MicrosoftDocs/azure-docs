@@ -243,7 +243,7 @@ For wayfinding to work, the facility data must contain a [structure][structures]
 
 ##### Vertical penetration
 
-If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects, stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
+If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects such as stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
 
 The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
 
