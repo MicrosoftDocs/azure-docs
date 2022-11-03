@@ -6,7 +6,7 @@ ms.author: tarifat
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/20/2022
+ms.date: 11/03/2022
 ---
 
 # Microsoft Purview automation best practices
@@ -24,14 +24,15 @@ This article provides a summary of the options available, and guidance on what t
 
 ## Tools
 
-| Tool Type | Tool | Scenario | Management | Catalog | Scanning |
-| --- | --- | --- | --- | --- | --- |
-**Resource Management** | <ul><li><a href="/azure/templates/" target="_blank">ARM Templates</a></li><li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/purview_account" target="_blank">Terraform</a></li></ul> | Infrastructure as Code | ✓ | | |
-**Command Line** | <ul><li><a href="/cli/azure/purview" target="_blank">Azure CLI</a></li><li><a href="/powershell/module/az.purview" target="_blank">Azure PowerShell</a></li></ul> | Interactive | ✓ | | |
-**API** | <ul><li><a href="/rest/api/purview/" target="_blank">REST API</a></li></ul> | On-Demand | ✓ | ✓ | ✓ |
-**Streaming** (Atlas Kafka) | <ul><li><a href="/azure/purview/manage-kafka-dotnet" target="_blank">Apache Kafka</a></li></ul> | Real Time | | ✓ | |
-**Streaming** (Diagnostic Logs) | <ul><li><a href="/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#destinations" target="_blank">Event Hubs</a></li></ul> | Real Time | | | ✓ |
-**SDK** | <ul><li><a href="/dotnet/api/overview/azure" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ |
+| Tool Type | Tool | Scenario | Management | Catalog | Scanning | Logs |
+| --- | --- | --- | --- | --- | --- | --- |
+**Resource Management** | <ul><li><a href="/azure/templates/microsoft.purview/accounts" target="_blank">ARM Templates</a></li><li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/purview_account" target="_blank">Terraform</a></li></ul> | Infrastructure as Code | ✓ | | | |
+**Command Line** | <ul><li><a href="/cli/azure/service-page/azure%20purview" target="_blank">Azure CLI</a></li></ul> | Interactive | ✓ | | | |
+**Command Line** | <ul><li><a href="/powershell/module/az.purview" target="_blank">Azure PowerShell</a></li></ul> | Interactive | ✓ | ✓ | | |
+**API** | <ul><li><a href="/rest/api/purview/" target="_blank">REST API</a></li></ul> | On-Demand | ✓ | ✓ | ✓ | |
+**Streaming** (Apache Atlas) | <ul><li><a href="/azure/purview/manage-kafka-dotnet" target="_blank">Event Hubs</a></li></ul> | Real-Time | | ✓ | | |
+**Monitoring** | <ul><li><a href="/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#destinations" target="_blank">Azure Monitor</a></li></ul> | Monitoring | | | | ✓ |
+**SDK** | <ul><li><a href="/dotnet/api/overview/azure/purviewresourceprovider?view=azure-dotnet-preview" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure/purview?view=azure-java-preview" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure/purview?view=azure-node-latest" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure/purview?view=azure-python-preview" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ | |
 
 ## Resource Management
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
@@ -58,7 +59,7 @@ When to use?
 * Required operations not available via Azure CLI, Azure PowerShell, or native client libraries.
 * Custom application development or process automation.
 
-## Streaming (Atlas Kafka)
+## Streaming (Apache Atlas)
 Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. 
 
 To enable this Event Hubs namespace, you can follow these steps:
@@ -80,47 +81,24 @@ Once the namespace is enabled, Microsoft Purview events can be monitored by cons
 When to use?
 * Applications or processes that need to publish or consume Apache Atlas events in real time.
 
-## Streaming (Diagnostic Logs)
+## Monitoring
 Microsoft Purview can send platform logs and metrics via "Diagnostic settings" to one or more destinations (Log Analytics Workspace, Storage Account, or Azure Event Hubs). [Available metrics](./how-to-monitor-with-azure-monitor.md#available-metrics) include `Data Map Capacity Units`, `Data Map Storage Size`, `Scan Canceled`, `Scan Completed`, `Scan Failed`, and `Scan Time Taken`.
 
 Once configured, Microsoft Purview automatically sends these events to the destination as a JSON payload. From there, application subscribers that need to consume and act on these events can do so with the option of orchestrating downstream logic.
 
 When to use?
-* Applications or processes that need to consume diagnostic events in real time.
+* Applications or processes that need to consume diagnostic events.
 
 ## SDK
 Microsoft provides Azure SDKs to programmatically manage and interact with Azure services. Microsoft Purview client libraries are available in several languages (.NET, Java, JavaScript, and Python), designed to be consistent, approachable, and idiomatic.
 
+* [.NET](/dotnet/api/overview/azure/purviewresourceprovider?view=azure-dotnet-preview")
+* [Java](/java/api/overview/azure/purview?view=azure-java-preview)
+* [JavaScript](/javascript/api/overview/azure/purview?view=azure-node-latest)
+* [Python](/python/api/overview/azure/purview?view=azure-python-preview)
+
 When to use?
 * Recommended over the REST API as the native client libraries (where available) will follow standard programming language conventions in line with the target language that will feel natural to the developer.
-
-**Azure SDK for .NET**
-* [Docs](/dotnet/api/azure.analytics.purview.account?view=azure-dotnet-preview&preserve-view=true) | [NuGet](https://www.nuget.org/packages/Azure.Analytics.Purview.Account/1.0.0-beta.1) Azure.Analytics.Purview.Account
-* [Docs](/dotnet/api/azure.analytics.purview.administration?view=azure-dotnet-preview&preserve-view=true) | [NuGet](https://www.nuget.org/packages/Azure.Analytics.Purview.Administration/1.0.0-beta.1) Azure.Analytics.Purview.Administration
-* [Docs](/dotnet/api/azure.analytics.purview.catalog?view=azure-dotnet-preview&preserve-view=true) | [NuGet](https://www.nuget.org/packages/Azure.Analytics.Purview.Catalog/1.0.0-beta.2) Azure.Analytics.Purview.Catalog
-* [Docs](/dotnet/api/azure.analytics.purview.scanning?view=azure-dotnet-preview&preserve-view=true) | [NuGet](https://www.nuget.org/packages/Azure.Analytics.Purview.Scanning/1.0.0-beta.2) Azure.Analytics.Purview.Scanning
-* [Docs](/dotnet/api/microsoft.azure.management.purview?view=azure-dotnet-preview&preserve-view=true) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/) Microsoft.Azure.Management.Purview
-
-**Azure SDK for Java**
-* [Docs](/java/api/com.azure.analytics.purview.account?view=azure-java-preview&preserve-view=true) | [Maven](https://search.maven.org/artifact/com.azure/azure-analytics-purview-account/1.0.0-beta.1/jar) com.azure.analytics.purview.account
-* Docs | [Maven](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar) com.azure.analytics.purview.administration
-* [Docs](/java/api/com.azure.analytics.purview.catalog?view=azure-java-preview&preserve-view=true) | [Maven](https://search.maven.org/artifact/com.azure/azure-analytics-purview-catalog/1.0.0-beta.2/jar) com.azure.analytics.purview.catalog
-* [Docs](/java/api/com.azure.analytics.purview.scanning?view=azure-java-preview&preserve-view=true) | [Maven](https://search.maven.org/artifact/com.azure/azure-analytics-purview-scanning/1.0.0-beta.2/jar) com.azure.analytics.purview.scanning
-* [Docs](/java/api/com.azure.resourcemanager.purview?view=azure-java-preview&preserve-view=true) | [Maven](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-purview/1.0.0-beta.1/jar) com.azure.resourcemanager.purview
-
-**Azure SDK for JavaScript**
-* [Docs](/javascript/api/overview/azure/purview-account-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-account) @azure-rest/purview-account
-* [Docs](/javascript/api/overview/azure/purview-administration-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-administration) @azure-rest/purview-administration
-* [Docs](/javascript/api/overview/azure/purview-catalog-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-catalog) @azure-rest/purview-catalog
-* [Docs](/javascript/api/overview/azure/purview-scanning-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-scanning) @azure-rest/purview-scanning
-* [Docs](/javascript/api/@azure/arm-purview/?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure/arm-purview) @azure/arm-purview
-
-**Azure SDK for Python**
-* [Docs](/python/api/azure-purview-account/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-account/) azure-purview-account
-* [Docs](/python/api/azure-purview-administration/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-administration/) azure-purview-administration
-* [Docs](/python/api/azure-purview-catalog/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-catalog/) azure-purview-catalog
-* [Docs](/python/api/azure-purview-scanning/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-scanning/) azure-purview-scanning
-* [Docs](/python/api/azure-mgmt-purview/?view=azure-python&preserve-view=true) | [PyPi](https://pypi.org/project/azure-mgmt-purview/) azure-mgmt-purview
 
 ## Next steps
 * [Microsoft Purview REST API](/rest/api/purview)
