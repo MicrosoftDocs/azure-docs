@@ -1,6 +1,6 @@
 ---
 title: Enable redundancy and disaster recovery for Azure Spring Apps
-description: Learn how to protect your Spring Apps application from zonal and regional outages
+description: Learn how to protect your Spring Apps application from zonal and regional outages.
 author: karlerickson
 ms.author: wenhaozhang
 ms.service: spring-apps
@@ -176,4 +176,4 @@ We have provided a detailed example to show how to deploy a multi-geo redundancy
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)
+- [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)
