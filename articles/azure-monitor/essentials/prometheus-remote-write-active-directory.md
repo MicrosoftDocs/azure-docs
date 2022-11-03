@@ -67,13 +67,13 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 
 ## Add certificate to the Azure Active Directory application
 
-1. From the menu for you Azure Active Directory application, select **Certificates & secrets**.
+1. From the menu for your Azure Active Directory application, select **Certificates & secrets**.
 2. Click **Upload certificate** and select the certificate that you downloaded.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
 > [!WARNING]
-> Certificates have an expiration date, and its the responsibility of the user to keep these certificates valid.
+> Certificates have an expiration date, and it's the responsibility of the user to keep these certificates valid.
 
 ## Add CSI driver and storage for cluster
 

@@ -53,7 +53,7 @@ Use PromQL queries in Grafana and verify that the results return expected data. 
 ## Troubleshoot remote write
 
 ### No data is flowing
-If remote data data isn't flowing, run the following command which will indicate the errors if any in the remote write container.
+If remote data isn't flowing, run the following command which will indicate the errors if any in the remote write container.
 
 ```azurecli
 kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>
