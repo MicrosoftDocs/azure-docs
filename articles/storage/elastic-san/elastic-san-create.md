@@ -16,7 +16,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Prerequisites
 
-- If you're using Azure PowerShell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
+- If you're using Azure PowerShell, use `Install-Module -Name Az.ElasticSan -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion 0.1.0` to install the preview module.
 - If you're using Azure CLI, install the latest version. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
@@ -103,10 +103,10 @@ The following command creates an Elastic SAN that uses locally-redundant storage
 
 ```azurecli
 ## Variables
-$sanName="yourSANNameHere"
-$resourceGroupName="yourResourceGroupNameHere"
-$sanLocation="desiredRegion"
-$volumeGroupName="desiredVolumeGroupName"
+sanName="yourSANNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+sanLocation="desiredRegion"
+volumeGroupName="desiredVolumeGroupName"
 
 az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku “{name:Premium_LRS,tier:Premium}”
 ```

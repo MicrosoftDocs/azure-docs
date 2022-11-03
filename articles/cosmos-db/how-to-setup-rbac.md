@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/31/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
@@ -50,7 +50,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
 > - [Azure CLI scripts](./sql/manage-with-cli.md)
 > - Azure management libraries available in:
->   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 >   

@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 10/04/2022
+ms.date: 10/31/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,22 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+
+
+## October 2022
+
+### New articles
+
+- [Edit Azure Active Directory B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor](partner-grit-editor.md)
+- [Register apps in Azure Active Directory B2C](register-apps.md)
+
+### Updated articles
+
+- [Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [Azure Active Directory B2C documentation landing page](index.yml)
+- [Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery](publish-app-to-azure-ad-app-gallery.md)
+- [JSON claims transformations](json-transformations.md)
 
 ## September
 
