@@ -151,12 +151,12 @@ You can test the app you've deployed by using an HTTP client such as [Microsoft 
 
 ## Call the REST API
 
-Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTiful Technical Profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
+Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTful Technical Profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
 
 
 ### Define a RESTful Technical profile 
 
-1. In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define the a new RESTiful Technical Profile by using the following code: 
+1. In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define the a new RESTful Technical Profile by using the following code: 
 
     ```xml
         <ClaimsProvider>
