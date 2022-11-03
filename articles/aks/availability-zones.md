@@ -51,8 +51,7 @@ AKS clusters can currently be created using availability zones in the following 
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
-* You can only define availability zones when the cluster or node pool is created.
-* Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
+* You can only define availability zones when the cluster or node pool is created. 
 * The chosen node size (VM SKU) selected must be available across all availability zones selected.
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
@@ -85,7 +84,8 @@ If a single zone becomes unavailable, your applications continue to run if the c
 
 When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The control plane components such as etcd or the API are spread across the available zones in the region if you define the `--zones` parameter at cluster creation time. The specific zones which the control plane components are spread across are independent of what explicit zones are selected for the initial node pool.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, control plane components are not guaranteed to spread across availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes, but it will not change how the control plane has been spread across zones. Availability zone settings can only be defined at cluster or node pool create-time.
+If you don't define any zones for the default agent pool when you create an AKS cluster, control plane will not be in Availability Zones.
+If later, you add additional node pools using the az aks nodepool add command and specify --zones for new nodes, the Control Plane will be converted to Availability Zones.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*.
 
