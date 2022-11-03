@@ -96,7 +96,7 @@
       - name: Availability zones with SQL Database general purpose tier
         href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Availability zones with SQL Database premium & business critical tiers
-        href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Storage
       items:
       - name: Zone-redundant storage
@@ -251,7 +251,7 @@
   - name: Service availability by sovereign cloud
     items:
     - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md
+      href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure in China
       href: sovereign-cloud-china.md     
   - name: Service availability by region

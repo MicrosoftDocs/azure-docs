@@ -144,5 +144,5 @@ items:
         tocHref: /azure/notification-hubs/
         topicHref: /azure/reliability/index.yml
       - name: Reliability
-        tocHref: /azure/site-recovery/
+        tocHref: /azure/azure-government/
         topicHref: /azure/reliability/index.yml
