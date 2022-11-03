@@ -74,6 +74,8 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
+    - name: IoT Hub concepts overview
+      href: iot-hub-devguide.md
     - name: Develop
       items:
       - name: Device-to-cloud feature guide
