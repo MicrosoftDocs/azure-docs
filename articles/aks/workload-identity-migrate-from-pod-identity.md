@@ -20,7 +20,7 @@ This article focuses on pod-managed identity migration to Azure Active Directory
 
 This section explains the migration options available depending on what version of the Azure Identity SDK is installed.
 
-### Migrate if using latest version
+### Migrate from latest version
 
 If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to:
 
