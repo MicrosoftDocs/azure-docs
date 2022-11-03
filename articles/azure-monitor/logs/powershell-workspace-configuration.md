@@ -63,7 +63,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> The format for the **CustomLogRawJson** parameter that defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) to retrieve the configuration for an existing custom log. The **Properties** property is the configuration required for the **CustomLogRawJson** parameter.
+> The format for the `CustomLogRawJson` parameter that defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) to retrieve the configuration for an existing custom log. The `Properties` property is the configuration required for the `CustomLogRawJson` parameter.
 
 In the preceding example, `regexDelimiter` was defined as `\\n` for newline. The log delimiter might also be a timestamp. The following table lists the formats that are supported.
 
@@ -84,8 +84,8 @@ In the preceding example, `regexDelimiter` was defined as `\\n` for newline. The
 ## Troubleshooting
 When you create a workspace that was deleted in the last 14 days and is in a [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration. For example:
 
-1. If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered. The recovered workspace includes data, configuration, and connected agents.
-1. A workspace name must be unique per resource group. If you use a workspace name that already exists and is also in soft delete in your resource group, you'll get an error. The error will state "The workspace name 'workspace-name' is not unique" or "conflict." To override the soft delete, permanently delete your workspace, and create a new workspace with the same name, follow these steps to recover the workspace first and then perform a permanent delete:
+- If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered. The recovered workspace includes data, configuration, and connected agents.
+- A workspace name must be unique per resource group. If you use a workspace name that already exists and is also in soft delete in your resource group, you'll get an error. The error will state "The workspace name 'workspace-name' is not unique" or "conflict." To override the soft delete, permanently delete your workspace, and create a new workspace with the same name, follow these steps to recover the workspace first and then perform a permanent delete:
 
    * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace.
    * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
