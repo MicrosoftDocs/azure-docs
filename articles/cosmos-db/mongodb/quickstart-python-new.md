@@ -114,9 +114,9 @@ pip install -r requirements.txt
 
 Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
 
-* [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to a **mongod** instance. This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.
+* [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to Azure Cosmos DB's API for MongoDB. The client object is used to configure and execute requests against the service.
 
-* [Database](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A MongoDB instance can support one or more independent databases.
+* [Database](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - Azure Cosmos DB's API for MongoDB can support one or more independent databases.
 
 * [Collection](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A database can contain one or more collections. A collection is a group of documents stored in MongoDB, and can be thought of as roughly the equivalent of a table in a relational database.
 
@@ -127,8 +127,8 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
-* [Get database instance](#get-database-instance)
-* [Get collection instance](#get-collection-instance)
+* [Get database](#get-database)
+* [Get collection](#get-collection)
 * [Create an index](#create-an-index)
 * [Create a document](#create-a-document)
 * [Get an document](#get-a-document)
@@ -183,7 +183,7 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="connect_client":::
 --->
 
-### Get database instance
+### Get database
 
 When working with PyMongo, you access databases using attribute style access on MongoClient instances.
 
@@ -199,7 +199,7 @@ print("Using database: {}\n".format(DB_NAME))
 You can check if a database exists with the [list_database_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
 
-### Get collection instance
+### Get collection
 
 Access collection with the database object `db` returned from the previous step.
 
