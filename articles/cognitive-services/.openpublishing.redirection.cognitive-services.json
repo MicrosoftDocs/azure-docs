@@ -1031,6 +1031,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Computer-vision/index-identity.yml",
+            "redirect_url": "/azure/cognitive-services/computer-vision/overview-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Computer-vision/index-image-analysis.yml",
+            "redirect_url": "/azure/cognitive-services/computer-vision/overview-image-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Computer-vision/index-ocr.yml",
+            "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision/overview-ocr",
             "redirect_document_id": false
