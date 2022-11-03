@@ -41,81 +41,85 @@ This section describes languages supported by Azure Video Indexer API.
 
 | **Language**                   | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (language model)  |
 |:------------------------------:|:--------------:|:-----------------:|:-----------:|:-----------:|:-------------:|:---------------:|
-| Afrikaans                        | `af-ZA`      |   |      |    |  | ✔ |
-| Arabic (Israel)                  | `ar-IL`      | ✔ |      |   |  | ✔ |
-| Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic (Lebanon)                 | `ar-LB`      | ✔ |      |   | ✔ | ✔ |
-| Arabic (Oman)                    | `ar-OM`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic (Palestinian Authority)   | `ar-PS`      | ✔ |      |   | ✔ | ✔ |
-| Arabic (Qatar)                   | `ar-QA`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic (Saudi Arabia)            | `ar-SA`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic (United Arab Emirates)    | `ar-AE`      | ✔ |  ✔  | ✔  | ✔ | ✔ |
-| Arabic Egypt                     | `ar-EG`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic Modern Standard (Bahrain) | `ar-BH`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Arabic Syrian Arab Republic      | `ar-SY`      | ✔ | ✔   | ✔  | ✔ | ✔ |
-| Bangla                           | `bn-BD`      |   |      |   | ✔ |   |
-| Bosnian                          | `bs-Latn`    |   |      |   | ✔ |   |
-| Bulgarian                        | `bg-BG`      |   |      |   | ✔ |   |
-| Catalan                          | `ca-ES`      |   |      |   | ✔ |   |
-| Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔   | ✔ | ✔ | ✔ |
-| Chinese (Simplified)             | `zh-Hans`    | ✔ |   ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)|   | ✔ | ✔ |
-| Chinese (Traditional)            | `zh-Hant`    |   |      |   | ✔ |  |
-| Croatian                         | `hr-HR`      |   |      |   | ✔ |  |
-| Czech                            | `cs-CZ`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| Danish                           | `da-DK`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| Dutch                            | `nl-NL`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English Australia                | `en-AU`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United Kingdom           | `en-GB`      | ✔ |  ✔  |  ✔ | ✔ | ✔ |
-| English United States            | `en-US`      | ✔ |  ✔\*<br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
-| Estonian                         | `et-EE`      |   |       |   | ✔ |   |
-| Fijian                           | `en-FJ`      |   |       |   | ✔ |  |
-| Filipino                         | `fil-PH`     |   |       |   | ✔ |  |
-| Finnish                          | `fi-FI`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| French                           | `fr-FR`      | ✔ |  ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
-| French (Canada)                  | `fr-CA`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| German                           | `de-DE`      | ✔ |  ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ \* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
-| Greek                            | `el-GR`      |   |       |   | ✔ |   |
-| Haitian                          | `fr-HT`      |   |       |   | ✔ |   |
-| Hebrew                           | `he-IL`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| Hindi                            | `hi-IN`      | ✔ |  ✔   | ✔  | ✔ | ✔ |
-| Hungarian                        | `hu-HU`      |   |       |   | ✔ |  |
-| Indonesian                       | `id-ID`      |   |       |   | ✔ |  |
-| Italian                          | `it-IT`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
-| Japanese                         | `ja-JP`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
-| Kiswahili                        | `sw-KE`      |   |       |   | ✔ |  |
-| Korean                           | `ko-KR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
-| Latvian                          | `lv-LV`      |   |       |   | ✔ |  |
-| Lithuanian                       | `lt-LT`      |   |       |   | ✔ |  |
-| Malagasy                         | `mg-MG`      |   |       |   | ✔ |  |
-| Malay                            | `ms-MY`      |   |       |   | ✔ |  |
-| Maltese                          | `mt-MT`      |   |       |   | ✔ |  |
-| Norwegian                        | `nb-NO`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Persian                          | `fa-IR`      | ✔ |      |   | ✔ | ✔ |
-| Polish                           | `pl-PL`      | ✔ |  ✔   |  ✔ | ✔ | ✔ |
-| Portuguese                       | `pt-BR`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid) |  ✔ | ✔ | ✔ |
-| Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
-| Romanian                         | `ro-RO`      |   |       |   | ✔ |  |
-| Russian                          | `ru-RU`      | ✔ | ✔\* <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)  |  ✔ | ✔ | ✔ |
-| Samoan                           | `en-WS`      |   |       |   | ✔ |  |
-| Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |       |   | ✔ |  |
-| Serbian (Latin)                  | `sr-Latn-RS` |   |       |   | ✔ |  |
-| Slovak                           | `sk-SK`      |   |       |   | ✔ |  |
-| Slovenian                as default languages, w        | `sl-SI`      |   |       |   | ✔ |  
-| Spanish                          | `es-ES`      | ✔ | ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔\*  <br/>[Change default languages supported by LID and MLID](#change-default-languages-supported-by-lid-and-mlid)| ✔ | ✔ |
-| Spanish (Mexico)                 | `es-MX`      | ✔ |       |   | ✔ | ✔ |
-| Swedish                          | `sv-SE`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
-| Tamil                            | `ta-IN`      |   |        |  | ✔ | |
-| Thai                             | `th-TH`      | ✔ |  ✔    |  ✔ | ✔ | ✔ |
-| Tongan                           | `to-TO`      |   |       |   | ✔ |  |
-| Turkish                          | `tr-TR`      | ✔ | ✔    |  ✔ | ✔ | ✔ |
-| Ukrainian                        | `uk-UA`      | ✔  | ✔   |  ✔ | ✔ |  |
-| Urdu                             | `ur-PK`      |    |      |   | ✔ |  |
-| Vietnamese                       | `vi-VN`      | ✔  |  ✔  | ✔  | ✔ |  |
+| Afrikaans                        | `af-ZA`      |   |    |    |  | ✔ |
+| Arabic (Israel)                  | `ar-IL`      | ✔ |   |   |  | ✔ |
+| Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic (Lebanon)                 | `ar-LB`      | ✔ |   |   | ✔ | ✔ |
+| Arabic (Oman)                    | `ar-OM`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic (Palestinian Authority)   | `ar-PS`      | ✔ |   |   | ✔ | ✔ |
+| Arabic (Qatar)                   | `ar-QA`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic (Saudi Arabia)            | `ar-SA`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic (United Arab Emirates)    | `ar-AE`      | ✔ |  ✔| ✔  | ✔ | ✔ |
+| Arabic Egypt                     | `ar-EG`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic Modern Standard (Bahrain) | `ar-BH`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Arabic Syrian Arab Republic      | `ar-SY`      | ✔ | ✔ | ✔  | ✔ | ✔ |
+| Bangla                           | `bn-BD`      |   |    |   | ✔ |   |
+| Bosnian                          | `bs-Latn`    |   |    |   | ✔ |   |
+| Bulgarian                        | `bg-BG`      |   |    |   | ✔ |   |
+| Catalan                          | `ca-ES`      |   |    |   | ✔ |   |
+| Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔ | ✔ | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-Hans`    | ✔ | ✔ |   | ✔ | ✔ |
+| Chinese (Traditional)            | `zh-Hant`    |   |    |   | ✔ |  |
+| Croatian                         | `hr-HR`      |   |    |   | ✔ |  |
+| Czech                            | `cs-CZ`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| Danish                           | `da-DK`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| Dutch                            | `nl-NL`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| English Australia                | `en-AU`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| English United Kingdom           | `en-GB`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| English United States            | `en-US`      | ✔ |✔  | ✔| ✔ | ✔ |
+| Estonian                         | `et-EE`      |   |    |   | ✔ |   |
+| Fijian                           | `en-FJ`      |   |    |   | ✔ |  |
+| Filipino                         | `fil-PH`     |   |    |   | ✔ |  |
+| Finnish                          | `fi-FI`      | ✔ |✔  |  ✔ | ✔ | ✔ |
+| French                           | `fr-FR`      | ✔ |✔   | ✔ | ✔ | ✔ |
+| French (Canada)                  | `fr-CA`      | ✔ |✔   | ✔  | ✔ | ✔ |
+| German                           | `de-DE`      | ✔ |✔   | ✔  | ✔ | ✔ |
+| Greek                            | `el-GR`      |   |     |   | ✔ |   |
+| Haitian                          | `fr-HT`      |   |     |   | ✔ |   |
+| Hebrew                           | `he-IL`      | ✔ |✔   | ✔  | ✔ | ✔ |
+| Hindi                            | `hi-IN`      | ✔ |✔   | ✔  | ✔ | ✔ |
+| Hungarian                        | `hu-HU`      |   |     |   | ✔ |  |
+| Indonesian                       | `id-ID`      |   |     |   | ✔ |  |
+| Italian                          | `it-IT`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Japanese                         | `ja-JP`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Kiswahili                        | `sw-KE`      |   |     |   | ✔ |  |
+| Korean                           | `ko-KR`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Latvian                          | `lv-LV`      |   |     |   | ✔ |  |
+| Lithuanian                       | `lt-LT`      |   |     |   | ✔ |  |
+| Malagasy                         | `mg-MG`      |   |     |   | ✔ |  |
+| Malay                            | `ms-MY`      |   |     |   | ✔ |  |
+| Maltese                          | `mt-MT`      |   |     |   | ✔ |  |
+| Norwegian                        | `nb-NO`      | ✔ |✔   |  ✔ | ✔ | ✔ |
+| Persian                          | `fa-IR`      | ✔ |    |   | ✔ | ✔ |
+| Polish                           | `pl-PL`      | ✔ |✔   |  ✔ | ✔ | ✔ |
+| Portuguese                       | `pt-BR`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Romanian                         | `ro-RO`      |   |     |   | ✔ |  |
+| Russian                          | `ru-RU`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Samoan                           | `en-WS`      |   |     |   | ✔ |  |
+| Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |     |   | ✔ |  |
+| Serbian (Latin)                  | `sr-Latn-RS` |   |     |   | ✔ |  |
+| Slovak                           | `sk-SK`      |   |     |   | ✔ |  |
+| Slovenian                        | `sl-SI`      |   |     |   | ✔ |  |
+| Spanish                          | `es-ES`      | ✔ |   ✔|  ✔| ✔ | ✔ |
+| Spanish (Mexico)                 | `es-MX`      | ✔ |     |   | ✔ | ✔ |
+| Swedish                          | `sv-SE`      | ✔ |✔    |  ✔ | ✔ | ✔ |
+| Tamil                            | `ta-IN`      |   |      |  | ✔ | |
+| Thai                             | `th-TH`      | ✔ |✔    |  ✔ | ✔ | ✔ |
+| Tongan                           | `to-TO`      |   |     |   | ✔ |  |
+| Turkish                          | `tr-TR`      | ✔ | ✔  |  ✔ | ✔ | ✔ |
+| Ukrainian                        | `uk-UA`      | ✔  | ✔ |  ✔ | ✔ |  |
+| Urdu                             | `ur-PK`      |    |    |   | ✔ |  |
+| Vietnamese                       | `vi-VN`      | ✔  |✔  | ✔  | ✔ |  |
+
+**Default languages supported by Language identification (LID)**: German (de-DE) , English United States (en-US) , Spanish (es-ES) , French (fr-FR), Italian (it-IT) , Japanese (ja-JP), Portuguese (pt-BR), Russian (ru-RU), Chinese (Simplified) (zh-Hans).
+
+**Default languages supported by Multi-language identification (MLID)**: German (de-DE) , English United States (en-US) , Spanish (es-ES) , French (fr-FR).
 
 ### Change default languages supported by LID and MLID 
 
-Languages marked with * (in the table above) are used as default when auto-detecting languages by LID or/and MLID. You can specify to use other supported languages (listed in the table above) as default languages, when [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API and passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
+You can specify to use other supported languages (listed in the table above) as default languages, when [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API and passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
 > To change the default languages that you want for LID or MLID to use when auto-detecting, call [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and set the `customLanguages` parameter. 
@@ -149,6 +153,7 @@ The following table describes language support in the Azure Video Indexer fronte
 | Catalan                          | `ca-ES`      |           | ✔ | 
 | Chinese (Cantonese Traditional)  | `zh-HK`      |           | ✔ | 
 | Chinese (Simplified)             | `zh-Hans`    |      ✔    |✔  |
+| Chinese (Simplified)             | `zh-CK`    |      ✔    |✔  |
 | Chinese (Traditional)            | `zh-Hant`    |           |✔  |  
 | Croatian                         | `hr-HR`      |           |  |
 | Czech                            | `cs-CZ`      |    ✔      | ✔ | 
