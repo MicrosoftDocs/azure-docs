@@ -1,6 +1,6 @@
 ---
 title: 'How to: browse the Data Catalog'
-description: This article gives an overview of how to browse the Microsoft Purview data catalog by asset type
+description: This article gives an overview of how to browse the Microsoft Purview Data Catalog by asset type
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 10/01/2021
 ---
 
-# Browse the Microsoft Purview data catalog
+# Browse the Microsoft Purview Data Catalog
 
-Searching a data catalog is a great tool for data discovery if a data consumer knows what they are looking for, but often users don't know exactly how their data estate is structured. The Microsoft Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog.
+Searching a data catalog is a great tool for data discovery if a data consumer knows what they're looking for, but often users don't know exactly how their data estate is structured. The Microsoft Purview Data Catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog.
 
 To access the browse experience, select “Browse assets” from the data catalog home page.
 
@@ -19,26 +19,26 @@ To access the browse experience, select “Browse assets” from the data catalo
 
 ## Browse by collection
 
-Browse by collection allows you to explore the different collections you are a data reader or curator for.
+Browse by collection allows you to explore the different collections you're a data reader or curator for.
 
 > [!NOTE]
 > You will only see collections you have access to. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
 :::image type="content" source="media/how-to-browse-catalog/browse-by-collection.png" alt-text="Screenshot showing the browse by collection page" border="true":::
 
-Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Microsoft Purview search relevance engine to boost the most important assets to the top.
+Once a collection is selected, you'll get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Microsoft Purview search relevance engine to boost the most important assets to the top.
 
 :::image type="content" source="media/how-to-browse-catalog/browse-collection-results.png" alt-text="Screenshot showing the browse by collection results" border="true":::
 
-For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
+For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition. 
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
-If the selected collection doesn’t contain the data you are looking for, you can easily navigate to related collections or go back and view the entire collections tree.
+If the selected collection doesn’t contain the data you're looking for, you can easily navigate to related collections, or go back and view the entire collections tree.
 
 :::image type="content" source="media/how-to-browse-catalog/browse-collection-navigation.png" alt-text="Screenshot showing how to navigate between collections" border="true":::
 
-Once you find the asset you are looking for, you can select it to view additional details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
+Once you find the asset you're looking for, you can select it to view more details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
@@ -61,7 +61,7 @@ A native browsing experience with hierarchical namespace is provided for each co
    > [!TIP]
    > Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
 
-1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you will see a list of databases with assets in the data catalog.
+1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you'll see a list of databases with assets in the data catalog.
 
     :::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.png" alt-text="Azure SQL Database browse page" border="true":::
 
@@ -77,4 +77,4 @@ A native browsing experience with hierarchical namespace is provided for each co
 
 - [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)
-- [How to search the Microsoft Purview data catalog](how-to-search-catalog.md)
+- [How to search the Microsoft Purview Data Catalog](how-to-search-catalog.md)
