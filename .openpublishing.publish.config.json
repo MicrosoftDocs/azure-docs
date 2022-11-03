@@ -850,8 +850,8 @@
     },
     {
       "path_to_root": "azure-cosmos-dotnet-v3",
-      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
-      "branch": "v3",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
