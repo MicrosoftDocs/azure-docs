@@ -399,7 +399,7 @@ To learn more about Azure Functions runtime support policy, please refer to this
 
 ### Running local on a specific version
 
-When running locally, the Azure Functions runtime defaults to using PowerShell 7.0. Support for PowerShell 7.0 in Azure Functions is ending on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
+When running locally, the Azure Functions runtime defaults to using PowerShell 7.0. Support for PowerShell 7.0 in Azure Functions is ending on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
 
 ```json
 {
@@ -438,7 +438,7 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `~7.2`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `7.2`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
 
