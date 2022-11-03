@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
+        },       
+        {
+            "source_path":  "articles/sentinel/whats-new-archive.md",
+            "redirect_url":  "/azure/sentinel/whats-new",
+            "redirect_document_id":  false   
         },
         {
             "source_path":  "articles/backup/sap-hana-db-manage.md",
@@ -29357,6 +29362,11 @@
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/developer/terraform/quickstart-configure",
             "redirect_document_id": false
         }
     ]
