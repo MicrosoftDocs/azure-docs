@@ -186,38 +186,36 @@ items:
   - name: Diagnostic Settings
     displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
     href: essentials/diagnostic-settings.md
-  - name: Agents
+  - name: Azure Monitor Agent
     items:
-    - name: Azure Monitor Agent
+    - name: Overview
+      href: agents/agents-overview.md
+    - name: Install Azure Monitor Agent
+      displayName: Azure Monitor agent
       items:
-        - name: Overview
-          href: agents/agents-overview.md
-        - name: Install Azure Monitor Agent
-          displayName: Azure Monitor agent
-          items:
-          - name: Using the agent extension
-            href: agents/azure-monitor-agent-manage.md
-          - name: Using Windows client installer (preview)
-            href: agents/azure-monitor-agent-windows-client.md
-        - name: Configure data collection
-          items:
-          - name: Collect events and performance
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-rule-azure-monitor-agent.md
-          - name: Collect text and IIS Logs
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-text-log.md
-        - name: Define network settings
-          href: agents/azure-monitor-agent-data-collection-endpoint.md
-        - name: Migrate from Log Analytics Agent
-          items:
-          - name: Migration guidance
-            href: agents/azure-monitor-agent-migration.md
-          - name: Migration tools
-            href: agents/azure-monitor-agent-migration-tools.md
-        - name: FAQ
-          displayName: Azure Monitor agent FAQ
-          href: /azure/azure-monitor/faq#azure-monitor-agent
+      - name: Using the agent extension
+        href: agents/azure-monitor-agent-manage.md
+      - name: Using Windows client installer (preview)
+        href: agents/azure-monitor-agent-windows-client.md
+    - name: Configure data collection
+      items:
+      - name: Collect events and performance
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Collect text and IIS Logs
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-text-log.md
+    - name: Define network settings
+      href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Migrate from Log Analytics Agent
+      items:
+      - name: Migration guidance
+        href: agents/azure-monitor-agent-migration.md
+      - name: Migration tools
+        href: agents/azure-monitor-agent-migration-tools.md
+    - name: FAQ
+      displayName: Azure Monitor agent FAQ
+      href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Legacy agents
       items:
       - name: Log Analytics agent
