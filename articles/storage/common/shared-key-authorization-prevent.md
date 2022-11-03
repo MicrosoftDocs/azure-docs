@@ -26,12 +26,12 @@ This article describes how to detect requests sent with Shared Key authorization
 
 When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To minimize the impact to clients, applications and other services, it is important to create a plan that includes:
 
-[Identify storage accounts with Shared Key authorization enabled](#identify-storage-accounts-with-shared-key-authorization-enabled)
-[Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications)
-[Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
-[Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
-[Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-[Transition Azure Files and Table storage workloads](#transition-azure-files-and-table-storage-workloads)
+- [Identify storage accounts with Shared Key authorization enabled](#identify-storage-accounts-with-shared-key-authorization-enabled)
+- [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications)
+- [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
+- [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
+- [Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
+- [Transition Azure Files and Table storage workloads](#transition-azure-files-and-table-storage-workloads)
 
 ## Identify storage accounts with Shared Key authorization enabled
 
@@ -55,7 +55,37 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents Shared Key authorization on existing storage accounts and creating new storage accounts with that property set.
+Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key authorization on existing storage accounts and creating new storage accounts with it enabled.
+
+For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+
+### Assign the built-in policy for a resource scope
+
+Follow these steps to assign the built-in policy to the appropriate scope in the Azure portal:
+
+1. In the Azure portal, search for *Policy* to display the Azure Policy dashboard.
+1. In the **Authoring** section, select **Assignments**.
+1. Choose **Assign policy**.
+1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
+1. For the **Policy definition** field, select the **More** button, and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
+
+    :::image type="content" source="media/storage-account-keys-manage/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/storage-account-keys-manage/policy-definition-select-portal.png":::
+
+1. Select **Review + create** to assign the policy definition to the specified scope.
+
+    :::image type="content" source="media/storage-account-keys-manage/policy-assignment-create.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/storage-account-keys-manage/policy-assignment-create.png":::
+
+### Monitor compliance with the Shared Key access policy
+
+To monitor your storage accounts for compliance with the Shared Key access policy, follow these steps:
+
+1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for *Storage accounts should prevent shared key access* in the **Search** box to filter for the built-in policy.
+1. Select the policy name with the desired scope.
+1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
+
+    :::image type="content" source="media/storage-account-keys-manage/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/storage-account-keys-manage/policy-compliance-report-portal.png":::
+
+To bring a storage account into compliance, [disable Shared Key access](#remediate-authorization-via-shared-key).
 
 ## Detect the type of authorization used by client applications
 
@@ -80,7 +110,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 
     The new metric will display the sum of the number of transactions against the storage account over a given interval of time. The resulting metric appears as shown in the following image:
 
-    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure metric to sum transactions made with Shared Key or SAS":::
+    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure metric to sum transactions made with Shared Key or SAS" lightbox="media/shared-key-authorization-prevent/configure-metric-account-transactions.png":::
 
 1. Next, select the **Add filter** button to create a filter on the metric for type of authorization.
 1. In the **Filter** dialog, specify the following values:
@@ -91,7 +121,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 
 After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key or made with a SAS token. Requests are aggregated per day over the past thirty days.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key" lightbox="media/shared-key-authorization-prevent/metric-shared-key-requests.png":::
 
 You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
@@ -116,7 +146,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Under **Category details**, in the **log** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
 1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests" lightbox="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png":::
 
 You can create a diagnostic setting for each type of Azure Storage resource in your storage account.
 
@@ -177,7 +207,7 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Allow storage account key access** to **Disabled**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account" lightbox="media/shared-key-authorization-prevent/shared-key-access-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
