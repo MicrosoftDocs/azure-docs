@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # SAP on Azure Deployment Automation Framework DevOps - Hands-on lab
 
-This tutorial shows how to perform the deployment activities of the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) using Azure DevOps Services.
+This tutorial shows how to perform the deployment activities of the [SAP on Azure Deployment Automation Framework](deployment-framework.md) using Azure DevOps Services.
 
 You'll perform the following tasks during this lab:
 
@@ -33,9 +33,9 @@ You'll perform the following tasks during this lab:
 > [!Note]
 > The free Azure account may not be sufficient to run the deployment.
 
-- A Service Principal with 'Contributor' permissions in the target subscriptions. For more information, see [Prepare the deployment credentials](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+- A Service Principal with 'Contributor' permissions in the target subscriptions. For more information, see [Prepare the deployment credentials](deploy-control-plane.md#prepare-the-deployment-credentials).
 
-- A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
+- A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](configure-devops.md)
 
 - For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent.
 
@@ -44,7 +44,7 @@ You'll perform the following tasks during this lab:
 
 ## Overview
 
-These steps reference and use the [default naming convention](automation-naming.md) for the automation framework. Example values are also used for naming throughout the configurations. In this tutorial, the following names are used:
+These steps reference and use the [default naming convention](naming.md) for the automation framework. Example values are also used for naming throughout the configurations. In this tutorial, the following names are used:
 - Azure DevOps Services project name is `SAP-Deployment` 
 - Azure DevOps Services repository name is `sap-automation` 
 - The control plane environment is named `MGMT`, in the region West Europe (`WEEU`) and installed in the virtual network `DEP00`, giving a deployer configuration name: `MGMT-WEEU-DEP00-INFRASTRUCTURE`
@@ -144,7 +144,7 @@ SAP Library configuration name.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure Control Plane](automation-configure-control-plane.md)
+> [Configure Control Plane](configure-control-plane.md)
 
 
 

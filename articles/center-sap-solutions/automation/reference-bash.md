@@ -14,7 +14,7 @@ ms.author: kimforss
 
 # Using SAP on Azure Deployment Automation Framework shell scripts
 
-You can deploy all [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) components using shell scripts.
+You can deploy all [SAP on Azure Deployment Automation Framework](deployment-framework.md) components using shell scripts.
 
 ## Control Plane operations
 

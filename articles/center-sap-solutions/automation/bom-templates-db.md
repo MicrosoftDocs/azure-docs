@@ -11,12 +11,12 @@ ms.service: virtual-machines-sap
 
 # Generate SAP Application templates for automation
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM) to define the SAP Application. Before you can deploy a system using a custom BOM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses a Bill of Materials (BOM) to define the SAP Application. Before you can deploy a system using a custom BOM, you need to also create the templates for the ini-files used in the unattended SAP installation. This guide covers how to create the application templates for an SAP/S4 deployment. The process is the same for the other SAP applications.
 
 ## Prerequisites
 
-- [Get, download, and prepare your SAP installation media and related files](automation-bom-get-files.md) if you haven't already done so. Make sure to have the [name of the SAPCAR utility file that you downloaded](automation-bom-get-files.md#acquire-media) available.
-- [Prepare your BOM](automation-bom-prepare.md) if you haven't already done so. Make sure to have the BOM file that you created available.
+- [Get, download, and prepare your SAP installation media and related files](bom-get-files.md) if you haven't already done so. Make sure to have the [name of the SAPCAR utility file that you downloaded](bom-get-files.md#acquire-media) available.
+- [Prepare your BOM](bom-prepare.md) if you haven't already done so. Make sure to have the BOM file that you created available.
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
 - Optionally, create a virtual machine (VM) within Azure to use for transferring SAP media from your storage account. This method improves the transfer speed. Make sure you have connectivity between your VM and the target SAP VM. For example, check that your SSH keys are in place.

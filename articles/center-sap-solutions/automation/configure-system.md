@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters
 
-Configuration for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
+Configuration for the [SAP on Azure Deployment Automation Framework](deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
 
 The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
@@ -58,8 +58,8 @@ The table below contains the parameters that define the environment settings.
 > | `location`               | The Azure region in which to deploy.                     | Required   |                                                                                             |
 > | `custom_prefix`          | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
 > | `use_prefix`             | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | 'name_override_file'     | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
-> | 'save_naming_information | Create a sample naming json file                         | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'name_override_file'     | Name override file                                       | Optional   | see [Custom naming](naming-module.md)                                            |
+> | 'save_naming_information | Create a sample naming json file                         | Optional   | see [Custom naming](naming-module.md)                                            |
 
 ## Resource group parameters
 
@@ -102,11 +102,11 @@ The database tier defines the infrastructure for the database tier, supported da
 > | ---------------------------------- | ----------------------------------------------------------------------------------- | -----------  | ------------------ |
 > | `database_sid`                     | Defines the database SID.                                                           | Required     |                    |
 > | `database_platform`                | Defines the database backend.                                                       | Supported values are `HANA`, `DB2`, `ORACLE`, `ASE`, `SQLSERVER`, `NONE` |
-> | `database_high_availability`       | Defines if the database tier is deployed highly available.                          | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available.                          | Optional     | See [High availability configuration](configure-system.md#high-availability-configuration) |
 > | `database_server_count`            | Defines the number of database servers.                                             | Optional     | Default value is 1 |
 > | `database_vm_zones`                | Defines the Availability Zones for the database servers.                            | Optional	    |                    |
-> | `db_sizing_dictionary_key`         | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
-> | `db_disk_sizes_filename`           | Defines the custom database sizing file name.                                       | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_sizing_dictionary_key`         | Defines the database sizing information.                                            | Required     | See [Custom Sizing](configure-extra-disks.md) |
+> | `db_disk_sizes_filename`           | Defines the custom database sizing file name.                                       | Optional     | See [Custom Sizing](configure-extra-disks.md) |
 > | `database_vm_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used.                      | Optional     |                    |
 > | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet).                | Optional     |                    |
 > | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet).      | Optional     |                    |
@@ -142,7 +142,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                 | Optional	  |        |
 > | `sid`	                             |	Defines the SAP application SID                                            | Required	  |        |
 > | `app_tier_sizing_dictionary_key`   | Lookup value defining the VM SKU and the disk layout for tha application tier servers | Optional |
-> | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom Sizing](configure-extra-disks.md) |
 > | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machine(s) | Optional	  |       |
 > | `app_tier_use_DHCP`	               | Controls if Azure subnet provided IP addresses should be used (dynamic)     | Optional	  |       |
 > | `app_tier_dual_nics`	             | Defines if the application tier server will have two network interfaces     | Optional	  |       |
@@ -154,7 +154,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | Variable                               | Description                                                          | Type      | Notes  |
 > | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
 > | `scs_server_count`	                   | Defines the number of SCS servers.                                   | Required	|        |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available.                 | Optional	| See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available.                 | Optional	| See [High availability configuration](configure-system.md#high-availability-configuration) |
 > | `scs_instance_number`	                 | The instance number of SCS.                                          | Optional  |        |
 > | `ers_instance_number`	                 | The instance number of ERS.                                          | Optional	|        |
 > | `scs_server_sku`	                     | Defines the Virtual machine SKU to use.                              | Optional  |        |
@@ -429,5 +429,5 @@ az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workl
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy SAP system](automation-deploy-system.md)
+> [Deploy SAP system](deploy-system.md)
 

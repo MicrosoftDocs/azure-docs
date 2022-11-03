@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Change the disk configuration for the SAP deployment automation
 
-By default, the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
+By default, the [SAP on Azure Deployment Automation Framework](deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
@@ -281,5 +281,5 @@ If you need to add disks to an already deployed system, you can add a new block 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure custom naming module](automation-naming-module.md)
+> [Configure custom naming module](naming-module.md)
 

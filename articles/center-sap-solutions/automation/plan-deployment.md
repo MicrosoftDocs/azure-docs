@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](deployment-framework.md), this include topics like deployment credentials management, virtual network design.
 
 For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
@@ -20,7 +20,7 @@ For generic SAP on Azure design considerations please visit [Introduction to an 
 
 ## Credentials management
 
-The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-zone-structure). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-zone-structure). The framework stores these credentials in the [deployer's](deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -86,16 +86,16 @@ The following sample folder hierarchy shows how to structure your configuration 
 | ----------- | -------- | ----------- |
 | None (root level) | Configuration files, template files | The root folder for all systems that you're managing from this deployment environment. |
 | CONFIGURATION | Shared configuration files | A shared folder for referring to custom configuration files from multiple places. For example, custom disk sizing configuration files. |
-| DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](automation-configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
-| LIBRARY | Configuration files for SAP Library | A folder with [SAP Library configuration files](automation-configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
-| LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](automation-deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
-| SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](automation-configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
+| DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
+| LIBRARY | Configuration files for SAP Library | A folder with [SAP Library configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
+| LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
+| SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
 
 :::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot of example folder structure, showing separate folders for SAP HANA and multiple workload environments.":::
 
 ## Supported deployment scenarios
 
-The automation framework supports [deployment into both new and existing scenarios](automation-new-vs-existing.md).
+The automation framework supports [deployment into both new and existing scenarios](new-vs-existing.md).
 
 ## Azure regions
 
@@ -146,15 +146,15 @@ The deployment configuration file defines the region, environment name, and virt
 }
 ```
 
-For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-control-plane.md).
+For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
 
 ## SAP Library configuration
 
-The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
+The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](configure-control-plane.md).
 
 ## Workload zone structure
 
-Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
+Most SAP configurations have multiple [workload zones](deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
 
 You'll be creating or granting access to the following services in each workload zone:
 
@@ -169,7 +169,7 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
-For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
+For more information, see [how to configure a workload zone deployment for automation](deploy-workload-zone.md).
 
 ## SAP system setup
 
@@ -188,7 +188,7 @@ Before you configure the SAP system, consider the following questions:
 * Are you deploying to [a new or existing deployment scenario](#supported-deployment-scenarios)?
 * What is your IP allocation strategy? Do you want Azure to set IPs or use custom settings?
 
-For more information, see [how to configure the SAP system for automation](automation-configure-system.md).
+For more information, see [how to configure the SAP system for automation](configure-system.md).
 
 ## Deployment flow
 
@@ -201,7 +201,7 @@ When planning a deployment, it's important to consider the overall flow. There a
 
 1. Deploy the workload zone. This step deploys the [workload zone components](#workload-zone-structure), such as the virtual network and key vaults.
 
-1. Deploy the system. This step includes the [infrastructure for the SAP system](#sap-system-setup) deployment and the SAP configuration [configuration and SAP installation](automation-run-ansible.md).
+1. Deploy the system. This step includes the [infrastructure for the SAP system](#sap-system-setup) deployment and the SAP configuration [configuration and SAP installation](run-ansible.md).
 
 ## Orchestration environment
 
@@ -214,13 +214,13 @@ For the automation framework, you must execute templates and scripts from one of
 
 ## Naming conventions
 
-The automation framework uses a default naming convention. If you'd like to use a custom naming convention, plan and define your custom names before deployment. For more information, see [how to configure the naming convention](automation-naming-module.md). 
+The automation framework uses a default naming convention. If you'd like to use a custom naming convention, plan and define your custom names before deployment. For more information, see [how to configure the naming convention](naming-module.md). 
 
 ## Disk sizing
 
-If you want to [configure custom disk sizes](automation-configure-extra-disks.md), make sure to plan your custom setup before deployment.
+If you want to [configure custom disk sizes](configure-extra-disks.md), make sure to plan your custom setup before deployment.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [About manual deployments of automation framework](automation-manual-deployment.md)
+> [About manual deployments of automation framework](manual-deployment.md)

@@ -11,26 +11,26 @@ ms.service: virtual-machines-sap
 
 # Prepare SAP BOM
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
 
 The automation framework's GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-automation/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BOMs for other SAP Applications and databases. 
 
 If you want to generate a BOM that includes permalinks, [follow the steps for creating this type of BOM](#permalinks).
 
 > [!NOTE]
-> This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
+> This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](get-started.md) instead.
 
 ## Prerequisites
 
-- [Get, download, and prepare your SAP installation media and related files](automation-bom-get-files.md) if you haven't already done so.
+- [Get, download, and prepare your SAP installation media and related files](bom-get-files.md) if you haven't already done so.
     - SAP Application (DB) or HANA media in your Azure storage account.
 - A YAML editor for working with the BOM file.
 - Application installation templates for: 
     - SAP Central Services (SCS)
     - The SAP Primary Application Server (PAS)
     - The SAP Additional Application Server (AAS)
-- Downloads of necessary stack files to the folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media). For more information, see the [basic BOM preparation how-to guide](automation-bom-prepare.md).
-- A copy of your [SAP Download Basket manifest](automation-bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](automation-bom-get-files.md#acquire-media).
+- Downloads of necessary stack files to the folder you created for [acquiring SAP media](bom-get-files.md#acquire-media). For more information, see the [basic BOM preparation how-to guide](bom-prepare.md).
+- A copy of your [SAP Download Basket manifest](bom-get-files.md#get-download-basket-manifest) (`DownloadBasket.json`), downloaded to the [folder you created for acquiring SAP media](bom-get-files.md#acquire-media).
     - An installation of the [Postman utility](https://www.postman.com/downloads/).
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
@@ -97,7 +97,7 @@ The script only generates entries for media files that the SAP Maintenance Plann
 
 You can create your BOM through the following manual process. Another option is to use the [scripted creation process](#scripted-creation-process) to do the same steps.
 
-1. Open the downloads folder you created for [acquiring SAP media](automation-bom-get-files.md#acquire-media)
+1. Open the downloads folder you created for [acquiring SAP media](bom-get-files.md#acquire-media)
 
 1. Create an empty YAML file named `bom.yml`.
 
@@ -181,7 +181,7 @@ You can create your BOM through the following manual process. Another option is 
 
 ### Permalinks
 
-You can automatically generate a basic BOM that functions. However, the BOM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](automation-bom-get-files.md#acquire-media). 
+You can automatically generate a basic BOM that functions. However, the BOM doesn't create permanent URLs (permalinks) to the SAP media by default. If you want to create permalinks, you need to do more steps before you [acquire the SAP media](bom-get-files.md#acquire-media). 
 
 > [!NOTE]
 > Manual generation of a full SAP BOM with permalinks takes about twice as long as [preparing a basic BOM manually](#manual-creation-process). 
@@ -359,4 +359,4 @@ To use the BOM with permalinks:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to generate SAP Application BOM](automation-bom-templates-db.md)
+> [How to generate SAP Application BOM](bom-templates-db.md)

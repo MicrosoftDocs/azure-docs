@@ -4,43 +4,43 @@ items:
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
-    href: automation-deployment-framework.md
+    href: deployment-framework.md
   - name: Supported platforms and features
-    href: automation-supportability.md
+    href: supportability.md
   - name: Get started with automation framework
-    href: automation-get-started.md
+    href: get-started.md
   - name: Plan your automated deployment
-    href: automation-plan-deployment.md
+    href: plan-deployment.md
   - name: Naming conventions
-    href: automation-naming.md
+    href: naming.md
   - name: Frequently asked questions
-    href: automation-faq.yml
+    href: faq.yml
   - name: Configuration
     items:
     - name: Configure Azure DevOps
-      href: automation-configure-devops.md
+      href: configure-devops.md
     - name: Configure the control plane
-      href: automation-configure-control-plane.md
+      href: configure-control-plane.md
     - name: Configure Configuration Web App
-      href: automation-configure-webapp.md
+      href: configure-webapp.md
     - name: Configure the workload zone
-      href: automation-configure-workload-zone.md
+      href: configure-workload-zone.md
     - name: Configure the SAP system
-      href: automation-configure-system.md
+      href: configure-system.md
     - name: Configure SAP parameters
-      href: automation-configure-sap-parameters.md
+      href: configure-sap-parameters.md
     - name: Configure custom disk sizing
-      href: automation-configure-extra-disks.md
+      href: configure-extra-disks.md
     - name: Using a custom naming convention
-      href: automation-naming-module.md
+      href: naming-module.md
     - name: Configure external tools
-      href: automation-tools-configuration.md
+      href: tools-configuration.md
   - name: Script reference
     items:
     - name: Bash
       items:
       - name: Bash scripts for automation framework
-        href: automation-reference-bash.md
+        href: reference-bash.md
       - name: Deploying the control plane using shell scripts
         href: bash/automation-prepare-region.md
       - name: Deploying the workload zone using shell scripts
@@ -64,7 +64,7 @@ items:
     - name: PowerShell
       items:
       - name: PowerShell cmdlets for automation framework
-        href: automation-reference-powershell.md
+        href: reference-powershell.md
       - name: Deploying the control plane using PowerShell
         href: module/automation-new-sapautomationregion.md
       - name: Deploying the Workload Zone using PowerShell
@@ -86,28 +86,28 @@ items:
   - name: Tutorials
     items:
     - name: Deploy the control plane
-      href: automation-deploy-control-plane.md
+      href: deploy-control-plane.md
     - name: Deploy the workload zone
-      href: automation-deploy-workload-zone.md
+      href: deploy-workload-zone.md
     - name: Deploy the SAP system
-      href: automation-deploy-system.md
+      href: deploy-system.md
     - name: Use Ansible for system configuration
-      href: automation-run-ansible.md
+      href: run-ansible.md
     - name: Deployment hands-on lab
-      href: automation-tutorial.md
+      href: tutorial.md
     - name: Deployment DevOps hands-on lab
-      href: automation-devops-tutorial.md
+      href: devops-tutorial.md
     - name: Manual infrastructure deployment
-      href: automation-manual-deployment.md
+      href: manual-deployment.md
     - name: Sample deployment configurations
-      href: automation-new-vs-existing.md
+      href: new-vs-existing.md
   - name: SAP software
     items:
     - name: Download and prepare software media
-      href: automation-software.md
+      href: software.md
     - name: Get SAP media for BOM
-      href: automation-bom-get-files.md
+      href: bom-get-files.md
     - name: Prepare BOM
-      href: automation-bom-prepare.md
+      href: bom-prepare.md
     - name: Create automation template files
-      href: automation-bom-templates-db.md
+      href: bom-templates-db.md

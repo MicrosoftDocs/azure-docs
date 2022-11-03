@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Workload zone configuration in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
+An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](deployment-framework.md) refers to these tiers as [workload zones](deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
 
 :::image type="content" source="./media/deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
 
@@ -32,7 +32,7 @@ The table below contains the parameters that define the environment settings.
 > | ----------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`           | Identifier for the workload zone (max 5 chars)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
 > | `location`              | The Azure region in which to deploy.                     | Required   |                                                                                             |
-> | 'name_override_file'    | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'name_override_file'    | Name override file                                       | Optional   | see [Custom naming](naming-module.md)                                            |
 
 
 ## Resource group parameters
@@ -285,4 +285,4 @@ The table below contains the Terraform parameters. These parameters need to be e
 ## Next Step
 
 > [!div class="nextstepaction"]
-> [About SAP system deployment in automation framework](automation-deploy-workload-zone.md)
+> [About SAP system deployment in automation framework](deploy-workload-zone.md)

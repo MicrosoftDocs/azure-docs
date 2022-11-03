@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure the control plane
 
-The control plane for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) consists of the following components:
+The control plane for the [SAP on Azure Deployment Automation Framework](deployment-framework.md) consists of the following components:
  - Deployer
  - SAP library
 
@@ -19,7 +19,7 @@ The control plane for the [SAP on Azure Deployment Automation Framework](automat
 
 ## Deployer
 
-The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands.
+The [deployer](deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands.
 
 The configuration of the deployer is performed in a Terraform tfvars variable file.
 
@@ -42,7 +42,7 @@ The table below contains the parameters that define the resource naming.
 > | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
 > | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
 
 ### Resource Group
 
@@ -214,7 +214,7 @@ bastion_deployment=true
 
 ## SAP Library
 
-The [SAP Library](automation-deployment-framework.md#deployment-components) provides the persistent storage of the Terraform state files and the downloaded SAP installation media for the control plane.
+The [SAP Library](deployment-framework.md#deployment-components) provides the persistent storage of the Terraform state files and the downloaded SAP installation media for the control plane.
 
 The configuration of the SAP Library is performed in a Terraform tfvars variable file.
 
@@ -236,7 +236,7 @@ The table below contains the parameters that define the resource naming.
 > | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
 > | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
 
 ### Resource Group
 
@@ -299,4 +299,4 @@ deployer_vnet="DEP00"
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SAP system](automation-configure-system.md)
+> [Configure SAP system](configure-system.md)

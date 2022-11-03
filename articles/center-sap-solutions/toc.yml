@@ -41,7 +41,7 @@ items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
 
-- name: SAP deployment automation framework on Azure
+- name: SAP on Azure Deployment Automation Framework
   href: ./automation/toc.yml
 
 - name: Azure Monitor for SAP solutions
@@ -53,9 +53,3 @@ items:
     href: /rest/api/workloads/
   - name: Azure CLI guide
     href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
-   
-
-- name: Resources
-  items:
-  - name: SAP on Azure Deployment Automation Framework
-    href: ../virtual-machines/workloads/sap/automation-deployment-framework.md

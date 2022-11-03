@@ -147,5 +147,5 @@ Each row must specify the following parameters.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy SAP System](automation-deploy-system.md)
+> [Deploy SAP System](deploy-system.md)
 

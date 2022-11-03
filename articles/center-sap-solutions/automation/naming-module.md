@@ -11,9 +11,9 @@ ms.service: virtual-machines-sap
 
 # Overview
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md).
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses a standard naming convention for Azure [resource naming](naming.md).
 
-The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing your own names for some of the resources using the [parameter files](automation-configure-system.md).
+The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing your own names for some of the resources using the [parameter files](configure-system.md).
 
 The naming of the resources uses the following format:
 
@@ -364,4 +364,4 @@ variable resource_suffixes {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about naming conventions](automation-naming.md)
+> [Learn about naming conventions](naming.md)

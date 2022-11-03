@@ -11,13 +11,13 @@ ms.service: virtual-machines-sap
 
 # Get started with SAP automation framework on Azure
 
-Get started quickly with the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md).
+Get started quickly with the [SAP on Azure Deployment Automation Framework](deployment-framework.md).
 
 ## Prerequisites
 
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A [download of the SAP software](automation-software.md) in your Azure environment.
+- A [download of the SAP software](software.md) in your Azure environment.
 - A [Terraform](https://www.terraform.io/) installation. For more information, also see the [Terraform on Azure documentation](/azure/developer/terraform/).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
 - Optionally, if you want to use PowerShell:
@@ -94,4 +94,4 @@ xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Plan the deployment](automation-plan-deployment.md)
+> [Plan the deployment](plan-deployment.md)

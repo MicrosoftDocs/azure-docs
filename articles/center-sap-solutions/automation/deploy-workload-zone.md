@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Workload zone deployment in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
+An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](deployment-framework.md) refers to these tiers as [workload zones](deployment-framework.md#deployment-components).
 
 You can use workload zones in multiple Azure regions. Each workload zone then has its own Azure Virtual Network (Azure VNet)
 
@@ -189,4 +189,4 @@ You can track the progress in the Azure DevOps Services portal. Once the deploym
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [About SAP system deployment in automation framework](automation-configure-system.md)
+> [About SAP system deployment in automation framework](configure-system.md)

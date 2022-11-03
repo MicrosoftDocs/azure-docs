@@ -11,10 +11,10 @@ ms.service: virtual-machines-sap
 
 # Acquire media for BOM creation
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM). To create your BOM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses a Bill of Materials (BOM). To create your BOM, you have to locate and download relevant SAP installation media. Then, you need to upload these media files to your Azure storage account.
 
 > [!NOTE]
-> This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](automation-get-started.md) instead.
+> This guide covers advanced deployment topics. For a basic explanation of how to deploy the automation framework, see the [get started guide](get-started.md) instead.
 
 This guide is for configurations that use either the SAP Application (DB) or HANA databases.
 
@@ -219,4 +219,4 @@ To upload the SAP media and stack files to your Azure storage account:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare BOM](automation-bom-prepare.md)
+> [Prepare BOM](bom-prepare.md)

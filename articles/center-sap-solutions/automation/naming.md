@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Naming conventions for SAP automation framework
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
 
 - Deploy the SAP virtual network infrastructure into any supported Azure region.
 
@@ -23,7 +23,7 @@ The [SAP on Azure Deployment Automation Framework](automation-deployment-framewo
 
 - Do disaster recovery and fall forward behavior.
 
-Review the standard terms, area paths, variable names before you begin your deployment. If necessary, you can also [configure custom naming](automation-naming-module.md).
+Review the standard terms, area paths, variable names before you begin your deployment. If necessary, you can also [configure custom naming](naming-module.md).
 
 ## Placeholder values
 
@@ -155,4 +155,4 @@ You can use the `_region_mapping` variable as follows:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about configuring the custom naming module](automation-naming-module.md)
+> [Learn about configuring the custom naming module](naming-module.md)

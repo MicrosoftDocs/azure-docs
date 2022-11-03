@@ -77,7 +77,7 @@ The application configuration will be performed from the Ansible Controller in t
 - Configure high availability (HA) for your SAP database
 
 
-For more information of how to configure and deploy the control plane, see [Configuring the control plane](automation-configure-control-plane.md) and [Deploying the control plane](automation-deploy-control-plane.md).
+For more information of how to configure and deploy the control plane, see [Configuring the control plane](configure-control-plane.md) and [Deploying the control plane](deploy-control-plane.md).
 
 ## Software acquisition process
 
@@ -111,7 +111,7 @@ The SAP Workload Zone provides the following services to the SAP Systems
 -	Azure Key Vault for system credentials (Virtual Machines and SAP)
 -	Shared Storage (optional)
 
-For more information of how to configure and deploy the SAP Workload zone, see [Configuring the workload zone](automation-configure-workload-zone.md) and [Deploying the SAP workload zone](automation-deploy-workload-zone.md).
+For more information of how to configure and deploy the SAP Workload zone, see [Configuring the workload zone](configure-workload-zone.md) and [Deploying the SAP workload zone](deploy-workload-zone.md).
 
 ## About the SAP System
 
@@ -120,7 +120,7 @@ The system deployment consists of the virtual machines that will be running the 
 The SAP System provides the following services
 -	Virtual machine, storage, and supporting infrastructure to host the SAP applications.
 
-For more information of how to configure and deploy the SAP System, see [Configuring the SAP System](automation-configure-system.md) and [Deploying the SAP system](automation-deploy-system.md).
+For more information of how to configure and deploy the SAP System, see [Configuring the SAP System](configure-system.md) and [Deploying the SAP system](deploy-system.md).
 
 ## Glossary
 
@@ -153,9 +153,9 @@ The following diagram shows the relationships between SAP systems, workload zone
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with the deployment automation framework](automation-get-started.md)
-> [Configuring Azure DevOps for the automation framwework](automation-configure-devops.md)
-> [Configuring the control plane](automation-configure-control-plane.md)
-> [Configuring the workload zone](automation-configure-workload-zone.md)
-> [Configuring the SAP System](automation-configure-system.md)
+> [Get started with the deployment automation framework](get-started.md)
+> [Configuring Azure DevOps for the automation framwework](configure-devops.md)
+> [Configuring the control plane](configure-control-plane.md)
+> [Configuring the workload zone](configure-workload-zone.md)
+> [Configuring the SAP System](configure-system.md)
 

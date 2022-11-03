@@ -73,6 +73,6 @@ Once you have downloaded the ssh key for the deployer, you can use it to connect
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP Workload Zone](automation-deploy-workload-zone.md)
+> [Configure SAP Workload Zone](deploy-workload-zone.md)
 
 

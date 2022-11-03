@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started Ansible configuration
 
-When you use the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), you have the option to do an [automated infrastructure deployment](automation-get-started.md), However, you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
+When you use the [SAP on Azure Deployment Automation Framework](deployment-framework.md), you have the option to do an [automated infrastructure deployment](get-started.md), However, you can also do the required operating system configurations and install SAP using Ansible playbooks provided in the repository. These playbooks are located in the automation framework repository in the `/sap-automation/deploy/ansible` folder.
 
 | Filename                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |
@@ -152,7 +152,7 @@ X01_WEB:
 
 ## Run a playbook
 
-Make sure you've [downloaded the SAP software](automation-software.md) to your Azure environment before running this step.
+Make sure you've [downloaded the SAP software](software.md) to your Azure environment before running this step.
 
 To execute a playbook or multiple playbooks, use the command `ansible-playbook` as follows. The example below runs the Operating System configuration playbook.
 

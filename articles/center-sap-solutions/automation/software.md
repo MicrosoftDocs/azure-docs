@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Download SAP software
 
-You need a copy of the SAP software before you can use [the SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so you can put the SAP media in your storage account. Then, [download the SAP software using Ansible playbooks](#download-sap-software).
+You need a copy of the SAP software before you can use [the SAP on Azure Deployment Automation Framework](deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so you can put the SAP media in your storage account. Then, [download the SAP software using Ansible playbooks](#download-sap-software).
 
 ## Prerequisites
 
@@ -120,4 +120,4 @@ ansible-playbook                                                                
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy the SAP Infrastructure](automation-deploy-system.md)
+> [Deploy the SAP Infrastructure](deploy-system.md)

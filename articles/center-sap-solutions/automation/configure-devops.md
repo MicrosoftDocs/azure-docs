@@ -393,7 +393,7 @@ To create the service connection, go to Project settings and navigate to the Ser
 
 :::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
 
-Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Enter the target subscription, typically the control plane subscription, and provide the service principal details. Validate the credentials using the _Verify_ button. For more information on how to create a service principal, see [Creating a Service Principal](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Enter the target subscription, typically the control plane subscription, and provide the service principal details. Validate the credentials using the _Verify_ button. For more information on how to create a service principal, see [Creating a Service Principal](deploy-control-plane.md#prepare-the-deployment-credentials).
 
 Enter a Service connection name, for instance 'Connection to MGMT subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
 
@@ -493,4 +493,4 @@ You should now be able to visit the web app, and use it to deploy SAP workload z
 ## Next step
 
 > [!div class="nextstepaction"]
-> [DevOps hands on lab](automation-devops-tutorial.md)
+> [DevOps hands on lab](devops-tutorial.md)

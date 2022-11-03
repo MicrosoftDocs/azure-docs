@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configuring for new and existing deployments
 
-You can use the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) in both new and existing deployment scenarios. 
+You can use the [SAP on Azure Deployment Automation Framework](deployment-framework.md) in both new and existing deployment scenarios. 
 
 In new deployment scenarios, the automation framework doesn't use existing Azure infrastructure. The deployment process creates the virtual networks, subnets, key vaults, and more.
 
@@ -24,7 +24,7 @@ The following is an example of new deployment scenarios that create new resource
 > Modify all example configurations as necessary for your scenario.
 ### New deployment
 
-In this scenario, the automation framework creates all Azure components, and uses the [deployer](automation-deployment-framework.md#deployment-components). This example deployment contains:
+In this scenario, the automation framework creates all Azure components, and uses the [deployer](deployment-framework.md#deployment-components). This example deployment contains:
 
 - Two environments the West Europe Azure region
   - Management (`MGMT`) hosts the control plane
@@ -170,7 +170,7 @@ The following are example existing scenarios that use existing Azure resources.
 
 ### Existing environment scenario
 
-In this scenario, the automation framework uses existing Azure components, and uses the [deployer](automation-deployment-framework.md#deployment-components). These existing components include resource groups, storage accounts, virtual networks, subnets, and network security groups. This example deployment contains:
+In this scenario, the automation framework uses existing Azure components, and uses the [deployer](deployment-framework.md#deployment-components). These existing components include resource groups, storage accounts, virtual networks, subnets, and network security groups. This example deployment contains:
 
 - Two environments in the East US 2 region
   - Management (`MGMT`) hosts the control plane
@@ -312,4 +312,4 @@ New-SAPSystem --parameterfile .\QA-EUS2-SAP03-tfvars.json -Type sap_system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Hands-on lab instructions](automation-tutorial.md)
+> [Hands-on lab instructions](tutorial.md)

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 
 # Enterprise Scale for SAP on Azure Deployment Automation Framework - Hands-on Lab
 
-This tutorial shows how to do enterprise scaling for deployments using the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
+This tutorial shows how to do enterprise scaling for deployments using the [SAP on Azure Deployment Automation Framework](deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
 
 You'll perform the following tasks during this lab:
 
@@ -69,7 +69,7 @@ The **Deployer** is the execution engine of the SAP automation framework. This  
 
 The **SAP Library** provides the persistent storage for the Terraform state files and the downloaded SAP installation media for the control plane.
 
-You configure the deployer and library in a Terraform `.tfvars` variable file. See [configuring the control plane](automation-configure-control-plane.md)
+You configure the deployer and library in a Terraform `.tfvars` variable file. See [configuring the control plane](configure-control-plane.md)
 
 
 
@@ -79,9 +79,9 @@ An SAP application typically has multiple deployment tiers. For example, you mig
 
 :::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Workload zone.":::
 
-The **SAP Workload zone** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](automation-configure-workload-zone.md)
+The **SAP Workload zone** contains the networking and shared components for the SAP VMs. These components include route tables, network security groups, and virtual networks (VNets). The Landscape provides the opportunity to divide deployments into different environments. See [configuring the workload zone](configure-workload-zone.md)
 
-The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](automation-configure-system.md)
+The system deployment consists of the virtual machines that will be running the SAP application, including the web, app, and database tiers. See [configuring the SAP system](configure-system.md)
 
 
 
@@ -295,7 +295,7 @@ The SAP automation deployment framework uses service principals for deployment. 
 
 ## Deploy control plane
 
-Use the [prepare_region](bash/automation-prepare-region.md) script to deploy the Deployer and Library. These deployment pieces make up the
+Use the [prepare_region](bash/prepare-region.md) script to deploy the Deployer and Library. These deployment pieces make up the
 control plane for a chosen automation area.
 
 - The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the Library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the Deployer and Library, and some other parameters as follows.
@@ -416,7 +416,7 @@ Make sure you can connect to your deployer VM:
 
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client such as VSCode. Use the public IP address you noted earlier, and the SSH key you downloaded. For instructions on how to connect to the Deployer using VSCode see [Connecting to Deployer using VSCode](automation-tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
+1. Connect to the deployer VM through any SSH client such as VSCode. Use the public IP address you noted earlier, and the SSH key you downloaded. For instructions on how to connect to the Deployer using VSCode see [Connecting to Deployer using VSCode](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
 
 > [!NOTE]
 >The default username is *azureadm*
@@ -677,7 +677,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 ## Deploy the Workload Zone
 
 
-Use the [install_workloadzone](bash/automation-install_workloadzone.md) script to deploy the SAP workload zone.
+Use the [install_workloadzone](bash/install_workloadzone.md) script to deploy the SAP workload zone.
 
 1. On the deployer VM, navigate to the `Azure_SAP_Automated_Deployment` folder.
 
@@ -741,7 +741,7 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 ## Deploy SAP system infrastructure
 
 Once the Workload zone is complete, you can deploy the SAP system infrastructure resources. The SAP system creates your VMs and supporting components for your SAP application.
-Use the [installer.sh](bash/automation-installer.md) script to deploy the SAP system.
+Use the [installer.sh](bash/installer.md) script to deploy the SAP system.
 
 The SAP system deploys:
 
@@ -918,4 +918,4 @@ Verify that all resources are cleaned up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure control plane](automation-configure-control-plane.md)
+> [Configure control plane](configure-control-plane.md)

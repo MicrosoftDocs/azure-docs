@@ -14,7 +14,7 @@ ms.author: kimforss
 
 # Using PowerShell in SAP on Azure Deployment Automation Framework
 
-You can deploy all [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) components using Microsoft PowerShell.
+You can deploy all [SAP on Azure Deployment Automation Framework](deployment-framework.md) components using Microsoft PowerShell.
 
 ## Control Plane operations
 

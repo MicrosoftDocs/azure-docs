@@ -11,18 +11,18 @@ ms.service: virtual-machines-sap
 
 # Get started with manual deployment
 
-Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
+Along with [automated deployment](get-started.md), you can also do manual deployment of the [SAP on Azure Deployment Automation Framework](deployment-framework.md). Use this example configuration and sample parameter files to get started.
 
 > [!TIP]
-> This guide covers only how to perform a **manual** deployment. If you want to get started quickly, see the [**automated** deployment guide](automation-get-started.md) instead.
+> This guide covers only how to perform a **manual** deployment. If you want to get started quickly, see the [**automated** deployment guide](get-started.md) instead.
 
-These steps reference and use the [default naming convention](automation-naming.md) for the automation framework. Example values are also used for naming throughout the code. For example, the deployer name is `DEMO-EUS2-DEP00-INFRASTRUCTURE`. In this example, the environment is a demo (`DEMO`), the region is **East US 2** (`EUS2`), and the deployer virtual network is `DEP00`. 
+These steps reference and use the [default naming convention](naming.md) for the automation framework. Example values are also used for naming throughout the code. For example, the deployer name is `DEMO-EUS2-DEP00-INFRASTRUCTURE`. In this example, the environment is a demo (`DEMO`), the region is **East US 2** (`EUS2`), and the deployer virtual network is `DEP00`. 
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure account with privileges to create a service principal. 
-- A [download of the SAP software](automation-software.md) in your Azure environment.
+- A [download of the SAP software](software.md) in your Azure environment.
 
 ## Deployer setup
 
@@ -114,7 +114,7 @@ Clone and configure the [automation framework repository](https://github.com/Azu
 
 ### Initialize Terraform
 
-1. Create a working directory. The directory name must observe the [default naming convention](automation-naming.md). For example:
+1. Create a working directory. The directory name must observe the [default naming convention](naming.md). For example:
 
     ```azurecli-interactive
     mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/DEMO-EUS2-DEP00-INFRASTRUCTURE; cd $_
@@ -623,7 +623,7 @@ To execute a playbook or multiple playbooks, use the command `ansible-playbook` 
 - Change `<ssh-key`> to the private SSH key you want to use.
 - Change other values under `--extra-vars` as needed for your settings.
 
-If you experience issues, make sure you've [downloaded the SAP software](automation-software.md) to your Azure environment.
+If you experience issues, make sure you've [downloaded the SAP software](software.md) to your Azure environment.
 
 ```azurecli-interactive
 export           ANSIBLE_HOST_KEY_CHECKING=False
@@ -659,4 +659,4 @@ ansible-playbook                                                                
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started quickly with an automated deployment](automation-get-started.md)
+> [Get started quickly with an automated deployment](get-started.md)

@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Supportability matrix for the SAP Automation Framework
 
-The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
+The [SAP on Azure Deployment Automation Framework](deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
 
 ## Supported operating systems
 
@@ -44,12 +44,12 @@ The automation framework supports both green field and brown field deployments.
 ### Greenfield deployments
 In the green field deployment all the required resources will be created by the automation framework.
 
-In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
+In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](configure-workload-zone.md) for more examples.
 
 ### Brownfield deployments
 In the brownfield deployment existing Azure resources can be used as part of the deployment.
 
-In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
+In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](configure-workload-zone.md) for more examples.
 
 ## Supported Azure features
 
@@ -98,4 +98,4 @@ At this time the automation framework **doesn't support** the following Azure se
 
 
 > [!div class="nextstepaction"]
-> [Get started with the automation framework](automation-get-started.md)
+> [Get started with the automation framework](get-started.md)

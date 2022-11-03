@@ -13,7 +13,7 @@ title: SAP on Azure Deployment Automation Framework for Azure FAQ
 summary: |
   ## Frequently asked questions
   
-  This article provides answers to frequently asked questions (FAQ) about the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md).
+  This article provides answers to frequently asked questions (FAQ) about the [SAP on Azure Deployment Automation Framework](deployment-framework.md).
     
 sections:
   - name: Terraform deployment
@@ -29,7 +29,7 @@ sections:
       - question: |
           How do I customize my naming convention? 
         answer: |
-           The naming convention for the SAP automation framework carefully matches Azure naming standards. If you want to use your own naming conventions, [follow the custom naming module instructions](automation-naming-module.md)
+           The naming convention for the SAP automation framework carefully matches Azure naming standards. If you want to use your own naming conventions, [follow the custom naming module instructions](naming-module.md)
       - question: |
           What does the error " doesn't have secrets get permission on key vault" mean?
         answer: |
@@ -128,4 +128,4 @@ additionalContent: |
   ## Next steps
   
   > [!div class="nextstepaction"]
-  > [Get started with SAP on Azure Deployment Automation Framework for Azure](automation-get-started.md)
+  > [Get started with SAP on Azure Deployment Automation Framework for Azure](get-started.md)
