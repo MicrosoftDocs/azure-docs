@@ -24,10 +24,10 @@ This section explains the migration options available depending on what version 
 
 If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to:
 
-    - [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
-    - [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
-    - [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential
-    - Configure your application to authenticate using the workload identity.
+- [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
+- [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
+- [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential
+- Configure your application to authenticate using the workload identity.
 
 ## Migrate from older version
 
