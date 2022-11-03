@@ -61,7 +61,7 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 Here's an example Speech CLI command that creates a dataset and connects it to an existing project:
 
 ```azurecli-interactive
-spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
+spx csr dataset create --api-version v3.1 --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
 
 You should receive a response body in the following format:

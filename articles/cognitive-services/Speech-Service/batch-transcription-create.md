@@ -31,7 +31,7 @@ To create a transcription, use the `spx batch transcription create` command. Con
 Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
 ```
 
 You should receive a response body in the following format:
@@ -182,7 +182,7 @@ Optionally, you can modify the previous [create transcription example](#create-a
 ::: zone pivot="speech-cli"
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end

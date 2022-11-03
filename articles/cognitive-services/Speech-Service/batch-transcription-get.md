@@ -29,7 +29,7 @@ To get the status of the transcription job, use the `spx batch transcription sta
 Here's an example Speech CLI command to get the transcription status:
 
 ```azurecli-interactive
-spx batch transcription status --transcription YourTranscriptionId
+spx batch transcription status --api-version v3.1 --transcription YourTranscriptionId
 ```
 
 You should receive a response body in the following format:
@@ -132,7 +132,7 @@ The `spx batch transcription list` command returns a list of result files for a 
 Here's an example Speech CLI command that gets a list of result files for a transcription:
 
 ```azurecli-interactive
-spx batch transcription list --files --transcription YourTranscriptionId
+spx batch transcription list --api-version v3.1 --files --transcription YourTranscriptionId
 ```
 
 You should receive a response body in the following format:
