@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/06/2022
+ms.date: 11/03/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -132,7 +132,7 @@ For a list of error codes related to Azure AD authentication and authorization, 
 
 ### Authentication details
 
-The **Authentication Details** tab in the details of a sign-in log report provides the following information, for each authentication attempt:
+The **Authentication Details** tab in the details of a sign-in log provides the following information for each authentication attempt:
 
 - A list of authentication policies applied, such as Conditional Access or Security Defaults.
 - A list of session lifetime policies applied, such as Sign-in frequency or Remember MFA.
@@ -151,12 +151,16 @@ While viewing the sign-ins log, select a sign-in event, and then select the **Au
 
 ![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
 
-**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+When analyzing authentication details, take note of the following details:
 
-The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+- **OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+- The **Authentication details** tab can initially show incomplete or inaccurate data until log information is fully aggregated. Known examples include: 
+    - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+    - The **Primary authentication** row isn't initially logged. 
 
-- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
-- The **Primary authentication** row isn't initially logged. 
+## Sign-in data used by other services
+
+Sign-in data is used by several services in Azure to monitor risky sign-ins and provide insight into application usage. 
 
 ### Risky sign-in data in Azure AD Identity Protection
 
@@ -168,6 +172,18 @@ Sign-in log data visualization that relates to risky sign-ins is available in th
 - Risky service principal sign-ins
 
  For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+
+![Screenshot of risky users in Identity Protection.](media/concept-sign-ins/id-protection-overview.png)
+
+### Azure AD application and authentication sign-in activity
+
+To view application-specific sign-in data, go to **Azure AD** and select **Usage & insights** from the Monitoring section. These reports provide a closer look at sign-ins for Azure AD application activity and AD FS application activity. For more information, see [Azure AD Usage & insights](concept-usage-insights-report.md).
+
+![Screenshot of the Azure AD application activity report.](media/concept-sign-ins/azure-ad-app-activity.png)
+
+Azure AD Usage & insights also provides the **Authentication methods activity** report, which breaks down authentication by the method used. Use this report to see how many of your users are set up with MFA or passwordless authentication.
+
+![Screenshot of the Authentication methods report.](media/concept-sign-ins/azure-ad-authentication-methods.png)
 
 ### Microsoft 365 activity logs
 
