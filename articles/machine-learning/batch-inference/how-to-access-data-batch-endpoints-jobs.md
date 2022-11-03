@@ -23,7 +23,7 @@ Batch endpoints can be used to perform batch scoring on large amounts of data. S
 
 ## Supported data inputs
 
-Batch endpoints support reading files located in tje following storage options:
+Batch endpoints support reading files located in the following storage options:
 
 * Azure Machine Learning Data Stores. The following stores are supported:
     * Azure Blob Storage
@@ -97,7 +97,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     # [REST](#tab/rest)
 
-    Build your input path using the structure "azureml://subscriptions/<subscription>/resourcegroups/<resource-group>/providers/microsoft.storage/storageaccounts/<storage-account-name>/paths/<data_path>".
+    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subcription ID, resource group, workspace, and name of the data store. You will need them later.
    
     ---
     
@@ -105,7 +105,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
 
     > [!TIP]
-    > You can also use `azureml:/datastores/<data_store_name>/paths/<data_path>` as a way to indicate the input.
+    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
 
 1. Run the deployment:
 
@@ -134,7 +134,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
             "InputData": {
                 "mnistinput": {
                     "JobInputType" : "UriFolder",
-                    "Uri": "azureml://subscriptions/<subscription>/resourcegroups/<resource-group>/providers/microsoft.storage/storageaccounts/<storage-account-name>/paths/<data_path>"
+                    "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
                 }
             }
         }
@@ -143,7 +143,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
 ## Reading data from a data asset
 
-Azure Machine Learning data assets (formaly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
+Azure Machine Learning data assets (formerly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
 
 > [!WARNING]
 > Data assets of type Table (`MLTable`) aren't currently supported.
