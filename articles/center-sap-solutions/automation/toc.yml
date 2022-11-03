@@ -39,6 +39,7 @@ items:
       href: tools-configuration.md
 
 - name: How-to guides
+  items:
   - name: Get started with automation framework
     href: get-started.md
   - name: Plan your automated deployment
