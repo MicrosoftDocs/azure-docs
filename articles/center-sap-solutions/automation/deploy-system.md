@@ -6,16 +6,16 @@ ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
-ms.service: azure-center-sap-solutions
+ms.service: virtual-machines-sap
 ---
 
 # SAP system deployment for the automation framework
 
-The creation of the [SAP system](deployment-framework.md#sap-concepts) is part of the [SAP on Azure Deployment Automation Framework](deployment-framework.md) process. The SAP system creates your virtual machines (VMs), and supporting components for your [SAP application](deployment-framework.md#sap-concepts). 
+The creation of the [SAP system](automation-deployment-framework.md#sap-concepts) is part of the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) process. The SAP system creates your virtual machines (VMs), and supporting components for your [SAP application](automation-deployment-framework.md#sap-concepts). 
 
 The SAP system deploys:
 
-- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard Azure Load Balancer. You can run [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) in this tier.
+- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
 - The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
 - The [application tier](#application-tier), which deploys the VMs and their disks.
 - The [web dispatcher tier](#web-dispatcher-tier)
@@ -29,26 +29,26 @@ To set the application server count, define the parameter `application_server_co
 
 ## Central services tier
 
-The SAP central services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys an [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md).
+The SAP central services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 To set the SCS server count, define the parameter `scs_server_count` for this tier in your parameter file. For example, `scs_server_count=1`.
 
 
 ## Web dispatcher tier
 
-The web dispatcher tier deploys a customer-defined number of VMs.  This tier also deploys an [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md).
+The web dispatcher tier deploys a customer-defined number of VMs.  This tier also deploys an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 To set the web server count, define the parameter `web_server_count` for this tier in your parameter file. For example, `web_server_count = 2`.
 
 ## Database tier
 
-The database tier deploys the VMs and their disks, and also an [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) as your database VMs.
+The database tier deploys the VMs and their disks, and also an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) as your database VMs.
 
-You can set the size of database VMs with the parameter `size` for this tier. For example, `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. Refer to the **Size** parameter in the tables of [HANA database VM options](configure-extra-disks.md#hana-databases) and [AnyDB database VM options](configure-extra-disks.md#anydb-databases) for possible values.
+You can set the size of database VMs with the parameter `size` for this tier. For example, `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. Refer to the **Size** parameter in the tables of [HANA database VM options](automation-configure-extra-disks.md#hana-databases) and [AnyDB database VM options](automation-configure-extra-disks.md#anydb-databases) for possible values.
 
-By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](configure-extra-disks.md#custom-sizing-file). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. For example, `db_disk_sizes_filename = "path/to/JSON/file"`.
+By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](automation-configure-extra-disks.md#custom-sizing-file). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. For example, `db_disk_sizes_filename = "path/to/JSON/file"`.
 
-You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file), or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-existing-system).
+You can also [add extra disks to a new system](automation-configure-extra-disks.md#custom-sizing-file), or [add extra disks to an existing system](automation-configure-extra-disks.md#add-extra-disks-to-existing-system).
 
 ## Core configuration
 
@@ -182,4 +182,4 @@ The deployment will create an Ansible hosts file (`SID_hosts.yaml`) and an Ansib
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [About workload zone deployment with automation framework](software.md)
+> [About workload zone deployment with automation framework](automation-software.md)
