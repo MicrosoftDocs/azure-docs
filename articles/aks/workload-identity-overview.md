@@ -134,7 +134,7 @@ The following table summarizes our migration or deployment recommendations for w
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
-[workload-identity-migration-sidecar]: workload-identity-migration-sidecar.md
+[workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [dotnet-azure-identity-client-library]: /dotnet/api/overview/azure/identity-readme
 [java-azure-identity-client-library]: /java/api/overview/azure/identity-readme
 [javascript-azure-identity-client-library]: /javascript/api/overview/azure/identity-readme
