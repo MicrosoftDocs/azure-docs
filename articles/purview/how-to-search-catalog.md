@@ -2,7 +2,7 @@
 title: 'How to: search the Data Catalog'
 description: This article gives an overview of how to search the Microsoft Purview data catalog.
 author: nayenama
-author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
