@@ -49,7 +49,7 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 
 ### Create a new Python app
 
-Create a new Python code file (**app.py**) in an empty folder using your preferred integrated development environment (IDE).
+Create a new Python code file (*app.py*) in an empty folder using your preferred integrated development environment (IDE).
 
 ### Install the package
 
@@ -58,3 +58,93 @@ Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to 
 ```bash
 pip install azure-cosmos
 ```
+
+### Configure environment variables
+
+[!INCLUDE [Create environment variables for key and endpoint](./includes/environment-variables.md)]
+
+## Object model
+
+[!INCLUDE [Explain DOCUMENT DB object model](./includes/object-model.md)]
+
+You'll use the following Python classes to interact with these resources:
+
+- [``CosmosClient``](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+- [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.container.containerproxy) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
+
+## Code examples
+
+- [Authenticate the client](#authenticate-the-client)
+- [Create a database](#create-a-database)
+- [Create a container](#create-a-container)
+- [Create an item](#create-an-item)
+- [Get an item](#get-an-item)
+- [Query items](#query-items)
+
+The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+
+For this sample code, the container will use the category as a logical partition key.
+
+### Authenticate the client
+
+From the project directory, open the *app.py* file. In your editor, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` package.
+
+```python
+from azure.cosmos import CosmosClient, PartitionKey
+```
+
+Create variables for the `endpoint` and `key` environment variables using `os.environ`.
+
+```python
+import os
+endpoint = os.environ['COSMOS_ENDPOINT']
+key = os.environ['COSMOS_KEY']
+```
+
+Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
+
+```python
+client = CosmosClient(url=endpoint, credential=key)
+```
+
+### Create a database
+
+Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
+
+```python
+database = client.create_database_if_not_exists(id='adventureworks')
+```
+
+### Create a container
+
+The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
+
+```python
+partitionKeyPath = PartitionKey(path='/categoryId')
+```
+
+The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exists) method will create a new container if it doesn't already exist. This method will also return a [`ContainerProxy`](/python/api/azure-cosmos/azure.cosmos.containerproxy) reference to the container.
+
+```python
+container = database.create_container_if_not_exists(id='products', partition_key=partitionKeyPath,offer_throughput=400)
+```
+
+### Create an item
+
+### Get an item
+
+### Query items
+
+## Run the code
+
+## Clean up resources
+
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/clean-up-resources.md)]
+
+## Next steps
+
+In this quickstart,
+
+> [!div class="nextstepaction"]
+> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)
