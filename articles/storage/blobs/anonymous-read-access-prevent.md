@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/02/2022
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -21,8 +21,6 @@ Azure Blob Storage supports optional anonymous public read access to containers 
 By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. You can disallow all public access to a storage account, regardless of the public access setting for an individual container, by setting the **AllowBlobPublicAccess** property on the storage account to **False**.
 
 After you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. Disallowing public access to a storage account prevents users from subsequently configuring public access for containers in that account. Any containers that have already been configured for public access will no longer accept anonymous requests.
-
-???For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 > [!WARNING]
 > When a container is configured for public access, any client can read data in that container. Public access presents a potential security risk, so if your scenario does not require it, we recommend that you disallow it for the storage account.
@@ -55,7 +53,7 @@ When anonymous public access is permitted for a storage account and configured f
 
 When you disallow public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disallowing public access for a storage account overrides the public access settings for individual containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail.
 
-To understand how disallowing public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
+To understand how disallowing public access may affect client applications, we recommend that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
 
 ### Monitor anonymous requests with Metrics Explorer
 
@@ -140,7 +138,7 @@ The public access setting for a storage account overrides the individual setting
 > [!IMPORTANT]
 > If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
 
-### Permissions for allowing or disallowing public access
+### Permissions for disallowing public access
 
 To set the **AllowBlobPublicAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** action. Built-in roles with this action include:
 
@@ -163,8 +161,6 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 To disallow public access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-???Setting the **AllowBlobPublicAccess** property to **False** requires that a user or client has been assigned a role with the Azure RBAC action **Microsoft.Storage/storageAccounts/write**.???
-
 The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is either **null** or **true**.
 
 > [!IMPORTANT]
@@ -172,26 +168,26 @@ The **AllowBlobPublicAccess** property is not set for a storage account by defau
 
 # [Azure portal](#tab/portal)
 
-To allow or disallow public access for a storage account in the Azure portal, follow these steps:
+To disallow public access for a storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Locate the **Configuration** setting under **Settings**.
-1. Set **Blob public access** to **Enabled** or **Disabled**.
+1. Set **Blob public access** to **Disabled**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow blob public access for account":::
+    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to disallow blob public access for account":::
 
 # [PowerShell](#tab/powershell)
 
-To allow or disallow public access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobPublicAccess** property for a new or existing storage account.
+To disallow public access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobPublicAccess** property for a new or existing storage account.
 
-The following example creates a storage account and explicitly sets the **AllowBlobPublicAccess** property to **true**. It then updates the storage account to set the **AllowBlobPublicAccess** property to **false**. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a storage account and explicitly sets the **AllowBlobPublicAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $location = "<location>"
 
-# Create a storage account with AllowBlobPublicAccess set to true (or null).
+# Create a storage account with AllowBlobPublicAccess set to false.
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
@@ -200,21 +196,13 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Read the AllowBlobPublicAccess property for the newly created storage account.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
-
-# Set AllowBlobPublicAccess set to false
-Set-AzStorageAccount -ResourceGroupName $rgName `
-    -Name $accountName `
-    -AllowBlobPublicAccess $false
-
-# Read the AllowBlobPublicAccess property.
-(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To allow or disallow public access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowBlobPublicAccess** property for a new or existing storage account.
+To disallow public access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowBlobPublicAccess** property for a new or existing storage account.
 
-The following example creates a storage account and explicitly sets the **allowBlobPublicAccess** property to **true**. It then updates the storage account to set the **allowBlobPublicAccess** property to **false**. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a storage account and explicitly sets the **allowBlobPublicAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage account create \
@@ -222,17 +210,6 @@ az storage account create \
     --resource-group <resource-group> \
     --kind StorageV2 \
     --location <location> \
-    --allow-blob-public-access true
-
-az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --query allowBlobPublicAccess \
-    --output tsv
-
-az storage account update \
-    --name <storage-account> \
-    --resource-group <resource-group> \
     --allow-blob-public-access false
 
 az storage account show \
@@ -244,12 +221,12 @@ az storage account show \
 
 # [Template](#tab/template)
 
-To allow or disallow public access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
+To disallow public access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **false**. The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
-1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
+1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **false**. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json
     {
@@ -461,7 +438,9 @@ The following image shows the error that occurs if you try to create a storage a
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 
-## Remediate public access for classic storage accounts
+## Known issues
+
+After anonymous public access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue.
 
 ## Next steps
 
