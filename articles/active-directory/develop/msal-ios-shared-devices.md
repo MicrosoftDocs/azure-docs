@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/25/2022
+ms.date: 11/03/2022
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -177,29 +177,25 @@ parameters.loginHint = self.loginHintTextField.text;
 
 The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
 
-#### Clear browser state
-
-> [!NOTE]
-> The following step is required only during public preview.
-
-In this public preview version, the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device.
-
 #### Swift
 
 ```swift
 let account = .... /* account retrieved above */
 
 let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
-signoutParameters.signoutFromBrowser = true // Only needed for Public Preview.
+signoutParameters.signoutFromBrowser = true // To trigger a browser signout in Safari.
 
 application.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
-
     if let error = error {
+
         // Signout failed
+
         return
+
     }
 
     // Sign out completed successfully
+
 })
 ```
 
@@ -209,21 +205,31 @@ application.signout(with: account, signoutParameters: signoutParameters, complet
 MSALAccount *account = ... /* account retrieved above */;
 
 MSALSignoutParameters *signoutParameters = [[MSALSignoutParameters alloc] initWithWebviewParameters:webViewParameters];
-signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
+
+signoutParameters.signoutFromBrowser = YES; // To trigger a browser signout in Safari.
 
 [application signoutWithAccount:account signoutParameters:signoutParameters completionBlock:^(BOOL success, NSError * _Nullable error)
+
 {
+
     if (!success)
+
     {
+
         // Signout failed
+
         return;
+
     }
 
     // Sign out completed successfully
+
 }];
 ```
 
-#### Broadcast receiver
+The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. You can use the optional signoutFromBrowser property shown in code snippets above to trigger a browser signout in Safari. This will cause the browser to briefly launch on the device.
+
+### Receive broadcast to detect global sign out initiated from other applications
 
 To receive the account change broadcast, you will need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](tutorial-v2-shared-device-mode.md#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
 
@@ -266,9 +272,8 @@ For more information about the available options for CFNotificationAddObserver o
 - [CFNotificationAddObserver](https://developer.apple.com/documentation/corefoundation/1543316-cfnotificationcenteraddobserver?language=objc)
 - [CFNotificationCallback](https://developer.apple.com/documentation/corefoundation/cfnotificationcallback?language=objc)
 
-#### iOS background capabilities
-
-Your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes).  
+> [!NOTE]
+> For iOS, your app will require a background permission to remain active in the background and listen to Darwin notifications. The background capability must be added to support a different background operation – your app may be subject to rejection from the Apple App Store if it has a background capability only to listen for Darwin notifications. If your app is already configured to complete background operations, you can add the listener as part of that operation. For more information about iOS background capabilities, see [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
 
 ## Next steps
 
