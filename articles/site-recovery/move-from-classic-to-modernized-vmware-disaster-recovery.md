@@ -31,7 +31,7 @@ The components involved in the migration of replicated items of a VMware machine
 Ensure the following for a successful movement of replicated item: 
 - A Recovery Services vault using the modernized experience.   
   >[!Note] 
-  >Any new Recovery Services vault created will have the modernized experience switched on by default. You can [switch to the classic experience](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience) but once done, you can’t switch again.   
+  >Any new Recovery Services vault created will always have the modernized experience as classic experience will be [deprecated](vmware-physical-azure-classic-deprecation.md) in Novemebr 2023 and is not recommended to be used.
 - An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which has been successfully registered to the vault, and all its components are in a non-critical state.   
 - The version of the appliance must be 9.50 or later. For a detailed version description, check [here](#architecture). 
 - The vCenter server or vSphere host’s details, where the existing replicated machines reside, are added to the appliance for the on-premises discovery to be successful.   
@@ -42,7 +42,7 @@ Ensure the following for a successful movement of replicated item:
 
 Ensure the following before you move from classic architecture to modernized architecture: 
 
-- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience has [not been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience). 
+- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience). 
 - [Deploy an Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md). 
 - [Add the on-premises machine’s vCenter Server details](./deploy-vmware-azure-replication-appliance-modernized.md) to the appliance, so that it successfully performs discovery.   
 

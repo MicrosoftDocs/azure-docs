@@ -15,25 +15,7 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-
-A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
-
-
-To change the experience - 
-
-1. Open the vault on Azure portal. 
-2. Click on **Site Recovery** in the **Getting started** section. 
-3. Click on the banner on top of this page. 
-    
-    [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
-
-4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
-
-    [![Modify VMware stack step 2](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
-
-> [!NOTE]
-> Note that once the experience type has been switched to classic from modernized, it cannot be switched again in the same Recovery Services vault. Ensure that the desired experience is selected, before saving this change.
-
+Moving to the classic experience in a newly created Recovery Services is not possible as it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in November 2023. All new Recovery Services vaults will be using the modernized experience.  
 
 ### What do I need for VMware VM disaster recovery?
 
