@@ -28,7 +28,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
 For more information, *see* [how to create a Translator resource](../how-to-create-translator-resource.md).
 
-## Visit the Custom Translator portal
+## Custom Translator portal
 
 Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
