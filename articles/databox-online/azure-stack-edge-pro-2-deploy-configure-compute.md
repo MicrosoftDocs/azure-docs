@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/27/2022
+ms.date: 11/03/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -59,7 +59,7 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
         If you have been provided a key from Microsoft (select users may have a key), then you can use this config file.
 
-        ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+        ![Device page in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-compute/download-advanced-config-2.png)
 
     - You can also go to **Kubernetes dashboard** endpoint and download an `aseuser` config file. 
     
