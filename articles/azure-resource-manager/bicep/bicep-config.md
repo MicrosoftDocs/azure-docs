@@ -11,7 +11,7 @@ Bicep supports a configuration file named `bicepconfig.json`. Within this file, 
 
 To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
 
-To create a `bicepconfig.json` file in Visual Studio Code, open the Command Palette ([CTRL/CMD]+[SHIRT]+P), and then select **Bicep: Create Bicep Configuration File**. For more information, see [Visual Studio Code](./visual-studio-code.md#create-bicep-configuration-file).
+To create a `bicepconfig.json` file in Visual Studio Code, open the Command Palette (**[CTRL/CMD]**+**[SHIRT]**+**P**), and then select **Bicep: Create Bicep Configuration File**. For more information, see [Visual Studio Code](./visual-studio-code.md#create-bicep-configuration-file).
 
 :::image type="content" source="./media/bicep-config/vscode-create-bicep-configuration-file.png" alt-text="Create Bicep configuration file in VSCode.":::
 
