@@ -227,7 +227,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Wayfinding (preview)
 
-The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset][routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the required width of openings and navigating between levels.
+The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset][routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the minimum width of openings and may optionally exclude elevators or stairs when navigating between levels as a result.
 
 Creator wayfinding is powered by [Havok][havok].
 
@@ -235,7 +235,7 @@ Creator wayfinding is powered by [Havok][havok].
 
 When a [wayfinding path][wayfinding path] is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
 
-For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg will be the elevator, and then the final leg will be the path from the elevator to the destination. The estimated travel time is calculated and displayed next to the starting point for each leg.
+For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg will be the elevator, and then the final leg will be the path from the elevator to the destination. The estimated travel time is also calculated and returned in the HTTP response JSON.
 
 ##### Structure
 
@@ -245,7 +245,7 @@ For wayfinding to work, the facility data must contain a [structure][structures]
 
 If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects, stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
 
-The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `MinWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
+The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
 
 For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
