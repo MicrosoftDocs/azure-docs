@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 11/02/2022
 
 ms.author: justinha
 author: justinha
@@ -33,19 +33,15 @@ Start by conducting an audit of your existing settings for every authentication 
 
 In the next sections, we'll walk through an example of the policy migration. We'll review settings in each legacy policy and update the Authentication methods policy. As we proceed, we'll change the migration options to prevent policy misconfiguration and minimize errors during sign-in and SSPR. 
 
-### MFA policy settings
+### MFA and SSPR policy settings
 
 Let's say Contoso has the following methods configured for MFA. Document each authentication method that can be used for MFA. These settings are tenant-wide, so there's no need for user or group information.  
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of multifactor authentication policy.":::
-
-### SSPR policy settings
 
 For the next step in the migration, record which users are in scope for SSPR and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you copy them for later use when they become available. 
 
 Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset-methods.png" alt-text="Screenshot of legacy SSPR policy.":::
 
 
 ### Authentication methods policy settings
@@ -89,7 +85,7 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 After you update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
-When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD only follows the Authentication methods policy. No changes can be made to the legacy policies if **Migration Complete** is set, except for security questions.
+When you determine that SSPR works as expected and you no longer need the legacy SSPR policy, you can change the migration process to **Migration Complete**. In this mode, Azure AD only follows the Authentication methods policy. No changes can be made to the legacy policies if **Migration Complete** is set, except for security questions in the SSPR policy.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/migration-complete.png" alt-text="Screenshot of Migration complete.":::
 
