@@ -150,7 +150,7 @@ The easiest way to create a new item in a container is to first build a C# [clas
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Product.cs" id="entity" highlight="3-4":::
 
-Create an item in the container by calling [``Container.UpsertItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync). In this example, we chose to *upsert* instead of *create* a new item in case you run this sample code more than once.
+Create an item in the container by calling [``Container.CreateItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync).
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
 

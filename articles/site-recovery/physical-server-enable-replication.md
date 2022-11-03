@@ -1,11 +1,11 @@
 ---
 title: Enable replication for a physical server – Modernized
 description: This article describes how to enable physical servers replication for disaster recovery using the Azure Site Recovery service
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 10/20/2022
 ---
 

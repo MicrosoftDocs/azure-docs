@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/01/2022
+ms.date: 10/06/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -58,25 +58,6 @@ The main example in this doc uses managed online endpoints for deployment. To us
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
-
-# [ARM template](#tab/arm)
-
-> [!NOTE]
-> While the Azure CLI and CLI extension for machine learning are used in these steps, they are not the main focus. They are used more as utilities, passing templates to Azure and checking the status of template deployments.
-
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
-
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-
-* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
-
-   ```azurecli
-   az account set --subscription <subscription ID>
-   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
-   ```
-
-> [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
 ---
 
@@ -160,54 +141,6 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
         DefaultAzureCredential(), subscription_id, resource_group, workspace
     )
     ```
-
-# [ARM template](#tab/arm)
-
-### Clone the sample repository
-
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
-
-```azurecli
-git clone --depth 1 https://github.com/Azure/azureml-examples
-cd azureml-examples
-```
-
-> [!TIP]
-> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
-
-### Set an endpoint name
-
-To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
-
-For Unix, run this command:
-
-:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
-
-Also set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
-
-```bash
-export SUBSCRIPTION_ID="your Azure subscription ID"
-export LOCATION="Azure region where your workspace is located"
-export RESOURCE_GROUP="Azure resource group that contains your workspace"
-export WORKSPACE="Azure Machine Learning workspace name"
-```
-
-A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
-
-1. Get an access token:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
-
-1. Set the REST API version:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="api_version":::
-
-1. Get the storage information:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
 
 ---
 
@@ -321,10 +254,6 @@ In this article, we first define names of online endpoint and deployment for deb
     )
     ```
 
-# [ARM template](#tab/arm)
-
-The Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json) are used by the steps in this article.
-
 ---
 
 ### Register your model and environment separately
@@ -343,24 +272,6 @@ For more information on registering your model as an asset, see [Register your m
 
 For more information on creating an environment, see 
 [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
-
-# [ARM template](#tab/arm)
-
-1. To register the model using a template, you must first upload the model file to an Azure Blob store. The following example uses the `az storage blob upload-batch` command to upload a file to the default storage for your workspace:
-
-    :::code language="{language}" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_model":::
-
-1. After uploading the file, use the template to create a model registration. In the following example, the `modelUri` parameter contains the path to the model:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_model":::
-
-1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into an environment variables:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
-
-1. The following example demonstrates how to use the template to register the environment. The contents of the conda file from the previous step are passed to the template using the `condaFile` parameter:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_environment":::
 
 ---
 
@@ -387,20 +298,6 @@ As noted earlier, the script specified in `code_configuration.scoring_script` mu
 
 # [Python](#tab/python)
 As noted earlier, the script specified in `CodeConfiguration(scoring_script="score.py")` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/onlinescoring/score.py). 
-
-# [ARM template](#tab/arm)
-
-As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
-
-When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store and then register it:
-
-1. The following example uses the Azure CLI command `az storage blob upload-batch` to upload the scoring file(s):
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_code":::
-
-1. The following example demonstrates hwo to register the code using a template:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_code":::
 
 ---
 
@@ -433,10 +330,6 @@ First create an endpoint. Optionally, for a local endpoint, you can skip this st
 ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
 ```
 
-# [ARM template](#tab/arm)
-
-The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
-
 ---
 
 Now, create a deployment named `blue` under the endpoint.
@@ -456,10 +349,6 @@ ml_client.online_deployments.begin_create_or_update(
 ```
 
 The `local=True` flag directs the SDK to deploy the endpoint in the Docker environment.
-
-# [ARM template](#tab/arm)
-
-The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -500,10 +389,6 @@ The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azur
 ```python
 ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'local-10061534497697', 'description': 'this is a sample local endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
 ```
-
-# [ARM template](#tab/arm)
-
-The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -546,10 +431,6 @@ endpoint = ml_client.online_endpoints.get(endpoint_name)
 scoring_uri = endpoint.scoring_uri
 ```
 
-# [ARM template](#tab/arm)
-
-The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
-
 ---
 
 ### Review the logs for output from the invoke operation
@@ -571,10 +452,6 @@ ml_client.online_deployments.get_logs(
     name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
 )
 ```
-
-# [ARM template](#tab/arm)
-
-The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 ---
 
@@ -676,16 +553,6 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     ml_client.online_endpoints.begin_create_or_update(endpoint)
     ```
 
-# [ARM template](#tab/arm)
-
-1. The following example demonstrates using the template to create an online endpoint:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_endpoint":::
-
-1. After the endpoint has been created, the following example demonstrates how to deploy the model to the endpoint:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_deployment":::
-
 ---
 
 > [!TIP]
@@ -731,18 +598,6 @@ for endpoint in ml_client.online_endpoints.list():
     print(f"{endpoint.kind}\t{endpoint.location}\t{endpoint.name}")
 ```
 
-# [ARM template](#tab/arm)
-
-The `show` command contains information in `provisioning_status` for endpoint and deployment:
-
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
-
-You can list all the endpoints in the workspace in a table format by using the `list` command:
-
-```azurecli
-az ml online-endpoint list --output table
-```
-
 ---
 
 ### Check the status of the online deployment
@@ -773,13 +628,6 @@ ml_client.online_deployments.get_logs(
     name="blue", endpoint_name=online_endpoint_name, lines=50, container_type="storage-initializer"
 )
 ```
-
-# [ARM template](#tab/arm)
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
-
-By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
-
 ---
 
 For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
@@ -828,19 +676,6 @@ ml_client.online_endpoints.invoke(
     request_file="../model-1/sample-request.json",
 )
 ```
-
-# [ARM template](#tab/arm)
-
-You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
-
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
-
-The following example shows how to get the key used to authenticate to the endpoint:
-
-> [!TIP]
-> You can control which Azure Active Directory security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 ---
 
@@ -904,10 +739,6 @@ To understand how `begin_create_or_update` works:
 
 The `begin_create_or_update` method also works with local deployments. Use the same method with the `local=True` flag.
 
-# [ARM template](#tab/arm)
-
-There currently is not an option to update the deployment using an ARM template.
-
 ---
 
 > [!Note]
@@ -943,10 +774,6 @@ If you aren't going use the deployment, you should delete it by running the foll
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
-
-# [ARM template](#tab/arm)
-
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ---
 
