@@ -61,7 +61,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
     ```azurecli
     az ad sp create --id "${SERVER_APP_ID}"
-    SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+    SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}" --display-name "ArcSecret" --query password -o tsv)
     ```
 
 1. Grant "Sign in and read user profile" API permissions to the application:
