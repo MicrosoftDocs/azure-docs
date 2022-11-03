@@ -162,7 +162,7 @@ For the steps below, the database won't use sharding and shows a synchronous app
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
     --->
 
-3. Define constants you'll use through the code.
+3. Define constants you'll use in the code.
 
     ```python
     DB_NAME = "adventureworks"
@@ -220,7 +220,7 @@ Use the collection operation [createIndex](https://pymongo.readthedocs.io/en/sta
 
 ```python
 result = collection.create_index([('name', pymongo.ASCENDING)], unique=True)
-print("Indexes are: {}".format(sorted(collection.index_information())))
+print("Indexes are: {}\n".format(sorted(collection.index_information())))
 ```
 <!---
 :::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="create_index":::
@@ -305,6 +305,8 @@ The output of the app should be similar to this example:
 Using database: adventureworks
 
 Using collection: products
+
+Indexes are: ['_id_', 'name_1']
 
 Upserted document with _id <ID>
 
