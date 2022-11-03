@@ -397,7 +397,7 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
-### Running locally on a specific version
+### Running local on a specific version
 
 When running locally, the Azure Functions runtime defaults to using PowerShell 7.0. Support for PowerShell 7.0 in Azure Functions is ending on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
 
