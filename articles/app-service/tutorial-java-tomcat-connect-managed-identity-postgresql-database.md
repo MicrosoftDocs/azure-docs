@@ -93,7 +93,6 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --sku-name B_Gen5_1 
    ```
 
----
 1. Create a database for the application.
 
    ```azurecli-interactive

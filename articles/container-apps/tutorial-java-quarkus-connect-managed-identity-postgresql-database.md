@@ -327,7 +327,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
-### [Flexible Server](#tab/flexible)
+   ### [Flexible Server](#tab/flexible)
    ```azurecli
    az containerapp connection create postgres-flexible \
        --resource-group $RESOURCE_GROUP \
@@ -338,7 +338,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --managed-identity
    ```
 
-### [Single Server](#tab/single)
+   ### [Single Server](#tab/single)
    ```azurecli
    az containerapp connection create postgres \
        --resource-group $RESOURCE_GROUP \
@@ -349,7 +349,6 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --managed-identity
    ```
 
----
 ## 6. Review your changes
 
 You can find the application URL(FQDN) by using the following command:
