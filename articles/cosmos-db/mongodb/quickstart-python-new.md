@@ -21,7 +21,7 @@ Get started with the PyMongo package to create databases, collections, and docum
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
 
-[API for PyMongo reference documentation](https://www.mongodb.com/docs/drivers/pymongo/) | [PyMongo Package](https://www.mongodb.com/docs/drivers/pymongo/)
+In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open-source MongoDB client drivers for Python. Here, we'll use the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) driver. Also, you'll use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands), designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](/azure/cosmos-db/account-databases-containers-items).
 
 ## Prerequisites
 
