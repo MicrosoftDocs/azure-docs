@@ -26,14 +26,16 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription.
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ### Prerequisite check
 
-* In a terminal or command window, run ``dotnet --version`` to check that the .NET SDK is version 6.0 or later.
-* Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+- In a terminal or command window, run ``dotnet --version`` to check that the .NET SDK is version 6.0 or later.
+- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
 
@@ -90,21 +92,21 @@ Build succeeded.
 
 You'll use the following .NET classes to interact with these resources:
 
-* [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
-* [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-* [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
-* [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
-* [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
-* [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
+- [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+- [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
+- [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
+- [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
+- [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
 
 ## Code examples
 
-* [Authenticate the client](#authenticate-the-client)
-* [Create a database](#create-a-database)
-* [Create a container](#create-a-container)
-* [Create an item](#create-an-item)
-* [Get an item](#get-an-item)
-* [Query items](#query-items)
+- [Authenticate the client](#authenticate-the-client)
+- [Create a database](#create-a-database)
+- [Create a container](#create-a-container)
+- [Create an item](#create-an-item)
+- [Get an item](#get-an-item)
+- [Query items](#query-items)
 
 The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
