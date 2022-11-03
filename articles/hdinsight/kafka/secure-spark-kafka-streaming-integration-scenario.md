@@ -61,15 +61,9 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 1. Go to Ranger UI on kafka cluster and set up two Ranger policies
 
 1. Add a Ranger policy for `alicetest` with consume access to topics with wildcard pattern `alicetopic*`
-
-    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
-    
-     
-1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
-
-    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png" alt-text="Screenshot showing how to add ranger policy for bobadmin." border="false":::
-    
        
+1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
+   
 1. Execute the commands below based on your parameter values
 
     ```
@@ -228,20 +222,12 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `alicetest` is a
 1. Below are the detailed steps on how to check the application output from YARN UI.
 
     1. Go to YARN UI and open your application. Wait for the job to go to RUNNING state. You'll see the application details as below.
-    
-         :::image type="content" source="./media/hdinsight-spark-kafka/yarn-application-status.png" lightbox=" ./media/hdinsight-spark-kafka/yarn-application-status.png" alt-text="Screenshot showing YARN application status." border="false":::
                   
     1. Click on Logs. You'll see the list of logs as shown below.
-    
-        :::image type="content" source="./media/hdinsight-spark-kafka/logs-for-container-summary.png" lightbox=" ./media/hdinsight-spark-kafka/logs-for-container-summary.png" alt-text="Screenshot showing logs-for container summary. "border="false":::
-        
+           
     1. Click on 'stdout'. You'll see the output with the count of words from your Kafka topic.
-    
-        :::image type="content" source="./media/hdinsight-spark-kafka/logs-for-specific-container.png" lightbox=" ./media/hdinsight-spark-kafka/logs-for-specific-container.png" alt-text="Screenshot showing bobtopic job failed status. "border="false":::        
-        
+          
     1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
-    
-        :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs.png" lightbox=" ./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs.png" alt-text="Screenshot showing Kafka cluster ranger UI audit logs in denied status. "border="false":::
     
 ## Scenario 2
 
@@ -271,12 +257,8 @@ From Spark cluster, read Kafka topic `bobtopic2` as user `alicetest` is denied
     ```
      
 1. From yarn UI, access the yarn job output you can see that `alicetest` user is unable to read from `bobtopic2` and the job fails.
-
-    :::image type="content" source="./media/hdinsight-spark-kafka/bobtopic-job-fail.png" lightbox=" ./media/hdinsight-spark-kafka/bobtopic-job-fail.png" alt-text="Screenshot showing YARN-job-output." border="false":::
            
-1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
- 
-    :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-denied.png" lightbox=" ./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-denied.png" alt-text="Screenshot showing Kafka cluster-ranger UI audit logs in allowed status." border="false":::        
+1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.      
     
 ## Scenario 3
 
@@ -304,12 +286,8 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `bobadmin` is al
     ```
  
 1. From YARN UI, access the yarn job output you can see that `bobadmin` user is able to read from `alicetopic2` and the count of words is seen in the output.
-
-    :::image type="content" source="./media/hdinsight-spark-kafka/bobtest-user-reads-from-bobtopic-2.png" lightbox=" ./media/hdinsight-spark-kafka/bobtest-user-reads-from-bobtopic-2.png" alt-text="Screenshot showing bobtest user reads from bobtopic." border="false":::
            
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
-
-    :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-allowed.png" lightbox=" ./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-allowed.png" alt-text="Screenshot showing audit logs with success state." border="false":::
 
 ## Scenario 4
 
@@ -333,12 +311,9 @@ From Spark cluster, read from Kafka topic `bobtopic2` as user `bobadmin` is allo
     spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files bobadmin_jaas.conf#bobadmin_jaas.conf,bobadmin.keytab#bobadmin.keytab --driver-java-options "-Djava.security.auth.login.config=./bobadmin_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./bobadmin_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar wn0-umasec:9092, wn1-umasec:9092 bobtopic2 false
     ```
 1. From YARN UI, access the YARN job output you can see that `bobtest` user is able to read from `bobtopic2` and the count of words is seen in the output.
-    
-    :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-word-count-spark-kafka.png" lightbox=" ./media/hdinsight-spark-kafka/audit-logs-with-word-count-spark-kafka.png" alt-text="Screenshot showing for scenario 4 audit logs with word count." border="false":::
 
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
-       
-      :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" lightbox=" ./media/hdinsight-spark-kafka/add-ranger-policy-for-alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest." border="false":::
+     
     
 ## Next steps
 
