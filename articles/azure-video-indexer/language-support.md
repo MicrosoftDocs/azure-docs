@@ -42,7 +42,7 @@ This section describes languages supported by Azure Video Indexer API.
 | **Language**                   | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (language model)  |
 |:------------------------------:|:--------------:|:-----------------:|:-----------:|:-----------:|:-------------:|:---------------:|
 | Afrikaans                        | `af-ZA`      |   |    |    | ✔ |  |
-| Arabic (Israel)                  | `ar-IL`      | ✔ |   |   |  | ✔ |
+| Arabic (Israel)                  | `ar-IL`      | ✔ |   |     | ✔ | ✔ |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔ | ✔  | ✔ | ✔ |
 | Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔ | ✔  | ✔ | ✔ |
 | Arabic (Lebanon)                 | `ar-LB`      | ✔ |   |   | ✔ | ✔ |
