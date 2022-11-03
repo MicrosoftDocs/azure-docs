@@ -30,12 +30,12 @@ For more information, *see* [how to create a Translator resource](../how-to-crea
 
 ## Custom Translator portal
 
+>[!Note]
+>Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
+
 Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
-
->[!Note]
->Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
 
 ## Process summary
 
@@ -59,11 +59,11 @@ You can read an overview of translation and custom translation, learn some tips,
 
    :::image type="content" source="media/quickstart/first-time-user.png" alt-text="Screenshot illustrating how to create a workspace.":::
 
-1. Select **My workspaces**
+1. Select **My workspaces**.
 
-1. Select **Create a new workspace**
+1. Select **Create a new workspace**.
 
-1. Type _Contoso MT models_ for **Workspace name** and select **Next**
+1. Type _Contoso MT models_ for **Workspace name** and select **Next**.
 
 1. Select "Global" for **Select resource region** from the dropdown list.
 
@@ -71,7 +71,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. Select **Next**.
 
-1. Select **Done**
+1. Select **Done**.
 
    >[!Note]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
@@ -96,7 +96,7 @@ You'll create English-to-German project to train a custom model with only a [tra
 
 1. Select *General* for **Domain** from the dropdown list.
 
-1. Select **Create project**
+1. Select **Create project**.
 
    :::image type="content" source="media/quickstart/create-project.png" alt-text="Screenshot illustrating how to create a project.":::
 

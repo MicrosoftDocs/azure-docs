@@ -65,4 +65,5 @@ language pair, use a project label to differentiate between customers.
 
 ## Next steps
 
-- Read about [model training](model-training.md) to know, how to efficiently build a translation model.
+> [!div class="nextstepaction"]
+> [Learn about model training](model-training.md).

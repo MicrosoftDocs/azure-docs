@@ -62,4 +62,5 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 ## Next steps
 
-- Read about [guidelines on document formats](document-formats-naming-convention.md).
+> [!div class="nextstepaction"]
+> [Learn about document formatting guidelines](document-formats-naming-convention.md).
