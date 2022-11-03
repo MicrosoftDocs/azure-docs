@@ -171,7 +171,7 @@ In the example, the `az containerapp up` command performs the following actions:
 1. Creates a resource group.
 1. Creates an environment and Log Analytics workspace.
 1. Creates a registry in Azure Container Registry.
-1. Builds the container image (using the Dockerfile if it exists). 
+1. Builds the container image using the Dockerfile.
 1. Pushes the image to the registry.
 1. Creates and deploys the container app.
 1. Creates a GitHub Actions workflow to build the container image and deploy the container app when future changes are pushed to the GitHub repository.
