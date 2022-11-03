@@ -5,45 +5,48 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 01/12/2021
+ ms.date: 11/03/2022
  ms.author: duau
  ms.custom: include file
 ---
+
 | Resource | Limit |
 | --- | --- |
-| ExpressRoute circuits per subscription |50 |
-| ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |
-| Maximum number of IPv4 routes advertised to Azure private peering with ExpressRoute Standard |4,000 |
-| Maximum number of IPv4 routes advertised to Azure private peering with ExpressRoute Premium add-on |10,000 |
-| Maximum number of IPv6 routes advertised to Azure private peering with ExpressRoute Standard |100 |
-| Maximum number of IPv6 routes advertised to Azure private peering with ExpressRoute Premium add-on |100 |
-| Maximum number of IPv4 routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection | 1,000 |
-| Maximum number of IPv6 routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection | 1,000 |
-| Maximum number of IPv4 routes advertised to Microsoft peering with ExpressRoute Standard |200 |
-| Maximum number of IPv4 routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
-| Maximum number of IPv6 routes advertised to Microsoft peering with ExpressRoute Standard |200 |
-| Maximum number of IPv6 routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
-| Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
-| Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |16 (For more information, see [Gateway SKU](../articles/expressroute/expressroute-about-virtual-network-gateways.md#aggthroughput).) |
-| Number of virtual network links allowed per ExpressRoute circuit |See the [Number of virtual networks per ExpressRoute circuit](#vnetpercircuit) table.  |
+| ExpressRoute circuits per subscription | 50 (Submit a support request to increase limit) |
+| ExpressRoute circuits per region per subscription, with Azure Resource Manager | 10 |
+| Maximum number of circuits in the same peering location linked to the same virtual network | 4 |
+| Maximum number of circuits in different peering locations linked to the same virtual network |Standard / ERGw1Az - 4 </br> High Perf / ERGw2Az - 8 </br> Ultra Performance / ErGw3Az - 16 |
 | Maximum number of IPs for ExpressRoute provider circuit with Fastpath | 25,000 |
-| Maximum number of IPs for ExpressRoute Direct 10Gbps with Fastpath | 100,000 |
-| Maximum number of IPs for ExpressRoute Direct 100Gbps with Fastpath | 200,000 |
+| Maximum number of IPs for ExpressRoute Direct 10-Gbps with Fastpath | 100,000 |
+| Maximum number of IPs for ExpressRoute Direct 100-Gbps with Fastpath | 200,000 |
+| Maximum number of flows for ExpressRoute Traffic Collector | 30,000 |
+
+#### Route advertisement limits
+
+| Resource | Local / Standard SKU | Premium SKU |
+| -- | -- | -- |
+| Maximum number of IPv4 routes advertised to Azure private peering | 4000 | 10000 |
+| Maximum number of IPv6 routes advertised to Azure private peering | 100 | 100 |
+| Maximum number of IPv4 routes advertised from Azure private peering from the VNet address space | 1,000 | 1000 |
+| Maximum number of IPv6 routes advertised from Azure private peering from the VNet address space | 1,000 | 1000 |
+| Maximum number of IPv4 routes advertised to Microsoft peering | 200 | 200 |
+| Maximum number of IPv6 routes advertised to Microsoft peering | 200 | 200 |
 
 
-#### <a name="vnetpercircuit"></a> Number of virtual networks per ExpressRoute circuit
-| **Circuit size** | **Number of virtual network links for Standard** | **Number of virtual network links with Premium add-on** |
-| --- | --- | --- |
-| 50 Mbps |10 |20 |
-| 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
-| 500 Mbps |10 |40 |
-| 1 Gbps |10 |50 |
-| 2 Gbps |10 |60 |
-| 5 Gbps |10 |75 |
-| 10 Gbps |10 |100 |
-| 40 Gbps* |10 |100 |
-| 100 Gbps* |10 |100 |
+#### Virtual networks links allowed for each ExpressRoute circuit limits
+
+| Circuit size | Local / Standard SKU | Premium SKU |
+| --- | --- | -- |
+| 50 Mbps |  10 | 20 |
+| 100 Mbps | 10 | 25 |
+| 200 Mbps | 10 | 25 |
+| 500 Mbps | 10| 40 |
+| 1 Gbps | 10 | 50 |
+| 2 Gbps | 10 | 60 |
+| 5 Gbps | 10| 75 |
+| 10 Gbps | 10| 100 |
+| 40 Gbps* | 10 | 100 |
+| 100 Gbps* | 10| 100 |
 
 **100 Gbps ExpressRoute Direct Only*
 
