@@ -13,24 +13,30 @@ The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop 
 
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
-If you want to connect to Remote Desktop Services instead of Azure Virtual Desktop or a local PC, see [Connect to Remote Desktop Services with the Remote Desktop client for Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop).
-
 ## Prerequisites
 
 Before you can access your resources, you'll need to meet the prerequisites:
 
 - Internet access.
 
-- A device running one of the following versions of Windows:
+- A device running one of the following supported versions of Windows:
   - Windows 11
+  - Windows 11 IoT Enterprise
   - Windows 10
   - Windows 10 IoT Enterprise
   - Windows 7
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602) *(most common)*
   - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
   - [Windows on Arm](https://go.microsoft.com/fwlink/?linkid=2098961)
+
+- .NET Framework 4.6.2 or later. You may need to install this on Windows 7, Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+
+- You cannot sign-in using the built-in Administrator user account.
 
 > [!IMPORTANT]
 > Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
