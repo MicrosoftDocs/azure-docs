@@ -20,8 +20,8 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-    - name: FAQ
-      href: faq.yml
+  - name: FAQ
+    href: faq.yml
 - name: Tutorials
   items:
   - name: Monitor an Azure Resource - Overview
@@ -36,6 +36,8 @@ items:
     href: logs/tutorial-logs-ingestion-api.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
+  - name: Create a log query alert
+    href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -1357,8 +1359,6 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries

@@ -318,6 +318,8 @@ items:
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
+      - name: 10 Secure local guest accounts
+        href: 10-secure-local-guest.md
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts
