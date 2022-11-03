@@ -305,7 +305,7 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
 ---
 
 > [!NOTE]
-> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to W3C mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ### Route tracking
 

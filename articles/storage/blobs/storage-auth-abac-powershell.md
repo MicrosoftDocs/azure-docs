@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 
 #Customer intent:
 
@@ -17,7 +17,7 @@ ms.date: 10/21/2022
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell
 
-In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
+In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more granular access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
@@ -119,13 +119,13 @@ Here is what the condition looks like in code:
 
 ## Step 4: Set up storage
 
-1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
+1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
 1. Use [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) to upload a text file to the container.
 
-1. Add the following blob index tag to the text file. For more information, see [Use blob index tags to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
+1. Add the following blob index tag to the text file. For more information, see [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md).
 
     > [!NOTE]
     > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.

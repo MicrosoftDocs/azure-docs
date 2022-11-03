@@ -1,7 +1,7 @@
 ---
 title: Access Key Vault in a private network through shared private endpoints
 titleSuffix: Azure SignalR Service
-description: How to access key vault in private network through Shared Private Endpoints
+description: Learn how Azure SignalR Service can use shared private endpoints to avoid exposing your key vault on a public network.
 services: signalr
 author: ArchangelSDY
 ms.service: signalr
@@ -14,7 +14,7 @@ ms.author: dayshen
 
 Through Shared Private Endpoints, Azure SignalR Service can access your Key Vault in a private network. This way, your Key Vault isn't exposed on a public network.
 
-   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
+:::image type="content" alt-text="Diagram that shows the architecture of a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
 You can create private endpoints through Azure SignalR Service APIs for shared access to a resource integrated with [Azure Private Link service](https://azure.microsoft.com/services/private-link/).   These endpoints, called *shared private link resources*, are created inside the SignalR execution environment and aren't accessible outside this environment.
 
@@ -42,7 +42,7 @@ The examples in this article use the following naming convention.  You can use y
 1. Select the **Private access** tab.
 1. Select **Add shared private endpoint** in the **Shared private endpoints** section.
 
-   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
+   :::image type="content" alt-text="Screenshot of the button for adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
     Enter the following information:
     | Field | Description |
@@ -60,7 +60,6 @@ The examples in this article use the following naming convention.  You can use y
 When the private endpoint is added successfully, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until the endpoint is approved on the Key Vault side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
-
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -91,13 +90,13 @@ The process of creating an outbound private endpoint is a long-running (asynchro
 
 You can poll this URI periodically to obtain the status of the operation.
 
-If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
+If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value:
 
 ```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview
 ```
 
-Wait until the status changes to "Succeeded" before proceeding to the next steps.
+Wait until the status changes to **Succeeded** before you proceed to the next steps.
 
 -----
 
@@ -110,15 +109,11 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 1. Select the **Private endpoint connections** tab. 
     After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
-
-1. Select the private endpoint that Azure SignalR Service created. Select **Approve**.
+1. Select the private endpoint that Azure SignalR Service created, then select **Approve**.
 :::image type="content" source="media/howto-shared-private-endpoints-key-vault/portal-keyvault-private-endpoint-approve-connection.png" alt-text="Screenshot of Approve connection dialog for private endpoint in Azure Key Vault.":::
 1. Select **Yes** to approve the connection. 
 
-   Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
-
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
+   :::image type="content" alt-text="Screenshot of the Azure portal that shows an Approved status on the pane for private endpoint connections." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -147,7 +142,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
     ]
     ```
 
-1. Approve the private endpoint connection.
+1. Approve the private endpoint connection:
 
     ```azurecli
     az network private-endpoint-connection approve --id <private-endpoint-connection-id>
@@ -170,6 +165,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 ```
 
 The command will return a JSON object, where the connection state is shown as "status" in the "properties" section.
+
 
 ```json
 {
@@ -198,4 +194,4 @@ QUESTION: Do we need the paragraph below?  Is the information closely related to
 ## Next steps
 
 + [What are private endpoints?](../private-link/private-endpoint-overview.md)
-+ [Configure custom domain](howto-custom-domain.md)
++ [Configure a custom domain](howto-custom-domain.md)

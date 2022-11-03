@@ -31,4 +31,4 @@ View fired and resolved Prometheus alerts in the Azure portal with other alert t
 
 ## Next steps
 
-- [Create a Prometheus rule groups](../essentials/prometheus-rule-groups.md).
+- [Create a Prometheus rule group](../essentials/prometheus-rule-groups.md).

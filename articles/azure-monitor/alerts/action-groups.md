@@ -1,7 +1,7 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: dkamstra
+author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
 ms.author: jagummersall
@@ -263,7 +263,11 @@ You may have a limited number of Logic Apps actions per action group.
 
 ### Secure webhook
 
-When you use a secure webhook action, you can use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality. 
+When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality. 
+
+> [!NOTE]
+>
+> Basic authentication is not supported for SecureWebhok. To use basic authentication you must use Webhook.
 
 > [!NOTE]
 >
