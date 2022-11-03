@@ -22,7 +22,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 - Ensure to create a Recovery Services vault
-    Create a Recovery Services vault in the parent region to which the Edge Zones (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
+    Create a Recovery Services vault in the parent region to which the Edge Zones (preview) are connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 - Enable Site Recovery
     In the vault settings, select **Enable Site Recovery**.
 
