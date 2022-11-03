@@ -1,8 +1,8 @@
 ---
 title: Understand business glossary features in Microsoft Purview
 description: This article explains what business glossary is in Microsoft Purview.
-author: nayenama
-ms.author: nayenama
+author: evangelinew
+ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual

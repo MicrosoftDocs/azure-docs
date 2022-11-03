@@ -68,6 +68,8 @@
       href: howto-conditional-access-policy-registration.md
     - name: Block legacy authentication
       href: howto-conditional-access-policy-block-legacy.md
+    - name: Require MFA for guest users
+      href: howto-policy-guest-mfa.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
     - name: Require MFA for Azure management
@@ -76,10 +78,20 @@
       href: howto-conditional-access-policy-risk.md
     - name: Require password change for risky users
       href: howto-conditional-access-policy-risk-user.md
-    - name: Require compliant or hybrid joined devices
-      href: howto-conditional-access-policy-compliant-device.md
+    - name: Require compliant or hybrid joined devices for admins
+      href: howto-conditional-access-policy-compliant-device-admin.md
+    - name: Block access for unknown or unsupported device platform
+      href: howto-policy-unknown-unsupported-device.md
     - name: Require approved app or app protection policy
       href: howto-policy-approved-app-or-app-protection.md
+    - name: No persistent browser session
+      href: howto-policy-persistent-browser-session.md
+    - name: Require compliant device, hybrid joined, or MFA for users
+      href: howto-conditional-access-policy-compliant-device.md
+    - name: Use application enforced restrictions
+      href: howto-policy-app-enforced-restriction.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Block access
