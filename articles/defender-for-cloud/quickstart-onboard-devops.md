@@ -18,7 +18,7 @@ By connecting your Azure DevOps repositories to Defender for Cloud, you'll exten
 
 - **Defender for Cloud's Workload Protection features** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
 
-API calls performed by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). Defender for Cloud makes calls on-behalf of the user who onboards the connector. Refer to the [FAQ section](#faq) for more information.
+API calls performed by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). For more information, see the [FAQ section](#faq).
 
 ## Prerequisites
 
@@ -96,13 +96,13 @@ The Defender for DevOps service automatically discovers the organizations, proje
 
 ### Do API calls made by Defender for Cloud count against my consumption limit?
 
-Yes, API call made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
+Yes, API calls made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
 
 ### Why is my organization list empty in the UI?
 
 If your organization list is empty in the UI after you onboarded an Azure DevOps connector, you need to ensure that the organization in Azure DevOps is connected to the Azure tenant that has the user who authenticated the connector.
 
-For information on how to correct this issue, check out the [DevOps trouble shooting guide](/azure/defender-for-cloud/troubleshooting-guide?branch=pr-en-us-216679).
+For information on how to correct this issue, check out the [DevOps trouble shooting guide](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues).
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
