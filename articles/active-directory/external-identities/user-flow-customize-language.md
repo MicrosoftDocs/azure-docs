@@ -18,11 +18,11 @@ ms.custom: engagement-fy23
 
 # Language customization in Azure Active Directory
 
-Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article you will learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
+Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
 ## How language customization works
 
-By default, language customization is enabled for users signing up to ensure a consistent sign up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign up. If you're using [custom user attributes](user-flow-add-custom-attributes.md), you need to provide your [own translations](#customize-your-strings).
+By default, language customization is enabled for users signing up to ensure a consistent sign-up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign-up. If you're using [custom user attributes](user-flow-add-custom-attributes.md), you need to provide your [own translations](#customize-your-strings).
 
 ## Customize your strings 
 
@@ -36,7 +36,7 @@ Language customization enables you to customize any string in your user flow.
 4. Select **Languages**.
 5. On the **Languages** page for the user flow, select the language that you want to customize.
 6. Expand **Attribute collection page**.
-7. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+7. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
 
 These steps give you a JSON file that you can use to start editing your strings.
 
@@ -76,7 +76,7 @@ Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 ### Provide a list of values by using LocalizedCollections
 
-If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. To add `LocalizedCollections`, use the following format:
+If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they're displayed. To add `LocalizedCollections`, use the following format:
 
 ```JSON
 {
@@ -107,13 +107,13 @@ If you want to provide a set list of values for responses, you need to create a 
 ### Upload your changes
 
 1. After you complete the changes to your JSON file, go back to your tenant.
-1. Select **User flows** and click the user flow that you want to enable for translations.
+1. Select **User flows** and select the user flow that you want to enable for translations.
 1. Select **Languages**.
 1. Select the language that you want to translate to.
 1. Select **Attribute collection page**.
 1. Select the folder icon, and select the JSON file to upload.
 1. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
-1. To remove or download your customized override file, click on the language and expand the **Attribute collection page**. 
+1. To remove or download your customized override file, select the language and expand the **Attribute collection page**. 
 
   :::image type="content" source="media/user-flow-customize-language/language-customization-remove-download-overrides.png" alt-text="Screenshot of removing or downloading the language customization json file."::: 
 
@@ -137,7 +137,7 @@ Microsoft provides the `ui_locales` OIDC parameter to social logins. But some so
 
 ### Browser behavior
 
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently does not request a language and goes straight to the default language.
+Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently doesn't request a language and goes straight to the default language.
 
 ## Supported languages
 
