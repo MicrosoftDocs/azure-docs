@@ -74,7 +74,7 @@ Let's create a new Event Hubs resource, if you haven't already. Skip ahead to st
    az eventhubs eventhub authorization-rule keys list --resource-group my-resource-group --namespace-name my-routing-namespace --eventhub-name my-event-hubs --name RootManageSharedAccessKey
    ```
 
-1. Create your custom endpoint first (before the route). Use the connection string in this command that you copied in the last step. the **endpoint-type** must be `eventhub`, otherwise all other values should be your own.
+1. Create your custom endpoint first (before the route). Use the connection string in this command that you copied in the last step. The **endpoint-type** must be `eventhub`, otherwise all other values should be your own.
 
    ```azurecli
    az iot hub routing-endpoint create --endpoint-name my-event-hub-endpoint --endpoint-type eventhub --endpoint-resource-group my-resource-group --endpoint-subscription-id xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --hub-name my-iot-hub --connection-string "my connection string"

@@ -41,9 +41,49 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be the endpoint for your IoT hub route. The service must first exist in your Azure account.
 
+> [!NOTE]
+> If you're using a local version of PowerShell, [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps) before proceeding.
+> 
+
 # [Event Hubs](#tab/eventhubs)
 
+Let's create a new Event Hubs resource, if you haven't already. Skip ahead to step 3, if you already have an Event Hubs resource.
 
+1. Create a new Event Hubs namespace. Use a unique **NamespaceName**.
+
+   ```powershell
+   New-AzEventHubNamespace -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Location MyLocation
+   ```
+
+1. Create a new Event Hubs entity. Use a unique **Name**.
+
+   ```powershell
+   New-AzEventHub -Name MyEventHub -NamespaceName MyNamespace -ResourceGroupName MyResourceGroup
+   ```
+
+1. Create a new authorization rule. Use the **Name** of your entity for **EventHubName**. Use a unique **Name** for your authorization rule.
+
+   ```powershell
+   New-AzEventHubAuthorizationRule -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName myEventHub -Name MyAuthRule -Rights @('Manage', 'Send', 'Listen')
+   ```
+
+1. Now that you have an Event hub, retrieve its primary connection string. Copy the connection string for later use.
+
+   ```powershell
+   Get-AzEventHubKey -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName myEventHub -Name MyAuthRule
+   ```
+
+1. Create a new IoT hub endpoint to Event Hubs. Use your primary connection string from the previous step. The **EndpointType** must be `EventHub`, otherwise all other values should be your own.
+
+   ```powershell
+   Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType EventHub -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "Endpoint=<my connection string>"
+   ```
+
+1. Finally, with your new endpoint in your IoT hub, you can create a new route.
+
+```powershell
+Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint
+```
 
 # [Service Bus queue](#tab/servicebusqueue)
 
