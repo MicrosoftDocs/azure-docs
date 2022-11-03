@@ -194,7 +194,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB for NoSQL resources.
+In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the .NET SDK. You can now dive deeper into a tutorial where you manage your Azure Cosmos DB for NoSQL resources and data using a .NET console application.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md)
+> [Tutorial: Develop a .NET console application with Azure Cosmos DB for NoSQL](tutorial-dotnet-console-app.md)
