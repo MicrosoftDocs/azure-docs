@@ -1,6 +1,6 @@
 ---
 title: Replicate virtual machines running in an Azure Edge Zone (preview) to another zone in the same region
-description: This article describes how to replicate, failover, and fail back Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
+description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: how-to   
@@ -12,7 +12,7 @@ ms.author: v-pgaddala
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
 
-Edge Zones (preview) is fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones (preview) are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones (preview) depend on the location, that you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
+Edge Zones (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones (preview) are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones (preview) depend on the location, that you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
 
 ## Disaster recovery in Azure Edge Zone (preview)
 
@@ -24,10 +24,10 @@ Site Recovery replicates the data from one zone or region to another. It brings 
 
 You will experience a similar Site Recovery flow as in Azure, but you must be aware of the limitations that Edge Zone (preview) brings. For instance, Edge Zones (preview) operate outside the Azure region in a constrained capacity environment, which reduces the ability to reproduce Azure's high availability and the disaster recovery experience. Key differences include: 
 
--    Physical separation from the Azure region
--    The separation of the control plane that runs at the region and the data plane that runs at the edge location
--    Scale differences
--    The dependencies on customer-provided network connectivity and power
+-    Physical separation from the Azure region.
+-    The separation of the control plane that runs at the region and the data plane that runs at the edge location.
+-    Scale differences.
+-    The dependencies on customer-provided network connectivity and power.
 
 > [!NOTE] 
 > Unmanaged disks Protection is not supported for this scenario.
@@ -90,20 +90,20 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     Set-AzRecoveryServicesAsrVaultContext -Vault $vault 
     ```
 
-1. Create Primary Site Recovery fabric
+1. Create Primary Site Recovery fabric.
 
     ```
     $TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location “<EdgeZoneRegion>” -
     Name "EdgeZoneFabric"
     ```
     
-    1. Track Job status to check for completion 
+    1. Track Job status to check for completion.
     
         ```
         while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         ```
 
-    1. If the job hasn't completed, sleep for 10 seconds before checking the job status again
+    1. If the job hasn't completed, sleep for 10 seconds before checking the job status again.
     
         ``` 
         sleep 10;
@@ -136,8 +136,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         Write-Output $TempASRJob.State
         ```
     
-    1. Both primary and recovery Protection containers get created in the primary 
-    region (within the Primary fabric).
+    1. Both primary and recovery Protection containers get created in the primary region (within the Primary fabric).
 
         ```
         $PrimaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric 
@@ -154,7 +153,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     ApplicationConsistentSnapshotFrequencyInHours 4
     ```
     
-    1. Track Job status to check for completion
+    1. Track Job status to check for completion.
 
         ```
         while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
@@ -208,7 +207,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         $PrimaryProtectionContainer
         ```
     
-       1. Track Job status to check for completion
+       1. Track Job status to check for completion.
 
             ```
             while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq 
@@ -234,7 +233,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     Kind Storage
     ```
 
-1. Ensure to create a virtual network in the target location. Create a Recovery Network in the recovery region
+1. Ensure to create a virtual network in the target location. Create a Recovery Network in the recovery region.
     
     ```
     $recoveryVnet = New-AzVirtualNetwork -Name "recoveryvnet" -ResourceGroupName 
@@ -278,9 +277,9 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     1. Data disk
 
         1. If VM has data disk, use the following command to create disk configuration. If not,
-    you can skip this section. From `$datadiskId` to `$DataDisk1ReplicationConfig $datadiskId = $vm.StorageProfile.OSDisk.ManagedDisk.Id`
+    you can skip this section. From `$datadiskId` to `$DataDisk1ReplicationConfig $datadiskId = $vm.StorageProfile.OSDisk.ManagedDisk.Id`.
     
-            Alternatively
+            Alternatively,
 
             ```
             $RecoveryReplicaDiskAccountType = "Premium_LRS"
@@ -446,7 +445,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
 
 1. After a failover, when you're ready to go back to the original region, start reverse replication for the replication protected item using the `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet. 
 
-    1. Create Cache storage account for replication logs in the recovery region
+    1. Create Cache storage account for replication logs in the recovery region.
     
         ```
         $EdgeZoneCacheStorageAccount = New-AzStorageAccount -Name "cachestorageedgezone" -

@@ -1,6 +1,6 @@
 ---
 title: Set up disaster recovery for VMs on Edge Zone (preview)
-description: Learn how to set up disaster recovery for Virtual machines on Edge Zone (preview)
+description: Learn how to set up disaster recovery for virtual machines on Edge Zone (preview).
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
@@ -13,26 +13,20 @@ ms.author: v-pgaddala
 This tutorial shows you how to set up disaster recovery for VMs on Edge Zone (preview) using Azure Site Recovery. In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Recovery Services vault
 > * Enable VM replication
 
-When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. Learn more about the architecture.
+When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. [Learn more](azure-to-azure-architecture.md) about the architecture.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-----
+- Ensure to create a Recovery Services vault
+    Create a Recovery Services vault in the parent region to which the Edge Zones (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
+- Enable Site Recovery
+    In the vault settings, select **Enable Site Recovery**.
 
-## Create a Recovery Services vault
-
-Create a Recovery Services vault in the parent region to which the Edge Zones (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
-
-### Enable Site Recovery
-
-In the vault settings, select **Enable Site Recovery**.
-
-![Selection to enable Site Recovery in the vault](./media/disaster-recovery-for-edge-zone-vm-tutorial/enable-site-recovery.png)
+    ![Selection to enable Site Recovery in the vault](./media/disaster-recovery-for-edge-zone-vm-tutorial/enable-site-recovery.png)
 
 ## Enable replication
 
@@ -56,7 +50,7 @@ Select the source settings and enable VM replication.
         :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/source.png" alt-text="Enable replication form source tab":::
 
     > [!NOTE]
-    >  As there are no availability zones for Edge Zones (preview), the field is disabled. 
+    > As there are no availability zones for Edge Zones (preview), it is disabled. 
     
 1. Select **Next**.
      
@@ -79,9 +73,14 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
     > [!NOTE]
     >- In the above box, you can select target to be parent region (i.e., connected to the edge zone (preview)) or in certain cases, another of your edge zone (preview) connected to the same region. 
-    >- Capacity reservation has been disabled.  
+    >- Capacity reservation has been disabled and hence hidden.  
 
 1. In **Customize storage option**, you can select an existing storage that was created either on edge zone (preview) or region.
+
+    >[!NOTE]
+    >- For *Edge Zone to region* replication flow, an existing storage account associated with the recovery vault will be preselected. If a storage account doesn't exist with the recovery vault, a new one will be created in the region.
+    >- For *Edge Zone to Edge Zone* replication flow, you must select an existing storage account in the drop down for **cache storage**.
+
     
 ### Manage
     
@@ -102,7 +101,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 ### Review
             
-In the **Review** tab, review the VM settings and select Enable replication.  
+In **Review**, review the VM settings and select **Enable replication**.  
 The **VM setting** now includes target region information and a **Summary** section includes the Edge Zone (preview) information. 
             
 :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text=" Review replication tab"::: 
