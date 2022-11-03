@@ -184,8 +184,13 @@ items:
   - name: Data sources
     href: data-sources.md
   - name: Diagnostic Settings
-    displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-    href: essentials/diagnostic-settings.md
+    items:
+    - name: Overview 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings with Azure Policy
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings-policy.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -337,9 +342,6 @@ items:
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Create with Azure Policy
-      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
