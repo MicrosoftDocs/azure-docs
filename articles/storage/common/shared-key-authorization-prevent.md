@@ -59,7 +59,7 @@ Azure Policy **Storage accounts should prevent shared key access** prevents enab
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-### Assign the built-in policy for a resource scope
+#### Assign the built-in policy for a resource scope
 
 Follow these steps to assign the built-in policy to the appropriate scope in the Azure portal:
 
@@ -92,7 +92,7 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 
     :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
 
-### Monitor compliance with the Shared Key access policy
+#### Monitor compliance with the Shared Key access policy
 
 To monitor your storage accounts for compliance with the Shared Key access policy, follow these steps:
 
