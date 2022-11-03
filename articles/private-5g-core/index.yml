@@ -67,7 +67,7 @@ landingContent:
           - text: Upgrade a packet core instance - ARM template
             url: upgrade-packet-core-arm-template.md
           - text: Reinstall a packet core instance
-            url: upgrade-packet-core.md
+            url: reinstall-packet-core.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:
