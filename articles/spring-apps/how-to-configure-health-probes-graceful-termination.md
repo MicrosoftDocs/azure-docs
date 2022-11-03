@@ -194,7 +194,7 @@ Use the following steps to customize your application using Azure CLI.
 
 Use the following best practices when adding your own persistent storage to Azure Spring Apps:
 
-- Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly-configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
+- Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
 
 - When an app instance starts, the first check occurs after the delay specified by `initialDelaySeconds`. Subsequent checks occur periodically, according to the period length specified by `periodSeconds`. If the app fails to respond to the requests for several times as specified by `failureThreshold`, the app instance is restarted. Make sure your application can start fast enough, or update these parameters, so that the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 
