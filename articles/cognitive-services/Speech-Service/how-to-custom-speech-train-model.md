@@ -89,7 +89,7 @@ You should receive a response body in the following format:
   ],
   "links": {
     "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7:copyto"
   },
   "project": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
@@ -126,9 +126,9 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/GetProjects) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
 - Set the required `locale` property. The model locale must match the locale of the project and base model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
@@ -171,7 +171,7 @@ You should receive a response body in the following format:
   ],
   "links": {
     "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7:copyto"
   },
   "project": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
@@ -196,7 +196,7 @@ You should receive a response body in the following format:
 > 
 > Take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-The top-level `self` property in the response body is the model's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_GetCustomModel) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Delete) the model.
+The top-level `self` property in the response body is the model's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetCustomModel) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Delete) the model.
 
 ::: zone-end
 
@@ -230,7 +230,7 @@ Copying a model directly to a project in another region is not supported with th
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -239,7 +239,7 @@ Make an HTTP POST request using the URI as shown in the following example. Use t
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "targetSubscriptionKey": "ModelDestinationSpeechResourceKey"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/YourModelId/copyto"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/models/YourModelId:copyto"
 ```
 
 > [!NOTE]
@@ -255,7 +255,7 @@ You should receive a response body in the following format:
   },
   "links": {
     "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae:copyto"
   },
   "properties": {
     "deprecationDates": {
@@ -328,11 +328,11 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/GetProjects) request to get available projects.
 
-Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{

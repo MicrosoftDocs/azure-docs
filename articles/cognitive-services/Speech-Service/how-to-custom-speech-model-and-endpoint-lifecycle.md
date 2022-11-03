@@ -43,7 +43,7 @@ When a custom model or base model expires, it is no longer available for transcr
 |Transcription route  |Expired model result  |Recommendation  |
 |---------|---------|---------|
 |Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md?tabs=stt-tts). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
-|Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models will fail with a 4xx error. |In each [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. |
+|Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models will fail with a 4xx error. |In each [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/CreateTranscription) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. |
 
 
 ## Get base model expiration dates
@@ -111,7 +111,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the training and transcription expiration dates for a base model, use the [Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_ListBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_ListBaseModels) request to get available base models for all locales.
+To get the training and transcription expiration dates for a base model, use the [Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) request to get available base models for all locales.
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -200,7 +200,7 @@ You should receive a response body in the following format:
   ],
   "links": {
     "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7:copyto"
   },
   "project": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
@@ -230,7 +230,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the transcription expiration date for your custom model, use the [Models_GetCustomModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_GetCustomModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
+To get the transcription expiration date for your custom model, use the [Models_GetCustomModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetCustomModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `YourModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -255,7 +255,7 @@ You should receive a response body in the following format:
   ],
   "links": {
     "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
-    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7:copyto"
   },
   "project": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"

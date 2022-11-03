@@ -87,12 +87,12 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.
 
-Make an HTTP POST request using the URI as shown in the following [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP POST request using the URI as shown in the following [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/CreateProject) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -128,7 +128,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the project's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProject) details about the project's evaluations, datasets, models, endpoints, and transcriptions. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateProject) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteProject) a project.
+The top-level `self` property in the response body is the project's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/GetProject) details about the project's evaluations, datasets, models, endpoints, and transcriptions. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/UpdateProject) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/DeleteProject) a project.
 
 ::: zone-end
 

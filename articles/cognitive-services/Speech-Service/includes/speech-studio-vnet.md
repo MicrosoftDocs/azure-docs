@@ -45,7 +45,7 @@ If you select **Selected Networks and private endpoints**, then you will see a t
 If you allow only access via **Virtual network**, then in effect you don't allow access to the Speech resource through Speech Studio. You can still use the Speech resource outside of Speech Studio. 
 
 To use custom speech without relaxing network access restrictions on your production Speech resource, consider one of these workarounds. 
-* Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST request with [Speech-to-text REST API](../rest-speech-to-text.md).
+* Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST request with [Speech-to-text REST API](../rest-speech-to-text.md).
 * You have the option to not use Speech Studio for custom speech. Use the [Speech-to-text REST API](../rest-speech-to-text.md) for all custom speech operations. 
 
 #### Custom Voice and Audio Content Creation

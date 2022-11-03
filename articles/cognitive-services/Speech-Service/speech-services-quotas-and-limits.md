@@ -55,7 +55,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Create/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>
