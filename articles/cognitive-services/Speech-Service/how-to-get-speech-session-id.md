@@ -106,7 +106,7 @@ The example below is the Response body of a `Create Transcription` request. GUID
 }
 ```
 > [!NOTE]
-> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [CreateDataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
+> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [Datasets_Create](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Datasets_Create) request.
 
 > [!NOTE]
 > You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [GetTranscriptions](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) request.

@@ -111,7 +111,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the training and transcription expiration dates for a base model, use the [GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [GetBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModels) request to get available base models for all locales.
+To get the training and transcription expiration dates for a base model, use the [Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_ListBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_ListBaseModels) request to get available base models for all locales.
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -230,7 +230,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the transcription expiration date for your custom model, use the [GetModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
+To get the transcription expiration date for your custom model, use the [Models_GetCustomModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_GetCustomModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `YourModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

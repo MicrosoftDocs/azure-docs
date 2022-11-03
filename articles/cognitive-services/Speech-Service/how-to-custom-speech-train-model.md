@@ -126,7 +126,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
@@ -196,7 +196,7 @@ You should receive a response body in the following format:
 > 
 > Take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-The top-level `self` property in the response body is the model's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteModel) the model.
+The top-level `self` property in the response body is the model's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_GetCustomModel) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Delete) the model.
 
 ::: zone-end
 
@@ -328,7 +328,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [UpdateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/Models_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 
