@@ -53,4 +53,4 @@ Translation Memory files (TMX, XLF, XLIFF, LCL, XLSX) aren't required to follow 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about managing projects](workspace-and-project.md#what-is-a-custom-translator-project).
+> [Learn about managing projects](workspace-and-project.md#what-is-a-custom-translator-project)

@@ -57,4 +57,4 @@ For a training to succeed, the table below shows the minimum number of sentences
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use a dictionary](dictionaries.md).
+> [Learn how to use a dictionary](dictionaries.md)

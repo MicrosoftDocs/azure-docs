@@ -66,4 +66,4 @@ language pair, use a project label to differentiate between customers.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about model training](model-training.md).
+> [Learn about model training](model-training.md)

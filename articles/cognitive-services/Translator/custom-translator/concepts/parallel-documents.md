@@ -58,4 +58,4 @@ format you uploaded them.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use a dictionary](dictionaries.md).
+> [Learn how to use a dictionary](dictionaries.md)
