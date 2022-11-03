@@ -126,8 +126,8 @@ The table below describes the elements in the above autoscale setting's JSON.
 
 There are three types of autoscale profiles:
 
-- **Default profile:** Use the default profile if you don’t need to scale your resource based on a particular date and time, or day of the week, use a regular or default profile. You can only have one default profile. The sample profile used above is an example of a default profile. 
-- **Fixed date profile:** This profile is relevant for a single date and time. Use the fixed date profile to set scaling rules for a specific event. The profile runs only on the event’s date and time. For all other times, autoscale uses the default profile.
+- **Default profile:** Use the default profile if you don’t need to scale your resource based on a particular date and time, or day of the week. The default profile runs when there are no other applicable profiles for the current date and time. You can only have one default profile.
+- **Fixed date profile:** The fixed date profile is relevant for a single date and time. Use the fixed date profile to set scaling rules for a specific event. The profile runs only once, on the event’s date and time. For all other times, autoscale uses the default profile.
 
 ```json
     ...
@@ -160,7 +160,7 @@ There are three types of autoscale profiles:
 
 - **Recurrence profile:** A recurrence profile is used for a day or set of days of the week.  The schema for a recurring profile doesn't include an end date. The end of date and time for a recurring profile is set by the start time of the following profile. When using the portal to configure recurring profiles, the default profile is automatically updated to start at the end time that you specify for the recurring profile. For more information on configuring multiple profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
 
-The partial schema example below shows a recurring profile, starting at 06:00 and ending at 19:00 on Saturdays and Sundays. The default profile has been modified to start at 19:00 on Saturdays and Sundays.
+    The partial schema example below shows a recurring profile, starting at 06:00 and ending at 19:00 on Saturdays and Sundays. The default profile has been modified to start at 19:00 on Saturdays and Sundays.
  
 ``` JSON
     {
@@ -204,7 +204,7 @@ The partial schema example below shows a recurring profile, starting at 06:00 an
                             }
                         },
                         {
-                            "name": "{\"name\":\"Auto     created default scale     condition\",\"for\":\"Weekend     profile\"}",
+                            "name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Weekend profile\"}",
                             "capacity": {
                                ...
                             },
@@ -241,7 +241,7 @@ The partial schema example below shows a recurring profile, starting at 06:00 an
 
 ## Autoscale evaluation
  
-Autoscale settings can have multiple profiles. Each profile can have multiple metric rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Then autoscale evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type. 
+Autoscale settings can have multiple profiles. Each profile can have multiple rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Autoscale  then evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type. 
 
 ### Which profile will autoscale use?
 
@@ -256,15 +256,15 @@ The first suitable profile found will be used.
 ### How does autoscale evaluate multiple rules?
 
 After autoscale determines which profile to run, it evaluates the scale-out rules in the profile, that is, where **direction = “Increase”**.
-If one or more scale-out rules are triggered, autoscale calculates the new capacity determined by the **scaleAction** specified for each of those rules. If there's more than one scale-out rule triggered, autoscale scales to the maximum specified capacity to ensure service availability. 
+If one or more scale-out rules are triggered, autoscale calculates the new capacity determined by the **scaleAction** specified for each of the rules. If more than one scale-out rule is triggered, autoscale scales to the highest specified capacity to ensure service availability. 
 
-For example, assume that there are two rules: Rule1 specifies scale out by 3 instances and rule 2 specifies scale out by 5. If both rules are triggered, autoscale will scale out by 5 instances. Similarly, if one rule specifies scale out by 3 instances and another rule, scale out by 15%, the higher of the two instance counts will be used.
+For example, assume that there are two rules: Rule 1 specifies a scale out by 3 instances, and rule 2 specifies a scale out by 5. If both rules are triggered, autoscale will scale out by 5 instances. Similarly, if one rule specifies scale out by 3 instances and another rule, scale out by 15%, the higher of the two instance counts will be used.
 
-If no scale-out rules are triggered, autoscale evaluates all the scale-in rules, that is, rules with **direction = “Decrease”**. Autoscale only scales in if all of the scale-in rules are triggered.
+If no scale-out rules are triggered, autoscale evaluates the scale-in rules, that is, rules with **direction = “Decrease”**. Autoscale only scales in if all of the scale-in rules are triggered.
 
 Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. To ensure service availability, autoscale scales in by as little as possible to achieve the maximum capacity specified. For example, assume two scale-in rules, one that decreases capacity by 50 percent, and one that decreases capacity by 3 instances. If first rule results in 5 instances and the second rule results in 7, autoscale scales-in to 7 instances. 
 
-Each time autoscale calculates the result of a scale action, it evaluates whether that action would trigger the opposite scale action. The scenario where a scale action triggers the opposite scale action is known as flapping. Autoscale may defer a scale action to avoid flapping or may scale by a number less than what was specified in the rule. For more information on flapping, see [Flapping in Autoscale](./autoscale-custom-metric.md)
+Each time autoscale calculates the result of a scale-in action, it evaluates whether that action would trigger a scale-out action. The scenario where a scale action triggers the opposite scale action is known as flapping. Autoscale may defer a scale-in action to avoid flapping or may scale by a number less than what was specified in the rule. For more information on flapping, see [Flapping in Autoscale](./autoscale-custom-metric.md)
 
 ## Next steps
 
