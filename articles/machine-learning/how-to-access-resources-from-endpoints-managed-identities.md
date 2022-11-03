@@ -96,7 +96,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 
@@ -134,7 +134,7 @@ Install them with the following code:
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 
