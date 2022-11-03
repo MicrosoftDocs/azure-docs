@@ -60,6 +60,7 @@ This section describes languages supported by Azure Video Indexer API.
 | Catalan                          | `ca-ES`      |   |    |   | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Chinese (Simplified)             | `zh-Hans`    | ✔ | ✔ |   | ✔ | ✔ |
+| Chinese (Simplified)             | `zh-CK`    | ✔ | ✔ |   | ✔ | ✔ |
 | Chinese (Traditional)            | `zh-Hant`    |   |    |   | ✔ |  |
 | Croatian                         | `hr-HR`      |   |    |   | ✔ |  |
 | Czech                            | `cs-CZ`      | ✔ |✔  |  ✔ | ✔ | ✔ |
@@ -153,7 +154,7 @@ The following table describes language support in the Azure Video Indexer fronte
 | Catalan                          | `ca-ES`      |           | ✔ | 
 | Chinese (Cantonese Traditional)  | `zh-HK`      |           | ✔ | 
 | Chinese (Simplified)             | `zh-Hans`    |      ✔    |✔  |
-| Chinese (Simplified)             | `zh-CK`    |      ✔    |✔  |
+| Chinese (Simplified)             | `zh-CK`      |      ✔    |✔  |
 | Chinese (Traditional)            | `zh-Hant`    |           |✔  |  
 | Croatian                         | `hr-HR`      |           |  |
 | Czech                            | `cs-CZ`      |    ✔      | ✔ | 
