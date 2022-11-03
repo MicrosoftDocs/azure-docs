@@ -28,43 +28,45 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `type` | const | The type of job. | `automl` | `automl` |
-| `task` | const | The type of automl task. | `image_classification` | `image_classification` |
+| `$schema` | string | The YAML schema. If the users uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
+| `type` | const | **Required.** The type of job. | `automl` | `automl` |
+| `task` | const | **Required.** The type of automl task. | `image_classification` | `image_classification` |
 | `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
 | `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. **Note:** jobs in pipeline didn't support `local` as `compute` | | `local` |
+| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. **Note:** jobs in pipeline don't support `local` as `compute` | | `local` |
 | `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
 | `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`, `auc_weighted`, `average_precision_score_weighted`, `norm_macro_recall`, `precision_score_weighted` | `accuracy` |
-| `target_column_name` | string |  The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
-| `training_data` | object |  The data to be used within the job. It should contain both training feature columns and a target column. the parameter training_data must always be provided. Refer to [Training or Validation Data](#training-or-validation-data) section for further details on how to write this object.| |  |
+| `target_column_name` | string |  **Required.** The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
+| `training_data` | object |  **Required.** The data to be used within the job. It should contain both training feature columns and a target column. the parameter training_data must always be provided. Refer to [Training or Validation Data](#training-or-validation-data) section for further details on how to write this object.| |  |
 | `validation_data` | object |  The validation data to be used within the job. It should contain both training features and label column (optionally a sample weights column). If 'validation_data' is specified, then 'training_data' and 'target_column_name' parameters must be specified. Refer to [Training or Validation Data](#training-or-validation-data) for further details on how to write this object.| |  |
-| `validation_data_size` | float |  What fraction of the data to hold out for validation when user validation data is not specified. This should be between 0.0 and 1.0 non-inclusive. | |  |
-| `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If you want to specify a different mode for the output, provide an object containing the [Limits](#limits). | | |
+| `validation_data_size` | float |  What fraction of the data to hold out for validation when user validation data is not specified. | A value in range (0.0, 1.0) |  |
+| `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the ocntext of the job and the value is limit value. If the user wants to specify a different mode for the output, provide an object containing the [Limits](#limits). | | |
 | `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object which has keys as listed in  [Training Parameters](#training-parameters) section. | | |
 | `sweep` | object | Dictionary containing sweep parameters for the job. Provide an object which has keys as listed in [Sweep Parameters](#sweep-parameters) section. | | |
 | `search_space` | object | Dictionary containing search space (or, range of values) for tuning hyperparameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
+| `outputs` | object | Dictionary containing search space (or, range of values) for tuning hyperparameters for the job. Provide an object which has keys as listed in [Search Space Parameters](#search-space-parameters) secion. | | |
+
 
 ### Limits
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `timeout_minutes` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. | | 8640 |
 | `max_trials` | integer | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If using `enable_early_termination` the number of trials used can be smaller.  | | 1000 |
 | `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | 1 |
-| `trial_timeout_minutes` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used.  | | 43200 |
+| `timeout_minutes` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), the user should make sure dataset's size is not greater than 10,000,000 (rows times column) or an error results. | | 8640 |
+
 
 ### Training Or Validation Data
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `description` | string | The detailed information that describes this input data. | | |
-| `path` | sring | The maximum total number of different algorithm and parameter combinations (trials) to try during an AutoML job. If not specified, the default is 1000 trials. If using 'enable_early_termination' the number of trials used can be smaller.  | | |
+| `path` | sring | Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(* and *\*) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-core-syntax) for more information on how to use the `azureml://` URI format. URI of the location of the artifact file. If this URI does not have a scheme (e.g. http:, azureml:, etc.), then it is considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | |
 | `mode` | string | | |
-| `type` | const |  In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an MLTable. | mltable | mltable|
+| `type` | const |  In order to generate computer vision models, the user needs to bring labeled image data as input for model training in the form of an MLTable. | mltable | mltable|
 
 ### Training Parameters
 This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments.
@@ -78,7 +80,7 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `validation_metric_type` | string | Metric computation method to use for validation metrics. |  `none`, `coco`, `voc`, or `coco_voc` | `voc` |
+| `validation_metric_type` | string | Metric computation method to use for validation metrics. |  `none`, `coco`, `voc`, `coco_voc` | `voc` |
 | `validation_iou_threshold` | float | IOU threshold for box matching when computing validation metrics.  | A value in the range [0.1, 1]. | 0.5 |
 | `image_size` | integer | Image size for train and validation. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | | 640 |
 | `model_size` | string | Model size. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*. | `small`, `medium`, `large`, `extra_large` | `medium` |
@@ -98,37 +100,41 @@ This table summarizes hyperparameters specific to the `maskrcnn_*` for instance 
 | `export_as_image` | bool | Export masks as images. | `True`, `False` | False |
 | `image_type` | string | Type of image to export mask as.  | `jpg`, `png`, `bmp` | `jpg` |
 
-
-
 #### Model Agnostic Hyperparameters
 The following table describes the hyperparameters that are model agnostic.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `number_of_epochs` | integer | Number of training epochs. | | 15 <br> (except `yolov5`: 30) |
-| `training_batch_size` | integer | Training batch size. <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*. | | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2 |
-| `validation_batch_size` | integer | Validation batch size.<br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*. | | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1|
-| `gradient_accumulation_step` | integer | Gradient accumulation means running a configured number of `gradient_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. | | 1 |
-| `early_stopping` | integer | Enable early stopping logic during training. |  `0`, `1` | `1` |
-| `early_stopping_patience` | integer | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped. | | 5 |
-| `early_stopping_delay` | integer | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping. | | 5 |
-| `learning_rate` | float | Initial learning rate. | A value  in the range [0, 1] | Multi-class: 0.01 <br>(except *vit-variants*: <br> `vits16r224`: 0.0125<br>`vitb16r224`: 0.0125<br>`vitl16r224`: 0.001) <br><br> Multi-label: 0.035 <br>(except *vit-variants*:<br>`vits16r224`: 0.025<br>`vitb16r224`: 0.025 <br>`vitl16r224`: 0.002) <br><br> Object detection: 0.005 <br>(except `yolov5`: 0.01) <br><br> Instance segmentation: 0.005  |
-| `learning_rate_scheduler` | string | Type of learning rate scheduler. | `none`, `warmup_cosine`, `step`. | `warmup_cosine` |
-| `step_lr_gamma` | float | Value of gamma when learning rate scheduler is `step`.| A value in the range [0, 1] | 0.5 |
-| `step_lr_step_size` | integer | Value of step size when learning rate scheduler is `step`. | | 5 |
-| `warmup_cosine_lr_cycles` | float | Value of cosine cycle when learning rate scheduler is `warmup_cosine`. | A value in the range [0, 1] | 0.45 |
-| `warmup_cosine_lr_warmup_epochs` | integer | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. | | 2 |
-| `optimizer` | string | Type of optimizer. | `sgd`, `adam`, `adamw`  | `sgd` |
-| `momentum` | float | Value of momentum when optimizer is `sgd`. | A value in the range [0, 1] | 0.9 |
-| `weight_decay` | float | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. | A value in the range [0, 1] | 1e-4 |
-|`nesterov`| integer | Enable `nesterov` when optimizer is `sgd`. | 0, 1 | 1 |
+|`ams_gradient` | Enable `ams_gradient` when optimizer is `adam` or `adamw`.| 0, 1| 0 |
+|`advanced_settings` | | | |
 |`beta1` | float | Value of `beta1` when optimizer is `adam` or `adamw`. | A value in the range [0, 1] | 0.9 |
 |`beta2` | float | Value of `beta2` when optimizer is `adam` or `adamw`. | A value in the range [0, 1] | 0.999 |
-|`ams_gradient` | Enable `ams_gradient` when optimizer is `adam` or `adamw`.| 0, 1| 0 |
-|`evaluation_frequency`| integer | Frequency to evaluate validation dataset to get metric scores. | | 1 |
 |`checkpoint_frequency`| integer | Frequency to store model checkpoints. | | Checkpoint at epoch with best primary metric on validation.|
 |`checkpoint_run_id`| string | The run ID of the experiment that has a pretrained checkpoint for incremental training.| | no default  |
+|`distributed`| bool | | 0, 1 | 0 |
+| `early_stopping` | integer | Enable early stopping logic during training. |  `0`, `1` | `1` |
+| `early_stopping_delay` | integer | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping. | | 5 |
+| `early_stopping_patience` | integer | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped. | | 5 |
+|`evaluation_frequency`| integer | Frequency to evaluate validation dataset to get metric scores. | | 1 |
+|`enable_onnx_normalization`| bool | | 0, 1 | 0 |
+| `gradient_accumulation_step` | integer | Gradient accumulation means running a configured number of `gradient_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. | | 1 |
 |`layers_to_freeze`| integer | How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br>- ` 'resnet': [('conv1.', 'bn1.'), 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>- `'mobilenetv2': ['features.0.', 'features.1.', 'features.2.', 'features.3.', 'features.4.', 'features.5.', 'features.6.', 'features.7.', 'features.8.', 'features.9.', 'features.10.', 'features.11.', 'features.12.', 'features.13.', 'features.14.', 'features.15.', 'features.16.', 'features.17.', 'features.18.'],`<br>- ` 'seresnext': ['layer0.', 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>- `'vit': ['patch_embed', 'blocks.0.', 'blocks.1.', 'blocks.2.', 'blocks.3.', 'blocks.4.', 'blocks.5.', 'blocks.6.','blocks.7.', 'blocks.8.', 'blocks.9.', 'blocks.10.', 'blocks.11.'],`<br>- `'yolov5_backbone': ['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.'],`<br>- `'resnet_backbone': ['backbone.body.conv1.', 'backbone.body.layer1.', 'backbone.body.layer2.','backbone.body.layer3.', 'backbone.body.layer4.']` | | no default  |
+| `learning_rate` | float | Initial learning rate. | A value  in the range [0, 1] | Multi-class: 0.01 <br>(except *vit-variants*: <br> `vits16r224`: 0.0125<br>`vitb16r224`: 0.0125<br>`vitl16r224`: 0.001) <br><br> Multi-label: 0.035 <br>(except *vit-variants*:<br>`vits16r224`: 0.025<br>`vitb16r224`: 0.025 <br>`vitl16r224`: 0.002) <br><br> Object detection: 0.005 <br>(except `yolov5`: 0.01) <br><br> Instance segmentation: 0.005  |
+| `learning_rate_scheduler` | string | Type of learning rate scheduler. | `none`, `warmup_cosine`, `step`. | `warmup_cosine` |
+| `momentum` | float | Value of momentum when optimizer is `sgd`. | A value in the range [0, 1] | 0.9 |
+|`nesterov`| integer | Enable `nesterov` when optimizer is `sgd`. | 0, 1 | 1 |
+| `number_of_epochs` | integer | Number of training epochs. | | 15 <br> (except `yolov5`: 30) |
+| `number_of_workers` | integer | Number of workers. | |  |
+| `optimizer` | string | Type of optimizer. | `sgd`, `adam`, `adamw`  | `sgd` |
+| `random_seed` | integer | | | |
+| `step_lr_gamma` | float | Value of gamma when learning rate scheduler is `step`.| A value in the range [0, 1] | 0.5 |
+| `step_lr_step_size` | integer | Value of step size when learning rate scheduler is `step`. | | 5 |
+| `training_batch_size` | integer | Training batch size. <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*. | | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2 |
+| `validation_batch_size` | integer | Validation batch size.<br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*. | | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1|
+| `warmup_cosine_lr_cycles` | float | Value of cosine cycle when learning rate scheduler is `warmup_cosine`. | A value in the range [0, 1] | 0.45 |
+| `warmup_cosine_lr_warmup_epochs` | integer | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. | | 2 |
+| `weight_decay` | float | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. | A value in the range [0, 1] | 1e-4 |
+
 
 
 #### Image Classification (Multi-Class and Multi-Label) Specific Hyperparameters
@@ -143,9 +149,10 @@ The following table describes the hyperparameters that are model agnostic.
 
 ### Sweep Parameters
 When using AutoML for Images, we can perform a hyperparameter sweep over a defined parameter space to find the optimal model. If hyperparameter values are not specified, then default values are used for the specified algorithm. 
+
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `sampling_algorithm` | string | When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. <br> Notes: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
+| `sampling_algorithm` | string | **Required.** When sweeping hyperparameters, the user needs to specify the sampling method to use for sweeping over the defined parameter space. <br> Notes: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
 | `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the sections below. |  | |
 
 #### Bandit Early Termination Policy
@@ -153,48 +160,39 @@ Bandit Policy is based on slack factor/slack amount and evaluation interval. Ban
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `type` | string |Type of early termination policy. | `bandit` | `bandit` |
-| `slack_factor` or `slack_amount` | float | The slack allowed with respect to the best performing training job. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio. | | |
-| `evaluation_interval` | integer |  (Optional parameter)<br>The frequency for applying the policy. | | |
-| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
-
-
+| `type` | string | **Required.** Type of early termination policy. | `bandit` | `bandit` |
+| `slack_factor` | number | The ratio used to calculate the slack or the allowed distance from the best performing trial. **One of `slack_factor` or `slack_amount` is required.** | | |
+| `slack_amount` | number | The absolute slack or distance allowed from the best performing trial. **One of `slack_factor` or `slack_amount` is required.** | | |
+| `evaluation_interval` | integer |  The frequency for applying the policy. | | |
+| `delay_evaluation` | integer | Delays the first policy evaluation for a specified number of intervals. | | |
 
 #### Median Stopping Early Termination Policy
 Median Stopping is an early termination policy based on running averages of primary metrics reported by the jobs. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#median-stopping-policy)
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `type` | string |Type of early termination policy. | `median_stopping` | `median_stopping` |
-| `evaluation_interval` | integer | (Optional parameter)<br>The frequency for applying the policy. | | |
-| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
-
-
+| `type` | string | **Required.** Type of early termination policy. | `median_stopping` | `median_stopping` |
+| `evaluation_interval` | integer | The frequency for applying the policy. | | |
+| `delay_evaluation` | integer |  Delays the first policy evaluation for a specified number of intervals. | | |
 
 #### Truncation Selection Early Termination Policy
 Truncation Selection policy cancels a percentage of lowest performing jobs at each evaluation interval. jobs are compared using the primary metric.. For further details on Median Stopping policy, please refer to [documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#truncation-selection-policy)
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `type` | string |Type of early termination policy. | `truncation_selection` | `truncation_selection` |
-| `truncation_percentage` | integer | The percentage of lowest performing jobs to terminate at each evaluation interval. | [1, 99] |  |
-| `evaluation_interval` | integer | (Optional parameter)<br>The frequency for applying the policy. | | |
-| `delay_evaluation` | integer |  (Optional parameter)<br>Delays the first policy evaluation for a specified number of intervals. | | |
-| `exclude_finished_jobs` | integer |  (Optional parameter)<br>Specifies whether to exclude finished jobs when applying the policy. | | |
+| `type` | string | **Required.** Type of early termination policy. | `truncation_selection` | `truncation_selection` |
+| `truncation_percentage` | integer | **Required.** The percentage of lowest performing jobs to terminate at each evaluation interval. | [1, 99] |  |
+| `evaluation_interval` | integer | The frequency for applying the policy. | | |
+| `delay_evaluation` | integer |  Delays the first policy evaluation for a specified number of intervals. | | |
+| `exclude_finished_jobs` | integer |  Specifies whether to exclude finished jobs when applying the policy. | | |
 
 
-
-### Search Space Parameter Expressions
+### Search Space Parameter 
 This section describes the objects for tuning hyperparameters by exploring the range of values defined for each hyperparameter.
 
 There are two types of Hyper parameters: Discrete and Continuous. 
-
-Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be:
-- one or more comma-separated values
-- a `range` object
-- any arbitrary `list` object
-
-The Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`
+- Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. 
+- Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`
 
 Below is the list of Hyperparameters that are common across all Automated ML Computer Vision Tasks. The user should find the details on each of these hyper parameters in [Training Parameter](#training-parameter) section.
 - `ams_gradient`
@@ -289,7 +287,6 @@ Below are the details on Hyperparameters that are specific to Image Classificati
 | `type` | const | **Required.** The type of expression. | `uniform` |
 | `min_value` | number | **Required.** The minimum value in the range (inclusive). | |
 | `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
-
 
 
 ## Remarks
