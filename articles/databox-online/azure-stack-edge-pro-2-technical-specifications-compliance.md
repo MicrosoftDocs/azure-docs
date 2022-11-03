@@ -41,8 +41,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | 128 GB RAM |
 | Memory: usable | 102 GB RAM |
-| GPU | 1 NVIDIA A2 GPU |
-|  | For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
+| GPU | 1 NVIDIA A2 GPU <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 # [Model 256G6T2GPU](#tab/sku-c)
 The Azure Stack Edge Pro 2 device has the following specifications for compute and memory:
@@ -55,8 +54,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 64 GB DDR4-2933 RDIMM |
 | Memory: raw   | 256 GB RAM |
 | Memory: usable | 204 GB RAM |
-| GPU | 2 NVIDIA A2 GPUs |
-|  | For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
+| GPU | 2 NVIDIA A2 GPUs <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 ---
 
