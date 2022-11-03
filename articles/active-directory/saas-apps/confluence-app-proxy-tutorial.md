@@ -9,15 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/19/2022
+ms.date: 11/03/2022
 ms.author: dhivyag
 ---
 
 # Tutorial: App Proxy configuration for Azure AD SAML SSO for Confluence
 
-## Description:
-
-This article helps to configure Azure AD SAML SSO for your on-premise Confluence application using Application Proxy.
+This article helps to configure Azure AD SAML SSO for your on-premises Confluence application using Application Proxy.
 
 ## Prerequisites
 
@@ -51,16 +49,16 @@ As of now, following versions of Confluence are supported:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO for on-premise confluence setup using application proxy mode.
-- Download and Install Azure AD App Proxy connector.
-- Add Application Proxy in Azure AD.
-- Add a Confluence SAML SSO app in Azure AD.
-- Configure SSO for SAML SSO Confluence Application in Azure AD.
-- Create an Azure AD Test user.
-- Assigning the test user for the Confluence Azure AD App.
-- Configure SSO for Confluence SAML SSO by Microsoft Confluence plugin in your Confluence Server.
-- Assigning the test user for the Microsoft Confluence plugin in your Confluence Server.
-- Test the SSO.
+In this tutorial, you configure and test Azure AD SSO for on-premises confluence setup using application proxy mode.
+1. Download and Install Azure AD App Proxy connector.
+1. Add Application Proxy in Azure AD.
+1. Add a Confluence SAML SSO app in Azure AD.
+1. Configure SSO for SAML SSO Confluence Application in Azure AD.
+1. Create an Azure AD Test user.
+1. Assigning the test user for the Confluence Azure AD App.
+1. Configure SSO for Confluence SAML SSO by Microsoft Confluence plugin in your Confluence Server.
+1. Assigning the test user for the Microsoft Confluence plugin in your Confluence Server.
+1. Test the SSO.
 
 ## Download and Install the App Proxy Connector Service
 
@@ -80,13 +78,13 @@ To add an Application proxy, we need to create an enterprise application.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. Choose **Add an on-premise application**.
+1. Choose **Add an on-premises application**.
 
-    ![Screenshot for Add an on-premise application.](./media/confluence-app-proxy-tutorial/add-on-premises-application.png)
+    ![Screenshot for Add an on-premises application.](./media/confluence-app-proxy-tutorial/add-on-premises-application.png)
 
 1. Type the name of the application and click the create button at the bottom left column.
 
-    ![Screenshot for on-premise application.](./media/confluence-app-proxy-tutorial/on-premises-application.png)
+    ![Screenshot for on-premises application.](./media/confluence-app-proxy-tutorial/on-premises-application.png)
 
     1.	**Internal URL** will be your Confluence application URL.
     2.	**External URL** will be auto-generated based on the Name you choose.
@@ -144,4 +142,4 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Verify the App Proxy setup by checking if the configured test user is able to SSO using the external URL mentioned in the on-premises application.
 
 > [!NOTE]
-> Complete the setup of the JIRA SAML SSO by Microsoft application by following [this](jiramicrosoft-tutorial.md) tutorial.
+> Complete the setup of the JIRA SAML SSO by Microsoft application by following [this](./jiramicrosoft-tutorial.md) tutorial.
