@@ -27,20 +27,20 @@ In general, service availability in Azure Government implies that all correspond
 
 This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services in the Azure Government environment.
 
-| Product | Unsupported, limited, and/or modified features |
+| Product | Feature variations |
 |---------|------------|
-| Azure Bot Service |<ul><li>Bot Framework Composer integration<li> Channels (due to availability of dependent services):<ul><li> Teams Channel<li> Direct Line Speech Channel<li> Telephony Channel (Preview)<li> Microsoft Search Channel (Preview)<li> Kik Channel (deprecated)</ul></ul>|
+| Azure Bot Service |The following features **are not** currently available:</br> <ul><li>Bot Framework Composer integration<li> Channels (due to availability of dependent services):<ul><li> Teams Channel<li> Direct Line Speech Channel<li> Telephony Channel (Preview)<li> Microsoft Search Channel (Preview)<li> Kik Channel (deprecated)</ul></ul>|
 |Azure Machine learning| See [Azure Machine Learning feature availability across US Gov cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government). | |
-| Cognitive Services: Content Moderator| <li>Review UI and Review APIs ||
-| Cognitive Services: Language Understanding (LUIS)|  <li>Speech Requests<li>Prebuilt Domains ||
+| Cognitive Services: Content Moderator| The following features **are not** currently available:</br><li>Review UI and Review APIs ||
+| Cognitive Services: Language Understanding (LUIS)|  The following features **are not** currently available:</br><li>Speech Requests<li>Prebuilt Domains ||
 | Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp#azure-government-united-states)  ||
-| Cognitive Services: Translator|  <li>Custom Translator<li>Translator Hub ||
+| Cognitive Services: Translator|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=us).|
 
 ### Analytics
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. 
 
-| Product | Unsupported, limited, and/or modified features |
+| Product | Feature variations |
 |---------|--------|
 | Azure HDInsight |For secured virtual networks, you'll want to allow network security groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow all IP addresses (all with an Allowed port of 443) in the [Network Security Groups IP address and ports table](#hdinsight-network-security-groups-ip-address-and-ports). |  |
 | Power BI| See [Power BI for US government customers](/power-bi/enterprise/service-govus-overview).|  |
@@ -61,18 +61,18 @@ This section outlines variations and considerations when using Analytics service
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment. 
 
-| Product | Unsupported, limited, and/or modified features |
+| Product | Feature variations |
 |---------|--------|
-| Azure Database for MySQL |<ul><li>Advanced Threat Protection</ul> |  
-| Azure Database for PostgreSQL|<ul><li>Hyperscale (Citus) deployment option<li>The following features of the Single server deployment option<ul><li>Advanced Threat Protection<<li>Backup with long-term retention</ul></ul> |  |
-| Azure SQL Managed Instance| <ul><li>Long-term retention</ul>  |  
+| Azure Database for MySQL | The following features **are not** currently available:</br><ul><li>Advanced Threat Protection</ul> |  
+| Azure Database for PostgreSQL| The following features **are not** currently available:</br><ul><li>Hyperscale (Citus) deployment option<li>The following features of the Single server deployment option<ul><li>Advanced Threat Protection<<li>Backup with long-term retention</ul></ul> |  |
+| Azure SQL Managed Instance|  The following features **are not** currently available:</br><ul><li>Long-term retention</ul>  |  
 
 
 ### Developer Tools
 
 This section outlines variations and considerations when using Developer tools in the Azure Government environment.
 
-| Product | Unsupported, limited, and/or modified features |
+| Product |Feature variations |
 |---------|--------|
 | Enterprise Dev/Test subscription offer |   Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](/azure/cost-management-billing/manage/ea-portal-administration#enterprise-devtest-offer). |  
 
@@ -80,19 +80,19 @@ This section outlines variations and considerations when using Developer tools i
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment.
 
-| Product | Unsupported, limited, and/or modified features |
+| Product | Feature variations |
 |---------|--------|
-| Azure Active Directory Premium P1 and P2 | <!-- move content--> <ul><li>Limitations with B2B Collaboration in supported Azure US Government tenants:<ul><li>For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md). <li>B2B collaboration via Power BI isn't supported. When you invite a guest user from within Power BI, the B2B flow isn't used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.</ul><li>Limitations with multi-factor authentication:<ul><li>Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address. </ul></ul><p>For more information, see [Azure Active Directory feature availability for US Gov](../active-directory/authentication/feature-availability.md).| |
+| Azure Active Directory Premium P1 and P2 |  The following features **have known limitations** :</br><ul><li>B2B Collaboration in supported Azure US Government tenants:<ul><li>For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md). <li>B2B collaboration via Power BI isn't supported. When you invite a guest user from within Power BI, the B2B flow isn't used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.</ul><li>Multi-factor authentication:<ul><li>Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address. </ul></ul><p>For more information, see [Azure Active Directory feature availability for US Gov](../active-directory/authentication/feature-availability.md).| |
 
 ### Management and Governance
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. 
 
-| Product | Unsupported, limited, and/or modified features |
+| Product | Feature variations|
 |---------|--------|
-| Automation| <li>Automation analytics solution |  
-| Azure Advisor| <!-- move content--> Content is large enough to have its own page in product TOC. See [Azure Advisor](/azure/azure-government/compare-azure-government-global-azure#azure-advisor) |  |
-| Azure Lighthouse| <li>Managed Service offers published to Azure Marketplace<li>Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, isn't supported<li>Privileged Identity Management (PIM) feature isn't enabled, for example, just-in-time (JIT) / eligible authorization capability |  
+| Automation|  The following features **are not** currently available:</br><li>Automation analytics solution |  
+| Azure Advisor| See [Azure Advisor](/azure/azure-government/compare-azure-government-global-azure#azure-advisor) |  |
+| Azure Lighthouse|  The following features **are not** currently available:</br><li>Managed Service offers published to Azure Marketplace<li>Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, isn't supported<li>Privileged Identity Management (PIM) feature isn't enabled, for example, just-in-time (JIT) / eligible authorization capability |  
 | Azure Monitor| <!-- move content--> There is information on [this page](/azure/azure-government/compare-azure-government-global-azure#azure-monitor)) that should be put entirely on the product pages: For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md). |  
 | [Application Insights](../azure-government/compare-azure-government-global-azure.md#application-insights)|  <!-- move content-->  Content needs to be moved to its own page. |  
 
