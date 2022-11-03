@@ -30,7 +30,7 @@ You can delete your existing sites in the Azure portal.
 
 ## Next steps
 
-deploy a new site, if required.
+Deploy a new site, if required.
 
 - [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
