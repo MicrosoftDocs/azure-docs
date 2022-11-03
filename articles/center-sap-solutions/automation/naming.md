@@ -5,7 +5,7 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
-ms.topic: reference
+ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
