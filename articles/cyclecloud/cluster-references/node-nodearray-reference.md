@@ -94,6 +94,12 @@ KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this n
 Locker | String | Specify the name of the locker from which to download project specs. See[Use Projects](~/how-to/projects.md)
 BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: https://mystorageaccount.blob.core.windows.net), if specified. Storage charges will apply.
 HybridBenefit | boolean | If true, enables "Azure Hybrid Benefit" licensing for Windows VMs
+EnableTerminateNotification (8.2.0+) | Boolean | If true, enables [Terminate Notification](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) to send events on VM deletion to the VM for local handling. This only applies to scaleset VMs.
+TerminateNotificationTimeout (8.2.2+) | Relative Time | If terminate-notification is enabled, this controls how long VMs are given to handle the event before being deleted.
+ThrottleCapacity (8.2.2+) | Boolean | If true, this nodearray will report 0 capacity to autoscalers for a default of 5 minutes after encountering a capacity issue
+ThrottleCapacityTime (8.2.2+) | Relative Time | If `ThrottleCapacity` is enabled, this is how long to report 0 availability after capacity is constrained (default is "5m")
+HybridBenefitLicense (8.3.0+)| String | If `HybridBenefit` is true, this specifies the license to use: `RHEL_BYOS`, `SLES_BYOS`, or `Windows_Server` (the default).
+FlexScaleSetId (8.3.0+) | String | If set, this is the fully qualified id of a scaleset in [Flex orchestration mode](../how-to/flex-scalesets.md) that is used for the VM for this node.
 
 > [!NOTE]
 > A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 

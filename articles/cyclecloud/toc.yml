@@ -94,6 +94,8 @@
       href: ./how-to/monitor-clusters.md
     - name: Tag Nodes
       href: ./how-to/tag-nodes.md
+    - name: Use Flex Scale Set Orchestration
+      href: ./how-to/flex-scalesets.md
   - name: Customize Clusters
     items:
     - name: Use Cluster Templates
