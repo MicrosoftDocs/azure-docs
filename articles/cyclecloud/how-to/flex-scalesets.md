@@ -9,7 +9,7 @@ monikerRange: '>= cyclecloud-8'
 
 # Using Flex ScaleSets
 
-As of 8.3.0, CycleCloud can use [Flex orchestration](http://go.microsoft.com/fwlink/?LinkId=2156742) for scale sets. 
+As of 8.3.0, CycleCloud can use [Flex orchestration](https://go.microsoft.com/fwlink/?LinkId=2156742) for scale sets. 
 This works differently than the automatic usage of Uniform scale sets that is standard in CycleCloud. 
 In this mode, you create a Flex scale set outside of CycleCloud, and you specify which nodes should use it. 
 CycleCloud creates and deletes VMs in that scale set. This works for both head nodes and execute nodearrays.
