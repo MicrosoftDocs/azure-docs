@@ -26,7 +26,7 @@ Azure IoT Hub provides many features, including:
 
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
-The following list provides links to articles that can serve as a starting point to help you learn about features provided by IoT Hub:
+The following articles can help you get started exploring IoT Hub features in more depth:
 
 * [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) helps you choose between device-to-cloud messages, device twin's reported properties, and file upload.
 
