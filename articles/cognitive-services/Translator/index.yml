@@ -55,11 +55,9 @@ landingContent:
             url: quickstart-translator.md
           - text: Document Translation quickstart
             url: document-translation/get-started-with-document-translation.md
-          - text: Custom Translator quickstart (preview)
+          - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
-          - text: Custom Translator quickstart (legacy)
-            url: custom-translator/quickstart-build-deploy-custom-model.md
-
+            
   # Card 3
   - title: Text Translator
     linkLists:
@@ -101,7 +99,7 @@ landingContent:
             url: document-translation/managed-identity.md
 
   # Card 5
-  - title: Custom Translator (preview)
+  - title: Custom Translator
     linkLists:
       - linkListType: reference
         links:
@@ -122,7 +120,7 @@ landingContent:
           - text: Train a custom model
             url: custom-translator/how-to/train-custom-model.md
           - text: View custom model details and test translation
-            url: custom-translator/how-to/view-model-test-translation.md
+            url: custom-translator/how-to/test-your-model.md
           - text: Publish a custom model
             url: custom-translator/how-to/publish-model.md
           - text: Translate text with a custom model

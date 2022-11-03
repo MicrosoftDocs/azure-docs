@@ -5837,7 +5837,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/v2-preview/how-to/view-model-test-translation.md",
-            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/view-model-test-translation",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
             "redirect_document_id": false
         },
         {
@@ -5882,7 +5882,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/v2.0/how-to/view-model-test-translation.md",
-            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/view-model-test-translation",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
             "redirect_document_id": false
         },
         {
@@ -5938,6 +5938,56 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/data-filtering.md",
             "redirect_url": "/azure/cognitive-services/Translator/custom-translator/concepts/data-filtering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/quickstart-build-deploy-custom-model.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-create-project.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/create-manage-project",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-manage-settings.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/create-manage-project",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-search-edit-delete-projects.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/create-manage-project",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-upload-document.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/create-manage-training-documents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-train-model.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/train-custom-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-view-model-details.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-view-document-details.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to-view-system-test-results.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/view-model-test-translation.md",
+            "redirect_url": "/azure/cognitive-services/Translator/custom-translator/how-to/test-your-model",
             "redirect_document_id": false
         }
     ]

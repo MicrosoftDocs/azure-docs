@@ -23,6 +23,12 @@ Translator is a language service that enables users to translate text and docume
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
+## November 2022
+
+### Custom Translator stable GA v2.0 release
+
+Custom Translator version v2.0 is generally available and ready for use in your production applications!
+
 ## June 2022
 
 ### Document Translation stable GA 1.0.0 release

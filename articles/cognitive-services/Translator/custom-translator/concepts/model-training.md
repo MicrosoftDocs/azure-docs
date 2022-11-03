@@ -1,5 +1,5 @@
 ---
-title: "Legacy: What are training and modeling? - Custom Translator"
+title: "What are training and modeling? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. To train a model, three mutually exclusive data sets are required training dataset, tuning dataset, and testing dataset.
 author: laujan
@@ -23,7 +23,7 @@ If only training data is provided when queuing a training, Custom Translator wil
 
 Documents included in training set are used by the Custom Translator as the basis for building your model. During training execution, sentences that are present in these documents are aligned (or paired). You can take liberties in composing your set of training documents. You can include documents that you believe are of tangential relevance in one model. Again exclude them in another to see the impact in [BLEU (Bilingual Evaluation Understudy) score](bleu-score.md). As long as you keep the tuning set and test set constant, feel free to experiment with the composition of the training set. This approach  is an effective way to modify the quality of your translation system.
 
-You can run multiple trainings within a project and compare the [BLEU scores](bleu-score.md) across all training runs. When you're running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the ["Testing"](../how-to/view-model-test-translation.md) tab.
+You can run multiple trainings within a project and compare the [BLEU scores](bleu-score.md) across all training runs. When you're running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the ["Testing"](../how-to/test-your-model.md) tab.
 
 ## Tuning document type for Custom Translator
 
@@ -50,3 +50,8 @@ The test data should include parallel documents where the target language senten
 You don't need more than 2,500 sentences as the testing data. When you let the system choose the testing set automatically, it will use a random subset of sentences from your bilingual training documents, and exclude these sentences from the training material itself.
 
 You can view the custom translations of the testing set, and compare them to the translations provided in your testing set, by navigating to the test tab within a model.
+
+## Next Steps
+
+> [!div class="nextstepaction"]
+> [Test and evaluate your model](../how-to/test-your-model.md)
