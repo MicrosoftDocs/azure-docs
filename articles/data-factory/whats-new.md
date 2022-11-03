@@ -31,12 +31,11 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 - Export up to 1000 rows from data flow preview [Learn more](concepts-data-flow-debug-mode.md?tabs=data-factory#data-preview)
 - SQL CDC in Mapping Data Flows now available (Public Preview) [Learn more](connector-sql-server.md?tabs=data-factory#native-change-data-capture)
 - Unlock advanced analytics with Microsoft 365 Mapping Data Flow Connector [Learn more](https://devblogs.microsoft.com/microsoft365dev/scale-access-to-microsoft-365-data-with-microsoft-graph-data-connect/)
-- Amazon S3 supported in source [Learn more](connector-amazon-simple-storage-service.md?tabs=data-factory)
 
 ### Data movement
 
 - SAP Change Data Capture (CDC) in now generally available [Learn more](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
-- Azure-SSIS Integration Runtime now available in Azure Synapse Analytics(Public Preview)[Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/azure-ssis-integration-runtime-now-available-in-azure-synapse/ba-p/3171763)
+- Azure-SSIS Integration Runtime now generally available in Azure Synapse Analytics [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/azure-ssis-integration-runtime-now-available-in-azure-synapse/ba-p/3171763)
 
 ### Developer productivity
 
