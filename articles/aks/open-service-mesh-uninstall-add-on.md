@@ -31,6 +31,7 @@ After the OSM add-on is disabled, use `osm uninstall cluster-wide-resources` to 
 ```console
 osm uninstall cluster-wide-resources
 ```
+
 > [!NOTE]
 > For version 1.1, the command is `osm uninstall mesh --delete-cluster-wide-resources`
 
