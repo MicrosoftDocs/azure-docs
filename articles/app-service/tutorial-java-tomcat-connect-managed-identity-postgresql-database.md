@@ -33,12 +33,12 @@ Run the following commands in your terminal to clone the sample repo and set up 
 
 ```bash
 git clone https://github.com/Azure-Samples/Passwordless-Connections-for-Java-Apps
-cd Passwordless-Connections-for-Java-Apps/Tomcat/checklist/
+cd Passwordless-Connections-for-Java-Apps/Tomcat/
 ```
 
 ## Create an Azure Postgres DB
 
-Follow these steps to create an Azure Database for Postgres Single Server in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -57,7 +57,25 @@ Follow these steps to create an Azure Database for Postgres Single Server in you
    ```
 
 1. Create an Azure Postgres Database server. The server is created with an administrator account, but it won't be used as we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+### [Flexible Server](#tab/flexible)
+   ```azurecli-interactive
+   POSTGRESQL_ADMIN_USER=azureuser
+   # PostgreSQL admin access rights won't be used as Azure AD authentication is leveraged to administer the database.
+   POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+   POSTGRESQL_HOST=<postgresql-host-name>
 
+   # Create a PostgreSQL server.
+   az postgres flexible-server create \
+       --resource-group $RESOURCE_GROUP \
+       --name $POSTGRESQL_HOST \
+       --location $LOCATION \
+       --admin-user $POSTGRESQL_ADMIN_USER \
+       --admin-password $POSTGRESQL_ADMIN_PASSWORD \
+       --public-network-access 0.0.0.0 \
+       --sku-name Standard_D2s_v3 
+   ```
+
+### [Single Server](#tab/single)
    ```azurecli-interactive
    POSTGRESQL_ADMIN_USER=azureuser
    # PostgreSQL admin access rights won't be used as Azure AD authentication is leveraged to administer the database.
@@ -129,8 +147,22 @@ The changes you made in *application.properties* also apply to the managed ident
 
 ## Connect Postgres Database with identity connectivity
 
-Next, connect your app to an Postgres Database Single Server with a system-assigned managed identity using Service Connector. To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
+Next, connect your app to an Postgres Database with a system-assigned managed identity using Service Connector. 
 
+### [Flexible Server](#tab/flexible)
+To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
+```azurecli-interactive
+az webapp connection create postgres-flexible \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $POSTGRESQL_HOST \
+    --database $DATABASE_NAME \
+    --system-identity
+```
+
+### [Single Server](#tab/single)
+To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
 ```azurecli-interactive
 az webapp connection create postgres \
     --resource-group $RESOURCE_GROUP \
