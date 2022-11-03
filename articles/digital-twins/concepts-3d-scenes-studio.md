@@ -129,7 +129,7 @@ These limits are recommended because 3D Scenes Studio leverages the standard [Az
 
 ### Refresh rate and performance
 
-The default refresh rate of the 3D scene viewer starts at 10 seconds, and increases as the number of twins increases.
+The default refresh rate of the 3D scene viewer starts at 10 seconds for fewer than 100 twins. It increases as the number of twins increases, at a rate of about one second for every 10 twins.
 
 The **minimum refresh rate** can also be configured manually, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise the **actual** refresh rate as the number of twins increases, in an effort to improve performance.
 
