@@ -39,7 +39,7 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
     > [!NOTE]
     > To use managed WAF rules for the new premium WAF policy copies, you'll need to manually enable them after the upgrade.
 
-1. Select **Upgrade** once you done setting up the WAF policies. Select **Yes** to confirm you would like to proceed with the upgrade.
+1. Select **Upgrade** once you're done setting up the WAF policies. Select **Yes** to confirm you would like to proceed with the upgrade.
 
     :::image type="content" source="./media/tier-upgrade/confirm-upgrade.png" alt-text="Screenshot of the confirmation message from upgrade WAF policies page.":::
 
@@ -47,7 +47,7 @@ Confirm you have an Azure Front Door Standard profile available in your subscrip
 
     :::image type="content" source="./media/tier-upgrade/upgrade-in-progress.png" alt-text="Screenshot of the configuration page with upgrade in progress status.":::
 
-1. Once upgraded, you'll see **Tier: Premium** display on the *Configuration* page.
+1. Once the upgrade completes, you'll see **Tier: Premium** display on the *Configuration* page.
 
     :::image type="content" source="./media/tier-upgrade/upgrade-complete.png" alt-text="Screenshot of the Front Door tier upgraded to premium on the configuration page.":::
 
