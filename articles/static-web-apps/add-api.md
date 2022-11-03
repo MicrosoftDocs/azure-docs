@@ -302,7 +302,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. When the CLI processes start, access your app at [http://localhost:4280/](http://localhost:4280/). Notice how the page calls the API and displays its output, `Hello from the API`.
+1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
 1. To stop the CLI, type <kbd>Ctrl + C</kbd>.
 

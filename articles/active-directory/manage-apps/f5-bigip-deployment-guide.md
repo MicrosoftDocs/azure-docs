@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -276,7 +276,7 @@ A BIG-IP system can also be managed via its underlying SSH environment, which is
 
 - [Azure Bastion service](../../bastion/bastion-overview.md): Allows fast and secure connections to any VM within a vNET, from any location
 
-- Connect directly via an SSH client like PuTTY through the JIT approach
+- Connect directly via an SSH client like PowerShell through the JIT approach
 
 - Serial Console: Offered at the bottom of the Support and troubleshooting section of VMs menu in the portal. It doesn't support file transfers.
 

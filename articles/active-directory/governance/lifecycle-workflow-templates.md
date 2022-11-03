@@ -69,7 +69,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
-|Days from event     | 0        | ✔️        |
+|Days from event     | 0        | ❌        |
 |Event timing     | On        |  ❌       |
 |Event User attribute     | EmployeeHireDate        |   ❌      |
 |Scope type     | Rule based        | ❌        |
@@ -125,7 +125,7 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 
 The **Offboard an employee** template is designed to configure tasks that will be completed on an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="Screenshot of a offboard employee template lifecycle workflow.":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="Screenshot of an offboard employee template lifecycle workflow.":::
 
 The default specific parameters for the **Offboard an employee** template are as follows:
 
@@ -146,7 +146,7 @@ The default specific parameters for the **Offboard an employee** template are as
 
 The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="Screenshot of a offboarding an employee after last day template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="Screenshot of an offboarding an employee after last day template.":::
 
 The default specific parameters for the **Post-Offboarding of an employee** template are as follows:
 
@@ -166,6 +166,7 @@ The default specific parameters for the **Post-Offboarding of an employee** temp
 
 ## Next steps
 
+- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta)
 - [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
 

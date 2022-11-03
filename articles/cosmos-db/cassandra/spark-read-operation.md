@@ -1,24 +1,24 @@
 ---
-title: Read Cassandra API table data using Spark
+title: Read API for Cassandra table data using Spark
 titleSufix: Azure Cosmos DB
-description: This article describes how to read data from Cassandra API tables in Azure Cosmos DB.
+description: This article describes how to read data from API for Cassandra tables in Azure Cosmos DB.
 author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.devlang: scala
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
-# Read data from Azure Cosmos DB Cassandra API tables using Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Read data from Azure Cosmos DB for Apache Cassandra tables using Spark
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
- This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
+ This article describes how to read data stored in Azure Cosmos DB for Apache Cassandra from Spark.
 
-## Cassandra API configuration
+## API for Cassandra configuration
 Set below spark configuration in your notebook cluster. It's one time activity.
 ```scala
 //Connection-related
@@ -41,7 +41,7 @@ Set below spark configuration in your notebook cluster. It's one time activity.
 ```
 
 > [!NOTE]
-> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.x, you do not need to install the Azure Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
 
 > [!WARNING]
 > The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
@@ -143,10 +143,9 @@ select * from books_vw where book_pub_year > 1891
 
 ## Next steps
 
-The following are additional articles on working with Azure Cosmos DB Cassandra API from Spark:
+The following are additional articles on working with Azure Cosmos DB for Apache Cassandra from Spark:
  
  * [Upsert operations](spark-upsert-operations.md)
  * [Delete operations](spark-delete-operation.md)
  * [Aggregation operations](spark-aggregation-operations.md)
  * [Table copy operations](spark-table-copy-operations.md)
-

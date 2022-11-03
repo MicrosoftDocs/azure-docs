@@ -1,30 +1,32 @@
 ---
-title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 10/07/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in Microsoft Authenticator notifications (Preview) - Authentication methods policy
+# How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
 
-This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications. 
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator passwordless and push notifications.  
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
+- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
 
->[!NOTE]
->Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
+  >[!NOTE]
+  >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
+
+- Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication method policy.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
+When a user receives a passwordless phone sign-in or MFA push notification in Microsoft Authenticator, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
@@ -32,31 +34,29 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
-## Enable additional context using Graph API
+### Policy schema changes 
 
->[!NOTE]
->In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
-
-You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following mapping for the following features:
+You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following name mapping for each feature:
 
 - Application name: displayAppInformationRequiredState
 - Geographic location: displayLocationInformationRequiredState
 
-
-Identify your single target group for each of the features. Then use the following API endpoint to change the displayAppInformationRequiredState or displayLocationInformationRequiredState properties under featureSettings to **enabled** and include or exclude the groups you want::
-
-`https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator`
-
 >[!NOTE]
->For Passwordless phone sign-in, the Authenticator app does not retrieve policy information just in time for each sign-in request. Instead, the Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working to optimize the behavior. In the meantime, if you want to force a policy update to test using additional context with Passwordless phone sign-in, you can remove and re-add the account in the Authenticator app. 
+>Make sure you use the new policy schema for Microsoft Graph APIs. In Graph Explorer, you'll need to consent to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
-### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
+Identify your single target group for each of the features. Then use the following API endpoint to change the displayAppInformationRequiredState or displayLocationInformationRequiredState properties under featureSettings to **enabled** and include or exclude the groups you want:
+
+```http
+https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+```
+
+#### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 
 **PROPERTIES**
 
 | Property | Type | Description |
 |---------|------|-------------|
-| id | String | The authentication method policy identifier. |
+| id | String | The Authentication method policy identifier. |
 | state | authenticationMethodState | Possible values are: **enabled**<br>**disabled** |
  
 **RELATIONSHIPS**
@@ -66,7 +66,7 @@ Identify your single target group for each of the features. Then use the followi
 | includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of users or groups who are enabled to use the authentication method. |
 | featureSettings | [microsoftAuthenticatorFeatureSettings](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of Microsoft Authenticator features. |
  
-### MicrosoftAuthenticator includeTarget properties
+#### MicrosoftAuthenticator includeTarget properties
  
 **PROPERTIES**
 
@@ -76,7 +76,7 @@ Identify your single target group for each of the features. Then use the followi
 | id | String | Object ID of an Azure AD user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
 
-### MicrosoftAuthenticator featureSettings properties
+#### MicrosoftAuthenticator featureSettings properties
  
 **PROPERTIES**
 
@@ -86,7 +86,7 @@ Identify your single target group for each of the features. Then use the followi
 | displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application name in Microsoft Authenticator notification. |
 | displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
 
-### Authentication Method Feature Configuration properties
+#### Authentication method feature configuration properties
 
 **PROPERTIES**
 
@@ -96,7 +96,7 @@ Identify your single target group for each of the features. Then use the followi
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
-### Feature Target properties
+#### Feature target properties
 
 **PROPERTIES**
 
@@ -105,11 +105,11 @@ Identify your single target group for each of the features. Then use the followi
 | id | String | ID of the entity targeted. |
 | targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
 
-### Example of how to enable additional context for all users
+#### Example of how to enable additional context for all users
 
 In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled**. 
 
-The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you do not want to allow passwordless, use **push**.
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you don't want to allow passwordless, use **push**.
 
 You might need to PATCH the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example shows how to update **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -121,7 +121,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 //Change the Query to PATCH and Run query
  
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -149,7 +149,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -162,7 +162,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 ```
  
  
-### Example of how to enable application name and geographic location for separate groups
+#### Example of how to enable application name and geographic location for separate groups
  
 In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
@@ -173,7 +173,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -201,7 +201,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -213,13 +213,13 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
  
-To verify, RUN GET again and verify the ObjectID:
+To verify, run GET again and verify the ObjectID:
 
 ```http
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
-### Example of how to disable application name and only enable geographic location 
+#### Example of how to disable application name and only enable geographic location 
  
 In **featureSettings**, change the state of **displayAppInformationRequiredState** to **default** or **disabled** and **displayLocationInformationRequiredState** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
@@ -230,7 +230,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -258,7 +258,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -270,12 +270,12 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
 
-### Example of how to exclude a group from application name and geographic location 
+#### Example of how to exclude a group from application name and geographic location 
  
-In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** to from **default** to **enabled.** 
+In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-In addition, for each of the features, you will change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
+In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This change excludes that group from seeing application name or geographic location.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -283,7 +283,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -311,7 +311,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -322,8 +322,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
     ]
 }
 ```
-
-### Example of removing the excluded group 
+#### Example of removing the excluded group 
  
 In **featureSettings**, change the states of **displayAppInformationRequiredState** from **default** to **enabled.** 
 You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
@@ -334,7 +333,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -351,7 +350,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -363,13 +362,13 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
 
-## Turn off additional context
+### Turn off additional context
 
 To turn off additional context, you'll need to PATCH **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **enabled** to **disabled**/**default**. You can also turn off just one of the features.
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -397,7 +396,7 @@ To turn off additional context, you'll need to PATCH **displayAppInformationRequ
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -420,11 +419,11 @@ To enable application name or geographic location in the Azure AD portal, comple
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-settings-additional-context.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Any authentication mode.":::
 
-1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. 
+1. On the **Configure** tab, for **Show application name in push and passwordless notifications**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. 
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-app-name.png" alt-text="Screenshot of how to enable application name.":::
 
-   Then do the same for **Show geographic location in push and passwordless notifications (Preview)**.
+   Then do the same for **Show geographic location in push and passwordless notifications**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable geographic location.":::
 
@@ -434,8 +433,9 @@ To enable application name or geographic location in the Azure AD portal, comple
 
 ## Known issues
 
-Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
 [Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
+

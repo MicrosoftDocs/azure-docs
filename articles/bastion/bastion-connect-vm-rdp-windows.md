@@ -5,7 +5,7 @@ description: Learn how to use Azure Bastion to connect to Windows VM using RDP.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 10/18/2022
 ms.author: cherylmc
 
 ---
@@ -32,6 +32,7 @@ Before you begin, verify that you've met the following criteria:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 ### Ports
 
@@ -42,7 +43,9 @@ To connect to the Windows VM, you must have the following ports open on your Win
 
 > [!NOTE]
 > If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports.
->
+
+
+See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
 
 ## <a name="rdp"></a>Connect
 
@@ -50,4 +53,4 @@ To connect to the Windows VM, you must have the following ports open on your Win
  
 ## Next steps
 
-Read the [Bastion FAQ](bastion-faq.md).
+Read the [Bastion FAQ](bastion-faq.md) for additional connection information.

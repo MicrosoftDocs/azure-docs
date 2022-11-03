@@ -82,7 +82,7 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
-| Media             | Support for early media                                                                                             | ❌        |
+| Media             | Support for early media                                                                                             | ✔️        |
 |                   | Place a phone call honors location-based routing                                                                    |   ❌      |
 |                   | Support for survivable branch appliance                                                                             |   ❌      |
 | Accessibility     | Receive closed captions                                                                                             | ❌ |

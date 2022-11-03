@@ -1,6 +1,6 @@
 ---
-title: React plugin for Application Insights JavaScript SDK 
-description: How to install and use React plugin for Application Insights JavaScript SDK. 
+title: React plug-in for Application Insights JavaScript SDK 
+description: Learn how to install and use the React plug-in for the Application Insights JavaScript SDK. 
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -10,16 +10,16 @@ ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# React plugin for Application Insights JavaScript SDK
+# React plug-in for Application Insights JavaScript SDK
 
-React plugin for the Application Insights JavaScript SDK, enables:
+The React plug-in for the Application Insights JavaScript SDK enables:
 
-- Tracking of route changes
-- React components usage statistics
+- Tracking of route changes.
+- React components usage statistics.
 
-## Getting started
+## Get started
 
-Install npm package:
+Install the npm package:
 
 ```bash
 
@@ -66,13 +66,13 @@ class MyComponent extends React.Component {
     ...
 }
 
-// withAITracking takes 4 parameters ( reactPlugin, Component, ComponentName, className) 
-// the first two are required and the other two are optional.
+// withAITracking takes 4 parameters (reactPlugin, Component, ComponentName, className). 
+// The first two are required and the other two are optional.
 
 export default withAITracking(reactPlugin, MyComponent);
 ```
 
-For `react-router v6` or other scenarios where router history is not exposed, appInsights config `enableAutoRouteTracking` can be used to auto track router changes:
+For `react-router v6` or other scenarios where router history isn't exposed, Application Insights configuration `enableAutoRouteTracking` can be used to auto-track router changes:
 
 ```javascript
 var reactPlugin = new ReactPlugin();
@@ -90,32 +90,32 @@ appInsights.loadAppInsights();
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [react-router package documentation](https://reactrouter.com/web/api/history). To learn how to access the history object outside of components, see the [React-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
+| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/web/api/history). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
 
 ### React components usage tracking
 
 To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
 
-It will measure time from the `ComponentDidMount` event through the `ComponentWillUnmount` event. However, in order to make this more accurate, it will subtract the time in which the user was idle `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
+It measures time from the `ComponentDidMount` event through the `ComponentWillUnmount` event. To make the result more accurate, it subtracts the time in which the user was idle by using `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
 
-To see this metric in the Azure portal you need to navigate to the Application Insights resource, select the "Metrics" tab and configure the empty charts to display custom metric name "React Component Engaged Time (seconds)", select aggregation (sum, avg, etc.) of your metric and apply split be "Component Name".
+To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
 
-![Screenshot of chart that displays the custom metric "React Component Engaged Time (seconds)" split by "Component Name"](./media/javascript-react-plugin/chart.png)
+![Screenshot that shows a chart that displays the custom metric "React Component Engaged Time (seconds)" split by "Component Name"](./media/javascript-react-plugin/chart.png)
 
-You can also run custom queries to divide Application Insights data to generate report and visualizations as per your requirements. In the Azure portal navigate to the Application Insights resource, select "Analytics" from the top menu of the Overview tab and run your query.
+You can also run custom queries to divide Application Insights data to generate reports and visualizations as per your requirements. In the Azure portal, go to the Application Insights resource, select **Analytics** from the **Overview** tab, and run your query.
 
-![Screenshot of custom metric query results.](./media/javascript-react-plugin/query.png)
+![Screenshot that shows custom metric query results.](./media/javascript-react-plugin/query.png)
 
 > [!NOTE]
-> It can take up to 10 minutes for new custom metrics to appear in the Azure Portal.
+> It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
-## Using React Hooks
+## Use React Hooks
 
-[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and life-cycle management in a React application without relying on class-based React components. The Application Insights React plugin provides a number of Hooks integrations that operate in a similar way to the higher-order component approach.
+[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
 
-### Using React Context
+### Use React Context
 
-The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights as above, and then import the Context object:
+The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
 ```javascript
 import React from "react";
@@ -131,7 +131,7 @@ const App = () => {
 };
 ```
 
-This Context Provider will make Application Insights available as a `useContext` Hook within all children components of it.
+This Context Provider makes Application Insights available as a `useContext` Hook within all children components of it:
 
 ```javascript
 import React from "react";
@@ -154,9 +154,9 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-### `useTrackMetric`
+### useTrackMetric
 
-The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding an additional component to the component structure. The Hook takes two arguments, first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and an identifier for the component for tracking (such as its name).
+The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments. First is the Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook. The second is an identifier for the component for tracking, such as its name.
 
 ```javascript
 import React from "react";
@@ -173,15 +173,16 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-It will operate like the higher-order component, but respond to Hooks life-cycle events, rather than a component life-cycle. The Hook needs to be explicitly provided to user events if there is a need to run on particular interactions.
+It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. The Hook needs to be explicitly provided to user events if there's a need to run on particular interactions.
 
-### `useTrackEvent`
+### useTrackEvent
 
-The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes four arguments:
--   Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook).
+The `useTrackEvent` Hook is used to track any custom event that an application might need to track, such as a button click or other API call. It takes four arguments:
+
+-   Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook.
 -   Name for the event.
--   Event data object that encapsulates the changes that has to be tracked.
--   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true`.
+-   Event data object that encapsulates the changes that have to be tracked.
+-   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. The default value is set to `true` to mimic more closely the way the non-Hook version works. With `useEffect` Hooks, the effect is triggered on each value update _including_ the initial setting of the value. As a result, tracking starts too early, which causes potentially unwanted events to be tracked.
 
 ```javascript
 import React, { useState, useEffect } from "react";
@@ -217,11 +218,11 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-When the Hook is used, a data payload can be provided to it to add additional data to the event when it is stored in Application Insights.
+When the Hook is used, a data payload can be provided to it to add more data to the event when it's stored in Application Insights.
 
-## React Error Boundaries
+## React error boundaries
 
-[Error Boundaries](https://reactjs.org/docs/error-boundaries.html) provide a way to gracefully handle an exception when it occurs within a React application, and when such error occurs it's likely that the exception needs to be logged. The React Plugin for Application Insights provides an Error Boundary component that will automatically log the error when it occurs.
+[Error boundaries](https://reactjs.org/docs/error-boundaries.html) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
 ```javascript
 import React from "react";
@@ -237,26 +238,26 @@ const App = () => {
 };
 ```
 
-The `AppInsightsErrorBoundary` requires two props to be passed to it, the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the Error Boundary and the `onError` component is displayed.
+The `AppInsightsErrorBoundary` requires two props to be passed to it. They're the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the error boundary, and the `onError` component appears.
 
-## Enable Correlation
+## Enable correlation
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+In JavaScript, correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ### Route tracking
 
-The React Plugin automatically tracks route changes and collects other React specific telemetry. 
+The React plug-in automatically tracks route changes and collects other React-specific telemetry.
 
 > [!NOTE]
-> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+> `enableAutoRouteTracking` should be set to `false`. If it's set to `true`, then when the route changes, duplicate `PageViews` can be sent.
 
-For `react-router v6` or other scenarios where router history is not exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
+For `react-router v6` or other scenarios where router history isn't exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
 
 ### PageView
 
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of `0`.
 
 ## Sample app
 
@@ -265,4 +266,4 @@ Check out the [Application Insights React demo](https://github.com/Azure-Samples
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
-- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).
+- To learn about the Kusto Query Language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 08/23/2022
+ms.date: 10/31/2022
 ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed
 ---
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
   * [**Azure Functions extension**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Once it's installed, you should see the Azure logo in the left-navigation pane.
 
-  * [**Azure Functions Core Tools**](/azure/azure-functions/functions-run-local?tabs=v3%2Cwindows%2Ccsharp%2Cportal%2Cbash) version 3.x (Version 4.x isn't supported for this project).
+  * [**Azure Functions Core Tools**](../../azure-functions/functions-run-local.md?tabs=v3%2cwindows%2ccsharp%2cportal%2cbash) version 3.x (Version 4.x isn't supported for this project).
 
   * [**Python Extension**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio code. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
@@ -149,6 +149,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     import time
     from requests import get, post
     import os
+    import requests
     from collections import OrderedDict
     import numpy as np
     import pandas as pd
@@ -183,39 +184,39 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../cognitive-services/security-features.md).
 
 1. Next, add code to query the service and get the returned data.
 
-    ```Python
-    resp = requests.post(url = post_url, data = source, headers = headers)
-        if resp.status_code != 202:
-            print("POST analyze failed:\n%s" % resp.text)
-            quit()
-        print("POST analyze succeeded:\n%s" % resp.headers)
-        get_url = resp.headers["operation-location"]
+    ```python
+    resp = requests.post(url=post_url, data=source, headers=headers)
 
-        wait_sec = 25
+    if resp.status_code != 202:
+        print("POST analyze failed:\n%s" % resp.text)
+        quit()
+    print("POST analyze succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["operation-location"]
 
-        time.sleep(wait_sec)
-        # The layout API is async therefore the wait statement
+    wait_sec = 25
 
-        resp =requests.get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
+    time.sleep(wait_sec)
+    # The layout API is async therefore the wait statement
 
-        resp_json = json.loads(resp.text)
+    resp = requests.get(url=get_url, headers={"Ocp-Apim-Subscription-Key": apim_key})
 
+    resp_json = json.loads(resp.text)
 
-        status = resp_json["status"]
+    status = resp_json["status"]
 
+    if status == "succeeded":
+        print("POST Layout Analysis succeeded:\n%s")
+        results = resp_json
+    else:
+        print("GET Layout results failed:\n%s")
+        quit()
 
-        if status == "succeeded":
-            print("POST Layout Analysis succeeded:\n%s")
-            results=resp_json
-        else:
-            print("GET Layout results failed:\n%s")
-            quit()
+    results = resp_json
 
-        results=resp_json
     ```
 
 1. Add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.

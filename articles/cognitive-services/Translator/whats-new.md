@@ -61,7 +61,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
 
-* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
+* Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
 
 ## April 2022
 
@@ -95,7 +95,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 * The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
 
-* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
+* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2.0/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 

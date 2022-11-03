@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/14/2022
 
 ms.author: mimart
 author: msmimart
@@ -22,7 +22,7 @@ External Identities offers a variety of identity providers.
 
 - **Azure Active Directory accounts**: Guest users can use their Azure AD work or school accounts to redeem your B2B collaboration invitations or complete your sign-up user flows. [Azure Active Directory](azure-ad-account.md) is one of the allowed identity providers by default. No additional configuration is needed to make this identity provider available for user flows.
 
-- **Microsoft accounts**: Guest users can use their own personal Microsoft account (MSA) to redeem your B2B collaboration invitations. When setting up a self-service sign-up user flow, you can add [Microsoft Account](microsoft-account.md) as one of the allowed identity providers. No additional configuration is needed to make this identity provider available for user flows.
+- **Microsoft accounts**: Guest users can use their own personal Microsoft account (MSA) to redeem your B2B collaboration invitations. When setting up a [self-service sign-up](self-service-sign-up-overview.md) user flow, you can add [Microsoft Account](microsoft-account.md) as one of the allowed identity providers. No additional configuration is needed to make this identity provider available for user flows.
 
 - **Email one-time passcode**: When redeeming an invitation or accessing a shared resource, a guest user can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in. The email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means. When setting up a self-service sign-up user flow, you can add **Email One-Time Passcode** as one of the allowed identity providers. Some setup is required; see [Email one-time passcode authentication](one-time-passcode.md).
 

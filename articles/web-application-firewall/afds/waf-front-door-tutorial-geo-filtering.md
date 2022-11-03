@@ -53,7 +53,7 @@ Two letter country/region codes to country/region mapping are provided in [What 
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable RemoteAddr `
+-MatchVariable SocketAddr `
 -OperatorProperty GeoMatch `
 -NegateCondition $true `
 -MatchValue "US"

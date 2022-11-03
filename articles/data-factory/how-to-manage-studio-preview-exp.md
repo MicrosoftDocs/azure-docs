@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 08/26/2022
+ms.date: 10/14/2022
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -59,6 +59,7 @@ There are two ways to enable preview experiences.
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Simplified default monitoring view](#simplified-default-monitoring-view)
+   * [Error message relocation to Status column](#error-message-relocation-to-status-column)
 
 ### Dataflow data-first experimental view
 
@@ -112,6 +113,9 @@ UI (user interface) changes have been made to activities in the pipeline editor 
 
 #### Adding activities to the canvas
 
+> [!NOTE]
+> This experience is now available in the default ADF settings. 
+
 You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
 Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
@@ -120,11 +124,14 @@ Select an activity by using the search box or scrolling through the listed activ
 
 #### Iteration and conditionals container view
 
+> [!NOTE]
+> This experience is now available in the default ADF settings. 
+
 You can now view the activities contained iteration and conditional activities.
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iteration and conditional activity containers.":::
 
-##### Adding Activities
+##### Adding Activities 
 
 You have two options to add activities to your iteration and conditional activities.
 
@@ -213,7 +220,16 @@ Add columns by clicking **Add column** or remove columns by clicking the trashca
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
 
-   
+#### Error message relocation to Status column
+
+Error messages have now been relocated to the **Status** column. This will allow you to easily view errors when you see a **Failed** pipeline run. 
+
+Find the error icon in the pipeline monitoring page and in the pipeline **Output** tab after debugging your pipeline. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-31.png" alt-text="Screenshot of the new error message location in pipeline debug output.":::
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-30.png" alt-text="Screenshot of the new error message location in pipeline monitoring details.":::
+
 ## Provide feedback
 
 We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  

@@ -8,20 +8,19 @@ ms.author: bharat
 ---
 
 > [!NOTE]
-> Call Recording Unmixed audio is available in US only and may change based on feedback we receive during Private Preview.
+> Call Recording Unmixed audio is available in the US only and may change based on feedback we receive during the Private Preview stage.
 
 
 ## Prerequisites
 
-Before you start testing Unmixed Audio recording, please make sure you complete the following steps:
+Before you start testing Unmixed Audio recording, make sure you complete the following steps:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
-- Create an Azure storage account and container, for details, see [Create a storage account](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
-- Subscribe to events via an [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
+- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
 - Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1 )
-- This Quickstart assumes you have some experience using the [Calling CLient SDK](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-web). **Important**: To fetch serverCallId from Calling SDK, refer to the JavaScript example in the **Appendix** at the end of this document.
-- Make sure to provide the Azure Communication Services Call Recording team with your **immutable azure resource ID** to be whitelisted during the private preview tests.
+- This quickstart assumes you have some experience using the [Calling Client SDK](../../get-started-with-video-calling.md). **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-server-call-id.md) example.
+- Make sure to provide the Azure Communication Services Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the **private preview** tests.
 
 
 ## 1. Create a Call Automation client
@@ -37,9 +36,9 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
 ## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
 
 Use the server call ID received during initiation of the call.
-•	RecordingContent is used to pass the recording content type. Use AUDIO
-•	RecordingChannel is used to pass the recording channel type. Use UNMIXED.
-•	RecordingFormat is used to pass the format of the recording. Use WAV.
+- RecordingContent is used to pass the recording content type. Use AUDIO
+- RecordingChannel is used to pass the recording channel type. Use UNMIXED.
+- RecordingFormat is used to pass the format of the recording. Use WAV.
 
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
@@ -54,6 +53,7 @@ Response<StartCallRecordingResult> response = callAutomationClient.getCallRecord
 ```
 
 ### 2.1. Specify a user on a channel 0 for unmixed audio recording
+To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
 
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
@@ -105,13 +105,13 @@ Below is an example of the event schema.
 ```
 {
     "id": string, // Unique guid for event
-    "topic": string, // Azure Communication Services resource id
-    "subject": string, // /recording/call/{call-id}
+    "topic": string, // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
+    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}
     "data": {
         "recordingStorageInfo": {
             "recordingChunks": [
                 {
-                    "documentId": string, // Document id for retrieving from AMS storage
+                    "documentId": string, // Document id for the recording chunk
                     "contentLocation": string, //Azure Communication Services URL where the content is located
                     "metadataLocation": string, // Azure Communication Services URL where the metadata for this chunk is located
                     "deleteLocation": string, // Azure Communication Services URL to use to delete all content, including recording and metadata.
@@ -132,11 +132,11 @@ Below is an example of the event schema.
 ```
 
 Use `downloadToWithResponse` method of `CallRecording` class for downloading the recorded media. Following are the supported parameters for `downloadToWithResponse` method:
-•	`contentLocation`: Azure Communication Services URL where the content is located.
-•	`destinationPath` : File location.
-•	`parallelDownloadOptions`: An optional ParallelDownloadOptions object to modify how the - parallel download will work.
-•	`overwrite`: True to overwrite the file if it exists.
-•	`context`: A Context representing the request context.
+- `contentLocation`: Azure Communication Services URL where the content is located.
+- `destinationPath` : File location.
+- `parallelDownloadOptions`: An optional ParallelDownloadOptions object to modify how the - parallel download will work.
+- `overwrite`: True to overwrite the file if it exists.
+- `context`: A Context representing the request context.
 
 
 ```java
@@ -154,80 +154,10 @@ The content location and document IDs for the recording files can be fetched fro
 ## 7. Delete recording content using ‘deleteRecordingWithResponse’ server API.
 
 Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteRecordingWithResponse` method:
-•	`deleteLocation`: Azure Communication Services URL where the content to delete is located.
-•	`context`: A Context representing the request context.
+- `deleteLocation`: Azure Communication Services URL where the content to delete is located.
+- `context`: A Context representing the request context.
 
 ```
 Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteRecordingWithResponse(deleteLocation, context);
 ```
-The delete location for the recording can be fetched from the `deleteLocation` field of the EventGrid event.
-
-
-## Appendix
-
-### A - Getting serverCallId as a requirement for call recording server APIs from JavaScript application
-
-Call recording is an extended feature of the core Call API. You first need to import calling Features from the Calling SDK.
-
-```JavaScript
-import { Features} from "@azure/communication-calling";
-```
-Then you can get the recording feature API object from the call instance:
-
-```JavaScript
-const callRecordingApi = call.feature(Features.Recording);
-```
-Subscribe to recording changes:
-
-```JavaScript
-const recordingStateChanged = () => {
-    let recordings = callRecordingApi.recordings;
-
-    let state = SDK.RecordingState.None;
-    if (recordings.length > 0) {
-        state = recordings.some(r => r.state == SDK.RecordingState.Started)
-            ? SDK.RecordingState.Started
-            : SDK.RecordingState.Paused;
-    }
-    
-	console.log(`RecordingState: ${state}`);
-}
-
-const recordingsChangedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
-    args.added?.forEach(a => {
-        a.on('recordingStateChanged', recordingStateChanged);
-    });
-
-    args.removed?.forEach(r => {
-        r.off('recordingStateChanged', recordingStateChanged);
-    });
-
-    recordingStateChanged();
-};
-
-callRecordingApi.on('recordingsUpdated', recordingsChangedHandler);
-```
-Get server call ID which can be used to start/stop/pause/resume recording sessions.
-Once the call is connected, use the `getServerCallId` method to get the server call ID.
-
-```JavaScript
-callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
-    e.added.forEach((addedCall) => {
-        addedCall.on('stateChanged', (): void => {
-            if (addedCall.state === 'Connected') {
-                addedCall.info.getServerCallId().then(result => {
-                    dispatch(setServerCallId(result));
-                }).catch(err => {
-                    console.log(err);
-                });
-            }
-        });
-    });
-});
-```
-
-### B - How to find the Azure Resource ID
-
-In order to get your Resource ID whitelisted, please send your Immutable Azure Resource ID to the Call Recording Team. For reference see the image below.
-
-![Call recording how to get resource ID](../../media/call-recording/immutable-resource-id.png)
+The delete location for the recording can be fetched from the `deleteLocation` field of the Event Grid event.

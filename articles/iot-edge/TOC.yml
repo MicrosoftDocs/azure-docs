@@ -59,6 +59,8 @@
       href: how-to-connect-usb-devices.md
   - name: Develop and debugging
     href: tutorial-develop-for-linux-on-windows.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: tutorial-nested-iot-edge-for-linux-on-windows.md
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
@@ -384,11 +386,11 @@
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

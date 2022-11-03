@@ -1,12 +1,12 @@
 ---
 title:  Overview of the DICOM service - Azure Health Data Services
 description: In this article, you'll learn concepts of DICOM and the DICOM service.
-author: mcevoy-building7
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 07/11/2022
-ms.author: v-smcevoy
+ms.author: mmitrik
 ---
 
 # Overview of the DICOM service

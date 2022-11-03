@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 08/09/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -35,7 +35,7 @@ manage the state of Azure or Arc-enabled machines.
 ## Install PowerShell 7 and required PowerShell modules
 
 First, make sure you've followed all steps on the page
-[How to setup a machine configuration authoring environment](./machine-configuration-create-setup.md)
+[How to set up a machine configuration authoring environment](./machine-configuration-create-setup.md)
 to install the required version of PowerShell for your OS and the
 `GuestConfiguration` module.
 
@@ -86,14 +86,14 @@ create the machine configuration policy definition. The `New-GuestConfigurationP
 cmdlet takes a custom policy package and creates a policy definition.
 
 The **PolicyId** parameter of `New-GuestConfigurationPolicy` requires a unique
-string. A globally unique identifier (GUID) is recommended. For new definitions,
+string. A globally unique identifier (GUID) is required. For new definitions,
 generate a new GUID using the cmdlet `New-GUID`. When making updates to the
 definition, use the same unique string for **PolicyId** to ensure the correct
 definition is updated.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **PolicyId**: A GUID or other unique string that identifies the definition.
+- **PolicyId**: A GUID.
 - **ContentUri**: Public HTTP(s) URI of machine configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
@@ -133,7 +133,7 @@ configuration package, in a specified path:
 ```powershell
 $PolicyConfig2      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = $contenturi 
+  ContentUri    = $contenturi
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
   Path          = './policies/deployIfNotExists.json'
@@ -188,7 +188,7 @@ means that the values in the MOF file in the package don't have to be considered
 override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
-The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPacakgeComplianceStatus ` include a
+The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus ` include a
 parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.

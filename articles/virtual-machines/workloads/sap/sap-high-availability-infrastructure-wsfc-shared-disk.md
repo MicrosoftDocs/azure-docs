@@ -160,7 +160,7 @@ ms.custom: H1Hack27Feb2017
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance. Two alternatives for *cluster shared disk* are presented in the documentation:
 
 - [Azure shared disks](../../disks-shared.md)
-- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) to create mirrored storage, that will simulate clustered shared disk 
+- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that will simulate clustered shared disk 
 
 The documentation doesn't cover the database layer.  
 
@@ -461,7 +461,7 @@ This section is only applicable, if you are using the third-party software SIOS 
 Now, you have a working Windows Server failover clustering configuration in Azure. To install an SAP ASCS/SCS instance, you need a shared disk resource. One of the options is to use SIOS DataKeeper Cluster Edition is a third-party solution that you can use to create shared disk resources.  
 
 Installing SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk involves these tasks:
-- Add Microsoft .NET Framework, if needed. See the [SIOS documentation](https://us.sios.com/products/datakeeper-cluster/) for the most up-to-date .NET framework requirements 
+- Add Microsoft .NET Framework, if needed. See the [SIOS documentation](https://us.sios.com/products/sios-datakeeper/) for the most up-to-date .NET framework requirements 
 - Install SIOS DataKeeper
 - Configure SIOS DataKeeper
 

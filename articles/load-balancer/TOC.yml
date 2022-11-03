@@ -198,12 +198,16 @@
       href: configure-vm-scale-set-cli.md
   - name: Upgrade from a basic to standard load balancer
     items:
+    - name: Upgrade options and guidance
+      href: load-balancer-basic-upgrade-guidance.md
     - name: Upgrade a basic public load balancer
       href: upgrade-basic-standard.md
     - name: Upgrade an internal load balancer - Outbound connections not required
       href: upgrade-basicinternal-standard.md
     - name: Upgrade an internal load balancer - Outbound connections required
       href: upgrade-internalbasic-to-publicstandard.md
+    - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
+      href: upgrade-basic-standard-virtual-machine-scale-sets.md
   - name: Using multiple IP configurations
     items:
     - name: Azure portal
@@ -214,9 +218,9 @@
       href: load-balancer-multiple-ip-powershell.md
   - name: Move across regions
     items:
-    - name: Public Load Balancer - Portal
+    - name: Public load balancer - Portal
       href: move-across-regions-external-load-balancer-portal.md
-    - name: Public Load Balancer - PowerShell
+    - name: Public load balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
     - name: Internal load balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
@@ -283,8 +287,8 @@
     displayName: ARM
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-load-balancer
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback

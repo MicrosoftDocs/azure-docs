@@ -39,21 +39,31 @@ items:
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Create and manage API keys
     href: how-to-create-api-keys.md
-  - name: Troubleshoot common issues
-    href: troubleshoot-managed-grafana.md
   - name: Enable zone redundancy
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Transition to grafana.azure.com domain
+    href: how-to-transition-domain.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
+  - name: Known limitations
+    href: known-limitations.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/grafana
   - name: Bicep and ARM templates
     href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
-  - name: Control Plane
+  - name: Control plane APIs
     href: /rest/api/managed-grafana
-  - name: Data Plane
-    href: https://aka.ms/managed-grafana-dataplane
+  - name: Data plane APIs
+    href: https://aka.ms/managed-grafana/docs/http-api
   - name: Grafana UI
     href: grafana-app-ui.md
+- name: Resources
+  items:
+  - name: Q&A
+    href: https://aka.ms/managed-grafana/q-n-a
+  - name: Feature request
+    href: https://aka.ms/managed-grafana/feature-request

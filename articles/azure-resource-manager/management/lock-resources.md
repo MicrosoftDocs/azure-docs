@@ -81,7 +81,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
 
-- A delete-only lock on a **Log Analytics workspace** does not prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger role from the user instead. 
+- A cannot-delete lock on a **Log Analytics workspace** does not prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user instead. 
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 

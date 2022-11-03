@@ -11,6 +11,9 @@ ms.service: iot-hub-device-update
 
 # Microsoft Connected Cache preview deployment scenario sample: Two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy
 
+> [!NOTE]
+> This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
+
 The diagram below describes the scenario where one Azure IoT Edge gateway has direct access to CDN resources and is acting as the parent to another Azure IoT Edge gateway. The child IoT Edge gateway is acting as the parent to an Azure IoT leaf device such as a Raspberry Pi. Both the Azure IoT Edge child and Azure IoT device are internet isolated. The example below demonstrates the configuration for two-levels of Azure IoT Edge gateways, but there is no limit to the depth of upstream hosts that Microsoft Connected Cache will support. There is no difference in Microsoft Connected Cache container create options from the previous examples.
 
 Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) for more details on configuring layered deployments of Azure IoT Edge gateways. Additionally note that when deploying Azure IoT Edge, Microsoft Connected Cache, and custom modules, all modules must reside in the same container registry.

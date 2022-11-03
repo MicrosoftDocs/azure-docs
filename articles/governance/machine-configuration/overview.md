@@ -32,14 +32,14 @@ utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
 [manually](machine-configuration-assignments.md#manually-creating-machine-configuration-assignments),
 or by using other Azure services such as
-[Automanage](../../automanage/automanage-virtual-machines.md).
+[Automanage](../../automanage/index.yml).
 
 Examples of each scenario are provided in the following table.
 
-| Type | Description | Example story |
-| - | - | - |
-| [Configuration management](machine-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
-| [Compliance](../policy/assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+| Type                                                             | Description                                                                                                                                                                                                                | Example story                                                                                                                                                                                       |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Configuration management](machine-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
+| [Compliance](../policy/assign-policy-portal.md)                  | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../policy/how-to/determine-non-compliance.md)
@@ -110,11 +110,11 @@ The following table shows a list of the local tools used on each supported
 operating system. For built-in content, machine configuration handles loading
 these tools automatically.
 
-|Operating system|Validation tool|Notes|
-|-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
+| Operating system | Validation tool                                                       | Notes                                                                                                                                                                  |
+| ---------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows          | [PowerShell Desired State Configuration](/powershell/dsc/overview) v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.                             |
+| Linux            | [PowerShell Desired State Configuration](/powershell/dsc/overview) v3 | Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.                                                                         |
+| Linux            | [Chef InSpec](https://www.chef.io/inspec/)                            | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
@@ -142,17 +142,17 @@ systems available in Azure Marketplace are excluded if the Guest Configuration c
 compatible. The following table shows a list of supported operating systems on Azure images.
 The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
-|Publisher|Name|Versions|
-|-|-|-|
-|Amazon|Linux|2|
-|Canonical|Ubuntu Server|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
-|Microsoft|Windows Server|2012 - 2022|
-|Microsoft|Windows Client|Windows 10|
-|Oracle|Oracle-Linux|7.x-8.x|
-|OpenLogic|CentOS|7.3 -8.x|
-|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
-|SUSE|SLES|12 SP3-SP5, 15.x|
+| Publisher | Name                       | Versions         |
+| --------- | -------------------------- | ---------------- |
+| Amazon    | Linux                      | 2                |
+| Canonical | Ubuntu Server              | 14.04 - 20.x     |
+| Credativ  | Debian                     | 8 - 10.x         |
+| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | Windows Client             | Windows 10       |
+| Oracle    | Oracle-Linux               | 7.x-8.x          |
+| OpenLogic | CentOS                     | 7.3 -8.x         |
+| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 8.x        |
+| SUSE      | SLES                       | 12 SP3-SP5, 15.x |
 
 \* Red Hat CoreOS isn't supported.
 
@@ -244,7 +244,7 @@ is available, then guest assignment reports are available. If the Azure region i
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
 
-When considering an architecture for highly available applications,
+When you considering an architecture for highly available applications,
 especially where virtual machines are provisioned in
 [Availability Sets](../../virtual-machines/availability.md#availability-sets)
 behind a load balancer solution to provide high availability,
@@ -297,7 +297,7 @@ Linux
 
 ### Collecting logs remotely
 
-The first step in troubleshooting machine configuration configurations or modules
+The first step in troubleshooting machine configurations or modules
 should be to use the cmdlets following the steps in
 [How to test machine configuration package artifacts](./machine-configuration-create-test.md).
 If that isn't successful, collecting client logs can help diagnose issues.
@@ -350,7 +350,7 @@ locations:
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- Set up a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
 - [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
 - [Test the package artifact](./machine-configuration-create-test.md)

@@ -2,13 +2,14 @@
 title:  Onboard an Amazon Web Services (AWS) account on Permissions Management
 description: How to onboard an Amazon Web Services (AWS) account on Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Onboard an Amazon Web Services (AWS) account
@@ -17,6 +18,20 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+
+## Explanation
+
+There are several moving parts across AWS and Azure, which are required to be configured before onboarding.
+
+* An Azure AD OIDC App
+* An AWS OIDC account
+* An (optional) AWS Master account
+* An (optional) AWS Central logging account
+* An AWS OIDC role
+* An AWS Cross Account role assumed by OIDC role
+ 
+
+<!-- diagram from gargi -->
 
 ## Onboard an AWS account
 
@@ -51,13 +66,13 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 
 1. Return to Permissions Management, and in the **Permissions Management Onboarding - AWS OIDC Account Setup** page, select **Next**.
 
-### 3. Set up an AWS master account (Optional)
+### 3. Set up the AWS master account connection (Optional)
 
 1. If your organization has Service Control Policies (SCPs) that govern some or all of the member accounts, set up the master account connection in the **Permissions Management Onboarding - AWS Master Account Details** page.
 
     Setting up the master account connection allows Permissions Management to auto-detect and onboard any AWS member accounts that have the correct Permissions Management role.
 
-    - In the **Permissions Management Onboarding - AWS Master Account Details** page, enter the **Master Account ID** and **Master Account Role**.
+1. In the **Permissions Management Onboarding - AWS Master Account Details** page, enter the **Master Account ID** and **Master Account Role**.
 
 1. Open another browser window and sign in to the AWS console for your master account.
 
@@ -75,7 +90,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 
 1.  Return to Permissions Management, and in **Permissions Management Onboarding - AWS Master Account Details**, select **Next**.
 
-### 4. Set up an AWS Central logging account (Optional but recommended)
+### 4. Set up the AWS Central logging account connection (Optional but recommended)
 
 1. If your organization has a central logging account where logs from some or all of your AWS account are stored, in the **Permissions Management Onboarding - AWS Central Logging Account Details** page, set up the logging account connection.
 
@@ -99,15 +114,15 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 
 Select **Enable AWS SSO checkbox**, if the AWS account access is configured through AWS SSO. 
 
-Choose from 3 options to manage AWS accounts. 
+Choose from three options to manage AWS accounts. 
 
 #### Option 1: Automatically manage 
 
-Choose this option to automatically detect and add to monitored account list, without additional configuration. Steps to detect list of accounts and onboard for collection: 
+Choose this option to automatically detect and add to the monitored account list, without extra configuration. Steps to detect list of accounts and onboard for collection: 
 
 - Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 
 Any current or future accounts found get onboarded automatically. 
 
@@ -159,7 +174,7 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
 - Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 - Click Verify and Save. 
 - Navigate to newly create Data Collector row under AWSdata collectors. 
 - Click on Status column when the row has “Pending” status 

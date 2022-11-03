@@ -17,6 +17,28 @@ ms.topic: conceptual
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
 
+## October 11, 2022
+
+|Component|Value|
+|-----------|-----------|
+|Container images tag |`v1.12.0_2022-10-11`|
+|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v7<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1 through v2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
+|Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
+|`arcdata` Azure CLI extension version|1.4.7|
+|Arc enabled Kubernetes helm chart extension version|1.12.0|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.5.4 </br>1.5.4 |
+
+## September 13, 2022
+
+|Component|Value|
+|-----------|-----------|
+|Container images tag |`v1.11.0_2022-09-13`|
+|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1<br/>|
+|Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
+|`arcdata` Azure CLI extension version|1.4.6|
+|Arc enabled Kubernetes helm chart extension version|1.11.0 (Note: This versioning scheme is new, starting from this release. The scheme follows the semantic versioning scheme of the container images.)|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.4</br>1.5.4|
+
 ## August 9, 2022
 
 |Component|Value|
@@ -24,9 +46,9 @@ This article identifies the component versions with each release of Azure Arc-en
 |Container images tag |`v1.10.0_2022-08-09`|
 |CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
-|`arcdata` Azure CLI extension version|1.4.5 ([Download](https://arcdataazurecliextension.blob.core.windows.net/stage/arcdata-1.4.5-py2.py3-none-any.whl))|
+|`arcdata` Azure CLI extension version|1.4.5|
 |Arc enabled Kubernetes helm chart extension version|1.2.20381002|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.1 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/arc-1.5.1.vsix))</br>1.5.1 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/azcli-1.5.1.vsix))|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.1</br>1.5.1|
 
 ## July 12, 2022
 
@@ -35,9 +57,9 @@ This article identifies the component versions with each release of Azure Arc-en
 |Container images tag |`v1.9.0_2022-07-12`|
 |CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v5<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
-|`arcdata` Azure CLI extension version|1.4.3 ([Download](https://arcdataazurecliextension.blob.core.windows.net/stage/arcdata-1.4.3-py2.py3-none-any.whl))|
+|`arcdata` Azure CLI extension version|1.4.3|
 |Arc enabled Kubernetes helm chart extension version|1.2.20031002|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.3.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/arc-1.3.0.vsix))</br>1.3.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/azcli-1.3.0.vsix))|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.3.0</br>1.3.0|
 
 ## June 14, 2022
 
@@ -46,9 +68,9 @@ This article identifies the component versions with each release of Azure Arc-en
 |Container images tag |`v1.8.0_2022-06-14`|
 |CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v5<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |ARM API version|2022-03-01-preview (No change)|
-|`arcdata` Azure CLI extension version|1.4.2 ([Download](https://arcdataazurecliextension.blob.core.windows.net/stage/arcdata-1.4.2-py2.py3-none-any.whl))|
+|`arcdata` Azure CLI extension version|1.4.2|
 |Arc enabled Kubernetes helm chart extension version|1.2.19831003|
-|Arc Data extension for Azure Data Studio|1.3.0 (No change)([Download](https://aka.ms/ads-arcdata-ext))|
+|Arc Data extension for Azure Data Studio|1.3.0 (No change)|
 
 
 ## May 24, 2022

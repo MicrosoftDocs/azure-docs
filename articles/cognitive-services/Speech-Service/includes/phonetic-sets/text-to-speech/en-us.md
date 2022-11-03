@@ -2,8 +2,8 @@
 
 |Example&nbsp;1 (onset for consonant, word-initial for vowel)|Example&nbsp;2 (intervocalic for consonant, word-medial nucleus for vowel)|Example&nbsp;3 (coda for consonant, word-final for vowel)|Comments|
 |--|--|--|--|
-| burger  /b er **1** r - g ax r/ | falafel  /f ax - l aa **1** - f ax  l/ | guitar  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
-| inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | dissimilarity  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | workforce /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
+| :::no-loc text="burger":::  /b er **1** r - g ax r/ | :::no-loc text="falafel":::  /f ax - l aa **1** - f ax  l/ | :::no-loc text="guitar":::  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
+| :::no-loc text="inopportune"::: /ih **2** - n aa - p ax r - t uw 1 n/ | :::no-loc text="dissimilarity":::  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | :::no-loc text="workforce"::: /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
 
 #### English vowels
 
@@ -20,9 +20,9 @@
 | ow     | `oʊ`  | 8,4      | **o**ld       | cl**o**ne | g**o**                      |
 | uw     | `u`   | 7        | **U**ber      | b**oo**st | t**oo**                     |
 | ah     | `ʌ`   | 1        | **u**ncle     | c**u**t   |                             |
-| ay     | `aɪ`  | 2,6      | **i**ce       | b**i**te  | fl**y**                     |
-| aw     | `aʊ`  | 2,4      | **ou**t       | s**ou**th | c**ow**                     |
-| oy     | `ɔɪ`  | 3,6      | **oi**l       | j**oi**n  | t**oy**                     |
+| ay     | `aɪ`  | 11       | **i**ce       | b**i**te  | fl**y**                     |
+| aw     | `aʊ`  | 9        | **ou**t       | s**ou**th | c**ow**                     |
+| oy     | `ɔɪ`  | 10       | **oi**l       | j**oi**n  | t**oy**                     |
 | y uw   | `ju`  | 6,7      | **Yu**ma      | h**u**man | f**ew**                     |
 | ax     | `ə`   | 1        | **a**go       | wom**a**n | are**a**                    |
 
@@ -33,8 +33,8 @@
 | ih r   | `ɪɹ`  | 6,13     | **ear**s     | t**ir**amisu   | n**ear**   |
 | eh r   | `ɛɹ`  | 4,13     | **air**plane | app**ar**ently | sc**ar**e  |
 | uh r   | `ʊɹ`  | 4,13     |              |                | c**ur**e   |
-| ay r   | `aɪɹ` | 2,6,13   | **Ire**land  | f**ir**eplace  | ch**oir**  |
-| aw r   | `aʊɹ` | 2,4,13   | **hour**s    | p**ower**ful   | s**our**   |
+| ay r   | `aɪɹ` | 11,13    | **Ire**land  | f**ir**eplace  | ch**oir**  |
+| aw r   | `aʊɹ` | 9,13     | **hour**s    | p**ower**ful   | s**our**   |
 | ao r   | `ɔɹ`  | 3,13     | **or**ange   | m**or**al      | s**oar**   |
 | aa r   | `ɑɹ`  | 2,13     | **ar**tist   | st**ar**t      | c**ar**    |
 | er r   | `ɝ`   | 5        | **ear**th    | b**ir**d       | f**ur**    |

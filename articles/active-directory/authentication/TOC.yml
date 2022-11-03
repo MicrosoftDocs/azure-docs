@@ -11,7 +11,7 @@
     href: tutorial-enable-sspr.md
   - name: Enable Azure AD Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
-  - name: Enable cloud sync password writeback (preview)
+  - name: Enable cloud sync password writeback
     href: tutorial-enable-cloud-sync-sspr-writeback.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
@@ -36,6 +36,12 @@
       href: concept-authentication-phone-options.md
     - name: Security questions
       href: concept-authentication-security-questions.md
+  - name: Authentication strengths
+    items:
+    - name: Overview
+      href: concept-authentication-strengths.md
+    - name: Troubleshoot
+      href: troubleshoot-authentication-strengths.md
   - name: Self-service password reset
     items:
     - name: How password reset works
@@ -50,6 +56,8 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Default protection 
+      href: concept-authentication-default-enablement.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
@@ -164,12 +172,10 @@
       href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Run a registration campaign
     href: how-to-mfa-registration-campaign.md
-  - name: Use number matching (Preview)
+  - name: Use number matching 
     href: how-to-mfa-number-match.md
-  - name: Use additional context (Preview)
+  - name: Use additional context 
     href: how-to-mfa-additional-context.md
-  - name: Use Microsoft managed settings 
-    href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
@@ -184,24 +190,26 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
-    - name: Azure AD CBA (Preview)
+    - name: Azure AD CBA
       items:
       - name: Overview
         href: concept-certificate-based-authentication.md
       - name: How Azure AD CBA works
         href: concept-certificate-based-authentication-technical-deep-dive.md
-      - name: Limitations
-        href: concept-certificate-based-authentication-limitations.md
       - name: Configure Azure AD CBA
         href: how-to-certificate-based-authentication.md
       - name: Windows SmartCard logon
         href: concept-certificate-based-authentication-smartcard.md
-      - name: Mobile devices
-        href: concept-certificate-based-authentication-mobile.md
+      - name: iOS devices
+        href: concept-certificate-based-authentication-mobile-ios.md
+      - name: Android devices
+        href: concept-certificate-based-authentication-mobile-android.md
+      - name: Certificate user IDs
+        href: concept-certificate-based-authentication-certificateuserids.md
+      - name: Migrate federated users
+        href: concept-certificate-based-authentication-migration.md
       - name: FAQ
         href: certificate-based-authentication-faq.yml
-      - name: Troubleshoot
-        href: troubleshoot-certificate-based-authentication.md
     - name: Federated CBA with Azure AD
       items:
       - name: Configure CBA with federation

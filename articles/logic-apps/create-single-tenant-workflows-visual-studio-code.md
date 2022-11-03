@@ -1,27 +1,29 @@
 ---
-title: Create workflows with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
-description: Create automated workflows to integrate apps, data, services, and systems with single-tenant Azure Logic Apps (Standard) in Visual Studio Code.
+title: Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code
+description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps to automate integration tasks across apps, data, services, and systems using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/06/2022
-ms.custom: ignite-fall-2021
+ms.date: 11/01/2022
+ms.custom: ignite-fall-2021, engagement-fy23
+
+# Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
-# Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
+# Create a Standard logic app workflow for single-tenant Azure Logic Apps using Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. When you use this extension, you create a Standard logic app resource and workflow that provides the following capabilities:
+This how-to guide shows how to create an example integration workflow that runs in single-tenant Azure Logic Apps by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. Before you create this workflow, you'll create a Standard logic app resource, which provides the following capabilities:
 
 * Your logic app can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
 * Workflows in the same logic app and tenant run in the same process as the Azure Logic Apps runtime, so they share the same resources and provide better performance.
 
-* You can locally create, run, and test workflows in the Visual Studio Code development environment. You can deploy your logic app locally, to Azure, which includes the single-tenant Azure Logic Apps environment or App Service Environment v3 (ASEv3) - Windows plans only, and on-premises using containers, due to the Azure Logic Apps containerized runtime.
+* You can locally create, run, and test workflows using the Visual Studio Code development environment.
 
-For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (ASEv3 - Windows plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -78,13 +80,12 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.4585) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. Don't install the 4.x version, which isn't supported and won't work.
+  * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.4585) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
-    These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
+    * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
 
-    > [!IMPORTANT]
-    > If you have an installation that's earlier than these versions, uninstall that version first, 
-    > or make sure that the PATH environment variable points at the version that you download and install.
+    * Azure Functions v3 support ends in late 2022. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have 
+    a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
@@ -484,7 +485,7 @@ When you stop the debugging session for a workflow run that uses locally run web
 > [!NOTE]
 > After your workflow starts running, the terminal window might show errors like this example:
 >
-> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.'`
 >
 > In this case, open the **local.settings.json** file in your project's root folder, and make sure that the property is set to `true`:
 >

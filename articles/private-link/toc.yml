@@ -35,7 +35,7 @@
   items: 
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
-  - name: Connect to a Cosmos DB account
+  - name: Connect to an Azure Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
   - name: Connect to a web app
     href: tutorial-private-endpoint-webapp-portal.md
@@ -105,8 +105,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

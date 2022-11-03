@@ -7,10 +7,10 @@ manager: mariusu
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 01/26/2022
+ms.date: 09/08/2022
 ms.topic: include
 ms.custom: include file
-ms.author: radubulboaca
+ms.author: antonsamson
 ---
 
 ## Prerequisites
@@ -47,7 +47,8 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 
 ```console
 dotnet add package Azure.Communication.Rooms
-``` 
+```
+You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.1) or above. 
 
 ### Initialize a room client
 
@@ -55,7 +56,7 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 
 ```csharp
 // Find your Communication Services resource in the Azure portal
-var connectionString = "<connection_string>"; 
+var connectionString = "<connection_string>";
 RoomsClient roomsClient = new RoomsClient(connectionString);
 ```
 
@@ -64,39 +65,33 @@ RoomsClient roomsClient = new RoomsClient(connectionString);
 Create a new `room` with default properties using the code snippet below:
 
 ```csharp
-RoomRequest request = new RoomRequest();
-Response<RoomModel> createRoomResponse = await roomsClient.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, participants);
-RoomModel createCommunicationRoom = createRoomResponse.Value;
+CommunicationRoom createdRoom = await RoomCollection.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, roomParticipants, cancellationToken);
+string roomId = createdRoom.Id;
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
+Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
 ### Get properties of an existing room
 
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
 ```csharp
-Response<RoomModel> getRoomResponse = await roomsClient.GetRoomAsync(createdRoomId)
-RoomModel getCommunicationRoom = getRoomResponse.Value;
+CommunicationRoom getRoomResponse = await roomsClient.GetRoomAsync(roomId);
 ```
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
 ```csharp
-var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
-var validUntil = validFrom.AddDays(1);
+DateTimeOffset  validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
+DateTimeOffset  validUntil = validFrom.AddDays(1);
 
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest();
-updateRoomRequest.ValidFrom = validFrom;
-updateRoomRequest.ValidUntil = validUntil;
+CommunicationRoom updatedRoom = await RoomCollection.UpdateRoomAsync(roomId, validFrom, validUntil, RoomJoinPolicy.InviteOnly, null, cancellationToken);
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
-CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
-``` 
+```
 
-### Add new participants 
+### Add new participants
 
 To add new participants to a `room`, use the `AddParticipantsAsync` method exposed on the client.
 
@@ -105,13 +100,12 @@ var communicationUser1 = "<CommunicationUserId1>";
 var communicationUser2 = "<CommunicationUserId2>";
 var communicationUser3 = "<CommunicationUserId3>";
 
-List<RoomParticipant> toAddCommunicationUsers = new List<RoomParticipant>();
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser1), "Presenter"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser2), "Attendee"));
-toAddCommunicationUsers.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
+List<RoomParticipant> participants = new List<RoomParticipant>();
+participants.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser1), "Presenter"));
+participants.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser2), "Attendee"));
+participants.Add(new RoomParticipant(new CommunicationUserIdentifier(communicationUser3), "Attendee"));
 
-Response<RoomModel> addParticipantResponse = await roomsClient.AddParticipantsAsync(createdRoomId, toAddCommunicationUsers);
-ParticipantsCollection addedParticipantsRoom = addParticipantResponse.Value;
+var addParticipantsResult = await RoomCollection.AddParticipantsAsync(roomId, participants);
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -121,8 +115,7 @@ Participants that have been added to a `room` become eligible to join calls.
 Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```csharp
-Response<ParticipantsCollection> getParticipantsResponse = await roomsClient.GetParticipantsAsync(roomId);
-ParticipantsCollection roomParticipants = getParticipantsResponse.Value;
+ParticipantsCollection existingParticipants = await RoomCollection.GetParticipantsAsync(roomId);
 ```
 
 ### Remove participants
@@ -132,18 +125,17 @@ To remove a participant from a `room` and revoke their access, use the `RemovePa
 ```csharp
 var communicationUser = "<CommunicationUserId1>";
 
- List<CommunicationIdentifier> toRemoveCommunicationUsers = new List<CommunicationIdentifier>();
-toRemoveCommunicationUsers.Add(new CommunicationUserIdentifier(communicationUser));
+List<CommunicationIdentifier> participants = new List<CommunicationIdentifier>();
+participants.Add(new CommunicationUserIdentifier(communicationUser));
 
-Response<RoomModel> removeParticipantResponse = await roomsClient.RemoveParticipantsAsync(createdRoomId, toRemoveCommunicationUsers);
-ParticipantsCollection removeParticipantsRoom = removeParticipantResponse.Value;
+var removeParticipantsResult = await RoomCollection.RemoveParticipantsAsync(roomId, participants);
 ```
 
 ### Delete room
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
+If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```csharp
-Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
+Response deleteRoomResponse = await RoomCollection.DeleteRoomAsync(createdRoomId);
 ```
 
 ## Reference documentation

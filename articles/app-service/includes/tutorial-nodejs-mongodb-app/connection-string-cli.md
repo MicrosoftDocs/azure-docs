@@ -2,9 +2,10 @@
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
+ms.custom: ignite-2022
 ms.date: 01/30/2022
 ---
-To get the connection string for a Cosmos DB database, use the [az cosmos keys list](/cli/azure/cosmosdb/keys) command.
+To get the connection string for an Azure Cosmos DB database, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys) command.
 
 #### [bash](#tab/terminal-bash)
 

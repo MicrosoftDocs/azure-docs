@@ -110,7 +110,7 @@
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
-      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
+      href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
@@ -229,6 +229,8 @@
           href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
     - name: Frameworks
       items:
         - name: Express.js
@@ -248,7 +250,7 @@
     - name: Consumption plan costs
       href: functions-consumption-costs.md
       displayName: best practice
-    - name: Functions Proxies
+    - name: Serverless REST APIs
       href: functions-proxies.md
     - name: Networking options
       href: functions-networking-options.md
@@ -404,7 +406,7 @@
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
-        - name: Reference function app settings from App Configuration (preview)
+        - name: App Configuration references
           href: ../app-service/app-service-configuration-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
           href: set-runtime-version.md
@@ -418,6 +420,8 @@
           href: functions-move-across-regions.md
         - name: Migrate to a zone-redundant plan
           href: ../availability-zones/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Work with legacy Functions Proxies
+          href: legacy-proxies.md  
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -513,6 +517,8 @@
               href: start-stop-vms/manage.md
             - name: Remove Start/Stop VMs
               href: start-stop-vms/remove.md
+            - name: Define pre-actions
+              href: start-stop-vms/pre-actions.md
             - name: Troubleshoot
               href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
@@ -529,7 +535,7 @@
               displayName: OpenAPI, Swagger
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
-        - name: Customize HTTP function endpoint
+        - name: Customize endpoints with legacy proxies
           href: functions-create-serverless-api.md
         - name: Manage on-premises resources
           href: functions-hybrid-powershell.md
@@ -768,8 +774,8 @@
       href: functions-networking-faq.yml
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-functions
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-functions
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap

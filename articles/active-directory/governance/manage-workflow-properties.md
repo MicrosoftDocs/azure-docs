@@ -56,25 +56,7 @@ To edit the properties of a workflow using the Azure portal, you'll do the follo
 
 ## Edit the properties of a workflow using Microsoft Graph
 
-To view the list of current workflows you'll run the following API call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/
-```
-
-Lifecycle workflows can have their basic information such as "displayName", "description", and "isEnabled" edited by running this patch call and body.
-
-```http
-PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
-Content-type: application/json
-
-{
-   "displayName":"<Unique workflow name string>",
-   "description":"<workflow description>",
-   "isEnabled":<“true” or “false”>,
-}
-
-```
+To update a workflow via API using Microsoft Graph, see: [Update workflow](/graph/api/identitygovernance-workflow-update)
 
 
 

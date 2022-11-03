@@ -97,21 +97,41 @@ By default, all analytics rules provided in the Microsoft Sentinel Solution for 
 7. Function module tested
 8. The SAP audit log monitoring analytics rules
 
-#### Configuring the SAP audit log monitoring analytics rules
-The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using watchlists:
-- **SAP_Dynamic_Audit_Log_Monitor_Configuration**
-  The **SAP_Dynamic_Audit_Log_Monitor_Configuration** is a watchlist detailing all available SAP standard audit log message IDs and can be extended to contain additional message IDs you might create on your own using ABAP enhancements on your SAP NetWeaver systems.This watchlist allows for customizing an SAP message ID (=event type), at different levels:
-    -	Severities per production/ non-production systems -for example, debugging activity gets “High” for production systems, and “Disabled” for other systems
-    -	Assigning different thresholds for production/ non-production systems- which are considered as “speed limits”. Setting a threshold of 60 events an hour, will trigger an incident if more than 30 events were observed within 30 minutes
-    -	Assigning Rule Types- either “Deterministic” or “AnomaliesOnly” determines by which manner this event is considered
-    -	Roles and Tags to Exclude- specific users can be excluded from specific event types. This field can either accept SAP roles, SAP profiles or Tags:
-        -	Listing SAP roles or SAP profiles ([see User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection)) would exclude any user bearing those roles/ profiles from these event types for the same SAP system. For example, specifying the “BASIC_BO_USERS” ABAP role for the RFC related event types will ensure Business Objects users won't trigger incidents when making massive RFC calls.
-        - Listing tags to be used as identifiers. Tagging an event type works just like specifying SAP roles or profiles, except that tags can be created within the Sentinel workspace, allowing the SOC personnel freedom in excluding users per activity without the dependency on the SAP team. For example, the audit message IDs AUB (authorization changes) and AUD (User master record changes) are assigned with the tag “MassiveAuthChanges”. Users assigned with this tag are excluded from the checks for these activities. Running the workspace function **SAPAuditLogConfigRecommend** will produce a list of recommended tags to be assigned to users, such as 'Add the tags ["GenericTablebyRFCOK"] to user SENTINEL_SRV using the SAP_User_Config watchlist'
-- **SAP_User_Config** 
-  This configuration-based watchlist is there to allow for specifying user related tags and other active directory identifiers for the SAP user. Tags are then used for identifying the user in specific contexts. For example, assigning the user GRC_ADMIN with the tag “MassiveAuthChanges” will prevent incidents from being created on user master record and authorization events made by GRC_ADMIN.
+## Enable or disable the ingestion of specific SAP logs
 
-More information is available [in this blog](https://aka.ms/Sentinel4sapDynamicDeterministicAuditRuleBlog)
+To enable or disable the ingestion of a specific log:
+ 
+1. Edit the *systemconfig.ini* file located under */opt/sapcon/SID/* on the connector's VM. 
+1. Inside the configuration file, locate the relevant log and do one of the following:
+    - To enable the log, change the value to `True`. 
+    - To disable the log, change the value to `False`.
 
+For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`:
 
+```
+ABAPJobLog = False
+```
+Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
 
+You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
+> [!NOTE]
+>
+> Once you stop one of the logs or tables, the workbooks and analytics queries that use that log may not work.
+> [Understand which log each workbook uses](sap-solution-security-content.md#built-in-workbooks) and [understand which log each analytic rule uses](sap-solution-security-content.md#built-in-analytics-rules).
+
+## Stop log ingestion and disable the connector
+
+To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, run this command: 
+
+```
+docker stop sapcon-[SID]
+```
+
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This both stops the ingestion and billing for the SAP system related to the connector.
+
+If you need to reenable the Docker container, run this command: 
+
+```
+docker start sapcon-[SID]
+```

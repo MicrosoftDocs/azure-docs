@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/30/2022
+ms.date: 09/21/2022
 ---
 
 # Service limits in Azure Load Testing Preview
@@ -28,48 +28,64 @@ In this section, you learn about the default and maximum quota limits.
 
 The following limits apply on a per-region, per-subscription basis.
 
-| Resource  | Limit | 
+| Resource  | Default limit | Maximum limit |
 |---------|---------| 
-| Concurrent engine instances |    100     |
-| Engine instances per test run | 45 |
+| Concurrent engine instances |     5-100 <sup>1</sup>    |     1000    |
+| Engine instances per test run | 1-45 <sup>1</sup> |  45   | 
+
+<sup>1</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Test runs
 
 The following limits apply on a per-region, per-subscription basis.
 
-| Resource  | Limit |
+| Resource  | Default limit |  Maximum limit |
 |---------|---------|
-| Concurrent test runs | 25 |
+| Concurrent test runs | 5-25 <sup>2</sup> |     1000    |
 | Test duration | 3 hours |
+
+<sup>2</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Data retention
 
-When you run a load test, Azure Load Testing stores both client-side and [server-side metrics](./how-to-monitor-server-side-metrics.md) for the test run. Azure Load Testing has a per-test-run limit on the retention period for this data:
+Azure Load Testing captures metrics, test results, and logs for each test run. The following data retention limits apply:
 
-| Resource  | Limit |
-|---------|---------|
-| Server-side metrics | 90 days |
-| Client-side metrics | 365 days |
-
-The test run associated with the load test isn't removed.
+| Resource | Limit | Notes |
+|----------|-------|-------|
+| Server-side metrics | 90 days | Learn how to [configure server-side metrics](./how-to-monitor-server-side-metrics.md). |
+| Client-side metrics | 365 days | |
+| Test results | 6 months | Learn how to [export test results](./how-to-export-test-results.md). |
+| Test log files | 6 months | Learn how to [download the logs for troubleshooting tests](./how-to-find-download-logs.md). |
 
 ## Request quota increases
 
 To raise the limit or quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) at no charge.
 
-1. Select **create a support ticket**.
+1. Select **Create a support ticket**.
 
-1. Provide a summary of your issue.
+1. Provide a **summary** of your issue.
 
-1. Select **Issue type** as *Technical*.
+1. Select **Issue type** as *Service and subscription limits (quotas)*.
 
-1. Select your subscription. Then, select **Service Type** as *Azure Load Testing - Preview*.
+1. Select your subscription. Then, select **Quota Type** as *Azure Load Testing - Preview*.
 
-1. Select **Problem type** as *Test Execution*.
+1. Select **Next** to continue.
 
-1. Select **Problem subtype** as *Provisioning stalls or fails*.
+1. In **Problem details**, select **Enter details**.
+
+1. On the **Quota details** pane, for **Location**, enter the Azure region where you want to increase the limit.
+
+1. Select the **Quota type** for which you want to increase the limit.
+
+1. Enter the **New limit requested** and select **Save and continue**.
+
+1. Fill the details for **Advanced diagnostic information**, **Support method**, and **Contact information**.
+
+1. Select **Next** to continue.
+
+1. Select **Create** to submit the support request.
 
 ## Next steps
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

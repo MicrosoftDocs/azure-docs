@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/16/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: mode-api
 ---
@@ -26,17 +26,17 @@ This article assumes that you have working knowledge of the Command Prompt windo
 
 [!INCLUDE [](includes/spx-setup.md)]
 
-## Create a subscription configuration
+## Create a resource configuration
 
 # [Terminal](#tab/terminal)
 
-To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+To get started, you need a Speech resource key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
-To configure your subscription key and region identifier, run the following commands:  
+To configure your resource key and region identifier, run the following commands:  
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config @key --set SPEECH-KEY
+spx config @region --set SPEECH-REGION
 ```
 
 The key and region are stored for future Speech CLI commands. To view the current configuration, run the following commands:
@@ -55,13 +55,13 @@ spx config @region --clear
 
 # [PowerShell](#tab/powershell)
 
-To get started, you need an Azure subscription key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+To get started, you need a Speech resource key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
-To configure your subscription key and region identifier, run the following commands in PowerShell: 
+To configure your Speech resource key and region identifier, run the following commands in PowerShell: 
 
 ```powershell
-spx --% config @key --set SUBSCRIPTION-KEY
-spx --% config @region --set REGION
+spx --% config @key --set SPEECH-KEY
+spx --% config @region --set SPEECH-REGION
 ```
 
 The key and region are stored for future SPX commands. To view the current configuration, run the following commands:

@@ -21,7 +21,7 @@ US executive order [14028, Improving the Nation's Cyber Security](https://www.wh
 
 This series of articles offers guidance for employing Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in memorandum 22-09. 
 
-The release of memorandum 22-09 is designed to support Zero Trust initiatives within federal agencies. It also provides regulatory guidance in supporting federal cybersecurity and data privacy laws. The memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v1.1(U)_Mar21.pdf): 
+The release of memorandum 22-09 is designed to support Zero Trust initiatives within federal agencies. It also provides regulatory guidance in supporting federal cybersecurity and data privacy laws. The memo cites the [Department of Defense (DoD) Zero Trust Reference Architecture](https://cloudsecurityalliance.org/artifacts/dod-zero-trust-reference-architecture/): 
 
 >"The foundational tenet of the Zero Trust Model is that no actor, system, network, or service operating outside or within the security perimeter is trusted. Instead, we must verify anything and everything attempting to establish access. It is a dramatic paradigm shift in philosophy of how we secure our infrastructure, networks, and data, from verify once at the perimeter to continual verification of each user, device, application, and transaction."
 
@@ -39,9 +39,11 @@ The article series features guidance that encompasses existing agency investment
 
    *  MFA must be enforced at the application layer instead of the network layer.
 
-   *  For agency staff, contractors, and partners, phishing-resistant MFA is required. For public users, phishing-resistant MFA must be an option.
-
-* Password policies must not require the use of special characters or regular rotation.
+   *  For agency staff, contractors, and partners, phishing-resistant MFA is required. 
+   
+   *  For public users, phishing-resistant MFA must be an option.
+   
+   *  Password policies must not require the use of special characters or regular rotation.
 
 * When agencies are authorizing users to access resources, they must consider at least one device-level signal alongside identity information about the authenticated user.
 

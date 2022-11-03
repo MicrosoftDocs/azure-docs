@@ -25,7 +25,7 @@ The toolkit contains four sets of tests:
 
 ### Training resources
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test).
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Validate Azure resources by using the ARM Template Test Toolkit](/training/modules/arm-template-test).
 
 ## Install on Windows
 
@@ -311,7 +311,7 @@ You can add the test toolkit to your Azure Pipeline. With a pipeline, you can ru
 
 The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
 
-- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtensionXPlatform)
 - [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.
@@ -380,4 +380,4 @@ The next example shows how to run the tests.
 - To test parameter files, see [Test cases for parameter files](parameters.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
-- For a Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test/).
+- For a Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/training/modules/arm-template-test/).

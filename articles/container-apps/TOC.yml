@@ -9,29 +9,29 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy your first container app
-      expanded: true
-      items:
-      - name: With a sample container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: quickstart-portal.md
-        - name: Azure CLI
-          href: get-started.md
-      - name: With a custom container image
-        expanded: true
-        items:
-        - name: Azure portal
-          href: get-started-existing-container-image-portal.md
-        - name: Azure CLI
-          href: get-started-existing-container-image.md
-        - name: Visual Studio
-          href: deploy-visual-studio.md
-        - name: Visual Studio Code
-          href: deploy-visual-studio-code.md
-      - name: With code on your local machine
-        href: quickstart-code-to-cloud.md
+  - name: With a sample container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal.md
+    - name: Command line
+      href: get-started.md
+  - name: With an existing container image
+    expanded: true
+    items:
+    - name: Azure portal
+      href: get-started-existing-container-image-portal.md
+    - name: Command line
+      href: get-started-existing-container-image.md
+  - name: With code on your local machine
+    expanded: true
+    items:
+    - name: Command line
+      href: quickstart-code-to-cloud.md
+    - name: Visual Studio
+      href: deploy-visual-studio.md
+    - name: Visual Studio Code
+      href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -58,6 +58,10 @@
       items:
       - name: Overview
         href: observability.md
+      - name: Application logging 
+        href: logging.md
+      - name: Logging options
+        href: log-options.md
       - name: Log streaming
         href: log-streaming.md
       - name: Container console
@@ -78,18 +82,24 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
-    - name: Use managed identities
-      href: managed-identity.md
-    - name: Monitor an app
-      href: monitor.md
+    - name: Managed identities
+      items:
+      - name: Use managed identities
+        href: managed-identity.md
+      - name: Azure Container Registry image pull with managed identity
+        href: managed-identity-image-pull.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS ingress
+    - name: Set up HTTPS or TCP ingress
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
     - name: Connect to a cloud service using Service Connector
-      href: service-connector.md
+      items:
+        - name: .NET app with Blob Storage
+          href: service-connector.md
+        - name: Java Quarkus app with Postgres DB
+          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
@@ -134,12 +144,26 @@
   items:
     - name: ARM and YAML specifications
       href: azure-resource-manager-api-spec.md
-    - name: Azure CLI reference
+    - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: Azure PowerShell
+      href: /powershell/module/az.app/#container-apps
     - name: Azure policy definitions
       href: policy-reference.md
-    - name: REST API reference
+    - name: REST API
       href: /rest/api/containerapps/
+    - name: Management SDKs
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.resourcemanager.appcontainers
+        - name: Go
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers
+        - name: Java
+          href: /java/api/overview/azure/resourcemanager-appcontainers-readme
+        - name: Node.js
+          href: /javascript/api/overview/azure/arm-appcontainers-readme
+        - name: Python
+          href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
 - name: Resources
   items:
     - name: Samples

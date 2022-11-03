@@ -247,7 +247,7 @@ You can also run a Pig job that uses your Pig UDF application.
     The `DEFINE` statement creates an alias of `streamer` for the *PigUDF.exe* application, and `CACHE` loads it from default storage for the cluster. Later, `streamer` is used with the `STREAM` operator to process the single lines contained in `LOG` and return the data as a series of columns.
 
     > [!NOTE]
-    > The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and by the ' (single quote) character when used with `SHIP`.
+    > The application name that is used for streaming must be surrounded by the `` ` `` (backtick) character when aliased, and by the `'` (single quote) character when used with `SHIP`.
 
 4. After entering the last line, the job should start. It returns output similar to the following text:
 

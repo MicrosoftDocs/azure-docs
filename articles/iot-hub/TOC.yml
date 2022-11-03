@@ -97,9 +97,14 @@
       - name: IoT Hub endpoints
         displayName: multi-tenant service, resource provider, device identity management, device identities, device twin management, jobs management, device endpoints, service endpoints, custom endpoints, endpoint health
         href: iot-hub-devguide-endpoints.md
-      - name: Query language
-        displayName: SQL-like, module twin queries,  device queries,  set of device twins, RegistryManager, query expressions, jobs queries
-        href: iot-hub-devguide-query-language.md
+      - name: Queries
+        items:
+        - name: Query language overview
+          href: iot-hub-devguide-query-language.md
+        - name: Device and module twin queries
+          href: query-twins.md
+        - name: Job queries
+          href: query-jobs.md
       - name: Quotas and throttling
         displayName: jobs device operations, traffic shaping, device identity registry operations, device connections throttle, latency
         href: iot-hub-devguide-quotas-throttling.md
@@ -168,6 +173,9 @@
       - name: Manage device identities
         displayName: identity registry, throttling rates, disable devices, import device identities, export device identities, device provisioning, device heartbeat, lifecycle notifications
         href: iot-hub-devguide-identity-registry.md
+      - name: Monitor device connection status
+        displayName: heartbeat, Event Grid
+        href: monitor-device-connection-state.md
       - name: Device configuration best practices
         displayName: device management, IoT hardware manufacturer, automatic device management, IoT solution developer, IoT solution operator, rollbacks
         href: iot-hub-configuration-best-practices.md
@@ -407,15 +415,13 @@
               href: iot-hub-create-using-powershell.md
             - name: Use Azure CLI
               displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, az iot hub create
+              href: iot-hub-create-using-cli.md
             - name: Use the REST API
               displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, cmdlets, Azure Resource Manager, token
               href: iot-hub-rm-rest.md
             - name: Use a template from Azure PowerShell
               displayName: create IoT Hub,  change settings, shared access policies, register device, message routing, delete IoT hub, Azure Resource Manager, PowerShell script
               href: iot-hub-rm-template-powershell.md
-            - name: Use a template from .NET
-              displayName: create IoT Hub, change settings, shared access policies, register device, message routing, Azure Resource Manager, token
-              href: iot-hub-rm-template.md
         - name: Configure managed identities
           displayName: Azure AD, egress connectivity, ARM template, user-assigned identity, message routing, file upload, bulk device import export, REST API SDK
           href: iot-hub-managed-identity.md
@@ -576,7 +582,7 @@
       href: /python/api/azure-mgmt-iothub
     - name: C device SDK
       displayName: maps, buffers, batch, transport protocols, HTTP, AMQP, serialization, ANSI C (C99)
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: REST (Device)
       displayName: Abandon Device Bound Notification, Complete Device Bound Notification, Create File Upload Sas Uri, Get Device And Module In Scope, Get Devices And Modules In Scope, Receive Device Bound Notification, Send Device Event, Update File Upload Status
       href: /rest/api/iothub/device
@@ -646,13 +652,13 @@
       items:
       - name: C# (.NET)
         displayName: samples, azure-iot-samples-csharp, .NET Core SDK
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        href: https://github.com/Azure-Samples/azure-iot-samples-csharp
       - name: Node.js
         displayName: samples, azure-iot-samples-node, Node.js LTS, npm
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
         displayName: samples, azure-iot-samples-java, Java SE 8, Maven 3, mvn
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        href: https://github.com/Azure-Samples/azure-iot-samples-java
       - name: Python
         displayName: samples, azure-iot-samples-python, Azure IoT Python SDK, 
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/

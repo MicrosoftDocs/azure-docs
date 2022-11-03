@@ -1,14 +1,14 @@
 ---
 title: Run scripts in a Windows VM in Azure using action Run Commands
-description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
+description: This article describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
 services: automation
 ms.service: virtual-machines
 ms.collection: windows
-author: cynthn
-ms.author: cynthn
-ms.date: 10/28/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 10/25/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
@@ -20,7 +20,7 @@ The Run Command feature uses the virtual machine (VM) agent to run PowerShell sc
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machine-run-commands), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines/run-command), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -32,11 +32,11 @@ The following restrictions apply when you're using Run Command:
 * The minimum time to run a script is about 20 seconds.
 * Scripts run as System on Windows.
 * One script at a time can run.
-* Scripts that prompt for information (interactive mode) are not supported.
+* Scripts that prompt for information (interactive mode) aren't supported.
 * You can't cancel a running script.
 * The maximum time a script can run is 90 minutes. After that, it will time out.
 * Outbound connectivity from the VM is required to return the results of the script.
-* It is not recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
+* It isn't recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
 
 > [!NOTE]
 > To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
@@ -45,7 +45,7 @@ The following restrictions apply when you're using Run Command:
 
 ## Available commands
 
-This table shows the list of commands available for Windows VMs. You can use the **RunPowerShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that is not an available command, you receive this error:
+This table shows the list of commands available for Windows VMs. You can use the **RunPowerShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that isn't an available command, you receive this error:
 
 ```error
 The entity was not found in this Azure location
@@ -114,6 +114,41 @@ Listing the run commands or showing the details of a command requires the `Micro
 Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
+
+
+## Action Run Command Windows troubleshooting
+
+When troubleshooting action run command for Windows environments, refer to the *RunCommandExtension* log file typically located in the following directory: `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.RunCommandWindows\<version>\RunCommandExtension.log` for further details.
+
+### Known issues
+
+Your Action Run Command Extension might fail to execute in your Windows environment if the command contains reserved characters. For example:
+
+If the `&` symbol is passed in the parameter of your command such as the below PowerShell script, it might fail.
+
+```powershell-interactive    
+$paramm='abc&jj'
+Invoke-AzVMRunCommand -ResourceGroupName AzureCloudService1 -Name test -CommandId 'RunPowerShellScript' -ScriptPath C:\data\228332902\PostAppConfig.ps1 -Parameter @{"Prefix" = $paramm}
+```
+
+Use the `^` character to escape the `&` in the argument, such as `$paramm='abc^&jj'`
+
+The Run Command extension might also fail to execute if command to be executed contains "\n" in the path, as it will be treated as a new line. For example, `C:\Windows\notepad.exe` contains the `\n` in the file path. Consider replacing `\n` with `\N` in your path.
+
+### Action Run Command Removal
+
+If needing to remove your action run command Windows extension, refer to the below steps for Azure PowerShell and CLI:
+
+ Replace *rgname* and *vmname* with your relevant resource group name and virtual machine name in the following removal examples.
+
+
+```powershell-interactive
+ Invoke-AzVMRunCommand -ResourceGroupName 'rgname' -VMName 'vmname' -CommandId 'RemoveRunCommandWindowsExtension'
+```
+
+```azurecli-interactive
+az vm run-command invoke  --command-id RemoveRunCommandWindowsExtension --name vmname -g rgname
+```
 
 ## Next steps
 

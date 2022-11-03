@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn to interpret various event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 09/20/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
@@ -106,7 +106,8 @@ The data in the corresponding notification (if synchronously executed by the ser
   }
 ```
 
-This data is the information that will go in the `data` field of the lifecycle notification message.
+>[!NOTE]
+> Azure Digital Twins currently doesn't support [filtering events](how-to-manage-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
 
 ## Digital twin lifecycle notifications
 
@@ -274,7 +275,7 @@ Here's an example of the data for a create or delete relationship notification. 
 
 ## Digital twin telemetry messages
 
-*Telemetry messages* are received in Azure Digital Twins from connected devices that collect and send measurements.
+Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digitaltwins_sendtelemetry) to emit *telemetry messages* and send them to egress endpoints.
 
 ### Properties
 
@@ -283,17 +284,17 @@ Here are the fields in the body of a telemetry message.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, which is provided by the customer when calling the telemetry API. |
-| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
+| `source` | Fully qualified name of the twin that the telemetry event was sent from. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
-| `data` | The telemetry message that has been sent to twins. The payload is unmodified and may not align with the schema of the twin that has been sent the telemetry. |
+| `data` | The telemetry message being sent from the twin. The payload does not need to align with any schema defined in your Azure Digital Twins instance. |
 | `dataschema` | The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2`. |
 | `datacontenttype` | `application/json` |
 | `traceparent` | A W3C trace context for the event. |
 
 ### Body details
 
-The body contains the telemetry measurement along with some contextual information about the device.
+The body contains the telemetry measurement along with some contextual information about the twin.
 
 Here's an example telemetry message body: 
 

@@ -38,7 +38,7 @@
   items:
   - name: "Learn: Create a subscription governance strategy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
+    href: /training/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
 - name: Samples
   items:
   - name: Azure Resource Graph queries

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 11/03/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -47,12 +47,17 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	France Central
 *   Germany West Central
 *   Japan East
+*   Korea Central
 *	North Central US
 *   North Europe
 *   Norway East
 *	South Central US
+*   South India 
 *   Southeast Asia
+*   Sweden Central
 *   Switzerland North
+*   UAE Central
+*   UAE North
 *   UK South
 *	West Europe
 *   West US
@@ -62,9 +67,6 @@ Azure NetApp Files Standard network features are supported for the following reg
 ## Considerations  
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
-
-> [!IMPORTANT]
-> [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
 
 ### Constraints
 
@@ -80,13 +82,12 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Upgrade from Basic to Standard network feature is not currently supported.
-
-> [!IMPORTANT]
-> Conversion between Basic and Standard networking features is not currently supported.
+> Conversion between Basic and Standard networking features in either direction is not currently supported. 
+>
+> Additionally, you can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
 ### Supported network topologies
 
@@ -105,6 +106,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
@@ -137,6 +139,9 @@ User-defined routes (UDRs) and Network security groups (NSGs) are only supported
 If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
+
+> [!NOTE]
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
 
 ## Azure native environments
 

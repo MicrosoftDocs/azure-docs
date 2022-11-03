@@ -16,20 +16,22 @@
       href: whats-new-azure-monitor.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
+    - name: WebRTC Redirector Service
+      href: whats-new-webrtc.md
     - name: Remote Desktop clients
       items:
-      - name: Windows (Desktop)
-        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: Windows (Microsoft Store)
-        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: macOS
-        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: iOS
-        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: Android
-        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?context=/azure/virtual-desktop/context/context
-      - name: Web
-        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Windows Desktop client
+        href: whats-new-client-windows.md
+      - name: Web client
+        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: macOS client
+        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: iOS/iPadOS client
+        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Android/Chrome OS client
+        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Windows Microsoft Store client
+        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Quickstarts
@@ -58,21 +60,19 @@
   - name: Example architecture scenarios
     items:
     - name: Azure Virtual Desktop for the enterprise
-      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=/azure/virtual-desktop/context/context
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
     - name: Multiple identity sources
       items:
       - name: AD DS and Azure AD
-        href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: AD DS, Azure AD, and Azure AD DS
-        href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Network connectivity
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
-      - name: RDP Shortpath for managed networks
-        href: shortpath.md
-      - name: RDP Shortpath for public networks (preview)
-        href: shortpath-public.md
+      - name: RDP Shortpath
+        href: rdp-shortpath.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
       - name: Required URL list
@@ -84,7 +84,7 @@
       - name: Determine user connection quality
         href: connection-latency.md
   - name: Virtual machine sizing guidance
-    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Identity and access management
     items:
     - name: Identities and authentication
@@ -97,7 +97,7 @@
     href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
-  - name: FSLogix profile containers and Azure files
+  - name: FSLogix profile containers and Azure Files
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
@@ -115,6 +115,14 @@
       items:
       - name: How the scaling tool works
         href: scaling-automation-logic-apps.md
+  - name: Remote Desktop clients
+    items:
+    - name: Clients overview
+      href: ./users/remote-desktop-clients-overview.md
+    - name: Compare the clients
+      href: compare-remote-desktop-clients.md
+    - name: Supported RDP properties
+      href: rdp-properties.md
   - name: Azure Virtual Desktop FAQ
     href: faq.yml
   - name: Windows 10 Enterprise multi-session FAQ
@@ -135,24 +143,22 @@
         href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
+  - name: Multimedia redirection (preview)
+    href: multimedia-redirection-intro.md
   - name: Security
     items:
       - name: Security best practices
         href: security-guide.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
-      - name: Screen capture protection
-        href: screen-capture-protection.md
   - name: Azure Virtual Desktop for Azure Stack HCI
-    items:
-      - name: Overview (preview)
-        href: azure-stack-hci-overview.md
-      - name: Azure Stack HCI FAQ (preview)
-        href: azure-stack-hci-faq.yml
+    href: azure-stack-hci-overview.md
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
   - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+  - name: Supported features for Teams
+    href: teams-supported-features.md
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -161,26 +167,40 @@
         href: automatic-migration.md
       - name: Migrate manually
         href: manual-migration.md
-  - name: Connect to Azure Virtual Desktop resources
+  - name: Connect to Azure Virtual Desktop
     items:
+    - name: Windows Desktop client
+      href: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Web client
+      href: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: macOS client
+      href: ./users/connect-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: iOS/iPadOS client
+      href: ./users/connect-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Android/Chrome OS client
+      href: ./users/connect-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Windows Microsoft Store client
+      href: ./users/connect-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+    - name: Thin clients
+      href: ./users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+  - name: Remote Desktop clients
+    items: 
+    - name: Use client features
+      items:
       - name: Windows Desktop client
-        href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Microsoft Store client
-        href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: macOS client
-        href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        href: ./users/client-features-windows.md
       - name: Web client
-        href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: iOS client
-        href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Android client
-        href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Thin clients
-        href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-      - name: Configure device redirections
-        href: configure-device-redirections.md
-      - name: Supported RDP file settings
-        href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+        href: ./users/client-features-web.md
+      - name: macOS client
+        href: ./users/client-features-macos.md
+      - name: iOS/iPadOS client
+        href: ./users/client-features-ios-ipados.md
+      - name: Android/Chrome OS client
+        href: ./users/client-features-android-chrome-os.md
+      - name: Windows Microsoft Store client
+        href: ./users/client-features-microsoft-store.md
+    - name: Configure device redirections
+      href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
@@ -229,6 +249,8 @@
     href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
+  - name: Screen capture protection
+    href: screen-capture-protection.md
   - name: Customize session host image
     items:
       - name: Set up golden image in Azure
@@ -285,8 +307,10 @@
     items:
       - name: Enforce Azure AD MFA
         href: set-up-mfa.md
-      - name: Configure single sign-on
+      - name: Configure single sign-on using Azure AD
         href: configure-single-sign-on.md
+      - name: Configure single sign-on using AD FS
+        href: configure-adfs-sso.md
       - name: Set up the KDC proxy
         href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
@@ -317,6 +341,10 @@
     items:
     - name: Check access to required URLs
       href: required-url-check-tool.md
+    - name: Configure RDP Shortpath
+      href: configure-rdp-shortpath.md
+    - name: Limit RDP Shortpath port range
+      href: configure-rdp-shortpath-limit-ports-public-networks.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
@@ -333,6 +361,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Session host statuses and health checks
+    href: troubleshoot-statuses-checks.md
   - name: Management issues
     href: troubleshoot-management-issues.md
   - name: Azure Virtual Desktop PowerShell
@@ -355,8 +385,14 @@
     href: troubleshoot-authorization.md
   - name: Connection quality issues
     href: troubleshoot-connection-quality.md
+  - name: RDP Shortpath
+    href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
+  - name: Multimedia redirection (preview)
+    href: troubleshoot-multimedia-redirection.md
+  - name: Teams on Azure Virtual Desktop
+    href: troubleshoot-teams.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -372,7 +408,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
-    href: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+    href: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
   - name: Framework and architectures
     items:
     - name: Cloud Adoption Framework
