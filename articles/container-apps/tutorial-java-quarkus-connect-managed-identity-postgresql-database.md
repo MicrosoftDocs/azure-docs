@@ -82,7 +82,8 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    The Quarkus configuration is located in the *src/main/resources/application.properties* file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored.  Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
 
    Delete the existing content in *application.properties* and replace with the following to configure the database for dev, test, and production modes:
-### [Flexible Server](#tab/flexible)
+
+   ### [Flexible Server](#tab/flexible)
    ```properties
    quarkus.package.type=uber-jar
 
@@ -142,7 +143,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    io.netty:netty-transport-native-unix-common::jar
    ```
 
-### [Single Server](#tab/single)
+   ### [Single Server](#tab/single)
    ```properties
    quarkus.package.type=uber-jar
 
@@ -271,7 +272,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create the database service.
 
-### [Flexible Server](#tab/flexible)
+   ### [Flexible Server](#tab/flexible)
    ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'
@@ -286,7 +287,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --sku-name GP_Gen5_2
    ```
 
-### [Single Server](#tab/single)
+   ### [Single Server](#tab/single)
    ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'

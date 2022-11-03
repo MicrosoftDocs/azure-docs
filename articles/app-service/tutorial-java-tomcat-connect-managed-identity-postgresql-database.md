@@ -57,7 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    ```
 
 1. Create an Azure Postgres Database server. The server is created with an administrator account, but it won't be used as we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
-### [Flexible Server](#tab/flexible)
+   ### [Flexible Server](#tab/flexible)
    ```azurecli-interactive
    POSTGRESQL_ADMIN_USER=azureuser
    # PostgreSQL admin access rights won't be used as Azure AD authentication is leveraged to administer the database.
@@ -75,7 +75,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --sku-name Standard_D2s_v3 
    ```
 
-### [Single Server](#tab/single)
+   ### [Single Server](#tab/single)
    ```azurecli-interactive
    POSTGRESQL_ADMIN_USER=azureuser
    # PostgreSQL admin access rights won't be used as Azure AD authentication is leveraged to administer the database.
