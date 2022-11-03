@@ -40,7 +40,7 @@ install_deployer.sh --parameterfile MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars
 ## Parameters
 
 ### `--parameterfile`
-Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
+Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../configure-control-plane.md#deployer).
 
 ```yaml
 Type: String

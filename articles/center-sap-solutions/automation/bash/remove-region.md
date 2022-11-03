@@ -48,7 +48,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                         
 ## Parameters
 
 ### `--deployer_parameter_file`
-Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
+Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../configure-control-plane.md#deployer).
 
 ```yaml
 Type: String
@@ -58,7 +58,7 @@ Required: True
 ```
 
 ### `--library_parameter_file`
-Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String
@@ -68,7 +68,7 @@ Required: True
 ```
 
 ### `--subscription`
-Sets the subscription that contains the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+Sets the subscription that contains the SAP library. For more information, see [Configuring the control plane](../configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String
@@ -77,7 +77,7 @@ Required: True
 ```
 
 ### `--storage_account`
-Sets the storage account name of the `tfstate` storage account in SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+Sets the storage account name of the `tfstate` storage account in SAP library. For more information, see [Configuring the control plane](../configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String

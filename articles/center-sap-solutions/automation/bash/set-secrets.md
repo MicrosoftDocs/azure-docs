@@ -77,7 +77,7 @@ Required: True
 ```
 
 ### `-spn_id`
-Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
 Type: String
@@ -87,7 +87,7 @@ Required: False
 ```
 
 ### `--spn_secret`
-Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String
@@ -97,7 +97,7 @@ Required: False
 ```
 
 ### `--tenant_id`
-Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String

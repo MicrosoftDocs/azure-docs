@@ -68,7 +68,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
 ## Parameters
 
 ### `--parameter_file`
-Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../automation-configure-workload-zone.md).
+Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../configure-workload-zone.md).
 
 ```yaml
 Type: String
@@ -137,7 +137,7 @@ Required: False
 ```
 
 ### `-spn_id`
-Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
 Type: String
@@ -147,7 +147,7 @@ Required: False
 ```
 
 ### `--spn_secret`
-Sets the service principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+Sets the service principal password. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String
@@ -157,7 +157,7 @@ Required: False
 ```
 
 ### `--tenant_id`
-Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String

@@ -61,7 +61,7 @@ installer.sh -Parameterfile MGMT-WEEU-SAP_LIBRARY.tfvars --type sap_library
 ## Parameters
 
 ### `--parameter_file`
-Sets the parameter file for the system. For more information, see [Configuring the SAP system](../automation-configure-system.md).
+Sets the parameter file for the system. For more information, see [Configuring the SAP system](../configure-system.md).
 
 ```yaml
 Type: String
