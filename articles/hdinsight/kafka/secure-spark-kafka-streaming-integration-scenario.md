@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 10/22/2022
+ms.date: 11/03/2022
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario
