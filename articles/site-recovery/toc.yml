@@ -33,8 +33,10 @@
     items:
     - name: Replicate VMs running in an Azure Edge Zone
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
-    - name: Set up disaster recovery for Edge Zone VMs
+    - name: Set up disaster recovery for VMs on Edge Zone
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
+    - name: Set up disaster recovery for Edge Zone via VM flow
+      href: disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
     - name: Classic to modernized VMware disaster recovery
