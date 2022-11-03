@@ -24,16 +24,16 @@ This article describes how to detect requests sent with Shared Key authorization
 
 ## Plan for disallowing Shared Key authorization
 
-When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To minimize the impact to clients, applications and other services, it is important to create a plan that includes:
+When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To minimize the impact to clients, applications and other services create a plan that includes:
 
-- [Identify storage accounts with Shared Key authorization enabled](#identify-storage-accounts-with-shared-key-authorization-enabled)
+- [Identify storage accounts with Shared Key access enabled](#identify-storage-accounts-with-shared-key-access-enabled)
 - [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications)
 - [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
 - [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
 - [Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
 - [Transition Azure Files and Table storage workloads](#transition-azure-files-and-table-storage-workloads)
 
-## Identify storage accounts with Shared Key authorization enabled
+## Identify storage accounts with Shared Key access enabled
 
 There are two ways to identify storage accounts with Shared Key access enabled:
 
@@ -55,7 +55,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key authorization on existing storage accounts and creating new storage accounts with it enabled.
+Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new storage accounts with it enabled.
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -68,12 +68,26 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 1. Choose **Assign policy**.
 1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
 1. For the **Policy definition** field, select the **More** button, and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
+1. Select **Next**
 
-    :::image type="content" source="media/storage-account-keys-manage/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/storage-account-keys-manage/policy-definition-select-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
 
-1. Select **Review + create** to assign the policy definition to the specified scope.
+1. On the **Parameters** tab uncheck the **Only show parameters that need input or review** checkbox.
+1. Click the **Effect** drop-down to review the available parameter values, then select `Audit` (the default) and select **Next**.
 
-    :::image type="content" source="media/storage-account-keys-manage/policy-assignment-create.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/storage-account-keys-manage/policy-assignment-create.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-parameters.png" alt-text="Screenshot showing the parameters tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-parameters.png":::
+
+1. On the **Remediation** tab, select **Next**.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-remediation.png" alt-text="Screenshot showing the remediation tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-remediation.png":::
+
+1. On the **Non-compliance messages** tab, enter a message to be displayed when a storage account is out of compliance then select **Next**.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-message.png" alt-text="Screenshot showing the non-compliance messages tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-message.png":::
+
+1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
 
 ### Monitor compliance with the Shared Key access policy
 
@@ -83,7 +97,7 @@ To monitor your storage accounts for compliance with the Shared Key access polic
 1. Select the policy name with the desired scope.
 1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
 
-    :::image type="content" source="media/storage-account-keys-manage/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/storage-account-keys-manage/policy-compliance-report-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/shared-key-authorization-prevent/policy-compliance-report-portal.png":::
 
 To bring a storage account into compliance, [disable Shared Key access](#remediate-authorization-via-shared-key).
 
