@@ -3,13 +3,13 @@ title: Access public containers and blobs anonymously with .NET
 titleSuffix: Azure Storage
 description: Use the Azure Storage client library for .NET to access public containers and blobs anonymously.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/01/2022
-ms.author: jammart
-ms.reviewer: fryu
+ms.author: tamram
+ms.reviewer: nachakra
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp

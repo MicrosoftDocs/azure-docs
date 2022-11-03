@@ -3,22 +3,22 @@ title: Remediate anonymous public read access to blob data (Azure Resource Manag
 titleSuffix: Azure Storage
 description: Learn how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/02/2022
-ms.author: jammart
-ms.reviewer: fryu
+ms.author: tamram
+ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Remediate anonymous public read access to blob data (Azure Resource Manager deployments)
 
-Azure Blob Storage supports optional anonymous public read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access at the level of the storage account for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
+Azure Blob Storage supports optional anonymous public read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
 
-By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. You can disallow all public access to a storage account, regardless of the public access setting for an individual container, by setting the **AllowBlobPublicAccess** property on the storage account to **False**.
+By default, public access to your blob data is always prohibited. However, the default configuration for an Azure Resource Manager storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. You can disallow all public access to an Azure Resource Manager storage account, regardless of the public access setting for an individual container, by setting the **AllowBlobPublicAccess** property on the storage account to **False**.
 
 After you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. Disallowing public access to a storage account prevents users from subsequently configuring public access for containers in that account. Any containers that have already been configured for public access will no longer accept anonymous requests.
 
@@ -134,6 +134,8 @@ You can also configure an alert rule based on this query to notify you about ano
 After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate public access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
 
 The public access setting for a storage account overrides the individual settings for containers in that account. When you disallow public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. If you've disallowed public access for the account, you do not also need to disable public access for individual containers.
+
+Remediating blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 > [!IMPORTANT]
 > If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
