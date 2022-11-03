@@ -121,12 +121,15 @@ When you set a default share-level permission, all authenticated users and group
 
 # [Portal](#tab/azure-portal)
 
-To configure default share-level permissions on your storage account using the [Azure portal](https://portal.azure.com), follow these steps. 
+To configure default share-level permissions on your storage account using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. In the Azure portal, go to the storage account that contains your file share(s) and select **Data storage > File shares**.
-1. You must enable an AD source on your storage account before assigning a default share-level permission. If you've already done so, you can skip this step. To enable an AD source, select **Set up** under the desired AD source. 
-1. After you've configured an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
-1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list. You can also change an existing default permission to a different role.
+1. You must enable an AD source on your storage account before assigning a default share-level permission. If you've already done this, select **Active Directory** and proceed to the next step. Otherwise, select **Active Directory: Not configured**, select **Set up** under the desired AD source, and enable the AD source.
+1. After you've enabled an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
+
+   :::image type="content" source="media/storage-files-identity-ad-ds-assign-permissions/set-share-level-permissions.png" alt-text="Screenshot showing how to set a default share-level permission using the Azure portal." lightbox="media/storage-files-identity-ad-ds-assign-permissions/set-share-level-permissions.png" border="true":::
+
+1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list.
 1. Select **Save**.
 
 # [Azure PowerShell](#tab/azure-powershell)
