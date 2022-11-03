@@ -17,15 +17,13 @@ This page has the latest release notes for features, improvements, bug fixes, an
 
 ## 2022-November release
 
-Custom Translator version v2.0.0 is generally available and ready for use in your production applications!
-
 ### November 2022 improvements and fixes
 
 #### Custom Translator stable GA v2.0 release
 
-* Custom Translator version v2.0 is generally available and ready for use in your production applications!
+* Custom Translator version v2.0 is generally available and ready for use in your production applications.
 
-* Upload history has been added to the workspace, next to Projects and Document sets.
+* Upload history has been added to the workspace, next to Projects and Documents tabs.
 
 #### Language model updates
 
