@@ -39,7 +39,7 @@ Each SSL profile can support up to five trusted client CA certificate chains.
 Application Gateway supports certificates issued from both public and privately established certificate authorities.
 
 - CA certificates issued from well-known certificate authorities: Intermediate and root certificates are commonly found in trusted certificate stores and enable trusted connections with little to no additional configuration on the device.
-- CA certificates issued from private certificate authorities (self-signed): These certificates are typically issued privately via your organization and not trusted by other entities. Certificates may need to be loaded on to devices or trusted certificate stores to establish trust.
+- CA certificates issued from private certificate authorities (self-signed): These certificates are typically issued privately via your organization and not trusted by other entities. Certificates must be loaded on to devices or trusted certificate stores to establish trust.
 
 ## Additional client authentication validation
 
