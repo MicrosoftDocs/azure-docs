@@ -185,8 +185,10 @@ Azure Machine Learning data assets (formaly known as datasets) are supported as 
 1. Create a data input:
 
     # [Azure ML CLI](#tab/cli)
-
+    
+    ```azurecli
     DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest --query id)
+    ```
 
     # [Azure ML SDK for Python](#tab/sdk)
 
