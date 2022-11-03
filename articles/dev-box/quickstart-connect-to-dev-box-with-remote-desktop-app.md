@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Use the Remote Desktop client to connect to a dev box'
+title: 'Quickstart: Use a remote desktop client to connect to a dev box'
 titleSuffix: Microsoft Dev Box Preview
-description: In this Quickstart, you learn how to download a Remote Desktop client and connect to a dev box. 
+description: Learn how to download a Remote Desktop client and connect to your dev box. 
 services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/2/2022
+ms.date: 11/03/2022
 ms.topic: quickstart
 ---
 
-# Quickstart: Use the Remote Desktop client to connect to a dev box
+# Quickstart: Use a remote desktop client to connect to a dev box
 
 In this quickstart, you'll learn how to download a remote desktop app from the [developer portal](https://aka.ms/devbox-portal) and connect to a dev box by using the remote desktop client.
 
@@ -28,7 +28,11 @@ In this quickstart, you'll learn how to:
 
 - [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
-## Download the Remote Desktop client (Windows)
+## Use the Remote Desktop client to connect to your dev box
+
+There are remote desktop clients available for many different operating systems (OSs) and devices. In this quickstart, you can choose to view the steps for Windows, or the steps for a non-Windows OS by selecting the appropriate tab.
+# [Windows](#tab/windows)
+### Download the Remote Desktop client for Windows
 
 To download and set up the Remote Desktop app for Windows, follow these steps:
 
@@ -46,9 +50,9 @@ To download and set up the Remote Desktop app for Windows, follow these steps:
    
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/install-complete-return-prompt.png" alt-text="Screenshot of the return prompt after download and install of the RDP client is completed.":::
 
-## Connect to your dev box
+### Connect to your dev box
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+1. To open the RDP client, sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. Select **Open in RDP client** for the dev box you want to connect.
    
@@ -58,7 +62,9 @@ To download and set up the Remote Desktop app for Windows, follow these steps:
    
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/open-windows-desktop.png" alt-text="Screenshot of the  Open Windows Desktop option on the Connect dialog.":::
 
-## Download the Remote Desktop client (non-Windows) and connect to your dev box
+# [Non-Windows](#tab/non-Windows)
+
+### Download the Remote Desktop client 
 
 To use a non-Windows Remote Desktop client to connect to your dev box, follow these steps:
 
@@ -76,6 +82,8 @@ To use a non-Windows Remote Desktop client to connect to your dev box, follow th
 
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/copy-subscription-url-non-windows.png" alt-text="Screenshot of the subscription feed URL copied from the Configure Remote Desktop card.":::
 
+### Connect to your dev box
+
 1. Open the Remote Desktop client, select **Add Workspace** and paste the subscription feed URL.
    
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-subscription-feed.png" alt-text="Screenshot of the non-Windows Remote Desktop client Add Workspace dialog.":::
@@ -83,6 +91,8 @@ To use a non-Windows Remote Desktop client to connect to your dev box, follow th
 1. Your dev box will appear in the Remote Desktop client's Workspaces. Double-click to connect.
 
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of the non-Windows Remote Desktop client workspace with dev box.":::
+
+---
 
 ## Next steps
 To learn about managing Microsoft Dev Box Preview, see:
