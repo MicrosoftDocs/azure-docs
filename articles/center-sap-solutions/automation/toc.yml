@@ -66,23 +66,23 @@ items:
       - name: PowerShell cmdlets for automation framework
         href: reference-powershell.md
       - name: Deploying the control plane using PowerShell
-        href: module/automation-new-sapautomationregion.md
+        href: module/new-sapautomationregion.md
       - name: Deploying the Workload Zone using PowerShell
-        href: module/automation-new-sapworkloadzone.md
+        href: module/new-sapworkloadzone.md
       - name: Deploying the SAP System using PowerShell
-        href: module/automation-new-sapsystem.md
+        href: module/new-sapsystem.md
       - name: Bootstrapping the Deployer using PowerShell
-        href: module/automation-new-sapdeployer.md
+        href: module/new-sapdeployer.md
       - name: Bootstrapping the Library using PowerShell
-        href: module/automation-new-saplibrary.md
+        href: module/new-saplibrary.md
       - name: Removing the control plane using PowerShell
-        href: module/automation-remove-sapautomationregion.md
+        href: module/remove-sapautomationregion.md
       - name: Removing an SAP deployment using PowerShell
-        href: module/automation-remove-sapsystem.md
+        href: module/remove-sapsystem.md
       - name: Set the Keyvault secrets using PowerShell
-        href: module/automation-set-sapsecrets.md
+        href: module/set-sapsecrets.md
       - name: Update the Terraform state file using PowerShell
-        href: module/automation-update-tfstate.md
+        href: module/update-tfstate.md
   - name: Tutorials
     items:
     - name: Deploy the control plane

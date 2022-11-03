@@ -18,40 +18,40 @@ You can deploy all [SAP on Azure Deployment Automation Framework](deployment-fra
 
 ## Control Plane operations
 
-You can deploy or update the control plane using the [New-SAPAutomationRegion](module/automation-new-sapautomationregion.md) PowerShell command.
+You can deploy or update the control plane using the [New-SAPAutomationRegion](module/new-sapautomationregion.md) PowerShell command.
 
-Remove the control plane using the [`Remove-SAPAutomationRegion`](module/automation-remove-sapautomationregion.md) PowerShell command.
+Remove the control plane using the [`Remove-SAPAutomationRegion`](module/remove-sapautomationregion.md) PowerShell command.
 
-You can bootstrap the deployer in the control plane using the [New-SAPDeployer](module/automation-new-sapdeployer.md) PowerShell command.
+You can bootstrap the deployer in the control plane using the [New-SAPDeployer](module/new-sapdeployer.md) PowerShell command.
 
-You can bootstrap the SAP Library in the control plane using the [New-SAPLibrary](module/automation-new-saplibrary.md) PowerShell command.
+You can bootstrap the SAP Library in the control plane using the [New-SAPLibrary](module/new-saplibrary.md) PowerShell command.
 
 ## Workload Zone operations
 
-Deploy or update the workload zone using the [`New-SAPWorkloadZone`](module/automation-new-sapworkloadzone.md) PowerShell command.
+Deploy or update the workload zone using the [`New-SAPWorkloadZone`](module/new-sapworkloadzone.md) PowerShell command.
 
-Remove the workload zone using the [`Remove-SAPSystem`](module/automation-remove-sapsystem.md)  PowerShell command.
+Remove the workload zone using the [`Remove-SAPSystem`](module/remove-sapsystem.md)  PowerShell command.
 
 
 ## SAP System operations
 
-Deploy or update the SAP system using the [`New-SAPSystem`](module/automation-new-sapsystem.md) PowerShell command.
+Deploy or update the SAP system using the [`New-SAPSystem`](module/new-sapsystem.md) PowerShell command.
 
-Remove the SAP system using the [`Remove-SAPSystem`](module/automation-remove-sapsystem.md)  PowerShell command.
+Remove the SAP system using the [`Remove-SAPSystem`](module/remove-sapsystem.md)  PowerShell command.
 
 
 ## Other operations
 
 Set the deployment credentials using the
-[`Set-SAPSecrets`](module/automation-set-sapsecrets.md) PowerShell command.
+[`Set-SAPSecrets`](module/set-sapsecrets.md) PowerShell command.
 
 Update the Terraform state file using the
-[`Update-TFState`](module/automation-update-tfstate.md) PowerShell command.
+[`Update-TFState`](module/update-tfstate.md) PowerShell command.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploying the control plane using PowerShell](module/automation-new-sapautomationregion.md)
+> [Deploying the control plane using PowerShell](module/new-sapautomationregion.md)
 
 
 
