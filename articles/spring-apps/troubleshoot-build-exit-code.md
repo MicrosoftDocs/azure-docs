@@ -28,8 +28,9 @@ The following list describes the most common exit codes:
 - **20** - All buildpacks groups have failed to detect. 
   
   Consider the following possible causes for 20 exit code:
-  - The builder you are using doesn't support the language your project used
-    If you are using the default builder, check [the language the default builder supports](how-to-enterprise-build-service.md#default-builder-and-tanzu-buildpacks). If you are using the custom builder, check if your custom builder has the Buildpack supports the language your project used.
+  - The builder you are using doesn't support the language your project used.
+    - If you are using the default builder, check [the language the default builder supports](how-to-enterprise-build-service.md#default-builder-and-tanzu-buildpacks).
+    - If you are using the custom builder, check if your custom builder has the Buildpack supports the language your project used.
 
   - You are running against the wrong path.
   
