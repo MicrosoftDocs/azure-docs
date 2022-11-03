@@ -44,7 +44,7 @@ items:
       - name: Deploying the control plane using shell scripts
         href: bash/automation-prepare-region.md
       - name: Deploying the workload zone using shell scripts
-        href: bash/automation-install_workloadzone.md
+        href: bash/install-workloadzone.md
       - name: Deploying the SAP system using shell scripts
         href: bash/automation-installer.md
       - name: Bootstrapping the Deployer using shell scripts

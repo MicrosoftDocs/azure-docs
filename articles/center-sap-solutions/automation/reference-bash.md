@@ -28,7 +28,7 @@ You can bootstrap the SAP Library in the control plane using the [install_librar
 
 ## Workload Zone operations
 
-Deploy or update the workload zone using the [`install_workloadzone`](bash/automation-install_workloadzone.md) shell script.
+Deploy or update the workload zone using the [`install_workloadzone`](bash/install-workloadzone.md) shell script.
 
 Remove the workload zone using the [`remover`](bash/automation-remover.md) shell script.
 
