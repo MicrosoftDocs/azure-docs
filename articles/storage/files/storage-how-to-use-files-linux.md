@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux and review
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -16,7 +16,7 @@ The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By
 
 | Distribution | SMB 3.1.1 | SMB 3.0 |
 |-|-----------|---------|
-| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
 | [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
