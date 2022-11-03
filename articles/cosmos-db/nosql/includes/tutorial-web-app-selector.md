@@ -1,6 +1,4 @@
 ---
-title: include file
-description: include file
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
