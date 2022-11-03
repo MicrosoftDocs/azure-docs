@@ -75,7 +75,7 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-To get the status of the transcription job, call the [GetTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/GetTranscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+To get the status of the transcription job, call the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

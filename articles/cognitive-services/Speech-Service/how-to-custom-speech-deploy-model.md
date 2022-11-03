@@ -116,7 +116,7 @@ spx help csr endpoint
 
 To create an endpoint and deploy a model, use the [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/GetProjects) request to get available projects.
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `model` property to the URI of the model that you want deployed to the endpoint. 
 - Set the required `locale` property. The endpoint locale must match the locale of the model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
