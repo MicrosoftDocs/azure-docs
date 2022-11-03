@@ -97,7 +97,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     # [REST](#tab/rest)
 
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subcription ID, resource group, workspace, and name of the data store. You will need them later.
+    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subscription ID, resource group, workspace, and name of the data store. You will need them later.
    
     ---
     
