@@ -1,16 +1,16 @@
 ---
-title: Concepts guide for Azure IoT Hub | Microsoft Docs
+title: Concepts overview for Azure IoT Hub | Microsoft Docs
 description: The Azure IoT Hub conceptual documentation includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, messaging and many other features. This article helps get you to the right articles to learn about a particular feature.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 11/03/2022
 ms.custom: mqtt
 ---
 
-# Azure IoT Hub concepts guide
+# Azure IoT Hub concepts overview
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
 
