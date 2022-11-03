@@ -219,7 +219,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Set the timestamp or version in the delta settings.
 
 ### Error code: DF-Delta-InvalidProtocolVersion
-F-D
+
 - **Message**: Unsupported Delta table protocol version, Refer https://docs.delta.io/latest/versioning.html#-table-version for versioning information.
 - **Cause**: Data flows don't support this version of the Delta table protocol.
 - **Recommendation**: Use a lower version of the Delta table protocol.
