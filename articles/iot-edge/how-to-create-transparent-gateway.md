@@ -120,7 +120,7 @@ If you don't have your own certificate authority and want to use demo certificat
 
    ```bash
    sudo chown -R iotedge /var/aziot/certs
-   sudo chmod 644 /var/aziot/secrets/*.key.pem
+   sudo chmod 644 /var/aziot/secrets/
    ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
