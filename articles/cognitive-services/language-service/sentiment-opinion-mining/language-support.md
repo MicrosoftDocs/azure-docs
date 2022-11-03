@@ -123,30 +123,104 @@ Total supported language codes: 94
 
 ### Opinion Mining language support
 
-Total supported language codes: 7
+Total supported language codes: 94
 
 | Language              | Language code | Starting with model version |              Notes |
-|----------------------|-------------|------------------------------------|-------------------|
-| Arabic (new)	 | `ar` | 2022-11-01 | |
-| Chinese (Simplified) (new) | `zh-hans` | 2022-11-01 | `zh` also accepted |
-| English               |     `en`      |  2020-04-01              |                    |
-| French                |     `fr`      |         2021-10-01        |                    |
-| German                |     `de`      |         2021-10-01         |                    |
-| Hindi (new)	 | `hi` | 2022-11-01 | |
-| Italian               |     `it`      |         2021-10-01         |                    |
-| Japanese (new)	 | `ja` | 2022-11-01 | |
-| Korean	 | `ko` | 2022-11-01 | |
-| Portuguese (Brazil)   |    `pt-BR`    |         2021-10-01         |                    |
-| Portuguese (Portugal) |    `pt-PT`    |         2021-10-01         | `pt` also accepted |
-| Russian (new)	 | `ru` | 2022-11-01 | |
-| Spanish               |     `es`      |         2021-10-01         |                    |
-| Swedish (new)	 | `sv` | 2022-11-01 | |
-| Turkish (new)	 | `tr` | 2022-11-01 | |
-
-
-<!--ar, ko, ru, tr, hi, ja, zhs, sv, 
-
-nl, no, fi, hu, pl, da, mr, el, id, bn, ta, te-->
+|----------------------|-------------|-------------|-------------| 
+| Afrikaans (new)	 | `af` | 2022-10-01 | |
+| Albanian (new)	 | `sq` | 2022-10-01 | |
+| Amharic (new)	 | `am` | 2022-10-01 | |
+| Arabic  | `ar` | 2022-06-01 | |
+| Armenian (new)	 | `hy` | 2022-10-01 | |
+| Assamese (new)	 | `as` | 2022-10-01 | |
+| Azerbaijani (new)	 | `az` | 2022-10-01 | |
+| Basque (new)	 | `eu` | 2022-10-01 | |
+| Belarusian (new)	 | `be` | 2022-10-01 | |
+| Bengali	 | `bn` | 2022-10-01 | |
+| Bosnian (new)	 | `bs` | 2022-10-01 | |
+| Breton (new)	 | `br` | 2022-10-01 | |
+| Bulgarian	(new) | `bg` | 2022-10-01 | |
+| Burmese (new)	 | `my` | 2022-10-01 | |
+| Catalan (new)	 | `ca` | 2022-10-01 | |
+| Chinese (Simplified) | `zh-hans` | 2019-10-01 | `zh` also accepted |
+| Chinese (Traditional) (new) | `zh-hant` | 2019-10-01 | |
+| Croatian (new)	 | `hr` | 2022-10-01 | |
+| Czech (new)	 | `cs` | 2022-10-01 | |
+| Danish 	 | `da` | 2022-06-01 | |
+| Dutch 	 | `nl` | 2019-10-01 | |
+| English	 | `en` | 2019-10-01 | |
+| Esperanto (new)	 | `eo` | 2022-10-01 | |
+| Estonian (new)	 | `et` | 2022-10-01 | |
+| Filipino (new) | `fil` | 2022-10-01 | |
+| Finnish	 | `fi` | 2022-06-01 | |
+| French	 | `fr` | 2019-10-01 | |
+| Galician (new)	 | `gl` | 2022-10-01 | |
+| Georgian (new)	 | `ka` | 2022-10-01 | |
+| German	 | `de` | 2019-10-01 | |
+| Greek | `el` | 2022-06-01 | |
+| Gujarati (new)	 | `gu` | 2022-10-01 | |
+| Hausa (new)	 | `ha` | 2022-10-01 | |
+| Hebrew (new)	 | `he` | 2022-10-01 | |
+| Hindi	 | `hi` | 2020-04-01 | |
+| Hungarian	 | `hu` | 2022-10-01 | |
+| Indonesian	 | `id` | 2022-10-01 | |
+| Irish	(new) | `ga` | 2022-10-01 | |
+| Italian	 | `it` | 2019-10-01 | |
+| Japanese	 | `ja` | 2019-10-01 | |
+| Javanese (new)	 | `jv` | 2022-10-01 | |
+| Kannada (new)	 | `kn` | 2022-10-01 | |
+| Kazakh (new)	 | `kk` | 2022-10-01 | |
+| Khmer	 (new) | `km` | 2022-10-01 | |
+| Korean	 | `ko` | 2019-10-01 | |
+| Kurdish (Kurmanji) | `ku` | 2022-10-01 | |
+| Kyrgyz (new)	 | `ky` | 2022-10-01 | |
+| Lao (new)	 | `lo` | 2022-10-01 | |
+| Latin (new)	 | `la` | 2022-10-01 | |
+| Latvian (new)	 | `lv` | 2022-10-01 | |
+| Lithuanian (new)	 | `lt` | 2022-10-01 | |
+| Macedonian (new)	 | `mk` | 2022-10-01 | |
+| Malagasy (new)	 | `mg` | 2022-10-01 | |
+| Malay	 (new) | `ms` | 2022-10-01 | |
+| Malayalam (new)	 | `ml` | 2022-10-01 | |
+| Marathi	 | `mr` | 2022-10-01 | |
+| Mongolian (new)	 | `mn` | 2022-10-01 | |
+| Nepali (new)	 | `ne` | 2022-10-01 | |
+| Norwegian	 | `no` | 2019-10-01 | |
+| Oriya	(new) | `or` | 2022-10-01 | |
+| Oromo	(new) | `om` | 2022-10-01 | |
+| Pashto (new)	 | `ps` | 2022-10-01 | |
+| Persian (Farsi) (new) | `fa` | 2022-10-01 | |
+| Polish	 | `pl` | 2022-06-01 | |
+| Portuguese (Portugal) | `pt-PT` | 2019-10-01 | `pt` also accepted |
+| Portuguese (Brazil) | `pt-BR` | 2019-10-01 | |
+| Punjabi (new)	 | `pa` | 2022-10-01 | |
+| Romanian (new)	 | `ro` | 2022-10-01 | |
+| Russian	 | `ru` | 2022-06-01 | |
+| Sanskrit (new)	 | `sa` | 2022-10-01 | |
+| Scottish Gaelic (new) | `gd` | 2022-10-01 | |
+| Serbian (new)	 | `sr` | 2022-10-01 | |
+| Sindhi (new)	 | `sd` | 2022-10-01 | |
+| Sinhala (new)	 | `si` | 2022-10-01 | |
+| Slovak (new)	 | `sk` | 2022-10-01 | |
+| Slovenian	(new) | `sl` | 2022-10-01 | |
+| Somali (new)	 | `so` | 2022-10-01 | |
+| Spanish	 | `es` | 2019-10-01 | |
+| Sundanese	(new) | `su` | 2022-10-01 | |
+| Swahili (new)	 | `sw` | 2022-10-01 | |
+| Swedish	 | `sv` | 2022-06-01 | |
+| Tamil | `ta` | 2022-10-01 | |
+| Telugu	 | `te` | 2022-10-01 | |
+| Thai (new)	 | `th` | 2022-10-01 | |
+| Turkish	 | `tr` | 2022-10-01 | |
+| Ukrainian	 (new) | `uk` | 2022-10-01 | |
+| Urdu (new)	 | `ur` | 2022-10-01 | |
+| Uyghur (new)	 | `ug` | 2022-10-01 | |
+| Uzbek	(new) | `uz` | 2022-10-01 | |
+| Vietnamese (new)	 | `vi` | 2022-10-01 | |
+| Welsh	(new) | `cy` | 2022-10-01 | |
+| Western Frisian (new) | `fy` | 2022-10-01 | |
+| Xhosa	(new) | `xh` | 2022-10-01 | |
+| Yiddish (new)	 | `yi` | 2022-10-01 | |
 
 
 ## Next steps
