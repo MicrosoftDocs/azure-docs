@@ -268,11 +268,13 @@
       items: 
         - name: In-process
           href: functions-dotnet-class-library.md
-        - name: Isolated process 
+        - name: Isolated worker process 
           displayName: .NET isolated, .NET 5
           href: dotnet-isolated-process-guide.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
+        - name: Exection mode comparison
+          href: dotnet-isolated-in-process-differences.md
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
