@@ -141,6 +141,13 @@ For example, the added information to the title of the `Publicly accessible stor
 
 All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
 
+### See the activity logs that relate to a security alert
+
+As part of the actions you can take to [evaluate a security alert](managing-and-responding-alerts.md#respond-to-security-alerts), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
+
+The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate the identified risk.
+
 ## March 2022
 
 Updates in March include:
