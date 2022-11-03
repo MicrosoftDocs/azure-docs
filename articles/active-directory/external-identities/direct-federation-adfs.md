@@ -72,7 +72,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 2. In the navigation pane, select **Relying Party Trusts**.
 3. Under **Actions**, select **Add Relying Party Trust**. 
 4. In the **Add Relying Party Trust** wizard, select **Claims aware**, and then select **Start**.
-5. In the **Select Data Source** section, select the check box for **Import data about the relying party published online or on a local network**. Enter this federation metadata URL: `https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml`. Select **Next**.
+5. In the **Select Data Source** section, select the check box for **Import data about the relying party published online or on a local network**. Enter the federation metadat URl of the Azure Active Directory you are setting up the federation with. This can be found on the Azure portal **Azure Active Directory** > **App registeration** > **Endpoints**> **Federation metadat document**. Select **Next**.
 6. Leave the other settings in their default options. Continue to select **Next**, and finally select **Close** to close the wizard.
 7. In **AD FS Management**, under **Relying Party Trusts**, right click the relying party trust you just created and select **Properties**.
 8. In the **Monitoring** tab, uncheck the box **Monitor relying party**.
