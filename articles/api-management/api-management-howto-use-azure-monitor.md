@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 API Management emits [metrics](../azure-monitor/essentials/data-platform-metrics.md) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the two most frequently used metrics. For a list of all available metrics, see [supported metrics](../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
 
-* **Capacity** - helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
+* **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
 
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ To access metrics:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance. On the **Overview** page, on the **Monitor** tab, review key metrics for your APIs.
 1. To investigate metrics in detail, select **Metrics** from the left menu.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu in the portal.":::
 
 1. From the drop-down, select metrics you're interested in. For example, **Requests**.
 1. The chart shows the total number of API calls. Adjust the time range to focus on periods of interest.
@@ -58,7 +58,7 @@ To access metrics:
 
 ## Set up an alert rule
 
-You can receive [alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) to perform an action when it triggers, including:
+You can receive [alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) to perform an action when it triggers. Common actions include:
 
 * Send an email notification
 * Call a webhook
@@ -69,7 +69,7 @@ To configure an example alert rule based on a request metric:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Alerts** from the left menu.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Screenshot of Alerts option in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Screenshot of Alerts option in Monitoring menu in the portal.":::
 
 1. Select **+ Create** > **Alert rule**.
 1. In the **Create an alert rule** window, select **Condition** > **Select a signal**.
@@ -81,11 +81,11 @@ To configure an example alert rule based on a request metric:
     1. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests. If the dimension value doesn't appear, select **Add custom value** and enter **4xx**.
     1. In **When to evalute**, select how often the alert rule should run.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold-1.png" alt-text="Screenshot of Configure Signal Logic windows":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold-1.png" alt-text="Screenshot of configuring alert logic in the portal.":::
 
-1. On the **Actions** tab, select or create one or more [action groups](../azure-monitor/alerts/action-groups.md) to notify users about the alert and take an action. For example, create a new action group to send a notification email to admin@contoso.com. 
+1. On the **Actions** tab, select or create one or more [action groups](../azure-monitor/alerts/action-groups.md) to notify users about the alert and take an action. For example, create a new action group to send a notification email to `admin@contoso.com`. 
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Screenshot of notifications for new action group":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Screenshot of configuring notifications for new action group in the portal.":::
 
 1. On the **Details** tab, enter a name and description of the alert rule and select the severity level.
 1. Optionally configure additional settings. Then, on **Review + create** tab, select **Create**.
@@ -99,7 +99,7 @@ To configure an example alert rule based on a request metric:
 
     Alerts also appear on the **Alerts** page for the API Management instance.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Screenshot of alerts in portal":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Screenshot of alerts in portal.":::
 
 ## Activity logs
 
@@ -118,7 +118,7 @@ To view the activity log:
 
 1. Select **Activity log**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Screenshot of Activity log item in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Screenshot of Activity log item in Monitoring menu in the portal.":::
 1. Select the desired filtering scope and then **Apply**.
 
 ## Resource logs
@@ -130,7 +130,7 @@ To configure resource logs:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 2. Select **Diagnostic settings**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu in the portal.":::
 
 1. Select **+ Add diagnostic setting**.
 1. Select the logs or metrics that you want to collect.
@@ -141,13 +141,7 @@ To configure resource logs:
    > If you select a Log Analytics workspace, you can choose to store the data in resource-specific tables or store in the general Azure diagnostics table. We recommend using resource-specific tables, which make it easier to discover schemas and query data. [Learn more](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) 
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
-
-## Collect Azure Monitor data for APIs
-
-By default, when you create a diagnostic setting to enable collection of resource logs, collection of log data is enabled for all APIs. You can adjust the settings for all APIs, or for individual APIs. For example, you can adjust the sampling rate or the verbosity of the data, or disable logs for all or some APIs.
-
  
-
 ## View diagnostic data in Azure Monitor
 
 If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. To view the data:
@@ -155,7 +149,7 @@ If you enable collection of logs or metrics in a Log Analytics workspace, it can
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Logs** from the left menu.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu in the portal.":::
 
 Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
@@ -206,6 +200,24 @@ The following JSON indicates a sample entry in GatewayLogs for a successful API 
     "resourceId": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/APIM-HELLO-WORLD"
 }
 ```
+
+## Configure collection of Azure Monitor logs for APIs
+
+By default, when you create a diagnostic setting to enable collection of resource logs, collection of logs is enabled for all APIs, with certain default settings. You can adjust the collection settings for all APIs, or override them for individual APIs. For example, you can adjust the sampling rate or the verbosity of the data, or disable collection of logs for all or some APIs.
+
+To manage collection of logs for all APIs:
+
+1. In the left menu of your API Management instance, select **APIs** > **All APIs**.
+1. Select the **Settings** tab from the top bar.
+1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
+1. Review the settings and make changes if needed. Select **Save**.
+
+To manage collection of logs for a specific API:
+
+1. In the left menu of your API Management instance, select **APIs** and then the name of the API.
+1. Select the **Settings** tab from the top bar.
+1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
+1. Review the settings and make changes if needed. Select **Save**.
 
 ## Next steps
 
