@@ -116,7 +116,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Veracode SSO
 
-1. In a different web browser window, sign in to your Veracode company site as an administrator.
+Notes:
+
+* These instructions assume you are using the new [Single Sign On/Just-in-Time Provisioning feature from Veracode](https://docs.veracode.com/r/Signing_On). To activate this feature if it is not already active, please contact Veracode Support.  
+* These instructions are valid for all [Veracode regions](https://docs.veracode.com/r/Region_Domains_for_Veracode_APIs).
+
+1. In a different web browser window, sign in to your Veracode company site as an administrator. 
 
 1. From the menu on the top, select **Settings** > **Admin**.
    
@@ -135,6 +140,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relaystate URL**). 
 
     d. Click **Save**.
+    
+1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relaystate URL** and update them in the Azure Active Directory settings for the Veracode integration.
 
 1. Select the **JIT Provisioning** tab.
 
