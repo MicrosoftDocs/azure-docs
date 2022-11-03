@@ -74,6 +74,8 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
+    - name: IoT Hub concepts overview
+      href: iot-hub-devguide.md
     - name: Develop
       items:
       - name: Device-to-cloud feature guide
@@ -173,6 +175,9 @@
       - name: Manage device identities
         displayName: identity registry, throttling rates, disable devices, import device identities, export device identities, device provisioning, device heartbeat, lifecycle notifications
         href: iot-hub-devguide-identity-registry.md
+      - name: Monitor device connection status
+        displayName: heartbeat, Event Grid
+        href: monitor-device-connection-state.md
       - name: Device configuration best practices
         displayName: device management, IoT hardware manufacturer, automatic device management, IoT solution developer, IoT solution operator, rollbacks
         href: iot-hub-configuration-best-practices.md

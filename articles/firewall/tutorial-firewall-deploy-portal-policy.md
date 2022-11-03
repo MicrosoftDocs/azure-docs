@@ -5,9 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/18/2022
+ms.date: 10/28/2022
 ms.author: victorh
-ms.custom: mvc
+ms.custom: template-tutorial, mvc, engagement-fy23
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
