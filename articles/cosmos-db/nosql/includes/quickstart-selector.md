@@ -1,10 +1,9 @@
 ---
-title: include file
-description: include file
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.topic: include
 ms.date: 11/03/2022
 ms.custom: include file, cosmos-dev-refresh
 ---
