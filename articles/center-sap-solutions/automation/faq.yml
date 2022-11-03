@@ -44,7 +44,7 @@ sections:
           What does the error "A resource with ID already exists... this resource needs to be imported into the State" mean?
         answer: |
           You might see the error `A resource with ID…already exists - to be managed via Terraform this resource needs to be imported into the State`. 
-          This error means that Azure resources were added outside of the Terraform deployment. Update the state file [automation-advanced_state_management.md](bash/automation-advanced_state_management.md) to fix.
+          This error means that Azure resources were added outside of the Terraform deployment. Update the state file [automation-advanced_state_management.md](bash/advanced_state_management.md) to fix.
       - question: |
           Why are multiline commands failing because of a whitespace error?
         answer: |

@@ -18,37 +18,37 @@ You can deploy all [SAP on Azure Deployment Automation Framework](deployment-fra
 
 ## Control Plane operations
 
-You can deploy or update the control plane using the [prepare_region](bash/automation-prepare-region.md) shell script.
+You can deploy or update the control plane using the [prepare_region](bash/prepare-region.md) shell script.
 
-Remove the control plane using the [remove_region](bash/automation-remove-region.md) shell script.
+Remove the control plane using the [remove_region](bash/remove-region.md) shell script.
 
-You can bootstrap the deployer in the control plane using the [install_deployer](bash/automation-install_deployer.md) Shell script.
+You can bootstrap the deployer in the control plane using the [install_deployer](bash/install-deployer.md) Shell script.
 
-You can bootstrap the SAP Library in the control plane using the [install_library](bash/automation-install_library.md) Shell script.
+You can bootstrap the SAP Library in the control plane using the [install_library](bash/install-library.md) Shell script.
 
 ## Workload Zone operations
 
 Deploy or update the workload zone using the [`install_workloadzone`](bash/install-workloadzone.md) shell script.
 
-Remove the workload zone using the [`remover`](bash/automation-remover.md) shell script.
+Remove the workload zone using the [`remover`](bash/remover.md) shell script.
 
 
 ## SAP System operations
 
-Deploy or update the SAP system using the [`installer`](bash/automation-installer.md) shell script.
+Deploy or update the SAP system using the [`installer`](bash/installer.md) shell script.
 
-Remove the SAP system using the [`remover`](bash/automation-remover.md)  Shell script.
+Remove the SAP system using the [`remover`](bash/remover.md)  Shell script.
 
 
 ## Other operations
 
 Set the deployment credentials using the
-[`Set SPN secrets`](bash/automation-set-secrets.md) Shell script.
+[`Set SPN secrets`](bash/set-secrets.md) Shell script.
 
 Update the Terraform state file using the
-[`Update Terraform state`](bash/automation-advanced_state_management.md) Shell script.
+[`Update Terraform state`](bash/advanced-state-management.md) Shell script.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploying the control plane using bash](bash/automation-prepare-region.md)
+> [Deploying the control plane using bash](bash/prepare-region.md)

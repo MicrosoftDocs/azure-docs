@@ -42,25 +42,25 @@ items:
       - name: Bash scripts for automation framework
         href: reference-bash.md
       - name: Deploying the control plane using shell scripts
-        href: bash/automation-prepare-region.md
+        href: bash/prepare-region.md
       - name: Deploying the workload zone using shell scripts
         href: bash/install-workloadzone.md
       - name: Deploying the SAP system using shell scripts
-        href: bash/automation-installer.md
+        href: bash/installer.md
       - name: Bootstrapping the Deployer using shell scripts
-        href: bash/automation-install_deployer.md
+        href: bash/install-deployer.md
       - name: Bootstrapping the Library using shell scripts
-        href: bash/automation-install_library.md
+        href: bash/install-library.md
       - name: Removing the control plane using shell scripts
-        href: bash/automation-remove-region.md
+        href: bash/remove-region.md
       - name: Removing the SAP system using shell scripts
-        href: bash/automation-remover.md
+        href: bash/remover.md
       - name: Set the Keyvault secrets using shell scripts
-        href: bash/automation-set-secrets.md
+        href: bash/set-secrets.md
       - name: Update the Terraform state file using shell scripts
-        href: bash/automation-advanced_state_management.md
+        href: bash/advanced-state-management.md
       - name: Update the SAP Library SAS token
-        href: bash/automation-update_sas_token.md
+        href: bash/update-sas-token.md
     - name: PowerShell
       items:
       - name: PowerShell cmdlets for automation framework
