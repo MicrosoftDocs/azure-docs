@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 09/20/2022
+ms.date: 11/03/2022
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -41,7 +41,7 @@ If you don't have access to install the extension, you must request access from 
 1. Select **Shared**.
 
     > [!Note]
-    > If you've already [installed the Microsoft Security DevOps extension](azure-devops-extension.md), it will be listed in the **Installed** tab.
+    > If you've already [installed the Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops), it will be listed in the Installed tab.
 
 1. Select **Microsoft Security DevOps**.
 
