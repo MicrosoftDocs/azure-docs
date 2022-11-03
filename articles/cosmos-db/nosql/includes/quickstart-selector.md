@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.date: 11/03/2022
-ms.custom: include file
+ms.custom: include file, cosmos-dev-refresh
 ---
 
 > [!div class="op_single_selector"]
