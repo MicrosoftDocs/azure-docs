@@ -88,7 +88,7 @@ A partition key has two components: **partition key path** and the **partition k
 
 To learn about the limits on throughput, storage, and length of the partition key, see the [Azure Cosmos DB service quotas](concepts-limits.md) article.
 
-Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key.
+Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](intra-account-container-copy.md) help with this process.)
 
 For **all** containers, your partition key should:
 

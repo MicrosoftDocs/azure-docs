@@ -3,7 +3,7 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/20/2022
+ms.date: 10/30/2022
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -17,11 +17,11 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 |Aspect|Details|
 |----|:----|
 |Release state:| Foundational CSPM capabilities: GA <br> Defender Cloud Security Posture Management (CSPM): Preview |
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts <br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP projects|
+|Clouds:| 	**Foundational CSPM capabilities** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. <br> <br> **Defender Cloud Security Posture Management (CSPM)** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. |
 
 ## Defender CSPM plan options
 
-The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender Cloud Security Posture Management (CSPM). When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverages offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) to your subscription and resources.
+The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender Cloud Security Posture Management (CSPM). When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
@@ -32,13 +32,13 @@ The following table summarizes what's included in each plan and their cloud avai
 | [Secure score](secure-score-access-and-track.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Governance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Regulatory compliance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
-| [Cloud Security Explorer](#cloud-security-explorer) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Attack Path Analysis](#attack-path-analysis) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Cloud security explorer](#cloud-security-explorer) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Attack path analysis](#attack-path-analysis) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Agentless scanning for machines](#agentless-scanning-for-machines) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 
 
 > [!NOTE]
-> If you have enabled Defender for DevOps, you will only gain Cloud Security Graph and Attack Path Analysis to the artifacts that arrive through those connectors. 
+> If you have enabled Defender for DevOps, you will only gain cloud security graph and attack path analysis to the artifacts that arrive through those connectors. 
 >
 > To enable Governance for for DevOps related recommendations, the Defender Cloud Security Posture Management (CSPM) plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
 
@@ -50,21 +50,24 @@ Defender for Cloud continuously assesses your hybrid cloud environment to analyz
 
 Learn more about [security and regulatory compliance in Defender for Cloud](concept-regulatory-compliance.md).
 
-## Cloud Security Explorer
+## Cloud security explorer
 
-The Cloud Security Graph is a graph-based context engine that exists within Defender for Cloud. The Cloud Security Graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment.
+The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment.
 
-Defender for Cloud then uses the generated graph to perform an Attack Path Analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the Cloud Security Explorer.
+Defender for Cloud then uses the generated graph to perform an attack path analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the cloud security explorer.
 
-Learn more about [Cloud Security Explorer](concept-attack-path.md#what-is-cloud-security-explorer)
+Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer)
 
-## Attack Path Analysis
+## Attack path analysis
 
-Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans:
 
-By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+- expose exploitable paths that attackers may use to breach your environment and reach your high-impact assets
+- provide recommendations for ways to prevent successful breaches
 
-Learn more about [Attack Path Analysis](concept-attack-path.md#what-is-attack-path-analysis)
+By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more, this analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+
+Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
 ## Agentless scanning for machines 
 

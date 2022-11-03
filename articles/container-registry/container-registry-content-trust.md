@@ -21,6 +21,9 @@ Important to any distributed system designed with security in mind is verifying 
 
 As an image publisher, content trust allows you to **sign** the images you push to your registry. Consumers of your images (people or systems pulling images from your registry) can configure their clients to pull *only* signed images. When an image consumer pulls a signed image, their Docker client verifies the integrity of the image. In this model, consumers are assured that the signed images in your registry were indeed published by you, and that they've not been modified since being published.
 
+> [!NOTE]
+> Azure Container Registry (ACR) does not support `acr import` to import images signed with Docker Content Trust (DCT). By design, the signatures are not visible after the import, and the notary v2 stores these signatures as artifacts.
+
 ### Trusted images
 
 Content trust works with the **tags** in a repository. Image repositories can contain images with both signed and unsigned tags. For example, you might sign only the `myimage:stable` and `myimage:latest` images, but not `myimage:dev`.

@@ -1,10 +1,10 @@
 ---
-title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files | Microsoft Docs
+title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 10/17/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -24,14 +24,14 @@ The article details the steps to configure a Point-to-Site VPN on Linux to mount
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
-- The most recent version of the Azure CLI. For more information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may, however the instructions below are presented for Azure CLI.
+- The most recent version of the Azure CLI. For information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may. However, the instructions below are for Azure CLI.
 
-- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+- An Azure file share you'd like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
-- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
+- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## Install required software
-The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This guide shows how to use IPsec and uses the strongSwan package to provide the support on Linux. 
+The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux. 
 
 > Verified with Ubuntu 18.10.
 
@@ -196,7 +196,7 @@ sudo ipsec up $virtualNetworkName
 ```
 
 ## Mount Azure file share
-Now that you have set up your Point-to-Site VPN, you can mount your Azure file share. The following example will mount the share non-persistently. To mount persistently, see [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
+Now that you've set up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
 - [Azure Files networking overview](storage-files-networking-overview.md)

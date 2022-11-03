@@ -3,12 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Search?
+  - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
+  - name: What's new in Search?
+    href: whats-new.md
   - name: Features in Search
     href: search-features-list.md
-  - name: New in Search
-    href: whats-new.md
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Portal
@@ -17,13 +19,13 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a knowledge store
-      href: knowledge-store-create-portal.md
     - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: Visual Studio Code 
+  - name: Visual Studio Code (preview - retired)
     href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
@@ -89,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Enrich with SynapseML
+  - name: Index at scale (Apache Spark)
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
@@ -140,7 +142,9 @@
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
-      href: index-similarity-and-scoring.md     
+      href: index-similarity-and-scoring.md
+    - name: Semantic ranking
+      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
@@ -180,6 +184,8 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
+  - name: Create a search service
+    href: search-create-service-portal.md
   - name: Planning
     items:
     - name: Choose a tier
@@ -196,8 +202,6 @@
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management
     items:
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
@@ -418,48 +422,50 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
-    - name: Create a semantic query
-      href: semantic-how-to-query-request.md
-    - name: Return a semantic answer
-      href: semantic-answers.md
-    - name: Add spell check to queries
-      href: speller-how-to-add.md
-    - name: Search results paging and formatting
-      href: search-pagination-page-layout.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene (examples)
-      href: search-query-lucene-examples.md
-    - name: Partial terms and special characters
-      href: search-query-partial-matching.md
-    - name: Fuzzy search
-      href: search-query-fuzzy.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
     - name: Autocomplete "Search-as-you-type"
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-add-autocomplete-suggestions.md
-  - name: Filters
-    items:
-    - name: Filter overview
-      href: search-filters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Troubleshoot collection filters
-      href: search-query-troubleshoot-collection-filters.md
-    - name: Understand collection filters
-      href: search-query-understand-collection-filters.md
-    - name: Normalize text
-      href: search-normalizers.md
+    - name: Filters
+      items:
+      - name: Filter overview
+        href: search-filters.md
+      - name: Add faceted navigation
+        href: search-faceted-navigation.md
+      - name: Troubleshoot collection filters
+        href: search-query-troubleshoot-collection-filters.md
+      - name: Understand collection filters
+        href: search-query-understand-collection-filters.md
+      - name: Normalize text
+        href: search-normalizers.md
+    - name: Search results 
+      items:
+      - name: Paging, sorting, and formatting
+        href: search-pagination-page-layout.md
+      - name: Return a semantic answer
+        href: semantic-answers.md
+    - name: Advanced queries
+      items:
+      - name: Use full Lucene (examples)
+        href: search-query-lucene-examples.md
+      - name: Partial terms and special characters
+        href: search-query-partial-matching.md
+      - name: Fuzzy search
+        href: search-query-fuzzy.md
   - name: Relevance
     items:
-    - name: Similarity ranking
+    - name: Configure scoring
       href: index-ranking-similarity.md
-    - name: Semantic ranking
-      href: semantic-ranking.md
-    - name: Scoring profiles 
+    - name: Add a scoring profile
       href: index-add-scoring-profiles.md
+    - name: Configure semantic search
+      href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:
     - name: Performance analysis
@@ -618,8 +624,6 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
   - name: Demo sites
     href: resource-demo-sites.md
   - name: Tools

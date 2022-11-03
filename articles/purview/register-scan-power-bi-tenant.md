@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage a Power BI tenant same tenant
 description: This guide describes how to connect to a Power BI tenant in the same tenant as Microsoft Purview, and use Microsoft Purview's features to scan and manage your Power BI tenant source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -39,7 +39,7 @@ For a list of metadata available for Power BI, see our [available metadata docum
 -  You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
 -  If Power BI dataset schema isn't shown after scan, it's due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
 -  Empty workspaces are skipped.
--  Payload is currently limited to 2MB and 300 columns when scanning an asset.
+-  Payload is currently limited to 2MB and 800 columns when scanning an asset.
 
 ## Prerequisites
 
@@ -100,10 +100,16 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
-   2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+    
     3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. If delegated authentication is used, validate Power BI admin user settings to make sure:
@@ -153,10 +159,16 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
-   2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. Review network configuration and validate if:
@@ -305,17 +317,20 @@ For more information about Microsoft Purview network settings, see [Use private 
 
 To create and run a new scan, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. [For information about the Redirect URI see this documenation from Azure Active Directory](/azure/active-directory/develop/reply-url).
 
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
+
+2. Take note of Client ID(App ID).
+  
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
-1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
+1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions:
 
-   - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions on Microsoft Graph.":::
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 
@@ -400,17 +415,21 @@ To create and run a new scan, do the following:
 
 1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account) 
    
-1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
+1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. 
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
+
+2. Take note of Client ID(App ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
-1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
+1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. Assign the application the following delegated permissions, and grant admin consent for the tenant:
 
    - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions on Power BI Service and Microsoft Graph.":::
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 

@@ -9,7 +9,7 @@ author: kabharati
 ms.date: 09/26/2022
 ---
 
-# Create users in Azure Database for PostgreSQL - Flexible Server
+# Create users in Azure Database for PostgreSQL - Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

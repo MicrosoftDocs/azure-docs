@@ -8,6 +8,8 @@
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
+  - name: What's new
+    href: whats-new.md  
   expanded: true
 - name: Quickstarts
   items:
@@ -66,6 +68,9 @@
     href: virtual-machine-scale-sets-autoscale-portal.md
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
+    maintainContext: true
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 

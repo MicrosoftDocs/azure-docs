@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 10/19/2022
 ---
 
 # Debug an Azure Cognitive Search skillset in Azure portal
@@ -69,6 +69,11 @@ A Debug Session works with all generally available [indexer data sources](search
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata created will be visible and available in the session.
+
+A debug session can be canceled while it's executing using the **Cancel** button. If you hit the **Cancel** button you should be able to analyze partial results.
+
+It is expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
+
 
 ## Start with errors and warnings
 
@@ -143,7 +148,7 @@ If skills produce output but the search index is empty, check the field mappings
 
 ## Debug a custom skill locally
 
-Custom skills can be more challenging to debug because the code runs externally. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
+Custom skills can be more challenging to debug because the code runs externally, so the debug session can't be used to debug them. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
 
 ### Run ngrok
 

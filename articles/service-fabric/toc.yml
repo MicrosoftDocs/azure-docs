@@ -534,6 +534,8 @@
           href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
+        - name: Set up Azure Active Directory authentication in Azure portal
+          href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
         - name: Create using Resource Manager

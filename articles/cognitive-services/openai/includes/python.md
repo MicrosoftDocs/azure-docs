@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 11/02/2022
 keywords: 
 ---
 
@@ -30,6 +30,9 @@ keywords:
 ```console
 pip install openai
 ```
+
+> [!NOTE]
+> This library is maintained by OpenAI and is currently a preview release. Use the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 
@@ -93,6 +96,8 @@ Run the code a few more times to see what other types of responses you get as th
 ### Understanding your results
 
 Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 

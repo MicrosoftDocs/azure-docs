@@ -762,6 +762,8 @@ items:
         href: ./spark/intellij-tool-synapse.md
     - name: Explore languages
       items:
+      - name: R for Apache Spark
+        href: ./spark/apache-spark-r-language.md
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
     - name: Security

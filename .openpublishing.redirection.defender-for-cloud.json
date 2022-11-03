@@ -729,6 +729,31 @@
             "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
             "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-pull-request-annotations.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-pull-request-annotations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/detect-credential-leaks.md",
+            "redirect_url": "/azure/defender-for-cloud/detect-exposed-secrets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-ecr.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-acr.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
+            "redirect_document_id": true
         }
     
       ]

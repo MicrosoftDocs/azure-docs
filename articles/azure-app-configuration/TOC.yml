@@ -23,7 +23,9 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Python
+        - name: Python provider
+          href: quickstart-python-provider.md
+        - name: Python SDK
           href: quickstart-python.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
@@ -193,6 +195,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Azure SDK for Java
@@ -207,6 +211,8 @@
           href: /dotnet/api/microsoft.featuremanagement
         - name: .NET built-in feature filters
           href: /dotnet/api/microsoft.featuremanagement.featurefilters
+        - name: Java Spring
+          href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Control plane
       items:
         - name: REST API

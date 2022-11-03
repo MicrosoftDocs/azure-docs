@@ -1,8 +1,8 @@
 ---
 title: How to create resource set pattern rules
 description: Learn how to create a resource set pattern rule to overwrite how assets get grouped into resource sets
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

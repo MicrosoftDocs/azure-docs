@@ -233,7 +233,7 @@ async function callApi(endpoint, accessToken) {
     console.log('request made to web API at: ' + new Date().toString());
 
     try {
-        const response = await axios.default.get(endpoint, options);
+        const response = await axios.get(endpoint, options);
         return response.data;
     } catch (error) {
         console.log(error)

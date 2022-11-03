@@ -109,9 +109,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Single Sign-On](./media/atlassian-cloud-tutorial/configure.png)
    
-   b. Copy **Azure AD Identifier** value from Azure portal, paste it in the **Identity Provider Entity ID** textbox in Atlassian.
+   b. Copy **Login URL** value from Azure portal, paste it in the **Identity Provider SSO URL** textbox in Atlassian.
    
-   c. Copy **Login URL** value from Azure portal, paste it in the **Identity Provider SSO URL** textbox in Atlassian.
+   c. Copy **Azure AD Identifier** value from Azure portal, paste it in the **Identity Provider Entity ID** textbox in Atlassian.
 
    ![Identity Provider SSO URL](./media/atlassian-cloud-tutorial/configuration-azure.png)
 

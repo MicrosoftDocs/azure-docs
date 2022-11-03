@@ -116,5 +116,5 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert a segy to zgy file](/how-to-convert-segy-to-zgy.md)
+> [How to convert a segy to zgy file](/azure/energy-data-services/how-to-convert-segy-to-zgy)
 

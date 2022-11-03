@@ -53,7 +53,7 @@ Update-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib $newVolumeSize
+az elastic-san volume update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib $newVolumeSize
 ```
 
 ---

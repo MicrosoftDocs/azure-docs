@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to configure environment types to define deployment settings and permissions available to developers when deploying environments in a project.
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/12/2022
 ms.topic: how-to
 ---
@@ -35,7 +35,7 @@ In this article, you'll learn how to:
 ## Add a new project environment type
 
 >[!NOTE]
-> To configure project environment types, you'll need write [access](/devops/organizations/security/add-users-team-project) to the specific project.
+> To configure project environment types, you'll need write [access](/azure/devops/organizations/security/add-users-team-project) to the specific project.
 
 Configuring a new project environment type will enable your development teams to create an environment with a specific environment type. The environment will be created in the mapped subscription using the configured deployment identity, along with permissions granted to the resources created as part of the environment, and all the associated policies automatically applied.
 

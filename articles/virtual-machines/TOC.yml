@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md  
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -453,8 +455,8 @@
       - name: Windows client images
         displayName: Windows, Client, find
         href: ./windows/client-images.md
-      - name: Windows 10 images
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows, find
+      - name: Windows 11 images
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:
@@ -1120,8 +1122,8 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Enable cross-tenant customer-managed keys
-        href: disks-cross-tenant-cmk.md
+      - name: Use customer-managed keys across Azure AD tenants
+        href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
         items:
@@ -1719,6 +1721,8 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
+  - name: Update management center (preview)
+    href: ../update-center/index.yml
   - name: Maintenance
     items:
     - name: Overview

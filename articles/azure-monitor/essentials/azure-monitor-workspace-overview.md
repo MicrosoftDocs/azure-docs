@@ -4,7 +4,7 @@ description: Overview of Azure Monitor workspace, which is a unique environment 
 author: bwren 
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 05/09/2022
+ms.date: 10/05/2022
 ---
 
 # Azure Monitor workspace (preview)
@@ -21,15 +21,24 @@ The following table lists the contents of Azure Monitor workspaces. This table w
 | Prometheus metrics | Native platform metrics<br>Native custom metrics<br>Prometheus metrics |
 
 
-
 ## Workspace design
 A single Azure Monitor workspace can collect data from multiple sources, but there may be circumstances where you require multiple workspaces to address your particular business requirements. Azure Monitor workspace design is similar to [Log Analytics workspace design](../logs/workspace-design.md). There are several reasons that you may consider creating additional workspaces including the following.
 
-- If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant.
-- Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations.
-- You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies.
+- Azure tenants. If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant.
+- Azure regions. Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations.
+- Data ownership. You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies.
+- Workspace limits. See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces.
+- Multiple environments. You may have Azure Monitor workspaces supporting different environments such as test, pre-production, and production.
+
+> [!NOTE]
+> You cannot currently query across multiple Azure Monitor workspaces.
+
+## Workspace limits
+These are currently only related to Prometheus metrics, since this is the only data currently stored in Azure Monitor workspaces. 
 
 Many customers will choose an Azure Monitor workspace design to match their Log Analytics workspace design. Since Azure Monitor workspaces currently only contain Prometheus metrics, and metric data is typically not as sensitive as log data, you may choose to further consolidate your Azure Monitor workspaces for simplicity.
+
+
 
 ## Create an Azure Monitor workspace
 In addition to the methods below, you may be given the option to create a new Azure Monitor workspace in the Azure portal as part of a configuration that requires one. For example, when you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
@@ -53,7 +62,7 @@ az resource create --resource-group divyaj-test --namespace microsoft.monitor --
 ```
 
 ### [Resource Manager](#tab/resource-manager)
-Use the following Resource Manager template with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
+Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
 
 ```json
 {
@@ -77,6 +86,20 @@ Use the following Resource Manager template with any of the [standard deployment
         }
     ]
 }
+```
+
+```bicep
+@description('Specify the name of the workspace.')
+param workspaceName string
+
+@description('Specify the location for the workspace.')
+param location string = resourceGroup().location
+
+resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
+  name: workspaceName
+  location: location
+}
+
 ```
 
 

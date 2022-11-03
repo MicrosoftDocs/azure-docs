@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.date: 10/06/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
@@ -18,11 +18,6 @@ ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, s
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
@@ -291,7 +286,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of the scoring script for multi models, see [multimodel-minimal-score.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/multimodel-minimal-score.py).
+Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel/README.md).
 
 ## Understand the scoring script
 
@@ -389,7 +384,7 @@ The output should appear similar to the following JSON. The `provisioning_state`
 ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
 ```
 
-The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md). The `provisioning_state` is `Succeeded`.
+The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint). The `provisioning_state` is `Succeeded`.
 
 ```python
 ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'local-10061534497697', 'description': 'this is a sample local endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
@@ -592,7 +587,7 @@ for endpoint in ml_client.online_endpoints.list():
     print(endpoint.name)
 ```
 
-The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md#parameters).
+The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
 
 For example, output the list of endpoints like a table:
 
@@ -671,7 +666,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -718,7 +713,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 # [Python](#tab/python)
 
-If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations.md#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
+If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
 
 > [!NOTE]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `begin_create_or_update` method: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
@@ -785,15 +780,14 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ## Next steps
 
 Try safe rollout of your models as a next step:
-- [Safe rollout for online endpoints (CLI v2)](how-to-safely-rollout-managed-endpoints.md)
-- [Safe rollout for online endpoints (SDK v2)](how-to-safely-rollout-managed-endpoints-sdk-v2.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 
 To learn more, review these articles:
 
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
 - [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)

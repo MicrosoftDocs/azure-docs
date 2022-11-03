@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/31/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -43,10 +43,10 @@ DNS forwarding rulesets enable you to specify one or more custom DNS servers to 
 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
-- A ruleset can have up to 1000 DNS forwarding rules. 
-- A ruleset can be linked to any number of virtual networks in the same region
+- A ruleset can have up to 25 DNS forwarding rules. 
+- A ruleset can be linked to up to 10 virtual networks in the same region
 
-A ruleset can't be linked to a virtual network in another region. 
+A ruleset can't be linked to a virtual network in another region. For more information about ruleset and other private resolver limits, see [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-).
 
 ### Ruleset links
 
@@ -85,6 +85,10 @@ For example, if you have the following rules:
 | Wildcard | . | 10.100.0.2:53 | Enabled  |
 
 A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rule for `azure.contoso.com` and also the **Contoso** rule for `contoso.com`, but the **AzurePrivate** rule takes precedence because the prefix `azure.contoso` is longer than `contoso`. 
+
+> [!IMPORTANT]
+> - You can't enter the Azure DNS IP address of 168.63.129.16 as the destination IP address for a rule. Attempting to add this IP address will output the error: **Exception while making add request for rule**. 
+> - Do not use the private resolver's inbound endpoint IP address as a forwarding destination for zones that are not linked to the virtual network where the private resolver is provisioned.
 
 ## Next steps
 

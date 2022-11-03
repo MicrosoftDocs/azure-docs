@@ -27,7 +27,7 @@ This scenario is intended for customers using Azure Monitor to monitor AKS. It d
 ## Container insights
 AKS generates [platform metrics and resource logs](monitor-aks-reference.md), like any other Azure resource, that you can use to monitor its basic health and performance. Enable [Container insights](../azure-monitor/containers/container-insights-overview.md) to expand on this monitoring. Container insights is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. 
 
-[Prometheus](https://aka.ms/azureprometheus-promio) and [Grafana](https://aka.ms/azureprometheus-promio-grafana) are CNCF backed widely popular open source tools for kubernetes monitoring. AKS exposes many metrics in Prometheus format which makes Prometheus a popular choice for monitoring. [Container insights](../azure-monitor/containers/container-insights-overview.md) has native integration with AKS, collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks. It also collects certain Prometheus metrics, and many native Azure Monitor insights are built-up on top of Prometheus metrics. Container insights complements and completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration and Azure Monitor together for E2E monitoring.
+[Prometheus](https://aka.ms/azureprometheus-promio) and [Grafana](https://aka.ms/azureprometheus-promio-grafana) are CNCF backed widely popular open source tools for kubernetes monitoring. AKS exposes many metrics in Prometheus format which makes Prometheus a popular choice for monitoring. [Container insights](../azure-monitor/containers/container-insights-overview.md) has native integration with AKS, collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks. It also collects certain Prometheus metrics, and many native Azure Monitor Insights are built-up on top of Prometheus metrics. Container insights complements and completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration and Azure Monitor together for E2E monitoring.
 
 Learn more about using Container insights at [Container insights overview](../azure-monitor/containers/container-insights-overview.md). [Monitor layers of AKS with Container insights](#monitor-layers-of-aks-with-container-insights) below introduces various features of Container insights and the monitoring scenarios that they support.
 
@@ -87,7 +87,7 @@ Access Azure Monitor features for all AKS clusters in your subscription from the
 | Alerts | Views alerts for the current cluster. |
 | Metrics | Open metrics explorer with the scope set to the current cluster. |
 | Diagnostic settings | Create diagnostic settings for the cluster to collect resource logs. |
-| Advisor | recommendations	Recommendations for the current cluster from Azure Advisor. |
+| Advisor | Recommendations for the current cluster from Azure Advisor. |
 | Logs | Open Log Analytics with the scope set to the current cluster to analyze log data and access prebuilt queries. |
 | Workbooks | Open workbook gallery for Kubernetes service. |
 

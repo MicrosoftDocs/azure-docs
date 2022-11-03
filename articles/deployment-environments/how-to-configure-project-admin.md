@@ -21,7 +21,7 @@ Based on the scope that users are granted access to, a DevCenter Project Admin c
 * View, add, update, disable or delete the project environment types
 * Create an environment
 * Read, write, delete, or perform actions (deploy, reset, etc.) on their own environment
-* Read or perform actions (deploy, reset, etc.) on environments created by other users
+* Read, delete, or perform actions (deploy, reset, etc.) on environments created by other users
 
 When the role is assigned at the project level, the DevCenter Project Admin can perform the actions listed above on all environment types at the Project level. When the role is assigned to specific environment type(s), the DevCenter Project Admin can perform the actions only on the respective environment type(s).
 

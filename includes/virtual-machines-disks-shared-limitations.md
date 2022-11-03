@@ -14,6 +14,9 @@
 
 Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 managed disks, premium SSD managed disks, and standard SSDs can enable shared disks. Shared disks can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
 
+> [!IMPORTANT]
+> Host caching isn't supported for shared disks.
+
 Each managed disk that has shared disks enabled are also subject to the following limitations, organized by disk type:
 
 ### Ultra disks

@@ -175,7 +175,7 @@ To bring a model into production, it's deployed. Azure Machine Learning's manage
 
 See:
  * [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
- * [Use batch endpoints for scoring](how-to-use-batch-endpoint.md) 
+ * [Use batch endpoints for scoring](batch-inference/how-to-use-batch-endpoint.md) 
 
 
 ## MLOps: DevOps for machine learning 
@@ -209,4 +209,4 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 Start using Azure Machine Learning:
 - [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
-- [How to run training jobs(how-to-train-model.md)
+- [How to run training jobs](how-to-train-model.md)

@@ -59,7 +59,7 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
 
-1. Navigate to the following location to create a new repository:
+1. Go to the following location to create a new repository:
     1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 
 1. Name your repository **myfirstswadeployment**

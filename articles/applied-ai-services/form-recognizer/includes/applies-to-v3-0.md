@@ -10,4 +10,4 @@ ms.topic: include
 ms.date: 10/10/2022
 ---
 
-**Applies to:** ![Form Recognizer v3.0 checkmark](../media/yes-icon.png) **Form Recognizer v3.0**. **Other versions:** [Form Recognizer v2.1](?view=form-recog-2.1.0&preserve-view=true)
+**This article applies to:** ![Form Recognizer v3.0 checkmark](../media/yes-icon.png) **Form Recognizer v3.0**. **Earlier versions:** [Form Recognizer v2.1](?view=form-recog-2.1.0&preserve-view=true)

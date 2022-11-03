@@ -41,7 +41,7 @@ The following table lists the property names and their descriptions for creating
 | Delimiter   | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format      | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. If you select **Line separated**, the JSON is read one object at a time. The whole content by itself wouldn't be a valid JSON. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to. |
 
-## Exactly Once Delivery
+## Exactly Once Delivery (Public Preview)
 
 End-to-end exactly once delivery when reading any streaming input means that processed data will be written to Azure Data Lake Storage Gen2 output once without duplicates. When the feature is enabled, your Stream Analytics job guarantees no data loss and no duplicates being produced as output, across user-initiated restart from last output time. This greatly simplifies your streaming pipeline by not having to implement and troubleshoot deduplication logic.
 
@@ -50,6 +50,9 @@ End-to-end exactly once delivery when reading any streaming input means that pro
 There are two ways that Stream Analytics writes to your Blob storage or ADLS Gen2 account. One is to append results either to the same file or to a sequence of files as results are coming in. The other one is to write after all results for the time partition when all the data for the time partition is available. Exactly Once Delivery is enabled when Write Mode is Once.
 
 There's no write mode option for Delta Lake. However Delta lake output also provides exactly once guarantees using delta log. It doesn't require time partition and would write results continuously based on the batching parameters that user defined.
+
+> [!NOTE]
+> If you prefer not to use the preview feature for exactly once delivery, please select **Append as results arrive**.
 
 ### Configuration
 
@@ -64,6 +67,10 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 * [Substream](/stream-analytics-query/timestamp-by-azure-stream-analytics) isn't supported.
 * Path Pattern becomes a required property, and must contain both{date} and {time}. No dynamic custom {field} name is allowed. Learn more about [custom path pattern](stream-analytics-custom-path-patterns-blob-storage-output.md).
 * If the job is started at a **custom time** before or after the last output time, there's risk of file being overwritten. For example, when the **time format** is HH, the file is generated every hour. If you stop the job at 8:15am, and restart the job at 8:30am, the file generated between 8am to 9am will only cover data from 8:30am to 9am. The data from 8am to 8:15am will be lost as it's overwritten.
+
+### Regions Availability
+
+The feature is currently supported in West Central US, Japan East, Canada Central, Korea Central, North Europe, and South India.
 
 ## Blob output files
 

@@ -28,9 +28,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   > * The identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
   > * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) can be used for this identity. This role is useful for at-scale onboarding, as it has only the granular permissions required to connect clusters to Azure Arc, and doesn't have permission to update, delete, or modify any other clusters or other Azure resources.
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-* Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
+* Install the latest version of **connectedk8s** Azure CLI extension:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -149,6 +149,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
+> [!IMPORTANT]
+> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
 
 ## Create a resource group
 
@@ -303,6 +306,10 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 ---
 
 For outbound proxy servers where only a trusted certificate needs to be provided without the proxy server endpoint inputs, `az connectedk8s connect` can be run with just the `--proxy-cert` input specified. In case multiple trusted certificates are expected, the combined certificate chain can be provided in a single file using the `--proxy-cert` parameter.
+
+> [!NOTE]
+>
+> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honour the one passed last.
 
 ### [Azure CLI](#tab/azure-cli)
 

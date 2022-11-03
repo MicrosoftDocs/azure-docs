@@ -33,7 +33,7 @@ sections:
           The current Azure Files backup solution keeps snapshots in the same storage account as the backed-up file share. If the storage account gets deleted, you'll lose all your snapshots. To protect your account against accidental deletion, Azure Backup takes a Delete lock on the storage account. It means authorized users can still read and modify a resource, but they can't delete it. The lock also restricts the deletion of any file share under the storage account. Hence, you get protection from the accidental deletion of both the storage account and files shares.
 
       - question: |
-          Can I protect File Shares connected to a Sync Group in Azure Files Sync?
+          Can I protect File Shares connected to a Sync Group in Azure File Sync?
         answer: |
           Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 

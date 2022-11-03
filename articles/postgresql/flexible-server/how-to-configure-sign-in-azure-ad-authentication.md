@@ -10,14 +10,14 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Use Azure Active Directory (Azure AD) for authentication with PostgreSQL Flexible Server
+# Use Azure Active Directory for authentication with PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]  
+> [!NOTE]
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
-This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
+This article walks you through the steps how to configure Azure Active Directory (Azure AD) access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
 
 ## Enable Azure AD Authentication
 
@@ -26,7 +26,7 @@ Only Azure AD administrator users can create/enable users for Azure AD-based aut
 
 ## Prerequisites
 
-The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
+The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by `tenant administrator`or a user with tenant admin rights and this is one time activity per tenant.
 
 Install AzureAD PowerShell: AzureAD Module
 
@@ -38,9 +38,9 @@ Connect-AzureAD -TenantId <customer tenant id>
 ### Step 2: Grant Flexible Server Service Principal read access to customer tenant
 
 ```powershell
-New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed
+New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 ```
-This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for Azure AD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
+This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for Azure AD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed9) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
 
 ### Step 3: Networking Requirements
 
@@ -68,7 +68,7 @@ Note only one Azure admin user can be added during server provisioning and you c
 
 To set the Azure AD administrator after server creation,  follow the below steps
 
-1. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
+1. In the Azure portal, select the instance of Azure Database for PostgreSQL Flexible Server that you want to enable for Azure AD.
 1. Under Security, select Authentication and choose either`PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
 
 ![set azure ad administrator][2]
@@ -77,9 +77,9 @@ To set the Azure AD administrator after server creation,  follow the below steps
 1. Select Save,
 
 > [!IMPORTANT]  
-> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions.
+> When setting the administrator, a new user is added to the Azure Database for PostgreSQL Flexible Server with full administrator permissions.
 
-## Connect to Azure Database for PostgreSQL using Azure AD
+## Connect to Azure Database for PostgreSQL Flexible Server using Azure AD
 
 The following high-level diagram summarizes the workflow of using Azure AD authentication with Azure Database for PostgreSQL:
 
@@ -100,7 +100,7 @@ These are the steps that a user/application will need to do authenticate with Az
 
 You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine. Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-## Authenticate with Azure AD as a Flexible user
+## Authenticate with Azure AD as a Flexible Server user
 
 ### Step 1: Log in to the user's Azure subscription
 
@@ -119,7 +119,7 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-Azure AD.database.windows.net
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
@@ -194,7 +194,7 @@ You're now authenticated to your Azure Database for PostgreSQL server using Azur
 
 ## Authenticate with Azure AD as a group member
 
-### Step 1: Create Azure AD groups in Azure Database for PostgreSQL
+### Step 1: Create Azure AD groups in Azure Database for PostgreSQL Flexible Server
 
 To enable an Azure AD group for access to your database, use the same mechanism as for users, but instead specify the group name:
 
@@ -224,7 +224,7 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-Azure AD.database.windows.net
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:

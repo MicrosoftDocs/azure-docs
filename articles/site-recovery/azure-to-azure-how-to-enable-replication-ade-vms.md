@@ -1,12 +1,12 @@
 ---
 title: Enable replication for encrypted Azure VMs in Azure Site Recovery 
 description: This article describes how to configure replication for Azure Disk Encryption-enabled VMs from one Azure region to another by using Site Recovery.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/05/2022
-ms.author: v-pgaddala
+ms.date: 10/19/2022
+ms.author: ankitadutta
 
 ---
 
@@ -127,7 +127,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
          :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/availability-option.png" alt-text="Screenshot of availability option."::: 
    
-    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
+    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](../virtual-machines/capacity-reservation-overview.md).
     Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
     
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::

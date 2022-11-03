@@ -3,12 +3,12 @@ title: Limited Access features for Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services that are available with Limited Access are described below.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/16/2022
-ms.author: nitinme
+ms.date: 10/27/2022
+ms.author: pafarley
 ---
 
 # Limited Access features for Cognitive Services
@@ -25,6 +25,7 @@ Limited Access services are made available to customers under the terms governin
 
 The following services are Limited Access: 
 
+- [Embedded Speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context): All features
 - [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context): Pro features 
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
 - [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features, face ID property
@@ -39,6 +40,7 @@ Features of these services that aren't listed above are available without regist
 
 Submit a registration form for each Limited Access service you would like to use: 
 
+- [Embedded Speech](https://aka.ms/csgate-embedded-speech): All features 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
@@ -67,6 +69,7 @@ Existing customers have until June 30, 2023 to submit a registration form and be
 
 The registration forms can be found here: 
 
+- [Embedded Speech](https://aka.ms/csgate-embedded-speech): All features 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features

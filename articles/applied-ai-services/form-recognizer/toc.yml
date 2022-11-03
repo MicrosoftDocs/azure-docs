@@ -202,36 +202,14 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Azure Form Recognizer REST API v3.0 (GA)
-    items:
-    - name: REST API v3.0 reference
+    - name: REST API v3.0 
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes and messages v3.0
       href: v3-error-guide.md
-    - name: Supported REST API v3.0 SDKs
-      items:
-      - name: .NET
-        href: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
-      - name: Java
-        href: https://azure.github.io/azure-sdk/releases/latest/java.html
-      - name: JavaScript
-        href: https://azure.github.io/azure-sdk/releases/latest/js.html
-      - name: Python
-        href: https://azure.github.io/azure-sdk/releases/latest/python.html
-  - name: Azure Form Recognizer REST API v2.1 (GA)
-    items:
-    - name: REST API v2.1 reference
+    - name: REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: Supported REST API v2.1 SDKs
-      items:
-      - name: .NET
-        href: /dotnet/api/overview/azure/ai.formrecognizer-readme
-      - name: Python
-        href: /python/api/azure-ai-formrecognizer/
-      - name: Java
-        href: /java/api/overview/azure/ai-formrecognizer-readme
-      - name: JavaScript
-        href: /javascript/api/overview/azure/ai-form-recognizer-readme
+    - name: REST API versions
+      href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
 - name: Resources
   items:
   - name:  Customer spotlight

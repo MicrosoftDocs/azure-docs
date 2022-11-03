@@ -118,8 +118,7 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
 curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 ```
 
-## Detect an anomaly from an entire time series
-
+## Detect anomalies
 
 From the project directory, open the *program.cs* file and replace with the following code:
 

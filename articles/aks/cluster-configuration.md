@@ -4,7 +4,7 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 10/04/2022
+ms.date: 10/28/2022
 ---
 
 # Configure an AKS cluster

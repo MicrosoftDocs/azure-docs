@@ -17,6 +17,136 @@ This page provides you with information about:
 - Bug fixes
 - Deprecated functionality
 
+## May 2022
+
+Updates in May include:
+
+- [Multicloud settings of Servers plan are now available in connector level](#multicloud-settings-of-servers-plan-are-now-available-in-connector-level)
+- [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
+- [Add and remove the Defender profile for AKS clusters using the CLI](#add-and-remove-the-defender-profile-for-aks-clusters-using-the-cli)
+
+### Multicloud settings of Servers plan are now available in connector level
+
+There are now connector-level settings for Defender for Servers in multicloud.
+
+The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
+
+All auto-provisioning components available in the connector-level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
+
+Updates in the UI include a reflection of the selected pricing tier and the required components configured.
+
+:::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multicloud settings." lightbox="media/release-notes/main-page.png":::
+
+:::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multicloud connector enabled.":::
+
+### Changes to vulnerability assessment
+
+Defender for Containers now displays vulnerabilities that have medium and low severities that aren't patchable.
+
+As part of this update, vulnerabilities that have medium and low severities are now shown, whether or not patches are available. This update provides maximum visibility, but still allows you to filter out undesired vulnerabilities by using the provided Disable rule.
+
+:::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+
+### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
+
+When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instance's security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports, and only open them with authorized requests for a limited time frame.
+
+Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
+
+### Add and remove the Defender profile for AKS clusters using the CLI
+
+The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-extension) for an AKS cluster.
+
+> [!NOTE]
+> This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli).
+
+## April 2022
+
+Updates in April include:
+
+- [New Defender for Servers plans](#new-defender-for-servers-plans)
+- [Relocation of custom recommendations](#relocation-of-custom-recommendations)
+- [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
+- [Deprecated the Azure Cache for Redis recommendation](#deprecated-the-azure-cache-for-redis-recommendation)
+- [New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-variant-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
+- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation)
+- [See the activity logs that relate to a security alert](#see-the-activity-logs-that-relate-to-a-security-alert)
+
+### New Defender for Servers plans
+
+Microsoft Defender for Servers is now offered in two incremental plans:
+
+- Defender for Servers Plan 2, formerly Defender for Servers
+- Defender for Servers Plan 1, provides support for Microsoft Defender for Endpoint only
+
+While Defender for Servers Plan 2 continues to provide protections from threats and vulnerabilities to your cloud and on-premises workloads, Defender for Servers Plan 1 provides endpoint protection only, powered by the natively integrated Defender for Endpoint. Read more about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans).
+
+If you have been using Defender for Servers until now no action is required.
+
+In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads.
+
+### Relocation of custom recommendations
+
+Custom recommendations are those created by users and have no effect on the secure score. The custom recommendations can now be found under the All recommendations tab.
+
+Use the new "recommendation type" filter, to locate custom recommendations.
+
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+
+### PowerShell script to stream alerts to Splunk and IBM QRadar
+
+We recommend that you use Event Hubs and a built-in connector to export security alerts to Splunk and IBM QRadar. Now you can use a PowerShell script to set up the Azure resources needed to export security alerts for your subscription or tenant.
+
+Just download and run the PowerShell script. After you provide a few details of your environment, the script configures the resources for you. The script then produces output that you use in the SIEM platform to complete the integration.
+
+To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
+
+### Deprecated the Azure Cache for Redis recommendation
+
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network.
+
+### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
+
+Microsoft Defender for Storage's alerts notifies you when threat actors attempt to scan and expose, successfully or not, misconfigured, publicly open storage containers to try to exfiltrate sensitive information.
+
+To allow for faster triaging and response time, when exfiltration of potentially sensitive data may have occurred, we've released a new variation to the existing `Publicly accessible storage containers have been exposed` alert.
+
+The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, after there has been a successful discovery of a publicly open storage container(s) with names that statistically have been found to rarely be exposed publicly, suggesting they might hold sensitive information.
+
+| Alert (alert type) | Description | MITRE tactic | Severity |
+|--|--|--|--|
+|**PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed** <br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
+
+### Container scan alert title augmented with IP address reputation
+
+An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there's malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684).
+
+The addition of the IP address's reputation to the alert title provides a way to quickly evaluate the intent of the actor, and thus the severity of the threat.  
+
+The following alerts will include this information:
+
+- `Publicly accessible storage containers have been exposed`
+
+- `Publicly accessible storage containers with potentially sensitive data have been exposed`
+
+- `Publicly accessible storage containers have been scanned. No publicly accessible data was discovered`
+
+For example, the added information to the title of the `Publicly accessible storage containers have been exposed` alert will look like this:
+
+- `Publicly accessible storage containers have been exposed`**`by a suspicious IP address`**
+
+- `Publicly accessible storage containers have been exposed`**`by a Tor exit node`**
+
+All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
+
+### See the activity logs that relate to a security alert
+
+As part of the actions you can take to [evaluate a security alert](managing-and-responding-alerts.md#respond-to-security-alerts), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
+
+The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate the identified risk.
 
 ## March 2022
 
@@ -59,7 +189,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 
@@ -521,7 +651,7 @@ Learn more in [Prioritize security actions by data sensitivity](information-prot
 
 Microsoft Defender for Cloud's security recommendations are enabled and supported by the Azure Security Benchmark.
 
-[Azure Security Benchmark](../security/benchmarks/introduction.md) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+[Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.md) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
 Defender for Cloud.
@@ -875,7 +1005,7 @@ It's likely that this change will impact your secure scores. For most subscripti
 
 ### Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link
 
-Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 To limit access to a registry hosted in Azure Container Registry, assign virtual network private IP addresses to the registry endpoints and use Azure Private Link as explained in [Connect privately to an Azure container registry using Azure Private Link](../container-registry/container-registry-private-link.md).
 
@@ -1190,7 +1320,7 @@ The new vulnerability scanning feature for container images, utilizing Trivy, he
 
 Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
-Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-devops-introduction.md).
 
 ### More Resource Graph queries available for some recommendations
 
@@ -1213,7 +1343,7 @@ Learn more about Security Center's vulnerability scanners:
 
 - [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
-- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-va-acr.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-vulnerability-assessment-azure.md)
 
 ### SQL data classification recommendation severity changed
 
@@ -1236,9 +1366,9 @@ With the vTPM enabled, the **Guest Attestation extension** can remotely validate
 
 - **Secure Boot should be enabled on supported Windows virtual machines**
 - **Guest Attestation extension should be installed on supported Windows virtual machines**
-- **Guest Attestation extension should be installed on supported Windows virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Windows Virtual Machine Scale Sets**
 - **Guest Attestation extension should be installed on supported Linux virtual machines**
-- **Guest Attestation extension should be installed on supported Linux virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Linux Virtual Machine Scale Sets**
 
 Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
@@ -1329,7 +1459,7 @@ New vulnerabilities are discovered every day. With this update, container images
 
 Scanning is charged on a per image basis, so there's no additional charge for these rescans.
 
-Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
+Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md).
 
 ### Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)
 
@@ -2411,7 +2541,7 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in Azure Container Registry images should be remediated**
 - **Vulnerabilities in your virtual machines should be remediated**
 
-Learn more in [Disable specific findings for your container images](defender-for-containers-va-acr.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
+Learn more in [Disable specific findings for your container images](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 ### Exempt a resource from a recommendation
 
@@ -2454,7 +2584,7 @@ The security findings are now available for export through continuous export whe
 Related pages:
 
 - [Security Center's integrated Qualys vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-va-acr.md)
+- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-vulnerability-assessment-azure.md)
 - [Continuous export](continuous-export.md)
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
@@ -3085,7 +3215,7 @@ Updates in November include:
 - [Support for custom policies (preview)](#support-for-custom-policies-preview)
 - [Extending Azure Security Center coverage with platform for community and partners](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
 - [Advanced integrations with export of recommendations and alerts (preview)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
-- [Onboard on-prem servers to Security Center from Windows Admin Center (preview)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+- [Onboard on-premises servers to Security Center from Windows Admin Center (preview)](#onboard-on-premises-servers-to-security-center-from-windows-admin-center-preview)
 
 ### Threat Protection for Azure Key Vault in North America Regions (preview)
 
@@ -3180,7 +3310,7 @@ In order to enable enterprise level scenarios on top of Security Center, it's no
 - With export to Log Analytics workspace, you can create custom dashboards with Power BI.
 - With export to Event Hubs, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution, or Azure Data Explorer.
 
-### Onboard on-prem servers to Security Center from Windows Admin Center (preview)
+### Onboard on-premises servers to Security Center from Windows Admin Center (preview)
 
 Windows Admin Center is a management portal for Windows Servers who are not deployed in Azure offering them several Azure management capabilities such as backup and system updates. We have recently added an ability to onboard these non-Azure servers to be protected by ASC directly from the Windows Admin Center experience.
 
