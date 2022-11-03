@@ -279,7 +279,7 @@ items:
             items:
               - name: Virtual Machine
                 href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
-              - name: Virtual machine scale set
+              - name: Virtual Machine Scale Set
                 href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
               - name: VM classic
                 href: essentials/collect-custom-metrics-guestos-vm-classic.md
@@ -548,7 +548,7 @@ items:
       items:
       - name: Overview
         href: app/codeless-overview.md
-      - name: Azure VM and virtual machine scale set
+      - name: Azure VM and Virtual Machine Scale Set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
         items:
