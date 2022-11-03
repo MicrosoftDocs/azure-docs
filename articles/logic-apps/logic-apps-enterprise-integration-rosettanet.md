@@ -35,7 +35,7 @@ The following concepts and terms are unique to the RosettaNet specification and 
 
 * **PIP**
 
-  The RosettaNet organization creates and maintains PIPs, which provide common business process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message-guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, these files provide a complete definition of the business process.
+  The RosettaNet organization creates and maintains PIPs, which provide common business process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, these files provide a complete definition of the business process.
 
    PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, see the [RosettaNet site](https://resources.gs1us.org).
 
@@ -55,7 +55,7 @@ The following concepts and terms are unique to the RosettaNet specification and 
 
 * An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your agreement and other B2B artifacts. This integration account must be associated with your Azure subscription.
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your agreement and other business-to-business (B2B) artifacts. This integration account must be associated with your Azure subscription.
 
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that are defined in your integration account and configured with the "DUNS" qualifier under **Business Identities** in the Azure portal.
 
