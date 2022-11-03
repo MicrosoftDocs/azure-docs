@@ -64,7 +64,7 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
    - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](/azure/virtual-desktop/multimedia-redirection-intro).
-   - MMR introduces better diagnostic tools with the new status icon and one-click tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](/azure/virtual-desktop/multimedia-redirection).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](/azure/virtual-desktop/multimedia-redirection).
 
 ## Updates for version 1.2.3497
 
