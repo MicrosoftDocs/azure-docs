@@ -83,7 +83,7 @@ Android needs a middleware application to be able to support smartcard or securi
 
 Since Azure AD CBA with YubiKey on Android mobile is enabled via the latest MSAL, YubiKey Authenticator app is not a requirement for Android support. 
 
-**Steps to test YubiKey on Microsoft apps on Android 
+Steps to test YubiKey on Microsoft apps on Android: 
 
 1. Install the latest Microsoft Authenticator app.
 1. Open Outlook and plug in your YubiKey. 
