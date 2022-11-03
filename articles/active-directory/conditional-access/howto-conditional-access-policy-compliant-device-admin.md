@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policy: Require compliant or hybrid Azure AD joined device for administrators
 
-Accounts that are assigned administrative rights are targeted by attackers. Reqiring those with these rights to perform actions from devices marked as compliant or hybrid Azure AD joined can help limit possible exposure.
+Accounts that are assigned administrative rights are targeted by attackers. Requiring users with these highly privileged rights to perform actions from devices marked as compliant or hybrid Azure AD joined can help limit possible exposure.
 
 More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
 

@@ -55,7 +55,7 @@ To create a policy that blocks access for external users to a set of application
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_FinanceApps.
-1. Under **Assignments**, select **Users or workload identities**..
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All guests and external users**. 
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
    1. Select **Done**.
@@ -75,7 +75,7 @@ There may be times you want to block external users except a specific group. For
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_AllButFinance.
-1. Under **Assignments**, select **Users or workload identities**..
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All guests and external users**. 
    1. Under **Exclude**, select **Users and groups**, 
       1. Choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 

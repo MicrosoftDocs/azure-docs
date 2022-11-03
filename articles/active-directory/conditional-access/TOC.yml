@@ -88,6 +88,8 @@
       href: howto-policy-persistent-browser-session.md
     - name: Require compliant device, hybrid joined, or MFA for users
       href: howto-conditional-access-policy-compliant-device.md
+    - name: Use application enforced restrictions
+      href: howto-policy-app-enforced-restriction.md
     - name: Require MFA for Intune enrollment
       href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Block access by location

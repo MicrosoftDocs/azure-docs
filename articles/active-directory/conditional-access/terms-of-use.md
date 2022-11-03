@@ -89,7 +89,7 @@ Once you've completed your terms of use policy document, use the following proce
    | Expire starting on | Frequency | Result |
    | --- | --- | --- |
    | Today's date  | Monthly | Starting today, users must accept the terms of use policy and then reaccept every month. |
-   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire and then users must reaccept every month.  |
+   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire, and then users must reaccept every month.  |
 
    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, this is how expirations might occur for two users:
 
@@ -249,9 +249,8 @@ You can edit some details of terms of use policies, but you can't modify an exis
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. To see who has currently accepted the ToU, select the number under the **Accepted** column for the ToU you want.
 1. By default, the next page will show you the current state of each user's acceptance to the ToU
-1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
+1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each user's events in details about each version and what happened.
 1. Alternatively, you can select a specific version from the **Version**  drop-down to see who has accepted that specific version.
-
 
 ## Add a ToU language
 
