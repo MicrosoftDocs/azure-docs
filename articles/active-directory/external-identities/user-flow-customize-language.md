@@ -40,7 +40,7 @@ Language customization enables you to customize any string in your user flow.
 
 These steps give you a JSON file that you can use to start editing your strings.
 
-  :::image type="content" source="media/user-flow-customize-language/language-customization-download-defaults.png" alt-text="Screenshot of downloading the default language customization json file.":::
+  :::image type="content" source="media/user-flow-customize-language/language-customization-download-defaults.png" alt-text="Screenshot of downloading the default language customization json file." lightbox="media/user-flow-customize-language/language-customization-download-defaults.png":::
 
 ### Change any string on the page
 
