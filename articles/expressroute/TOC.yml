@@ -1,4 +1,4 @@
-e- name: ExpressRoute documentation
+- name: ExpressRoute documentation
   href: index.yml
 - name: Overview
   items:
