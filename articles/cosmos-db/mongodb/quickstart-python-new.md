@@ -120,7 +120,7 @@ Let's look at the hierarchy of resources in the API for MongoDB and the object m
 
 * [Collection](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A database can contain one or more collections. A collection is a group of documents stored in MongoDB, and can be thought of as roughly the equivalent of a table in a relational database.
 
-* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
+* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure. And common fields in a collection's documents may hold different types of data.
 
 To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
 
@@ -136,7 +136,7 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 
 The sample code described in this article creates a database named `adventureworks` with a collection named `products`. The `products` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
 
-For the steps below, the database won't use sharding and shows a synchronous application uisng PyMongo. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
+For the steps below, the database won't use sharding and shows a synchronous application using PyMongo. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
 
 ### Authenticate the client
 
