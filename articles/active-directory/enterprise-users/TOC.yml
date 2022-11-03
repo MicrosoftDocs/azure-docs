@@ -41,7 +41,7 @@
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Add custom data using extensions - Microsoft Graph
-      href: /graph/extensibility-overview.md?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
+      href: /graph/extensibility-overview?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
     - name: Assign custom security attributes
       href: users-custom-security-attributes.md
     - name: Download user info
