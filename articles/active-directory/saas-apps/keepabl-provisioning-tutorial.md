@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Keepabl to support provisioning with Azure AD
 
 1. Sign in to [Keepabl Admin Portal](https://app.keepabl.com) and then navigate to **Account Settings > Your Organization**, where you’ll see the **Single Sign-On (SSO)** section.
-1. Click on the **Edit Identity Provider** button.You will be taken to the SSO Setup page, wher once you select Microsoft Azure as your provider and then scroll down, you will see your **Tenant URL** and **Secret Token**. These value will be entered in the Provisioning tab of your Keepabl application in the Azure portal.
+1. Click on the **Edit Identity Provider** button.You will be taken to the SSO Setup page, where once you select Microsoft Azure as your provider and then scroll down, you will see your **Tenant URL** and **Secret Token**. These value will be entered in the Provisioning tab of your Keepabl application in the Azure portal.
 
 	![Screenshot of extraction of tenant url and token.](media/keepabl-provisioning-tutorial/token.png)
 
@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select the **Provisioning** tab.
 
-	![Screenshot of Provisioning tab,](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
