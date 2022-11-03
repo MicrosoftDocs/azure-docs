@@ -677,7 +677,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 ## Deploy the Workload Zone
 
 
-Use the [install_workloadzone](bash/install_workloadzone.md) script to deploy the SAP workload zone.
+Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy the SAP workload zone.
 
 1. On the deployer VM, navigate to the `Azure_SAP_Automated_Deployment` folder.
 
