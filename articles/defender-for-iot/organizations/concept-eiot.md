@@ -39,19 +39,19 @@ Defender for IoT's Enterprise IoT plan adds purpose-built alerts, recommendation
 For example, use the added security recommendations to open a single IT ticket to patch vulnerable applications on both servers and printers. Or, use a recommendation to request that the network team add firewall rules that apply for both workstations and cameras communicating with a suspicious IP address.
 
 > [!NOTE]
-> Defender for Endpoint doesn't issue IoT-specific alerts, recommendations, and vulnerability data without an Enterprise IoT plan in Microsoft 365 Defender. Use our [Onboard with Microsoft Defender for IoT](eiot-mde.md) quickstart to get started seeing this extra security value across your network.
+> Defender for Endpoint doesn't issue IoT-specific alerts, recommendations, and vulnerability data without an Enterprise IoT plan in Microsoft 365 Defender. Use our [quickstart](eiot-mde.md) to start seeing this extra security value across your network.
 >
 
 For more information, see:
 
 - [Enable Enterprise IoT security in Defender for Endpoint](eiot-mde.md)
-- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
-- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
-- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
+- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
+- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 
-## Device visibility with Enterprise IOT network sensors (Public preview)
+## Device visibility with Enterprise IoT sensors (Public preview)
 
-IT networks can be complex, and Defender for Endpoint agents may not give you full visibilty for all IoT devices. For example, if you have a VLAN dedicated to VOIP devices with no other endpoints, Defender for Endpoint may not be able to discover devices on that VLAN.
+IT networks can be complex, and Defender for Endpoint agents may not give you full visibilty for all IoT devices. For example, if you have a VLAN dedicated to VoIP devices with no other endpoints, Defender for Endpoint may not be able to discover devices on that VLAN.
 
 To discover devices not covered by Defender for Endpoint, register an Enterprise IoT network sensor and gain full visibility over your network devices.
 

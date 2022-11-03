@@ -23,10 +23,6 @@
   items:
   - name: Set up OT network security
     href: tutorial-onboarding.md
-  - name: Set up Enterprise IoT network security
-    items:
-    - name: Enhance Enterprise IoT security with a network sensor
-      href: eiot-sensor.md
   - name: Integrate with Microsoft Sentinel
     items:
     - name: Connect Defender for IoT data to Microsoft Sentinel
@@ -146,65 +142,65 @@
         href: tutorial-servicenow.md
       - name: Legacy integration
         href: integrations/service-now-legacy.md
-  - name: System deployment
+  - name: Setup OT network monitoring
     items:
+    - name: Set up OT network monitoring
+      href: how-to-set-up-your-network.md
+    - name: Configure traffic mirroring
+      items:
+      - name: Overview
+        href: best-practices/traffic-mirroring-methods.md
+      - name: Configure a switch SPAN port
+        href: traffic-mirroring/configure-mirror-span.md
+      - name: Configure a remote SPAN (RSPAN)
+        href: traffic-mirroring/configure-mirror-rspan.md
+      - name: Configure active and passive aggregation (TAP)
+        href: traffic-mirroring/configure-mirror-tap.md
+      - name: Configure ERSPAN mirroring
+        href: traffic-mirroring/configure-mirror-erspan.md
+      - name: Configure mirroring with an ESXi vSwitch
+        href: traffic-mirroring/configure-mirror-esxi.md
+      - name: Configure mirroring with a Hyper-V vSwitch
+        href: traffic-mirroring/configure-mirror-hyper-v.md
     - name: Manage OT plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
-    - name: Manage Enterprise IoT plans on Azure subscriptions
-      href: manage-subscriptions-enterprise.md
-    - name: Onboard sensors
+    - name: Onboard OT sensors
       href: onboard-sensors.md
+    - name: Install OT system software
+      href: how-to-install-software.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
-    - name: OT system setup
+    - name: Deploy OT certificates
+      href: how-to-deploy-certificates.md
+    - name: Connect OT sensors to the cloud
       items:
-      - name: Set up OT network monitoring
-        href: how-to-set-up-your-network.md
-      - name: Configure traffic mirroring
-        items:
-        - name: Overview
-          href: best-practices/traffic-mirroring-methods.md
-        - name: Configure a switch SPAN port
-          href: traffic-mirroring/configure-mirror-span.md
-        - name: Configure a remote SPAN (RSPAN)
-          href: traffic-mirroring/configure-mirror-rspan.md
-        - name: Configure active and passive aggregation (TAP)
-          href: traffic-mirroring/configure-mirror-tap.md
-        - name: Configure ERSPAN mirroring
-          href: traffic-mirroring/configure-mirror-erspan.md
-        - name: Configure mirroring with an ESXi vSwitch
-          href: traffic-mirroring/configure-mirror-esxi.md
-        - name: Configure mirroring with a Hyper-V vSwitch
-          href: traffic-mirroring/configure-mirror-hyper-v.md
-      - name: Deploy OT certificates
-        href: how-to-deploy-certificates.md
-      - name: Install OT system software
-        href: how-to-install-software.md
-      - name: Connect OT sensors to the cloud
-        items:
-        - name: Connect OT sensors to Defender for IoT
-          href: connect-sensors.md
-        - name: Connect OT sensors with a proxy (legacy)
-          href: how-to-connect-sensor-by-proxy.md
-      - name: Activate and set up your on-premises management console
-        href: how-to-activate-and-set-up-your-on-premises-management-console.md
-      - name: Add support for proprietary protocols
-        href: resources-manage-proprietary-protocols.md
-    - name: Enterprise IoT system setup
-      items:
-      - name: Extra deployment steps and samples
-        href: extra-deploy-enterprise-iot.md
+      - name: Connect OT sensors to Defender for IoT
+        href: connect-sensors.md
+      - name: Connect OT sensors with a proxy (legacy)
+        href: how-to-connect-sensor-by-proxy.md
+    - name: Activate and set up your on-premises management console
+      href: how-to-activate-and-set-up-your-on-premises-management-console.md
+    - name: Add support for proprietary protocols
+      href: resources-manage-proprietary-protocols.md
+  - name: Set up Enterprise IoT network monitoring
+    items:
+    - name: Manage Enterprise IoT plans on Azure subscriptions
+      href: manage-subscriptions-enterprise.md
+    - name: Onboard Enterprise IoT sensors
+      href: eiot-sensor.md
+    - name: Extra deployment steps and samples
+      href: extra-deploy-enterprise-iot.md
   - name: System maintenance
     items:
     - name: Manage sensors from the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
-    - name: Maintain threat intelligence packages
-      href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
       - name: Update OT monitoring software
         href: update-ot-software.md
         displayName: upgrade
+      - name: Maintain threat intelligence packages
+        href: how-to-work-with-threat-intelligence-packages.md
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
