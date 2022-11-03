@@ -119,7 +119,6 @@ If you don't have your own certificate authority and want to use demo certificat
 1. Change the ownership and permissions of the certificates and keys.
 
    ```bash
-   sudo chown aziotcs:aziotcs /var/aziot/certs
    sudo chown -R iotedge /var/aziot/certs
    sudo chmod 644 /var/aziot/secrets/*.key.pem
    ```
