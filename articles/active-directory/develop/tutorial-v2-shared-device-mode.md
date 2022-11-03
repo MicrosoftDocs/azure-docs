@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/25/2022
+ms.date: 11/03/2022
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
@@ -205,27 +205,29 @@ private void onSignOutClicked()
 }
 ```
 
-To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the Context. For more information about Context, see [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers)  
+### Receive broadcast to detect global sign out initiated from other applications
 
-When an account change broadcast is received, immediately get the signed in user and determine if a user has changed on the device. If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.  
+To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers).
 
-The following code snippet shows how you could register a broadcast receiver.  
+When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+
+The following code snippet shows how you could register a broadcast receiver.
 
 ```java
-private static final String CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER = "com.microsoft.identity.client.sharedmode.CURRENT_ACCOUNT_CHANGED";  
-private BroadcastReceiver mAccountChangedBroadcastReceiver; 
-private void registerAccountChangeBroadcastReceiver(){ 
-    mAccountChangedBroadcastReceiver = new BroadcastReceiver() { 
-        @Override 
-        public void onReceive(Context context, Intent intent) { 
-            //INVOKE YOUR PRIOR ACCOUNT CLEAN UP LOGIC HERE        
-        } 
-    }; 
-    IntentFilter filter = new 
+private static final String CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER = "com.microsoft.identity.client.sharedmode.CURRENT_ACCOUNT_CHANGED";
+private BroadcastReceiver mAccountChangedBroadcastReceiver;
+private void registerAccountChangeBroadcastReceiver(){
+    mAccountChangedBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //INVOKE YOUR PRIOR ACCOUNT CLEAN UP LOGIC HERE      
+        }
+    };
+    IntentFilter filter = new
 
-    IntentFilter(CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER); 
-    this.registerReceiver(mAccountChangedBroadcastReceiver, filter); 
-} 
+    IntentFilter(CURRENT_ACCOUNT_CHANGED_BROADCAST_IDENTIFIER);
+    this.registerReceiver(mAccountChangedBroadcastReceiver, filter);
+}
 ```
 
 ## Administrator guide
@@ -299,5 +301,5 @@ The Sample Application is a simple app that will call the Graph API of your orga
 
 Learn more about working with the Microsoft Authentication Library and shared device mode on Android devices:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Shared device mode for Android devices](msal-android-shared-devices.md)
