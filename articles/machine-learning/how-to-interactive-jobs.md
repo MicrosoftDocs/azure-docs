@@ -22,7 +22,7 @@ Interactive training is supported on **AzureML Compute Cluster** and **Azure Arc
 
 ## Pre-requisites
 - Review [getting started with training on AzureML](./how-to-train-model.md).
-- To use **VS Code**, [follow this guide](/how-to-setup-vs-code) to set up the Azure Machine Learning extension.
+- To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported. 
 
