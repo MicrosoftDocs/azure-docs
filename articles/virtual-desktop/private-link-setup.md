@@ -14,7 +14,7 @@ manager: femila
 > Private Link for Azure Virtual Desktop is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article will show you how to set up Private Link for Azure Virtual Desktop (preview) in your Azure Virtual Desktop deployment. For more information about what Private Link can do for your deployment, as well as the limitations of the public preview version, see [Private Link for Azure Virtual Desktop (preview)](private-link-overview.md).
+This article will show you how to set up Private Link for Azure Virtual Desktop (preview) in your Azure Virtual Desktop deployment. For more information about what Private Link can do for your deployment and the limitations of the public preview version, see [Private Link for Azure Virtual Desktop (preview)](private-link-overview.md).
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Once you select **Register**, you'll be able to use Private Link.
 
 ## Create a placeholder workspace
 
-A private endpoint to the global sub-resource of any workspace controls the shared fully-qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint before you start using Private Link. To create a workspace, follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information).
+A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint before you start using Private Link. To create a workspace, follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information).
 
 ## Set up Private Link in the Azure portal
 

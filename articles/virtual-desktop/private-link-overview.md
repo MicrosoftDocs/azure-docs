@@ -22,7 +22,7 @@ Azure Virtual Desktop has three workflows with three corresponding resource type
 
 - The first workflow, initial feed discovery, lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the global sub-resource of any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully-qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
 
-- The next workflow is feed download, which is when the client downloads all connection details for a specific user for the workspaces that each of their application groups are hosted in. To enable this feed download, you must create a private endpoint for each workspace you want to enable. This will be to the workspace sub-resource of the specific workspace you want to allow.
+- The next workflow is feed download, which is when the client downloads all connection details for a specific user for the workspaces that host their application groups. To enable this feed download, you must create a private endpoint for each workspace you want to enable. This endpoint will be to the workspace sub-resource of the specific workspace you want to allow.
 
 - The final workflow involves making connections to host pools. Every connection has two sides: clients and session host VMs. To enable connections, you need to create a private endpoint for the host pool sub-resource of any host pool you want to allow.
 
@@ -36,7 +36,7 @@ The following diagram shows how Private Link securely connects a local client to
 
 When adding Private Link, you can connect to Azure Virtual Desktop in the following ways:
 
-- Both the clients and the session host VMs use public routes, which doesn't require Private Link.
+- Both the clients and the session host VMs use public routes, which don't require Private Link.
 - The clients use public routes while session host VMs use private routes.
 - Both clients and session host VMs use private routes.
 
