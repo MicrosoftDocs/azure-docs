@@ -96,7 +96,7 @@ e- name: ExpressRoute documentation
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
   - name: About ExpressRoute limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits?toc=/azure/expressroute/toc.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#expressroute-limits
   - name: ExpressRoute Traffic Collector
     href: traffic-collector.md
   - name: Connect Azure to public cloud
