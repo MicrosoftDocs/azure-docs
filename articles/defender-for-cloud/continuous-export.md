@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 07/31/2022
+ms.date: 11/03/2022
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -48,6 +48,14 @@ Continuous export can export the following data types whenever they change:
 ## Set up a continuous export 
 
 You can configure continuous export from the Microsoft Defender for Cloud pages in Azure portal, via the REST API, or at scale using the supplied Azure Policy templates. Select the appropriate tab below for details of each.
+
+## Export of data between different tenants
+
+It is possible to use continuous export to send data between tenants without using Azure Lighthouse.
+ 
+Export to Event Hub will work when configured both from the UI and API.
+
+Export to Log Analytics workspace between tenants can be configured through the API.
 
 ### [**Use the Azure portal**](#tab/azure-portal)
 
