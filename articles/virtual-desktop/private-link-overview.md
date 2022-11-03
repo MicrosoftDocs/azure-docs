@@ -3,7 +3,7 @@ title: Use Azure Private Link with Azure Virtual Desktop preview - Azure
 description: Learn how Azure Private Link (preview) can help you keep network traffic private.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 11/04/2022
 ms.author: helohr
 manager: femila
 ---
@@ -52,7 +52,7 @@ The public preview of using Private Link with Azure Virtual Desktop has the foll
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You'll also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
 
-- Service tags are used for agent monitoring traffic.
+- Service tags are used by the Azure Virtual Desktop service for agent monitoring traffic. The service automatically creates these tags.
 
 - The public preview doesn't support using both Private Link and [RDP Shortpath](./shortpath.md) at the same time.
 
