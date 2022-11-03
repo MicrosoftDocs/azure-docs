@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/25/2022
+ms.date: 11/03/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Preferred Active Directory server for LDAP](create-active-directory-connections.md#preferred-server-ldap) (Preview)
 
     <!-- Date pending. Content pending PM -->
+## November 2022 
+
+* [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
+
+    With the Encrypted SMB connections to Active Directory Domain Controller capability you can now specify whether encryption should be used for communication between SMB server and domain controller in Active Directory connections. When enabled, only SMB3 will be used for encrypted domain controller connections.
 
 ## October 2022
 
@@ -38,7 +43,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
 
     Standard network features now includes Global VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
-    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
+
+    Regular billing for Standard network features on Azure NetApp Files began November 1, 2022.
     
 ## July 2022
 

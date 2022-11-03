@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/02/2022
 ms.author: anfdocs
 ---
 
@@ -36,6 +36,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Server root CA Certificate | When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64-encoded Active Directory Certificate Service's self-signed root CA certificate. | Yes | None* | LDAP traffic secured with new certificate only if LDAP over TLS is enabled |
 | LDAP search scope | See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) | Yes | - | - |
 | Preferred server for LDAP client | You can designate up to two AD servers for the LDAP to attempt connection with first. See [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discover) | Yes | None* | Potentially impede a timeout when the LDAP client seeks to connect to the AD server. | 
+| Encrypted SMB connections to Domain Controller | This specifies whether encryption should be used for communication between SMB server and domain controller. See [Create Active Directory connections](create-active-directory-connections.md#encrypted-smb-dc) for more details on using this feature. | Yes | SMB, Kerberos, and LDAP enabled volume creation cannot be used if the domain controller does not support SMB3 | Only SMB3 will be used for encrypted domain controller connections. |
 | Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
 | Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges |
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |

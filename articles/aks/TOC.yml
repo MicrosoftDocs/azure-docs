@@ -186,7 +186,7 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
-        - name: Use cluster snapshots
+        - name: Use cluster snapshots (preview)
           href: managed-cluster-snapshot.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md

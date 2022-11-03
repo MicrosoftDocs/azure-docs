@@ -38,16 +38,20 @@ Availability zone support is a property of the App Service plan. The following a
   - Central US
   - East US
   - East US 2
+  - South Central US
   - Canada Central
   - Brazil South
   - North Europe
   - West Europe
+  - Sweden Central
   - Germany West Central
   - France Central
   - UK South
   - Japan East
   - East Asia
   - Southeast Asia
+  - Qatar Central
+  - Central India
   - Australia East
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
 - Availability zones are only supported in the newer portion of the App Service footprint.
