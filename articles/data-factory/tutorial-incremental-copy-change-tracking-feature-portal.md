@@ -55,7 +55,9 @@ In this tutorial, you create two pipelines that perform the following operations
 * **Azure SQL Database**. You use a database in Azure SQL Database as the *source* data store. If you don't have one, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create it.
 * **Azure storage account**. You use Blob Storage as the *sink* data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named *adftutorial*. 
 
-### Create a data source table in Azure SQL Database
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## Create a data source table in Azure SQL Database
 
 1. Open SQL Server Management Studio, and connect to SQL Database.
 2. In Server Explorer, right-click your database, and then select **New Query**.
@@ -120,12 +122,6 @@ In this tutorial, you create two pipelines that perform the following operations
     WHERE [TableName] = @TableName
     END    
     ```
-
-### Install Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Install the latest Azure PowerShell modules by following the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Create a data factory
 
@@ -279,12 +275,12 @@ In the following procedure, you create a pipeline with a copy activity that copi
 
 1. In the Data Factory UI, select the **Monitor** tab. The pipeline run and its status appear in the list. To refresh the list, select **Refresh**. Hover over the pipeline run to get the **Rerun** or **Consumption** option.
    
-   ![Screenshot that shows pipeline runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+   ![Screenshot that shows a pipeline run and status.](media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 1. To view activity runs associated with the pipeline run, select the pipeline name from the **Pipeline name** column. There's only one activity in the pipeline, so there's only one entry in the list. To switch back to the view of pipeline runs, select the **All pipeline runs** link at the top.
 
 ### Review the results
 
-The *incchgtracking* folder of the *adftutorial* container includes a file named *incremental-<GUID>.csv*.
+The *incchgtracking* folder of the *adftutorial* container includes a file named `incremental-<GUID>.csv`.
 
 ![Screenshot of an output file from a full copy.](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
@@ -400,7 +396,7 @@ In the following procedure, you create a pipeline with activities and run it per
    ![Screenshot that shows pipeline runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 1. To view activity runs associated with the pipeline run, select the **IncrementalCopyPipeline** link in the **Pipeline name** column.
 
-   ![Screenshot that shows pipeline runs for a data factory with several marked as succeeded.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+   ![Screenshot that shows activity runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 ### Review the results
 
