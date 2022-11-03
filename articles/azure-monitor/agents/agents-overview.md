@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 10/17/2022
+ms.date: 11/3/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -15,7 +15,7 @@ ms.reviewer: shseth
 
 Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
 
-Here's a short **introduction to Azure Monitor video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
+Here's a short **introduction to Azure Monitor agent video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Consolidating legacy agents
 
@@ -41,8 +41,8 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     |:---|:---|:---|
     | Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
     | On-premises servers (Azure Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
-    | Windows 10, 11 desktops, workstations | [Client installer (Public preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
-    | Windows 10, 11 laptops | [Client installer (Public preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
+    | Windows 10, 11 desktops, workstations | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
+    | Windows 10, 11 laptops | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
     
 1. Define a data collection rule and associate the resource to the rule.
 
@@ -53,7 +53,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Performance        | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
     | Syslog             | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
-    | Text logs | Log Analytics workspace - custom table | Events sent to log file on agent machine |
+    | Text logs (Public preview) | Log Analytics workspace - custom table | Events sent to log file on agent machine |
     
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
     <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
@@ -82,7 +82,7 @@ In addition to the generally available data collection listed above, Azure Monit
 
 ## Supported regions
 
-Azure Monitor Agent is available in all public regions and Azure Government clouds. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
+Azure Monitor Agent is available in all public regions and Azure Government clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
 ## Costs
 
 There's no cost for the Azure Monitor Agent, but you might incur charges for the data ingested. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
