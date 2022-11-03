@@ -172,7 +172,7 @@ For the steps below, the database won't use sharding and shows a synchronous app
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
     --->
 
-### Connect to the database
+### Connect to Azure Cosmos DB’s API for MongoDB
 
 Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
 
@@ -185,7 +185,7 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 
 ### Get database
 
-When working with PyMongo, you access databases using attribute style access on MongoClient instances.
+Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](https://learn.microsoft.com/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
 
 ```python
 # Create database if it doesn't exist
@@ -201,12 +201,9 @@ else:
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
 --->
 
-You can check if a database exists with the [list_database_names()](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
-
-
 ### Get collection
 
-Access collection with the database object `db` returned from the previous step.
+Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](https://learn.microsoft.com/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
 
 ```python
 # Create collection if it doesn't exist
@@ -222,14 +219,13 @@ else:
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
 --->
 
-You can check if a collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
-
 ### Create an index
 
-Use the collection operation [createIndex](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.create_index) to create an index on the document's properties you intend to use for sorting with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method.
+Create an index using the [update collection extension command](/azure/cosmos-db/mongodb/custom-commands#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
 
 ```python
-result = collection.create_index([('name', pymongo.ASCENDING)], unique=True)
+indexes = [{'key': {'_id': 1}, 'name': "_id_1"},{'key': {'name': 2}, 'name': "_id_2"}]
+db.command({'customAction': "UpdateCollection", 'collection': COLLECTION_NAME, 'indexes': indexes})
 print("Indexes are: {}\n".format(sorted(collection.index_information())))
 ```
 <!---
