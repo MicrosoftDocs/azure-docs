@@ -1,16 +1,26 @@
 ---
-title: Modernize your Azure Kubernetes Service (AKS) application with a workload identity sidecar
-description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
+title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity
+description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 services: container-service
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 11/3/2022
 ---
 
-# Modernize application authentication with workload identity sidecar
+# Modernize application authentication with workload identity
 
-If your Kubernetes application runs on Azure Kubernetes Service (AKS) and is using a managed identity to securely access resources in Azure, you can set up a migration sidecar ensuring a smooth transition using the new Azure Identity SDK and minimize downtime. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to migrate from using managed identity with pod identity to workload identity, until you can migrate your applications to use the latest version of Azure Identity SDK.
+In this article, you'll learn about the migration options for your containerized application running on Azure Kubernetes Service (AKS) to use an Azure Active Directory (Azure AD) workload identity (preview).
 
-This article shows you how to set up your application pod to authenticate using managed identity with workload identity as a short-term migration solution.
+On an AKS cluster that is already running a pod-managed identity, you can configure it to use a workload identity depending on the following:
+
+* If your cluster is already using the latest version of the [Azure Identity][azure-identity-supported-versions] client library, follow the steps below to:
+
+  1. [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
+  2. [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
+  3. [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential.
+
+* If your cluster is already configured with a pod-managed identity, you can use a migration sidecar that we developed, which converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC.
+
+* Rewrite your application to use the latest supported version of the [Azure Identity][azure-identity-supported-versions] client library, enable workload identity in parallel with pod-managed identity, and then create a federated identity credential.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -175,6 +185,9 @@ This article showed you how to set up your pod to authenticate using a workload 
 [workload-identity-overview]: workload-identity-overview.md
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [az-aks-pod-identity-delete]: /cli/azure/aks/pod-identity#az-aks-pod-identity-delete
+[azure-identity-supported-versions]: workload-identity-overview.md#dependencies
+[azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
+[openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
