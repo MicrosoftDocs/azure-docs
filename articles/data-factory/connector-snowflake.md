@@ -154,7 +154,7 @@ The following properties are supported for a Snowflake linked service when using
 >[!Note] 
 >Currently, the OAuth authentication is not supported in mapping data flow and script activity. 
 
-The following properties are supported for a Snowflake linked service when using **OAuth2** authenticaition. 
+The following properties are supported for a Snowflake linked service when using **OAuth** authenticaition. 
 
 | Property         | Description                                                  | Required | 
 | :--------------- | :----------------------------------------------------------- | :------- | 
