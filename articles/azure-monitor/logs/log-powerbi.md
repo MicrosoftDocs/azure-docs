@@ -1,6 +1,6 @@
 ---
 title: Log Analytics integration with Power BI and Excel
-description: How to send results from Log Analytics to Power BI
+description: Learn how to send results from Log Analytics to Power BI.
 ms.topic: conceptual
 author: guywild
 ms.author: guywild
@@ -10,70 +10,68 @@ ms.date: 06/22/2022
 ---
 # Log Analytics integration with Power BI
 
-This article focuses on ways to feed data from Log Analytics into Microsoft Power BI to create more visually appealing reports and dashboards. 
+This article focuses on ways to feed data from Log Analytics into Power BI to create more visually appealing reports and dashboards.
 
-## Background 
+## Background
 
-Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../data-platform.md) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md). 
+Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../data-platform.md) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md).
 
-Microsoft Power BI is Microsoft’s data visualization platform. For more information on how to get started, see [Power BI’s homepage](https://powerbi.microsoft.com/). 
-
+Power BI is the Microsoft data visualization platform. For more information on how to get started, see the [Power BI home page](https://powerbi.microsoft.com/).
 
 In general, you can use free Power BI features to integrate and create visually appealing reports and dashboards.
 
-More advanced features may require purchasing a Power BI Pro or premium account. These features include: 
- - sharing your work 
- - scheduled refreshes
- - Power BI apps 
- - dataflows and incremental refresh 
+More advanced features might require purchasing a Power BI Pro or Premium account. These features include:
 
-For more information, see [learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/) 
+ - Sharing your work.
+ - Scheduled refreshes.
+ - Power BI apps.
+ - Dataflows and incremental refresh.
 
-## Integrating queries  
+For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
-Power BI uses the [M query language](/powerquery-m/power-query-m-language-specification/) as its main querying language. 
+## Integrate queries
 
-Log Analytics queries can be exported to M and used in Power BI directly. After running a successful query, select the **Export to Power BI (M query)** from the **Export** button in Log Analytics UI top action bar.
+Power BI uses the [M query language](/powerquery-m/power-query-m-language-specification/) as its main querying language.
 
+Log Analytics queries can be exported to M and used in Power BI directly. After you run a successful query, select **Export to Power BI (M query)** from the **Export** dropdown list in the Log Analytics top toolbar.
 
-:::image type="content" source="media/log-powerbi/export-query2.png" alt-text="Log Analytics query showing export option menu pulldown" border="true":::
+:::image type="content" source="media/log-powerbi/export-query2.png" alt-text="Screenshot that shows a Log Analytics query showing the Export dropdown list.="true":::
 
 Log Analytics creates a .txt file containing the M code that can be used directly in Power BI.
 
-## Connecting your logs to a dataset 
+## Connect your logs to a dataset
 
-A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, copy the M code exported from Log Analytics into a blank query in Power BI. 
+A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, copy the M code exported from Log Analytics into a blank query in Power BI.
 
-For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/). 
+For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/).
 
-## Collect data with Power BI dataflows 
+## Collect data with Power BI dataflows
 
-Power BI dataflows also allow you to collect and store data. For more information, see [Power BI Dataflows](/power-bi/service-dataflows-overview).
+Power BI dataflows also allow you to collect and store data. For more information, see [Power BI dataflows](/power-bi/service-dataflows-overview).
 
 A dataflow is a type of "cloud ETL" designed to help you collect and prep your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.
 
-## Incremental refresh 
+## Incremental refresh
 
-Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.  
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.
 
+Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all the data again and again when you run the query. You can save large amounts of data but add a new increment of data every time the query is run. This behavior is ideal for longer-running reports.
 
-Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.
+Power BI incremental refresh relies on the existence of a **datetime** field in the result set. Before you configure incremental refresh, make sure your Log Analytics query result set includes at least one **datetime** field.
 
-Power BI incremental refresh relies on the existence of a *datetime* filed in the result set. Before configuring incremental refresh, make sure your Log Analytics query result set includes at least one *datetime* filed. 
-
-To learn more and how to configure incremental refresh, see [Power BI Datasets and Incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
+To learn more and how to configure incremental refresh, see [Power BI datasets and incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
 
 ## Reports and dashboards
 
 After your data is sent to Power BI, you can continue to use Power BI to create reports and dashboards.
 
-For more information, see [this guide on how to create your first Power BI model and report](/training/modules/build-your-first-power-bi-report/).  
+For more information, see [Create and share your first Power BI report](/training/modules/build-your-first-power-bi-report/).
 
 ## Excel integration
 
-You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see this [guide on how to integrate with excel](https://support.microsoft.com/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) and then paste the M query exported from Log Analytics.
+You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see [Import data from data sources (Power Query)](https://support.microsoft.com/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a). Then paste the M query exported from Log Analytics.
 
-Additional information can be found in [Integrate Log Analytics and Excel](log-excel.md)
+For more information, see [Integrate Log Analytics and Excel](log-excel.md).
 
 ## Next steps
 
