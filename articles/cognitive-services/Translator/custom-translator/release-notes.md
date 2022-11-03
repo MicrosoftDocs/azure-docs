@@ -54,7 +54,7 @@ This page has the latest release notes for features, improvements, bug fixes, an
 
 #### Security update
 
-* Custom Translator API calls now require User Access Token to authenticate.
+* Custom Translator API preview REST API calls now require User Access Token to authenticate.
 
 * Visit our GitHub repo for a [C# code sample](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp).
 

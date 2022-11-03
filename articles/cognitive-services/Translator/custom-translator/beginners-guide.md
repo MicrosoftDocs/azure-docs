@@ -14,7 +14,7 @@ ms.topic: overview
 
  [Custom Translator](overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
-The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
+The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than 60 languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
 
 ## Is a custom translation model the right choice for me?
 
