@@ -1,28 +1,28 @@
 ---
-title: Replicate virtual machines running in an Azure Edge Zone to another zone in the same region
-description: This article describes how to replicate, failover, and fail back Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
+title: Replicate virtual machines running in an Azure Edge Zone (preview) to another zone in the same region
+description: This article describes how to replicate, failover, and fail back Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: how-to   
-ms.date: 10/31/2022
+ms.date: 11/03/2022
 ms.author: v-pgaddala
 ---
 
-# Replicate virtual machines running in an Azure Edge Zone to another zone in the same region
+# Replicate virtual machines running in an Azure Edge Zone (preview) to another zone in the same region
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone to the parent region where Edge Zone is an extension. 
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
 
-Edge Zones is fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones depend on the location, that you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
+Edge Zones (preview) is fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones (preview) are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge. The variations of Edge Zones (preview) depend on the location, that you install closer to you, either in your data center, a co-located site, or a telecommunication provider's data center.
 
-## Disaster recovery in Azure Edge Zone
+## Disaster recovery in Azure Edge Zone (preview)
 
-In a typical scenario, you might have your virtual machines running in an Edge Zone provisioned by you to ensure that your machines utilize Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you may use Azure Site Recovery to protect these applications for any infrastructure-level failure. 
+In a typical scenario, you might have your virtual machines running in an Edge Zone (preview) provisioned by you to ensure that your machines utilize Azure's services. Although this approach can provide a primitive level of protection to your applications from a disaster or an outage, you may use Azure Site Recovery to protect these applications for any infrastructure-level failure. 
 
 Site Recovery replicates the data from one zone or region to another. It brings up the machines in the disaster recovery (DR) zone in a failover event.
 
 ## Limitations
 
-You will experience a similar Site Recovery flow as in Azure, but you must be aware of the limitations that Edge Zone brings. For instance, Edge Zones operate outside the Azure region in a constrained capacity environment, which reduces the ability to reproduce Azure's high availability and the disaster recovery experience. Key differences include: 
+You will experience a similar Site Recovery flow as in Azure, but you must be aware of the limitations that Edge Zone (preview) brings. For instance, Edge Zones (preview) operate outside the Azure region in a constrained capacity environment, which reduces the ability to reproduce Azure's high availability and the disaster recovery experience. Key differences include: 
 
 -    Physical separation from the Azure region
 -    The separation of the control plane that runs at the region and the data plane that runs at the edge location
@@ -32,7 +32,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
 > [!NOTE] 
 > Unmanaged disks Protection is not supported for this scenario.
 
-## Set up disaster recovery for VMs in an Edge Zone via PowerShell
+## Set up disaster recovery for VMs in an Edge Zone (preview) via PowerShell
 
 ### Prerequisites
 
@@ -45,10 +45,10 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
 
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
 
-## Edge Zone to Azure
+## Edge Zone (preview) to Azure
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Edge Zone, and the secondary/recovery location is the Edge Zone’s region.
+> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is the Edge Zone’s (preview) region.
 
 1. Sign-in to your Azure account.
 
@@ -244,7 +244,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
     $recoveryNetwork = $recoveryVnet.Id
     ```
 
-1. Use the following PowerShell cmdlet to replicate an Edge Zones Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
+1. Use the following PowerShell cmdlet to replicate an Edge Zones (preview) Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
 
     1. Get the resource group that the virtual machine must be created in when it's failed 
     over.
@@ -454,7 +454,7 @@ You will experience a similar Site Recovery flow as in Azure, but you must be aw
         Standard_LRS -Kind Storage
         ```
     
-    1. Use the recovery protection container, the new cache storage account in Edge Zone’s region, and the source region VM resource group. 
+    1. Use the recovery protection container, the new cache storage account in Edge Zone’s (preview) region, and the source region VM resource group. 
     
         ```
         $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -

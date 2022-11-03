@@ -1,18 +1,16 @@
 ---
-title: Set up disaster recovery for Edge Zone VMs
-description: Learn how to set up disaster recovery for Edge Zone virtual machines
+title: Set up disaster recovery for VMs on Edge Zone (preview)
+description: Learn how to set up disaster recovery for Virtual machines on Edge Zone (preview)
 author: v-pgaddala
 ms.service: site-recovery
-ms.topic: how-to   
-ms.date: 11/01/2022
-ms.author: ankitadutta
-ms.custom: MVC
-
+ms.topic: tutorial
+ms.date: 11/03/2022
+ms.author: v-pgaddala
 ---
 
-# Tutorial: Set up disaster recovery for Edge Zone VMs 
+# Tutorial: Set up disaster recovery for VMs on Edge Zone (preview)
 
-This tutorial shows you how to set up disaster recovery for Edge Zone VMs using Azure Site Recovery. In this article, you learn how to:
+This tutorial shows you how to set up disaster recovery for VMs on Edge Zone (preview) using Azure Site Recovery. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Recovery Services vault
@@ -28,7 +26,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create a Recovery Services vault
 
-Create a Recovery Services vault in the parent region to which the Edge Zones is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
+Create a Recovery Services vault in the parent region to which the Edge Zones (preview) is connected. For more information, see [Tutorial to set up Azure VM disaster recovery with Azure Site Recovery](/articles/site-recovery/azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 
 ### Enable Site Recovery
 
@@ -49,8 +47,8 @@ Select the source settings and enable VM replication.
     
 1. In the **Enable replication** page, under **Source** tab, do the following: 
     
-    - **Region** : Select the source (Edge Zone) in which VMs are currently running. 
-    - **Subscription**: Select the subscription in which VMs are running. You can select any subscription that's in the same Azure Active Directory (Azure AD) tenant as the vault. 
+    - **Region** : Select the source (Edge Zone (preview)) in which VMs are currently running. 
+    - **Subscription**: Select the subscription in which VMs are running.
     - **Resource group**: Select the desired resource group from the drop-down. 
     - **Virtual machine deployment model**: Retain the default **Resource Manager** setting. 
     - **Disaster recovery between availability zones**: Retain the default **No** setting. 
@@ -58,7 +56,7 @@ Select the source settings and enable VM replication.
         :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/source.png" alt-text="Enable replication form source tab":::
 
     > [!NOTE]
-    >  As there are no availability zones for Edge Zones, the field is disabled. 
+    >  As there are no availability zones for Edge Zones (preview), the field is disabled. 
     
 1. Select **Next**.
      
@@ -80,10 +78,10 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/replication-settings.png" alt-text=" Replication settings tab":::
 
     > [!NOTE]
-    >- In the above box, you can select target to be parent region (i.e., connected to the edge zone) or in certain cases, another of your edge zone connected to the same region. 
+    >- In the above box, you can select target to be parent region (i.e., connected to the edge zone (preview)) or in certain cases, another of your edge zone (preview) connected to the same region. 
     >- Capacity reservation has been disabled.  
 
-1. In **Customize storage option**, you can select an existing storage that was created either on edge zone or region.
+1. In **Customize storage option**, you can select an existing storage that was created either on edge zone (preview) or region.
     
 ### Manage
     
@@ -100,12 +98,12 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
      :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/manage.png" alt-text=" Manage replication tab":::
 
     > [!NOTE]
-    > There are no changes to select replication policy for Edge Zones. 
+    > There are no changes to select replication policy for Edge Zones (preview). 
 
 ### Review
             
 In the **Review** tab, review the VM settings and select Enable replication.  
-The **VM setting** now includes target region information and a **Summary** section includes the Edge Zone information. 
+The **VM setting** now includes target region information and a **Summary** section includes the Edge Zone (preview) information. 
             
 :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text=" Review replication tab"::: 
             
