@@ -29363,6 +29363,11 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/developer/terraform/quickstart-configure",
+            "redirect_document_id": false
         }
     ]
 }

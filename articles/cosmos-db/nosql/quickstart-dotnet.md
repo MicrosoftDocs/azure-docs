@@ -7,48 +7,44 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/26/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.date: 11/03/2022
+ms.custom: devx-track-csharp, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for .NET
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](quickstart-dotnet.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Java](quickstart-java.md)
-> * [Spring Data](quickstart-java-spring-data.md)
-> * [Python](quickstart-python.md)
-> * [Spark v3](quickstart-spark.md)
-> * [Go](quickstart-go.md)
->
+[!INCLUDE[Quickstart selector](includes/quickstart-selector.md)]
 
-Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-dotnet-quickstart) are available on GitHub as a .NET project.
+> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples) are available on GitHub as a .NET project.
 
 [API reference documentation](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | [Samples](samples-dotnet.md)
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription.
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ### Prerequisite check
 
-* In a terminal or command window, run ``dotnet --version`` to check that the .NET SDK is version 6.0 or later.
-* Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+- In a terminal or command window, run ``dotnet --version`` to check that the .NET SDK is version 6.0 or later.
+- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
 
 This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
 
 ### <a id="create-account"></a>Create an Azure Cosmos DB account
+
+> [!TIP]
+> Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit. If you create an account using the free trial, you can safely skip this section.
 
 [!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 
@@ -96,21 +92,21 @@ Build succeeded.
 
 You'll use the following .NET classes to interact with these resources:
 
-* [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
-* [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-* [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
-* [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
-* [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
-* [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
+- [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+- [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
+- [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
+- [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
+- [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
 
 ## Code examples
 
-* [Authenticate the client](#authenticate-the-client)
-* [Create a database](#create-a-database)
-* [Create a container](#create-a-container)
-* [Create an item](#create-an-item)
-* [Get an item](#get-an-item)
-* [Query items](#query-items)
+- [Authenticate the client](#authenticate-the-client)
+- [Create a database](#create-a-database)
+- [Create a container](#create-a-container)
+- [Create an item](#create-an-item)
+- [Get an item](#get-an-item)
+- [Query items](#query-items)
 
 The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
@@ -150,7 +146,7 @@ The easiest way to create a new item in a container is to first build a C# [clas
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Product.cs" id="entity" highlight="3-4":::
 
-Create an item in the container by calling [``Container.UpsertItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync). In this example, we chose to *upsert* instead of *create* a new item in case you run this sample code more than once.
+Create an item in the container by calling [``Container.CreateItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync).
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
 
@@ -194,7 +190,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB for NoSQL resources.
+In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the .NET SDK. You can now dive deeper into a tutorial where you manage your Azure Cosmos DB for NoSQL resources and data using a .NET console application.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md)
+> [Tutorial: Develop a .NET console application with Azure Cosmos DB for NoSQL](tutorial-dotnet-console-app.md)
