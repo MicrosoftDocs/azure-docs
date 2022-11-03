@@ -132,7 +132,7 @@ In this tutorial, you create two pipelines that perform the following operations
     ![Screenshot that shows selection of a data factory in creating a resource.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for the name.
     
-   The name of data factory must be globally unique. If you get an error that says the name that you chose is not available, change the name (for example, to **yournameADFTutorialDataFactory**) and try creating the data factory again. For more information, see [Data Factory naming rules](naming-rules.md).
+   The name of data factory must be globally unique. If you get an error that says the name that you chose is not available, change the name (for example, to **yournameADFTutorialDataFactory**) and try creating the data factory again. For more information, see [Azure Data Factory naming rules](naming-rules.md).
    
 1. Select the Azure subscription in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
@@ -150,7 +150,7 @@ In this tutorial, you create two pipelines that perform the following operations
 1. Select **Review + create**.     
 1. Select **Create**.      
 
-   On the dashboard, the **Deploying data factory** tile shows the status.
+   On the dashboard, the **Deploying Data Factory** tile shows the status.
 
 	:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png" alt-text="Screenshot of the tile that shows the status of deploying a data factory.":::
 1. After the creation is complete, the **Data Factory** page appears. Select the **Launch studio** tile to open the Azure Data Factory UI on a separate tab.
@@ -161,7 +161,7 @@ You create linked services in a data factory to link your data stores and comput
 
 ### Create an Azure Storage linked service
 
-To link your Azure storage account to the data factory:
+To link your storage account to the data factory:
 
 1. In the Data Factory UI, on the **Manage** tab, under **Connections**, select **Linked services**. Then select **+ New** or the **Create linked service** button.
    ![Screenshot that shows selections for creating a linked service.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
@@ -177,7 +177,7 @@ To link your Azure storage account to the data factory:
 
 To link your database to the data factory:
 
-1. In the Data Factory UI, on the **Manage** tab, under **Connections**, select **Linked services** > **+ New**.
+1. In the Data Factory UI, on the **Manage** tab, under **Connections**, select **Linked services**. Then select **+ New**.
 1. In the **New Linked Service** window, select **Azure SQL Database**, and then select **Continue**.
 1. Enter the following information:
    1. For **Name**, enter **AzureSqlDatabaseLinkedService**.
@@ -202,7 +202,7 @@ In this section, you create datasets to represent the data source and data desti
    ![Screenshot that shows selections for starting the creation of a dataset.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 1. Select **Azure SQL Database**, and then select **Continue**.
 1. In the **Set Properties** window, take the following steps:
-   1. For **Name**, enter **SourceDataset** as the name of the dataset.
+   1. For **Name**, enter **SourceDataset**.
    1. For **Linked service**, select **AzureSqlDatabaseLinkedService**.
    1. For **Table name**, select **dbo.data_source_table**.
    1. For **Import schema**, select the **From connection/store** option.
@@ -220,9 +220,9 @@ In the following procedure, you create a dataset to represent the data that's co
 1. Select **Azure Blob Storage**, and then select **Continue**.
 1. Select the format of the data type as **DelimitedText**, and then select **Continue**.
 1. In the  **Set properties** window, take the following steps:
-   1. For **Name**, enter **SinkDataset** the name of the dataset.
+   1. For **Name**, enter **SinkDataset**.
    1. For **Linked service**, select **AzureBlobStorageLinkedService**.
-   1. For **File path**, enter **adftutorial/incchgtracking** as the folder name.
+   1. For **File path**, enter **adftutorial/incchgtracking**.
    1. Select **OK**.   
 1. After the dataset appears in the tree view, go to the **Connection** tab and select the **File name** text box. When the **Add dynamic content** option appears, select it.
        
@@ -237,7 +237,7 @@ In the following procedure, you create a dataset for storing the change tracking
 1. In the Data Factory UI, on the **Author** tab, select **+**, and then select **Dataset**.
 1. Select **Azure SQL Database**, and then select **Continue**.
 1. In the **Set Properties** window, take the following steps:
-   1. For **Name**, enter **ChangeTrackingDataset** as the name of the dataset.
+   1. For **Name**, enter **ChangeTrackingDataset**.
    1. For **Linked service**, select **AzureSqlDatabaseLinkedService**.
    1. For **Table name**, select **dbo.table_store_ChangeTracking_version**. 
    1. For **Import schema**, select the **From connection/store** option.
@@ -252,7 +252,7 @@ In the following procedure, you create a pipeline with a copy activity that copi
    ![Screenshot that shows selections for starting to create a pipeline for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 1. A new tab appears for configuring the pipeline. The pipeline also appears in the tree view. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 1. In the **Activities** toolbox, expand **Move & transform**. Take one of the following steps:
-   - Drag the **Copy** activity to the pipeline designer surface.
+   - Drag the copy activity to the pipeline designer surface.
    - On the search bar under **Activities**, search for the copy data activity, and then set the name to **FullCopyActivity**.
 1. Switch to the **Source** tab. For **Source Dataset**, select **SourceDataset**.
 1. Switch to the **Sink** tab. For **Sink Dataset**, select **SinkDataset**.
@@ -324,7 +324,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 
 In the following procedure, you create a pipeline with activities and run it periodically. When you run the pipeline:
 
-- The *lookup activities* get the old and new `SYS_CHANGE_VERSION` values from Azure SQL Database and pass it to the copy activity. 
+- The *lookup activities* get the old and new `SYS_CHANGE_VERSION` values from Azure SQL Database and pass them to the copy activity. 
 - The *copy activity* copies the inserted, updated, or deleted data between the two `SYS_CHANGE_VERSION` values from Azure SQL Database to Azure Blob Storage. 
 - The *stored procedure activity* updates the value of `SYS_CHANGE_VERSION` for the next pipeline run.
 
@@ -335,7 +335,7 @@ In the following procedure, you create a pipeline with activities and run it per
 3. Expand **General** in the **Activities** toolbox. Drag the lookup activity to the pipeline designer surface, or search in the **Search activities** box. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that's stored in the `table_store_ChangeTracking_version` table.
 4. Switch to the **Settings** tab in the **Properties** window. For **Source Dataset**, select **ChangeTrackingDataset**.
 5. Drag the lookup activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **LookupCurrentChangeTrackingVersionActivity**. This activity gets the current change tracking version.
-6. Switch to the **Settings** tab in the **Properties** window, and take the following steps:
+6. Switch to the **Settings** tab in the **Properties** window, and then take the following steps:
 
    1. For **Source dataset**, select **SourceDataset**.
    2. For **Use query**, select **Query**.
@@ -362,19 +362,19 @@ In the following procedure, you create a pipeline with activities and run it per
 9. Switch to the **Sink** tab. For **Sink Dataset**, select **SinkDataset**.
 10. Connect both lookup activities to the copy activity one by one. Drag the green button attached to the lookup activity to the copy activity.
 11. Drag the stored procedure activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **StoredProceduretoUpdateChangeTrackingActivity**. This activity updates the change tracking version in the `table_store_ChangeTracking_version` table.
-12. Switch to the **Settings** tab, and take the following steps:
+12. Switch to the **Settings** tab, and then take the following steps:
 	
 	1. For **Linked service**, select **AzureSqlDatabaseLinkedService**.
 	2. For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
 	3. Select **Import**.
-	4. In the **Stored procedure parameters** section, specify following values for the parameters:
+	4. In the **Stored procedure parameters** section, specify the following values for the parameters:
 
       | Name | Type | Value |
       | ---- | ---- | ----- |
       | `CurrentTrackingVersion` | Int64 | `@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}` |
       | `TableName` | String | `@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}` |
 
-   ![Screenshot that shows setting parameters for the stored procedure activity.](media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
+      ![Screenshot that shows setting parameters for the stored procedure activity.](media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
    
 13. Connect the copy activity to the stored procedure activity. Drag the green button attached to the copy activity to the stored procedure activity.
 14. Select **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window.
