@@ -100,7 +100,7 @@ Before you can set up managed identities for Front Door, you must have a Front D
 
     :::image type="content" source="./media/managed-identity/secrets.png" alt-text="Screenshot of accessing secrets from under settings of a Front Door profile.":::
 
-1. Confirm **Managed identity** appears under the *Access status* column for the certificate used in Front Door.
+1. Confirm **Managed identity** appears under the *Access role* column for the certificate used in Front Door.
 
     :::image type="content" source="./media/managed-identity/confirm-set-up.png" alt-text="Screenshot of Azure Front Door using managed identity to access certificate in Key Vault.":::
 
