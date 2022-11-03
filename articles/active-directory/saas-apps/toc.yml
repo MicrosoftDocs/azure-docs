@@ -546,6 +546,8 @@
         href: confirmit-horizons-tutorial.md
       - name: Confluence SAML SSO by Microsoft
         href: confluencemicrosoft-tutorial.md
+      - name: App Proxy configuration for Confluence SAML SSO
+        href: confluence-app-proxy-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
       - name: Contentful
