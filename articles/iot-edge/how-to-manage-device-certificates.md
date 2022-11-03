@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/19/2022
+ms.date: 11/02/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -72,7 +72,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 1. Check the certificate [meets format requirements](#format-requirements).
 
-1. Copy the PEM file and give IoT Edge's certificatge access. For example, with `/var/aziot/certs` directory:
+1. Copy the PEM file and give IoT Edge's certificate access. For example, with `/var/aziot/certs` directory:
 
    ```bash
    # Make the directory as root if doesn't exist
@@ -172,7 +172,7 @@ IoT Edge can use existing certificate and private key files to authenticate or a
 
 To prevent errors when certificates expire, remember to manually update the files and configuration before certificate expiration.
 
-### Example: use device identity certificate files from PKI provider
+### Example: Use device identity certificate files from PKI provider
 
 Request a TLS client certificate and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
 

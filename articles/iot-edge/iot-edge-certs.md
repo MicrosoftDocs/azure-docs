@@ -4,7 +4,7 @@ description: How Azure IoT Edge uses certificate to validate devices, modules, a
 author: jlian
 
 ms.author: jlian
-ms.date: 10/19/2022
+ms.date: 11/02/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
