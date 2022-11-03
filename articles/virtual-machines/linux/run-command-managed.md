@@ -52,7 +52,8 @@ This command will retrieve current execution progress, including latest output, 
 az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
 
-> [!Note] Output and error fields in `instanceView` is limited to last 4KB.
+> [!Note]
+> Output and error fields in `instanceView` is limited to last 4KB.
 > If you'd like to access the full output and error, you have the option of forwarding the output and error data to storage append blobs using `-outputBlobUri` and `-errorBlobUri` parameters while executing Run Command using `Set-AzVMRunCommand` or `Set-AzVMssRunCommand`.
 
 ### Delete RunCommand resource from the VM
