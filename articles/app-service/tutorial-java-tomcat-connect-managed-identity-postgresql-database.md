@@ -93,6 +93,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --sku-name B_Gen5_1 
    ```
 
+---
 1. Create a database for the application.
 
    ```azurecli-interactive
@@ -173,6 +174,7 @@ az webapp connection create postgres \
     --system-identity
 ```
 
+---
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
 
 ## View sample web app
