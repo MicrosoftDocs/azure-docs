@@ -1,11 +1,11 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 09/21/2022
 ---
 

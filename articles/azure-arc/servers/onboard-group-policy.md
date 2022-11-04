@@ -180,7 +180,7 @@ In the **General** tab, set the following parameters under **Security Options**:
 
 1. In the field **Configure for**, select **Windows Vista or Window 2008**.
 
-:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
+:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc Connected Machine agent Deployment and Configuration properties window." :::
 
 ### Assign trigger parameters for the task
 

@@ -136,7 +136,7 @@ The following table lists the supported languages for print text by the most rec
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-### Preview (2022-06-30-preview)
+### Print text in preview (API version 2022-06-30-preview)
 
 Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
@@ -232,6 +232,8 @@ Receipt supports all English receipts with the following locales:
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
 |English (United States)| `en-us`|
+|French | 'fr' |
+| Spanish | `es` |
 
 ## Business card model
 

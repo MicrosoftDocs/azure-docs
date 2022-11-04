@@ -1,12 +1,12 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/19/2021
-ms.author: aahi
+ms.author: jboback
 ---
 
 > [!IMPORTANT] 
