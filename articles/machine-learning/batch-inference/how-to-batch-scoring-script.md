@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: santiagoxf
+author: santiagxf
 ms.author: fasantia
 ms.reviewer: larryfr
 ms.date: 11/03/2022
