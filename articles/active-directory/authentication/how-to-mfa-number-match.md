@@ -362,7 +362,7 @@ Number match will be enabled for all users of Microsoft Authenticator after Febr
 
 ### How should users be prepared for default number matching?
 
-Here is the experience Microsoft Authenticator users will have for different sign-in scenarios after number matching is enabled by default:
+Here are differences in sign-in scenarios that Microsoft Authenticator users will see after number matching is enabled by default:
 
 - Authentication flows will require users to do number match when using Microsoft Authenticator. If their version of Microsoft Authenticator doesn’t support number match, their authentication will fail.
 - Self-service password reset (SSPR) and combined registration will also require number match when using Microsoft Authenticator. 
@@ -390,7 +390,7 @@ If a user is running an older version of Microsoft Authenticator that doesn't su
 
 ### Why is my user prompted to tap on one out of three numbers instead of entering the number in their Microsoft Authenticator app?
 
-Older versions of the Microsoft Authenticator prompts users to tap and select a number instead of entering the number in their Microsoft Authenticator app. These authentications will not fail but we highly recommend that the user update to the latest version of the app to be able to enter the number. 
+Older versions of Microsoft Authenticator prompt users to tap and select a number instead of entering the number in their Microsoft Authenticator app. These authentications will not fail, but we highly recommend that users update to the latest version of the app to be able to enter the number. 
 
 
 ## Next steps
