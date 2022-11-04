@@ -206,22 +206,7 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
     @Override
     public void onCreate() {
         super.onCreate();
-        // Initialize 
-         try {
-            UserTokenClient userTokenClient = new UserTokenClient(AZURE_FUNTION_URL);
-            //First user context
-            userTokenClient.getNewUserContext();
-            ACS_ENDPOINT = userTokenClient.getACSEndpoint();
-            FIRST_USER_ID = userTokenClient.getUserID();
-            FIRST_USER_ACCESS_TOKEN = userTokenClient.getUserToken();
-            COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
-            //Second user context
-            userTokenClient.getNewUserContext();
-            SECOND_USER_ID = userTokenClient.getUserID();
-            Log.i("jimindebug", ACS_ENDPOINT);
-        } catch (Throwable throwable) {
-            //Your handling code
-        }
+        // Initialize application parameters here
         WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
     }
 
@@ -233,9 +218,9 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
     }
 }
 ```
-Explaination to code above. The default initializer of WorkManager has been disabled in step 9. This step implementing `Configuration.Provider` to provide a customed 'WorkerFactory', which is responsible to create WorkerManager in runtime environment. 
+Explanation to code above. The default initializer of WorkManager has been disabled in step 9. This step implementing `Configuration.Provider` to provide a customized 'WorkerFactory', which is responsible to create WorkerManager in runtime environment. 
 
-Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created. So initialize application parameters take place in 'onCreate()' method. ACS_ENDPOINT, FIRST_USER_ID and FIRST_USER_ACCESS_TOKEN are returned from calling Azure Function. Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details.
+If the APP is integrated with Azure Function. Initialization of application parameters should be added in method 'onCreate()'. Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created. So that application parameters could be initialized before being used. More details could be found from sample chat APP.
 
 12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step 11, into `AndroidManifest.xml`:
 
