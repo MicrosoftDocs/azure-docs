@@ -6,6 +6,7 @@ ms.date: 10/20/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
+ms.custom: engagement-fy23
 ---
 
 # Back up a SharePoint farm on Azure Stack using Microsoft Azure Backup Server

@@ -1,8 +1,8 @@
 ---
 title: Configure the Azure Deployment Environments service
 description: This quickstart shows you how to configure the Azure Deployment Environments service. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
-author: anandmeg
-ms.author: meghaanand
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.custom: ignite-2022
@@ -106,12 +106,16 @@ After you've created a dev center, the next step is to attach an [identity](conc
     |**Name**|Provide a name for your catalog.|
     |**Git clone URI**|Provide the URI to your GitHub or ADO repository.|
     |**Branch**|Provide the repository branch that you would like to connect.|
-    |**Folder path**|Provide the repo path in which the [catalog item](concept-environments-key-concepts.md#catalog-items) exist.|
+    |**Folder path**|Provide the repo relative path in which the [catalog item](concept-environments-key-concepts.md#catalog-items) exist.|
     |**Secret identifier**|Provide the secret identifier that which contains your Personal Access Token (PAT) for the repository|
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot of add new catalog page.":::
 
 1. Confirm that the catalog is successfully added by checking the **Notifications**.
+
+1. Select the specific repo, and then select **Sync**.
+   
+    :::image type="content" source="media/configure-catalog-item/sync-catalog-items.png" alt-text="Screenshot showing how to sync the catalog." :::
 
 ## Create Environment types
 

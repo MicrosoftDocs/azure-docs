@@ -194,6 +194,9 @@ Follow these steps to get started:
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
 
+> [!NOTE]
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually.
+
 ## Next steps
 
 Learn more information about continuous integration and delivery in Data Factory:

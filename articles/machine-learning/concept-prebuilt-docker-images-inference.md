@@ -9,7 +9,7 @@ ms.author: sehan
 author: dem108
 ms.date: 07/14/2022
 ms.topic: conceptual
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: deploy, docker, prebuilt
 ---
 

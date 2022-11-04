@@ -9,6 +9,7 @@ ms.service: deployment-environments
 ms.topic: how-to
 ms.date: 10/12/2022
 ms.custom: devdivchpfy22, ignite-2022
+
 ---
 
 # Add and configure a catalog item

@@ -56,15 +56,13 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
 
 1. Select **Add Connection**.
 
-1. Specify the connection settings for the ITSM product that you're using:
+1. Specify the ServiceNow connection settings.
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
-    - [System Center Service Manager](./itsmc-connections.md)
 
-   > [!NOTE]
-   > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
-   >
-   > ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
+1. By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
+
+    ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
 
 ## Create ITSM work items from Azure alerts
 
@@ -128,9 +126,11 @@ To create an action group:
 When you create or edit an Azure alert rule, use an action group, which has an ITSM action. When the alert triggers, the work item is created or updated in the ITSM tool.
 
 > [!NOTE]
-> For information about the pricing of the ITSM action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for action groups.
+> * For information about the pricing of the ITSM action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for action groups.
 >
-> The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
+> * The short description field in the alert rule definition is limited to 40 characters when you send it by using the ITSM action.
+>
+> * In case you have policies for inbound traffic for your ServiceNow instances, add ActionGroup service tag to allowList.
 
 ## Next steps
 

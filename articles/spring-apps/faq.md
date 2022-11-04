@@ -65,7 +65,7 @@ Azure Spring Apps has the following known limitations:
 
 Which one should I use and what are the limits within each tier?
 
-* Azure Spring Apps offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
+* Azure Spring Apps offers three pricing tiers: Basic, Standard, and Enterprise. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. The Enterprise tier is for production workloads with VMware Tanzu components. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
 
@@ -135,11 +135,11 @@ Yes.
 
 The number of outbound public IP addresses may vary according to the tiers and other factors.
 
-| Azure Spring Apps instance type | Default number of outbound public IP addresses |
-| -------------------------------- | ---------------------------------------------- |
-| Basic Tier instances             | 1                                              |
-| Standard Tier instances          | 2                                              |
-| VNet injection instances         | 1                                              |
+| Azure Spring Apps instance type    | Default number of outbound public IP addresses |
+|------------------------------------|------------------------------------------------|
+| Basic tier instances               | 1                                              |
+| Standard/Enterprise tier instances | 2                                              |
+| VNet injection instances           | 1                                              |
 
 ### Can I increase the number of outbound public IP addresses?
 
@@ -219,7 +219,7 @@ Yes. For more information, see [Monitor app lifecycle events using Azure Activit
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring applications to Azure Spring Apps?
 
-For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
+For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

@@ -1,11 +1,11 @@
 ---
 title: Create an SMB Azure file share
 titleSuffix: Azure Files
-description: How to create an SMB Azure file share by using the Azure portal, PowerShell, or Azure CLI.
+description: How to create and delete an SMB Azure file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/24/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -349,7 +349,7 @@ az storage share-rm update \
 ---
 
 ## Delete a file share
-To delete an Azure file share, you can use the Azure portal, Azure PowerShell, or Azure CLI. Shares can be recovered within the [soft delete](storage-files-prevent-file-share-deletion.md) retention period.
+To delete an Azure file share, you can use the Azure portal, Azure PowerShell, or Azure CLI. SMB Azure file shares can be recovered within the [soft delete](storage-files-prevent-file-share-deletion.md) retention period.
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account that contains the file share you want to delete.
@@ -362,7 +362,7 @@ To delete an Azure file share, you can use the Azure portal, Azure PowerShell, o
 :::image type="content" source="media/storage-how-to-create-file-share/delete-file-share.png" alt-text="Screen shot of the Azure portal procedure for deleting a file share." border="true" lightbox="media/storage-how-to-create-file-share/delete-file-share.png":::
 
 # [PowerShell](#tab/azure-powershell)
-1. Log in to your Azure account and specify your tenant ID.
+1. Log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID.
 
    ```azurepowershell
    Login-AzAccount -TenantId <YourTenantID>
