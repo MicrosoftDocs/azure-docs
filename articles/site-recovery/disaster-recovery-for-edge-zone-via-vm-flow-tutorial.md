@@ -28,10 +28,10 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Basics**, select the **Target region** or an edge zone (preview).
     - Option1: **Edge Zone to Region**
     - Option2: **Edge Zone to Edge Zone**
-    This flow proceeds with option1: Edge Zone to Region replication.
+This flow proceeds with option1: Edge Zone to Region replication.
 1. Select **Next : Advanced settings**.
     >[!Note]
-    >**Review + Start replication** will be greyed at this step.
+    >**Review + Start replication** will appear grey at this step.
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
