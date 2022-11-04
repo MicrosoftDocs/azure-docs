@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 11/04/2022
 ms.author: mbullwin
 ---
 
