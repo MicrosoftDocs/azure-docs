@@ -17,6 +17,10 @@ This article answers common questions that might come up when you deploy disaste
 
 Moving to the classic experience in a newly created Recovery Services is not possible as it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in November 2023. All new Recovery Services vaults will be using the modernized experience.  
 
+### Can I migrate to the modernized experience? 
+
+All VMware VMs or Physical servers which are being replicated using the classic experience can be migrated to the modernized experience. Check the details [here](move-from-classic-to-modernized-vmware-disaster-recovery.md) and follow the [tutorial](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
 ### What do I need for VMware VM disaster recovery?
 
 [Learn about the components involved](vmware-azure-architecture.md) in disaster recovery of VMware VMs.
