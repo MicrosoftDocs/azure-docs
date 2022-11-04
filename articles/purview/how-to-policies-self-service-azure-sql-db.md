@@ -42,7 +42,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## Create a self-service data access request
 
-[!INCLUDE [request access to datasets](how-to-request-access.md)]
+[!INCLUDE [request access to datasets](includes/how-to-self-service-request-access.md)]
 
 
 >[!Important]

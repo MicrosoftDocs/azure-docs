@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 
-# Access provisioning by data owner to Azure Storage datasets (Preview)
+# Self-service access provisioning for Azure Storage datasets (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -52,6 +52,7 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
 ## Data Consumption
+
 - Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
 
 >[!NOTE]
