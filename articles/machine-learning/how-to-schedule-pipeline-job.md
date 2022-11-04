@@ -1,5 +1,5 @@
 ---
-title: Schedule Azure Machine Learning pipeline jobs (preview)
+title: Schedule Azure Machine Learning pipeline jobs
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule pipeline jobs that allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: lochen
 author: cloga
+ms.reviewer: lagayhar
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022

@@ -1,10 +1,10 @@
 ---
-title: Use Azure Active Directory to authorize access to Azure files over SMB for hybrid identities using Kerberos authentication (preview)
-description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory. Your users can then access Azure file shares by using their Azure AD credentials (preview).
+title: Use Azure Active Directory to authorize access to Azure files over SMB for hybrid identities using Kerberos authentication
+description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory. Your users can then access Azure file shares by using their Azure AD credentials.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/31/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -16,8 +16,6 @@ This article focuses on enabling and configuring Azure AD for authenticating [hy
 
 > [!IMPORTANT]
 > Azure Files authentication with Azure Active Directory Kerberos is currently in public preview.
-> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information about Azure AD Kerberos, see [Deep dive: How Azure AD Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
@@ -43,7 +41,7 @@ The Azure AD Kerberos functionality for hybrid identities is only available on t
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
 You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
@@ -51,11 +49,11 @@ Azure AD Kerberos authentication only supports using AES-256 encryption.
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos public preview is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China (Mooncake).
+Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China and Government clouds.
 
-## Enable Azure AD Kerberos authentication for hybrid user accounts (preview)
+## Enable Azure AD Kerberos authentication for hybrid user accounts
 
-To enable Azure AD Kerberos authentication on Azure Files for hybrid user accounts (preview), use the Azure portal.
+To enable Azure AD Kerberos authentication on Azure Files for hybrid user accounts, use the Azure portal.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Azure AD Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
@@ -155,5 +153,5 @@ For more information, see these resources:
 - [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
 - [Enable AD DS authentication to Azure file shares](storage-files-identity-ad-ds-enable.md)
-- [Create a profile container with Azure Files and Azure Active Directory (preview)](../../virtual-desktop/create-profile-container-azure-ad.md)
+- [Create a profile container with Azure Files and Azure Active Directory](../../virtual-desktop/create-profile-container-azure-ad.md)
 - [FAQ](storage-files-faq.md)

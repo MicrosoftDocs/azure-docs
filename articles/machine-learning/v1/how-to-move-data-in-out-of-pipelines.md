@@ -227,8 +227,10 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 If you'd like to make your `OutputFileDatasetConfig` available for longer than the duration of your experiment, register it to your workspace to share and reuse across experiments.
 
 ```python
-step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
-                                                         description = 'files from step1`)
+step1_output_ds = step1_output_data.register_on_complete(
+    name='processed_data', 
+    description = 'files from step1'
+)
 ```
 
 ## Delete `OutputFileDatasetConfig` contents when no longer needed

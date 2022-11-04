@@ -10,7 +10,7 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: mimart
-ms.custom: "it-pro"
+ms.custom: engagement-fy23, "it-pro"
 ms.collection: M365-identity-device-management
 ---
 

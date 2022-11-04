@@ -3,7 +3,7 @@ title: Understand Device Update for IoT Hub authentication and authorization | M
 description: Understand how Device Update for IoT Hub uses Azure RBAC to provide authentication and authorization for users and service APIs.
 author: vimeht
 ms.author: vimeht
-ms.date: 2/11/2021
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -29,20 +29,15 @@ A combination of roles can be used to provide the right level of access. For exa
 
 ## Configuring access for Azure Device Update service principal in the IoT Hub
 
-Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
+Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
-Below actions will be blocked with upcoming release, if these permissions are not set:
+Deployment, device and update management and diagnostic actions will not be allowed if these permissions are not set. Operations that will be blocked will include:
 * Create Deployment
 * Cancel Deployment
 * Retry Deployment 
 * Get Device
 
-1. Go to the **IoT Hub** connected to your Device Update Instance. Click **Access Control(IAM)**
-2. Click **+ Add** -> **Add role assignment**
-3. Under Role tab, select **IoT Hub Data Contributor**
-4. Click **Next**. For **Assign access to**, select **User, group, or service principal**. Click **+ Select Members**, search for '**Azure Device Update**'
-5. Click **Next** -> **Review + Assign**
-
+The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure Access for Azure Device update service principal in linked IoT hub](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub)
 
 ## Authenticate to Device Update REST APIs
 
@@ -124,7 +119,7 @@ To add and remove a system-assigned managed identity in Azure portal:
 3. Navigate to Identity in your IoT Hub portal
 4. Under System-assigned tab, select On and click Save.
 
-To remove system-assigned managed identity from an Device Update for IoT hub account, select Off and click Save.
+To remove system-assigned managed identity from a Device Update for IoT hub account, select Off and click Save.
 
 
 

@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage a Power BI tenant same tenant
 description: This guide describes how to connect to a Power BI tenant in the same tenant as Microsoft Purview, and use Microsoft Purview's features to scan and manage your Power BI tenant source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 11/03/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -100,10 +100,16 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
-   2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+    
     3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. If delegated authentication is used, validate Power BI admin user settings to make sure:
@@ -114,7 +120,10 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 3. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
+   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
+      - `*.powerbi.com` 
+      - `*.analysis.windows.net` 
+   
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
@@ -153,17 +162,26 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
-   2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
-   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
-   3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
+   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
+      - `*.powerbi.com` 
+      - `*.analysis.windows.net` 
+   
+   4. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 
 1. In Azure Active Directory tenant, create a security group.
 
@@ -305,21 +323,20 @@ For more information about Microsoft Purview network settings, see [Use private 
 
 To create and run a new scan, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**.
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. [For information about the Redirect URI see this documenation from Azure Active Directory](/azure/active-directory/develop/reply-url).
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in AAD.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
 
 2. Take note of Client ID(App ID).
   
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
-1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
+1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions:
 
-   - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions on Microsoft Graph.":::
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 
@@ -406,19 +423,19 @@ To create and run a new scan, do the following:
    
 1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. 
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in AAD.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
 
 2. Take note of Client ID(App ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
-1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
+1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. Assign the application the following delegated permissions, and grant admin consent for the tenant:
 
    - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions on Power BI Service and Microsoft Graph.":::
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 

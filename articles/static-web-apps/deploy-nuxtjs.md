@@ -25,8 +25,8 @@ In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) applica
 You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of using a new project, this tutorial uses an existing repository set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
 
 1. Create a new repository under your GitHub account from a template repository.
-1. Go to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
-1. Name the repository **nuxtjs-starter**.
+1. Go to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxt-3-starter/generate)
+1. Name the repository **nuxt-3-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash

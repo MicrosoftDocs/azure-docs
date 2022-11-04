@@ -59,8 +59,8 @@ Validate that permissions are configured correctly:
 
 - **Active Directory Domain Services (AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
 
-    Share-level permission assignments are supported for groups and users that have been synced from Active Directory Domain Services (AD DS) to Azure Active Directory (Azure AD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-identity).
+    Share-level permission assignments are supported for groups and users that have been synced from AD DS to Azure Active Directory (Azure AD) using Azure AD Connect sync or Azure AD Connect cloud sync. Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an Azure AD identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-azure-ad-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -572,7 +572,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 ## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
 
-You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts, which is currently in public preview.
+You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts.
 
 ### Error - Grant admin consent disabled
 
@@ -593,7 +593,7 @@ When enabling Azure AD Kerberos authentication, you might encounter this error i
     - Has no start date, or has a start date before 2019-01-01
     - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
 
-There is currently no workaround for this error during the public preview.
+There is currently no workaround for this error.
 
 #### Cause 2: an application already exists for the storage account
 
@@ -705,7 +705,7 @@ If you don't want to rotate the service principal password every six months, you
 
 1. [Disable Azure AD Kerberos](storage-files-identity-auth-azure-active-directory-enable.md#disable-azure-ad-authentication-on-your-storage-account)
 1. [Delete the existing application](#cause-2-an-application-already-exists-for-the-storage-account)
-1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts-preview)
+1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts)
 
 Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
 

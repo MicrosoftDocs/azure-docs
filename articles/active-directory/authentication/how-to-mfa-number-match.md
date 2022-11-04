@@ -1,22 +1,22 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 11/03/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication methods policy
+# How to use number matching in multifactor authentication (MFA) notifications  - Authentication methods policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will begin to be enabled by default for all users starting February 27, 2023.<br> 
 >We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ This topic covers how to enable number matching in Microsoft Authenticator push 
   >[!NOTE]
   >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
 
-- If your organization is using ADFS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
+- If your organization is using AD FS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
 
@@ -43,7 +43,9 @@ Number matching is available for the following scenarios. When enabled, all scen
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-Number matching will be available in Azure Government two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching is available for sign-in for Azure Government. However, it's currently not available for Authenticator setup in combined registration. Number matching will be available for Authenticator setup in [combined registration](howto-registration-mfa-sspr-combined.md) by November 30, 2022 for Azure Government.
+
+Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
@@ -57,7 +59,7 @@ During self-service password reset, the Authenticator app notification will show
 
 ### Combined registration
 
-When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. Number matching will be available for Authenticator setup in combined registration in Azure Government by November 30, 2022.
 
 ### AD FS adapter
 
@@ -163,7 +165,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
 
-The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you don't want to allow passwordless, use **push**. 
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you don't want to allow passwordless, use **push**. 
 
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
@@ -346,9 +348,30 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
 
-1. On the **Configure** tab, for **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
+1. On the **Configure** tab, for **Require number matching for push notifications**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
+
+
+
+## FAQs
+
+### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
+
+Number match will be enabled for all users of Microsoft Authenticator app after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
+
+### Can I opt out of number matching?
+
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+
+### What about my Apple Watch?
+
+Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone. 
+
+### What happens if a user runs an older version of Microsoft Authenticator?
+
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.  
+
 
 ## Next steps
 
