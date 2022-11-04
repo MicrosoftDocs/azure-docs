@@ -18,6 +18,9 @@ ms.custom: private_preview
 
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc.) to steer and control calls based on your business logic.
 
+> [!NOTE]
+> Call Automation currently doesnt interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isnt supported. 
+
 ## Common Use Cases
 
 Some of the common use cases that can be build using Call Automation include:
@@ -63,7 +66,6 @@ Call Automation uses a REST API interface to receive requests and provide respon
 Azure Communication Services uses Event Grid to deliver the [IncomingCall event](../../concepts/voice-video-calling/incoming-call-notification.md) and HTTPS Webhooks for all mid-call action callbacks.
 
 ![Screenshot of flow for incoming call and actions.](./media/action-architecture.png)
-
 
 ## Call Actions
 
@@ -123,13 +125,12 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | CallTransferFailed  | The transfer of your application’s call leg failed  |
 | AddParticipantSucceeded| Your application added a participant  |
 |AddParticipantFailed   | Your application was unable to add a participant  |
-| RemoveParticipantSucceeded|Your application removed a participant |
-| RemoveParticipantFailed |Your application was unable to remove a participant |
 | ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
 | PlayCompleted| Your application successfully played the audio file provided |
 | PlayFailed| Your application failed to play audio |
 | RecognizeCompleted | Recognition of user input was successfully completed |
-| RecognizeFailed | Recognition of user input was unsuccessful <br/><br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
+| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
+
 
 ## Known Issues
 

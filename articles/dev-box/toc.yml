@@ -15,11 +15,8 @@
       href: quickstart-configure-dev-box-project.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
-- name: Tutorials
-  expanded: true
-  items: 
     - name: Connect with Remote Desktop App
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+      href: quickstart-connect-to-dev-box-with-remote-desktop-app.md
 - name: Concepts
   expanded: true
   items:
@@ -40,6 +37,8 @@
       href: how-to-manage-dev-box-pools.md
     - name: Manage a dev box definition
       href: how-to-manage-dev-box-definitions.md
+    - name: Manage a dev box project
+      href: how-to-manage-dev-box-projects.md
     - name: Manage network connections
       href: how-to-manage-network-connection.md
     - name: Microsoft Dev Box CLI

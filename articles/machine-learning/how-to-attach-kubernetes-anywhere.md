@@ -18,7 +18,7 @@ ms.date: 08/31/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-With AzureML CLI/Python SDK v2, AzureML introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubenetes compute target in AzureML, and use it to train or deploy models. 
+With AzureML CLI/Python SDK v2, AzureML introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubernetes compute target in AzureML, and use it to train or deploy models. 
 
 :::image type="content" source="./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure ML connects to Kubernetes." lightbox="./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png":::
  
