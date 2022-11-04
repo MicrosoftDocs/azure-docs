@@ -21,7 +21,7 @@ Use the following synchronization process to reactivate the connection and refre
 
 1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
-    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. The Resource menu entry titled ITSM Connections is highlighted.":::
+    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. ITSM Connections on the left pane is highlighted.":::
 
 1. Select each connector in the list to edit the connector as necessary.
 

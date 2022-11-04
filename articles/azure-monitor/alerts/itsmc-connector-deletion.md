@@ -16,7 +16,7 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 1. In the Azure portal, select Monitor, then **Alerts** and **Action groups**.
 
-    :::image type="content" source="media/itsmc-connector-deletion/monitor-alerts-page.png" lightbox="media/itsmc-connector-deletion/monitor-alerts-page.png" alt-text="Screenshot of the Alerts page in the Azure portal. Monitor in the portal menu, Alerts in the resource menu, and Action groups button are highlighted.":::
+    :::image type="content" source="media/itsmc-connector-deletion/monitor-alerts-page.png" lightbox="media/itsmc-connector-deletion/monitor-alerts-page.png" alt-text="Screenshot of the Alerts page in the Azure portal. Monitor in the portal menu, Alerts on the left pane, and Action groups button are highlighted.":::
 
 1. Select the action group associated with the ITSM Connector you want to delete.
 
@@ -34,7 +34,7 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
-    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. The Resource menu entry titled ITSM Connections is highlighted.":::
+    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. ITSM Connections on the left pane is highlighted.":::
 
 1. Select the connector you want to delete.
 
