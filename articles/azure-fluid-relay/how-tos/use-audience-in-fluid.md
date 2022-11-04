@@ -54,7 +54,7 @@ The next image shows multiple users connected to a container represented by boxe
 
 ### Set up state variables and component view
 
-1. Open the file `\src\App.js` in the code editor. Delete all the default `import` statements. Then delete all the markup from the `return` statement. Then add import statements for components and React hooks. Note that we will be implementing the imported `AudienceDisplay` and `UserIdSelection` components in the later steps. The file should look like the following:
+1. Open the file `\src\App.js` in the code editor. Delete all the default `import` statements. Then delete all the markup from the `return` statement. Then add import statements for components and React hooks. Note that we will be implementing the imported **AudienceDisplay** and **UserIdSelection** components in the later steps. The file should look like the following:
 
     ```js
         import { useState, useCallback } from "react";
@@ -69,9 +69,9 @@ The next image shows multiple users connected to a container represented by boxe
         }
     ```
 
-1. Replace `TODO 1` with the following code. This code initializes local state variables that will be used within the application. `displayAudience` determines if we render the `AudienceDisplay` component or the `UserIdSelection` component (see `TODO 2`). `userId` contains the user identifier to connect to the container with and `containerId` is the container to load. `handleSelectUser` and `handleContainerNotFound` are passed in as callbacks to the two views and manage state transitions. `handleSelectUser` is called when attempting to create/load a container. `handleContainerNotFound` is called when creating/loading a container fails.
+1. Replace `TODO 1` with the following code. This code initializes local state variables that will be used within the application. The `displayAudience` value determines if we render the **AudienceDisplay** component or the **UserIdSelection** component (see `TODO 2`). The `userId` value is the user identifier to connect to the container with and the `containerId` value is the container to load. The `handleSelectUser` and `handleContainerNotFound` functions are passed in as callbacks to the two views and manage state transitions. `handleSelectUser` is called when attempting to create/load a container. `handleContainerNotFound` is called when creating/loading a container fails.
 
-    Note, the values `userId` and `containerId` will come from a `UserIdSelection` component through the `handleSelectUser` function.    
+    Note, the values userId and containerId will come from a **UserIdSelection** component through the `handleSelectUser` function.
 
     ```js
         const [displayAudience, setDisplayAudience] = useState(false);
@@ -89,7 +89,7 @@ The next image shows multiple users connected to a container represented by boxe
         }, [setDisplayAudience]);
     ```
 
-1. Replace `TODO 2` with the following code. As stated above, the `displayAudience` variable will determine if we render the `AudienceDisplay` component or the `UserIdSelection` component. Also, functions to update the state variables are passed into components as properties.
+1. Replace `TODO 2` with the following code. As stated above, the `displayAudience` variable will determine if we render the **AudienceDisplay** component or the **UserIdSelection** component. Also, functions to update the state variables are passed into components as properties.
 
     ```js
         (displayAudience) ?
@@ -108,7 +108,7 @@ The next image shows multiple users connected to a container represented by boxe
         import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
     ```
     
-    Note that the objects imported from the Fluid Framework library are required for defining users and containers. In the following steps, `AzureClient` and `InsecureTokenProvider` will be used to configure the client service (see `TODO 1`) while the `SharedMap` will be used to configure a `containerSchema` needed to create a container (see `TODO 2`).
+    Note that the objects imported from the Fluid Framework library are required for defining users and containers. In the following steps, **AzureClient** and **InsecureTokenProvider** will be used to configure the client service (see `TODO 1`) while the **SharedMap** will be used to configure a `containerSchema` needed to create a container (see `TODO 2`).
 
 1. Add the following functional components and helper functions:
 
@@ -128,14 +128,14 @@ The next image shows multiple users connected to a container represented by boxe
         //TODO 6: Return list of member elements
         }
     ```
-    
-    Note that the `AudienceDisplay` and `AudienceList` are functional components which handle getting and rendering audience data while the `tryGetAudienceObject` method handles the creation of container and audience services.
+
+    Note that the **AudienceDisplay** and **AudienceList** are functional components which handle getting and rendering audience data while the `tryGetAudienceObject` method handles the creation of container and audience services.
 
 ### Getting container and audience
 
 You can use a helper function to get the Fluid data, from the Audience object, into the view layer (the React state). The `tryGetAudienceObject` method is called when the view component loads after a user ID is selected. The returned value is assigned to a React state property.
 
-1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the `App` component. If there is no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which does not exist. Visit the [React demo](https://fluidframework.com/docs/recipes/react/) and [Containers](../concepts/architecture.md#container) documentation for more information.
+1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the **App** component. If there is no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which does not exist. Visit the [React demo](https://fluidframework.com/docs/recipes/react/) and [Containers](../concepts/architecture.md#container) documentation for more information.
 
     ```js
         const userConfig = {
@@ -196,7 +196,7 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
         const [currentMember, setCurrentMember] = useState();
     ```
 
-1. Replace `TODO 3` with the following code. This will call the `tryGetAudienceObject` when the component is mounted and set the returned audience members to `fluidMembers` and `currentMember`. Note, we check if an audience object is returned in case  a user inputs a containerId which does not exist and we need to return them to the `UserIdSelection` view (`props.onContainerNotFound()` will handle switching the view). Also, it is good practice to deregister event handlers when the React component dismounts by returning `audience.off`.
+1. Replace `TODO 3` with the following code. This will call the `tryGetAudienceObject` when the component is mounted and set the returned audience members to `fluidMembers` and `currentMember`. Note, we check if an audience object is returned in case  a user inputs a containerId which does not exist and we need to return them to the **UserIdSelection** view (`props.onContainerNotFound()` will handle switching the view). Also, it is good practice to deregister event handlers when the React component dismounts by returning `audience.off`.
 
     ```js
         useEffect(() => {
@@ -221,7 +221,7 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
         }, []);
     ```
 
-1. Replace `TODO 4` with the following code. Note, if the `fluidMembers` or `currentMember` has not been initialized, a blank screen is rendered. The `AudienceList` component will render the member data with styling (to be implemented in the next section).
+1. Replace `TODO 4` with the following code. Note, if the `fluidMembers` or `currentMember` has not been initialized, a blank screen is rendered. The **AudienceList** component will render the member data with styling (to be implemented in the next section).
 
     ```js
         if (!fluidMembers || !currentMember) return (<div/>);
@@ -236,7 +236,7 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
 
 ### Create the view
 
-1. Replace `TODO 5` with the following code. Note we are rendering a list component for each member passed from the `AudienceDisplay` component. For each member, we first compare `member.userId` to `currentMember.userId` to check if that member `isSelf`. This way, we can differentiate the client user from the other users and display the component with a different color. We then push the list component to a `list` array. Each component will display member data such as `userId` `userName` and `additionalDetails`.
+1. Replace `TODO 5` with the following code. Note we are rendering a list component for each member passed from the **AudienceDisplay** component. For each member, we first compare `member.userId` to `currentMember.userId` to check if that member `isSelf`. This way, we can differentiate the client user from the other users and display the component with a different color. We then push the list component to a `list` array. Each component will display member data such as `userId` `userName` and `additionalDetails`.
 
     ```js
         const currentMember = data.currentMember;
@@ -303,7 +303,7 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
     }
     ```
 
-1. Replace `TODO 1` with the following code. Note that the `onSelectUser` function will update the state variables in the parent `App` component and prompt a view change. The `handleSubmit` method is triggered by button elements which will be implemented in `TODO 2`. Also, the `handleChange` method is used to update the `containerId` state variable. This method will be called from an input element event listener implemented in `TODO 2`. Also, note that we update the `containerId` be getting the value from an HTML element with the id `containerIdInput` (defined in `TODO 2`).
+1. Replace `TODO 1` with the following code. Note that the `onSelectUser` function will update the state variables in the parent **App** component and prompt a view change. The `handleSubmit` method is triggered by button elements which will be implemented in `TODO 2`. Also, the `handleChange` method is used to update the `containerId` state variable. This method will be called from an input element event listener implemented in `TODO 2`. Also, note that we update the `containerId` be getting the value from an HTML element with the id `containerIdInput` (defined in `TODO 2`).
 
     ```js
         const selectionStyle = {
