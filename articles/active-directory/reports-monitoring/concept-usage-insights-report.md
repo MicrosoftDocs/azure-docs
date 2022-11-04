@@ -15,13 +15,13 @@ ms.reviewer: besiler
 
 # Usage and insights in Azure Active Directory
 
-With the Azure Active Directory (Azure AD) **Usage and insights** report, you can get an application-centric view of your sign-in data. You can find answers to the following questions:
+With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights also includes a report on authentication methods activity. You can find answers to the following questions:
 
 *	What are the top used applications in my organization?
 *	What applications have the most failed sign-ins? 
 *	What are the top sign-in errors for each application?
 
-Azure AD also provides a report on authentication methods activity. This article provides an overview of three reports that look sign-in data. 
+This article provides an overview of three reports that look sign-in data. 
 
 ## Access Usage & insights 
 
@@ -56,7 +56,7 @@ Select a day in the application usage graph to see a detailed list of the sign-i
 
 ### AD FS application activity
 
-The **AD FS application activity** report in Usage & insights looks at the applications currently using Azure AD Federated Services (AD FS) to authenticate. These applications have not been migrated to Azure AD for authentication. 
+The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
 
 ### Authentication methods activity
 

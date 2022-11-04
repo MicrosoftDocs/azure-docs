@@ -67,7 +67,7 @@ To more effectively view the sign-ins log, spend a few moments customizing the v
 The sign-ins log has a default view, but you can customize the view using over 30 column options.
 
 1. Select **Columns** from the menu at the top of the log.
-1. Select the columns you want to view and  select the **Save** button at the bottom of the window.
+1. Select the columns you want to view and select the **Save** button at the bottom of the window.
 
 ![Screenshot of the sign-in logs page with the Columns option highlighted.](./media/concept-sign-ins/sign-in-logs-columns.png)
 

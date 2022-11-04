@@ -16,12 +16,11 @@ ms.collection: M365-identity-device-management
 ---
 # Audit logs in Azure Active Directory 
 
-As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
+Azure Active Directory (Azure AD) activity logs include audit logs, which is a comprehensive report on every logged event in Azure AD. Changes to applications, groups, users, and licenses are all captured in the Azure AD audit logs.
 
-To support you with this goal, the Azure Active Directory (Azure AD) portal gives you access to three activity logs:
+Two other activity logs are also available to help monitor the health of your tenant:
 
 - **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
-- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
 This article gives you an overview of the audit logs.
