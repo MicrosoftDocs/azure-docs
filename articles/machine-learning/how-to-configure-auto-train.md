@@ -421,7 +421,7 @@ def automl_classification(
             automl_output=Input(type="mlflow_model")
         ),
         command="ls ${{inputs.automl_output}}",
-        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1"
+        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest"
     )
     show_output = command_func(automl_output=classification_node.outputs.best_model)
 
