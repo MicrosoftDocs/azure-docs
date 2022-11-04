@@ -472,6 +472,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 - [How is the Django sample configured to run on Azure App Service?](#how-is-the-django-sample-configured-to-run-on-azure-app-service)
 - [I can't connect to the SSH session](#i-cant-connect-to-the-ssh-session)
 - [I get an error when running database migrations](#i-get-an-error-when-running-database-migrations)
+- [How can I migrate data from my local machine to my Azure PostgreSQL server?]()
 
 #### How much does this setup cost?
 
@@ -526,6 +527,12 @@ If you can't connect to the SSH session, then the app itself has failed to start
 #### I get an error when running database migrations
 
 If you encounter any errors related to connecting to the database, check if the app settings (`DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`) have been changed. Without those settings, the migrate command can't communicate with the database. 
+
+#### How can I migrate data from my local machine to my Azure PostgreSQL server?
+
+For simple migration scenarios with one database, small amounts of data, or infrequent migrations, you can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. Then use [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by `pg_dump`. For more information, see [Migrate your PostgreSQL database by using dump and restore](azure/postgresql/migrate/how-to-migrate-using-dump-and-restore).
+
+For more complex migration scenarios with multiple databases and minimal downtime, use [Azure Database Migration Service](/azure/dms/). Azure Database Migration Service is a fully managed Azure service that helps you easily migrate various databases to their corresponding Azure data services. For an example, see [Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal](/azure/dms/tutorial-postgresql-azure-postgresql-online-portal).
 
 ## Next steps
 
