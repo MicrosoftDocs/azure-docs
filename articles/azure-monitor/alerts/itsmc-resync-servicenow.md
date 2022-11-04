@@ -17,7 +17,7 @@ Use the following synchronization process to reactivate the connection and refre
 
 1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the "ServiceDes" filter criteria listed.":::
+   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the ServiceDes filter criteria listed.":::
 
 1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
@@ -28,7 +28,7 @@ Use the following synchronization process to reactivate the connection and refre
 1. In the **Edit ITSM** window,
 
     1. If this ITSM connector isn’t being used, delete the connector.
-    1. Make sure that all of the fields are configured correctly. See the instructions here for the correct settings. 
+    1. Make sure that all of the fields are configured correctly. See the instructions [here](./itsmc-overview.md) for the correct settings. 
     1. Select **Sync**.
     1. Select **Save**.
 

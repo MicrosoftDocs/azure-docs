@@ -28,11 +28,11 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 ## Delete the connector
 
-1. In the Azure portal, select All resources, then find and select your Service Desk.
+1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-    :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the "ServiceDes" filter criteria listed.":::
+    :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the ServiceDes filter criteria listed.":::
 
-1. In the Service Desk window, select **ITSM Connections** from the Workspace Data Sources section on the left pane.
+1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
     :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of the Solution resource in the Azure portal with the ITSM Connections tab highlighted.":::
 

@@ -19,7 +19,7 @@ To view errors in the dashboard:
 
 1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the "ServiceDes" filter criteria listed.":::
+   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the ServiceDes filter criteria listed.":::
 
 1. In the Service Desk window, select **View Summary**.
 
