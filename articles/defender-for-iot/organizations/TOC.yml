@@ -192,11 +192,11 @@
     href: how-to-manage-sensors-on-the-cloud.md
   - name: OT system maintenance
     items:
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
     - name: Update OT monitoring software
       href: update-ot-software.md
       displayName: upgrade
-    - name: Maintain threat intelligence packages
-      href: how-to-work-with-threat-intelligence-packages.md
     - name: Manage OT sensors
       items:
       - name: Manage individual sensors
