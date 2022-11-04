@@ -26,8 +26,8 @@ To enable replication to a secondary location, follow the below steps:
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
 1. In **Basics**, select the **Target region** or an edge zone (preview).
-        - Option1: **Edge Zone to Region**
-        - Option2: **Edge Zone to Edge Zone**
+    - Option1: **Edge Zone to Region**
+    - Option2: **Edge Zone to Edge Zone**
     This flow proceeds with option1: Edge Zone to Region replication.
 1. Select **Next : Advanced settings**.
     >[!Note]
