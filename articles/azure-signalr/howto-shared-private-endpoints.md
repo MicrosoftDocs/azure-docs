@@ -30,7 +30,9 @@ Private endpoints of secured resources that are created through Azure SignalR Se
 
 ## Prerequisites
 
-- A Resource Group
+You'll need the following resources to complete the steps in this article:
+
+- An Azure Resource Group
 - An Azure SignalR Service instance (must not be in free tier)
 - An Azure Function instance
 
@@ -202,6 +204,13 @@ At this point, the private endpoint between Azure SignalR Service and Azure Func
 Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
 
 :::image type="content" alt-text="Screenshot of the Azure portal, showing incoming requests are from a private IP." source="media\howto-shared-private-endpoints\portal-function-log.png" :::
+
+## Cleanup
+
+If you are not going to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+
+>[!CAUTION]
+> The deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
 
 ## Next steps
 

@@ -22,8 +22,11 @@ In this article, you learn how to create a shared private endpoint to Key Vault.
 
 ## Prerequisites
 
-- You'll need an Azure SignalR Service instance.
-- You'll need an Azure Key Vault instance.
+You'll need the following resources to complete this article:
+
+- An Azure resource group. 
+- An Azure SignalR Service instance.
+- An Azure Key Vault instance.
 
 
 The examples in this article use the following naming convention.  You can use your own names instead.
@@ -191,9 +194,17 @@ When the "Provisioning State" (`properties.provisioningState`) of the resource i
 
 When the provisioning state is set to **Succeeded** and the connection state is set to **Approved**, the private endpoint between Azure SignalR Service and Azure Key Vault is established.
 
-QUESTION: Do we need the paragraph below?  Is the information closely related to the topic?  Is it mentioned in another article? 
+QUESTION: Do we need the paragraph below?  It seems somewhat out of place here.  I think it's better to put it in the "Configure custom domain" article.
 
     Now you can configure features like custom domain. **You don't have to use a special domain for Key Vault**. DNS resolution is automatically handled by Azure SignalR Service.        
+
+
+## Cleanup
+
+If you are not going to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+
+>[!CAUTION]
+> The deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
 
 ## Next steps
 
