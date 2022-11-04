@@ -270,7 +270,7 @@ The network security group (NSG) that is attached to the subnet isn't in the `Su
 
 ### Creating or updating the load test fails with `Route Table attached to subnet is not in Succeeded state (ALTVNET007)`
 
-The route table attached to the subnet isn't in the `Succeeded` state. Verify your route table or use a different route table
+The route table attached to the subnet isn't in the `Succeeded` state.
 
 1. Verify the state of the route table.
 
