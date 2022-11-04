@@ -78,7 +78,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 ```
 
 ### Set up Azure Function
-Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We highly recommend integrate with Azure Function to avoid hard-coding application constants.
+Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We highly recommend integrate with Azure Function to avoid hard-coding application parameters.
 
 ### Set up application constants:
 Create a class 'ApplicationConstants' which stores all application constants:
@@ -127,7 +127,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
         try {
             AndroidThreeTen.init(this);
 
-            // Initialize ApplicationConstants if meets condition in '### Initialize Application Constants'
+            // Initialize application parameters if meets condition in '### Initialize Application Parameters'
 
             // <CREATE A CHAT CLIENT>
 
@@ -156,9 +156,9 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     }
 ```
 
-### Initialize Application Constants
+### Initialize Application Parameters
 > [!NOTE]
-> Initialize 'ApplicationConstants' needs to be added in file `MainActivity.java`, if EITHER condition meets. 1. push notification feature is NOT enabled. 2. Android chat SDK version < '2.0.0'. Otherwise, please refer to step 11 in [Android push notifications](../../../tutorials/chat-android-push-notification.md). Please refer to the sample APP of SDK version that you are using for reference.
+> Initialize 'ApplicationConstants' needs to be added in file `MainActivity.java`, if EITHER condition meets. 1. push notification feature is NOT enabled. 2. Android chat SDK version < '2.0.0'. Otherwise, please refer to step 11 in [Android push notifications](../../../tutorials/chat-android-push-notification.md). Please refer to the sample APP of SDK version that you are consuming for reference.
 
 ACS_ENDPOINT, FIRST_USER_ID and FIRST_USER_ACCESS_TOKEN are returned from calling Azure Function. Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We use the response from calling Azure Function to initialize the list of parameters:
 1. 'ACS_ENDPOINT': the endpoint of your Communication Services resource.
