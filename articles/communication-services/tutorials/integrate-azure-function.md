@@ -5,12 +5,13 @@ description: Learn how to enable Azure Function
 author: jiminwen
 services: azure-communication-services
 ms.author: jiminwen
-ms.date: 09/01/2022
+ms.date: 11/03/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ---
+# Integrate Azure Function
 ## Introduction
-This tutorial provides detailed guidance on how to set up an Azure Function to receive user related information. Setting up an Azure Function is highly recomanded. Because it helps to avoid hard-code application contants in the Contoso APP(such as user ID and user token). Those information are highly cridential. More importantly, we don't expect the same user ID being used for different user in Contoso APP. 
+This tutorial provides detailed guidance on how to set up an Azure Function to receive user related information. Setting up an Azure Function is highly recommended. It helps to avoid hard-coding application contants in the Contoso APP(such as user ID and user token). This information is highly credential. More importantly, we refresh user token periodically on the backend. Hard-coded user ID and token combination requires editing hard-coded values after the token.
 
 ## Prerequisites
 
@@ -21,9 +22,8 @@ Before you get started, make sure to:
 
 ## Setting up functions
 1. Install Azure Function extension in Visual Studio Code. It could be installed within Visual Studio Code application or follow this [Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-2. Set up local Azure Function APP following this [Link](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
-3. Install communication services libraries
-We'll use the Identity library to generate User Access Tokens.
+2. Set up local Azure Function APP following this [Link](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
+3. Install communication services libraries. We'll use the Identity library to generate User Access Tokens.
 
     Run the npm install command in Local Azure Function APP directory, to install the Azure Communication Services Identity SDK for JavaScript.
 
@@ -53,7 +53,7 @@ module.exports = async function (context, req) {
     };
 }
 ```
-Explaination to code above. The first line import the interface for the CommunicationIdentityClient. The connection string in second line could be found from your ACS resource in Azure portal. The ACSEndpoint is the URL of the ACS resource that have been created. Hard-code it in Azure Function avoids direct exposing to the users.
+Explanation to code above. The first line import the interface for the CommunicationIdentityClient. The connection string in second line could be found from your ACS resource in Azure portal. The ACSEndpoint is the URL of the ACS resource that has been created. Hard-code it in Azure Function avoids direct exposing to the users.
 
 5. Open the local Azure Function folder in Visual Studio Code. Open the index.js and run the local Azure Function. A local Azure Function Endpoint will be created and be printed in terminal. The printed message looks similar to:
 
@@ -62,7 +62,7 @@ Functions:
 HttpTrigger1: [GET,POST] http://localhost:7071/api/HttpTrigger1
 ```
 
-Open the link in a browser. Example result will be similar to this
+Open the link in a browser. Example result will be similar to this:
 ```
 {
   "ACSEndpoint": "<your_ACS_endpoint>",
@@ -71,7 +71,7 @@ Open the link in a browser. Example result will be similar to this
 }
 ```
 
-6. Deploy the local function to cloud. More details could be found from this [ducumentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files)
+6. Deploy the local function to cloud. More details could be found from this [documentation](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files)
 
 7. Test the deployed Azure Function. First find your Azure Function in Azure portal.
 
@@ -82,16 +82,16 @@ Hitting the endpoint. The result should be similar to step 5.
 8. Implement UserTokenClient, which is used to call target Azure Function resource and obtain ACS endpoint, user ID and user token from returned JSON object. An example is provided in sample APP.
 
 ## Trouble shooting guide
-1. If the Azure Function extension failed to deploy local function to the Azure side, it is likely due to the versions of VS code and Azure Function extension being used have a bug. This version combination has been tested to work: VS code version '1.68.1' and Azure Function extension version '1.2.1'.
-2. The place to initialize application constants is tricky but important. Please double check the [chat Android quick-start](../quickstarts/chat/includes/chat-android.md). The highlight note in section 'Set up application constants'.
+1. If the Azure Function extension failed to deploy local function to the Azure side, it's likely due to the versions of VS code, and Azure Function extension being used have a bug. This version combination has been tested to work: VS code version '1.68.1' and Azure Function extension version '1.2.1'.
+2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](../quickstarts/chat/includes/chat-android.md). The highlight note in section 'Set up application constants'.
 
-## (Optional) secure the Azure Function Endpoint
+## (Optional) secure the Azure Function endpoint
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, one option is to use your own secured endpoint to provision your own tokens.
 
-With additional configuration, this sample supports connecting to an Azure Active Directory (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the APP. This set up increases the security level while users are required to login. Please decide whether to enable it based on the use cases.
+With extra configuration, this sample supports connecting to an Azure Active Directory (Azure AD) protected endpoint so that user log in is required for the app to fetch an Azure Communication Services token. The user will be required to sign in with Microsoft account to access the APP. This set up increases the security level while users are required to log in. Decide whether to enable it based on the use cases.
 
-Please note that we currently don't support Azure AD in sample code. Please follow links below to enable it in your APP and Azure Function:
+Note that we currently don't support Azure AD in sample code. Follow links below to enable it in your APP and Azure Function:
 
-[Register your app under Azure Active Directory (using Android platform settings)](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-android).
+[Register your app under Azure Active Directory (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
 
-[Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad).
+[Configure your App Service or Azure Functions app to use Azure AD log in](../../active-directory/app)(https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad).
