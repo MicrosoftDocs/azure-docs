@@ -1,9 +1,9 @@
 ---
 title: Deploy S/4HANA infrastructure (preview)
-description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions (ACSS) through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
+description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -13,16 +13,14 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions (ACSS)*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
+In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
 ## Prerequisites
 
 - An Azure subscription.
 - Register the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- The ACSS application **Azure SAP Workloads Management** also needs Contributor role access to the resource groups for the SAP system. There are two options to grant access:
-    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
-    - If your Azure account doesn't have Owner or User Access Admin role access, you must enable access for the ACSS application. 
+- A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 
 ## Deployment types
@@ -40,7 +38,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 1. In the search bar, enter and select **Azure Center for SAP solutions**.
 
-1. On the ACSS landing page, select **Create a new SAP system**.
+1. On the Azure Center for SAP solutions landing page, select **Create a new SAP system**.
 
 1. On the **Create Virtual Instance for SAP solutions** page, on the **Basics** tab, fill in the details for your project.
 
@@ -96,9 +94,15 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **SAP FQDN**, provide FQDN for you system such "sap.contoso.com"
 
+1. Under **User assigned managed identity**, provide the identity which Azure Center for SAP solutions will use to deploy infrastructure.
+
+    1. For **Managed identity source**, choose if you want to create a new identity or use an existing identity.
+
+    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY.
+
 1. Select **Next: Virtual machines**.
 
-1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from ACSS. 
+1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from Azure Center for SAP solutions. 
 
     1. For **Generate Recommendation based on**, under **Get virtual machine recommendations**, select **SAP Application Performance Standard (SAPS)**.
 
@@ -116,11 +120,11 @@ There are three deployment options that you can select for your infrastructure, 
     
         The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
-        ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
+        Azure Center for SAP solutions automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
 
     1. Select **Next: Tags**.
 
-1. Optionally, enter tags to apply to all resources created by the ACSS process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
+1. Optionally, enter tags to apply to all resources created by the Azure Center for SAP solutions process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
 
 1. Select **Review + Create**.
 

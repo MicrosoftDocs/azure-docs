@@ -32,6 +32,9 @@ Provide a **Short description** of your offer, up to 256 characters. This will a
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
+> [!IMPORTANT]
+> If you plan to publish a Kubernetes application-based offer, ensure your offer is categorized correctly and discoverable by customers by adding the term `KubernetesApps` to your description.
+
 Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 Enter the web address (URL) of your organization's privacy policy. Ensure your offer complies with privacy laws and regulations. You must also post a valid privacy policy on your website.

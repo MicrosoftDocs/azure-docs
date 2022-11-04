@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/27/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -147,7 +147,6 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md) resources such as pods, containers, and ingresses.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -180,7 +179,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 
 ## Parameters
 
-Parameters help simplify your policy management by reducing the number of policy definitions. Think 
+Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
@@ -1026,7 +1025,7 @@ Azure Policy supports the following types of effect:
 - **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined tags from a resource or subscription
+- **Modify**: adds, updates, or removes the defined set of fields in the request
 - **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
   Gatekeeper v3 for self-managed Kubernetes clusters on Azure
 - **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with

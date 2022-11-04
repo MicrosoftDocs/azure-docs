@@ -12,7 +12,7 @@ ms.custom: contperf-fy22q1
 
 # Monitor App Service instances using Health check
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute the health check ping is considered unhealthy.
 
 ![Health check failure][1]
 
@@ -49,7 +49,7 @@ In addition to configuring the Health check options, you can also configure the 
 | App setting name | Allowed values | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | The required number of failed requests for an instance to be deemed unhealthy and removed from the load balancer. For example, when set to `2`, your instances will be removed after `2` failed pings. (Default value is `10`) |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | By default, no more than half of the instances will be excluded from the load balancer at one time to avoid overwhelming the remaining healthy instances. For example, if an App Service Plan is scaled to four instances and three are unhealthy, two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. <br /> To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default value is `50`). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 1 - 100 | By default, no more than half of the instances will be excluded from the load balancer at one time to avoid overwhelming the remaining healthy instances. For example, if an App Service Plan is scaled to four instances and three are unhealthy, two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. <br /> To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default value is `50`). |
 
 #### Authentication and security
 
@@ -140,7 +140,7 @@ After providing your application's Health check path, you can monitor the health
 
 ### What happens if my app is running on a single instance?
 
-If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take down your application entirely. Scale out to two or more instances to get the rerouting benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
+If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take down your application entirely. However, after one hour of continuous unhealthy pings, the instance is replaced. Scale out to two or more instances to get the rerouting benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
  
 ### Why are the Health check requests not showing in my web server logs?
 
@@ -149,6 +149,11 @@ The Health check requests are sent to your site internally, so the request won't
 ### Are the Health check requests sent over HTTP or HTTPS?
 
 On Windows App Service, the Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and can't be sent over HTTP**S** at this time.
+
+### Is Health check following the application code configured redirects between the default domain and the custom domain?
+
+No, the Health check feature is pinging the path of the default domain of the web application. If there is a redirect from the default domain to a custom domain, then the status code that Health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
+
 
 ### What if I have multiple apps on the same App Service Plan?
 

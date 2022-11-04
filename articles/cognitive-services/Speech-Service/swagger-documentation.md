@@ -3,13 +3,13 @@ title: Generate a REST API client library - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. 
 services: cognitive-services
-author: alexeyo26
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/16/2021
-ms.author: alexeyo
+ms.date: 10/03/2022
 ---
 
 # Generate a REST API client library for the Speech-to-text REST API
@@ -28,7 +28,7 @@ The [Swagger specification](https://eastus.dev.cognitive.microsoft.com/docs/serv
 You'll need to set Swagger to the region of your Speech resource. You can confirm the region in the **Overview** part of your Speech resource settings in Azure portal. The complete list of supported regions is available [here](regions.md#speech-service).
 
 1. In a browser, go to the Swagger specification for your [region](regions.md#speech-service):  
-       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1`
+       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
 1. On that page, click **API definition**, and click **Swagger**. Copy the URL of the page that appears.
 1. In a new browser, go to [https://editor.swagger.io](https://editor.swagger.io)
 1. Click **File**, click **Import URL**, paste the URL, and click **OK**.

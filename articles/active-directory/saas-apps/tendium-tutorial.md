@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 11/04/2022
 ms.author: jeedes
 
 ---
@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Tendium SSO
 
-To configure single sign-on on **Tendium** side, you need to send the **App Federation Metadata Url** to [Tendium support team](mailto:tech-partners@tendium.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Tendium** side, you need to send the **App Federation Metadata Url** to [Tendium support team](mailto:tech-partners@tendium.com). They set this setting to have the SAML SSO connection set properly on both sides.You can also contact Tendium [here](https://tendium.ai/contact/) for more information.
 
 ### Create Tendium test user
 

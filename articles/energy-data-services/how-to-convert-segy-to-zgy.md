@@ -199,7 +199,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
         empty: none
     ```
 
-8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md).
+8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     > [!NOTE]
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
@@ -316,4 +316,4 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert segy to ovds](/how-to-convert-segy-to-ovds.md)
+> [How to convert segy to ovds](/azure/energy-data-services/how-to-convert-segy-to-ovds)

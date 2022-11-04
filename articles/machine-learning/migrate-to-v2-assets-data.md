@@ -1,7 +1,7 @@
 ---
-title: 'Migrate data management from SDK v1 to v2'
+title: 'Upgrade data management to SDK v2'
 titleSuffix: Azure Machine Learning
-description: Migrate data management from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade data management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate data management from SDK v1 to v2
+# Upgrade data management to SDK v2
 
 In V1, an AzureML dataset can either be a `Filedataset` or a `Tabulardataset`.
 In V2, an AzureML data asset can be a `uri_folder`, `uri_file` or `mltable`.
@@ -215,7 +215,7 @@ This article gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.datadisplayname: migration, v1, v2)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
+|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.data)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
 
 ## Next steps
 

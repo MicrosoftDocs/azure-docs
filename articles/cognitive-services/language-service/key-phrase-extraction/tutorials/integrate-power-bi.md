@@ -3,13 +3,13 @@ title: 'Tutorial: Integrate Power BI with key phrase extraction'
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the key phrase extraction feature to get text stored in Power BI.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 09/28/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-language
 ---
 
@@ -36,7 +36,7 @@ In this tutorial, you'll learn how to:
 
 ## Load customer data
 
-To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
+To get started, open Power BI Desktop and load the comma-separated value (CSV) file that you downloaded as part of the [prerequisites](#prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
 > Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
@@ -45,7 +45,7 @@ In the main Power BI Desktop window, select the **Home** ribbon. In the **Extern
 
 ![The Get Data button](../media/tutorials/power-bi/get-data-button.png)
 
-The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the `FabrikamComments.csv` file. Click `FabrikamComments.csv`, then the **Open** button. The CSV import dialog appears.
+The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the CSV file. Click on the name of the file, then the **Open** button. The CSV import dialog appears.
 
 ![The CSV Import dialog](../media/tutorials/power-bi/csv-import.png)
 

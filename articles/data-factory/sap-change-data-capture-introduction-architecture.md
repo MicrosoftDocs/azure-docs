@@ -1,20 +1,21 @@
 ---
-title: Overview and architecture of the SAP CDC capabilities (preview)
+title: Overview and architecture of the SAP CDC capabilities
 titleSuffix: Azure Data Factory
-description: Learn about the SAP change data capture (CDC) capabilities (preview) in Azure Data Factory and understand its architecture.
+description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Overview and architecture of the SAP CDC capabilities (preview)
+# Overview and architecture of the SAP CDC capabilities
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn about the SAP change data capture (CDC) capabilities (preview) in Azure Data Factory and understand the architecture.
+Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand the architecture.
 
 Azure Data Factory is an ETL and ELT data integration platform as a service (PaaS). For SAP data integration, Data Factory currently offers six general availability connectors:
 
@@ -39,7 +40,7 @@ This article provides a high-level architecture of the SAP CDC capabilities in A
 
 ## How to use the SAP CDC capabilities
 
-At the core of the SAP CDC capabilities is the new SAP CDC connector (preview). It can connect to all SAP systems that support ODP. This includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
+At the core of the SAP CDC capabilities is the new SAP CDC connector. It can connect to all SAP systems that support ODP. This includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
 Use the SAP CDC connector with Data Factory features like mapping data flow activities, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 

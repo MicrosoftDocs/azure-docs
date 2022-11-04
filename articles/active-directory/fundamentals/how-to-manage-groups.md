@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 10/14/2022
 ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
@@ -128,7 +128,7 @@ To edit your group settings:
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## Add or remove a group from another group
-You can add an existing Security group to another Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time. You'll need the **Groups Administrator** or **User Administrator** role to edit group membership.
+You can add an existing Security group to another Security group (also known as nested groups). Depending on the group types, you can add a group as a member of another group, just like a user, which applies settings like roles and access to the nested groups. You'll need the **Groups Administrator** or **User Administrator** role to edit group membership.
 
 We currently don't support:
 - Adding groups to a group synced with on-premises Active Directory.
@@ -166,7 +166,7 @@ Now you can review the "MDM policy - West - Group memberships" page to see the g
 For a more detailed view of the group and member relationship, select the parent group name (MDM policy - All org) and take a look at the "MDM policy - West" page details.
 
 ### Remove a group from another group
-You can remove an existing Security group from another Security group; however, removing the group also removes any inherited attributes and properties for its members.
+You can remove an existing Security group from another Security group; however, removing the group also removes any inherited settings for its members.
 
 1. On the **Groups - All groups** page, search for and select the group you need to remove as a member of another group.
 
@@ -189,7 +189,7 @@ You can delete an Azure AD group for any number of reasons, but typically it wil
 
 - No longer need the group.
 
-To delete a group you'll need the **Groups Administrator** or **User Administrator** role.
+To delete a group, you'll need the **Groups Administrator** or **User Administrator** role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

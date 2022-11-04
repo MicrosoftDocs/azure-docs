@@ -85,6 +85,7 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.concurrent.Future;
 
     public class SpeechRecognition {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         private static String speechKey = System.getenv("SPEECH_KEY");
         private static String speechRegion = System.getenv("SPEECH_REGION");
 
@@ -132,6 +133,9 @@ Run your new console application to start speech recognition from a microphone:
 javac SpeechRecognition.java -cp ".;target\dependency\*"
 java -cp ".;target\dependency\*" SpeechRecognition
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 

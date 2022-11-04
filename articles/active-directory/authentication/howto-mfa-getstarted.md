@@ -4,10 +4,10 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/01/2022
-ms.author: mtillman
-author: mtillman
-manager: martinco
+ms.date: 11/04/2022
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
@@ -103,8 +103,8 @@ If your organization uses [Azure AD Identity Protection](../identity-protection/
 Risk policies include:
 
 - [Require all users to register for Azure AD Multi-Factor Authentication](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
-- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-with-conditional-access)
-- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#sign-in-risk-with-conditional-access)
+- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-policy-in-conditional-access)
+- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#sign-in-risk-policy-in-conditional-access)
 
 ### Convert users from per-user MFA to Conditional Access based MFA
 
@@ -246,7 +246,7 @@ You can monitor authentication method registration and usage across your organiz
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**. Inclusion of this activity in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md) is currently in Preview.
+NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to **Security** > **MFA** > **Activity report**.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 

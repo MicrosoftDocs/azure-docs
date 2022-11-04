@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/02/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -64,6 +64,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     `KerberosEncryptionType` is a multivalued parameter that supports AES-128 and AES-256 values. 
 
+    For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
+
 * If you have a requirement to enable and disable certain Kerberos encryption types for Active Directory computer accounts for domain-joined Windows hosts used with Azure NetApp Files, you must use the Group Policy  `Network Security: Configure Encryption types allowed for Kerberos`.
 
     Do not set the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes`. Doing this will break Kerberos authentication with Azure NetApp Files for the Windows host where this registry key was manually set.
@@ -72,8 +74,6 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >The default policy setting for `Network Security: Configure Encryption types allowed for Kerberos` is `Not Defined`. When this policy setting is set to `Not Defined`, all encryption types except DES will be available for Kerberos encryption. You have the option to enable support for only certain Kerberos encryption types (for example, `AES128_HMAC_SHA1` or `AES256_HMAC_SHA1`). However, the default policy should be sufficient in most cases when enabling AES encryption support with Azure NetApp Files.
 
     For more information, refer to [Network security: Configure encryption types allowed for Kerberos](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) or [Windows Configurations for Kerberos Supported Encryption Types](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type)
-
-* For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
 
 ## Create an Active Directory connection
 
@@ -128,8 +128,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
-        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
-          ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
+        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.
 
     * <a name="ldap-signing"></a>**LDAP Signing**   
 
@@ -168,6 +167,26 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
+
+    * <a name="encrypted-smb-dc"></a> **Encrypted SMB connections to Domain Controller**
+        
+        **Encrypted SMB connections to Domain Controller** specifies whether encryption should be used for communication between an SMB server and domain controller. When enabled, only SMB3 will be used for encrypted domain controller connections.
+
+        This feature is currently in preview. If this is your first time using Encrypted SMB connections to domain controller, you must register it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFEncryptedSMBConnectionsToDC 
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFEncryptedSMBConnectionsToDC 
+        ```
+
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * <a name="backup-policy-users"></a> **Backup policy users**
         This option grants addition security privileges to AD DS domain users or groups that require elevated backup privileges to support backup, restore, and migration workflows in Azure NetApp Files. The specified AD DS user accounts or groups will have elevated NTFS permissions at the file or folder level.

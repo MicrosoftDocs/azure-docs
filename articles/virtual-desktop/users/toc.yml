@@ -1,0 +1,60 @@
+items:
+- name: Azure Virtual Desktop for users
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Remote Desktop clients overview
+    href: remote-desktop-clients-overview.md
+  - name: What's new for Remote Desktop clients
+    items:
+    - name: Windows Desktop client
+      href: ../whats-new-client-windows.md
+    - name: Web client
+      href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+    - name: macOS client
+      href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+    - name: iOS/iPadOS client
+      href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+    - name: Android client
+      href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+    - name: Windows Microsoft Store client
+      href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+- name: Concepts
+  items:
+  - name: Compare the clients
+    href: ../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Connect to Azure Virtual Desktop
+    expanded: true
+    items:
+    - name: Windows Desktop client
+      href: connect-windows.md
+    - name: Web client
+      href: connect-web.md
+    - name: macOS client
+      href: connect-macos.md
+    - name: iOS/iPadOS client
+      href: connect-ios-ipados.md
+    - name: Android/Chrome OS client
+      href: connect-android-chrome-os.md
+    - name: Windows Microsoft Store client
+      href: connect-microsoft-store.md
+    - name: Thin clients
+      href: connect-thin-clients.md
+  - name: Use client features
+    items:
+    - name: Windows Desktop client
+      href: client-features-windows.md
+    - name: Web client
+      href: client-features-web.md
+    - name: macOS client
+      href: client-features-macos.md
+    - name: iOS/iPadOS client
+      href: client-features-ios-ipados.md
+    - name: Android/Chrome OS client
+      href: client-features-android-chrome-os.md
+    - name: Windows Microsoft Store client
+      href: client-features-microsoft-store.md

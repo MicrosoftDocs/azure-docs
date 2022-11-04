@@ -5,7 +5,7 @@ description: Learn how to import and export a  DNS zone file to Azure private DN
 services: dns
 author: duongau
 ms.service: dns
-ms.date: 03/16/2021
+ms.date: 09/27/2022
 ms.author: duau
 ms.topic: how-to
 ---

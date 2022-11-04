@@ -11,9 +11,9 @@ services: iot-develop
 
 # Understand IoT Plug and Play digital twins
 
-An IoT Plug and Play device implements a model described by the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have.
+An IoT Plug and Play device implements a model described by the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have.
 
-IoT Plug and Play uses DTDL version 2. For more information about this version, see the [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) specification on GitHub.
+IoT Plug and Play uses DTDL version 2. For more information about this version, see the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) specification on GitHub.
 
 > [!NOTE]
 > DTDL isn't exclusive to IoT Plug and Play. Other IoT services, such as [Azure Digital Twins](../digital-twins/overview.md), use it to represent entire environments such as buildings and energy networks.

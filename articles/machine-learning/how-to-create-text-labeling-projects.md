@@ -2,12 +2,13 @@
 title: Set up text labeling project
 titleSuffix: Azure Machine Learning
 description: Create a project to label text using the data labeling tool. Specify either a single label or multiple labels to be applied to each piece of text.
-author: sdgilley
-ms.author: sgilley
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 09/29/2022
 ms.custom: data4ml, ignite-fall-2021
 ---
 
@@ -50,12 +51,7 @@ Data formats available for text data:
 
     * Choose **Text Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
     * Choose **Text Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to each piece of text. 
-    * Choose **Text Named Entity Recognition (Preview)** for projects when you want to apply labels to individual or multiple words of text in each entry.
-
-    > [!IMPORTANT]
-    > Text Named Entity Recognition is currently in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    * Choose **Text Named Entity Recognition** for projects when you want to apply labels to individual or multiple words of text in each entry.
 
 1. Select **Next** when you're ready to continue.
 
@@ -79,7 +75,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response. Tabular isn't available for Text Named Entity Recognition projects.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
@@ -97,7 +93,7 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. Tabular isn't available for Text Named Entity Recognition projects. 
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
@@ -111,12 +107,12 @@ To directly upload your data:
 1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 
-## <a name="incremental-refresh"> </a> Configure incremental refresh
+## Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
-> Incremental refresh isn't available for projects that use tabular (.csv or .tsv) dataset input.
+> Incremental refresh is available for projects that use tabular (.csv or .tsv) dataset input. However, only new tabular files are added.  Changes to existing tabular files will not be recognized from the refresh.
 
 ## Specify label classes
 
@@ -211,7 +207,7 @@ For all project types other than **Text Named Entity Recognition**, you can expo
 
 
 For **Text Named Entity Recognition** projects, you can export:
-* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+* An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md). 
 * A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Select this to open the notification, which includes the link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::

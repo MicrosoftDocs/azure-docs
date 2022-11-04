@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
+  ms.date: 11/03/2022 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -80,7 +80,7 @@ conceptualContent:
           url: /training/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+          url: https://aka.ms/vision-4-0-ref
       footerLink:
         text: More
         url: index-image-analysis.yml
@@ -167,6 +167,8 @@ additionalContent:
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
         - text: Image Analysis
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+        - text: Face
+          url: /rest/api/face/
       - title: Resources
         links:
         - text: Pricing

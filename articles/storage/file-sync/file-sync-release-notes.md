@@ -1,5 +1,5 @@
 ---
-title: Release notes for the Azure File Sync agent | Microsoft Docs
+title: Release notes for the Azure File Sync agent
 description: Read the release notes for the Azure File Sync agent, which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
@@ -72,7 +72,7 @@ The following release notes are for version 15.0.0.0 of the Azure File Sync agen
 	- Azure File Sync has a cloud change enumeration job that runs every 24 hours to detect changes made directly in the Azure file share and sync those changes to servers in your sync groups. In the v14 release, we made improvements to reduce the number of transactions when this job runs and in the v15 release we made further improvements. The transaction cost is also more predictable, each job will now produce 1 List transaction per directory, per day.
  
 - View Cloud Tiering status for a server endpoint or volume
-	- The Get-StorageSyncCloudTieringStatus cmdlet will show cloud tiering status for a specific server endpoint or for a specific volume (depending on path specified). The cmdlet will show current policies, current distribution of tiered vs. fully downloaded data, and last tiering session statistics if the server endpoint path is specified. If the volume path is specified, it will show the effective volume free space policy, the server endpoints located on that volume, and whether these server endpoints have cloud tiering enabled.
+	- The `Get-StorageSyncCloudTieringStatus` cmdlet will show cloud tiering status for a specific server endpoint or for a specific volume (depending on path specified). The cmdlet will show current policies, current distribution of tiered vs. fully downloaded data, and last tiering session statistics if the server endpoint path is specified. If the volume path is specified, it will show the effective volume free space policy, the server endpoints located on that volume, and whether these server endpoints have cloud tiering enabled.
  
 		To get the cloud tiering status for a server endpoint or volume, run the following PowerShell commands:
  		```powershell
@@ -80,7 +80,7 @@ The following release notes are for version 15.0.0.0 of the Azure File Sync agen
 		Get-StorageSyncCloudTieringStatus -Path <server endpoint path or volume>
  		```
 - New diagnostic and troubleshooting tool 
-	- The Debug-StorageSyncServer cmdlet will diagnose common issues like certificate misconfiguration and incorrect server time. Also, we have simplified Azure Files Sync troubleshooting by merging the functionality of some of existing scripts and cmdlets (AFSDiag.ps1, FileSyncErrorsReport.ps1, Test-StorageSyncNetworkConnectivity) into the Debug-StorageSyncServer cmdlet.
+	- The Debug-StorageSyncServer cmdlet will diagnose common issues like certificate misconfiguration and incorrect server time. Also, we have simplified Azure File Sync troubleshooting by merging the functionality of some of existing scripts and cmdlets (AFSDiag.ps1, FileSyncErrorsReport.ps1, Test-StorageSyncNetworkConnectivity) into the `Debug-StorageSyncServer` cmdlet.
  
 		To run diagnostics on the server, run the following PowerShell commands:
  		```powershell

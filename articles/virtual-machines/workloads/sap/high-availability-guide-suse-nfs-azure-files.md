@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 
 ---
@@ -249,8 +249,9 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          1. Enter the name of the new load balancer rule (for example **lb.NW1.ASCS**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
 1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
@@ -453,10 +454,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       params ip=10.90.90.10 \
       op monitor interval=10 timeout=20
     
-    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000
+    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ASCS fs_NW1_ASCS nc_NW1_ASCS vip_NW1_ASCS \
-       meta resource-stickiness=3000
+      meta resource-stickiness=3000
     ```
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
@@ -507,7 +509,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       params ip=10.90.90.9 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101
+    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ERS fs_NW1_ERS nc_NW1_ERS vip_NW1_ERS
     ```

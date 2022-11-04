@@ -139,7 +139,7 @@
       href: cache-private-link.md
     - name: Enable zone redundancy 
       href: cache-how-to-zone-redundancy.md
-    - name: Set up geo-replication
+    - name: Set up passive geo-replication
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md
@@ -248,6 +248,8 @@
   items:
   - name: Azure Cache for Redis FAQs
     href: cache-faq.yml
+  - name: Retirements from Azure Cache for Redis
+    href: cache-retired-features.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page

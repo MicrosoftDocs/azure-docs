@@ -4,7 +4,8 @@ description: Frequently asked questions (FAQs) about Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
