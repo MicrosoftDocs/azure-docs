@@ -114,6 +114,10 @@ The following file types are supported for scanning, for schema extraction, and 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
 
+## Schema extraction
+
+Currently, the maximum number of columns supported in asset schema tab is 800 for Azure sources, Power BI and SQL server.
+
 ## Nested data
 
 Currently, nested data is only supported for JSON content.
