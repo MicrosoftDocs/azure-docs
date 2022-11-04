@@ -259,6 +259,12 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
     1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
 
+        ```console
+        sudo mkdir -p /etc/guard
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authn-webhook.yaml"' | base64 -d > /etc/guard/guard-authn-webhook.yaml
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authz-webhook.yaml"' | base64 -d > /etc/guard/guard-authz-webhook.yaml
+        ```
+
     1. Open the `apiserver` manifest in edit mode:
         
         ```console
