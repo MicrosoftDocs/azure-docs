@@ -18,7 +18,7 @@ If you're experiencing issues with your deployment, reinstalling packet core may
 
 ## Prerequisites
 
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Back up deployment information
 
@@ -38,7 +38,7 @@ To reinstall your packet core instance:
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-3. In the **Resource** menu, select **Sites**.
+3. In the resource menu, select **Sites**.
 4. Select the site containing the packet core instance you're interested in.
 5. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
@@ -59,8 +59,6 @@ To reinstall your packet core instance:
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
-10. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
-
 ## Restore backed up deployment information
 
 Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
@@ -69,6 +67,11 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
 3. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
 4. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
+
+## Verify reinstall
+
+Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
+<!-- Advice if they're still experiencing issues? -->
 
 ## Next steps
 
