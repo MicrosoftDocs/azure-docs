@@ -465,25 +465,25 @@
         href: partner-gallery.md 
     - name: Custom policies guide series
       items:
-      - name: Overview 
+      - name: 1 - Overview 
         href: custom-policies-series-overview.md
-      - name: Create Hello World custom policies
+      - name: 2 - Create Hello World custom policies
         href: custom-policies-series-hello-world.md
-      - name: Collect user input using custom policy
+      - name: 3 - Collect user input using custom policy
         href: custom-policies-series-collect-user-input.md
-      - name: Validate user input custom policy
+      - name: 4 - Validate user input custom policy
         href: custom-policies-series-validate-user-input.md 
-      - name: Create branching in user journeys
+      - name: 5 - Create branching in user journeys
         href: custom-policies-series-branch-in-user-journey-using-pre-conditions.md
-      - name: Validate custom policy files
+      - name: 6 - Validate custom policy files
         href: custom-policies-series-install-xml-extensions.md
-      - name: Make HTTP call custom policy
+      - name: 7 - Make HTTP call custom policy
         href: custom-policies-series-call-rest-api.md
         displayName: call rest api, http call, http request
-      - name: Create user custom policy
+      - name: 8 - Create user custom policy
         href: custom-policies-series-store-user.md
         displayName: CRUD, store user
-      - name: Read or update user custom policy
+      - name: 9 - Read or update user custom policy
         href: custom-policies-series-read-update-user.md
         displayName: CRUD, read user, update user
     # Secure
