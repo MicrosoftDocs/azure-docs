@@ -8,8 +8,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/03/2022
-author: saumadan
-ms.author: madansr7
+author: madansr7
+ms.author: saumadan
 ms.reviewer:
 # Customer intent: As an application developer, I want to learn how to protect properties of my application instance of being modified.
 ---
