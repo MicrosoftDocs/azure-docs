@@ -73,7 +73,7 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Under Settings, select **Resource providers**.
 1. Search for **Microsoft.AVS** and select it.
 1. Select **Register**.
-1. Under **Settings**, select **Preview features**.
+1. Under **Settings**, select **Preview features**. <!-- Is this necessary? -->
 	1. Verify you're registered for both the `CloudSanExperience` and `AnfDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage**.
@@ -92,7 +92,7 @@ Under **Manage**, select **Storage**.
 ### [Azure CLI](#tab/azure-cli)
 
 To attach an Azure NetApp Files volume to your private cloud using Azure CLI, follow these steps:
-
+<!-- 
 1. Verify the subscription is registered to `CloudSanExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
 
     `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"`
@@ -111,6 +111,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
 
     `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
+-->
 1. Verify the VMware extension is installed. If the extension is already installed, verify you're using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
 
     `az extension show --name vmware`
