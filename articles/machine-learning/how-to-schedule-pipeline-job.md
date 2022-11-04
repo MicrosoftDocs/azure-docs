@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: lochen
 author: cloga
+ms.reviewer: lagayhar
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022

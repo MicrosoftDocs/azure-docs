@@ -83,6 +83,8 @@
         href: proxy-server-support.md
       - name: Determine user connection quality
         href: connection-latency.md
+      - name: Azure Private Link
+        href: private-link-overview.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Identity and access management
@@ -159,6 +161,8 @@
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported features for Teams
     href: teams-supported-features.md
+  - name: Printing using Universal Print
+    href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -345,6 +349,8 @@
       href: configure-rdp-shortpath.md
     - name: Limit RDP Shortpath port range
       href: configure-rdp-shortpath-limit-ports-public-networks.md
+    - name: Set up Azure Private Link
+      href: private-link-setup.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
