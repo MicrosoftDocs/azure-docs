@@ -25,10 +25,11 @@ az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
+Update-AzFunctionAppSetting -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
 ```
-
 ---
+
+During upgrade, you must also set an additional setting, which differs between Windows and Linux.
 
 # [Windows](#tab/windows/azure-cli)
 
@@ -52,37 +53,7 @@ Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESO
 
 # [Linux](#tab/linux/azure-cli)
 
-When running .NET apps on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
-::: zone pivot="programming-language-csharp"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
-```
-If you are migrating to .NET Functions isolated worker process, use either `DOTNET-ISOLATED|6.0` or `DOTNET-ISOLATED|7.0` for `--linux-fx-version`. For more information, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
-::: zone pivot="programming-language-java"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Java|11"
-```
-The `--linux-fx-version` value must match your target Java version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Node|16"
-```
-The `--linux-fx-version` value must match your target Node.js version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
-::: zone pivot="programming-language-powershell"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "PowerShell|7.2"
-```
-The `--linux-fx-version` value must match your target PowerShell version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
-::: zone pivot="programming-language-python"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Python|3.9"
-```
-The `--linux-fx-version` value must match your target PowerShell version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
+[!INCLUDE [functions-migrate-v4-linuxfxversion](./functions-migrate-v4-linuxfxversion.md)]
 
 # [Linux](#tab/linux/azure-powershell)
 
@@ -111,7 +82,8 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     ```azurecli
     az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> 
     ```
-    This command causes the app running in the production slot to restart. 
+
+    In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. This command causes the app running in the production slot to restart. 
 
 1. Use the following command to also set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` in the staging slot:
 
@@ -137,13 +109,9 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
 
     .NET 6 is required for function apps in any language running on Windows.
 
-    # [Linux](#tab/linux/azure-cli)
+    # [Linux](#tab/linux)
 
-    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
-
-    ```azurecli
-    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
-    ```
+    [!INCLUDE [functions-migrate-v4-linuxfxversion](./functions-migrate-v4-linuxfxversion.md)]
 
     ---
 
@@ -203,13 +171,9 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 
     .NET 6 is required for function apps in any language running on Windows.
 
-    # [Linux](#tab/linux/azure-cli)
+    # [Linux](#tab/linux)
 
-    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
-
-    ```azurecli
-    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
-    ```
+    [!INCLUDE [functions-migrate-v4-linuxfxversion](./functions-migrate-v4-linuxfxversion.md)]
 
     ---
 

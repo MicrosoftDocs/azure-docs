@@ -189,8 +189,8 @@ To update your project to Azure Functions 4.x:
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-1. If needed, move to one of the [Java versions supported on version 4.x](./functions-reference-java.md#supported-versions).
-1. Update the app's `POM.xml` file to modify the `FUNCTIONS_EXTENSION_VERSION` setting to `~4`, as in the following example:
+3. If needed, move to one of the [Java versions supported on version 4.x](./functions-reference-java.md#supported-versions).
+4. Update the app's `POM.xml` file to modify the `FUNCTIONS_EXTENSION_VERSION` setting to `~4`, as in the following example:
 
     ```xml
     <configuration>
@@ -211,13 +211,13 @@ To update your project to Azure Functions 4.x:
     ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-1. If needed, move to one of the [Node.js versions supported on version 4.x](functions-reference-node.md#node-version).
+3. If needed, move to one of the [Node.js versions supported on version 4.x](functions-reference-node.md#node-version).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-1. If needed, move to one of the [PowerShell versions supported version 4.x](functions-reference-powershell.md#powershell-versions).
+3. If needed, upgrade to PowerShell 7.2. For more information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
+3. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
 ::: zone-end
 
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
