@@ -75,6 +75,8 @@ Now supporting word level time annotation with confidence score.
 
 An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
 
+For more information, see [Examine word-level transcription information](edit-transcript-lines-portal.md#examine-word-level-transcription-information).
+
 ### Azure Monitor integration enabling indexing logs 
 
 The new set of logs, described below, enables you to better monitor your indexing pipeline.
