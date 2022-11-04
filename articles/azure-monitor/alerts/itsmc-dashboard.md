@@ -17,25 +17,19 @@ This article contains information about the IT Service Management Connector (ITS
 
 To view errors in the dashboard:
 
-1. Select **All resources**, and then find **ServiceDesk(*your workspace name*)**.
+1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-   ![Screenshot that shows the resources in Azure services.](media/itsmc-definition/create-new-connection-from-resource.png)
+   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the "ServiceDes" filter criteria listed.":::
 
-2. Under **Workspace Data Sources** on the left pane, select **ITSM Connections**:
+1. In the Service Desk window, select **View Summary**.
 
-   ![Screenshot that shows selecting ITSM Connections under Workplace Data Sources.](media/itsmc-overview/add-new-itsm-connection.png)
+   :::image type="content" source="media/itsmc-dashboard/view-summary.png" lightbox="media/itsmc-dashboard/view-summary.png" alt-text="Screenshot of the Solution resource in the Azure portal.":::
 
-3. Under **Summary**, in the **IT Service Management Connector** area, select **View Summary**:
+1. Select the graph that appears in the **IT Service Management Connector** section.
 
-   ![Screenshot that shows the View Summary button.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+1. The IT Service Management Connector Dashboard opens with information about status and errors.
 
-4. When a graph appears in the **IT Service Management Connector** area, select it:
-
-   ![Screenshot that shows selection of a graph.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. The dashboard appears. Use it to review the status and the errors in your connector.
-   
-   ![Screenshot that shows connector status on the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
+   :::image type="content" source="media/itsmc-resync-servicenow/connector-dashboard.png" lightbox="media/itsmc-resync-servicenow/connector-dashboard.png" alt-text="Screenshot that shows connector status on the dashboard.":::
 
 ## Understand dashboard elements
 
