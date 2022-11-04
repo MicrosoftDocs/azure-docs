@@ -372,7 +372,7 @@ To apply changes to your code:
 
 For more extensive changes involving updates to your environment and endpoint configuration, use your `MLClient`'s `online_deployments.update` module/method. Doing so will trigger a full image rebuild with your changes.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio.ipynb?name=edit-endpoint-1)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=edit-endpoint-1)]
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
 
