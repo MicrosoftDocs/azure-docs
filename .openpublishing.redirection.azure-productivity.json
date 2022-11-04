@@ -31,7 +31,7 @@
           "redirect_document_id": false
         },
         {
-          "source_path": "/articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
+          "source_path": "articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
           "redirect_url": "/azure/dev-box/quickstart-connect-to-dev-box-with-remote-desktop-app",
           "redirect_document_id": false
       }
