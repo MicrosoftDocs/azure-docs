@@ -105,18 +105,20 @@ In the following example, the application is Microsoft Graph. The object ID of M
 
 1. Get the enterprise application to which you want to grant delegated permissions.
 
-Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```powershell
+   Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```
 
 1. Retrieve the delegated permissions defined by Microsoft graph in your tenant application. 
    
- 
-Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | fl
-
+   ```powershell
+   Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | fl
+   ```
 
 1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the delegated permissions to the application by running the following request.
    
-   
-  $params = @{
+```powershell
+$params = @{
   
   "ClientId" = "b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
   "ConsentType" = "AllPrincipals"
@@ -126,30 +128,35 @@ Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oaut
 
 New-MgOauth2PermissionGrant -BodyParameter $params | 
   Format-List Id, ClientId, ConsentType, ResourceId, Scope
-   
-   
+```
+     
 1. Confirm that you've granted tenant wide admin consent by running the following request.   
     
-     
+  ```powershell
    Get-MgOauth2PermissionGrant-Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
-   
+  ```      
 ## Grant admin consent for application permissions
 
-In the following example you grant the Microsoft Graph application (the principal of ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94) an app role (application permission) of ID df021288-bdef-4463-88db-98f22de89214 that's exposed by a resource API of ID 7ea9e944-71ce-443d-811c-71e8047b557a.
+In the following example you grant the Microsoft Graph application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource API of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
-1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`.
 
-  1. Get the enterprise application to which you want to grant delegated permissions.
+1. Get the enterprise application to which you want to grant delegated permissions.
 
-Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```powershell
+   Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```
 
 1. Retrieve the application permissions defined by Microsoft graph in your tenant application. 
 
-Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |fl
+   ```powershell
+   Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |fl
+   ```
   
 1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the application permissions to the application by running the following request.
 
-   $params = @{
+```powershell
+ $params = @{
   "PrincipalId" ="b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
   "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
   "AppRoleId" = "df021288-bdef-4463-88db-98f22de89214"
@@ -157,6 +164,7 @@ Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppR
 
 New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId '2cab1707-656d-40cc-8522-3178a184e03d' -BodyParameter $params | 
   Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
+```
 
 :::zone-end
 
@@ -171,11 +179,11 @@ In the following example, the application is Microsoft Graph. The object ID of M
 > [!CAUTION] 
 > Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
 
-1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`.
 
-```http
-GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
-```
+   ```http
+   GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```
 
 1. Retrieve the delegated permissions defined by Microsoft graph in your tenant application. 
    
@@ -203,9 +211,9 @@ GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
    ```
 ## Grant admin consent for application permissions
 
-In the following example you grant the Microsoft Graph application (the principal of ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94) an app role (application permission) of ID df021288-bdef-4463-88db-98f22de89214 that's exposed by a resource API of ID 7ea9e944-71ce-443d-811c-71e8047b557a.
+In the following example you grant the Microsoft Graph application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource API of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
-1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`.
 
    ```http
    GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
