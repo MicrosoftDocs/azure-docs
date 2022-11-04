@@ -38,6 +38,13 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 -----
 
+Go to the application folder:
+
+```bash
+cd msdocs-python-flask-webapp-quickstart
+```
+
+
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
 ```
@@ -47,19 +54,21 @@ DBUSER=<db-user-name>
 DBPASS=<db-password>
 ```
 
+Create a virtual environment for the app:
+
+[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the sample application with the following commands:
 
 ### [Flask](#tab/flask)
 
 ```bash
-# Clone the sample
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
-cd msdocs-flask-postgresql-sample-app
-# Activate a virtual environment
-python3 -m venv .venv # In CMD on Windows, run "py -m venv .venv" instead
-.venv/scripts/activate
-# Install dependencies
-pip install -r requirements.txt
 # Run database migration
 flask db upgrade
 # Run the app at http://127.0.0.1:5000
@@ -69,14 +78,6 @@ flask run
 ### [Django](#tab/django)
 
 ```bash
-# Clone the sample
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-cd msdocs-django-postgresql-sample-app
-# Activate a virtual environment
-python3 -m venv .venv # In CMD on Windows, run "py -m venv .venv" instead
-.venv/scripts/activate
-# Install dependencies
-pip install -r requirements.txt
 # Run database migration
 python manage.py migrate
 # Run the app at http://127.0.0.1:8000
