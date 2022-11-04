@@ -88,6 +88,31 @@ When configuring a Conditional Access policy, you have granular control over the
 
 Learn more about [Conditional Access user assignments](../conditional-access/concept-conditional-access-users-groups.md).
 
+### Comparing External Identities Conditional Access policies
+
+The following table gives a detailed comparison of the security policy and compliance options in Azure AD External Identities. Security policy and compliance are managed by the host/inviting organization under Conditional Access policies.
+
+
+|Controls  |**B2B collaboration users**  |**B2B direct connect users**|
+|---------|---------|---------|
+|Grant controls — Block access   |         |         |
+|Grant controls — MFA     |         |         |
+|Grant controls — Compliant Device     |         |         |
+|Grant controls — Hybrid Azure AD Join    |         |         |
+|Grant controls — Require Approved client app    |         |         |
+|Grant controls — Require App protection policy     |         |         |
+|Grant controls — Require password change     |         |         |
+|Grant controls - ToU     |         |         |
+|Session controls — App enforced restrictions    |         |         |
+|Session controls — Conditional Access App control     |         |         |
+|Session controls — Sign-in frequency     |         |         |
+|Session controls — Persistent browser session   |         |         |
+
+
+
+
+
+
 ### MFA for Azure AD external users
 
 In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, a B2B collaboration user accessing a resource is then required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the ability to trust MFA claims from other Azure AD tenants. Enabling MFA trust with another tenant streamlines the sign-in process for B2B collaboration users and enables access for B2B direct connect users.
