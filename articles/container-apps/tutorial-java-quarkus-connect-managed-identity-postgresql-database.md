@@ -203,7 +203,6 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    io.netty:netty-transport-native-unix-common::jar
    ```
 
----
 ### Build and push a Docker image to the container registry
 
 1. Build the container image.
@@ -302,7 +301,6 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --sku-name GP_Gen5_2
    ```
 
----
    The following parameters are used in the above Azure CLI command:
 
    * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
