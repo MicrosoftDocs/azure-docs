@@ -206,7 +206,7 @@ Curl on provided OMS endpoint
 
 ### Software repositories
 
-Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../../virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui.md).
+Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../../virtual-machines/workloads/redhat/redhat-rhui.md#troubleshoot-connection-problems-to-azure-rhui).
 
 Post making Network changes you can either rerun the Troubleshooter or
 
