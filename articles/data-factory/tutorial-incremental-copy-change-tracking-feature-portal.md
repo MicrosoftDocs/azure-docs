@@ -360,7 +360,7 @@ In the following procedure, you create a pipeline with activities and run it per
    ![Screenshot that shows a query added to the Source tab in the Properties window.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
    
 9. Switch to the **Sink** tab. For **Sink Dataset**, select **SinkDataset**.
-10. Connect both lookup activities to the copy activity one by one. Drag the green button attached to the lookup activity to the copy activity.
+10. Connect both lookup activities to the copy activity one by one. Drag the green button that's attached to the lookup activity to the copy activity.
 11. Drag the stored procedure activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **StoredProceduretoUpdateChangeTrackingActivity**. This activity updates the change tracking version in the `table_store_ChangeTracking_version` table.
 12. Switch to the **Settings** tab, and then take the following steps:
 	
@@ -376,25 +376,25 @@ In the following procedure, you create a pipeline with activities and run it per
 
       ![Screenshot that shows setting parameters for the stored procedure activity.](media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
    
-13. Connect the copy activity to the stored procedure activity. Drag the green button attached to the copy activity to the stored procedure activity.
+13. Connect the copy activity to the stored procedure activity. Drag the green button that's attached to the copy activity to the stored procedure activity.
 14. Select **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window.
-15. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by selecting the **Publish all** button. Wait until you see the **Publishing succeeded** message.
+15. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by selecting the **Publish all** button. Wait until the **Publishing succeeded** message appears.
 
     ![Screenshot that shows the button for publishing all entities for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)  
 
 ### Run the incremental copy pipeline
 
-1. Select **Trigger** on the toolbar for the pipeline, and then select **Trigger now**.
+1. Select **Add trigger** on the toolbar for the pipeline, and then select **Trigger now**.
 
     ![Screenshot that shows the option for triggering an incremental copy now.](media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. In the **Pipeline Run** window, select **OK**.
 
 ### Monitor the incremental copy pipeline
 
-1. Select the **Monitor** tab. You see the pipeline run in the list and its status. To refresh the list, select **Refresh**.
+1. Select the **Monitor** tab. The pipeline run and its status appear in the list. To refresh the list, select **Refresh**.
 
    ![Screenshot that shows pipeline runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
-1. To view activity runs associated with the pipeline run, select the **IncrementalCopyPipeline** link in the **Pipeline name** column.
+1. To view activity runs associated with the pipeline run, select the **IncrementalCopyPipeline** link in the **Pipeline name** column. The activity runs appear in a list.
 
    ![Screenshot that shows activity runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
@@ -411,7 +411,7 @@ PersonID,Name,Age,SYS_CHANGE_VERSION,SYS_CHANGE_OPERATION
 1,update,10,2,U
 6,new,50,1,I
 ```
-The first three columns are changed data from `data_source_table`. The last two columns are the metadata from the change tracking system table. The fourth column is the `SYS_CHANGE_VERSION` value for each changed row. The fifth column is the operation: `U` = update, `I` = insert. For details about the change tracking information, see [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql).
+The first three columns are changed data from `data_source_table`. The last two columns are the metadata from the table for the change tracking system. The fourth column is the `SYS_CHANGE_VERSION` value for each changed row. The fifth column is the operation: `U` = update, `I` = insert. For details about the change tracking information, see [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql).
 
 ```
 ==================================================================
@@ -423,7 +423,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
 ## Next steps
 
-Advance to the following tutorial to learn about copying new and changed files only based on `LastModifiedDate`:
+Advance to the following tutorial to learn about copying only new and changed files, based on `LastModifiedDate`:
 
 > [!div class="nextstepaction"]
 > [Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
