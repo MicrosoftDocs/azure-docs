@@ -57,7 +57,7 @@ The following limitations apply when you create an Azure Spring Apps Service ins
 - You can enable zone redundancy only when you create a new Azure Spring Apps Service instance.
 - If you enable your own resource in Azure Spring Apps, such as your own persistent storage, make sure to enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 - Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but does not guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
-- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see the [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery) section later in this article. 
+- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see the [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery) section later in this article.
 
 ## Create an Azure Spring Apps instance with zone redundancy enabled
 
@@ -110,7 +110,7 @@ To verify the zone redundancy property of an Azure Spring Apps instance using th
 
 ## Pricing
 
-There's no additional cost associated with enabling zone redundancy. You only need to pay for Standard or Enterprise tier, which is required to enable zone redundancy.
+There's no extra cost associated with enabling zone redundancy. You only need to pay for Standard or Enterprise tier, which is required to enable zone redundancy.
 
 ## Customer-managed geo-disaster recovery
 
@@ -129,7 +129,7 @@ Most Azure regions are paired with another region within the same geography, tog
 
 To ensure high availability and protection from disasters, deploy your applications hosted in Azure Spring Apps to multiple regions. Azure provides a list of paired regions so that you can plan your app deployments accordingly. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
- Consider the following three key factors when you design your architecture: 
+ Consider the following key factors when you design your architecture:
 
 - Region availability. To minimize network lag and transmission time, choose a region that supports Azure Spring Apps zone redundancy, or a geographic area close to your users.
 - Azure paired regions. To ensure coordinated platform updates and prioritized recovery efforts if needed, choose paired regions within your chosen geographic area.
@@ -137,7 +137,7 @@ To ensure high availability and protection from disasters, deploy your applicati
 
 ### Use Azure Traffic Manager to route traffic
 
-Azure Traffic Manager provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service instance. For more information, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
+Azure Traffic Manager provides DNS-based traffic load balancing and can distribute network traffic across multiple regions. Use Azure Traffic Manager to direct customers to the closest Azure Spring Apps service instance. For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Apps service instance. For more information, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
 If you have applications in Azure Spring Apps running in multiple regions, Azure Traffic Manager can control the flow of traffic to your applications in each region. Define an Azure Traffic Manager endpoint for each service instance using the instance IP. You should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Apps service instance. Azure Traffic Manager load balances traffic across the defined endpoints. If a disaster strikes a data center, Azure Traffic Manager directs traffic from that region to its pair, ensuring service continuity.
 
@@ -152,7 +152,7 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
 
 1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md). After successful setup, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
 
-1. Create a traffic manager and two endpoints. For instructions, see [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
+1. Create a traffic manager and two endpoints. For instructions, see [Quickstart: Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
 
    - Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
    - Endpoint Profiles:
@@ -168,9 +168,9 @@ The environment is now set up. If you used the example values in the linked arti
 
 ### Use Azure Front Door and Azure Application Gateway to route traffic
 
-Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure front door could not only provide multi-geo redundancy and closest region routing as Azure Traffic Manager does but also provide advanced feature like TLS protocol termination, application layer processing, WAF and so on. For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md).
+Azure Front Door is a global, scalable entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure Front Door provides the same multi-geo redundancy and routing to the closest region as Azure Traffic Manager. It also provide advanced feature such as TLS protocol termination, application layer processing, and Web Application Firewall (WAF). For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md).
 
-We have provided a detailed example to show how to deploy a multi-geo redundancy VNet integrated Azure Spring Apps service which has proper reverse proxy configuration for Application Gateway and Front Door with a custom domain. The architecture is based on [Expose application to the internet with end-to-end TLS/SSL](../spring-apps/expose-apps-gateway-end-to-end-tls.md), which combines two Application Gateway integrated Azure Spring Apps VNet injection instance into a geo-redundant one. 
+The following illustration shows the architecture of a multi-geo redundancy, virtual-network-integrated Azure Spring Apps service. It shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. The architecture is based on the scenario described in [Expose application to the internet with end-to-end TLS/SSL](../spring-apps/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
 
 :::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Architecture of muti-region spring apps ." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
 
