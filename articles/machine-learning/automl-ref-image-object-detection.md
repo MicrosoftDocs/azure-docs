@@ -131,7 +131,7 @@ The following hyperparameters are for object detection and instance segmentation
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `model_name` | string | Model name to be used for image classification task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | `fasterrcnn_resnet50_fpn` |
+| `model_name` | string | Model name to be used for image classification task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | `yolov5` |
 | `box_detections_per_img` | integer | Maximum number of detections per image, for all classes. <br> <br> *Note: This settings is not supported for the 'yolov5' algorithm.* | | 100 |
 | `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
 | `min_size` | integer | Minimum size of the image to be rescaled before feeding it to the backbone. <br> <br> *Note: <br>- training run may get into CUDA OOM if the size is too big. <br>- This settings is not supported for the 'yolov5' algorithm.*| | 600 |
