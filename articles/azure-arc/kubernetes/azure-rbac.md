@@ -72,7 +72,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     }
     ```
 
-1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file.  RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
+1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
     
     ```azurecli 
         az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
@@ -125,7 +125,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
     ```
 
-4. Grant the required permissions for the client application. RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg` [Additional Information](/azure/active-directory/develop/supported-accounts-validation):
+4. Grant the required permissions for the client application. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
 
     ```azurecli
         az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
@@ -154,7 +154,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ``` 
 
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. This secret is valid for one year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). You can also [set a custom expiration duration](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset).
 
     ```azurecli
         az ad sp create --id "${SERVER_APP_ID}"
