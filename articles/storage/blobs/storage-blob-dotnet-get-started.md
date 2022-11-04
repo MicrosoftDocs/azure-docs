@@ -149,46 +149,6 @@ public static void GetBlobServiceClientAzureAD(ref BlobServiceClient blobService
 
     blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);
 }
-
-```
-
-#### Connect anonymously
-
-If you explicitly enable anonymous access, then your code can create connect to Blob Storage without authorize your request. You can create a new service client object for anonymous access by providing the Blob storage endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-```csharp
-public static void CreateAnonymousBlobClient()
-{
-    // Create the client object using the Blob storage endpoint for your account.
-    BlobServiceClient blobServiceClient = new BlobServiceClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/"));
-
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = blobServiceClient.GetBlobContainerClient("sample-container");
-
-    // Read the container's properties. 
-    // Note this is only possible when the container supports full public read access.          
-    Console.WriteLine(container.GetProperties().Value.LastModified);
-    Console.WriteLine(container.GetProperties().Value.ETag);
-}
-```
-
-Alternatively, if you have the URL to a container that is anonymously available, you can use it to reference the container directly.
-
-```csharp
-public static void ListBlobsAnonymously()
-{
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = new BlobContainerClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
-
-    // List blobs in the container.
-    // Note this is only possible when the container supports full public read access.
-    foreach (BlobItem blobItem in container.GetBlobs())
-    {
-        Console.WriteLine(container.GetBlockBlobClient(blobItem.Name).Uri);
-    }
-}
 ```
 
 ## Build your application

@@ -40,7 +40,7 @@ To remediate public access for one or more containers in the Azure portal, follo
 1. Use the **Change access level** button to display the public access settings.
 1. Select **Private (no anonymous access)** from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
 
-    :::image type="content" source="media/anonymous-read-access-prevent-classic/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    :::image type="content" source="media/anonymous-read-access-prevent-classic/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-prevent-classic/configure-public-access-container.png":::
 
 # [PowerShell](#tab/powershell)
 

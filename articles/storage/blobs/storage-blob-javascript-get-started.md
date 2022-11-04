@@ -145,12 +145,6 @@ To generate and manage SAS tokens, see any of these articles:
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
-## Connect anonymously
-
-If you explicitly enable anonymous access, then you can connect to Blob Storage without authorization for your request. You can create a new BlobServiceClient object for anonymous access by providing the Blob storage endpoint for the account. This requires you to know the account and container names. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-anonymous-credential.js":::
-
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 
 Each type of resource is represented by one or more associated JavaScript clients:

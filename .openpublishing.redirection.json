@@ -6349,11 +6349,6 @@
             "redirect_document_id": false
         },
         { 
-            "source_path_from_root": "/articles/storage/common/anonymous-read-access-configure.md",
-            "redirect_url": "/azure/storage/common/anonymous-read-access-overview",
-            "redirect_document_id": false
-        },
-        { 
             "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
             "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
             "redirect_document_id": false
@@ -19392,6 +19387,11 @@
             "source_path_from_root": "/articles/storage/blobs/storage-manage-access-to-resources.md",
             "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
             "redirect_document_id": true
+        },
+        { 
+            "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-configure.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/authorize-active-directory-powershell.md",
