@@ -6,8 +6,8 @@ description: Learn how to refresh a web service that is already deployed in Azur
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.author: bohlin
-author: bohong68
+ms.author: bozhlin
+author: bozhong68
 ms.reviewer: larryfr
 ms.date: 11/04/2022
 ms.custom: deploy, cliv1, sdkv1, event-tier1-build-2022

@@ -5,8 +5,8 @@ description: Learn about field-programmable gate arrays. You can deploy a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: bohlin
-author: bohong68
+ms.author: bozhlin
+author: bozhong68
 ms.reviewer: larryfr
 ms.date: 11/04/2022
 ms.topic: how-to
