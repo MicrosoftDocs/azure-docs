@@ -5,19 +5,19 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 11/04/2022
 ms.author: duau
 ---
 
 # Migrate Azure Front Door (classic) to Standard/Premium tier using the Azure portal (Preview)
 
-Azure Front Door Standard and Premium tier brings the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users with the Microsoft global network. This article will guide you through the migration process to migrate your Front Door (classic) profile to either a Standard or Premium tier profile to begin using these latest features.
+Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users with the Microsoft global network. This article will guide you through the migration process to migrate your Front Door (classic) profile to either a Standard or Premium tier profile to begin using these latest features.
 
 ## Prerequisites
 
 * Review the [About Front Door tier migration](tier-migration.md) article.
 * Ensure your Front Door (classic) profile can be migrated:
-    * HTTPS is required for all custom domains. Azure Front Door Standard and Premium enforces HTTPS on all domains. If you don't have your own certificate, you can use an Azure Front Door managed certificate. The certificate is free and managed for you.
+    * HTTPS is required for all custom domains. Azure Front Door Standard and Premium enforce HTTPS on all domains. If you don't have your own certificate, you can use an Azure Front Door managed certificate. The certificate is free and managed for you.
     * If you use BYOC (Bring your own certificate) for Azure Front Door (classic), you'll need to grant Key Vault access to your Azure Front Door Standard or Premium profile by completing the following steps:
         * Register the service principal for **Microsoft.AzureFrontDoor-Cdn** as an app in your Azure Active Directory using Azure PowerShell.
         * Grant **Microsoft.AzureFrontDoor-Cdn** access to your Key Vault.
@@ -33,7 +33,7 @@ Azure Front Door Standard and Premium tier brings the latest cloud delivery netw
 
     :::image type="content" source="./media/migrate-tier/validate.png" alt-text="Screenshot of the validate compatibility button from the migration page.":::
 
-1. If the migration isn't compatible, you can select **View errors** to see a list of errors and recommendation to resolve them.
+1. If the migration isn't compatible, you can select **View errors to see a list of errors, and recommendation to resolve them.
 
     :::image type="content" source="./media/migrate-tier/validation-failed.png" alt-text="Screenshot of the Front Door validate migration with errors.":::
 
@@ -51,8 +51,8 @@ Azure Front Door Standard and Premium tier brings the latest cloud delivery netw
 
     :::image type="content" source="./media/migrate-tier/prepare-tier.png" alt-text="Screenshot of the selected tier for the new Front Door profile.":::
 
-    * A Standard tier gets selected if you *only have custom WAF rules* associated to the Front Door (classic) profile. You can chose to upgrade to a Premium tier. 
-    * A Premium tier gets select if you *have managed WAF rules* associated to the Classic profile. To use Standard tier, the managed WAF rules must first be removed from the Classic profile.
+    * A Standard tier gets selected if you *only have custom WAF rules* associated to the Front Door (classic) profile. You may choose to upgrade to a Premium tier. 
+    * A Premium tier gets selected if you *have managed WAF rules* associated to the Classic profile. To use Standard tier, the managed WAF rules must first be removed from the Classic profile.
 
 1. Select **Configure WAF policy upgrades** to configure the WAF policies to be upgraded. Select the action you would like to happen for each WAF policy. You can either copy the old WAF policy to the new WAF policy or select and existing WAF policy that matches the Front Door tier. If you chose to copy the WAF policy, each WAF policy will be given a default WAF policy name that you can change. Select **Apply** once you finish making changes to the WAF policy configuration.
 
@@ -61,7 +61,7 @@ Azure Front Door Standard and Premium tier brings the latest cloud delivery netw
     > [!NOTE]
     > The **Configure WAF policy upgrades** link only appears if you have WAF policies associated to the Front Door (classic) profile.
 
-    For each WAF policy associated to the Front Door (classic) profile select an action.You can make copy of the WAF policy that matches the tier you're migrating the Front Door profile to or you can use an existing WAF policy that matches the tier. You may also update the WAF policy names from the default names assigned. Select **Apply** to save the WAF settings. 
+    For each WAF policy associated to the Front Door (classic) profile select an action. You can make copy of the WAF policy that matches the tier you're migrating the Front Door profile to or you can use an existing WAF policy that matches the tier. You may also update the WAF policy names from the default names assigned. Select **Apply** to save the WAF settings. 
 
     :::image type="content" source="./media/migrate-tier/waf-policy.png" alt-text="Screenshot of the upgrade wAF policy screen.":::
 
@@ -107,7 +107,7 @@ Select **Grant** to add managed identities from the last section to all the Key 
     > [!NOTE]
     > If you cancel the migration, only the new Front Door profile will get deleted. Any new WAF policy copies will need to be manually deleted.
 
-1. Once the migration complete. You can select the banner the top of the page or the link from the successful message to go to the new Front Door profile.
+1. Once the migration completes, you can select the banner the top of the page or the link from the successful message to go to the new Front Door profile.
 
     :::image type="content" source="./media/migrate-tier/successful-migration.png" alt-text="Screenshot of a successful Front Door migration.":::
 
