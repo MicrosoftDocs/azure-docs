@@ -21,7 +21,7 @@ Azure Storage supports optional anonymous public read access for containers and 
 This article provides an overview of how to remediate anonymous public access for your storage accounts.
 
 > [!WARNING]
-> Anonymous public access presents a security risk. We recommend that you take the actions described in the following section to remediate public access for all of your storage accounts.
+> Anonymous public access presents a security risk. We recommend that you take the actions described in the following section to remediate public access for all of your storage accounts, unless your scenario specifically requires anonymous access.
 
 ## Recommendations for remediating anonymous public access
 

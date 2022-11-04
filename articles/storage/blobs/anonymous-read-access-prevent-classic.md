@@ -26,6 +26,9 @@ If you cannot migrate your classic storage accounts at this time, then you shoul
 
 Azure Storage accounts that use the classic deployment model will be retired on August 31, 2024. For more information, see [Azure classic storage accounts will be retired on 31 August 2024](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/).
 
+> [!WARNING]
+> Anonymous public access presents a security risk. We recommend that you take the actions described in the following section to remediate public access for all of your classic storage accounts, unless your scenario specifically requires anonymous access.
+
 ## Block anonymous access to containers
 
 To remediate anonymous access for a classic storage account, set the public access level for each container in the account to **Private**.
