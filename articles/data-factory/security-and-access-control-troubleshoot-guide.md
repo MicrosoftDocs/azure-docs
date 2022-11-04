@@ -56,6 +56,19 @@ The problem is usually caused by one of the following factors:
 
 If none of the preceding methods works, contact Microsoft for help.
 
+### Deleted or rejected private end point still shows Aprroved in ADF
+
+#### Symptoms
+
+You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows “Approved”.
+
+#### Cause 
+
+Currently, ADF stops pulling private end point status after the it is approved. Hence the status shown in ADF is stale.
+
+##### Resolution
+
+You should delete the managed private end point in ADF once existing private endpoints are rejected/deleted from source/sink datasets. 
 
 ### Invalid or empty authentication key issue after public network access is disabled
 
