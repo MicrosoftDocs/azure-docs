@@ -174,7 +174,7 @@ To see the entirety of the command output, drop the `--query` in the command.
 
 ## 5 - Generate the Database Schema
 
-To generate our database schema, set up a firewall rule on the SQL database server. This rule lets your local computer connect to Azure. For this step, you'll need to know your local computer's IP address. For more information about how to find the IP address, [see here](https://whatismyipaddress.com/).  
+To generate our database schema, set up a firewall rule on the SQL database server. This rule lets your local computer connect to Azure.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -195,26 +195,13 @@ az sql server firewall-rule create --resource-group msdocs-core-sql --server <yo
 
 ---
 
-Next, update the *appsettings.json* file in the sample project with the [connection string Azure SQL Database](#4---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
-
-```json
-"AZURE_SQL_CONNECTIONSTRING": "Data Source=<your-server-name>.database.windows.net,1433;Initial Catalog=coreDb;User ID=<username>;Password=<password>"
-```
-
-Next, update the *Startup.cs* file the sample project by updating the existing connection string name `MyDbConnection` to `AZURE_SQL_CONNECTIONSTRING`:
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
-```
-
-From a local terminal, run the following commands to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database:
+From a local terminal, run the following commands to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database. Make sure to pass in the connection string you copied from the Azure SQL database for the `connection` parameter, which will override the `localdb` connection string in the `appsettings.json` file.
 
 ```dotnetcli
 cd <sample-root>\DotNetCoreSqlDb
 dotnet tool install -g dotnet-ef
 dotnet ef migrations add InitialCreate
-dotnet ef database update
+dotnet ef database update --connection "<your-azure-sql-connection-string>"
 ```
 
 After the migration finishes, the correct schema is created.
@@ -223,7 +210,7 @@ If you receive the error `Client with IP address xxx.xxx.xxx.xxx is not allowed 
 
 ## 6 - Deploy to the App Service
 
-That we're able to create the schema in the database means that our .NET app can connect to the Azure database successfully with the new connection string. Remember that the service connector already configured the `AZURE_SQL_CONNECTIONSTRING` connection string in our App Service app. We're now ready to deploy our .NET app to the App Service.
+That we're able to create the schema in the database means that our .NET app can connect to the Azure database successfully with the new connection string. Remember that the service connector already configured the `AZURE_SQL_CONNECTIONSTRING` connection string in our App Service app. We're now ready to deploy our .NET app to the App Service. When the app is deployed, the `AZURE_SQL_CONNECTION` configuration applied to the App Service by the Service Connector will override the `localdb` connection string with the same name in the `appsettings.json` file. 
 
 ### [Deploy using Visual Studio](#tab/visualstudio-deploy)
 
