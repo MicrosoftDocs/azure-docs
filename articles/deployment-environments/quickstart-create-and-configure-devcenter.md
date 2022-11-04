@@ -85,7 +85,7 @@ To attach a system-assigned managed identity to your dev center:
 
 1. After you create a system-assigned managed identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
-   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token token to access your repository.
+   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access your repository.
 
 ### Attach an existing user-assigned managed identity
 

@@ -37,10 +37,10 @@ In this quickstart, you learn how to:
 To create a project in your dev center:
 
 1. In the [Azure portal](https://portal.azure.com/), go to Azure Deployment Environments.
-1. In **Dev centers**, select your dev center.
-1. In the left menu under **Manage**, select **Projects**, and then select **Create**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-create.png" alt-text="Screenshot that shows how to create a project in a dev center.":::
+1. In the left menu under **Configure**, select **Projects**.
+
+1. In **Projects**, select **Create**.
 
 1. In **Create a project**, on the **Basics** tab, enter or select the following information:
 
@@ -68,7 +68,9 @@ To create a project in your dev center:
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
 
-1. In the project overview, in the left menu under **Environment configuration**, select **Environment types**, and then select **Add**.
+1. In the Azure portal, go to your project.
+
+1. In the left menu under **Environment configuration**, select **Environment types**, and then select **Add**.
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-environment-types.png" alt-text="Screenshot that shows the Environment types pane.":::
 
@@ -90,7 +92,10 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 ## Give project access to the development team
 
-1. In the project overview, in the left menu, select **Access control (IAM)**.
+1. In the Azure portal, go to your project.
+
+1. In the left menu, select **Access control (IAM)**.
+
 1. Select **Add** > **Add role assignment**.
 
     :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot that shows the Access control pane." lightbox="media/quickstart-create-configure-projects/project-access-control-page.png":::
