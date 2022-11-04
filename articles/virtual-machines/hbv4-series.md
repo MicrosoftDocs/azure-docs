@@ -32,11 +32,11 @@ All HBv4-series VMs feature 400 GB/s NDR InfiniBand from NVIDIA Networking to en
 
 |Size |Physical CPU cores |Processor |Memory (GB) |Memory bandwidth (GB/s) |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|
-|Standard_HB176rs_v4    |176 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HB176-144rs_v4|144 |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HB176-96rs_v4 |96  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HB176-48rs_v4 |48  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HB176-24rs_v4 |24  |AMD EPYC Gen oa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176rs_v4    |176 |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-144rs_v4|144 |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-96rs_v4 |96  |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-48rs_v4 |48  |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HB176-24rs_v4 |24  |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 
