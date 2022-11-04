@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 11/04/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -22,7 +22,7 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU 
 
 A non-uniform memory access (NUMA) architecture is used to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they're close to so the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
 
-On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. An HPN VM has a dedicated set of logical processors. These processors are first picked from the NUMA node that has high speed network interface attached to it, and then picked from other nodes. An HPN VM can only use the memory of the NUMA node that is assigned to its processors.  
+On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. An HPN VM has a dedicated set of logical processors, but an HPN VM can use CPU from only one NUMA node.
 
 For versions 2209 and lower, to run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it. 
 
