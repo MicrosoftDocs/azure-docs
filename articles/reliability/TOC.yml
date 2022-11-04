@@ -138,7 +138,7 @@
 - name: Reliability Guidance
   items:
     - name: Reliability in Microsoft Azure Well-Architected Framework
-      href: https://learn.microsoft.com/azure/architecture/framework/resiliency/
+      href: /azure/architecture/framework/resiliency/
     - name: Reliability by service
       items:
       - name: Azure Active Directory Domain Services
@@ -170,7 +170,7 @@
       - name: Azure Cosmos DB
         href: ../cosmos-db/high-availability.md
       - name: Azure Data Explorer
-        href: ../data-explorer/create-cluster-database-portal.md
+        href: /azure/data-explorer/create-cluster-database-portal.md
       - name: Azure Data Factory
         href: ../data-factory/concepts-data-redundancy.md
       - name: Azure Database for MySQL - Flexible Server
@@ -178,7 +178,7 @@
       - name: Azure Database for PostgreSQL - Flexible Server
         href: ../postgresql/flexible-server/overview.md
       - name: Azure DDoS Protection
-        href: ../ddos-protection/ddos-faq.md
+        href: ../ddos-protection/ddos-faq.yml
       - name: Azure Disk Encryption
         href: ../virtual-machines/disks-redundancy.md
       - name: Azure DNS - Azure DNS Private Zones
@@ -188,7 +188,7 @@
       - name: Azure Event Grid
         href: ../event-grid/overview.md
       - name: Azure Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones.md
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
       - name: Azure ExpressRoute
         href: ../expressroute/designing-for-high-availability-with-expressroute.md
       - name: Azure Firewall
@@ -231,7 +231,7 @@
         href: ../storage/common/storage-disaster-recovery-guidance.md
       - name: Azure Stream Analytics
       - name: Azure SQL
-        href: ../azure-sql/database/high-availability-sla.md
+        href: /azure-sql/database/high-availability-sla
       - name: Azure Virtual WAN
         href: ../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
       - name: Azure Web Application Firewall
@@ -251,7 +251,7 @@
   - name: Service availability by sovereign cloud
     items:
     - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md?#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../azure-government/compare-azure-government-global-azure.md#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure in China
       href: sovereign-cloud-china.md     
   - name: Service availability by region
