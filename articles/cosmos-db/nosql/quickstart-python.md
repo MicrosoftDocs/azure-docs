@@ -157,7 +157,7 @@ In this example, `json.dumps` is used to print the item to the console in a huma
 
 ## Run the code
 
-This app creates an Azure Cosmos DB for NoSQL database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. At the final step, the example outputs the final item to the console.
+This app creates an API for NoSQL database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. At the final step, the example outputs the final item to the console.
 
 Use a terminal to navigate to the application directory and run the application.
 
