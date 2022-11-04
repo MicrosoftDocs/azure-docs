@@ -385,6 +385,7 @@
   - name: Validate file
     items:
     - name: Linter
+      displayName: ttk
       href: linter.md
     - name: Linter rules
       items:
