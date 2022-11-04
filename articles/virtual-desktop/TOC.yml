@@ -159,6 +159,8 @@
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported features for Teams
     href: teams-supported-features.md
+  - name: Printing using Universal Print
+    href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
 - name: How-to guides
   items:
   - name: Migrate your deployment
