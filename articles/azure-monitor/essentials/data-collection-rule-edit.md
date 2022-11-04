@@ -75,7 +75,7 @@ Our final step is to update DCR back in the system. This is accomplished by “P
 1.	If you are using Azure Cloud Shell, save the file and close the embedded editor, or [upload modified DCR file back to the Cloud Shell environment](../../cloud-shell/using-the-shell-window.md#upload-and-download-files).
 2.	Execute the following commands to load DCR content from the file and place HTTP call to update the DCR in the system. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file modified in the previous part of the tutorial. You can omit first two lines if you read and write to the DCR within the same PowerShell session.
     ```PowerShell
-    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
+    $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
     $FilePath = “<FilePath>” # Store DCR content in this file
     $DCRContent = Get-Content $FilePath -Raw 
     Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent 
