@@ -264,6 +264,12 @@ To subscribe to a workspace with a link:
 
 1. Enter your user account, then select **Sign in**. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
 
+## Azure Virtual Desktop (HostApp)
+
+The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the other application. There should be no need for user interaction.
+
+The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to other client apps in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
+
 ## Provide feedback
 
 If you want to provide feedback to us on the Remote Desktop client for Windows, you can do so by selecting the button that looks like a smiley face emoji in the client app, as shown in the following image. This will open the **Feedback Hub**.
