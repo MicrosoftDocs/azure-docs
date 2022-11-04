@@ -347,6 +347,9 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
 
 ## Start the Fluid server and run the application
 
+> [!NOTE]
+> To match the rest of this how-to, this section uses `npx` and `npm` commands to start a Fluid server. However, the code in this article can also run against an Azure Fluid Relay server. For more information, see [How to: Provision an Azure Fluid Relay service](provision-fluid-azure-portal.md) and [How to: Connect to an Azure Fluid Relay service](connect-fluid-azure-service.md)
+
 In the Command Prompt, run the following command to start the Fluid service.
 
 ```dotnetcli
