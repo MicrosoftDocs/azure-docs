@@ -11,10 +11,11 @@ ms.date: 07/30/2021
 ms.custom: template-concept 
 ---
 
-# Azure Arc data services data collection and reporting
+# Azure Arc-enabled data services data collection and reporting
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
+Azure Arc-enabled data services doesn't store any customer data.
 
 ## Related products
 
