@@ -46,6 +46,10 @@ summarizer.save_pretrained(model_local_path)
 
 A local copy of the model will be placed at `bart-text-summarization/model`. We will use it during the course of this tutorial.
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [text-summarization-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/text-summarization-batch.ipynb).
+
 ## NLP tasks with batch deployments
 
 In this example, we are going to learn how to deploy a deep learning model based on the BART architecture that can perform text summarization over text in English. The text will be placed in CSV files for convenience. 
