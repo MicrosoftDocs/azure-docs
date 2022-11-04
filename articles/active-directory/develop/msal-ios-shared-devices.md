@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device and it's immediately ready for use by the next employee.
+Shared device mode allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device, and it's immediately ready for use by the next employee.
 
 Shared device mode also provides Microsoft identity-backed management of the device.
 
@@ -32,7 +32,7 @@ This feature uses the [Microsoft Authenticator app](https://support.microsoft.co
 
 To create a shared device mode app, developers and cloud device admins work together:
 
-1. **Application developers** write a single-account app (multiple-account apps are not supported in shared device mode) and write code to handle things like shared device sign-out.
+1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) and write code to handle things like shared device sign-out.
 
 1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune to manage the devices in their organization. The MDM pushes the Microsoft Authenticator app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode.
 
@@ -53,7 +53,7 @@ Your device needs to be configured to support shared device mode. It must have i
 
    - **Type**: Redirect
    - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
-   - **Team ID**: (this field is not needed for iOS)
+   - **Team ID**: (this field isn't needed for iOS)
    - **URLs**:
      - `https://login.microsoftonline.com`
      - `https://login.microsoft.com`
@@ -84,7 +84,7 @@ Your device needs to be configured to support shared device mode. It must have i
 
 Your users depend on you to ensure their data isn't leaked to another user. The following sections provide helpful signals to indicate to your application that a change has occurred and should be handled.
 
-You are responsible for checking the state of the user on the device every time your app is used, and then clearing the previous user's data. This includes if it is reloaded from the background in multi-tasking.
+You're responsible for checking the state of the user on the device every time your app is used, and then clearing the previous user's data. This includes if it's reloaded from the background in multi-tasking.
 
 On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We highly recommend you and your company conduct a security review process after updating your app to support shared device mode.
 
@@ -128,7 +128,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 
 ### Get the signed-in user and determine if a user has changed on the device
 
-Another important part of supporting shared device mode is determining the state of the user on the device and clearing application data if a user has changed or if there is no user at all on the device. You are responsible for ensuring data isn't leaked to another user.
+Another important part of supporting shared device mode is determining the state of the user on the device and clearing application data if a user has changed or if there's no user at all on the device. You're responsible for ensuring data isn't leaked to another user.
 
 You can use `getCurrentAccountWithParameters:completionBlock:` API to query the currently signed-in account on the device.
 
@@ -175,7 +175,7 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### Globally sign out a user
 
-The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
+The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It doesn't, however, clear the _data_ from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
 
 #### Swift
 
@@ -227,11 +227,11 @@ signoutParameters.signoutFromBrowser = YES; // To trigger a browser signout in S
 }];
 ```
 
-The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. You can use the optional signoutFromBrowser property shown in code snippets above to trigger a browser signout in Safari. This will cause the browser to briefly launch on the device.
+The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It doesn't clear state on the Safari browser. You can use the optional signoutFromBrowser property shown in code snippets above to trigger a browser signout in Safari. This will cause the browser to briefly launch on the device.
 
 ### Receive broadcast to detect global sign out initiated from other applications
 
-To receive the account change broadcast, you will need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+To receive the account change broadcast, you'll need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
