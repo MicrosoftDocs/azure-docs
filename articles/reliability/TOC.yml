@@ -251,7 +251,7 @@
   - name: Service availability by sovereign cloud
     items:
     - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
     - name: Azure in China
       href: sovereign-cloud-china.md     
   - name: Service availability by region
