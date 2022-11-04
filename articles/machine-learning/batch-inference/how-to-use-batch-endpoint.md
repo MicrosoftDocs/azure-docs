@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 05/24/2022
+ms.date: 11/04/2022
 ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
