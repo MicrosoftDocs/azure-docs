@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+title: 'Govern Azure Data Lake Storage (ADLS) Gen2'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 author: athenads
 ms.author: athenadsouza

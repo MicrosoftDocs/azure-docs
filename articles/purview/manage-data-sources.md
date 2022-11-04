@@ -72,7 +72,7 @@ To create a hierarchy of collections, assign higher-level collections as a paren
 
 ## Next steps
 
-Learn how to register and scan various data sources:
+Learn how to govern various data sources:
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
 * [Power BI tenant](register-scan-power-bi-tenant.md)

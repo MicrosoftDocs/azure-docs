@@ -156,6 +156,6 @@ File sampling for resource sets by file types:
 
 ## Next steps
 
-- [Register and scan Azure Blob storage source](register-scan-azure-blob-storage-source.md)
+- [Govern Azure Blob storage source](register-scan-azure-blob-storage-source.md)
 - [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md)
 - [Manage data sources in Microsoft Purview](manage-data-sources.md)

@@ -63,7 +63,7 @@ landingContent:
             url: deployment-best-practices.md
 
   # Card
-  - title: Register and scan Azure data sources
+  - title: Govern Azure data sources
     linkLists:
       - linkListType: how-to-guide
         links:

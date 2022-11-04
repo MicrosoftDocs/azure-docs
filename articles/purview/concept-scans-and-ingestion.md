@@ -74,5 +74,5 @@ The technical metadata or classifications identified by the scanning process are
 For more information, or for specific instructions for scanning sources, follow the links below.
 
 * To understand resource sets, see our [resource sets article](concept-resource-sets.md).
-* [How to register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan)
+* [How to govern an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan)
 * [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)

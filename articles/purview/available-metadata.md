@@ -69,6 +69,6 @@ This article has a list of the metadata that is available for a Power BI tenant 
 
 ## Next steps
 
-- [Register and scan a Power BI tenant](register-scan-power-bi-tenant.md)
-- [Register and scan Power BI across tenants](register-scan-power-bi-tenant-cross-tenant.md)
-- [Register and scan Power BI troubleshooting](register-scan-power-bi-tenant-troubleshoot.md)
+- [Govern a Power BI tenant](register-scan-power-bi-tenant.md)
+- [Govern Power BI across tenants](register-scan-power-bi-tenant-cross-tenant.md)
+- [Govern Power BI troubleshooting](register-scan-power-bi-tenant-troubleshoot.md)

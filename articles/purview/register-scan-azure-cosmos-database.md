@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Cosmos DB Database (SQL API)'
+title: 'Govern Azure Cosmos DB Database (SQL API)'
 description: This article outlines the process to register an Azure Cosmos DB instance in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos DB database
 author: athenads
 ms.author: athenadsouza

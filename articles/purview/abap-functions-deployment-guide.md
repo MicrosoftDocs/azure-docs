@@ -121,6 +121,6 @@ The function finishes its execution and metadata is downloaded much faster if it
 
 ## Next steps
 
-- [Register and scan SAP ECC source](register-scan-sapecc-source.md)
-- [Register and scan SAP S/4HANA source](register-scan-saps4hana-source.md)
-- [Register and scan SAP Business Warehouse (BW) source](register-scan-sap-bw.md)
+- [Govern SAP ECC source](register-scan-sapecc-source.md)
+- [Govern SAP S/4HANA source](register-scan-saps4hana-source.md)
+- [Govern SAP Business Warehouse (BW) source](register-scan-sap-bw.md)

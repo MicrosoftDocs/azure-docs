@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Blob Storage'
+title: 'Govern Azure Blob Storage'
 description: This article outlines the process to register an Azure Blob Storage data source in Microsoft Purview including instructions to authenticate and interact with the Azure Blob Storage Gen2 source
 author: athenads
 ms.author: athenadsouza

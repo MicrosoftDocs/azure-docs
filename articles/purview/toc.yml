@@ -165,34 +165,34 @@ items:
       href: register-scan-synapse-workspace.md
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan Azure Blob Storage
+      displayName: Govern Azure Blob Storage
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
-      displayName: Register and scan Azure Files
+      displayName: Govern Azure Files
     - name: Azure Cosmos DB
       href: register-scan-azure-cosmos-database.md
-      displayName: Register and scan Azure Cosmos DB
+      displayName: Govern Azure Cosmos DB
     - name: Azure Database for MySQL
       href: register-scan-azure-mysql-database.md
-      displayName: Register and scan an Azure database for MySQL
+      displayName: Govern an Azure database for MySQL
     - name: Azure Database for PostgreSQL
       href: register-scan-azure-postgresql.md
-      displayName: Register and scan an Azure database for PostgreSQL
+      displayName: Govern an Azure database for PostgreSQL
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
-      displayName: Register and scan Azure Data Explorer Kusto
+      displayName: Govern Azure Data Explorer Kusto
     - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
-      displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+      displayName: Govern Azure Data Lake Storage Gen 1 ADLS
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
-      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+      displayName: Govern Azure Data Lake Storage Gen 2 ADLS
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
-      displayName: Register and scan Azure SQL DB
+      displayName: Govern Azure SQL DB
     - name: Azure SQL Managed Instance
       href: register-scan-azure-sql-managed-instance.md
-      displayName: Register and scan Azure SQL DB Managed Instance
+      displayName: Govern Azure SQL DB Managed Instance
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra

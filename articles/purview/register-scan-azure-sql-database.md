@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure SQL DB'
+title: 'Govern Azure SQL DB'
 description: This article outlines the process to register an Azure SQL database in Microsoft Purview including instructions to authenticate and interact with the Azure SQL DB source
 author: athenads
 ms.author: athenadsouza
