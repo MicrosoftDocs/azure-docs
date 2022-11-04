@@ -400,7 +400,7 @@ You can use these valid `level` values to specify in the `applicationinsights.js
 
 ### Log markers (preview)
 
-Starting from 3.4.3, you can capture the log markers for Logback and Log4j 2:
+Starting from 3.4.2, you can capture the log markers for Logback and Log4j 2:
 
 ```json
 {
