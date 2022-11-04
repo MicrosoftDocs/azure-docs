@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.review: lagayhar
+ms.reviewer: lagayhar
 ms.date: 08/05/2022
 ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
