@@ -19,7 +19,6 @@ ms.author: askaur
 - [Acquire a PSTN phone number from Azure Communication Services.](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows)
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
 ## Create a new Java Spring application
 
@@ -247,6 +246,10 @@ participantToAdd=The_participant_to_be_added_after_recognizing_tones
 Input phone number with country code, for example: +18001234567
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
+
+## Set up IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
 
 ## Run the app
 

@@ -22,7 +22,6 @@ ms.author: askaur
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
-- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
 ## Create a new C# application
 
@@ -165,6 +164,10 @@ Reading more about Secret Manager at [Safe storage of app secrets in development
 ```
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
+
+## Set up IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
 
 ## Run the app
 
