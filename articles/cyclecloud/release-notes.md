@@ -2,17 +2,17 @@
 title: Current Release Notes - Azure CycleCloud 8.2.x
 description: Read the product release notes for the current Azure CycleCloud release. This article covers releases 8.2.x and 8.1.x.
 author: adriankjohnson
-ms.date: 03/18/2022
+ms.date: 11/05/2022
 ms.author: adjohnso
 ---
 
 # Azure CycleCloud 8.x
 
-The current release is 8.2.2.
+The current release is 8.3.0.
 
 ## Azure CycleCloud 8.x Release Highlights
 
-CycleCloud 8.2 is the second GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and improvements.
+CycleCloud 8.3 is the third GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and improvements.
 
 |  |  |
 | --- | --- |
@@ -30,6 +30,7 @@ CycleCloud 8.2 is the second GA release of the CycleCloud 8.x platform and conti
 
 Comprehensive release notes for the individual 8.x releases are listed below
 
+* [**8.3.0 Release Notes**](release-notes/8-3-0.md) - released on 11/05/22
 * [**8.2.2 Release Notes**](release-notes/8-2-2.md) - released on 03/18/22
 * [**8.2.1 Release Notes**](release-notes/8-2-1.md) - released on 11/11/21
 * [**8.2.0 Release Notes**](release-notes/8-2-0.md) - released on 08/04/21

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: adriankjohnson
   ms.author: adjohnso
-  ms.date: 06/28/2021 
+  ms.date: 11/05/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -41,7 +41,7 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.2.2 is now available
+          - text: CycleCloud 8.3.0 is now available
             url: release-notes.md
           - text: CycleCloud 7.x will be retired on September 30 2023
             url: how-to/cyclecloud7-retirement-guide.md
