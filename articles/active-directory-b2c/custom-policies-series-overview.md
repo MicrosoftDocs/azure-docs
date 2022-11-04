@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 In Azure Active Directory B2C (Azure AD B2C), you can create user experiences by using [user flows or custom policies](user-flow-overview.md). You use custom policies when you want to create your own user journeys for complex identity experience scenarios that aren't supported by user flows.
 
-User flows are already customizable such as [changing UI](customize-ui.md), [customizing language](language-customization.md) and using [custom attributes](user-flow-custom-attributes.md). However, these customizations can't cover all your business specific needs, which is the reason why you need custom policies.   
+User flows are already customizable such as [changing UI](customize-ui.md), [customizing language](language-customization.md) and using [custom attributes](user-flow-custom-attributes.md). However, these customizations might not cover all your business specific needs, which is the reason why you need custom policies.   
 
 While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy are built from scratch. In this how-to guide series, you'll learn all you need to customize the behavior of your user experience by using custom policies. 
 
@@ -39,6 +39,8 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-in-user-journey-using-pre-conditions.md) | Learn how to create different user experiences for different users based on the value of a claim.|
 |[Validate custom policy files by using TrustFrameworkPolicy schema](custom-policies-series-install-xml-extensions.md)| Learn how to validate your custom files against a custom policy schema. You also learn how to easily navigate your policy files by using Azure AD B2C Visual Studio Code (VS Code) extension.|
 |[Call a REST API by using Azure AD B2C custom policy](custom-policies-series-call-rest-api.md)| Learn how to write a custom policy that integrates with your own RESTful service.|
+|[Create a user by using Azure AD B2C custom policy](custom-policies-series-store-user.md)| Learn how to store user details into Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
+|[Read or update a user by using Azure AD B2C custom policy](custom-policies-series-read-update-user.md)| Learn how to read or update user details in Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
 
 
 ## Next steps 

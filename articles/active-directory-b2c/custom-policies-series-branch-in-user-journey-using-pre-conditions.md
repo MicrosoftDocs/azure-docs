@@ -25,7 +25,7 @@ Technical Profiles also provides a `EnabledForUserJourneys` element to allow you
 
 In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), a user needs to select either *Contoso Employee Account* or *Personal Account*. Users who select *Contoso Employee Account* can proceed without providing further information, they just need to use a valid email address. However, users who select *Personal Account* needs to provide a valid invitation access code to proceed. Hence, users who use *Personal Account* account type see an extra screen to complete their journey.  
 
-:::image type="content" source="media/custom-policies-series-branch-in-user-journey-using-pre-conditions/screenshot-of-branching-in-user-journey.png" alt-text="screenshot-of-branching-in-user-journey.":::
+:::image type="content" source="media/custom-policies-series-branch-in-user-journey-using-pre-conditions/screenshot-of-branching-in-user-journey.png" alt-text="A flowchart of branching in user journey.":::
 
 In this article, you'll learn how to use `EnabledForUserJourneys` element inside a technical profile to create different user experiences based on a claim value. 
 
@@ -166,7 +166,7 @@ Now that you've set up your technical profile, you need to update your User Jour
 
 ## Step 5 - Upload custom policy file
 
-Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file). If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
+Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
 ## Step 5 - Test the custom policy
 

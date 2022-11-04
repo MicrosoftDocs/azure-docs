@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey-using-pre-conditions.md), users who select *Personal Account* needs to provide a valid invitation access code to proceed. We use a static access code, but real apps don't work this way. If the service, which issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
 
-:::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="screenshot-of-branching-in-user-journey.":::
+:::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="sA flowchart of calling a R E S T  A P I.":::
 
 ## Prerequisites
 
@@ -46,11 +46,11 @@ In [Create branching in user journey by using Azure AD B2C custom policies](cust
 
 - Complete the steps in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
-## Create and deploy a Node.js app
+## Step 1 - Create and deploy a Node.js app
 
 You need to deploy an app, which will serve as your external app. Your custom policy then makes an HTTP call to this app. 
 
-### Create the Node.js app 
+### Step 1.1 - Create the Node.js app 
 
 1. Create a folder to host your node application, such as `access-code-app`. 
 
@@ -97,7 +97,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
         });
     ```
     
-    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allows you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse`. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
+    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allows you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse`. Note that the source of the accessCode in the app could be coming from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
 
 1. To test the app works as expected:
     1. In your terminal, run the `node index.js` command to start your app server on port `3000`. 
@@ -137,9 +137,9 @@ You need to deploy an app, which will serve as your external app. Your custom po
 
 At this point, your're ready to deploy your Node.js app. 
 
-### Deploy the Node.js app in Azure App Service
+### Step 1.2 - Deploy the Node.js app in Azure App Service
 
-For your custom policy to reach your Node.js app, it needs to be reachable, So, you need deploy an it. In this article, you'll deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md).
+For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy an it. In this article, you'll deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
 
 Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
 
@@ -149,51 +149,164 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview?view=powershell-7.2) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode` as the endpoint. 
 
-## Call the REST API
+## Step 2 - Call the REST API
 
 Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTful Technical Profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
 
 
-### Define a RESTful Technical profile 
+### Step 2.1 - Define a RESTful Technical profile 
 
-1. In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define the a new RESTful Technical Profile by using the following code: 
+In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define the a new RESTful Technical Profile by using the following code: 
+
+```xml
+    <ClaimsProvider>
+        <DisplayName>HTTP Request Technical Profiles</DisplayName>
+        <TechnicalProfiles>
+            <TechnicalProfile Id="ValidateAccessCodeViaHttp">
+                <DisplayName>Check that the user has entered a valid access code by using Claims Transformations</DisplayName>
+                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <Metadata>
+                    <Item Key="ServiceUrl">https://custompolicyapi.azurewebsites.net:3000/validate-accesscode</Item>
+                    <Item Key="SendClaimsIn">Body</Item>
+                    <Item Key="AuthenticationType">None</Item>
+                    <Item Key="AllowInsecureAuthInProduction">true</Item>
+                </Metadata>
+                <InputClaims>
+                    <InputClaim ClaimTypeReferenceId="accessCode" PartnerClaimType="accessCode" />
+                </InputClaims>
+            </TechnicalProfile>
+        </TechnicalProfiles>
+    </ClaimsProvider>
+``` 
+    
+For the the protocol, you can observe that we configure the Technical Profile to use the *RestfulProvider*. You can also obseveve the following information it the metadata section: 
+
+- The `ServiceUrl` represents the API endpoint. It's value is `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode`. If you deployed you Node.js app using an alternative make sure to update the endpoint value.
+
+- `SendClaimsIn` specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body (default)`, `Form`, `Header`, `Url` or `QueryString`. When you use `Body`, such as in this article, you invoke the *POST* HTTP verb, and the data you send to the API if formatted as key, value pairs in the body of the request. Learn [how to invoke the *GET* HTTP verb, and pass data as query string](restful-technical-profile.md#metadata).  
+
+- `AuthenticationType` specifies the type of authentication that the RESTful claims provider performs. Our RESTful claims provider calls an unprotected endpoint, so we set our `AuthenticationType` to *None*. If the you set authentication type to Bearer, you need to add a *CryptographicKeys* element, which specifies the storage for your access token. Learn more about [the types of authentication that the RESTful claims provider supports](restful-technical-profile.md#metadata). 
+
+- The *PartnerClaimType* attribute in the `InputClaim` specifies how you'll receive your data in the API. 
+   
+### Step 2.2 - Update Validation Technical Profile
+
+In [Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-in-user-journey-using-pre-conditions.md), you validated the *accessCode* by using a Claims Transformation. In this article, you validate the *accessCode* by making an HTTP call to an external service. So, you'll need to update your custom policy to reflect the new approach. 
+
+Locate the *AccessCodeInputCollector* Technical Profile, and update the *ValidationTechnicalProfile* element's ReferenceId to *ValidateAccessCodeViaHttp*. That's, change from:
+
+```xml
+    <ValidationTechnicalProfile ReferenceId="CheckAccessCodeViaClaimsTransformationChecker"/>
+```
+to: 
+
+```xml
+    <ValidationTechnicalProfile ReferenceId="ValidateAccessCodeViaHttp"/>
+```
+At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed, and can be removed. 
+
+
+## Step 3 - Upload custom policy file
+
+Make sure your Node.js app is running, and then follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
+
+## Step 4 - Test the custom policy
+
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy:
+
+1. For **Account Type**, select **Personal Account**
+1. Enter the rest of the details as required, and then select **Continue**. You'll see a new screen.
+1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you'll see an error, **The access code you entered is incorrect. Please try again.**
+
+## Step 5 - Enable debug mode
+
+In development, you may want to see detailed errors sent by the API, such as *developerMessage* and *moreInfo*. In this case, you need to enable debug mode in your RESTful technical provider.
+
+1. Locate your *ValidateAccessCodeViaHttp* technical provider, and add the following item in the technical provider's `metadata`: 
 
     ```xml
-        <ClaimsProvider>
-            <DisplayName>HTTP Request Technical Profiles</DisplayName>
-            <TechnicalProfiles>
-                <TechnicalProfile Id="ValidateAccessCodeViaHttp">
-                    <DisplayName>Check that the user has entered a valid access code by using Claims Transformations</DisplayName>
-                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                    <Metadata>
-                        <Item Key="ServiceUrl">https://custompolicyapi.azurewebsites.net:3000/validate-accesscode</Item>
-                        <Item Key="SendClaimsIn">Body</Item>
-                        <Item Key="AuthenticationType">None</Item>
-                        <Item Key="AllowInsecureAuthInProduction">true</Item>
-                    </Metadata>
-                    <InputClaims>
-                        <InputClaim ClaimTypeReferenceId="accessCode" PartnerClaimType="accessCode" />
-                    </InputClaims>
-                </TechnicalProfile>
-            </TechnicalProfiles>
-        </ClaimsProvider>
-    ``` 
+        <Item Key="DebugMode">true</Item>
+    ```
+1. Save the changes and [upload your policy file](#step-3---upload-custom-policy-file). 
 
-- Node rest service:
-    - node app
-    - host it in Azure app service
-    - name of app is custom-policy-api
-    
-- Validate the access code:
-    - send access code to external service
-    - validate access code in the service
-    - return a 200 OK or Error 409 - conflict 
+1. [Test your custom policy](#step-4---test-the-custom-policy). Make sure you use a wrong input for your **Access Code**. You'll see an error similar to the one shown in the screenshot below.
 
-- Authenticating REST service? [!NOTE]
-    - mention how it needs to be done
+
+    :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-error-enable-debug-mode.png" alt-text="A screenshot error when you enable debug mode."::: 
+  
+## Handle complex request JSON payloads
+
+If the REST API that you call requires you to send a complex JSON payload, you can create the payload by using [GenerateJson JSON claims transformations](json-transformations.md#generatejson). Once you generate the payload, you can then [use `ClaimUsedForRequestPayload` metadata](restful-technical-profile.md#send-a-json-payload) option to the name of the claim containing the JSON payload. 
+
+For example, use the following claims transformation to generate a JSON payload:
+
+```xml
+    <ClaimsTransformation Id="GenerateRequestBodyClaimsTransformation" TransformationMethod="GenerateJson">
+        <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+            <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+            <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+            <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+            <InputClaim ClaimTypeReferenceId="accessCode" TransformationClaimType="customerEntity.accessCode" />
+        </InputClaims>
+        <InputParameters>
+            <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator" />
+            <InputParameter Id="customerEntity.role.id" DataType="long" Value="1" />
+        </InputParameters>
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="requestBodyPayload" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+    </ClaimsTransformation>
+```  
+
+The ClaimsTransformation generates the following JSON object:
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "accessCode":"88888",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
+}
+```
+
+Then, update the *Metadata*, *InputClaimsTransformations*, and *InputClaims* of your RESTful technical provider as shown below: 
+
+```xml
+    <Metadata>
+        <Item Key="ClaimUsedForRequestPayload">requestBodyPayload</Item>
+        <!--Other Metadata items -->
+    </Metadata>
     
-- Enable for complex payload data:[!NOTE]
-    - use claims transformation such as JSON and send it over 
+    <!--Execute your InputClaimsTransformations to generate your request Payload-->
+    <InputClaimsTransformations>
+        <InputClaimsTransformation ReferenceId="GenerateRequestBodyClaimsTransformation" />
+    </InputClaimsTransformations>
+    
+    <InputClaims>
+        <InputClaim ClaimTypeReferenceId="requestBodyPayload" />
+    </InputClaims>
+```
+
+## Next steps
+
+Next, learn:
+
+- About [JSON claims transformations](json-transformations.md).
+ 
+- About [RESTful technical profile](restful-technical-profile.md).
+
+-  How to [Create a user by using Azure AD B2C custom policy](custom-policies-series-store-user.md)
+
+
+
 
 
 

@@ -480,6 +480,12 @@
       - name: Make HTTP call custom policy
         href: custom-policies-series-call-rest-api.md
         displayName: call rest api, http call, http request
+      - name: Create user custom policy
+        href: custom-policies-series-store-user.md
+        displayName: CRUD, store user
+      - name: Read or update user custom policy
+        href: custom-policies-series-read-update-user.md
+        displayName: CRUD, read user, update user
     # Secure
   - name: Secure
     items:
