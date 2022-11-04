@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 09/29/2022
+ms.date: 11/04/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: September 2022*
+*Last updated: November 2022*
 
 ### Terminology used
 
@@ -76,6 +76,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; |
+| [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](../../cosmos-db/index.yml) | &#x2705; | &#x2705; |
@@ -103,6 +104,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Video Indexer](../../azure-video-indexer/index.yml) | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; |
+| [Azure VM Image Builder](../../virtual-machines/image-builder-overview?tabs=azure-powershell/index.yml) | &#x2705; | &#x2705; |
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; |
 | [Bastion](../../bastion/index.yml) | &#x2705; | &#x2705; |
 | [Batch](../../batch/index.yml) | &#x2705; | &#x2705; |
