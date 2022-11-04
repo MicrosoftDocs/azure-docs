@@ -17,7 +17,7 @@ Microsoft Azure operated by 21Vianet (Azure China) is a physically separated ins
 
 ## Service availability
 
-Microsoft's goal for Azure in China is to match service availability in Azure. For service availability in Azure China, see [Products available by China regions](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all&regions=china-non-regional,china-east,china-east-2,china-east-3,china-north,china-north-2,china-north-3&rar=true). 
+Microsoft's goal for Azure in China is to match service availability in Azure. For service availability in Azure China, see [Products available by China regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all&regions=china-non-regional,china-east,china-east-2,china-east-3,china-north,china-north-2,china-north-3&rar=true). 
 
 ### AI + machine learning
 

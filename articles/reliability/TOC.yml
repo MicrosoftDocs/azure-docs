@@ -150,9 +150,9 @@
       - name: Azure App Service
         href: ../app-service/overview.md#why-use-app-service
       - name: Azure App Service- App Service Environment
-        href: ../app-service/environment/overview
+        href: ../app-service/environment/overview.md
       - name: Azure Application Gateway (V2)
-        href: ../application-gateway/overview-v2
+        href: ../application-gateway/overview-v2.md
       - name: Azure Backup
         href: ../backup/index.yml
       - name: Azure Bastion
@@ -239,7 +239,7 @@
       - name: Azure Virtual Machine Scale Sets
         href: ../virtual-machines/availability.md
       - name: Azure Virtual Machines
-        href: (../virtual-machines/availability.md
+        href: ../virtual-machines/availability.md
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
       - name: Azure VPN Gateway
@@ -251,7 +251,7 @@
   - name: Service availability by sovereign cloud
     items:
     - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../azure-government/compare-azure-government-global-azure.md?#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure in China
       href: sovereign-cloud-china.md     
   - name: Service availability by region

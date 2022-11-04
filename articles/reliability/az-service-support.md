@@ -203,16 +203,12 @@ You can access Azure availability zones by using your Azure subscription. To lea
 > [Availability zone migration guidance overview](az-migration-overview.md)
 
 > [!div class="nextstepaction"]
-> [Availability of service by category](region-types-service-categories-azure.md)
+> [Availability of service by category](availability-service-by-category.md)
 
 > [!div class="nextstepaction"]
 > [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 
 > [!div class="nextstepaction"]
-> [Build solutions for high availability using availability zones](https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
+> [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)
 
-> [!div class="nextstepaction"]
-> [High availability with Azure services](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview)
 
-> [!div class="nextstepaction"]
-> [Design patterns for high availability](https://learn.microsoft.com/azure/architecture/framework/resiliency/app-design)
