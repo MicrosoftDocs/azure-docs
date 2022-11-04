@@ -13,7 +13,7 @@ ms.author: v-ksreedevan
 
 # Install Azure Monitor Agent 
 
-Azure Monitor Agent is implemented as an Azure Virtual Machines (VMs) extension. You can install Azure Monitor Agent by using any of the methods for installing virtual machine extensions, including those described in the [Azure Monitor Agent overview](../azure-monitor/agents/agents-overview.md) article. 
+Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent by using any of the methods for installing virtual machine extensions, including those described in the [Azure Monitor Agent overview](../azure-monitor/agents/agents-overview.md) article. 
 
 The following section covers installing Azure Monitor Agent on Azure Arc-enabled servers by using PowerShell and the Azure CLI. For more information, see [Manage Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
 
@@ -48,7 +48,7 @@ Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroup
 
 ### Upgrade on Azure Arc-enabled servers
 
-To perform a *one time upgrade* of the agent, use the following PowerShell commands.
+To perform a *one-time upgrade* of the agent, use the following PowerShell commands.
 
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
