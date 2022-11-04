@@ -39,6 +39,9 @@ You can create host pools in the following Azure regions:
 - West US
 - West US 2
 
+>[!IMPORTANT]
+>This list refers to the list of regions where the _metadata_ for the host pool will be stored.  Virtual machines (hosts) in a host pool can be located in any region, as well as [on-premises](azure-stack-hci-overview.md).
+
 ## Prerequisites
 
 Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
