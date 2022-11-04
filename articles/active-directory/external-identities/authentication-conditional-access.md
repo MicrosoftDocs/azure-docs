@@ -95,18 +95,18 @@ The following table gives a detailed comparison of the security policy and compl
 
 |Controls  |**B2B collaboration users**  |**B2B direct connect users**|
 |---------|---------|---------|
-|Grant controls — Block access   |         |         |
-|Grant controls — MFA     |         |         |
-|Grant controls — Compliant Device     |         |         |
-|Grant controls — Hybrid Azure AD Join    |         |         |
-|Grant controls — Require Approved client app    |         |         |
-|Grant controls — Require App protection policy     |         |         |
-|Grant controls — Require password change     |         |         |
-|Grant controls - ToU     |         |         |
-|Session controls — App enforced restrictions    |         |         |
-|Session controls — Conditional Access App control     |         |         |
-|Session controls — Sign-in frequency     |         |         |
-|Session controls — Persistent browser session   |         |         |
+|Grant controls — Block access   |   Supported       |   Supported      |
+|Grant controls — MFA     |  Supported        |   Supported Requires Accept within Cross-tenant access settings       |
+|Grant controls — Compliant Device     | Supported Requires Accept within Cross-tenant access settings         | Supported Requires Accept within Cross-tenant access settings         |
+|Grant controls — Hybrid Azure AD Join    |  Supported Requires Accept within Cross-tenant access settings        |   Supported Requires Accept within Cross-tenant access settings       |
+|Grant controls — Require Approved client app    | Not supported         |   Not supported       |
+|Grant controls — Require App protection policy     |  Not supported        |  Not supported        |
+|Grant controls — Require password change     |  Not supported        |    Not supported      |
+|Grant controls - ToU     |  Supported       |  Not supported        |
+|Session controls — App enforced restrictions    |   Supported      |  Not supported        |
+|Session controls — Conditional Access App control     |  Supported       |   Not supported       |
+|Session controls — Sign-in frequency     |  Supported       |   Not supported       |
+|Session controls — Persistent browser session   |   Supported      |  Not supported        |
 
 
 
