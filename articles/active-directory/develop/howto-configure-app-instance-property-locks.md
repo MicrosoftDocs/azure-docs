@@ -37,11 +37,11 @@ To configure an app instance lock using the Azure portal:
 1. Under **Manage**, select **App registrations**, and then select the application you want to configure.
 1. Select **Authentication**, and then select **Configure** under the *App instance property lock* section.
 
-   :::image type="content" source="media/howto-configure-app-instance-property-locks/app-instance-lock-configure-overview.png" alt-text="An app registration's app instance lock in the Azure portal":::
+   :::image type="content" source="media/howto-configure-app-instance-property-locks/app-instance-lock-configure-overview.png" alt-text="Screenshot of an app registration's app instance lock in the Azure portal.":::
 
 2. In the **App instance property lock** pane, enter the settings for the lock. The table following the image describes each setting and their parameters.
 
-   :::image type="content" source="media/howto-configure-app-instance-property-locks/app-instance-lock-configure-properties.png" alt-text="An app registration's app instance property lock context pane in the Azure portal":::
+   :::image type="content" source="media/howto-configure-app-instance-property-locks/app-instance-lock-configure-properties.png" alt-text="Screenshot of an app registration's app instance property lock context pane in the Azure portal.":::
 
    | Field                                    | Description                                                                                                                                                                                                                                                                                                       |
    | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
