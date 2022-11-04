@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 11/04/2022
 ---
 
-1. To find a data asset, use Microsoft Purview's [search](./how-to-search-catalog.md) or [browse](./how-to-browse-catalog.md) functionality.
+1. To find a data asset, use Microsoft Purview's [search](../how-to-search-catalog.md) or [browse](../how-to-browse-catalog.md) functionality.
 
     :::image type="content" source="./media/how-to-self-service-request-access/search-or-browse.png" alt-text="Screenshot of the Microsoft Purview governance portal, with the search bar and browse buttons highlighted.":::
 
@@ -17,8 +17,8 @@ ms.date: 11/04/2022
     :::image type="content" source="./media/how-to-self-service-request-access/request-access.png" alt-text="Screenshot of a data asset's overview page, with the Request button highlighted in the mid-page menu.":::
 
     > [!NOTE]
-    > If this option isn't available, a [self-service access workflow](./how-to-workflow-self-service-data-access-hybrid.md) either hasn't been created, or hasn't been assigned to the collection where the resource is registered. Contact the collection administrator, data source administrator, or workflow administrator of your collection for more information.
-    > Or, for information on how to create a self-service access workflow, see our [self-service access workflow documentation](./how-to-workflow-self-service-data-access-hybrid.md).
+    > If this option isn't available, a [self-service access workflow](../how-to-workflow-self-service-data-access-hybrid.md) either hasn't been created, or hasn't been assigned to the collection where the resource is registered. Contact the collection administrator, data source administrator, or workflow administrator of your collection for more information.
+    > Or, for information on how to create a self-service access workflow, see our [self-service access workflow documentation](../how-to-workflow-self-service-data-access-hybrid.md).
 
 1. The **Request access** window will open. You can provide comments on why data access is requested.
 1. Select **Send** to trigger the self-service data access workflow.
