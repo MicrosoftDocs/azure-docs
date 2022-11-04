@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) command job YAML schema'
+title: 'CLI (v2) Automated ML Image Multi-Label Classification job YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) command job YAML schema.
+description: Reference documentation for the CLI (v2) Automated ML Image Multi-Label Classification job YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
