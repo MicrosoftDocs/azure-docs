@@ -46,7 +46,7 @@ To publish resources to users, you must assign them to app groups. When assignin
     - The application crashes
     - Other negative effects on end-user experience and session performance
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
-- Personal host pools only allow and support RemoteApp app groups.
+- Personal host pools only allow and support Desktop app groups.
 
 >[!NOTE]
 >If your host pool’s Preferred App Group Type is set to **Undefined**, that means that you haven’t set the value yet. You must finish configuring your host pool by setting its Preferred App Group Type before you start using it to prevent app incompatibility and session host overload issues.
