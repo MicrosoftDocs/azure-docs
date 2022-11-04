@@ -74,6 +74,8 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
+    - name: IoT Hub concepts overview
+      href: iot-hub-devguide.md
     - name: Develop
       items:
       - name: Device-to-cloud feature guide
@@ -459,6 +461,9 @@
         - name: Bulk import and export IoT devices
           displayName: identity registry, virtual network support, RegistryManager, JobProperties, jobs, job limits, import behavior, import troubleshooting, bulk device provisioning, bulk deletion, SAS URI
           href: iot-hub-bulk-identity-mgmt.md
+        - name: Manage device twin tags
+          displayName: device twin tags, device grouping, tags, query
+          href: iot-hubs-manage-device-twin-tags.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub

@@ -6,7 +6,7 @@ ms.author: whhender
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 11/04/2022
 ---
 
 # What's available in the Microsoft Purview governance portal?
@@ -28,10 +28,11 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 
 |App  |Description  |
 |----------|-----------|
-|[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
+|[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data. |
 |[Data Catalog](#data-catalog)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
 |[Data Estate Insights](#data-estate-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
 |[Data Sharing](#data-sharing) | Allows you to securely share data internally or cross organizations with business partners and customers. |
+|[Data Policy](#data-policy) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
 
 ## Data Map
 
@@ -55,6 +56,21 @@ For more information, see our [introduction to Data Estate Insights](concept-ins
 Microsoft Purview Data Sharing enables organizations to securely share data both within your organization or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
 
 For more information, see our [introduction to Data Sharing](concept-data-share.md).
+
+## Data Policy
+A set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
+Benefits:
+* Structure and simplify the process of granting/revoking access
+* Reduce the effort of access provisioning
+* Enhanced security:
+   - Easier to review access/revoke it in a central vs. distributed access provisioning model
+   - Reduced need for privileged accounts to configure access
+   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects)
+
+For more information, see our introductory guides:
+* [Data owner access policies](concept-policies-data-owner.md): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
+* [Self-service access policies](concept-self-service-data-access-policy.md): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
+* [DevOps policies](concept-policies-devops.md): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
 
 ## Discovery challenges for data consumers
 

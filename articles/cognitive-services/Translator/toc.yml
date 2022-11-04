@@ -177,88 +177,62 @@ items:
     href: custom-translator/overview.md
   - name: Key terms
     href: custom-translator/key-terms.md
-  - name: Custom Translation | Preview
+  - name: Custom Translator for beginners
+    displayName: use case,usage,train,training,bleu,tuning,tune
+    href: custom-translator/beginners-guide.md
+  - name: Quickstart
+    displayName: workspace,project,parallel,train,upload,publish,
+    href: custom-translator/quickstart.md
+  - name: How-to guides
     items:
-    - name: Custom Translator for beginners
-      displayName: use case,usage,train,training,bleu,tuning,tune
-      href: custom-translator/v2.0/beginners-guide.md
-    - name: Quickstart
-      displayName: workspace,project,parallel,train,upload,publish,
-      href: custom-translator/v2.0/quickstart.md
-    - name: How-to guides
-      items:
-      - name: Create and manage a workspace
-        displayName: share
-        href: custom-translator/v2.0/how-to/create-manage-workspace.md
-      - name: Create and manage a project
-        displayName: models,pairs,label,edit,delete
-        href: custom-translator/v2.0/how-to/create-manage-project.md
-      - name: Create and manage training documents
-        displayName: parallel,document sets,tuning,phrase,sentence,upload
-        href: custom-translator/v2.0/how-to/create-manage-training-documents.md
-      - name: Train a custom model
-        displayName: full,dictionary,duplicate
-        href: custom-translator/v2.0/how-to/train-custom-model.md
-      - name: View the model details and test translation
-        displayName: bleu,baseline
-        href: custom-translator/v2.0/how-to/view-model-test-translation.md
-      - name: Publish a custom model
-        displayName: replace
-        href: custom-translator/v2.0/how-to/publish-model.md
-      - name: Translate text with a custom model
-        displayName: category,ID,category ID,
-        href: custom-translator/v2.0/how-to/translate-with-custom-model.md
-  - name: Custom Translator | Legacy
+    - name: Create and manage a workspace
+      displayName: share
+      href: custom-translator/how-to/create-manage-workspace.md
+    - name: Create and manage a project
+      displayName: models,pairs,label,edit,delete
+      href: custom-translator/how-to/create-manage-project.md
+    - name: Create and manage training documents
+      displayName: parallel,document sets,tuning,phrase,sentence,upload
+      href: custom-translator/how-to/create-manage-training-documents.md
+    - name: Train a custom model
+      displayName: full,dictionary,duplicate
+      href: custom-translator/how-to/train-custom-model.md
+    - name: Test your model
+      displayName: bleu,baseline
+      href: custom-translator/how-to/test-your-model.md
+    - name: Publish a custom model
+      displayName: replace
+      href: custom-translator/how-to/publish-model.md
+    - name: Translate text with a custom model
+      displayName: category,ID,category ID,
+      href: custom-translator/how-to/translate-with-custom-model.md
+  - name: Concepts
     items:
-    - name: Quickstart
-      href: custom-translator/quickstart-build-deploy-custom-model.md
-    - name: How-to guides
-      items:
-      - name: Create a project
-        href: custom-translator/how-to-create-project.md
-      - name: Manage projects
-        href: custom-translator/how-to-search-edit-delete-projects.md
-      - name: Upload a document
-        href: custom-translator/how-to-upload-document.md
-      - name: View document details
-        href: custom-translator/how-to-view-document-details.md
-      - name: Train a model
-        href: custom-translator/how-to-train-model.md
-      - name: View the model details
-        href: custom-translator/how-to-view-model-details.md
-      - name: View system test results
-        href: custom-translator/how-to-view-system-test-results.md
-      - name: Manage settings
-        href: custom-translator/how-to-manage-settings.md
-      - name: Unsupported language deployments
-        href: custom-translator/unsupported-language-deployments.md
-    - name: Concepts
-      items:
-      - name: Customize and improve text translation
-        displayName: speech
-        href: customization.md
-      - name: Workspaces and projects
-        href: custom-translator/workspace-and-project.md
-      - name: Parallel documents
-        href: custom-translator/what-are-parallel-documents.md
-      - name: Dictionary
-        displayName: phrase,sentence,recommendations
-        href: custom-translator/what-is-dictionary.md
-      - name: Document formats
-        href: custom-translator/document-formats-naming-convention.md
-      - name: Sentence alignment
-        href: custom-translator/sentence-alignment.md
-      - name: Data filtering
-        displayName: deduplication,white space,punctuation,tags,invalid
-        href: custom-translator/data-filtering.md
-      - name: Training and modeling
-        displayName: tuning
-        href: custom-translator/training-and-model.md
-      - name: BLEU score
-        href: custom-translator/what-is-bleu-score.md
-      - name: Customer-managed keys
-        displayName: encryption,key vault,revoke
-        href: encrypt-data-at-rest.md
+    - name: Customization
+      displayName: speech
+      href: custom-translator/concepts/customization.md
+    - name: Workspaces and projects
+      href: custom-translator/concepts/workspace-and-project.md
+    - name: Parallel documents
+      href: custom-translator/concepts/parallel-documents.md
+    - name: Dictionaries
+      displayName: phrase,sentence,recommendations
+      href: custom-translator/concepts/dictionaries.md
+    - name: Document formats
+      href: custom-translator/concepts/document-formats-naming-convention.md
+    - name: Sentence alignment
+      href: custom-translator/concepts/sentence-alignment.md
+    - name: Data filtering
+      displayName: deduplication,white space,punctuation,tags,invalid
+      href: custom-translator/concepts/data-filtering.md
+    - name: Model training
+      displayName: tuning
+      href: custom-translator/concepts/model-training.md
+    - name: BLEU score
+      href: custom-translator/concepts/bleu-score.md
+    - name: Encrypt data at rest
+      displayName: encryption,key vault,revoke
+      href: encrypt-data-at-rest.md
   - name: Reference
     items:
     - name: Release notes
