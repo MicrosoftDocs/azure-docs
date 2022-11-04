@@ -354,7 +354,6 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
 | 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
 | 4010 | Message was blocked due to the toll free number not being verified | Review unverified sending limits and submit TFN for verification as soon as possible |
-| 4020 | Message rejected by carrier due to a volumetric violation |  |
 | 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
 | 5002 | Message Delivery Timeout|  Try resending the message |
