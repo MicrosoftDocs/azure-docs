@@ -54,7 +54,7 @@ landingContent:
           - text: Service availability by category
             url: availability-service-by-category.md
           - text: Service availability for US Government
-            url: sovereign-cloud-usgov.md
+            url: /azure/azure-government/compare-azure-government-global-azure#service-availability
           - text: Service availability for Azure in China
             url: sovereign-cloud-china.md   
           - text: Service availability by region
