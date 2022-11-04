@@ -6,7 +6,7 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
-### Speech SDK 1.24.1: October 2022 release
+### Speech SDK 1.24.1: November 2022 release
 
 #### New features
 - Published packages for the Embedded Speech preview. See https://aka.ms/embedded-speech for more information.
