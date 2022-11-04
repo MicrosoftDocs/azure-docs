@@ -30,8 +30,8 @@ Conventional cluster template files have a single cluster declaration.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-Abstract | boolean | Whether cluster definition is purely for child reference.
-Autoscale | boolean | Enable auto-start and stop on nodearrays
+Abstract | Boolean | Whether cluster definition is purely for child reference.
+Autoscale | Boolean | Enable auto-start and stop on nodearrays
 Category | String | Which category to display the cluster icon
 CategoryOrder | Integer | Install to a directory other than /opt/cycle_server
 FormLayout    | String  | "SelectionPanel" for a multi-panel display or "List" for a flat list of parameters. Defaults to "List" if not set.
