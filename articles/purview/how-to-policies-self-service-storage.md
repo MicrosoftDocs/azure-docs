@@ -57,7 +57,7 @@ To view the policies you've created, follow the article to [view the self-servic
 
 ## Data Consumption
 
-- Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
+- Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
 
 >[!NOTE]
 > Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder level of the storage account.
@@ -70,7 +70,7 @@ To view the policies you've created, follow the article to [view the self-servic
 ### Known issues
 
 **Known issues** related to Policy creation
-- self-service policies are not supported for Microsoft Purview resource sets. Even if displayed in Microsoft Purview, it is not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
+- self-service policies aren't supported for Microsoft Purview resource sets. Even if displayed in Microsoft Purview, it isn't yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 
 
 ## Next steps

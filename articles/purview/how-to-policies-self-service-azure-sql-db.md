@@ -57,10 +57,10 @@ To view the policies you've created, follow the article to [view the self-servic
 
 ### Test the policy
 
-The Azure Active Directory Account, group, MSI, or SPN for which the self-service policies where created, should now be able to connect to the database on the server and execute a select query against the requested table or view.
+The Azure Active Directory Account, group, MSI, or SPN for which the self-service policies were created, should now be able to connect to the database on the server and execute a select query against the requested table or view.
 
 #### Force policy download
-It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
+It's possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it's membership in ##MS_ServerStateManager##-server role.
 
 ```sql
 -- Force immediate download of latest published policies
