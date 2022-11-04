@@ -5,9 +5,9 @@ description: How to troubleshoot when you get errors running a machine learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: blackmist
-ms.author: larryfr
-ms.date: 10/21/2021
+ms.author: zhanxia
+author: xiaoharper
+ms.date: 11/04/2022
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.

@@ -21,6 +21,21 @@ compliant with the specific standard.
 
 ## Release notes
 
+### November 2022
+
+- Deprecation of policy **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- Deprecation of policy **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service apps should enable configuration routing to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable configuration routing to Azure Virtual Network**
+  - New policy created
+
 ### October 2022
 
 - **Function app slots should have remote debugging turned off**
