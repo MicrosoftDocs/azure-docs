@@ -20,17 +20,17 @@ Data wrangling becomes one of the most important steps in machine learning proje
 
 In this article, you will learn how to perform data wrangling using
 
-- Managed Synapse Spark pool
+- Managed (Automatic) Synapse Spark compute
 - Attached Synapse Spark pool
 
 ## Prerequisites
 
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- [An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 - An Azure Key Vault. See [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
 - A Service Principal. See [Create a Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
+- [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 Before starting data wrangling tasks, you will need familiarity with the process of storing secrets
 
