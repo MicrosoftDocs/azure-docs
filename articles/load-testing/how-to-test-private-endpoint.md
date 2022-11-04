@@ -246,7 +246,7 @@ To start a load test, you must have sufficient permissions to deploy Azure Load 
 
 1. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 
-1. Follow these steps to [assign the network contributor role](/azure/role-based-access-control/role-assignments-steps) to your account.
+1. Follow these steps to [assign the Network Contributor role](/azure/role-based-access-control/role-assignments-steps) to your account.
 
 ### Creating or updating the load test fails with `IPv6 enabled subnet not supported (ALTVNET005)`
 
