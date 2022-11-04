@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 06/04/2022
 ms.author: jeedes
 ---
 
@@ -49,8 +49,6 @@ To configure the integration of Timetabling Solutions into Azure AD, you need to
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Timetabling Solutions** in the search box.
 1. Select **Timetabling Solutions** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Timetabling Solutions
 
@@ -118,11 +116,38 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timetabling Solutions SSO
 
-To configure single sign-on on **Timetabling Solutions** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you'll populate the relevent SSO values in the Timetabling Solutions Administration Console.
 
-### Create Timetabling Solutions test user
+1. In the [Administration Console](https://admin.timetabling.education/), select **5 Settings**, and then select the **SAML SSO** tab.
+1. Perform the following steps in the **SAML SSO** section:
+ 
+    ![Screenshot for SSO settings.](./media/timetabling-solutions-tutorial/timetabling-configuration.png)
 
-In this section, you create a user called Britta Simon in Timetabling Solutions. Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
+    a. Enable SAML Integration.
+
+    b. In the **SAML Login Path** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+
+    c. In the **SAML Logout Path** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
+
+    d. In the **SAML Certificate Fingerprint** textbox, paste the **Thumbprint Value**, which you have copied from the Azure portal.
+
+    e. Enter the **Custom Domain** name.
+    
+    f. **Save** the settings. 
+
+
+## Create Timetabling Solutions test user
+
+In this section, you create a user called Britta Simon in the Timetabling Solutions Administration Console. 
+
+1. In the [Administration Console](https://admin.timetabling.education/), select **1 Manage Users**, and click **Add**.
+2. Enter the mandatory fields **First Name**, **Family Name** and **Email Address**. Add other apprpriate values in the non-mandatory fields.
+3. Ensure **Online** is active in Status.
+4. Click **Save and Next**.
+
+
+> [!NOTE]
+> Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
