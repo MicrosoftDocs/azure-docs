@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 09/09/2022
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: references_regions
 ---
@@ -34,7 +34,7 @@ When you start the load test, Azure Load Testing service injects the following A
 - A network security group (NSG). 
 - An Azure Load Balancer.
 
-These resources are ephemeral and exist only for the duration of the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
+These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
 > [!NOTE]
 > Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, UK South, and West US 2.
@@ -212,88 +212,121 @@ To configure the load test with your virtual network settings, update the [YAML 
 
 ## Troubleshooting
 
-### Creating or updating the load test fails with `Subnet ID passed is invalid`
+### Creating or updating the load test fails with `Subscription not registered with Microsoft.Batch (ALTVNET001)`
 
-To configure a load test in a virtual network, you must have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
+When you configure a load test in a virtual network, the subscription has to be registered with `Microsoft.Batch`. 
 
-### Starting the load test fails with `Test cannot be started`
+1. Try to create or update the load test again after a few minutes.
 
-To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
+1. If the error persists, follow these steps to [register your subscription](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) with the `Microsoft.Batch` resource provider manually.
 
-If you're using the [Azure Load Testing REST API](/rest/api/loadtesting/) to start a load test, check that you're using a valid subnet ID. The subnet must be in the same Azure region as your Azure Load Testing resource.
+### Creating or updating the load test fails with `Subnet is not in the Succeeded state (ALTVNET002)`
 
-### The load test is stuck in `Provisioning` state and then goes to `Failed`
+The subnet you're using for the load test isn't in the `Succeeded` state and isn't ready to deploy your load test into it.
 
-1. Verify that your subscription is registered with `Microsoft.Batch`.
+1. Verify the state of the subnet.
 
-    Run the following Azure CLI command to verify the status. The result should be `Registered`.
+    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
 
     ```azurecli
-    az provider show --namespace Microsoft.Batch --query registrationState
+    az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
     ```
 
-1. Verify that Microsoft Batch node management and the Azure Load Testing IPs can make inbound connections to the test engine VMs.
+1. Resolve any issues with the subnet. If you've just created the subnet, verify the state again after a few minutes.
 
-    1. Enable [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) for the virtual network region.
+1. Alternately, select another subnet for the load test.
 
-        ```azurecli
-        az network watcher configure \
-                  --resource-group NetworkWatcherRG \
-                  --locations eastus \
-                  --enabled
-        ```
+### Create or updating the load test fails with `Subnet is delegated to other service (ALTVNET003)`
 
-    1. Create a temporary VM  with a Public IP in the subnet you're using for the Azure Load Testing service. You'll only use this VM to diagnose the network connectivity and delete it afterwards. The VM can be of any type.
+The subnet you use for deploying the load test can't be delegated to another Azure service. Select another subnet that is not delegated to another service.
 
-        ```azurecli
-        az vm create \
-              --resource-group myResourceGroup \
-              --name myVm \
-              --image UbuntuLTS \
-              --generate-ssh-keys \
-              --subnet mySubnet
-        ```
+### Starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
 
-    1. Test the inbound connectivity to the temporary VM from the `BatchNodeManagement` service tag.
+To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. 
 
-        1. In the [Azure portal](https://portal.azure.com), go to **Network Watcher**.
-        1. On the left pane, select **NSG Diagnostic**.
-        1. Enter the details of the VM you created in the previous step.
-        1. Select **Service Tag** for the **Source type**, and then select **BatchNodeManagement** for the **Service tag**.
-        1. The **Destination IP address** is the IP address of the VM you created in previous step.
-        1. For **Destination port**, you have to validate two ports: *29876* and *29877*. Enter one value at a time and move to the next step.
-        1. Press **Check** to verify that the network security group isn't blocking traffic.
+1. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 
-            :::image type="content" source="media/how-to-test-private-endpoint/test-network-security-group-connectivity.png" alt-text="Screenshot that shows the NSG Diagnostic page to test network connectivity.":::
+1. Follow these steps to [assign the network contributor role](/azure/role-based-access-control/role-assignments-steps) to your account.
 
-            If the traffic status is **Denied**, [configure your virtual network](#configure-your-virtual-network) to allow traffic for the **BatchNodeManagement** service tag.
+### Creating or updating the load test fails with `IPv6 enabled subnet not supported (ALTVNET005)`
 
-    1. Test the inbound connectivity to the temporary VM from the `AzureLoadTestingInstanceManagement` service tag.
+Azure Load Testing doesn't support IPv6 enabled subnets. Select another subnet for which IPv6 isn't enabled.
 
-        1. In the [Azure portal](https://portal.azure.com), go to **Network Watcher**.
-        1. On the left pane, select **NSG Diagnostic**.
-        1. Enter the details of the VM you created in the previous step.
-        1. Select **Service Tag** for the **Source type**, and then select **AzureLoadTestingInstanceManagement** for the **Service tag**.
-        1. The **Destination IP address** is the IP address of the VM you created in previous step.
-        1. For **Destination port**, enter *8080*.
-        1. Press **Check** to verify that the network security group isn't blocking traffic.
+### Creating or updating the load test fails with `NSG attached to subnet is not in Succeeded state (ALTVNET006)`
 
-            If the traffic status is **Denied**, [configure your virtual network](#configure-your-virtual-network) to allow traffic for the **AzureLoadTestingInstanceManagement** service tag.
+The network security group (NSG) that is attached to the subnet isn't in the `Succeeeded` state.
 
-    1. Delete the temporary VM you created earlier.
+1. Verify the state of the NSG.
 
-### The test executes and results in a 100% error rate
+    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
 
-Possible cause: there are connectivity issues between the subnet in which you deployed Azure Load Testing and the subnet in which the application endpoint is hosted.
+    ```azurecli
+    az network nsg show -g MyResourceGroup -n MyNsg
+    ```
 
-1. You might deploy a temporary VM in the subnet used by Azure Load Testing and then use the [curl](https://curl.se/) tool to test connectivity to the application endpoint. Verify that there are no firewall or NSG rules that are blocking traffic.
+1. Resolve any issues with the NSG. If you've just created the NSG or subnet, verify the state again after a few minutes.
 
-1. Verify the [Azure Load Testing results file](./how-to-export-test-results.md) for error response messages:
+1. Alternately, select another NSG.
 
-    |Response message  | Action  |
-    |---------|---------|
-    | **Non http response code java.net.unknownhostexception** | Possible cause is a DNS resolution issue. If you’re using Azure Private DNS, verify that the DNS is set up correctly for the subnet in which Azure Load Testing instances are injected, and for the application subnet. |
-    | **Non http response code SocketTimeout**     | Possible cause is when there’s a firewall blocking connections from the subnet in which Azure Load Testing instances are injected to your application subnet.  |
+### Creating or updating the load test fails with `Route Table attached to subnet is not in Succeeded state (ALTVNET007)`
+
+The route table attached to the subnet isn't in the `Succeeded` state. Verify your route table or use a different route table
+
+1. Verify the state of the route table.
+
+    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+
+    ```azurecli
+    az network route-table show -g MyResourceGroup -n MyRouteTable
+    ```
+
+1. Resolve any issues with the route table. If you've just created the route table or subnet, verify the state again after a few minutes.
+
+1. Alternately, select another route table.
+
+### Creating or updating the load test fails with `Inbound not allowed from AzureLoadTestingInstanceManagement service tag (ALTVNET008)`
+
+Inbound access from the `AzureLoadTestingInstanceManagement` service tag to the virtual network isn't allowed. 
+
+Follow these steps to [enable traffic access](/azure/load-testing/how-to-test-private-endpoint#configure-traffic-access) for the `AzureLoadTestingInstanceManagement` service tag.
+
+### Creating or updating the load test fails with `Inbound not allowed from BatchNodeManagement service tag (ALTVNET009)`
+
+Inbound access from the `BatchNodeManagement` service tag to the virtual network isn't allowed. 
+
+Follow these steps to [enable inbound access](/azure/load-testing/how-to-test-private-endpoint#configure-traffic-access) for the `BatchNodeManagement` service tag.
+
+### Creating or updating the load test fails with `Subnet is in a different subscription than resource (ALTVNET011)`
+
+The virtual network isn't in the same subscription and region as your Azure load testing resource. Either move or recreate the Azure virtual network, or the Azure load testing resource to the same subscription and region.
+
+### Creating or updating the load test fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
+
+An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again.
+
+### Creating or updating the load test fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
+
+The load test engine instances couldn't be deployed due to an error in the subnet configuration. Verify your subnet configuration. If the issue persists, raise a ticket with support along with the run ID of the test.
+
+1. Verify the state of the subnet.
+
+    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+
+    ```azurecli
+    az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
+    ```
+
+1. Resolve any issues with the subnet. If you've just created the subnet, verify the state again after a few minutes.
+
+1. If the problem persists, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+    Provide the load test run ID within the support request.
+
+### Starting the load test fails with `Subnet has {0} free IPs, {1} more free IP(s) required to run {2} engine instance load test (ALTVNET014)`
+
+The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test.
+
+Follow these steps to [update the subnet settings](/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings) and increase the IP address range.
 
 ## Next steps
 
