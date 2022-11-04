@@ -1,7 +1,7 @@
 ---
 title: Remediate anonymous public read access to blob data (classic deployments)
 titleSuffix: Azure Storage
-description: Remediate anonymous public read access to blob data (classic deployments)
+description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous public access to containers.
 services: storage
 author: tamram
 

@@ -1,7 +1,7 @@
 ---
 title: Overview of remediating anonymous public read access for blob data
 titleSuffix: Azure Storage
-description: 
+description: Learn how to remediate anonymous public read access to blob data for both Azure Resource Manager and classic storage accounts.
 services: storage
 author: tamram
 
@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Overview: Remediating anonymous public read access for blob data
 
-Azure Storage supports optional anonymous public read access for containers and blobs. By default, anonymous access to your data is never permitted. Unless you explicitly enable anonymous access, all requests to a container and its blobs must be authorized.
+Azure Storage supports optional anonymous public read access for containers and blobs. By default, anonymous access to your data is never permitted. Unless you explicitly enable anonymous access, all requests to a container and its blobs must be authorized. We recommend that you disable anonymous public access for all of your storage accounts.
 
 This article provides an overview of how to remediate anonymous public access for your storage accounts.
 
