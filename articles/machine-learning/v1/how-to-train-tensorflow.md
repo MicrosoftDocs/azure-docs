@@ -137,10 +137,10 @@ To define the Azure ML [Environment](../concept-environments.md) that encapsulat
 
 Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
 
-If you want to use a curated environment, you can run the following command instead:
+If you want to use a curated environment, the code will be similar to the following example:
 
 ```python
-curated_env_name = 'AzureML-TensorFlow-2.2-GPU'
+curated_env_name = 'AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu'
 tf_env = Environment.get(workspace=ws, name=curated_env_name)
 ```
 
@@ -155,14 +155,14 @@ Make sure the curated environment includes all the dependencies required by your
 
 ```python
 
-tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
+tf_env = Environment.from_conda_specification(name='AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu', file_path='./conda_dependencies.yml')
 ```
 
 If you had instead modified the curated environment object directly, you can clone that environment with a new name:
 
 ```python
 
-tf_env = tf_env.clone(new_name='tensorflow-2.2-gpu')
+tf_env = tf_env.clone(new_name='my-AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu')
 ```
 
 #### Create a custom environment
@@ -186,7 +186,7 @@ Create an Azure ML environment from this conda environment specification. The en
 By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers) for more information.
 
 ```python
-tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
+tf_env = Environment.from_conda_specification(name='AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu', file_path='./conda_dependencies.yml')
 
 # Specify a GPU base image
 tf_env.docker.enabled = True
