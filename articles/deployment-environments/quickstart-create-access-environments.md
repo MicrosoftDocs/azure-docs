@@ -32,26 +32,26 @@ In this quickstart, you learn how to:
 - [Create and configure a project](quickstart-create-and-configure-projects.md).
 - Install the Azure Deployment Environments Azure CLI extension:
 
-    1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
-    1. Install the Azure Deployment Environments AZ CLI extension:
+  1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
+  1. Install the Azure Deployment Environments AZ CLI extension:
 
-       **Automated installation**
+     **Automated installation**
   
-       In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
+     In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
 
-       ```powershell
-       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-       ```
+     ```powershell
+     iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
+     ```
   
-       The script uninstalls any existing dev center extension and installs the latest version.
+     The script uninstalls any existing dev center extension and installs the latest version.
 
-       **Manual installation**
+     **Manual installation**
   
-       Run the following command in the Azure CLI:
+     Run the following command in the Azure CLI:
 
-       ```azurecli
-       az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-       ```
+     ```azurecli
+     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
+     ```
 
 ## Create an environment
 
