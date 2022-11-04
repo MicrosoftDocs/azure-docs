@@ -51,7 +51,7 @@ sections:
       - question: |
           Do I need to be a Global Administrator to see the activity logs in the Azure portal or to get data through the API?
         answer: |
-          No, you can also access the reporting data through the portal or through the API if you're a **Security Reader** or **Security Administrator** for the tenant. **Global Administrators** will also have access to this data.
+          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator** for the tenant. You can also access the reporting data through the portal or through the API if you're a Global Administrator.
 
       - question: |
           What is the data retention for activity logs (Audit, Sign-ins, and Provisioning) in the Azure portal? 
@@ -115,7 +115,7 @@ sections:
       - question: |
           I am seeing User IDs in the username field of my sign-ins log. Why is this happening?
         answer: |
-          With the passwordless authentication, User IDs will be used as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field will say *passwordless*.
+          With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field will say *passwordless*.
 
   - name: Conditional Access
     questions:
