@@ -22,7 +22,7 @@ The soft-delete feature for Azure Machine Learning workspace provides a data pro
 When a workspace is soft-deleted, data and metadata stored service-side get soft-deleted, but some configurations get hard-deleted. Below table provides an overview of which configurations and objects get soft-deleted, and which are hard-deleted.
 
 > [!IMPORTANT] 
-> Workspaces encrypted with customer-managed keys (CMK) are not enabled for soft delete and are always hard deleted.
+> Soft delete is not supported for workspaces encrypted with customer-managed keys (CMK), and these workspaces are always hard deleted.
 
 Data / configuration | Soft-deleted | Hard-deleted
 ---|---|---
