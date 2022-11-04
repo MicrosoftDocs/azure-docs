@@ -384,10 +384,10 @@ items:
             href: ../common/sas-expiration-policy.md?toc=/azure/storage/blobs/toc.json
         - name: Manage anonymous read access to blob data
           items:
+          - name: Overview
+            href: anonymous-read-access-overview.md
           - name: Remediate anonymous access (Azure Resource Manager deployments)
             href: anonymous-read-access-prevent.md
-          - name: Configure containers for authorized access only
-            href: anonymous-read-access-configure.md
           - name: Remediate anonymous access (classic deployments)
             href: anonymous-read-access-prevent-classic.md
       - name: Secure blob data

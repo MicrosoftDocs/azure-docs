@@ -176,7 +176,7 @@ To disallow public access for a storage account in the Azure portal, follow thes
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Blob public access** to **Disabled**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to disallow blob public access for account":::
+    :::image type="content" source="media/anonymous-read-access-prevent/blob-public-access-portal.png" alt-text="Screenshot showing how to disallow blob public access for account":::
 
 # [PowerShell](#tab/powershell)
 
@@ -267,6 +267,113 @@ To disallow public access for a storage account with a template, create a templa
 > Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
+
+## Sample script for bulk remediation
+
+The following sample PowerShell script runs against all Azure Resource Manager storage accounts in a subscription and sets the AllowBlobPublicAccess setting for those accounts to **False**.
+
+```azurepowershell
+<#
+.SYNOPSIS
+Finds storage accounts in a subscription where AllowBlobPublicAccess is True or null.
+
+.DESCRIPTION
+This script runs against all Azure Resource Manager storage accounts in a subscription
+and sets the "AllowBlobPublicAccess" property to False.
+
+Standard operation will enumerate all accounts where the setting is enabled and allow the 
+user to decide whether or not to disable the setting.  
+
+Classic storage accounts will require individual adjustment of containers to remove public
+access, and will not be affected by this script.
+
+Run with BypassConfirmation=$true if you wish to disallow public access on all Azure Resource Manager 
+storage accounts without individual confirmation.
+
+You will need access to the subscription to run the script.
+
+.PARAMETER BypassConformation
+Set this to $true to skip confirmation of changes. Not recommended.
+
+.PARAMETER SubscriptionId
+The subscription ID of the subscription to check.
+
+.PARAMETER ReadOnly
+Set this parameter so that the script makes no changes to any subscriptions and only reports affect accounts.
+
+.PARAMETER NoSignin
+Set this parameter so that no sign-in occurs -- you must sign in first. Use this if you're invoking this script repeatedly for multiple subscriptions and want to avoid being prompted to sign-in for each subscription.
+
+.OUTPUTS
+This command produces only STDOUT output (not standard PowerShell) with information about affect accounts.
+#>
+param(
+    [boolean]$BypassConfirmation=$false,
+    [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName='SubscriptionId')]
+    [String] $SubscriptionId,
+    [switch] $ReadOnly, # Use this if you don't want to make changes, but want to get information about affected accounts
+    [switch] $NoSignin # Use this if you are already signed in and don't want to be prompted again
+)
+
+begin {
+    if ( ! $NoSignin.IsPresent ) {
+        login-azaccount | out-null
+    }
+}
+
+process {
+    Write-Host "NOTE: If you are using OAuth authorization on a storage account, disabling public access at the account level may interfere with authorization."
+
+    try {
+        select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
+    } catch {
+        write-error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+    }
+
+    foreach ($account in Get-AzStorageAccount) 
+    {
+        if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
+        {
+            Write-host "Account:" $account.StorageAccountName " is not disallowing public access."
+
+            if ( ! $ReadOnly.IsPresent ) {
+                if(!$BypassConfirmation)
+                {
+                    $confirmation = Read-Host "Do you wish to disallow public access? [y/n]"
+                }
+                if($BypassConfirmation -or $confirmation -eq 'y')
+                {
+                    try
+                    {
+                        set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
+                        Write-Host "Success!"
+                    }
+                    catch
+                    {
+                        Write-output $_
+                    }
+                }
+            }
+        }
+        elseif($account.AllowBlobPublicAccess -eq $false)
+        {
+            Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
+        }
+        else
+        {
+            Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
+        }
+    }
+}
+
+end {
+    Write-Host "Script complete"
+}
+```
+
+## Verify that anonymous access has been remediated
+
+To verify that you've remediated anonymous access for a storage account, you can test that anonymous access to a blob is not permitted, that modifying a container's public access setting is not permitted, and that it's not possible to create a container with anonymous access enabled.
 
 ### Verify that public access to a blob is not permitted
 
@@ -446,5 +553,4 @@ After anonymous public access is disallowed for a storage account, clients that 
 
 ## Next steps
 
-- [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md)
-- [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
+[Remediate anonymous public read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)

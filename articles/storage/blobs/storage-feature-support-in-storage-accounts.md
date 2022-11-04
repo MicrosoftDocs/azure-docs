@@ -45,7 +45,6 @@ The following table describes whether a feature is supported in a standard gener
 | [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -72,6 +71,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
@@ -94,7 +94,6 @@ The following table describes whether a feature is supported in a premium block 
 | [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -121,6 +120,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md)	| &#x2705; | &#x2705;  | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
