@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/30/2022
 ---
 
-## Defender for IoT subscription billing
+# Defender for IoT subscription billing
 
 As you plan your Microsoft Defender for IoT deployment, you typically want to understand the Defender for IoT pricing plans and billing models so you can optimize your costs.
 

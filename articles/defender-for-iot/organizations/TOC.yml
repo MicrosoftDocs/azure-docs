@@ -224,27 +224,27 @@
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
     - name: Enrich device information
-        items:
-        - name: Work with device notifications
-          href: how-to-work-with-device-notifications.md
-        - name: Enhance port and VLAN name resolution
-          href: how-to-enhance-port-and-vlan-name-resolution.md
-        - name: Import device information
-          href: how-to-import-device-information.md
+      items:
+      - name: Work with device notifications
+        href: how-to-work-with-device-notifications.md
+      - name: Enhance port and VLAN name resolution
+        href: how-to-enhance-port-and-vlan-name-resolution.md
+      - name: Import device information
+        href: how-to-import-device-information.md
     - name: Track sensor activity
-        href: how-to-track-sensor-activity.md
+      href: how-to-track-sensor-activity.md
     - name: Set up SNMP MIB monitoring
-        href: how-to-set-up-snmp-mib-monitoring.md
+      href: how-to-set-up-snmp-mib-monitoring.md
     - name: Manage proprietary protocols (Horizon)
-        href: resources-manage-proprietary-protocols.md
+      href: resources-manage-proprietary-protocols.md
     - name: Manage an OT on-premises management console
-        items:
-        - name: Set up high availability
-          href: how-to-set-up-high-availability.md
-        - name: Manage the on-premises management console
-          href: how-to-manage-the-on-premises-management-console.md
+      items:
+      - name: Set up high availability
+        href: how-to-set-up-high-availability.md
+      - name: Manage the on-premises management console
+        href: how-to-manage-the-on-premises-management-console.md
     - name: Troubleshoot the sensor and on-premises management console
-        href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
+      href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
   - name: OT monitoring appliances
