@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ---
 
 # Quickstart: Create and configure a project

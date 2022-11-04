@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ---
 
 # Quickstart: Create and configure a dev center
@@ -134,7 +134,7 @@ To add a catalog to your dev center:
 
 1. Select the specific repository, and then select **Sync**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/sync-catalog-items.png" alt-text="Screenshot that shows how to sync the catalog." :::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/sync-catalog.png" alt-text="Screenshot that shows how to sync the catalog." :::
 
 ## Create an environment type
 
