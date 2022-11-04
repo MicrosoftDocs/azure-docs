@@ -477,9 +477,9 @@ This section describes necessary steps required for cluster to operate seamlessl
 
 Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-availability-guide-suse-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
 
-### Implement the Python system replication hook SAPHanaSR
+### Implement the Python system replication hooks SAPHanaSR and susChkSrv
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure both SAPHanaSR and susChkSrv Python hooks.  Follow the steps mentioned in, [Implement the Python System Replication hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-the-python-system-replication-hooks-saphanasr-and-suschksrv)
 
 
 ## Configure SAP HANA cluster resources
