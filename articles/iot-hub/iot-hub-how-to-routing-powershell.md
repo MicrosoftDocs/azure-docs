@@ -35,7 +35,7 @@ You need an IoT hub and at least one other service to serve as an endpoint to an
 
 * (Optional) An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
 
-## Create a route
+## Create, update, or remove endpoints and routes
 
 In IoT Hub, you can create a route to send messages or capture events. Each route has an endpoint, where the messages or events end up, and a data source, where the messages or events originate. You choose these locations when creating a new route in the IoT Hub. Routing queries are then used to filter messages or events before they go to the endpoint.
 
@@ -47,7 +47,13 @@ You can use Events Hubs, a Service Bus queue or topic, or an Azure storage to be
 
 # [Event Hubs](#tab/eventhubs)
 
-Let's create a new Event Hubs resource, if you haven't already. Skip ahead to step 3, if you already have an Event Hubs resource.
+References used in the following commands:
+* [Az.IotHub](/powershell/module/az.iothub/)
+* [Az.EventHub](/powershell/module/az.eventhub/)
+
+## Create an Event hub
+
+Let's create a new Event Hubs resource with an authorization rule.
 
 1. Create a new Event Hubs namespace. Use a unique **NamespaceName**.
 
@@ -55,7 +61,7 @@ Let's create a new Event Hubs resource, if you haven't already. Skip ahead to st
    New-AzEventHubNamespace -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -Location MyLocation
    ```
 
-1. Create a new Event Hubs entity. Use a unique **Name**.
+1. Create your new Event hubs entity. Use a unique **Name**. Use the same **NamespaceName** you created in the previous step.
 
    ```powershell
    New-AzEventHub -Name MyEventHub -NamespaceName MyNamespace -ResourceGroupName MyResourceGroup
@@ -64,13 +70,17 @@ Let's create a new Event Hubs resource, if you haven't already. Skip ahead to st
 1. Create a new authorization rule. Use the **Name** of your entity for **EventHubName**. Use a unique **Name** for your authorization rule.
 
    ```powershell
-   New-AzEventHubAuthorizationRule -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName myEventHub -Name MyAuthRule -Rights @('Manage', 'Send', 'Listen')
+   New-AzEventHubAuthorizationRule -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName MyEventHub -Name MyAuthRule -Rights @('Manage', 'Send', 'Listen')
    ```
 
-1. Now that you have an Event hub, retrieve its primary connection string. Copy the connection string for later use.
+   For more information about access, see [Authorize access to Azure Event Hubs](/azure/event-hubs/authorize-access-event-hubs).
+
+## Create an Event Hubs endpoint
+
+1. Retrieve the primary connection string from your Event hub. Copy the connection string for later use.
 
    ```powershell
-   Get-AzEventHubKey -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName myEventHub -Name MyAuthRule
+   Get-AzEventHubKey -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName MyEventHub -Name MyAuthRule
    ```
 
 1. Create a new IoT hub endpoint to Event Hubs. Use your primary connection string from the previous step. The **EndpointType** must be `EventHub`, otherwise all other values should be your own.
@@ -79,11 +89,62 @@ Let's create a new Event Hubs resource, if you haven't already. Skip ahead to st
    Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType EventHub -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "Endpoint=<my connection string>"
    ```
 
+   To see all routing endpoint options, see [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/add-aziothubroutingendpoint).
+
+## Create an IoT Hub route
+
 1. Finally, with your new endpoint in your IoT hub, you can create a new route.
 
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more information on source options, see [Add-AzIotHubRoute](/powershell/module/az.iothub/add-aziothubroute#parameters). The **Enabled** parameter is a switch, so no value need to follow it.
+
+   ```powershell
+   Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint -Enabled
+   ```
+
+   You see a confirmation in your console:
+
+   ```powershell
+   RouteName     : MyIotHub 
+   DataSource    : DeviceLifecycleEvents
+   EndpointNames : MyEndpoint
+   Condition     : true
+   IsEnabled     : True
+   ```
+
+1. A new route should show in your IoT hub. Run this command to confirm the route it there.
+
+   ```powershell
+   Get-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub
+   ```
+
+## Update your IoT hub route
+
+To make changes to an existing route, use the following command. Try changing the name of your route.
+ 
 ```powershell
-Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint
+Set-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute
+``` 
+
+Use the `Get-AzIotHubRoute` command to confirm the change in your route.
+
+```powershell
+Get-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub
 ```
+
+## Delete your Event hubs endpoint
+
+```powershell
+Remove-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -PassThru
+```
+
+## Delete your IoT hub route
+
+```powershell
+Remove-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -PassThru
+```
+
+> [!TIP]
+> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
 
 # [Service Bus queue](#tab/servicebusqueue)
 
