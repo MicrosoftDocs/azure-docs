@@ -5,7 +5,7 @@ description: Learn how to import and transform data in Azure Machine Learning de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.reviewer: lgayhardt
+ms.reviewer: lagayhar
 ms.author: keli19
 author: likebupt
 ms.date: 10/21/2021
