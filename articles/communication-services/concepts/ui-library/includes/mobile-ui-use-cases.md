@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 09/14/2021
 ---
 
-Use the call composite in the Azure Communication Services UI Library to create call experiences in your for iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call experience in your application. Composites in Communication Services manage the entire lifecycle of the call, from setup until the call ends.
+Use the call composite in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call experience in your application. Composites in Communication Services manage the entire lifecycle of the call, from setup until the call ends.
 
 ## Call use cases
 
@@ -109,7 +109,7 @@ Call and chat client libraries must have the context for the call they join. Lik
 
 When troubleshooting voice or video calls, you may be asked to provide a **CallID**.
 
-This can be retrieved via the action bar on the bottom of the call screen; you will see three dots, once the user perform the tap action an option of ***"Share diagnostic info"***, the user will have the capability to share with you the **CallID**.
+This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see three dots, once the user perform the tap action an option of ***"Share diagnostic info"***, the user will have the capability to share the **CallID**.
 
 | | | |
 | ------------------| ------------------------| ----------- |
