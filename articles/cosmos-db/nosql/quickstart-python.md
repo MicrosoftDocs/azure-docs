@@ -94,7 +94,7 @@ From the project directory, open the *app.py* file. In your editor, import the `
 
 Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="environment_variables" highlight="3-4":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="environment_variables":::
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
