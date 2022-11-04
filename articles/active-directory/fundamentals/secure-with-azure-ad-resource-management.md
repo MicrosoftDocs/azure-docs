@@ -260,7 +260,7 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 * Consider a location that is geographically closed to the servers and applications that require Azure AD DS services.
 
-* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).
+* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../reliability/az-service-support.md).
 
 **Object provisioning** - Azure AD DS synchronizes identities from the Azure AD that is associated with the subscription that Azure AD DS is deployed into. It's also worth noting that if the associated Azure AD has synchronization set up with Azure AD Connect (user forest scenario) then the life cycle of these identities can also be reflected in Azure AD DS. This service has two modes that can be used for provisioning user and group objects from Azure AD.
 

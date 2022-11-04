@@ -103,7 +103,7 @@ To get started, [create a managed domain using the Azure portal][tutorial-create
 [tutorial-create]: tutorial-create-instance.md
 [azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/az-service-support.md
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md

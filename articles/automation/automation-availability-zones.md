@@ -11,9 +11,9 @@ ms.custom: references_regions
 
 # Availability zones support for Azure Automation
 
-Azure Automation uses [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region.
+Azure Automation uses [Azure availability zones](../reliability/az-service-support.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region.
  
-[Azure availability zones](../availability-zones/az-overview.md#availability-zones) is a 
+[Azure availability zones](../reliability/az-service-support.md#availability-zones) is a 
 high-availability offering that protects your applications and data from data center failures.
 Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
 
@@ -32,7 +32,7 @@ In the event when a zone is down, there's no action required by you to recover f
 
 ## Supported regions with availability zones
 
-See [Regions and Availability Zones in Azure](../availability-zones/az-overview.md) for the Azure regions that have availability zones. 
+See [Regions and Availability Zones in Azure](../reliability/az-service-support.md) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
 - China North 3
@@ -70,4 +70,4 @@ There is no change to the [Service Level Agreement](https://azure.microsoft.com/
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../availability-zones/az-overview.md).
+- Learn more about [regions that support availability zones](../reliability/az-service-support.md).

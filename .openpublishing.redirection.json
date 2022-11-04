@@ -29340,6 +29340,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/availability-zones/az-overview.md",
+            "redirect_url": "/azure/reliablity/az-service-support",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/availability-zones/index.md",
             "redirect_url": "/azure/reliablity/index.md",
             "redirect_document_id": false

@@ -56,7 +56,7 @@ To get started, see [Migrate Azure AD Domain Services from the Classic virtual n
 [azure-files]: ../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md
 [hd-insights]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
 [avd]: ../virtual-desktop/overview.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/az-service-support.md
 [howto-migrate]: migrate-from-classic-vnet.md
 [attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds
 [managed-disks]: ../virtual-machines/managed-disks-overview.md

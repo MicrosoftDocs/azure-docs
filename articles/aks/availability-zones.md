@@ -206,7 +206,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-overview]: ../availability-zones/az-overview.md
+[az-overview]: ../reliability/az-service-support.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

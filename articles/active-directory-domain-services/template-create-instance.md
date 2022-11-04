@@ -338,7 +338,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/az-service-support.md
 [portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
 [powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [scoped-sync]: scoped-synchronization.md

@@ -66,7 +66,7 @@ See this article for information on how to set it up.
 
 If a cache is configured to use two or more zones as described above, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
 
-Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../availability-zones/az-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
+Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/az-service-support.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
 
 ### Premium tier
 
