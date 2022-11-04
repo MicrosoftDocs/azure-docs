@@ -241,7 +241,7 @@ Next, add the following line before the call `services.AddApplicationInsightsTel
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configure-or-remove-default-telemetry-modules).
 
 #### Azure Function Apps
 

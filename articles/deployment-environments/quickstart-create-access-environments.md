@@ -2,19 +2,19 @@
 title: Create and access an environment
 titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in an Azure Deployment Environments Preview project.
-author: anandmeg
-ms.author: meghaanand
+author: RoseHJM
+ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/12/2022
+ms.date: 10/26/2022
 ---
 
 # Quickstart: Create and access an environment
 
 This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
 
-Only a user who has a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
+Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
 
 In this quickstart, you learn how to:
 
@@ -37,10 +37,10 @@ In this quickstart, you learn how to:
 
        **Automated installation**
   
-       In PowerShell, run the https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 script:
+       In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
 
        ```powershell
-       iex "& { $(irm https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 ) }"
+       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
        ```
   
        The script uninstalls any existing dev center extension and installs the latest version.
@@ -50,7 +50,7 @@ In this quickstart, you learn how to:
        Run the following command in the Azure CLI:
 
        ```azurecli
-       az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
+       az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
        ```
 
 ## Create an environment
@@ -65,51 +65,51 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
 1. List all the Azure Deployment Environments projects you have access to:
 
-    ```azurecli
-    az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
-    ```
+   ```azurecli
+   az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
+   ```
 
 1. Configure the default subscription as the subscription that contains the project:
 
-    ```azurecli
-    az account set --subscription <name>
-    ```
+   ```azurecli
+   az account set --subscription <name>
+   ```
 
 1. Configure the default resource group as the resource group that contains the project:
 
-    ```azurecli
-    az config set defaults.group=<name>
-    ```  
+   ```azurecli
+   az config set defaults.group=<name>
+   ```  
 
 1. List the type of environments you can create in a specific project:
 
-    ```azurecli
-    az devcenter dev environment-type list --dev-center <name> --project-name <name> -o table
-    ```
+   ```azurecli
+   az devcenter dev environment-type list --dev-center <name> --project-name <name> -o table
+   ```
 
 1. List the [catalog items](concept-environments-key-concepts.md#catalog-items) that are available to a specific project:
 
-    ```azurecli
-    az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
-    ```
+   ```azurecli
+   az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
+   ```
 
-1. Create an environment by using a *catalog-item* (infrastructure-as-code template) from the list of available catalog items:
+1. Create an environment by using a *catalog-item* (an infrastructure-as-code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
 
-    ```azurecli
-    az devcenter dev environment create --dev-center-name <devcenter-name> 
-        --project-name <project-name> -n <name> --environment-type <environment-type-name> 
-        --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
-    ```
+   ```azurecli
+   az devcenter dev environment create --dev-center-name <devcenter-name> 
+       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
+       --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
+   ```
 
-    If the specific *catalog-item* requires any parameters, use `--deployment-parameters` and provide the parameters as a JSON string or a JSON file. For example:
+    If the specific *catalog-item* requires any parameters, use `--parameters` and provide the parameters as a JSON string or a JSON file. For example:
 
-    ```json
-    $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
-    az devcenter dev environment create --dev-center-name <devcenter-name> 
-        --project-name <project-name> -n <name> --environment-type <environment-type-name> 
-        --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
-        --parameters $params
-    ```
+   ```json
+   $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
+   az devcenter dev environment create --dev-center-name <devcenter-name> 
+       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
+       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
+       --parameters $params
+   ```
 
 > [!NOTE]
 > You can use `--help` to view more details about any command, accepted arguments and examples. For example, use `az devcenter dev environment create --help` to view more details about creating an environment.
@@ -120,7 +120,7 @@ To access an environment:
 
 1. List existing environments that are available in a specific project:
 
-    ```azurecli
+   ```azurecli
     az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
     ```  
 

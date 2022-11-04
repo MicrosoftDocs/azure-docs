@@ -17,7 +17,8 @@ ms.author: gwallace
 ---
 # Overview of DevOps Starter
 
-[!IMPORTANT] DevOps Starter will be retired on March 31, 2023. [Learn more](/azure/devops-project/retirement-and-migration).
+>[!IMPORTANT] 
+>DevOps Starter will be retired on March 31, 2023. [Learn more](/azure/devops-project/retirement-and-migration).
 
  DevOps Starter makes it easy to get started on Azure using either GitHub actions or Azure DevOps. It  helps you launch your favorite app on the Azure service of your choice in just a few quick steps from the Azure portal. 
 

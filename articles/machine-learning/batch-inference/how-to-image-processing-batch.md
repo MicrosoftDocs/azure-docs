@@ -1,5 +1,5 @@
 ---
-title: "Image processing tasks with batch deployments"
+title: "Image processing with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a model in batch endpoints that process images
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Image processing tasks with batch deployments
+# Image processing with batch deployments
 
 [!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -23,8 +23,8 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `imagenet-classifier-batch`.
-* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `imagenet-classifier-batch`.
+* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
 
 ## About the model used in the sample
 
@@ -34,6 +34,10 @@ The model we are going to work with was built using TensorFlow along with the Re
 * It requires inputs to be scaled to the range `[0,1]`.
 
 A sample of this model can be downloaded from `https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip`.
+
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [imagenet-classifier-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/imagenet-classifier-batch.ipynb).
 
 ## Image classification with batch deployments
 
@@ -169,7 +173,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 1. Now, let create the deployment.
 
    > [!NOTE]
-   > This example assumes you have an endpoint created with the name `imagenet-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
+   > This example assumes you have an endpoint created with the name `imagenet-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    
@@ -204,7 +208,8 @@ One the scoring script is created, it's time to create a batch deployment for it
    Then, create the deployment with the following command:
    
    ```azurecli
-   az ml batch-endpoint create -f endpoint.yml
+   DEPLOYMENT_NAME="imagenet-classifier-resnetv2"
+   az ml batch-deployment create -f deployment.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -232,8 +237,29 @@ One the scoring script is created, it's time to create a batch deployment for it
        logging_level="info",
    )
    ```
+   
+   Then, create the deployment with the following command:
+   
+   ```python
+   ml_client.batch_deployments.begin_create_or_update(deployment)
+   ```
 
-1. At this point, our batch endpoint is ready to be used. 
+1. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   ```bash
+   az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   ```python
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+
+1. At this point, our batch endpoint is ready to be used.  
 
 ## Testing out the deployment
 

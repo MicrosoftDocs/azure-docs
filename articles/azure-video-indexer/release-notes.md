@@ -71,9 +71,9 @@ You can now edit the name of the speakers in the transcription using the Azure V
 
 ### Word level time annotation with confidence score
 
-An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
-
 Now supporting word level time annotation with confidence score. 
+
+An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
 
 ### Azure Monitor integration enabling indexing logs 
 
@@ -81,15 +81,43 @@ The new set of logs, described below, enables you to better monitor your indexin
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-### Expanded supported languages in LID and MLID through the API
+### Expanded supported languages in LID and MLID through Azure Video Indexer API
 
-We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
+Expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API. 
+
+The following languages are now supported through the API: Arabic (United Arab Emirates), Arabic Modern Standard, Arabic Egypt, Arabic (Iraq), Arabic (Jordan), Arabic (Kuwait), Arabic (Oman), Arabic (Qatar), Arabic (Saudi Arabia), Arabic Syrian Arab Republic, Czech, Danish, German, English Australia, English United Kingdom, English United States, Spanish, Spanish (Mexico), Finnish, French (Canada), French, Hebrew, Hindi, Italian, Japanese, Korean, Norwegian, Dutch, Polish, Portuguese, Portuguese (Portugal), Russian, Swedish, Thai, Turkish, Ukrainian, Vietnamese, Chinese (Simplified), Chinese (Cantonese, Traditional).
+
+To specify the list of languages to be identified by LID or MLID when auto-detecting, call [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API and set the `customLanguages` parameter to include up to 10 languages from the supported languages above. Please note that the languages specified in the `customLanguages` are compared at a language level thus should include only one locale per language.
 
 For more information, see [supported languages](language-support.md).
 
 ### Configure confidence level in a person model with an API
 
 Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
+
+### View speakers in closed captions
+
+You can now view speakers in closed captions of the Azure Video Indexer media player. For more information, see [View closed captions in the Azure Video Indexer website](view-closed-captions.md).
+
+### Control face and people bounding boxes using parameters
+
+The new `boundingBoxes` URL parameter controls the option to set bounding boxes on/off when embedding a player. For more information, see [Embed widgets](video-indexer-embed-widgets.md#player-widget).
+
+### Control autoplay from the account settings
+
+Control whether a media file will autoplay when opened using the webapp is through the user settings. Navigate to the [Azure Video Indexer website](https://www.videoindexer.ai/) -> the **Gear** icon (the top-right corner) -> **User settings** -> **Auto-play media files**. 
+          
+### Copy video ID from the player view
+
+**Copy video ID** is available when you select the video in the [Azure Video Indexer website](https://www.videoindexer.ai/)
+
+### New dark theme in native Azure colors
+
+Select the desired theme in the [Azure Video Indexer website](https://www.videoindexer.ai/). Select the **Gear** icon (the top-right corner) -> **User settings**.
+
+### Search or filter the account list
+
+You can search or filter the account list using the account name or region. Select **User accounts** in the top-right corner of the [Azure Video Indexer website](https://www.videoindexer.ai/).
 
 ## September 2022
 

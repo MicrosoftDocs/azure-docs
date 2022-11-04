@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage a Power BI tenant (cross-tenant)
 description: This guide describes how to connect to a Power BI tenant in a cross-tenant scenario. You use Microsoft Purview to scan and manage your Power BI tenant source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -78,10 +78,16 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
-   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
    3. Under **Authentication**:
       1. **Supported account types** > **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
@@ -115,10 +121,16 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. In the Power BI Azure AD tenant, validate the following app registration settings:
    1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
-   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
-      1. Power BI Service Tenant.Read.All
-      2. Microsoft Graph openid
-      3. Microsoft Graph User.Read
+   
+   2. If service principal is used, under **API permissions**, the following **delegated permissions** are assigned with read for the following APIs:
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
+   3. If delegated authentication is used, under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
+      - Power BI Service Tenant.Read.All
+      - Microsoft Graph openid
+      - Microsoft Graph User.Read
+   
    3. Under **Authentication**:
       1. **Supported account types** > **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
@@ -236,7 +248,11 @@ To create and run a new scan by using the Azure runtime, perform the following s
 
 1. If your key vault isn't connected to Microsoft Purview yet, you need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account).
    
-1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. Take note of the client ID (app ID).
+1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. 
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant-app-registration.png" alt-text="Screenshot how to create App in Azure AD for cross tenant.":::
+ 
+3. Take note of the client ID (app ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot that shows how to create a service principle.":::
   
@@ -246,7 +262,7 @@ To create and run a new scan by using the Azure runtime, perform the following s
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions on Power BI and Microsoft Graph.":::
 
 1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
@@ -309,17 +325,20 @@ To create and run a new scan by using the Azure runtime, perform the following s
 
 To create and run a new scan by using the self-hosted integration runtime, perform the following steps:
 
-1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. Take note of the client ID (app ID).
+1. Create an app registration in your Azure AD tenant where Power BI is located. Provide a web URL in the **Redirect URI**. 
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant-app-registration.png" alt-text="Screenshot how to create App in Azure AD for cross tenant.":::
+ 
+2. Take note of the client ID (app ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot that shows how to create a service principle.":::
   
-1. From the Azure AD dashboard, select the newly created application, and then select **App permissions**. Assign the application the following delegated permissions, and grant admin consent for the tenant:
+1. From the Azure AD dashboard, select the newly created application, and then select **App permissions**. Assign the application the following delegated permissions:
 
-   - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
    - Microsoft Graph User.Read
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-api-permissions.png" alt-text="Screenshot of delegated permissions on Microsoft Graph.":::
 
 1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 

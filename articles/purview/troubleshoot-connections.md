@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot your connections in Microsoft Purview
 description: This article explains the steps to troubleshoot your connections in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

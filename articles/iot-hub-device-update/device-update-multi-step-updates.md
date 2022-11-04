@@ -1,8 +1,8 @@
 ---
 title: Using multiple steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
 description: Using multiple steps for Updates with Device Update for Azure IoT Hub
-author: eross-msft
-ms.author: lizross
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
@@ -27,8 +27,8 @@ An example update manifest with one inline step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -59,8 +59,8 @@ An example update manifest with two inline steps:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -103,8 +103,8 @@ An example update manifest with one reference step:
       "isDeployable": true,
       "compatibility": [
           {
-              "deviceManufacturer": "du-device",
-              "deviceModel": "e2e-test"
+              "manufacturer": "du-device",
+              "model": "e2e-test"
           }
       ],
       "instructions": {

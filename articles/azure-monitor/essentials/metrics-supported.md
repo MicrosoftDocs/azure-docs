@@ -2147,11 +2147,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Availability|No|Overall Vault Availability|Percent|Average|Vault requests availability|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |ServiceApiHit|Yes|Total Service Api Hits|Count|Count|Number of total service api hits|ActivityType, ActivityName|
-|ServiceApiLatency|No|Overall Service Api Latency|Milliseconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-|ServiceApiResult|Yes|Total Service Api Results|Count|Count|Gets the available metrics for a Managed HSM pool|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-
 
 ## Microsoft.KeyVault/vaults
 
@@ -2712,7 +2708,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|No Dimensions|
+|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In |No Dimensions|
 |PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
