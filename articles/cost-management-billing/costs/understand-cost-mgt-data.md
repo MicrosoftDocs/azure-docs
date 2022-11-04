@@ -159,7 +159,7 @@ The following examples illustrate how billing periods could end:
 
 After your billing period ends and your invoice is created, it can take up to 48 hours later for the usage data to get finalized. If the usage file isn't ready, you'll see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
 
-Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
+Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months are available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
 
 ### Rerated data
 
