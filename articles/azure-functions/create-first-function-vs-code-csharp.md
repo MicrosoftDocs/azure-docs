@@ -2,7 +2,7 @@
 title: "Create a C# function using Visual Studio Code - Azure Functions"
 description: "Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. "
 ms.topic: quickstart
-ms.date: 10/11/2022
+ms.date: 11/08/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
 adobe-target: true
@@ -13,9 +13,9 @@ adobe-target-content: ./create-first-function-vs-code-csharp-ieux
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. This article creates an HTTP triggered function that runs on .NET 6.0. There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
+In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. This article creates an HTTP triggered function that runs on .NET in-process or isolated worker process with an example of .NET 6. There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET, such as .NET 6. To create C# functions on .NET 6 that can also run on [other supported versions](functions-versions.md) for Azure functions [in an isolated process](dotnet-isolated-process-guide.md). 
+By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions (e.g .NET 6). To create C# functions run on .NET [isolated worker process](dotnet-isolated-process-guide.md) for both Long Term Support (LTS) and Standard Term Support (STS) version of .NET, check out [here](dotnet-isolated-process-guide.md#supported-versions) about supported .NET versions. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -37,7 +37,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Provide the following information at the prompts:
 
-    # [.NET 6](#tab/in-process) 
+    # [.NET 6 In-process](#tab/in-process) 
 
     |Prompt|Selection|
     |--|--|
@@ -66,7 +66,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     > [!NOTE]
     > If you don't see .NET 6 as a runtime option, check the following:
     > 
-    > + Make sure you have installed the .NET 6.0 SDK.
+    > + Make sure you have installed the .NET 6.0 SDK or other available .NET SDK versions, from .NET website [here](https://dotnet.microsoft.com/download).
     > + Press F1 and type `Preferences: Open user settings`, then search for `Azure Functions: Project Runtime` and change the default runtime version to `~4`.  
     
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
@@ -87,13 +87,13 @@ After checking that the function runs correctly on your local computer, it's tim
 
 You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Queue Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
 
-# [.NET 6](#tab/in-process) 
+# [.NET In-process](#tab/in-process) 
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
 
-# [.NET 6 Isolated](#tab/isolated-process)
+# [.NET Isolated](#tab/isolated-process)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)

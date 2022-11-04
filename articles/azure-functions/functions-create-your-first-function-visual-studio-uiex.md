@@ -3,7 +3,7 @@ title: "Quickstart: Create your first function in Azure using Visual Studio"
 description: In this quickstart, you learn how to create and publish an HTTP trigger Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 11/8/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, mode-ui
 ROBOTS: NOINDEX,NOFOLLOW
