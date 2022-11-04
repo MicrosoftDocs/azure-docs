@@ -291,7 +291,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 
 ## How are AKS addons updated?
 
-Any patch, including security patches are automatically applied to the AKS cluster. For anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects) are updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
+Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
 
 <!-- LINKS - internal -->
 
