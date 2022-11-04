@@ -247,10 +247,6 @@ Input phone number with country code, for example: +18001234567
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
 
-## Set up IncomingCall event
-
-IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
-
 ## Run the app
 
 To run your Java application, run maven compile, package, and execute commands.
@@ -260,3 +256,7 @@ mvn compile
 mvn package
 mvn exec:java -Dexec.mainClass=com.example.demo.DemoApplication -Dexec.cleanupDaemonThreads=false
 ```
+
+## Set up IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.

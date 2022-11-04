@@ -31,9 +31,17 @@ In the console window of your operating system, use the `dotnet` command to crea
     dotnet new web -n MyApplication
 ```
 
-## Install the NuGet package
+## Configure NuGet package manager
 
 During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+
+## Install required Nuget packages
+
+Install the following Nuget packages to your project:
+
+*Azure.Communication.CallAutomation* - [Package details](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/)
+
+*Azure.Messaging.EventGrid* - [Package details](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/)
 
 ## Obtain your connection string and phone number
 
@@ -166,10 +174,10 @@ Reading more about Secret Manager at [Safe storage of app secrets in development
 
 In this quick-start, participantToAdd used in the code snippet is assumed to be an ACS User MRI.
 
-## Set up IncomingCall event
-
-IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
-
 ## Run the app
 
 Open Your_Project_Name.csproj file in your project with Visual Studio, and then select Run button or press F5 on your keyboard.
+
+## Set up IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying every incoming call request happens in your ACS Resource. We use this event to detect calls that dial to our ACS resource phone number. Follow [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
