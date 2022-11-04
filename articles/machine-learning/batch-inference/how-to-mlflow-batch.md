@@ -433,6 +433,10 @@ You will typically select this workflow when:
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
+> [!WARNING]
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio UI](https://ml.azure.com), please switch to the CLI or the SDK.
+
+
 ### Steps
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
