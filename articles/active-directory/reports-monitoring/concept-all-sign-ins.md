@@ -229,7 +229,7 @@ If a sign-in failed, you can get more information about the reason in the **Basi
  
 For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
-![Screnshot of the error code lookup tool.](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+![Screenshot of the error code lookup tool.](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 ### Authentication details
 
@@ -250,7 +250,7 @@ This information allows you to troubleshoot each step in a user’s sign-in. Use
 
 While viewing the sign-ins log, select a sign-in event, and then select the **Authentication Details** tab.
 
-![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
+![Screenshot of the Authentication Details tab.](media/concept-all-sign-ins/authentication-details-tab.png)
 
 When analyzing authentication details, take note of the following details:
 

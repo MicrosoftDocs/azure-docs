@@ -149,7 +149,7 @@ This information allows you to troubleshoot each step in a user’s sign-in. Use
 
 While viewing the sign-ins log, select a sign-in event, and then select the **Authentication Details** tab.
 
-![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
+![Screenshot of the Authentication Details tab](media/concept-sign-ins/authentication-details-tab.png)
 
 When analyzing authentication details, take note of the following details:
 
