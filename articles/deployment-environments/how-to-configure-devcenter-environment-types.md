@@ -34,9 +34,9 @@ Add a new environment type to the dev center as follows:
 1. Select **Environment types** from the left pane.
 1. Select **+ Add**.
 1. On the **Add environment type** page, add the following details:
-   1. Add a name for the environment type.
-   1. Add a description (optional).
-   1. Add tags by adding name and value information (optional).
+   1. For **Name**, add a name for the environment type.
+   1. For **Description**, add a description (optional).
+   1. For **Tags**, add tags by adding **Name** and **Value** information (optional).
 1. Select **Add**.
 
 :::image type="content" source="./media/configure-dev-center-environment-types/add-new-dev-center-environment-type.png" alt-text="Screenshot that shows the page for adding an environment type.":::
