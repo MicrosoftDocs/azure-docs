@@ -67,7 +67,7 @@ To enable Azure AD Kerberos authentication using the [Azure portal](https://port
 
    :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Azure AD Kerberos is selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" border="true":::
 
-1. Optional: If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
+1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
    ```PowerShell
    $domainInformation = Get-ADDomain
@@ -87,7 +87,7 @@ To enable Azure AD Kerberos using Azure PowerShell, run the following command. R
 Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName <storageAccountName> -EnableAzureActiveDirectoryKerberosForFile $true
 ```
 
-Optional: If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -111,7 +111,7 @@ To enable Azure AD Kerberos using Azure CLI, run the following command. Remember
 az storage account update --name <storageaccountname> --resource-group <resourcegroupname> --enable-files-aadkerb true
 ```
 
-Optional: If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -225,6 +225,5 @@ For more information, see these resources:
 
 - [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
-- [Enable AD DS authentication to Azure file shares](storage-files-identity-ad-ds-enable.md)
 - [Create a profile container with Azure Files and Azure Active Directory](../../virtual-desktop/create-profile-container-azure-ad.md)
 - [FAQ](storage-files-faq.md)

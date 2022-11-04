@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 10/03/2022
+ ms.date: 11/04/2022
  ms.author: kendownie
  ms.custom: include file
 ---
@@ -14,4 +14,4 @@ Azure Files supports identity-based authentication over Server Message Block (SM
 
 - On-premises Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
-- Azure Active Directory Kerberos (Azure AD) for hybrid user identities only (preview)
+- Azure Active Directory (Azure AD) Kerberos for hybrid user identities
