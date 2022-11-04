@@ -19,7 +19,9 @@ Azure Recovery Services contributes to your BCDR strategy:
 
 Site Recovery can manage replication for:
 
-- Azure VMs replicating between Azure regions, replicating from edge zone to the region and replicating between two edge zones.
+- Azure VMs replicating between Azure regions
+- Replication from edge zone to the region
+- ReplicatiON between two edge zones.
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
 ## What does Site Recovery provide?
@@ -55,3 +57,4 @@ Site Recovery can manage replication for:
 - Read more about [workload support](site-recovery-workload.md).
 - Get started with [Azure VM replication between regions](azure-to-azure-quickstart.md).
 - Get started with [VMware VM replication](vmware-azure-enable-replication.md).
+- Get started with [Disaster recovery for VMs on Edge Zone (preview)](disaster-recovery-for-edge-zone-vm-tutorial.md).
