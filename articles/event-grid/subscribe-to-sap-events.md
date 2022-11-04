@@ -6,7 +6,7 @@ ms.date: 10/25/2022
 ---
 
 # Subscribe to events published by SAP
-This article describes steps to subscribe to events published by an SAP S/4HANA system.
+This article describes steps to subscribe to events published by a SAP S/4HANA system. 
 
 ## High-level steps
 

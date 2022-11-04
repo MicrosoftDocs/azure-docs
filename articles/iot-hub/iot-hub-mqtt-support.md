@@ -454,5 +454,4 @@ To learn more about planning your IoT Hub deployment, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide](iot-hub-devguide.md)
 * [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
