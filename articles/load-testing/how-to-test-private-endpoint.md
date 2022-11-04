@@ -298,7 +298,7 @@ Follow these steps to [enable inbound access](/azure/load-testing/how-to-test-pr
 
 ### Creating or updating the load test fails with `Subnet is in a different subscription than resource (ALTVNET011)`
 
-The virtual network isn't in the same subscription and region as your Azure load testing resource. Either move or recreate the Azure virtual network, or the Azure load testing resource to the same subscription and region.
+The virtual network isn't in the same subscription and region as your Azure load testing resource. Either move or recreate the Azure virtual network or the Azure load testing resource to the same subscription and region.
 
 ### Creating or updating the load test fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
 
