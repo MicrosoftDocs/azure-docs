@@ -426,6 +426,7 @@
       displayName: ttk,linter
       href: test-toolkit.md
     - name: Template test cases
+      displayName: ttk,linter
       href: template-test-cases.md
     - name: Parameter file test cases
       href: parameter-file-test-cases.md
