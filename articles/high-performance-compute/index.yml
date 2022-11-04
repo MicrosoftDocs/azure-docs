@@ -1,0 +1,101 @@
+### YamlMime:Hub
+
+title: Azure HPC documentation
+summary: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads, and this page offers a range of available services and use case scenarios for you to explore.
+brand: azure
+
+metadata:
+  title: Azure HPC documentation
+  description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads, and this page offers a range of available services and use case scenarios for you to explore.
+  ms.service: azure-hpc
+  ms.topic: hub-page
+  author: padmalathas
+  ms.author: padmalathas
+  ms.date: 11/4/2022
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure HPC?
+      itemType: overview
+      url: ../virtual-machines/overview.md
+    # Card
+    - title: Getting started with Azure Virtual Machines
+      itemType: get-started
+      url: ../virtual-machines/overview.md
+    # Card
+    - title: Architecture
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hpc/
+    # Card
+    - title: Start building with Azure HPC for high performance applications
+      itemType: reference
+      url: ../virtual-machines/overview.md
+    # Card
+    - title: Azure HPC on Microsoft Learn
+      itemType: learn
+      url: /learn/browse/?products=azure&term=hpc
+    # Card
+    - title: Customer Stories
+      itemType: deploy
+      url: ../virtual-machines/overview.md
+
+# productDirectory section (optional)
+productDirectory:
+  title: Services # < 60 chars (optional)
+  summary: There are several Azure services that make up our High Performance Computing offering # < 160 chars (optional)
+  items:
+    # Card
+    - title: Batch
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ../virtual-machines/media/logos/azure-logo.png
+      links:
+        - url: /batch
+          text: Azure Batch
+        - url: ../batch/batch-technical-overview.md
+          text: What is Azure Batch?
+        - url: ../batch/quick-create-cli.md
+          text: Quickstart
+    # Card
+    - title: VDI
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ../virtual-machines/media/logos/azure-logo.png
+      links:
+        - url: /virtual-desktop
+          text: Azure Virtual Desktop Infrastructure
+        - url: ../virtual-desktop/overview.md
+          text: What is Azure VDI?
+        - url: ../virtual-desktop/getting-started-feature.md
+          text: Quickstart
+    # Card
+    - title: HPC compute sizes
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ..virtual-machines/media/logos/microsoft-logo.png
+      links:
+        - url: ../virtual-machines/sizes-hpc
+          text: HPC VM sizes
+        - url: ../virtual-machines/sizes
+          text: What are VM sizes?
+        - url: /virtual-machines/h-series
+          text: H-series
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    - title: Supercomputing 2022 # < 60 chars (optional)
+      summary: Join us in Dallas at Supercomputing 22! # < 160 chars (optional)
+      items:
+        # Card
+        - title: Conference
+          links:
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/microsoft-at-sc22/ba-p/3613923#M157
+              itemType: overview
+              text: Join us!
+            - url: https://youtu.be/5C6i9tXpVlk
+              itemType: video
+              text: Keynote
