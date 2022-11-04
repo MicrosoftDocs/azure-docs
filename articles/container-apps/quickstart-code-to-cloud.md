@@ -126,12 +126,10 @@ az group create \
   --location "$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+```azurepowershell
+New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 
 ---
@@ -150,14 +148,10 @@ az acr create \
   --admin-enabled true
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr create `
-  --resource-group $RESOURCE_GROUP `
-  --name $ACR_NAME `
-  --sku Basic `
-  --admin-enabled true
+```azurepowershell
+$acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroupName -Name $ACRName -Sku Basic -AdminUserEnabled $true
 ```
 
 ---
@@ -178,9 +172,9 @@ Run the following command to initiate the image build and push process using ACR
 az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
@@ -265,13 +259,36 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az containerapp env create `
-  --name $ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+
+```azurepowershell
+$WorkspaceArgs = @{
+    Name = $Environment
+    ResourceGroupName = $ResourceGroup
+    Location = $Location
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
+}
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```azurepowershell
+$EnvArgs = @{
+    EnvName = $Environment
+    ResourceGroupName = $ResourceGroup
+    Location = $Location
+    AppLogConfigurationDestination = 'log-analytics'
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+}
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
@@ -298,6 +315,28 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
+<<<<<<< HEAD
+$ImageParams = @{
+    Name = $APIName
+    Image = $AcrName + '.azurecr.io/' + $APIName
+}
+$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroup $ResourceGroup).Id
+
+$AppArgs = @{
+    Name = $APIName
+    Location = $Location
+    ResourceGroupName = $ResourceGroup
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    IngressTargetPort = 3500
+    IngressExternal = $true
+
+}
+$MyApp = New-AzContainerApp @AppArgs
+($MyApp.Configuration.Ingress | Where-Object { $_.Type -eq 'external' }).Fqdn
+```
+=======
 az containerapp create `
   --name $API_NAME `
   --resource-group $RESOURCE_GROUP `
@@ -306,6 +345,7 @@ az containerapp create `
   --target-port 3500 `
   --ingress 'external' `
   --registry-server "$ACR_NAME.azurecr.io"
+>>>>>>> b7aa75365b542229b403e3f3488a0246d6ab283f
 ```
 
 ---
@@ -336,8 +376,8 @@ az group delete --name $RESOURCE_GROUP
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-az group delete --name $RESOURCE_GROUP
+```azurecli
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
