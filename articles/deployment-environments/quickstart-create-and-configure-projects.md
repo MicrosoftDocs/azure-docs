@@ -98,14 +98,14 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot that shows the Access control pane." lightbox="media/quickstart-create-configure-projects/project-access-control-page.png":::
+    :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot that shows the Access control pane.":::
 
 1. In **Add role assignment**, enter the following information, and then select **Save**:
 
     1. On the **Role** tab, select either [DevCenter Project Admin](how-to-configure-project-admin.md) or [Deployment Environments user](how-to-configure-deployment-environments-user.md).
     1. On the **Members** tab, select either a **User, group, or service principal** or a **Managed identity** to assign access.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/quickstart-create-configure-projects/add-role-assignment.png":::
+    :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
 > [!NOTE]
 > Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
