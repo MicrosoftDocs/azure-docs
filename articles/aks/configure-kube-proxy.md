@@ -116,9 +116,15 @@ Configure your cluster using `az aks update` and pass in the configuration file:
 az aks update -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy.json
 ```
 
+### Limitations
+
+When using kube-proxy IPVS, the following restrictions apply:
+
+- Azure Network Policy is not supported.
+
 ## Next steps
 
-Learn more about utilizing the Standard Load Balancer for inbound traffic at the [AKS Standard Load Balancer documentation][load-balancer-standard.md].
+Learn more about utilizing the Standard Load Balancer for inbound traffic at the [AKS Standard Load Balancer documentation](load-balancer-standard.md).
 
 Learn more about using Internal Load Balancer for Inbound traffic at the [AKS Internal Load Balancer documentation](internal-lb.md).
 

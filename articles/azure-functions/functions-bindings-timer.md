@@ -45,7 +45,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="12-18":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
 
 
 # [C# Script](#tab/csharp-script)
