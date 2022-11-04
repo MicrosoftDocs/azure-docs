@@ -6,61 +6,64 @@ ms.topic: include
 ms.date: 10/26/2018
 ---
 ## Prepare to authenticate Azure Resource Manager requests
-You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
+You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure Azure AD is to use PowerShell or Azure CLI.
 
 Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
 
-The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
+The following steps show how to set up authentication for your app to register with Azure Active Directory. You can run these commands in a standard PowerShell session. Registering with Azure Active Directory is necessary to authenticate any future REST calls. For more information, see [How and why applications are added to Azure AD](../articles/active-directory/develop/active-directory-how-applications-are-added.md).
 
-1. Sign in to your Azure subscription using the following command:
+1. Sign in to your Azure subscription using the following command. If you're using PowerShell in Azure Cloud Shell you're already signed in, so you can skip this step.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. 
 
-    ```powershell
-    Get-AzSubscription
-    ```
+   List the Azure subscriptions available for you to use:
 
-    Use the following command to select subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+   ```powershell
+   Get-AzSubscription
+   ```
 
-    ```powershell
-    Select-AzSubscription `
-        -SubscriptionName "{your subscription name}"
-    ```
+   Select the subscription you want to use. You can use either the `Name` or `Id` from the output of the previous command.
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You need them later.
-3. Create a new Azure Active Directory application using the following command, replacing the place holders:
+   ```powershell
+   Select-AzSubscription -SubscriptionName "{your subscription Name or Id}"
+   ```
+
+1. Save your `Id` and `TenantId` for later.
+
+1. Create a new Azure Active Directory application using the following command, replacing these placeholders with your own values:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Home page URL}:** the URL of the home page of your app such as **http:\//mysampleapp/home**. This URL does not need to point to a real application.
-   * **{Application identifier}:** A unique identifier such as **http:\//mysampleapp**. This URL does not need to point to a real application.
-   * **{Password}:** A password that you use to authenticate with your app.
+   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](../articles/active-directory/develop/reference-app-manifest.md#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (`your-Id` can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
+
+   :::image type="content" source="/includes/media/iot-hub-prepare-resource-manager/find-domain.png" alt-text="Screenshot showing location of your Primary domain in the Azure portal.":::
      
      ```powershell
-     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
-     New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
+     $myApp = New-AzADApplication -DisplayName "<your-display-name>" -IdentifierUris "<your-domain>/<your-id>"
+     New-AzADServicePrincipal -AppId $myApp.AppId
      ```
-4. Make a note of the **ApplicationId** of the application you created. You need this later.
-5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
+     A confirmation of your `Display name`, `Id`, and `AppId` will print to the console.
+
+1. Save the **AppId** of the application you created for later.
+
+1. Set up a role assignment authorization using the following command, replacing **{MyAppId}** with your **AppId**.
    
     ```powershell
-    New-AzADServicePrincipal -ApplicationId {MyApplicationId}
-    ```
-6. Set up a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
-   
-    ```powershell
-    New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
+    New-AzRoleAssignment -RoleDefinitionName "Owner" -ApplicationId {MyAppId}
     ```
 
-You have now finished creating the Azure AD application that enables you to authenticate from your custom C# application. You need the following values later in this tutorial:
+   To understand roles and permissions, see [Create or update Azure custom roles using Azure PowerShell](../articles/role-based-access-control/custom-roles-powershell.md).
+
+With your new Azure AD application, you can now authenticate from your custom C# application. 
+
+You need the following values later in this tutorial:
 
 * TenantId
 * SubscriptionId
-* ApplicationId
-* Password
+* AppId
 
 [lnk-authenticate-arm]: /rest/api/
 [lnk-powershell-install]: /powershell/azure/install-az-ps

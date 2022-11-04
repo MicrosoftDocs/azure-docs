@@ -95,8 +95,6 @@ The following example demonstrates how to mount a Blob storage container as a pe
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
       storageClassName: azureblob-nfs-premium
-      mountOptions:
-        - nconnect=8  # only supported on linux kernel version >= 5.3
       csi:
         driver: blob.csi.azure.com
         readOnly: false
@@ -131,7 +129,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
           storage: 10Gi
       volumeName: pv-blob
       storageClassName: azureblob-nfs-premium
-      ```
+    ```
 
 4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
 

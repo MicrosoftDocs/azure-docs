@@ -441,7 +441,7 @@ In this section, you initialize the cluster. This section uses the same two host
 
 	WARNINGS:
 
-	No stonith devices and stonith-enabled is not false
+	No stonith devices and `stonith-enabled` is not false
 
 	Stack: corosync
 
@@ -523,7 +523,7 @@ In this section, you initialize the cluster. This section uses the same two host
 	```
   
 
-14. Enable Stonith settings.
+14. Enable fencing device settings.
 	```
 	pcs stonith enable SBD --device=/dev/mapper/3600a098038304179392b4d6c6e2f4d65
 	pcs property set stonith-watchdog-timeout=20
@@ -626,10 +626,10 @@ In this section, you initialize the cluster. This section uses the same two host
 	  ```
   
 
-19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
+19. For the rest of the SAP HANA clustering you can disable fencing by setting:
 
    * pcs property set `stonith-enabled=false`
-   * It is sometimes easier to keep STONITH deactivated during setup of the cluster, because you will avoid unexpected reboots of the system.
+   * It is sometimes easier to keep fencing deactivated during setup of the cluster, because you will avoid unexpected reboots of the system.
    * This parameter must be set to true for productive usage. If this parameter is not set to true, the cluster will be not supported.
    * pcs property set `stonith-enabled=true`
 

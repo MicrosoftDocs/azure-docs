@@ -22,6 +22,8 @@ This article shows how to profile a machine learning to model to determine how m
 > [!IMPORTANT]
 > This article applies to CLI v1 and SDK v1.  This profiling technique is not available for v2 of either CLI or SDK.
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Prerequisites
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](../how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.

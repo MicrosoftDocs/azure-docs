@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 08/26/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -51,11 +51,11 @@ You can block external users from accessing specific sets of resources with Cond
 
 To create a policy that blocks access for external users to a set of applications:
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_FinanceApps.
-1. Under **Assignments**, select **Users or workload identities**..
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All guests and external users**. 
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
    1. Select **Done**.
@@ -71,11 +71,11 @@ After confirming your settings using [report-only mode](../conditional-access/ho
 
 There may be times you want to block external users except a specific group. For example, you may want to block all external users except those working for the finance team from the finance applications. To do this [Create a security group](active-directory-groups-create-azure-portal.md) to contain the external users who should access the finance applications:
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_AllButFinance.
-1. Under **Assignments**, select **Users or workload identities**..
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All guests and external users**. 
    1. Under **Exclude**, select **Users and groups**, 
       1. Choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 

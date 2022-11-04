@@ -132,7 +132,7 @@ To create a scale set using an Azure template, make sure the API version of the 
 ```json
 "publicIpAddressConfiguration": {
     "name": "pub1",
-    "sku" {
+    "sku": {
       "name": "Standard"
     },
     "properties": {

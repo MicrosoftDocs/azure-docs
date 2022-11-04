@@ -1,21 +1,21 @@
 ---
-title: Conditional Access - Require compliant or hybrid joined devices - Azure Active Directory
-description: Create a custom Conditional Access policy to require compliant or hybrid joined devices
+title: Require compliant, hybrid joined devices, or MFA - Azure Active Directory
+description: Create a custom Conditional Access policy to require compliant, hybrid joined devices, or multifactor authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 09/30/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, davidspo
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Require compliant or hybrid Azure AD joined device
+# Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users
 
 Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet compliance requirements such as:
 
@@ -28,15 +28,15 @@ Policy compliance information is sent to Azure AD where Conditional Access decid
 
 Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
 
-## Template deployment
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
-Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
+[!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune compliance policies.
+The following steps will help create a Conditional Access policy to require multifactor authentication, devices accessing resources be marked as compliant with your organization's Intune compliance policies, or be hybrid Azure AD joined.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -46,7 +46,7 @@ The following steps will help create a Conditional Access policy to require devi
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Require device to be marked as compliant** and **Require Hybrid Azure AD joined device**
+   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.

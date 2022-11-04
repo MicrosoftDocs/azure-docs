@@ -1,12 +1,12 @@
 ---
-title: Manage Dev Box projects
-titleSuffix: Microsoft Dev Box
+title: Manage Microsoft Dev Box Preview projects
+titleSuffix: Microsoft Dev Box Preview
 description: Learn how to manage multiple projects by delegating permissions to project admins.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/29/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -59,4 +59,4 @@ The user will now be able to manage the project and create dev box pools within 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
 
-- [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md)

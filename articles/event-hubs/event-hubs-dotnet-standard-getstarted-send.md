@@ -10,6 +10,12 @@ ms.custom: devx-track-csharp, mode-api, contperf-fy22q3
 # Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 This quickstart shows how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
+> [!NOTE]
+> You can find all .NET samples for Event Hubs in our [.NET SDK repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/). 
+> - [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+> - [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
+
+
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 

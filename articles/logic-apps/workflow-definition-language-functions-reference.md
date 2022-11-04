@@ -5,10 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 05/05/2022
+ms.custom: engagement-fy23
+ms.date: 09/20/2022
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](logic-apps-workflow-definition-language.md).
 
@@ -93,11 +96,14 @@ To work with strings, you can use these string functions and also some [collecti
 
 | String function | Task |
 | --------------- | ---- |
+| [chunk](../logic-apps/workflow-definition-language-functions-reference.md#chunk) | Split a string or collection into chunks of equal length. |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine two or more strings, and return the combined string. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Check whether a string ends with the specified substring. |
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
 | [nthIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#nthIndexOf) | Return the starting position or index value where the *n*th occurrence of a substring appears in a string. |
@@ -119,6 +125,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 
 | Collection function | Task |
 | ------------------- | ---- |
+| [chunk](../logic-apps/workflow-definition-language-functions-reference.md#chunk) | Split a string or collection into chunks of equal length. |
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Check whether a collection has a specific item. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. |
@@ -127,7 +134,9 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
+| [reverse](../logic-apps/workflow-definition-language-functions-reference.md#reverse) | Reverse the order of items in an array. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remove items from the front of a collection, and return *all the other* items. |
+| [sort](../logic-apps/workflow-definition-language-functions-reference.md#sort) | Sort items in a collection. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Return items from the front of a collection. |
 | [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Return a collection that has *all* the items from the specified collections. |
 |||
@@ -269,6 +278,7 @@ For the full reference about each function, see the
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
 | [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
+| [dateDifference](../logic-apps/workflow-definition-language-functions-reference.md#dateDifference) | Return the difference between two dates as a timespan. |
 | [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Return the day of the month component from a timestamp. |
 | [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Return the day of the week component from a timestamp. |
 | [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Return the day of the year component from a timestamp. |
@@ -1211,6 +1221,48 @@ These examples show the different supported types of input for `bool()`:
 
 ## C
 
+<a name="chunk"></a>
+
+### chunk
+
+Split a string or array into chunks of equal length.
+
+```
+chunk('<collection>', '<length>')
+chunk([<collection>], '<length>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | String or Array | The collection to split |
+| <*length*> | Yes | The length of each chunk |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*collection*> | Array | An array of chunks with the specified length |
+||||
+
+*Example 1*
+
+This example splits a string into chunks of length 10:
+
+```
+chunk('abcdefghijklmnopqrstuvwxyz', 10)
+```
+
+And returns this result: `['abcdefghij', 'klmnopqrst', 'uvwxyz']`
+
+*Example 2*
+
+This example splits an array into chunks of length 5.
+
+```
+chunk(createArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), 5)
+```
+
+And returns this result: `[ [1,2,3,4,5], [6,7,8,9,10], [11,12] ]`
+
 <a name="coalesce"></a>
 
 ### coalesce
@@ -1593,6 +1645,37 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
 And returns this result: `"hello"`
+
+<a name="dateDifference"></a>
+
+### dateDifference
+
+Return the difference between two timestamps as a timespan. This function subtracts `startDate` from `endDate`, and returns the result as timestamp in string format.
+
+```
+dateDifference('<startDate>', '<endDate>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*startDate*> | Yes | String | A string that contains a timestamp |
+| <*endDate*> | Yes | String | A string that contains a timestamp |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*timespan*> | String | The difference between the two timestamps, which is a timestamp in string format. If `startDate` is more recent than `endDate`, the result is a negative value. |
+||||
+
+*Example*
+
+This example subtracts the first value from the second value:
+
+```
+dateDifference('2015-02-08', '2018-07-30')
+```
+
+And returns this result: `"1268.00:00:00"`
 
 <a name="dayOfMonth"></a>
 
@@ -2052,15 +2135,16 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app workflow or Power Automate flow. To convert floating-point strings represented in locale-specific formats, you can optionally specify an RFC 4646 locale code.
 
 ```
-float('<value>')
+float('<value>', '<locale>'?)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
+| <*locale*> | No | String | The RFC 4646 locale code to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
 |||||
 
 | Return value | Type | Description |
@@ -2068,15 +2152,25 @@ float('<value>')
 | <*float-value*> | Float | The floating-point number for the specified string. The minimum and maximum values are the same as the limits for the float data type. |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates a string version for this floating-point number:
 
 ```
-float('10.333')
+float('10,000.333')
 ```
 
-And returns this result: `10.333`
+And returns this result: `10000.333`
+
+*Example 2*
+
+This example creates a string version for this German-style floating-point number:
+
+```
+float('10.000,333', 'de-DE')
+```
+
+And returns this result: `10000.333`
 
 <a name="formatDateTime"></a>
 
@@ -2536,6 +2630,75 @@ int('10')
 ```
 
 And returns this result: `10`
+
+<a name="isFloat"></a>
+
+### isFloat
+
+Return a boolean indicating whether a string is a floating-point number. By default, this function uses the invariant culture for the floating-point format. To identify floating-point numbers represented in other locale-specific formats, you can optionally specify an RFC 4646 locale code.
+
+```
+isFloat('<string>', '<locale>'?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The string to examine |
+| <*locale*> | No | String | The RFC 4646 locale code to use |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is a floating-point number |
+
+*Example 1*
+
+This example checks whether a string is a floating-point number in the invariant culture:
+
+```
+isFloat('10,000.00')
+```
+
+And returns this result: `true`
+
+*Example 2*
+
+This example checks whether a string is a floating-point number in the German locale:
+
+```
+isFloat('10.000,00', 'de-DE')
+```
+
+And returns this result: `true`
+
+<a name="isInt"></a>
+
+### isInt
+
+Return a boolean that indicates whether a string is an integer.
+
+```
+isInt('<string>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*string*> | Yes | String | The string to examine |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is an integer |
+
+*Example*
+
+This example checks whether a string is an integer:
+
+```
+isInt('10')
+```
+
+And returns this result: `true`
 
 <a name="item"></a>
 
@@ -3580,40 +3743,6 @@ range(1, 4)
 
 And returns this result: `[1, 2, 3, 4]`
 
-<a name="replace"></a>
-
-### replace
-
-Replace a substring with the specified string,
-and return the result string. This function
-is case-sensitive.
-
-```
-replace('<text>', '<oldText>', '<newText>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | The string that has the substring to replace |
-| <*oldText*> | Yes | String | The substring to replace |
-| <*newText*> | Yes | String | The replacement string |
-|||||
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
-||||
-
-*Example*
-
-This example finds the "old" substring in "the old string" and replaces "old" with "new":
-
-```
-replace('the old string', 'old', 'new')
-```
-
-And returns this result: `"the new string"`
-
 <a name="removeProperty"></a>
 
 ### removeProperty
@@ -3710,6 +3839,38 @@ Here's the updated JSON object:
    }
 }
 ```
+
+<a name="replace"></a>
+
+### replace
+
+Replace a substring with the specified string, and return the result string. This function is case-sensitive.
+
+```
+replace('<text>', '<oldText>', '<newText>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*text*> | Yes | String | The string that has the substring to replace |
+| <*oldText*> | Yes | String | The substring to replace |
+| <*newText*> | Yes | String | The replacement string |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
+||||
+
+*Example*
+
+This example finds the "old" substring in "the old string" and replaces "old" with "new":
+
+```
+replace('the old string', 'old', 'new')
+```
+
+And returns this result: `"the new string"`
 
 <a name="result"></a>
 
@@ -3836,6 +3997,36 @@ Here's how the example returned array might look where the outer `outputs` objec
    }
 ]
 ```
+
+<a name="reverse"></a>
+
+### reverse
+
+Reverse the order of items in a collection. When you use this function with [sort()](#sort), you can sort a collection in descending order.
+
+```
+reverse([<collection>])
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | Array | The collection to reverse |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| [<*updated-collection*>] | Array | The reversed collection |
+||||
+
+*Example*
+
+This example reverses an array of integers:
+
+```
+reverse(createArray(0, 1, 2, 3))
+```
+
+And returns this array: `[3,2,1,0]`
 
 ## S
 
@@ -3998,6 +4189,47 @@ slice('Hello World', -2) // Returns 'ld'.
 slice('Hello World', 3, -1) // Returns 'lo Worl'.
 slice('Hello World', 3, 3) // Returns ''.
 ```
+
+<a name="sort"></a>
+
+### sort
+
+Sort items in a collection. You can sort the collection objects using any key that contains a simple type.
+
+```
+sort([<collection>], <sortBy>?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | Array | The collection with the items to sort |
+| <*sortBy*> | No | String | The key to use for sorting the collection objects |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| [<*updated-collection*>] | Array | The sorted collection |
+||||
+
+*Example 1*
+
+This example sorts an array of integers:
+
+```
+sort(createArray(2, 1, 0, 3))
+```
+
+And returns this array: `[0,1,2,3]`
+
+*Example 2*
+
+This example sorts an array of objects by key:
+
+```
+sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }'), "last")
+```
+
+And returns this array: `[{ "first": "Elise", "last": "Renee" }, {"first": "Amalie", "last": "Rose" }')]`
 
 <a name="split"></a>
 
@@ -5249,9 +5481,9 @@ In this example, suppose your `items` XML string also contains these attributes:
 </produce>
 ```
 
-This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
+This example passes in the XPath expression, `'//name[@price>35]'`, to find all the `name` elements that have `price > 35`:
 
-`xpath(xml(parameters('items')), '//name[price>35]')`
+`xpath(xml(parameters('items')), '//name[@price>35]')`
 
 Here's the result: `Honeycrisp`
 

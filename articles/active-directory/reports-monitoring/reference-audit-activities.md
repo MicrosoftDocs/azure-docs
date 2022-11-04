@@ -3,19 +3,14 @@
 title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Docs
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/24/2019
-ms.author: markvi
+ms.date: 10/28/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -31,10 +26,10 @@ The reporting architecture in Azure AD consists of the following components:
     - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
     
 - **Security reports** 
-    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who isn't the legitimate owner of a user account. 
     - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
-This articles lists the audit activities that can be logged in your audit logs.
+This article lists the audit activities that can be logged in your audit logs.
 
 ## Access reviews
 
@@ -54,7 +49,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Access Reviews|Remove reviewer from access review|
 |Access Reviews|Request Stop Review|
 |Access Reviews|Request apply review result|
-|Access Reviews|Review Rbac Role membership|
+|Access Reviews|Review RBAC Role membership|
 |Access Reviews|Review app assignment|
 |Access Reviews|Review group membership|
 |Access Reviews|Review request approval request|
@@ -135,7 +130,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authentication|Create IdentityProvider|
 |Authentication|Create V1 application|
 |Authentication|Create V2 application|
-|Authentication|Create a custom domains in the tenant|
+|Authentication|Create a custom domain in the tenant|
 |Authorization|Create a new AdminUserJourney|
 |Authorization|Create localized resource json|
 |Authorization|Create new Custom IDP|
@@ -226,7 +221,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Update policy|
 |Authorization|Update user attribute|
 |Authorization|Upload a CPIM encrypted key|
-|Authorization|User Authorization: API is disabled for tenant featureset|
+|Authorization|User Authorization: API is disabled for tenant feature set|
 |Authorization|User Authorization: User granted access as 'Tenant Admin'|
 |Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
 |Authorization|Verify if B2C feature is enabled|
@@ -237,12 +232,12 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Onboard to Azure AD Access Reviews|
 |Authorization|Unlink program control|
 |Authorization|Update program|
-|Authorization|Disable Desktop Sso|
-|Authorization|Disable Desktop Sso for a specific domain|
+|Authorization|Disable Desktop SSO|
+|Authorization|Disable Desktop SSO for a specific domain|
 |Authorization|Disable application proxy|
 |Authorization|Disable passthrough authentication|
-|Authorization|Enable Desktop Sso|
-|Directory Management|Enable Desktop Sso for a specific domain|
+|Authorization|Enable Desktop SSO|
+|Directory Management|Enable Desktop SSO for a specific domain|
 |Directory Management|Enable application proxy|
 |Directory Management|Enable passthrough authentication|
 |Directory Management|Create a custom domains in the tenant|

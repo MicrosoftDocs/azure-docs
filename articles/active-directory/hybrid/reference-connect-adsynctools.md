@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncTools.psm1 PowerShell module.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.date: 11/30/2020
@@ -346,12 +346,12 @@ with: UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, Obje
 ### EXAMPLES
 #### EXAMPLE 1
 ```
-Export-ADSyncToolsDisconnectors -SyncObjectType 'PublicFolder'
+Export-ADSyncToolsAadDisconnectors -SyncObjectType 'PublicFolder'
 ```
 Exports to CSV all PublicFolder Disconnector objects
 #### EXAMPLE 2
 ```
-Export-ADSyncToolsDisconnectors
+Export-ADSyncToolsAadDisconnectors
 ```
 Exports to CSV all Disconnector objects
 ### PARAMETERS

@@ -165,8 +165,6 @@ In this example, the following manifest configures mounting a Blob storage conta
       protocol: nfs
       tags: environment=Development
     volumeBindingMode: Immediate
-    mountOptions:
-      - nconnect=8  # only supported on linux kernel version >= 5.3
     ```
 
 2. Create the storage class with the [kubectl apply][kubectl-apply] command:

@@ -68,7 +68,7 @@ Azure AD terms of use policies use the PDF format to present content. The PDF fi
 
 Once you've completed your terms of use policy document, use the following procedure to add it.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select, **New terms**.
  
@@ -89,7 +89,7 @@ Once you've completed your terms of use policy document, use the following proce
    | Expire starting on | Frequency | Result |
    | --- | --- | --- |
    | Today's date  | Monthly | Starting today, users must accept the terms of use policy and then reaccept every month. |
-   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire and then users must reaccept every month.  |
+   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire, and then users must reaccept every month.  |
 
    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, this is how expirations might occur for two users:
 
@@ -153,7 +153,7 @@ If you want to view more activity, Azure AD terms of use policies include audit 
 
 To get started with Azure AD audit logs, use the following procedure:
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select a terms of use policy.
 1. Select **View audit logs**.
@@ -196,7 +196,7 @@ Users can review and see the terms of use policies that they've accepted by usin
 
 You can edit some details of terms of use policies, but you can't modify an existing document. The following procedure describes how to edit the details.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
@@ -215,7 +215,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## Update the version or pdf of an existing terms of use
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
@@ -233,7 +233,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## View previous versions of a ToU
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy for which you want to view a version history.
 1. Select **Languages and version history**
@@ -245,19 +245,18 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## See who has accepted each version
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. To see who has currently accepted the ToU, select the number under the **Accepted** column for the ToU you want.
 1. By default, the next page will show you the current state of each user's acceptance to the ToU
-1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
+1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each user's events in details about each version and what happened.
 1. Alternatively, you can select a specific version from the **Version**  drop-down to see who has accepted that specific version.
-
 
 ## Add a ToU language
 
 The following procedure describes how to add a ToU language.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit Terms**
@@ -320,7 +319,7 @@ If a user is using browser that isn't supported, they'll be asked to use a diffe
 
 You can delete old terms of use policies using the following procedure.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to remove.
 1. Select **Delete terms**.

@@ -4,7 +4,7 @@ description: Azure Active Directory Identity Governance allows you to balance yo
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -57,7 +57,7 @@ Azure AD, in conjunction with Azure Monitor, provides several reports to help yo
 
 * An administrator, or a catalog owner, can [retrieve the list of users who have access package assignments](entitlement-management-access-package-assignments.md), via the Azure portal, Graph or PowerShell.
 * You can also send the audit logs to Azure Monitor and view a history of [changes to the access package](entitlement-management-logs-and-reporting.md#view-events-for-an-access-package), in the Azure portal, or via PowerShell.
-* You can view the last 30 days of sign ins to an application in the [sign ins report](../reports-monitoring/howto-find-activity-reports.md#sign-ins-report) in the Azure portal, or via [Graph](/graph/api/signin-list?view=graph-rest-1.0&tabs=http).
+* You can view the last 30 days of sign ins to an application in the [sign ins report](../reports-monitoring/howto-find-activity-reports.md#sign-ins-report) in the Azure portal, or via [Graph](/graph/api/signin-list?view=graph-rest-1.0&tabs=http&preserve-view=true).
 * You can also send the [sign in logs to Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive sign in activity for up to two years.
 
 ## Monitor to adjust entitlement management policies and access as needed

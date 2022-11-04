@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 10/25/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -46,6 +46,10 @@ You may use a private DNS zone ending with one of the names listed above (ex: pr
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
+### <a name="dns"></a>Does Azure Bastion support Private Link?"
+
+No, Azure Bastion doesn't currently support private link.
+
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
 For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work. However, we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
@@ -83,6 +87,14 @@ Review any error messages and [raise a support request in the Azure portal](../a
 ### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+
+### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
+
+Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+
+### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
 
 ## <a name="vm"></a>VM features and connection FAQs
 
@@ -125,7 +137,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 

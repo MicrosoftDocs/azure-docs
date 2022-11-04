@@ -3,14 +3,14 @@ title: Create an access review of groups and applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/20/2022
+ms.date: 10/24/2022
 ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -44,24 +44,24 @@ If you are reviewing access to an application, then before creating the review, 
 ### Scope
 1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
-1. On the left menu, select **Access reviews**.
+2. On the left menu, select **Access reviews**.
 
-1. Select **New access review** to create a new access review.
+3. Select **New access review** to create a new access review.
 
     ![Screenshot that shows the Access reviews pane in Identity Governance.](./media/create-access-review/access-reviews.png)
 
-1. In the **Select what to review** box, select which resource you want to review.
+4. In the **Select what to review** box, select which resource you want to review.
 
     ![Screenshot that shows creating an access review.](./media/create-access-review/select-what-review.png)
 
-1. If you selected **Teams + Groups**, you have two options:
+5. If you selected **Teams + Groups**, you have two options:
 
    - **All Microsoft 365 groups with guest users**: Select this option if you want to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. Dynamic groups and role-assignable groups aren't included. You can also choose to exclude individual groups by selecting **Select group(s) to exclude**.
    - **Select Teams + groups**: Select this option if you want to specify a finite set of teams or groups to review. A list of groups to choose from appears on the right.
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/teams-groups.png)
 
-1. If you selected **Applications**, select one or more applications.
+6. If you selected **Applications**, select one or more applications.
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
@@ -75,9 +75,12 @@ If you are reviewing access to an application, then before creating the review, 
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
-1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+8. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
 
-1. Select **Next: Reviews**.
+    > [!NOTE]  
+    > Recently created users are not affected when configuring the inactivity time. The Access Review will check if a user has been created in the time frame configured and disregard users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created or invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that a user can sign in at least once before being removed.
+
+9. Select **Next: Reviews**.
 
 ### Next: Reviews
  
@@ -91,6 +94,9 @@ If you are reviewing access to an application, then before creating the review, 
     - **Managers of users**
 
    If you choose either **Managers of users** or **Group owner(s)**, you can also specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
+
+    >[!IMPORTANT]
+    > For Privileged Access Groups (Preview), you must select **Group owner(s)**. It is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewer(s). Eligible owners are not included. If there are no active owners when the review begins, the fallback reviewer(s) will be assigned to the review.
 
       ![Screenshot that shows New access review.](./media/create-access-review/new-access-review.png)
 
@@ -133,6 +139,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
     1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+    1. If you select **(Preview) User-to-Group Affiliation**, reviewers will get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are very distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
@@ -294,8 +301,10 @@ After one or more access reviews have started, you might want to modify or updat
 
 ## Next steps
 
+- [Complete an access review of groups or applications](complete-access-review.md)
+- [Create an access review of Privileged Access Groups (preview)](create-access-review-privileged-access-groups.md)
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
-- [Complete an access review of groups or applications](complete-access-review.md)
+
 
 

@@ -8,6 +8,8 @@ ms.author: juliako
 
 # What is Azure Video Indexer?
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [regulation](./includes/regulation.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
@@ -32,14 +34,14 @@ Azure Video Indexer's insights can be applied to many scenarios, among them are:
 
 * Deep search: Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps, and in general to any industry that has a video library that users need to search against.
 * Content creation: Create trailers, highlight reels, social media content, or news clips based on the insights Azure Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps of the people and label appearances make the creation process smoother and easier, enabling you to easily get to the parts of the video you need when creating content.
-* Accessibility: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure Video Indexer in multiple languages.
+* Accessibility: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure Video Indexer in multiple languages. 
 * Monetization: Azure Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
 * Content moderation: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
 * Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
 
 ## Video/audio AI features
 
-The following list shows the insights you can retrieve from your videos using Azure Video Indexer video and audio AI features (models. 
+The following list shows the insights you can retrieve from your video/audio files using Azure Video Indexer video and audio AI features (models). 
 
 Unless specified otherwise, a model is generally available.
 
@@ -63,11 +65,18 @@ Unless specified otherwise, a model is generally available.
     * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start, end) along with a confidence level for the detection are provided. For more information, see [detected clothing](detected-clothing.md).
     * **Featured clothing** (preview): captures featured clothing images appearing in a video. You can improve your targeted ads by using the featured clothing insight. For information on how the featured clothing images are ranked and how to get the insights, see [featured clothing](observed-people-featured-clothing.md).
 * **Matched person** (preview): Matches people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
+* **Slate detection** (preview): identifies the following movie post-production insights when indexing a video using the advanced indexing option:
+    
+    * Clapperboard detection with metadata extraction.
+    * Digital patterns detection, including color bars.
+    * Textless slate detection, including scene matching.
+
+    For details, see [Slate detection](slate-detection-insight.md).
 
 ### Audio models
 
-* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For a comprehensive list of language support by service, see [language support](language-support.md).
-* **Automatic language detection**: Identifies the dominant spoken language. For a comprehensive list of language support by service, see [language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For more information, see [Azure Video Indexer language support](language-support.md).
+* **Automatic language detection**: Identifies the dominant spoken language. For more information, see [Azure Video Indexer language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
 * **Multi-language speech identification and transcription**: Identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
@@ -77,7 +86,7 @@ Unless specified otherwise, a model is generally available.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
-* **Translation**: Creates translations of the audio transcript to 54 different languages.
+* **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
     The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
@@ -97,39 +106,9 @@ When indexing by one channel, partial result for those models will be available.
 
 ## How can I get started with Azure Video Indexer?
 
-### Prerequisite
+Learn how to [get started with Azure Video Indexer](video-indexer-get-started.md).
 
-Before creating a new account, review [Account types](accounts-overview.md).
-
-### Supported browsers
-
-The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
-
-- Edge, version: 16
-- Firefox, version: 54
-- Chrome, version: 58
-- Safari, version: 11
-- Opera, version: 44
-- Opera Mobile, version: 59
-- Android Browser, version: 81
-- Samsung Browser, version: 7
-- Chrome for Android, version: 87
-- Firefox for Android, version: 83
-
-### Start using Azure Video Indexer
-
-You can access Azure Video Indexer capabilities in three ways:
-
-* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
-
-    For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
-* API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
-
-    To get started as a developer, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
-* Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app.
-
-    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
+Once you set up, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
 
 ## Next steps
 
@@ -139,3 +118,5 @@ You're ready to get started with Azure Video Indexer. For more information, see 
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md).
+
+For the latest updates, see [Azure Video Indexer release notes](release-notes.md).

@@ -62,7 +62,7 @@
     href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index
@@ -124,6 +124,8 @@
         href: ./samples/iso-27001.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 3.2.1 v2018 Audit
+        href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted v3.5
@@ -134,6 +136,8 @@
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: RBI ITF Banks v2016
+        href: ./samples/RBI_ITF_Banks_v2016.md
       - name: RBI ITF NBFC v2017
         href: ./samples/rbi_itf_nbfc_v2017.md
       - name: SWIFT CSCF 2021
@@ -193,6 +197,12 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Policy applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Policy attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
   - name: React to policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./concepts/event-overview.md
@@ -263,10 +273,10 @@
     items:
     - name: Deploy Azure Monitor at scale
       displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/best-practices.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/best-practices.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

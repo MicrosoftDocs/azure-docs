@@ -1,0 +1,234 @@
+- name: PostgreSQL documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is Azure Cosmos DB for PostgreSQL?
+      href: introduction.md
+- name: Quickstart
+  items:
+    - name: Create cluster
+      href: quickstart-create-portal.md
+    - name: Connect
+      href: quickstart-connect-psql.md
+    - name: Distribute tables
+      href: quickstart-distribute-tables.md
+    - name: Run queries
+      href: quickstart-run-queries.md
+    - name: Build scalable apps
+      items:
+        - name: Data modeling
+          items:
+            - name: Overview
+              href: quickstart-build-scalable-apps-overview.md
+            - name: Concepts
+              href: quickstart-build-scalable-apps-concepts.md
+            - name: Classify workload
+              href: quickstart-build-scalable-apps-classify.md
+            - name: Workloads
+              items:
+                - name: Multi-tenant apps
+                  href: quickstart-build-scalable-apps-model-multi-tenant.md
+                - name: Real-time apps
+                  href: quickstart-build-scalable-apps-model-real-time.md
+                - name: High-throughput apps
+                  href: quickstart-build-scalable-apps-model-high-throughput.md
+        - name: App stacks
+          items:
+            - name: Overview
+              href: quickstart-app-stacks-overview.yml
+            - name: Python
+              href: quickstart-app-stacks-python.md
+            - name: Node.js
+              href: quickstart-app-stacks-nodejs.md
+            - name: C#
+              href: quickstart-app-stacks-csharp.md
+            - name: Java
+              href: quickstart-app-stacks-java.md
+            - name: Ruby
+              href: quickstart-app-stacks-ruby.md
+- name: Tutorials
+  items:
+    - name: Model data
+      items:
+        - name: Shard data on worker nodes
+          href: tutorial-shard.md
+        - name: Design a multi-tenant database
+          href: tutorial-design-database-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: tutorial-design-database-realtime.md
+          displayName: hyperscale, tutorial, real-time
+    - name: Administer
+      items:
+        - name: Set up private access
+          href: tutorial-private-access.md
+          displayName: hyperscale, tutorial, private
+- name: Concepts
+  items:
+    - name: Clusters
+      href: concepts-cluster.md
+    - name: Distributed data
+      items:
+        - name: Nodes and tables
+          href: concepts-nodes.md
+          displayName: nodes, tables
+        - name: Table colocation
+          href: concepts-colocation.md
+        - name: Determine application type
+          href: howto-app-type.md
+        - name: Determine table size
+          href: howto-table-size.md
+        - name: Choose a distribution column
+          href: howto-choose-distribution-column.md
+        - name: Distribute and modify tables
+          href: howto-modify-distributed-tables.md
+    - name: Security and data access
+      items:
+        - name: Overview
+          href: concepts-security-overview.md
+        - name: Public access
+          href: concepts-firewall-rules.md
+          displayName: firewall, rules, hyperscale
+        - name: Private access
+          href: concepts-private-access.md
+          displayName: private, link, hyperscale
+        - name: Row-level security
+          href: concepts-row-level-security.md
+          displayName: row, level, security, rls, hyperscale
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json
+    - name: Administration
+      items:
+        - name: Scheduled maintenance
+          href: concepts-maintenance.md
+        - name: Upgrade
+          href: concepts-upgrade.md
+    - name: Business continuity
+      items:
+        - name: Back up and restore
+          href: concepts-backup.md
+          displayName: backup, restore, outage, hyperscale
+        - name: High availability
+          href: concepts-high-availability.md
+    - name: Replication
+      href: concepts-read-replicas.md
+    - name: Connection pooling
+      href: concepts-connection-pool.md
+    - name: Monitor and tune
+      items:
+        - name: Monitoring
+          href: concepts-monitoring.md
+        - name: Performance tuning
+          href: concepts-performance-tuning.md
+        - name: Audit logs
+          href: concepts-audit.md
+    - name: Columnar storage
+      href: concepts-columnar.md
+- name: How-to guides
+  items:
+    - name: Connect and query
+      href: howto-connect.md
+    - name: Ingest data
+      items:
+        - name: Azure Blob Storage (ABS)
+          href: howto-ingest-azure-blob-storage.md
+        - name: Azure Stream Analytics (ASA)
+          href: howto-ingest-azure-stream-analytics.md
+        - name: Azure Data Factory (ADF)
+          href: howto-ingest-azure-data-factory.md
+    - name: Manage
+      items:
+        - name: Create users
+          href: howto-create-users.md
+        - name: Schedule maintenance
+          href: howto-maintenance.md
+        - name: Restart cluster
+          href: howto-restart.md
+        - name: Upgrade cluster
+          href: howto-upgrade.md
+    - name: Monitor
+      items:
+        - name: View metrics
+          href: howto-monitoring.md
+        - name: Create alerts on metrics
+          href: howto-alert-on-metric.md
+          dispalyName: alerts on hyperscale
+        - name: Access database logs
+          href: howto-logging.md
+          displayName: log, hyperscale
+        - name: Useful diagnostic queries
+          href: howto-useful-diagnostic-queries.md
+    - name: Scale
+      items:
+        - name: Cluster size
+          items:
+            - name: Pick initial size
+              href: howto-scale-initial.md
+            - name: Scale cluster
+              href: howto-scale-grow.md
+        - name: Choose shard count
+          href: howto-shard-count.md
+        - name: Rebalance shards
+          href: howto-scale-rebalance.md
+        - name: Change compute quotas
+          href: howto-compute-quota.md
+        - name: Scale with read replicas
+          href: howto-read-replicas-portal.md
+    - name: Availability and resilience
+      items:
+        - name: Configure high availability
+          href: howto-high-availability.md
+        - name: Manage read replicas
+          href: howto-read-replicas-portal.md
+          displayName: replication, read replica
+        - name: Restore cluster
+          href: howto-restore-portal.md
+    - name: Security and data access
+      items:
+        - name: Manage public access
+          href: howto-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+        - name: Manage private access
+          href: howto-private-access.md
+          displayName: network, private link
+        - name: Configure SSL
+          href: howto-ssl-connection-security.md
+          displayName: hyperscale, ssl
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot connection errors
+          href: howto-troubleshoot-common-connection-issues.md
+          displayName: connection errors, hyperscale
+        - name: Troubleshoot read-only access
+          href: howto-troubleshoot-read-only.md
+          displayName: read-only, hyperscale
+        - name: Useful diagnostic queries
+          href: howto-useful-diagnostic-queries.md
+- name: Reference
+  items:
+    - name: Product updates
+      href: product-updates.md
+    - name: PostgreSQL versions
+      href: reference-versions.md
+    - name: PostgreSQL extensions
+      href: reference-extensions.md
+    - name: Distributed SQL API
+      items:
+        - name: Overview
+          href: reference-overview.md
+        - name: SQL functions
+          href: reference-functions.md
+        - name: Server parameters
+          href: reference-parameters.md
+        - name: System tables
+          href: reference-metadata.md
+    - name: Limits and limitations
+      href: reference-limits.md
+- name: Resources
+  items:
+    - name: Pricing
+      href: resources-pricing.md
+    - name: Regional availability
+      href: resources-regions.md
+    - name: Compute and storage
+      href: resources-compute.md

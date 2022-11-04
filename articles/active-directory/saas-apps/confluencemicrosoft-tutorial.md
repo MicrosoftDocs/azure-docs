@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Confluence SAML SSO by Microsoft'
 description: Learn how to configure single sign-on between Azure Active Directory and Confluence SAML SSO by Microsoft.
 services: active-directory
-author: jeevansd
+author: dhivyagana
 manager: CelesteDG
 ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2021
-ms.author: jeedes
+ms.date: 09/23/2022
+ms.author: dhivyag
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft
+# Tutorial: Azure AD SSO integration with Confluence SAML SSO by Microsoft
 
 In this tutorial, you'll learn how to integrate Confluence SAML SSO by Microsoft with Azure Active Directory (Azure AD). When you integrate Confluence SAML SSO by Microsoft with Azure AD, you can:
 
@@ -30,14 +30,14 @@ Use your Microsoft Azure Active Directory account with Atlassian Confluence serv
 
 To configure Azure AD integration with Confluence SAML SSO by Microsoft, you need the following items:
 
-- An Azure AD subscription
-- Confluence server application installed on a Windows 64-bit server (on-premises or on the cloud IaaS infrastructure)
-- Confluence server is HTTPS enabled
+- An Azure AD subscription.
+- Confluence server application installed on a Windows 64-bit server (on-premises or on the cloud IaaS infrastructure).
+- Confluence server is HTTPS enabled.
 - Note the supported versions for Confluence Plugin are mentioned in below section.
-- Confluence server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
-- Admin credentials are set up in Confluence
-- WebSudo is disabled in Confluence
-- Test user created in the Confluence server application
+- Confluence server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD.
+- Admin credentials are set up in Confluence.
+- WebSudo is disabled in Confluence.
+- Test user created in the Confluence server application.
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment of Confluence. Test the integration first in development or staging environment of the application and then use the production environment.
@@ -51,13 +51,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Confluence SAML SSO by Microsoft single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> For the information on application proxy configuration for Confluence, please refer [this](confluence-app-proxy-tutorial.md) tutorial.
+
 ## Supported versions of Confluence
 
 As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.17.0
+- Confluence: 7.0.1 to 7.19.0
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -78,6 +81,8 @@ To configure the integration of Confluence SAML SSO by Microsoft into Azure AD, 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Confluence SAML SSO by Microsoft** in the search box.
 1. Select **Confluence SAML SSO by Microsoft** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Confluence SAML SSO by Microsoft
 
@@ -100,9 +105,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** box, type a URL using the following pattern:
     `https://<DOMAIN:PORT>/`
@@ -114,11 +119,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<DOMAIN:PORT>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-on URL. Port is optional in case it’s a named URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-    ![The Certificate download link](common/copy-metadataurl.png)
+    ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ### Create an Azure AD test user
 
@@ -177,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform following steps on configuration page:
 
-    ![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/add-on-53.png)
+    ![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/confluence-configure-addon.png)
 
     > [!TIP]
     > Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -208,6 +213,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
        > [!Note]
        > To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
        > `https://<DOMAIN:PORT>/login.action?force_azure_login=false`
+
+    1. **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup. For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
 
     1. Click **Save** button to save the settings.
 

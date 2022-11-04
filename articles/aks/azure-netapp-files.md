@@ -47,21 +47,12 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > This can take some time to complete.
 
-When you create an Azure NetApp account for use with AKS, you need to create the account in the **node** resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named *myAKSCluster* in the resource group name *myResourceGroup*:
-
-```azurecli-interactive
-az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-```
-
-```output
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Create an Azure NetApp Files account in the **node** resource group and same region as your AKS cluster using [az netappfiles account create][az-netappfiles-account-create]. The following example creates an account named *myaccount1* in the *MC_myResourceGroup_myAKSCluster_eastus* resource group and *eastus* region:
+When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
+The following example creates an account named *myaccount1* in the *myResourceGroup* resource group and *eastus* region:
 
 ```azurecli
 az netappfiles account create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --location eastus \
     --account-name myaccount1
 ```
@@ -70,7 +61,7 @@ Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-
 
 ```azurecli
 az netappfiles pool create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --location eastus \
     --account-name myaccount1 \
     --pool-name mypool1 \
@@ -81,7 +72,7 @@ az netappfiles pool create \
 Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. *This subnet must be in the same virtual network as your AKS cluster.*
 
 ```azurecli
-RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
+RESOURCE_GROUP=myResourceGroup
 VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
 VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
 SUBNET_NAME=MyNetAppSubnet
@@ -100,7 +91,7 @@ Volumes can either be provisioned statically or dynamically. Both options are co
 Create a volume by using [az netappfiles volume create][az-netappfiles-volume-create].
 
 ```azurecli
-RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
+RESOURCE_GROUP=myResourceGroup
 LOCATION=eastus
 ANF_ACCOUNT_NAME=myaccount1
 POOL_NAME=mypool1
@@ -131,7 +122,11 @@ az netappfiles volume create \
 List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
 
 ```azurecli
-az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+az netappfiles volume show \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $ANF_ACCOUNT_NAME \
+    --pool-name $POOL_NAME \
+    --volume-name "myvol1" -o JSON
 ```
 
 ```output

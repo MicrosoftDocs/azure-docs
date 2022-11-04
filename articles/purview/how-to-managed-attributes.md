@@ -1,8 +1,8 @@
 ---
 title: Managed attributes in the Microsoft Purview Data Catalog
 description: Apply business context to assets using managed attributes
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -35,7 +35,7 @@ In Microsoft Purview Studio, an organization's managed attributes are managed in
 
 ### Expiring managed attributes
 
-In the managed attribute management experience, managed attributes can't be deleted, only expired. Expired asset can't be applied to any assets and are, by default, hidden in the user experience. By default, expired managed attributes aren't removed from an asset. If an asset has an expired managed attribute applied, it can only be removed, not edited.
+In the managed attribute management experience, managed attributes can't be deleted, only expired. Expired attributes can't be applied to any assets and are, by default, hidden in the user experience. By default, expired managed attributes aren't removed from an asset. If an asset has an expired managed attribute applied, it can only be removed, not edited.
 
 Both attribute groups and individual managed attributes can be expired. To mark an attribute group or managed attribute as expired, select the **Edit** icon.
 

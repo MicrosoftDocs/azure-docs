@@ -10,13 +10,13 @@ ms.date: 06/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: engagement-fy23, "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
 # Configure cross-tenant access settings for B2B collaboration
 
-Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, as well as the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
+Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, and the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
 ## Before you begin
 
@@ -92,9 +92,13 @@ With inbound settings, you select which external users and groups will be able t
 
 ### To change inbound B2B collaboration settings
 
-1. Select the **B2B collaboration** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
-1. (This step applies to **Organizational settings** only.) If you're configuring inbound access settings for a specific organization, select one of the following:
+1. Select **External Identities** > **Cross-tenant access settings**.
+
+1. Under **Organizational settings** select the link in the **Inbound access** column and the **B2B collaboration** tab.
+
+1. If you're configuring inbound access settings for a specific organization, select one of the following:
 
    - **Default settings**: Select this option if you want the organization to use the default inbound settings (as configured on the **Default** settings tab). If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
@@ -232,7 +236,7 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting the users and groups you want to add, choose **Select**.
 
    > [!NOTE]
-   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group the user belongs to.
+   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview) to add the user's object ID directly or target a group the user belongs to.
 
 1. Select the **External applications** tab.
 

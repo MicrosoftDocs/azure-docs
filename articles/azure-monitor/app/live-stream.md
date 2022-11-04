@@ -12,7 +12,7 @@ ms.devlang: csharp
 Monitor your live, in-production web application by using Live Metrics (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics provides a powerful and non-invasive diagnostic tool for your live website.
 
 > [!NOTE]
-> Live Metrics only supports TLS 1.2. For more information, refer to [Troubleshooting](#troubleshooting). 
+> Live Metrics only supports TLS 1.2. For more information, see [Troubleshooting](#troubleshooting).
 
 With Live Metrics, you can:
 
@@ -174,7 +174,10 @@ Live Metrics custom filters allow you to control which of your application's tel
 - Recommended: Secure Live Metrics channel using [Azure AD authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication)
 - Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
-It is possible to try custom filters without having to set up an authenticated channel. Simply click on any of the filter icons and authorize the connected servers. Notice that if you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online.
+> [!NOTE]
+> On 30 September 2025, API keys used to stream live metrics telemetry into application insights will be retired. After that date, applications which use API keys will no longer be able to send live metrics data to your application insights resource. Authenticated telemetry ingestion for live metrics streaming to application insights will need to be done with [Azure AD authentication for application insights](./azure-ad-authentication.md).
+
+It's possible to try custom filters without having to set up an authenticated channel. Simply click on any of the filter icons and authorize the connected servers. Notice that if you choose this option, you'll have to authorize the connected servers once every new session or when a new server comes online.
 
 > [!WARNING]
 > We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
@@ -238,7 +241,7 @@ Next, add the following line before the call `services.AddApplicationInsightsTel
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configure-or-remove-default-telemetry-modules).
 
 #### Azure Function Apps
 
@@ -259,7 +262,7 @@ Create an API key from within your Application Insights resource and go to **Set
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 
- \* PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
+ \* PerfCounters support varies slightly across versions of .NET Core that don't target the .NET Framework:
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or on-premises etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
@@ -269,18 +272,15 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS, Live Metrics will not display any data. For applications based on .NET Framework 4.5.1, refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
-
-> [!WARNING]
-> Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you're using an older version of TLS, Live Metrics won't display any data. For applications based on .NET Framework 4.5.1, refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
 
 ### Missing configuration for .NET
 
-1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+1. Verify you're using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. Edit the `ApplicationInsights.config` file
-    * Verify that the connection string points to the Application Insights resource you are using
-    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there, add it
-    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there, add it
+    * Verify that the connection string points to the Application Insights resource you're using
+    * Locate the `QuickPulseTelemetryModule` configuration option; if it isn't there, add it
+    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it isn't there, add it
      
  ```xml
 <TelemetryModules>

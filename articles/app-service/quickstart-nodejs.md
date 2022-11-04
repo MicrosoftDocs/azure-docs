@@ -3,8 +3,7 @@ title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22
-#zone_pivot_groups: app-service-platform-windows-linux
+ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022
 ms.date: 03/22/2022
 ms.devlang: javascript
 #zone_pivot_groups: app-service-ide-oss
@@ -301,7 +300,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-cli"
 
-2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
+2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments for Linux. Add `--os-type Windows` for Windows:
 
     ```azurecli
     az webapp up
@@ -458,7 +457,7 @@ Congratulations, you've successfully completed this quickstart!
 
 Check out the other Azure extensions.
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)

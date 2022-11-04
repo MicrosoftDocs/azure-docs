@@ -4,7 +4,7 @@ description: Learn how to delegate access governance from IT administrators to d
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

@@ -55,7 +55,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Active Directory limits
+## Azure Active Directory limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -105,6 +105,10 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
+## Azure Container Apps limits
+
+For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
 ## Azure Cosmos DB limits
 
 For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
@@ -140,6 +144,10 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 ## Azure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
+
+## Azure Lab Services
+
+[!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]
 
 ## Azure Load Testing limits
 
@@ -398,21 +406,29 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
 
+## Multi workspace limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
+
 ### Notebook limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+
+### Repositories limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
 
 ### Threat intelligence limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
 
-### Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
-
 ### User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
 
 ## Service Bus limits
 
@@ -511,7 +527,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 
-## Virtual machine scale sets limits
+## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 

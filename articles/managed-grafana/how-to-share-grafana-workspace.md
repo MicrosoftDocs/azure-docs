@@ -1,5 +1,5 @@
 ---
-title: How to share an Azure Managed Grafana Preview instance
+title: How to share an Azure Managed Grafana instance
 description: 'Azure Managed Grafana: learn how you can share access permissions and dashboards with your team and customers.' 
 author: maud-lv 
 ms.author: malev 
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to share an Azure Managed Grafana Preview instance
+# How to share an Azure Managed Grafana instance
 
 A DevOps team may build dashboards to monitor and diagnose an application or infrastructure that it manages. Likewise, a support team may use a Grafana monitoring solution for troubleshooting customer issues. In these scenarios, multiple users will be accessing one Grafana instance. Azure Managed Grafana enables such sharing by allowing you to set the custom permissions on an instance that you own. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal teams or external customers.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create a Managed Grafana instance](./how-to-permissions.md).
 
 ## Supported Grafana roles
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Select **Access control (IAM)** in the navigation menu.
 1. Click **Add**, then **Add role assignment**
 
-      :::image type="content" source="media/managed-grafana-how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
+      :::image type="content" source="media/share/iam-page.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 1. Select one of the Grafana roles to assign to a user or security group. The available roles are:
 
@@ -50,7 +50,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
    - Grafana Editor
    - Grafana Viewer
 
-    :::image type="content" source="media/managed-grafana-how-to-share-role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
+    :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
 > [!NOTE]
 > Dashboard and data source level sharing will be done from within the Grafana application. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
@@ -58,6 +58,10 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
-> [How to call Grafana APIs in your automation with Azure Managed Grafana](./how-to-api-calls.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+
+> [!div class="nextstepaction"]
+> [Modify access permissions to Azure Monitor](./how-to-permissions.md)
+
+> [!div class="nextstepaction"]
+> [Call Grafana APIs in your automation](./how-to-api-calls.md)

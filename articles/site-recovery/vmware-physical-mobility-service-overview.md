@@ -1,12 +1,12 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.author: v-pgaddala
-ms.date: 04/28/2022
+ms.author: ankitadutta
+ms.date: 09/21/2022
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -65,7 +65,7 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using UI (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for preview](#install-the-mobility-service-using-ui-preview)
+> This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for Modernized](#install-the-mobility-service-using-ui-modernized)
 ### Prerequisites
 
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
@@ -95,7 +95,7 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using command prompt (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here are the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
+> This section is applicable to Azure Site Recovery - Classic. [Here are the installation instructions for Modernized](#install-the-mobility-service-using-command-prompt-modernized).
 
 ### Prerequisites
 
@@ -182,7 +182,7 @@ Setting | Details
 --- | ---
 Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](/azure/site-recovery/vmware-azure-manage-configuration-server#generate-configuration-server-passphrase).
+`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](./vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
 ## Azure Virtual Machine agent
 
@@ -271,10 +271,10 @@ As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 versi
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 
-## Install the Mobility service using UI (preview)
+## Install the Mobility service using UI (Modernized)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-ui-classic).
+> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-ui-classic).
 
 ### Prerequisites
 
@@ -311,25 +311,25 @@ Locate the installer files for the server’s operating system using the followi
 
    Wait till the installation has been completed. Once done, you will reach the registration step, you can register the source machine with the appliance of your choice.
 
-   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/mobility-service-install.png)
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
 
-   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/installation-progress.png)
+   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
 
 5. Copy the string present in the field  **Machine Details**.
 
    This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-   ![Image showing source machine string](./media/vmware-physical-mobility-service-overview-preview/source-machine-string.png)
+   ![Image showing source machine string](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
 
 6.	Provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
 7.	Click **Register**.
 
     This will successfully register your source machine with your appliance.
 
-## Install the Mobility service using command prompt (preview)
+## Install the Mobility service using command prompt (Modernized)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
+> This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
 
 ### Windows machine
 1. Open command prompt and navigate to the folder where the installer file has been placed.
@@ -349,7 +349,7 @@ Locate the installer files for the server’s operating system using the followi
    ```
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-preview/configuration-string.png)
+    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-modernized/configuration-string.png)
 
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
@@ -366,7 +366,7 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 `/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
+`/CSType`| Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy)
 
 #### Registration settings
 
@@ -374,7 +374,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+`/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
 
 
 ### Linux machine
@@ -407,7 +407,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
     `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
     `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+    `-c` | Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
 
 #### Registration settings
 
@@ -415,7 +415,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
   --- | ---
     Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`  
     `-S` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+    `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
 
 ## Generate Mobility Service configuration file
@@ -426,12 +426,13 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
   2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
   3. Click **Download configuration file**.
 
-  ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
+  ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/download-configuration-file.png)
 
 This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
-See information about [upgrading the mobility services](upgrade-mobility-service-preview.md).
+See information about [upgrading the mobility services](upgrade-mobility-service-modernized.md).
 
 ## Next steps
 
-[Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
+> [!div class="nextstepaction"]
+> [Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).
