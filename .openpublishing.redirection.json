@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
+        },       
+        {
+            "source_path":  "articles/sentinel/whats-new-archive.md",
+            "redirect_url":  "/azure/sentinel/whats-new",
+            "redirect_document_id":  false   
         },
         {
             "source_path":  "articles/backup/sap-hana-db-manage.md",
@@ -766,6 +771,11 @@
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
             "redirect_url": "/azure/frontdoor/create-front-door-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-create-origin.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-origin",
             "redirect_document_id": false
         },
         {
@@ -6416,11 +6426,6 @@
         {
             "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
             "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
-            "redirect_url": "/azure/storage/blobs/client-side-encryption",
             "redirect_document_id": false
         },
         {
@@ -29352,6 +29357,16 @@
         {
             "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/developer/terraform/quickstart-configure",
             "redirect_document_id": false
         }
     ]
