@@ -158,9 +158,9 @@
       - name: Azure Bastion
         href: ../bastion/bastion-overview.md
       - name: Azure Batch
-        href: reliability-batch.md
+        href: ../batch/create-pool-availability-zones.md
       - name: Azure Cache for Redis
-        href: reliability-cache.md
+        href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md
       - name: Azure Cognitive Search
         href: ../search/search-performance-optimization.md
       - name: Azure Container Instances
