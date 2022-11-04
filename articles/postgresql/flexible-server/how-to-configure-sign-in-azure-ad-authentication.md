@@ -201,7 +201,7 @@ To enable an Azure AD group for access to your database, use the same mechanism 
 Example:
 
 ```
-select * from pgAzure ADauth_create_principal('Prod DB Readonly', false, false).
+select * from pgaadauth_create_principal('Prod DB Readonly', false, false).
 ```
 
 When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
@@ -266,7 +266,7 @@ You're now authenticated to your PostgreSQL server using Azure AD authentication
 ## Next steps
 
 * Review the overall concepts for [Azure Active Directory authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md)
-* Learn how to create and manage Azure AD enabled PostgreSQL roles [Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server](Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server.md)
+* Learn how to create and manage Azure AD enabled PostgreSQL roles [Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 <!--Image references-->
 
