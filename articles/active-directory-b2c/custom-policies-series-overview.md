@@ -39,8 +39,8 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-in-user-journey-using-pre-conditions.md) | Learn how to create different user experiences for different users based on the value of a claim.|
 |[Validate custom policy files by using TrustFrameworkPolicy schema](custom-policies-series-install-xml-extensions.md)| Learn how to validate your custom files against a custom policy schema. You also learn how to easily navigate your policy files by using Azure AD B2C Visual Studio Code (VS Code) extension.|
 |[Call a REST API by using Azure AD B2C custom policy](custom-policies-series-call-rest-api.md)| Learn how to write a custom policy that integrates with your own RESTful service.|
-|[Create a user by using Azure AD B2C custom policy](custom-policies-series-store-user.md)| Learn how to store user details into Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
-|[Read or update a user by using Azure AD B2C custom policy](custom-policies-series-read-update-user.md)| Learn how to read or update user details in Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
+|[Create a user record by using Azure AD B2C custom policy](custom-policies-series-store-user.md)| Learn how to store user details into Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
+|[Read or update a user record by using Azure AD B2C custom policy](custom-policies-series-read-update-user.md)| Learn how to read or update user details in Azure AD storage by using Azure AD B2C custom policy. You'll use the Azure Active Directory Technical profile.|
 
 
 ## Next steps 

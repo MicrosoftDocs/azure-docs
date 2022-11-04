@@ -480,10 +480,10 @@
       - name: 7 - Make HTTP call custom policy
         href: custom-policies-series-call-rest-api.md
         displayName: call rest api, http call, http request
-      - name: 8 - Create user custom policy
+      - name: 8 - Create user record custom policy
         href: custom-policies-series-store-user.md
         displayName: CRUD, store user
-      - name: 9 - Read or update user custom policy
+      - name: 9 - Read or update user record custom policy
         href: custom-policies-series-read-update-user.md
         displayName: CRUD, read user, update user
     # Secure
