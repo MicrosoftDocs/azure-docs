@@ -7,7 +7,6 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: ankitadutta
 ms.custom: subject-rbac-steps
 ---
 
