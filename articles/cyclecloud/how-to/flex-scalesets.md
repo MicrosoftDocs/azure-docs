@@ -18,22 +18,22 @@ To use Flex orchestration, you must use a CycleCloud credential that is locked t
 This is because VMs in a Flex scale set must be in the same resource group as the scale set. 
 You can use the az CLI to create the resource group, if you don't have one to use already:
 
-```bash
-az group create --location REGIONNAME --resource-group MyResourceGroup
+```azurecli-interactive
+az group create --location REGIONNAME --resource-group RESOURCEGROUP
 ```
 
 The scaleset must be created in Flex orchestration mode, and any VM settings on it (e.g., VM size or image) are ignored. 
 Because of this, it is easiest to create it through the az CLI:
 
-```bash
-az vmss create --orchestration-mode Flexible -g MyResourceGroup -n MyScaleSet --platform-fault-domain-count 1
+```azurecli-interactive
+az vmss create --orchestration-mode Flexible --resource-group RESOURCEGROUP --name SCALESET --platform-fault-domain-count 1
 ```
 
 Finally, specify the fully qualified id for this scaleset on the node or nodearray that should use it on the cluster template:
 
 ```ini
 [nodearray execute]
-FlexScaleSetId = /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/MyScaleSet
+FlexScaleSetId = /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachineScaleSets/SCALESET
 ```
 
 > [!NOTE]
