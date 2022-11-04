@@ -39,7 +39,7 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 Execute the following steps to move your existing replications to the modernized experience:
 
 1. [Check the required infrastructure for your setup](move-from-classic-to-modernized-vmware-disaster-recovery.md#how-to-define-required-infrastructure) and the [FAQs](move-from-classic-to-modernized-vmware-disaster-recovery.md#faqs) for all related information.
-2. [Check the architecture and minimum version of all components required for this migration](move-from-classic-to-modernized-vmware-disaster-recovery.md#architecture).
+2. [Check the architecture and minimum version of all components](move-from-classic-to-modernized-vmware-disaster-recovery.md#architecture) required for this migration.
 3. Check all the [resources required](move-from-classic-to-modernized-vmware-disaster-recovery.md#required-infrastructure) and deploy the [Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md).  
 4. [Prepare the classic Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-classic-recovery-services-vault) used by your existing replications.
 5. [Prepare the modernized Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-modernized-recovery-services-vault) where your appliance has been registered.
