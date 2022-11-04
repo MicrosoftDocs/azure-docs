@@ -11,7 +11,7 @@ ms.topic: quickstart
 ---
 
 # Quickstart: Use a remote desktop client to connect to a dev box
-When you have configured Microsoft Dev Box Preview and created dev boxes, you can connect to them using a browser, or by using a remote desktop client.
+When you have configured the Microsoft Dev Box Preview service and created dev boxes, you can connect to them using a browser, or by using a remote desktop client.
 
 Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or the Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
