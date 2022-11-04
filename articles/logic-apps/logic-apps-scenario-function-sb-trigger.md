@@ -1,22 +1,27 @@
 ---
-title: Call logic app workflows with Azure Functions
-description: Trigger a logic app workflow whenever an Azure Service Bus message arrives in a queue by using Azure Functions to call an endpoint on the logic app workflow.
+title: Set up long-running tasks by calling workflows with Azure Functions
+description: Set up long-running tasks by creating an Azure Logic Apps workflow that monitors and responds to messages or events and uses Azure Functions to trigger the workflow.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/31/2022
 ms.custom: devx-track-csharp
-#Customer intent: As a logic apps developer, I want to use Azure Logic Apps to respond automatically and instantaneously to Azure Service Bus messages so that I don't have to monitor the messages manually.
+#Customer intent: As a logic apps developer, I want to set up a long-running task by creating a logic app workflow that monitors and responds to messages or events and uses Azure Functions to call the workflow.
 ---
 
-# Call or trigger logic app workflows by using Azure Functions and Azure Service Bus
+# Set up long running tasks by calling logic app workflows with Azure Functions
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app workflow when you need to deploy a long-running listener or task. For example, you can create a function that listens to an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app workflow as a push trigger.
+When you need to deploy a long-running listener or task, you can trigger your logic app workflow using Azure Functions. For example, you can create a function that listens for messages that arrive in an Azure Service Bus queue and works as a push trigger to immediately run the workflow.
 
-This how-to guide shows you how to create a logic app workflow that starts with an HTTP request trigger. You also see how to create a function that listens to a message queue and calls the logic app endpoint whenever a queue message arrives.
+This how-to guide shows how to create a logic app workflow that starts with the Request trigger. You then create a function that listens to a message queue and calls the endpoint on the logic app workflow when a message arrives in the queue. Although you can implement this behavior for Consumption and Standard logic app workflows, this example continues by using a Consumption workflow as the example.
+
+For more information, see the following documentation:
+
+- [Introduction to Azure Functions](../azure-functions/functions-overview.md)
+- [What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
 
 ## Prerequisites
 
@@ -30,13 +35,13 @@ This how-to guide shows you how to create a logic app workflow that starts with 
 
 ## Create a logic app workflow
 
-For this scenario, you have a function running for each logic app workflow that you want to trigger. First, you create a logic app workflow that starts with an HTTP request trigger. The function calls that endpoint whenever a queue message is received.
+For this scenario, you have a function running for each logic app workflow that you want to trigger. First, you create a logic app workflow that starts with a Request trigger. The function calls that endpoint whenever a queue message is received.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and create a blank logic app workflow.
+1. In the [Azure portal](https://portal.azure.com), create a Consumption blank logic app by selecting the **Blank Logic App** template.
 
-   If you're new to logic apps, review [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
+1. After the designer opens, under the designer search box, select **Built-in**. In the search box, enter **request**.
 
-1. In the search box, enter **http request**. From the triggers list, select the **When a HTTP request is received** trigger.
+1. From the triggers list, select the trigger named **When a HTTP request is received**.
 
    :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png" alt-text="Screenshot of the designer in the portal. The search box contains 'http request.' Under 'Triggers,' 'When a HTTP request is received' is highlighted.":::
 
