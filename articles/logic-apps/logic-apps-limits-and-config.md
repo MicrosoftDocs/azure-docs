@@ -109,8 +109,6 @@ If you use an Azure Resource Manager template, this setting appears as a propert
 }
 ```
 
----
-
 #### [Standard](#tab/standard)
 
 For Standard logic app workflows, you can decrease or increase the 90-day default limit, but you need to add the following settings and their values to your logic app resource or project:
