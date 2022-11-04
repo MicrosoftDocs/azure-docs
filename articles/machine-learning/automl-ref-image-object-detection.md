@@ -86,18 +86,11 @@ This table summarizes hyperparameters specific to the `yolov5`.
 | `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
 | `image_size` | integer | Image size for train and validation. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | | 640 |
 | `model_size` | string | Model size. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*. | `small`, `medium`, `large`, `extra_large` | `medium` |
-| `multi_scale` | bool | Enable multi-scale image by varying image size by +/- 50%. <br> <br> *Note: <br>- training run may get into CUDA OOM if no sufficient GPU memory. <br>- This settings is only supported for the 'yolov5' algorithm.* | `False`, `True` | `False` |
+| `multi_scale` | bool | Enable multi-scale image by varying image size by +/- 50%. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory.* | `False`, `True` | `False` |
 | `nms_iou_threshold` | float | IOU threshold used during inference in non-maximum suppression post processing.| A value in the range [0, 1] | 0.5 |
-| `validation_iou_threshold` | float | IOU threshold for box matching when computing validation metrics.  | A value in the range [0.1, 1]. | 0.5 |
-| `validation_metric_type` | string | Metric computation method to use for validation metrics. |  `none`, `coco`, `voc`, `coco_voc` | `voc` |
 
 
-| `tile_grid_size` | integer | The grid size to use for tiling each image. <br>*Note: <br>- tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*. Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2'. <br>*- This settings is not supported for the 'yolov5' algorithm.* |  | No Default |
-| `tile_overlap_ratio` | float | Overlap ratio between adjacent tiles in each dimension. *Note: This settings is not supported for the 'yolov5' algorithm.* | A value in the range of \[0, 1) | 0.25 |
-| `tile_predictions_nms_threshold` | float | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. * Note: This settings is not supported for the 'yolov5' algorithm.* | A value in the range of [0, 1] | 0.25 |
-
-
-This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
+This table summarizes hyperparameters specific to the `maskrcnn_*`.
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
@@ -106,15 +99,6 @@ This table summarizes hyperparameters specific to the `maskrcnn_*` for instance 
 | `export_as_image` | bool | Export masks as images. | `True`, `False` | False |
 | `image_type` | string | Type of image to export mask as.  | `jpg`, `png`, `bmp` | `jpg` |
 
-This table summarizes hyperparameters specific to the `retinanet_*` for instance segmentation during inference.
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `box_detections_per_image` | integer | Maximum number of detections per image, for all classes. | | 100 |
-| `min_size` | integer | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
-| `max_size` | integer | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
-| `nms_iou_threshold` | float | IOU threshold used during inference in non-maximum suppression post processing.| A value in the range [0, 1] | 0.5 |
-
 
 #### Model Agnostic Hyperparameters
 The following table describes the hyperparameters that are model agnostic.
@@ -122,17 +106,17 @@ The following table describes the hyperparameters that are model agnostic.
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 |`ams_gradient` | Enable `ams_gradient` when optimizer is `adam` or `adamw`.| 0, 1| 0 |
-|`advanced_settings` | | | |
+|`advanced_settings` | Setting for advanced scenarios. | | |
 |`beta1` | float | Value of `beta1` when optimizer is `adam` or `adamw`. | A value in the range [0, 1] | 0.9 |
 |`beta2` | float | Value of `beta2` when optimizer is `adam` or `adamw`. | A value in the range [0, 1] | 0.999 |
 |`checkpoint_frequency`| integer | Frequency to store model checkpoints. | | Checkpoint at epoch with best primary metric on validation.|
 |`checkpoint_run_id`| string | The run ID of the experiment that has a pretrained checkpoint for incremental training.| | no default  |
-|`distributed`| bool | | 0, 1 | 0 |
+|`distributed`| bool | Whether to use distributed training. | 0, 1 | 0 |
 | `early_stopping` | integer | Enable early stopping logic during training. |  `0`, `1` | `1` |
 | `early_stopping_delay` | integer | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping. | | 5 |
 | `early_stopping_patience` | integer | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped. | | 5 |
 |`evaluation_frequency`| integer | Frequency to evaluate validation dataset to get metric scores. | | 1 |
-|`enable_onnx_normalization`| bool | | 0, 1 | 0 |
+|`enable_onnx_normalization`| bool | Enable normalization when exporting ONNX model. | 0, 1 | 0 |
 | `gradient_accumulation_step` | integer | Gradient accumulation means running a configured number of `gradient_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. | | 1 |
 |`layers_to_freeze`| integer | How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br>- `'yolov5_backbone'`: `['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.']| | no default  |
 | `learning_rate` | float | Initial learning rate. | A value  in the range [0, 1] | 0.005 <br>(except `yolov5`: 0.01)|
@@ -157,22 +141,25 @@ The following hyperparameters are for object detection and instance segmentation
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `model_name` | string | Model name to be used for image classification task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | `` |
-| `box_detections_per_image` | integer | Maximum number of detections per image, for all classes. | | 100 |
+| `model_name` | string | Model name to be used for image classification task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | - For object detection: `yolov5` <br> - For instance segmentation: `maskrcnn_resnet50_fpn` |
+| `box_detections_per_img` | integer | Maximum number of detections per image, for all classes. <br> <br> *Note: This settings is not supported for the 'yolov5' algorithm.* | | 100 |
 | `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
-| `min_size` | integer | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
-| `max_size` | integer | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
-| `nms_iou_threshold` | float | IOU threshold used during inference in non-maximum suppression post processing.| A value in the range [0, 1] | 0.5 |
-| `tile_grid_size` | integer | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' |  | No Default |
-| `tile_overlap_ratio` | float | Overlap ratio between adjacent tiles in each dimension. | A value in the range of \[0, 1) | 0.25 |
-| `tile_predictions_nms_threshold` | float | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. | A value in the range of [0, 1] | 0.25 |
+| `min_size` | integer | Minimum size of the image to be rescaled before feeding it to the backbone. <br> <br> *Note: <br>- training run may get into CUDA OOM if the size is too big. <br>- This settings is not supported for the 'yolov5' algorithm.*| | 600 |
+| `max_size` | integer | Maximum size of the image to be rescaled before feeding it to the backbone. <br> <br> *Note: <br>- training run may get into CUDA OOM if the size is too big. <br>- This settings is not supported for the 'yolov5' algorithm.* | | 1333 |
+| `nms_iou_threshold` | float | IOU (intersection over union) threshold used in non-maximum suppression (NMS) for the prediction head. Used during inference. | A value in the range [0, 1] | 0.5 |
+| `tile_grid_size` | integer | The grid size to use for tiling each image. <br> <br> *Note: <br>- `tile_grid_size` must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*. `tile_grid_size` should be passed as a string in 'mxn' format, for example: `--tile_grid_size '3x2'`. <br>*- This settings is not supported for the 'yolov5' algorithm.* |  | No Default |
+| `tile_overlap_ratio` | float | Overlap ratio between adjacent tiles in each dimension. <br> <br> *Note: This settings is not supported for the 'yolov5' algorithm.* | A value in the range of \[0, 1) | 0.25 |
+| `tile_predictions_nms_threshold` | float | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> <br> *Note: This settings is not supported for the 'yolov5' algorithm.* | A value in the range of [0, 1] | 0.25 |
+| `validation_iou_threshold` | float | IOU threshold for box matching when computing validation metrics.  | A value in the range [0.1, 1]. | 0.5 |
+| `validation_metric_type` | string | Metric computation method to use for validation metrics. |  `none`, `coco`, `voc`, `coco_voc` | `voc` |
+
 
 ### Sweep Parameters
 When using AutoML for Images, we can perform a hyperparameter sweep over a defined parameter space to find the optimal model. If hyperparameter values are not specified, then default values are used for the specified algorithm. 
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `sampling_algorithm` | string | **Required.** When sweeping hyperparameters, the user needs to specify the sampling method to use for sweeping over the defined parameter space. <br> Notes: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
+| `sampling_algorithm` | string | **Required.** When sweeping hyperparameters, the user needs to specify the sampling method to use for sweeping over the defined parameter space. <br> <br> *Note: <br> - Currently only random and grid sampling support conditional hyperparameter spaces. | `random`, `grid`, `bayesian` | `grid` |
 | `early_termination` | object | You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the early_termination parameter. If no termination policy is specified, all configurations are run to completion. Supported early termination policy types are `bandit`, `median_stopping`, `truncation_selection`. By default, bandit policy is used. For the details on individual early termination policies, please refer to the [Bandit Early Termination Policy](#bandit-early-termination-policy), [Median Stopping Early Termination Policy](#median-stopping-early-termination-policy), [Truncation Selection Early Termination Policy](#truncation-selection-early-termination-policy). |  | |
 
 #### Bandit Early Termination Policy
