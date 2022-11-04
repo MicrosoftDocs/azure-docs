@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/04/2022
+ms.date: 11/05/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -30,7 +30,7 @@ Background effects for Teams on Azure Virtual Desktop is now generally available
 
 ### Host pool deployment support for Azure availability zones now generally available
 
-We've improved the host pool deployment process so that it now supports deploying into up to three availability zones in Azure regions that support them. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262).
+We've improved the host pool deployment process. You can now deploy host pools into up to three availability zones in supported Azure regions. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262).
 
 ### FSLogix version 2210 now in public preview
 
