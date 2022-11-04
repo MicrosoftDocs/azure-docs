@@ -193,7 +193,7 @@ The target application's object ID is invalid. Please provide a valid ID and try
 Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
 
 > [!NOTE] 
-> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/graph/api/resources/application?view=graph-rest-1.0).
+> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](/graph/api/resources/application).
 
  
 
@@ -247,13 +247,13 @@ The error message displayed will be: "Due to a configuration change made by your
 
 When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the user risk state is determined to be ‘AtRisk’, an error, “You're unable to add a verified publisher to this application. Contact your administrator for assistance” will be returned. Please investigate the user risk and take the appropriate steps to remediate the risk (guidance below): 
 
-Investigate risk: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk#risky-users 
+> [Investigate risk](/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk#risky-users)
 
-Remediate risk/unblock users: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock 
+> [Remediate risk/unblock users](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
-Self-remediation guidance: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock
+> [Self-remediation guidance](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
-Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
+> Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
 
 > [!NOTE] 
 > Please give some time after remediation for the risk state to update, and then try again.
