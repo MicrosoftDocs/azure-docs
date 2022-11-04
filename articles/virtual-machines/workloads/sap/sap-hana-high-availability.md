@@ -497,8 +497,7 @@ This is important step to optimize the integration with the cluster and improve 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
-   > For SAPHanaSR overall: verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
-   > The Python hook can only be implemented for HANA 2.0.        
+   > For SAPHanaSR overall: verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality. The Python hook can only be implemented for HANA 2.0.        
    > For susChkSrv provider within SAPHanaSR only: SAP HANA 2.0 SP5 is a prerequisite and SAPHanaSR version 0.161.1_BF or higher must be installed.  
 
    1. Stop HANA on both nodes. Execute as <sid\>adm:  
@@ -508,7 +507,8 @@ This is important step to optimize the integration with the cluster and improve 
     ```
 
    2. Adjust `global.ini` on each cluster node. If the requirements for susChkSrv hook are not met, remove the entire block [ha_dr_provider_suschksrv] from below parameters.  
-   You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are [ ignore | stop | kill | fence ].
+   You can adjust the behavior of susChkSrv with parameter action_on_lost.  
+   Valid values are [ ignore | stop | kill | fence ].
  
     ```bash
     # add to global.ini
@@ -528,9 +528,9 @@ This is important step to optimize the integration with the cluster and improve 
     ```      
 
    > [!NOTE]    
-   > Previously this document contained own path /hana/shared/myHooks for the path parameter. With recommended value /usr/share/SAPHanaSR, once the version of SAPHanaSR is updated through OS updates it gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
+   > Previously this document contained value /hana/shared/myHooks for the path parameter. With recommended value /usr/share/SAPHanaSR, once the version of SAPHanaSR is updated through OS updates it gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` and adapt the bold values.    
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the bold values of hn1/HN1 with correct SID.    
     <pre><code>
     cat << EOF > /etc/sudoers.d/20-saphana
     # Needed for SAPHanaSR and susChkSrv Python hooks
@@ -563,9 +563,9 @@ For more details on the implementation of the SAP HANA system replication hook s
      cdtrace
      egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
      # Example output
-     # 2022-11-03 18:06:21.116728  [1667498781-13004] susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
-     # 2022-11-03 18:06:27.613588  [1667498787-18209] START: indexserver event looks like graceful tenant start
-     # 2022-11-03 18:07:56.143766  [1667498816-17076] START: indexserver event looks like graceful tenant start (indexserver started)
+     # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+     # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
+     # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
     ```
 
 ## Create SAP HANA cluster resources
