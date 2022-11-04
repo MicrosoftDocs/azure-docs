@@ -7,6 +7,7 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/25/2022
 ms.author: cherylmc
+ms.custom: engagement-fy23
 
 ---
 # Configure P2S for access based on users and groups - Azure AD authentication

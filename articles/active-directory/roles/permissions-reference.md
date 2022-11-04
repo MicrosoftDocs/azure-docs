@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/30/2022
+ms.date: 11/04/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -885,7 +885,7 @@ Users with this role have read access to recipients and write access to the attr
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.office365.exchange/allRecipients/allProperties/allTasks | Create and delete all recipients, and read and update all properties of recipients in Exchange Online |
+> | microsoft.office365.exchange/recipients/allProperties/allTasks | Create and delete all recipients, and read and update all properties of recipients in Exchange Online |
 > | microsoft.office365.exchange/migration/allProperties/allTasks | Manage all tasks related to migration of recipients in Exchange Online |
 
 ## External ID User Flow Administrator
@@ -2126,19 +2126,11 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 
 ## Teams Communications Administrator
 
