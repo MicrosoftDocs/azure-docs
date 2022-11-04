@@ -139,7 +139,7 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
 
     # [Linux](#tab/linux/azure-cli)
 
-    When running .NET functions on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
 
     ```azurecli
     az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
@@ -205,7 +205,7 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
 
     # [Linux](#tab/linux/azure-cli)
 
-    When running .NET functions on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
 
     ```azurecli
     az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
