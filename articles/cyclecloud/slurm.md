@@ -86,9 +86,12 @@ The Slurm cluster deployed in CycleCloud contains a script that facilitates this
 ```
 
 > [!NOTE]
-> For CycleCloud 7 versions before 7.9.10 and CycleCloud 8 versions before 8.2, the `cyclecloud_slurm.sh` script is located in _/opt/cycle/jetpack/system/bootstrap/slurm_.
+> For CycleCloud 7 versions before 7.9.10 and CycleCloud 8 versions before 8.2, the `cyclecloud_slurm.sh` script is located in _/opt/cycle/jetpack/system/bootstrap/slurm_. 
 
 Note that if you make any changes that affect the VMs for nodes in an MPI partition (such as VM size, image, or cloud-init), the nodes must all be terminated first, or you will get a `This node does not match existing scaleset attribute` error. The `apply_changes` command makes sure the nodes are terminated, and fails with the following error message if not: _The following nodes must be fully terminated before applying changes_.
+
+> [!NOTE]The `apply_changes` command only exists in CycleCloud 8.3+.
+> In earlier versions, you can get the same result by running the `remove_nodes` command, followed by `scale`. 
 
 If you are making a change that does NOT affect the VM properties for MPI nodes, you can make the changes with the following two commands:
 
