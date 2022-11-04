@@ -65,7 +65,7 @@ This section shows how to examine word-level transcription information based on 
 
 1. Sign in on the [Azure Video Indexer website](https://www.videoindexer.ai).
 1. Select a video.
-1. In the rop-right corner, press arrow down and select **Artifacts (ZIP)**. 
+1. In the top-right corner, press arrow down and select **Artifacts (ZIP)**. 
 1. Download the artifacts.
 1. Unzip the downloaded file > browse to where the unzipped files are located > find and open `transcript.speechservices.json`. 
 1. Format and view the json.
