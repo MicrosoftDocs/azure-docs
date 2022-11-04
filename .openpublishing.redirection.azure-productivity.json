@@ -29,6 +29,11 @@
           "source_path_from_root": "/articles/devtest-labs/scripts/set-allowed-vm-sizes-in-lab.md",
           "redirect_url": "/azure/devtest-labs/samples-powershell",
           "redirect_document_id": false
-        }
+        },
+        {
+          "source_path": "articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
+          "redirect_url": "articles/dev-box/quickstart-connect-to-dev-box-with-remote-desktop-app.md",
+          "redirect_document_id": true
+      }
     ]
 }
