@@ -90,7 +90,7 @@ A test contains a JMeter test script, or *test plan*, and related data and confi
 - [Fail criteria](./how-to-define-test-criteria.md) to determine when the test should pass or fail.
 - Monitoring settings to configure the list of [Azure app components and resource metrics to monitor](./how-to-monitor-server-side-metrics.md) during the test run.
 
-When you start a test, Azure Load Testing deploys the JMeter test script, related files, and configuration to the requested test engine instances. The test engine instances then intiate the JMeter test script to simulate the application load.
+When you start a test, Azure Load Testing deploys the JMeter test script, related files, and configuration to the requested test engine instances. The test engine instances then initiate the JMeter test script to simulate the application load.
 
 Each time you start a test, Azure Load Testing creates a [test run](#test-run) and attaches it to the test.
 
