@@ -1,9 +1,9 @@
 ---
 title: Restore deleted apps
 description: Learn how to restore a deleted app in Azure App Service. Avoid the headache of an accidentally deleted app.
-author: btardif
-ms.author: byvinyal
-ms.date: 9/23/2019
+author: seligj95
+ms.author: jordanselig
+ms.date: 11/4/2022
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
