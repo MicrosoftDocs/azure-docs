@@ -300,7 +300,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --admin-password $DB_PASSWORD \
        --sku-name GP_Gen5_2
    ```
-
+   ---
    The following parameters are used in the above Azure CLI command:
 
    * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
