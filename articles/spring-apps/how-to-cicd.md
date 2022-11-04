@@ -244,7 +244,7 @@ To deploy directly from an existing container image, use the following pipeline 
     DeploymentType: 'CustomContainer'
     UseStagingDeployment: false
     DeploymentName: 'default'
-    ContainerRegistry: 'docker.io'
+    ContainerRegistry: 'docker.io'  # or your Azure Container Registry, e.g: 'contoso.azurecr.io'
     RegistryUsername: '$(username)'
     RegistryPassword: '$(password)'
     ContainerImage: '<your image tag>'

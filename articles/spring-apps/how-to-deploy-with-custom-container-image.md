@@ -1,5 +1,5 @@
 ---
-title: How to deploy applications in Azure Spring Apps with a custom container image (Preview)
+title: How to deploy applications in Azure Spring Apps with a custom container image
 description: How to deploy applications in Azure Spring Apps with a custom container image
 author: karlerickson
 ms.author: xiangy
@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.date: 4/28/2022
 ---
 
-# Deploy an application with a custom container image (Preview)
+# Deploy an application with a custom container image
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -24,7 +24,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 * The image is pushed to an image registry. For more information, see [Azure Container Registry](../container-instances/container-instances-tutorial-prepare-acr.md).
 
 > [!NOTE]
-> The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. The probe can be disabled for applications that do not listen on any port.
+> The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. [The probe can be disabled for applications that do not listen on any port](../spring-apps/how-to-configure-health-probes-graceful-termination.md).
 
 ## Deploy your application
 
@@ -177,7 +177,10 @@ To trust a CA in the image, set the following variables depending on your enviro
 
 ### Avoid unexpected behavior when images change
 
-When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. Avoid using the `latest` tag or overwrite the image without a tag change to avoid unexpected application behavior.
+When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. 
+
+> [!NOTE]
+> Avoid using the `latest` tag or overwrite the image without a tag change to avoid unexpected application behavior.
 
 ### Avoid not being able to connect to the container registry in a VNet
 
@@ -242,17 +245,27 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud] (/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
 
 ### Switch between JAR deployment and container deployment
 
-You can switch the deployment type directly by redeploying using the following command:
+You can switch the deployment type from JAR deployment to container deployment directly by redeploying using the following command:
 
 ```azurecli
 az spring app deploy \
     --resource-group <your-resource-group> \
     --name <your-app-name> \
     --container-image <your-container-image> \
+    --service <your-service-name>
+```
+
+Or reversely:
+
+```azurecli
+az spring app deploy \
+    --resource-group <your-resource-group> \
+    --name <your-app-name> \
+    --artifact-path <your-jar-file> \
     --service <your-service-name>
 ```
 
