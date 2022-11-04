@@ -21,7 +21,8 @@ There are many features you can use to enhance your remote experience, such as:
 
 Some features are only available with certain clients, so it's important to check [Compare the features of the Remote Desktop clients](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json) to understand the differences when connecting to Azure Virtual Desktop.
 
-If you want information on Remote Desktop Services instead, see [Remote Desktop clients for Remote Desktop Services](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
+> [!TIP]
+> You can also use most versions of the Remote Desktop client to also connect to [Remote Desktop Services](/windows-server/remote/remote-desktop-services/welcome-to-rds) in Windows Server or to a remote PC, as well as to Azure Virtual Desktop. If you want information on Remote Desktop Services instead, see [Remote Desktop clients for Remote Desktop Services](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
 Here's a list of the Remote Desktop client apps and our documentation for connecting to Azure Virtual Desktop, where you can find download links, what's new, and learn how to install and use each client.
 
