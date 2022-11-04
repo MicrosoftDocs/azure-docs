@@ -130,6 +130,8 @@ items:
         href: how-to-use-enterprise-api-portal.md
       - name: Use Spring Cloud Gateway
         href: how-to-use-enterprise-spring-cloud-gateway.md
+      - name: Configure Spring Cloud Gateway
+        href: how-to-configure-enterprise-spring-cloud-gateway.md
   - name: Deploy
     items:
     - name: Set up a staging environment
