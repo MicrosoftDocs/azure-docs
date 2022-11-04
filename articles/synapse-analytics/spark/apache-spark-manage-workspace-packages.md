@@ -26,7 +26,7 @@ To add workspace packages:
 >- Once Workspace Packages are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
 
 > [!NOTE]
-> It's recommended that you don't have multiple wheel packages with the same name in a workspace. If you want to you use a different version of the same wheel package, you have to delete the existing version and upload the new one.
+> It's recommended that you don't have multiple wheel packages with the same name in a workspace. If you want to use a different version of the same wheel package, you have to delete the existing version and upload the new one.
 
 ## Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
