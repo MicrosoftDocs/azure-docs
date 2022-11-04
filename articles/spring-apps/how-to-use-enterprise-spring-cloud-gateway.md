@@ -109,7 +109,7 @@ The following table lists the route definitions. All the properties are optional
 
 ## Use routes for Spring Cloud Gateway
 
-Use the following steps to create an sample application using Spring Cloud Gateway.
+Use the following steps to create a sample application using Spring Cloud Gateway.
 
 1. Create a test application in Azure Spring Apps by using the following command:
 
@@ -133,7 +133,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
 1. Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
-   Save the following content to a *test-api.json* file. This configuration includes a RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
+   Save the following content to a *test-api.json* file. This configuration includes a RateLimit filter, which allows 20 requests every 10 seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
    [
@@ -192,11 +192,11 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
 ## Use filters
 
-The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes a number of built-in filters for use in Gateway routes. Spring Cloud Gateway provides a number of custom filters in addition to those included in the OSS project.
+The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes many built-in filters for use in Gateway routes. Spring Cloud Gateway provides many custom filters in addition to the filters included in the OSS project.
 
 ### Use filters included in Spring Cloud Gateway OSS
 
-You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kubernetes. Spring Cloud Gateway OSS includes a number of `GatewayFilter` factories that are used to create filters for routes. For a complete list of these factories, see the [GatewayFilter Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories) section in the Spring Cloud Gateway documentation.
+You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kubernetes. Spring Cloud Gateway OSS includes many `GatewayFilter` factories that are used to create filters for routes. For a complete list of these factories, see the [GatewayFilter Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories) section in the Spring Cloud Gateway documentation.
 
 ### Use commercial filters
 
