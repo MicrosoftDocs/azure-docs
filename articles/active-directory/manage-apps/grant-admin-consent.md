@@ -8,10 +8,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/02/2022
+ms.date: 11/03/2022
 ms.author: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
+zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 #customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
 ---
@@ -42,6 +43,8 @@ To grant tenant-wide admin consent, you need:
 ## Grant tenant-wide admin consent in Enterprise apps
 
 You can grant tenant-wide admin consent through *Enterprise applications* if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/active-directory-how-applications-are-added.md).
+
+:::zone pivot="portal"
 
 To grant tenant-wide admin consent to an app listed in **Enterprise applications**:
 
@@ -80,6 +83,153 @@ where:
 - `{tenant-id}` is your organization's tenant ID or any verified domain name.
 
 As always, carefully review the permissions an application requests before granting consent.
+
+
+:::zone-end
+
+
+:::zone pivot="ms-powershell"
+
+In the following example, the application is Microsoft Graph. The object ID of Microsoft Graph in the tenant is b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94. The delegated permissions `User.Read.All` and `Group.Read.All` are identified by the globally unique IDs `a154be20-db9c-4678-8ab7-66f6cc099a59` and `5f8c59db-677d-491f-a6b8-5f174b11ec1d respectively`. The consentType is AllPrincipals, indicating that you're consenting on behalf of all users in the tenant.
+
+> [!CAUTION] 
+> Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
+
+## Grant admin consent for delegated permissions
+
+1. 1. Connect to Microsoft Graph PowerShell:
+
+   ```powershell
+   Connect-MgGraph -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
+   ```
+
+1. Get the enterprise application to which you want to grant delegated permissions.
+
+Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+
+1. Retrieve the delegated permissions defined by Microsoft graph in your tenant application. 
+   
+ 
+Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | fl
+
+
+1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the delegated permissions to the application by running the following request.
+   
+   
+  $params = @{
+  
+  "ClientId" = "b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
+  "ConsentType" = "AllPrincipals"
+  "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
+  "Scope" = "Group.Read.All"
+}
+
+New-MgOauth2PermissionGrant -BodyParameter $params | 
+  Format-List Id, ClientId, ConsentType, ResourceId, Scope
+   
+   
+1. Confirm that you've granted tenant wide admin consent by running the following request.   
+    
+     
+   Get-MgOauth2PermissionGrant-Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   
+## Grant admin consent for application permissions
+
+In the following example you grant the Microsoft Graph application (the principal of ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94) an app role (application permission) of ID df021288-bdef-4463-88db-98f22de89214 that's exposed by a resource API of ID 7ea9e944-71ce-443d-811c-71e8047b557a.
+
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+
+  1. Get the enterprise application to which you want to grant delegated permissions.
+
+Get-MgServicePrincipal -servicePrincipalId b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+
+1. Retrieve the application permissions defined by Microsoft graph in your tenant application. 
+
+Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |fl
+  
+1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the application permissions to the application by running the following request.
+
+   $params = @{
+  "PrincipalId" ="b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94"
+  "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
+  "AppRoleId" = "df021288-bdef-4463-88db-98f22de89214"
+}
+
+New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId '2cab1707-656d-40cc-8522-3178a184e03d' -BodyParameter $params | 
+  Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
+
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to grant both delegated and application permissions. 
+
+## Grant admin consent for delegated permissions
+
+In the following example, the application is Microsoft Graph. The object ID of Microsoft Graph in the tenant is b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94. The delegated permissions `User.Read.All` and `Group.Read.All` are identified by the globally unique IDs `a154be20-db9c-4678-8ab7-66f6cc099a59` and `5f8c59db-677d-491f-a6b8-5f174b11ec1d respectively`. The consentType is AllPrincipals, indicating that you're consenting on behalf of all users in the tenant.
+
+> [!CAUTION] 
+> Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
+
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+
+```http
+GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+```
+
+1. Retrieve the delegated permissions defined by Microsoft graph in your tenant application. 
+   
+   ```http
+   GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq 'Microsoft Graph'&$select=id,displayName,appId,oauth2PermissionScopes
+   ```
+
+1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the delegated permissions to the application by running the following request.
+   
+   ```http   
+   POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
+   
+   Request body
+   {
+      "clientId": "b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94",
+      "consentType": "AllPrincipals",
+      "resourceId": "7ea9e944-71ce-443d-811c-71e8047b557a",
+      "scope": "User.Read.All Group.Read.All"
+   }
+   ```
+1. Confirm that you've granted tenant wide admin consent by running the following request.
+
+   ```http
+   GET https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'AllPrincipals'
+   ```
+## Grant admin consent for application permissions
+
+In the following example you grant the Microsoft Graph application (the principal of ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94) an app role (application permission) of ID df021288-bdef-4463-88db-98f22de89214 that's exposed by a resource API of ID 7ea9e944-71ce-443d-811c-71e8047b557a.
+
+1. Get the object ID of the enterprise application to which you'll grant application permissions. In the following example, the application is Microsoft Graph, identified by ID b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94.
+
+   ```http
+   GET /servicePrincipals/b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94
+   ```
+1. Retrieve the application permissions defined by Microsoft graph in your tenant application. 
+
+   ```http
+   GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq 'Microsoft Graph'&$select=id,displayName,appId,appRoles
+   ```
+1. Carefully review the permissions that the application requires. If you agree with the list of permissions, grant the application permissions to the application by running the following request.
+
+   ```http
+   POST https://graph.microsoft.com/v1.0/servicePrincipals/7ea9e944-71ce-443d-811c-71e8047b557a/appRoleAssignedTo
+   
+   Request body
+
+   {
+      "principalId": "b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94",
+      "resourceId": "7ea9e944-71ce-443d-811c-71e8047b557a",
+      "appRoleId": "df021288-bdef-4463-88db-98f22de89214"
+   }
+   ```
+
+:::zone-end
 
 ## Next steps
 
