@@ -183,7 +183,7 @@ In the Azure portal, to create a test group in a connection monitor, specify val
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Screenshot that shows where to set up a test configuration in Connection Monitor.":::
        
-* **Test Groups**: You can add one or more Test Groups to a connection monitor. These test groups can consist of multiple Azure or non-Azure endpoints.
+* **Test Groups**: You can add one or more test groups to a connection monitor. These test groups can consist of multiple Azure or non-Azure endpoints.
     * For selected Azure VMs or Azure virtual machine scale sets and non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the npm solution for non-Azure endpoints will be auto enabled after the creation of the connection monitor begins.
     * If the selected virtual machine scale set is set for a manual upgrade, you'll have to upgrade the scale set after Network Watcher extension installation to continue setting up the connection monitor with virtual machine scale set as endpoints. If the virtual machine scale set is set to auto upgrade, you don't need to worry about any upgrading after the Network Watcher extension is installed.
     * In the previously mentioned scenario, you can consent to an auto upgrade of a virtual machine scale set with auto enabling of the Network Watcher extension during the creation of the connection monitor for virtual machine scale sets with manual upgrading. This would eliminate your having to manually upgrade the virtual machine scale set after you install the Network Watcher extension.   
