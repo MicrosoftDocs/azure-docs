@@ -5,7 +5,7 @@ description: Understand how to use C# to develop and publish code as class libra
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 05/12/2022
+ms.date: 10/12/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -67,7 +67,7 @@ This directory is what gets deployed to your function app in Azure. The binding 
 
 ## Methods recognized as functions
 
-In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
+In a class library, a function is a method with a `FunctionName` and a trigger attribute, as shown in the following example:
 
 ```csharp
 public static class SimpleExample
@@ -82,7 +82,7 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The above example shows a static method being used, but functions aren't required to be static.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 

@@ -107,7 +107,7 @@ Let's go over the five options for user profile disaster recovery plans in more 
 
 ### Native Azure replication
 
-One way you can set up disaster recovery is to set up native Azure replication. For example, you can set up native replication with  Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers.
+One way you can set up disaster recovery is to set up native Azure replication. For example, you can set up native replication with  Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure File Sync for file servers.
     
 >[!NOTE]
 >NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.

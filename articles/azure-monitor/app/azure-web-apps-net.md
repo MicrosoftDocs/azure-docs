@@ -22,6 +22,8 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
 ## Enable auto-instrumentation monitoring
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
 
@@ -102,7 +104,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 Upgrading from version 2.8.9 happens automatically, without any extra actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they'll be picked up.
 
-To check which version of the extension you're running, go to `https://scm.yoursitename.azurewebsites.net/ApplicationInsights`.
+To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
 :::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Screenshot of the URL path to check the version of the extension you're running." border="false"::: 
 
@@ -127,7 +129,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET based applications running on Azure App Services.
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
-2. Browse to `https://scm.yoursitename.azurewebsites.net/ApplicationInsights`.  
+2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
     :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Screenshot of the link above results page."border ="false"::: 
     
@@ -146,12 +148,11 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
          If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
 
-#### Default website deployed with web apps does not support automatic client-side monitoring
+### Default website deployed with web apps does not support automatic client-side monitoring
 
 When you create a web app with the `ASP.NET` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but doesn't support automatic client-side monitoring.
 
 If you wish to test out codeless server and client-side monitoring for ASP.NET  in an Azure App Services web app, we recommend following the official guides for [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) and then use the instructions in the current article to enable monitoring.
-
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression isn't supported
 
@@ -165,6 +166,8 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ### PHP and WordPress are not supported
 

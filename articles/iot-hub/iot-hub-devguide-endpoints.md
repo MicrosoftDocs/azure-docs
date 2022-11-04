@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub endpoints | Microsoft Docs
-description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
+description: This article provides information about IoT Hub device-facing and service-facing endpoints.
 author: kgremban
 
 ms.author: kgremban
@@ -11,7 +11,7 @@ ms.date: 06/10/2019
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
-# Reference - IoT Hub endpoints
+# IoT Hub endpoints
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -51,7 +51,7 @@ The following list describes the endpoints:
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP](https://www.amqp.org/) and AMQP over WebSockets protocols. The direct method invocation endpoint is exposed over the HTTPS protocol.
   
-  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs](/azure/event-hubs/). A back-end service can use it to read the [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
+  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs](../event-hubs/index.yml). A back-end service can use it to read the [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
   
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages](iot-hub-devguide-messages-c2d.md), and to receive the corresponding delivery or expiration acknowledgments.
   

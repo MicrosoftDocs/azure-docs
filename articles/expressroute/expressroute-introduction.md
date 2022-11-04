@@ -5,10 +5,10 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-
 ---
 # What is Azure ExpressRoute?
 ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
@@ -80,7 +80,7 @@ ExpressRoute Direct provides customers the opportunity to connect directly into 
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity, such as: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 

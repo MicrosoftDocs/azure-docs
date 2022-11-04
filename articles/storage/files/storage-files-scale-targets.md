@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/2/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -79,12 +79,15 @@ File scale targets apply to individual files stored in Azure file shares.
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
-| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup>|
+| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles per file, directory, and share root | 2,000 handles | 2,000 handles  |
+| Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
 
 <sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+
 <sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
+
+<sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
 
 ## Azure File Sync scale targets
 The following table indicates which target are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
@@ -131,16 +134,16 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
 | Average File Size | ~200 KiB (Largest File: 100 GiB) |
-| Initial cloud change enumeration | 20 objects per second  |
+| Initial cloud change enumeration | 80 objects per second  |
 | Upload Throughput | 20 objects per second per sync group |
 | Namespace Download Throughput | 400 objects per second |
 
 ### Initial one-time provisioning
 
 **Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
-The rate of performance is 20 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
+The rate of performance is 80 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
 
-   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(20 * 60 * 60 * 24)**
+   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(80 * 60 * 60 * 24)**
 
 **Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
 

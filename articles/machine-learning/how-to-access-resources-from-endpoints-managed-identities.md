@@ -5,26 +5,18 @@ description: Securely access Azure resources for your machine learning model dep
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: shohei1029
+ms.author: shnagata
+ms.reviewer: mopeakande
 ms.date: 04/07/2022
 ms.topic: how-to
-ms.custom: devplatv2, cliv2, event-tier1-build-2022
+ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity.
 ---
 
 # Access Azure resources from an online endpoint with a managed identity 
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
@@ -104,7 +96,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 
@@ -142,7 +134,7 @@ Install them with the following code:
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
-* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+* To follow along with this notebook, access the companion [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
 * Additional Python packages are required for this example: 
 

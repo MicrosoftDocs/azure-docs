@@ -50,7 +50,10 @@ Azure Front Door private link is available in the following regions:
 
 ## Limitations
 
-Origin support for direct private end point connectivity is limited to Storage (Azure Blobs), App Services and internal load balancers.
+Origin support for direct private endpoint connectivity is currently limited to:
+* Storage (Azure Blobs)
+* App Services 
+* Internal load balancers.
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 

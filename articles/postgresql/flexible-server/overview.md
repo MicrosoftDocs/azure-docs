@@ -7,18 +7,17 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 08/11/2022
-ms.custom: "mvc, references_regions"
+ms.custom: mvc, references_regions, ignite-2022
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
 - [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
@@ -37,19 +36,9 @@ Flexible servers are best suited for
 - Zone redundant high availability
 - Managed maintenance windows
   
-## High availability
+## Architecture and high availability
 
 The flexible server deployment model is designed to support high availability within a single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
-
-During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
-
-1. A new compute Linux VM is provisioned.
-2. The storage with data files is mapped to the new Virtual Machine
-3. PostgreSQL database engine is brought online on the new Virtual Machine.
-
-Picture below shows transition for VM and storage failure.
-
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
 If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
@@ -91,49 +80,49 @@ The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a 
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup |
-| --- | --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| China East 3 | :heavy_check_mark: | :x: | :x:|
-| China North 3 | :heavy_check_mark: | :x: | :x:|
-| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France South | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Germany West Central | :x: $$ | :x: $ | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
-| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Norway East | :heavy_check_mark: | :x: | :x: |
-| Qatar Central | :heavy_check_mark: | :x: | :x: |
-| South Africa North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South India | :x: $$ | :x: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: $ ** | :heavy_check_mark: |
-| Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| UAE North | :heavy_check_mark: | :x: | :x: |
-| US Gov Arizona | :heavy_check_mark: | :x: | :x: |
-| US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UK West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West US 2 | :x: $$ | :x: $ | :heavy_check_mark:|
-| West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Region | V3/V4 compute availability | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup |
+| --- | --- | --- | --- |--- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
+| Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| China East 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: | 
+| China North 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: | 
+| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| France South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Germany West Central | :x: $$ | :x: $ | :heavy_check_mark: |:x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Jio India West | :heavy_check_mark: (v3 only)| :x: | :heavy_check_mark: |:x: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| Qatar Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: | :heavy_check_mark: |
+| Sweden Central | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| UAE North | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| US Gov Arizona | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :x: $$ | :x: $ | :heavy_check_mark: | :heavy_check_mark:|
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
 

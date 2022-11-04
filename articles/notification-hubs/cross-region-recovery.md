@@ -17,7 +17,7 @@ ms.date: 10/07/2022
 [Azure Notification Hubs](notification-hubs-push-notification-overview.md) provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the cross-region disaster recovery configuration options currently available.
 
 Cross-region disaster recovery provides *metadata* disaster recovery coverage. This is supported in paired and flexible region recovery
-options. Each Azure region is paired with another region within the same geography. All Notification Hubs tiers support [Azure paired regions](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
+options. Each Azure region is paired with another region within the same geography. All Notification Hubs tiers support [Azure paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)
 (where available) or a flexible recovery region option that enables you to choose from a list of supported regions.
 
 ## Enable cross region disaster recovery

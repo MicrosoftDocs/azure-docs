@@ -37,6 +37,8 @@
         href: create-front-door-bicep.md
       - name: Create a Front Door - ARM template
         href: create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        href: create-front-door-terraform.md
     - name: Classic
       items:
       - name: Create a Front Door - Portal
@@ -51,6 +53,9 @@
       - name: Create a Front Door - ARM Template
         displayName: Resource Manager
         href: quickstart-create-front-door-template.md
+      - name: Create a Front Door - Terraform
+        displayName: Terraform
+        href: quickstart-create-front-door-terraform.md
   - name: CDN
     items: 
     - name: Microsoft (classic)
@@ -208,6 +213,8 @@
         href: web-application-firewall.md
       - name: Geo-filtering
         href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=/azure/frontdoor/toc.json
+      - name: Secure traffic to origins
+        href: origin-security.md
     - name: Protocol
       items:
       - name: HTTP/2
@@ -242,6 +249,8 @@
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
           href: how-to-configure-origin.md
+        - name: Set up managed identity
+          href: managed-identity.md
         - name: Add a custom domain
           href: standard-premium/how-to-add-custom-domain.md
         - name: Add a root or apex domain
@@ -274,7 +283,7 @@
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-web-app.md
-          - name: Azure Classic
+          - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
       - name: Monitor and Reports
         items:

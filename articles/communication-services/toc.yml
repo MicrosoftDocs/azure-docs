@@ -73,10 +73,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the call automation APIs
-      href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
-      href: quickstarts/voice-video-calling/call-recording-sample.md
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
@@ -205,8 +203,6 @@ items:
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Call automation
-        href: concepts/voice-video-calling/call-automation-apis.md
       - name: Call recording
         href: concepts/voice-video-calling/call-recording.md
       - name: Network recommendations

@@ -32,7 +32,6 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * Canada Central
 * South Central US
 * Southeast Asia
-* East Asia
 * India Central
 * India South
 * Japan East

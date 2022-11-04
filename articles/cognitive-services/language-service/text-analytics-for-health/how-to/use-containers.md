@@ -3,13 +3,13 @@ title: How to use Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 09/05/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---

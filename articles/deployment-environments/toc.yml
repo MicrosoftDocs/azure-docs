@@ -1,0 +1,59 @@
+items: 
+- name: Azure Deployment Environments documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Azure Deployment Environments Preview?
+      displayName: ADE Overview
+      href: overview-what-is-azure-deployment-environments.md
+- name: Quickstarts
+  displayName: Quickstarts
+  expanded: true
+  items:
+    - name: Create and configure a dev center
+      href: quickstart-create-and-configure-devcenter.md
+    - name: Create and configure a project
+      href: quickstart-create-and-configure-projects.md
+    - name: Create and access an environment
+      href: quickstart-create-access-environments.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Key concepts
+      href: concept-environments-key-concepts.md
+    - name: Usage scenarios
+      href: concept-environments-scenarios.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Configure a catalog
+      href: how-to-configure-catalog.md
+    - name: Configure a catalog item
+      href: configure-catalog-item.md
+    - name: Configure a managed identity
+      href: how-to-configure-managed-identity.md
+    - name: Configure dev center environment types
+      href: how-to-configure-devcenter-environment-types.md
+    - name: Configure project environment types
+      href: how-to-configure-project-environment-types.md
+    - name: Provide access to Dev Managers
+      href: how-to-configure-project-admin.md
+    - name: Provide access to developers
+      href: how-to-configure-deployment-environments-user.md
+- name: Reference
+  items:
+    - name: REST API
+      href: /rest/api/devcenter/
+    - name: CLI
+      href: how-to-configure-use-cli.md
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
+    - name: Report a problem
+      href: https://aka.ms/deployment-environments/reportproblem
+    - name: Suggest a feature
+      href: https://aka.ms/deployment-environments/suggestfeature

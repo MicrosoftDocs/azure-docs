@@ -15,6 +15,8 @@ Application Insights Agent (formerly named Status Monitor V2) is a PowerShell mo
 It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 > [!NOTE]
 > The module currently supports codeless instrumentation of ASP.NET and ASP.NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
 
@@ -39,10 +41,6 @@ Application Insights Agent is located here: https://www.powershellgallery.com/pa
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## Troubleshooting
-
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
-
 ## FAQ
 
 - Does Application Insights Agent support proxy installations?
@@ -66,6 +64,11 @@ Each of these options is described in the [detailed instructions](status-monitor
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

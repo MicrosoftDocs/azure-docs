@@ -80,4 +80,4 @@ For more information, see [Add-AzApplicationGatewayCustomError](/powershell/modu
 
 ## Next steps
 
-For information about Application Gateway diagnostics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+For information about Application Gateway diagnostics, see [Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).

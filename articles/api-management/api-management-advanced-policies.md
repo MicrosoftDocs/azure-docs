@@ -287,7 +287,7 @@ In the following example, the policy fragment named *myFragment* is added in the
 [...]
 ```
 
-## Elements
+### Elements
 
 | Element           | Description   | Required |
 | ----------------- | ------------- | -------- |
