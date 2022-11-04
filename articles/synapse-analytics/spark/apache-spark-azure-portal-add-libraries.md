@@ -46,12 +46,8 @@ To learn more about how to manage workspace libraries, see the following article
 
 - [Manage workspace packages](./apache-spark-manage-workspace-packages.md)
 
-<<<<<<< HEAD
-> [!NOTE] If you enabled [Data exfiltration protection](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries.
-=======
 > [!NOTE]
-> If you enabled [Data exfiltration protection](./security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries.
->>>>>>> 58f5cdcc8135ad8a863c321cc38f81910fee424f
+> If you enabled [Data exfiltration protection](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries.
 
 ## Pool packages
 
