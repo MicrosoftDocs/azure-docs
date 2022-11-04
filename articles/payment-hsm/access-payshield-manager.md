@@ -188,7 +188,11 @@ For example, if you used "10.0.0.0" as the address prefix for your Payment HSM s
 ssh -L 44300:10.0.0.5:443 azureuser@<publicIpAddress-or-FullyQualifiedDomainName>
 ```
 
-Now go to a browser on your local machine and open <https://localhost:44300> to access the payShield manager. Here you can commission the device, install or generate LMKs, test the API, and so on. Follow payShield documentation, and contact Thales support if any issues related to payShield commission, setup, and API testing.
+Now go to a browser on your local machine and open <https://localhost:44300> to access the payShield manager.
+
+:::image type="content" source="./media/payshield-manager.png" alt-text="Screenshot of the payShield manager for Azure Payment HSM.":::
+
+Here you can commission the device, install or generate LMKs, test the API, and so on. Follow payShield documentation, and contact Thales support if any issues related to payShield commission, setup, and API testing.
 
 ## Next steps
 

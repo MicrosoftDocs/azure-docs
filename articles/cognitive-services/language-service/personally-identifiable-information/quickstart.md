@@ -3,13 +3,13 @@ title: "Quickstart: Detect Personally Identifying Information (PII) in text"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using the PII detection API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 08/15/2022
-ms.author: aahi
+ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-pii, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-text-analytics
