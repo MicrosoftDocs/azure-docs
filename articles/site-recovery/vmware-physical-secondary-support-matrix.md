@@ -6,6 +6,8 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: ankitadutta
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Support matrix for disaster recovery of VMware VMs and physical servers to a secondary site
