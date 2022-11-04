@@ -35,10 +35,6 @@ In this quickstart, you learn how to:
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
     1. Install the Azure Deployment Environments AZ CLI extension:
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9a769d94808ba08a8d053638efc083e32d967e21
        **Automated installation**
   
        In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
