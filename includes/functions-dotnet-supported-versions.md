@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/18/2022
+ms.date: 11/8/2022
 ms.author: glenga
 ---
 
