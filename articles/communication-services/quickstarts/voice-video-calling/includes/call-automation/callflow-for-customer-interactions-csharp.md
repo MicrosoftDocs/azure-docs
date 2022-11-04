@@ -140,7 +140,8 @@ app.Run();
 
 In this quick-start, we use [Ngrok tool](https://ngrok.com/) to project a public URI to your local port so that your local application can be visited by the Internet. This tool will be needed for the quick-start application to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the port in <PROJECT_ROOT>\Properties\launchSettings.json.
+First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
+:::image type="content" source="./../../media/call-automation/dotNetApplicationPort.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
 
 Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
