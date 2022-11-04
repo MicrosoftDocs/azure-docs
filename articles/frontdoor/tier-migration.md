@@ -61,7 +61,7 @@ Azure Front Door Standard/Premium uses a different resource provider namespace o
 
 Azure Front Door Standard and Premium endpoints are generated to include a hash value to prevent your domain from being taken over. The format of the endpoint name is `<endpointname>-<hashvalue>.z01.azurefd.net`. The Classic Front Door endpoint name will continue to work after migration but we recommend replacing it with the newly created endpoint name from the Standard or Premium profile. For more information, see [Endpoint domain names](endpoint.md#endpoint-domain-names).
 
-### Logs and Metrics
+### Logs and metrics
 
 Diagnostic logs and metrics won't be migrated. Azure Front Door Standard/Premium log fields are different from Front Door (classic). The newer tier also has heath probe logs and is recommended you enable diagnostic logging after the migration complete. Standard and Premium tier also supports built-in reports that will start displaying data once the migration is done.
 
