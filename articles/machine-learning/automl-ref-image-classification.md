@@ -29,8 +29,8 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
-| `type` | const | **Required.** The type of job. | `automl` | `automl` |
-| `task` | const | **Required.** The type of automl task. | `image_classification` | `image_classification` |
+| `type` | const | **Required.** The type of job. | `AutoML` | `automl` |
+| `task` | const | **Required.** The type of AutoML task. | `image_classification` | `image_classification` |
 | `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
 | `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
@@ -205,11 +205,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
 
 
-## YAML: autoML image classification job
+## YAML: AutoML image classification job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multiclass-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multiclass-task-fridge-items/cli-automl-image-classification-multiclass-task-fridge-items.yml":::
 
-## YAML: autoML image classification pipeline job
+## YAML: AutoML image classification pipeline job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-multiclass-classification-fridge-items-pipeline/pipeline.yml":::
 
