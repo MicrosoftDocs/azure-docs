@@ -11,7 +11,7 @@ ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ---
 
-# Terminology
+# Reliability erminology
 
 To better understand regions and availability zones in Azure, it helps to understand key terms or concepts.
 
