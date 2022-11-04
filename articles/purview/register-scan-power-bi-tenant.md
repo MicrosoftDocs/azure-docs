@@ -120,9 +120,10 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 3. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable:
+   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
       - `*.powerbi.com` 
       - `*.analysis.windows.net` 
+   
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
@@ -176,7 +177,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
-   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.The following endpoints must be reachable:
+   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
       - `*.powerbi.com` 
       - `*.analysis.windows.net` 
    
