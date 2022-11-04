@@ -141,3 +141,4 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists-nfsv4)
