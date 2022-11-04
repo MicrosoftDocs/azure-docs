@@ -104,11 +104,8 @@ To attach a user-assigned managed identity to your dev center:
 
 ## Add a catalog to the dev center
 
-Next, add a catalog to your dev center.
-
-### Prerequisites
-
-Before you add a [catalog](concept-environments-key-concepts.md#catalogs), store the personal access token as a [key vault secret](../key-vault/secrets/quick-create-portal.md) in Azure Key Vault and copy the secret identifier. Ensure that the [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center has [GET access to the secret](../key-vault/general/assign-access-policy.md).
+> [!NOTE]
+> Before you add a [catalog](concept-environments-key-concepts.md#catalogs), store the personal access token as a [key vault secret](../key-vault/secrets/quick-create-portal.md) in Azure Key Vault and copy the secret identifier. Ensure that the [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center has [GET access to the secret](../key-vault/general/assign-access-policy.md).
 
 To add a catalog to your dev center:
 
