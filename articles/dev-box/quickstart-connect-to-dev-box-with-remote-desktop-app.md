@@ -11,22 +11,23 @@ ms.topic: quickstart
 ---
 
 # Quickstart: Use a remote desktop client to connect to a dev box
-
-In this quickstart, you'll learn how to download a remote desktop app from the [developer portal](https://aka.ms/devbox-portal) and connect to a dev box by using the remote desktop client.
+When you have configured Microsoft Dev Box Preview and created dev boxes, you can connect to them using a browser, or by using a remote desktop client.
 
 Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or the Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
-You can view the dev boxes you're connected to in your Remote Desktop client's [Workspaces](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#workspaces).
+In this quickstart, you'll perform the following tasks:
 
-In this quickstart, you'll learn how to:
-
-> [!div class="checklist"]
-> * Download the Remote Desktop client (Windows and non-Windows).
-> * Use the Remote Desktop client to connect to a dev box.
+* Download the Remote Desktop client (Windows and non-Windows).
+* Use the Remote Desktop client to connect to a dev box.
 
 ## Prerequisites
 
-- [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
+Configure the Microsoft Dev Box Preview service: 
+- [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
+
+Create a dev box to connect to:
+- [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal) 
 
 ## Use the Remote Desktop client to connect to your dev box
 
@@ -93,6 +94,20 @@ To use a non-Windows Remote Desktop client to connect to your dev box, follow th
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of the non-Windows Remote Desktop client workspace with dev box.":::
 
 ---
+
+## Clean up resources
+
+Dev boxes incur costs whenever they are running. When you have finished using your dev box, shutdown or stop it to avoid incurring unnecessary costs.
+
+You can stop a dev box from the developer portal:
+
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+
+1. For the dev box you want to stop, select the Actions menu, and then select **Stop**.
+   
+   :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/stop-dev-box.png" alt-text="Screenshot of the Stop option.":::
+
+1. The dev box may take a few moments to stop.
 
 ## Next steps
 To learn about managing Microsoft Dev Box Preview, see:
