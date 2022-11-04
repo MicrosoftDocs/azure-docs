@@ -35,6 +35,5 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
-        1. **Source managed disk**:
 1. Select **Next : Review + Start replication**.
 1. In **Review + Start replication**, review the VM settings and select **Start replication**.
