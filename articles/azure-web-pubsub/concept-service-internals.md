@@ -259,7 +259,7 @@ The event listener listens to the incoming client events. Each event listener co
 
 Currently we support [**Event Hubs**](https://azure.microsoft.com/products/event-hubs/) as an event listener endpoint.
 
-You need to register event listeners beforehand, so that when a client event is triggered, the service can push the event to the corresponding event listeners. See [this doc](./howto-develop-eventlistener.md#configure-an-event-listener) for how to configure an event listener with an event hub endpoint.
+You need to register event listeners beforehand, so that when a client event is triggered, the service can push the event to the corresponding event listeners. See [this doc](./howto-develop-event-listener.md#configure-an-event-listener) for how to configure an event listener with an event hub endpoint.
 
 You can configure multiple event listeners. The order of the event listeners doesn't matter. If an event matches with multiple event listeners, it will be sent to all the listeners it matches. See the following diagram for an example. Let's say you configure four event listeners at the same time. Then a client event that matches with three of those listeners will be sent to three listeners, leaving the rest one untouched.
 

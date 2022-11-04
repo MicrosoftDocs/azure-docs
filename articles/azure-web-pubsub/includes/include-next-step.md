@@ -21,7 +21,7 @@ Follow the tutorials listed below to start building your own application.
 > [Tutorial: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: How to configure event listener](./../howto-develop-eventlistener.md)
+> [Tutorial: How to configure event listener](./../howto-develop-event-listener.md)
 
 > [!div class="nextstepaction"]
 > [Play with Live Demos](https://aka.ms/awps/livedemos)
