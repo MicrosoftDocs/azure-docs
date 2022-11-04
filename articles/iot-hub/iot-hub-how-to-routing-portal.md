@@ -49,7 +49,9 @@ Next, decide which route type (Event Hubs, Service Bus queue or topic, or Azure 
 
 # [Event Hubs](#tab/eventhubs)
 
-If you need to create an Event Hubs resource, see [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
+If you need to create an Event Hubs resource, see [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create). 
+
+In the Azure portal, you can create a route and endpoint at the same time. Using Azure CLI or PowerShell, you must create an endpoint first and then create a route.
 
 1. In the **Add a route** blade that appears, create a unique **Name**. Optionally, you might want to include the endpoint type in the name, such as **my-event-hubs-route**.
 
@@ -75,6 +77,47 @@ If you need to create an Event Hubs resource, see [Quickstart: Create an event h
    > Since we created a route with a custom endpoint, messages will no longer flow to the built-in IoT Hub endpoint known as **events**. You can create an additional new route with an **events** endpoint if needed.
    
    :::image type="content" source="media/iot-hub-how-to-routing-portal/see-new-route.jpg" alt-text="Screenshot that shows the new route you created on the 'Message routing' page.":::
+
+## Update a route
+
+Updating a route in the Azure portal is as easy as selecting your route from the **Message routing** menu in your IoT hub and changing the properties.
+
+You can make changes to an existing route:
+
+* Select a different endpoint from the **Endpoint** dropdown list or create a new endpoint
+* Select a new source from the **Date source** dropdown list
+* Enable or disable your route in the **Enable route** section
+* Create or change queries in the **Routing query** section
+
+:::image type="content" source="media/iot-hub-how-to-routing-portal/update-route.jpg" alt-text="Screenshot that shows where and how to modify an existing IoT Hub route.":::
+
+Select **Save** at the bottom after making changes.
+
+> [!NOTE]
+> While you can't modify an existing endpoint, you can create new ones for your IoT hub route and change the endpoint your route uses with the **Endpoint** dropdown list.
+
+## Delete a route
+
+To delete a route in the Azure portal:
+
+1. Check the box next to your route located in the **Message routing** menu. 
+
+1. Select the delete button.
+
+:::image type="content" source="media/iot-hub-how-to-routing-portal/delete-route-portal.jpg" alt-text="Screenshot that shows where and how to delete an existing IoT Hub route." lightbox="media/iot-hub-how-to-routing-portal/delete-route-portal.jpg":::
+
+## Delete a custom endpoint
+
+To delete a custom endpoint in the Azure portal:
+
+1. From the **Message routing** menu, select the **Custom endpoints** tab.
+
+1. Check the box next to your Event hubs endpoint.
+
+1. Select the **Delete** button.
+
+:::image type="content" source="media/iot-hub-how-to-routing-portal/delete-endpoint-portal.jpg" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/iot-hub-how-to-routing-portal/delete-endpoint-portal.jpg":::
+
 
 # [Service Bus queue](#tab/servicebusqueue)
 
