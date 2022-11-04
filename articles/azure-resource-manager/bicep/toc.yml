@@ -275,7 +275,7 @@
     href: resource-dependencies.md
   - name: Modules (module)
     href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry
   - name: Outputs (output)
     href: outputs.md
     displayName: dynamic number of outputs,modules
@@ -463,6 +463,7 @@
     - name: Linter settings
       href: bicep-config-linter.md
     - name: Module settings
+      displayName: registry
       href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
@@ -479,7 +480,7 @@
     href: /azure/templates/
   - name: Bicep CLI
     href: bicep-cli.md
-    displayName: build,decompile,install,list-versions,list versions,upgrade,version
+    displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
   - name: Azure CLI
