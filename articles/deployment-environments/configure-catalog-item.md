@@ -41,6 +41,8 @@ In this article, you learn how to:
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise are not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+<a name="add-a-new-catalog-item"></a>
+
 ## Add a catalog item
 
 To add a catalog item:
