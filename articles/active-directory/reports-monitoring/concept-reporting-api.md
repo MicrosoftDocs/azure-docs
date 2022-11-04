@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/03/2022
+ms.date: 11/04/2022
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
