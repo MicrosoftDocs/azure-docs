@@ -46,10 +46,14 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 
 ## Create a self-service data access request
 
-[!INCLUDE [request access to datasets](how-to-request-access.md)]
+[!INCLUDE [request access to datasets](includes/how-to-self-service-request-access.md)]
 
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
+
+## View a self-service Policy
+
+To view the policies you've created, follow the article to [view the self-service policies](how-to-view-self-service-data-access-policy.md).
 
 ## Data Consumption
 
