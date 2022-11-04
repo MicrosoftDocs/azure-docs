@@ -47,7 +47,13 @@ You can also specify a Marketplace or Gallery image by using the URN:
 
 You can use a Marketplace image with an associated pricing plan but the image must be enabled for programmatic use. To do this, locate the Marketplace image you want to use. Click **Want to deploy programmatically**, **Get Started ->**, and enter any required information and save it.
 
-To accept a license from the CLI:
+::: moniker range=">=cyclecloud-8"
+To enable CycleCloud to automatically accept license terms on your behalf, enable the "Accept marketplace terms on my behalf" option on your subscription in the web interface:
+
+![Accept Marketplace terms](../images/auto-accept-terms.png)
+::: moniker-end
+
+To accept a license terms from the Azure CLI:
 
 ```azurecli-interactive
 az vm image accept-terms --urn publisher:offer:sku:version
