@@ -25,7 +25,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 

@@ -18,6 +18,8 @@
         href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
         href: quick-create-confidential-vm-portal-amd.md
+      - name: Create an AMD confidential VM with Azure CLI
+        href: quick-create-confidential-vm-azurecli-amd.md
       - name: Create Azure Compute Gallery Image for confidential VM
         href: create-confidential-vm-from-compute-gallery.md
   - name: Virtual machines with app enclaves
