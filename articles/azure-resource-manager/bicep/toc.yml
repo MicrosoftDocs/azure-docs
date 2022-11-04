@@ -275,7 +275,7 @@
     href: resource-dependencies.md
   - name: Modules (module)
     href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry
   - name: Outputs (output)
     href: outputs.md
     displayName: dynamic number of outputs,modules
@@ -385,62 +385,90 @@
   - name: Validate file
     items:
     - name: Linter
+      displayName: ttk
       href: linter.md
     - name: Linter rules
       items:
       - name: Admin user name not literal
+        displayName: linter
         href: linter-rule-admin-username-should-not-be-literal.md
       - name: Artifacts parameters
+        displayName: linter
         href: linter-rule-artifacts-parameters.md
       - name: Decompiler cleanup
+        displayName: linter
         href: linter-rule-decompiler-cleanup.md
       - name: Max outputs
+        displayName: linter
         href: linter-rule-max-outputs.md
       - name: Max parameters
+        displayName: linter
         href: linter-rule-max-parameters.md
       - name: Max resources
+        displayName: linter
         href: linter-rule-max-resources.md
       - name: Max variables
+        displayName: linter
         href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
+        displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md
       - name: No hardcoded locations
+        displayName: linter
         href: linter-rule-no-hardcoded-location.md
       - name: No location expressions outside of parameter default values
+        displayName: linter
         href: linter-rule-no-loc-expr-outside-params.md
       - name: No unnecessary dependsOn entries
+        displayName: linter
         href: linter-rule-no-unnecessary-dependson.md
       - name: No unused existing resources
+        displayName: linter
         href: linter-rule-no-unused-existing-resources.md
       - name: No unused parameters
+        displayName: linter
         href: linter-rule-no-unused-parameters.md
       - name: No unused variables
+        displayName: linter
         href: linter-rule-no-unused-variables.md
       - name: Outputs should not contain secrets
+        displayName: linter
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
+        displayName: linter
         href: linter-rule-prefer-interpolation.md
       - name: Prefer unquoted property names
+        displayName: linter
         href: linter-rule-prefer-unquoted-property-names.md
       - name: Protect commandToExecute secrets
+        displayName: linter
         href: linter-rule-protect-commandtoexecute-secrets.md
       - name: Secure parameter default
+        displayName: linter
         href: linter-rule-secure-parameter-default.md
       - name: Secure parameters in nested deployments
+        displayName: linter
         href: linter-rule-secure-params-in-nested-deploy.md
       - name: Secure secrets in parameters
+        displayName: linter
         href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
+        displayName: linter
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters
+        displayName: linter
         href: linter-rule-explicit-values-for-loc-params.md
       - name: use recent API versions
+        displayName: linter
         href: linter-rule-use-recent-api-versions.md
       - name: use resource ID functions
+        displayName: linter
         href: linter-rule-use-resource-id-functions.md
       - name: Use stable resource identifier
+        displayName: linter
         href: linter-rule-use-stable-resource-identifier.md
       - name: Use stable VM image
+        displayName: linter
         href: linter-rule-use-stable-vm-image.md
   - name: Deploy
     items:
@@ -463,6 +491,7 @@
     - name: Linter settings
       href: bicep-config-linter.md
     - name: Module settings
+      displayName: registry
       href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
@@ -479,7 +508,7 @@
     href: /azure/templates/
   - name: Bicep CLI
     href: bicep-cli.md
-    displayName: build,decompile,install,list-versions,list versions,upgrade,version
+    displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
   - name: Azure CLI
