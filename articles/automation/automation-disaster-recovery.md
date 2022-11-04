@@ -78,8 +78,8 @@ You can use these scripts for migration of Automation account assets from the ac
 ### Prerequisites
 
  1. Ensure that the Automation account in the secondary region is created and available so that assets from primary region can be migrated to it. It is preferred if the destination automation account is one without any custom resources as it prevents potential resource clash due to same name and loss of data.
- 1. Ensure that the system assigned managed identity are enabled in the Automation account in the primary region.
- 1. Ensure that the system assigned managed identity of the primary Automation account has contributor access to the subscription it belongs to.
+ 1. Ensure that the system assigned managed identities are enabled in the Automation account in the primary region.
+ 1. Ensure that the system assigned managed identities of the primary Automation account has contributor access to the subscription it belongs to.
  1. Ensure that the primary Automation account's managed identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
  1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](migrate-run-as-accounts-managed-identity.md).
