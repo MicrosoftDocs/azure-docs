@@ -254,7 +254,7 @@ Azure Load Testing doesn't support IPv6 enabled subnets. Select another subnet f
 
 ### Creating or updating the load test fails with `NSG attached to subnet is not in Succeeded state (ALTVNET006)`
 
-The network security group (NSG) that is attached to the subnet isn't in the `Succeeeded` state.
+The network security group (NSG) that is attached to the subnet isn't in the `Succeeded` state.
 
 1. Verify the state of the NSG.
 
