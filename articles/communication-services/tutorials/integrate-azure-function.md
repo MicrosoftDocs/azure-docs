@@ -73,11 +73,7 @@ Open the link in a browser. Example result will be similar to this:
 
 6. Deploy the local function to cloud. More details could be found from this [documentation](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files)
 
-7. Test the deployed Azure Function. First find your Azure Function in Azure portal.
-
-Then client the Get Function Url button to get the Azure Function endpoint
-
-Hitting the endpoint. The result should be similar to step 5. 
+7. Test the deployed Azure Function. First find your Azure Function in Azure portal. Then client the Get Function Url button to get the Azure Function endpoint. Hitting the endpoint. The result should be similar to step 5. The Azure Funcion endpoint will be used in APP for initialing application parameters.
 
 8. Implement UserTokenClient, which is used to call target Azure Function resource and obtain ACS endpoint, user ID and user token from returned JSON object. An example is provided in sample APP.
 

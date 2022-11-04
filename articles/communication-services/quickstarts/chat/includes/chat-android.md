@@ -166,6 +166,7 @@ ACS_ENDPOINT, FIRST_USER_ID and FIRST_USER_ACCESS_TOKEN are returned from callin
 3. `FIRST_USER_ACCESS_TOKEN`: the communication Services access token for `<FIRST_USER_ID>`.
 
 Code block for initialing application parameters by calling Azure Function: 
+```java
 try {
         UserTokenClient userTokenClient = new UserTokenClient(AZURE_FUNCTION_URL);
         //First user context
@@ -181,6 +182,7 @@ try {
         //Your handling code
         logger.logThrowableAsError(throwable);
     }
+```
 
 ### Create a chat client
 
