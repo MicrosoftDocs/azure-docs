@@ -390,7 +390,7 @@ If a user is running an older version of Microsoft Authenticator that doesn't su
 
 ### Why is my user prompted to tap on one out of three numbers instead of entering the number in their Microsoft Authenticator app?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number instead of entering the number in their Microsoft Authenticator app. These authentications will not fail, but we highly recommend that users update to the latest version of the app to be able to enter the number. 
+Older versions of Microsoft Authenticator prompt users to tap and select a number instead of entering the number in their Microsoft Authenticator app. These authentications won't fail, but we highly recommend that users update to the latest version of the app to be able to enter the number. 
 
 
 ## Next steps
