@@ -231,7 +231,7 @@ The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md)�
 
 ### Receive broadcast to detect global sign out initiated from other applications
 
-To receive the account change broadcast, you will need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#Get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+To receive the account change broadcast, you will need to register a broadcast receiver. When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
