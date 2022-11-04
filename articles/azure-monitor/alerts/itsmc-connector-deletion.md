@@ -16,7 +16,7 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 1. In the Azure portal, select Monitor, then **Alerts** and **Action groups**.
 
-    :::image type="content" source="media/itsmc-connector-deletion/monitor-alerts-page.png" lightbox="media/itsmc-connector-deletion/monitor-alerts-page.png" alt-text="Screenshot of the Alerts page in the Azure portal. The Monitor menu item in the portal menu, Alerts tab, and Action groups button are highlighted.":::
+    :::image type="content" source="media/itsmc-connector-deletion/monitor-alerts-page.png" lightbox="media/itsmc-connector-deletion/monitor-alerts-page.png" alt-text="Screenshot of the Alerts page in the Azure portal. Monitor in the portal menu, Alerts in the resource menu, and Action groups button are highlighted.":::
 
 1. Select the action group associated with the ITSM Connector you want to delete.
 
@@ -30,11 +30,11 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-    :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal with only the Solution resources whose name matches the ServiceDes filter criteria listed.":::
+    :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal. Only resources whose name includes the ServiceDes filter criteria are listed.":::
 
 1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
-    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of the Solution resource in the Azure portal with the ITSM Connections tab highlighted.":::
+    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. The Resource menu entry titled ITSM Connections is highlighted.":::
 
 1. Select the connector you want to delete.
 
