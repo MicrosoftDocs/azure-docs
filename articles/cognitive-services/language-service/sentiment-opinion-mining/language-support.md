@@ -34,10 +34,10 @@ Total supported language codes: 94
 | Assamese	 | `as` | 2022-10-01 | |
 | Azerbaijani	 | `az` | 2022-10-01 | |
 | Basque	 | `eu` | 2022-10-01 | |
-| Belarusian	 | `be` | 2022-10-01 | |
+| Belarusian (new)	 | `be` | 2022-10-01 | |
 | Bengali	 | `bn` | 2022-10-01 | |
 | Bosnian	 | `bs` | 2022-10-01 | |
-| Breton	 | `br` | 2022-10-01 | |
+| Breton (new)	 | `br` | 2022-10-01 | |
 | Bulgarian	 | `bg` | 2022-10-01 | |
 | Burmese	 | `my` | 2022-10-01 | |
 | Catalan	 | `ca` | 2022-10-01 | |
@@ -48,7 +48,7 @@ Total supported language codes: 94
 | Danish	 | `da` | 2022-06-01 | |
 | Dutch	 | `nl` | 2019-10-01 | |
 | English	 | `en` | 2019-10-01 | |
-| Esperanto	 | `eo` | 2022-10-01 | |
+| Esperanto (new)	 | `eo` | 2022-10-01 | |
 | Estonian	 | `et` | 2022-10-01 | |
 | Filipino | `fil` | 2022-10-01 | |
 | Finnish	 | `fi` | 2022-06-01 | |
@@ -58,7 +58,7 @@ Total supported language codes: 94
 | German	 | `de` | 2019-10-01 | |
 | Greek	 | `el` | 2022-06-01 | |
 | Gujarati	 | `gu` | 2022-10-01 | |
-| Hausa	 | `ha` | 2022-10-01 | |
+| Hausa (new)	 | `ha` | 2022-10-01 | |
 | Hebrew	 | `he` | 2022-10-01 | |
 | Hindi	 | `hi` | 2020-04-01 | |
 | Hungarian	 | `hu` | 2022-10-01 | |
@@ -66,7 +66,7 @@ Total supported language codes: 94
 | Irish	 | `ga` | 2022-10-01 | |
 | Italian	 | `it` | 2019-10-01 | |
 | Japanese	 | `ja` | 2019-10-01 | |
-| Javanese	 | `jv` | 2022-10-01 | |
+| Javanese (new) | `jv` | 2022-10-01 | |
 | Kannada	 | `kn` | 2022-10-01 | |
 | Kazakh	 | `kk` | 2022-10-01 | |
 | Khmer	 | `km` | 2022-10-01 | |
@@ -74,7 +74,7 @@ Total supported language codes: 94
 | Kurdish (Kurmanji) | `ku` | 2022-10-01 | |
 | Kyrgyz	 | `ky` | 2022-10-01 | |
 | Lao	 | `lo` | 2022-10-01 | |
-| Latin	 | `la` | 2022-10-01 | |
+| Latin (new) | `la` | 2022-10-01 | |
 | Latvian	 | `lv` | 2022-10-01 | |
 | Lithuanian	 | `lt` | 2022-10-01 | |
 | Macedonian	 | `mk` | 2022-10-01 | |
@@ -86,7 +86,7 @@ Total supported language codes: 94
 | Nepali	 | `ne` | 2022-10-01 | |
 | Norwegian	 | `no` | 2019-10-01 | |
 | Oriya	 | `or` | 2022-10-01 | |
-| Oromo	 | `om` | 2022-10-01 | |
+| Oromo (new)	 | `om` | 2022-10-01 | |
 | Pashto	 | `ps` | 2022-10-01 | |
 | Persian (Farsi) | `fa` | 2022-10-01 | |
 | Polish	 | `pl` | 2022-06-01 | |
@@ -95,16 +95,16 @@ Total supported language codes: 94
 | Punjabi	 | `pa` | 2022-10-01 | |
 | Romanian	 | `ro` | 2022-10-01 | |
 | Russian	 | `ru` | 2022-06-01 | |
-| Sanskrit	 | `sa` | 2022-10-01 | |
-| Scottish Gaelic | `gd` | 2022-10-01 | |
+| Sanskrit (new) | `sa` | 2022-10-01 | |
+| Scottish Gaelic (new) | `gd` | 2022-10-01 | |
 | Serbian	 | `sr` | 2022-10-01 | |
-| Sindhi	 | `sd` | 2022-10-01 | |
-| Sinhala	 | `si` | 2022-10-01 | |
+| Sindhi (new)	 | `sd` | 2022-10-01 | |
+| Sinhala (new)	 | `si` | 2022-10-01 | |
 | Slovak	 | `sk` | 2022-10-01 | |
 | Slovenian	 | `sl` | 2022-10-01 | |
 | Somali	 | `so` | 2022-10-01 | |
 | Spanish	 | `es` | 2019-10-01 | |
-| Sundanese	 | `su` | 2022-10-01 | |
+| Sundanese	(new) | `su` | 2022-10-01 | |
 | Swahili	 | `sw` | 2022-10-01 | |
 | Swedish	 | `sv` | 2022-06-01 | |
 | Tamil	 | `ta` | 2022-10-01 | |
@@ -117,9 +117,9 @@ Total supported language codes: 94
 | Uzbek	 | `uz` | 2022-10-01 | |
 | Vietnamese	 | `vi` | 2022-10-01 | |
 | Welsh	 | `cy` | 2022-10-01 | |
-| Western Frisian | `fy` | 2022-10-01 | |
-| Xhosa	 | `xh` | 2022-10-01 | |
-| Yiddish	 | `yi` | 2022-10-01 | |
+| Western Frisian (new) | `fy` | 2022-10-01 | |
+| Xhosa (new) | `xh` | 2022-10-01 | |
+| Yiddish (new)	 | `yi` | 2022-10-01 | |
 
 ### Opinion Mining language support
 
