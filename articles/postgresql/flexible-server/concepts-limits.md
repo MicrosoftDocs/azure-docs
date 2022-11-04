@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 11/05/2022
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -68,6 +68,8 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Currently, storage auto-grow feature isn't available. You can monitor the usage and increase the storage to a higher size. 
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. 
 - We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
+- If you are using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops the logical replication slot and thus releasing WAL files to avoid your server unavailability due to storage full. 
+
   
 ### Networking
 
@@ -82,7 +84,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Availability zones
 
-- Manually moving servers to a different availability zone is currently not supported.
+- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can failover to the standby and subsequently disable HA. 
 
 ### Postgres engine, extensions, and PgBouncer
 
