@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timetabling Solutions SSO
 
-In this section, you'll populate the relevent SSO values in the Timetabling Solutions Administration Console.
+In this section, you'll populate the relevant SSO values in the Timetabling Solutions Administration Console.
 
 1. In the [Administration Console](https://admin.timetabling.education/), select **5 Settings**, and then select the **SAML SSO** tab.
 1. Perform the following steps in the **SAML SSO** section:
@@ -141,7 +141,7 @@ In this section, you'll populate the relevent SSO values in the Timetabling Solu
 In this section, you create a user called Britta Simon in the Timetabling Solutions Administration Console. 
 
 1. In the [Administration Console](https://admin.timetabling.education/), select **1 Manage Users**, and click **Add**.
-2. Enter the mandatory fields **First Name**, **Family Name** and **Email Address**. Add other apprpriate values in the non-mandatory fields.
+2. Enter the mandatory fields **First Name**, **Family Name** and **Email Address**. Add other appropriate values in the non-mandatory fields.
 3. Ensure **Online** is active in Status.
 4. Click **Save and Next**.
 
