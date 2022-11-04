@@ -53,11 +53,11 @@ Azure Spring Apps currently supports availability zones in the following regions
 
 The following limitations apply when you create an Azure Spring Apps Service instance with zone redundancy enabled:
 
-- Zone redundancy is not available in basic tier.
+- Zone redundancy isn't available in basic tier.
 - You can enable zone redundancy only when you create a new Azure Spring Apps Service instance.
 - If you enable your own resource in Azure Spring Apps, such as your own persistent storage, make sure to enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
-- Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but does not guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
-- Geo-disaster recovery is not the purpose of zone redundancy. To protect your service from regional outages, see the [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery) section later in this article.
+- Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but doesn't guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
+- Geo-disaster recovery isn't the purpose of zone redundancy. To protect your service from regional outages, see the [Customer-managed geo-disaster recovery](#customer-managed-geo-disaster-recovery) section later in this article.
 
 ## Create an Azure Spring Apps instance with zone redundancy enabled
 
@@ -125,7 +125,7 @@ To plan your application, it's helpful to understand the following information a
 - An Azure geography is a defined area of the world that contains at least one Azure region.
 - An Azure region is an area within a geography containing one or more data centers.
 
-Most Azure regions are paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. In the event of an outage affecting multiple regions, at least one region in each pair is prioritized for recovery.
+Most Azure regions are paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery.
 
 To ensure high availability and protection from disasters, deploy your applications hosted in Azure Spring Apps to multiple regions. Azure provides a list of paired regions so that you can plan your app deployments accordingly. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
@@ -168,11 +168,11 @@ The environment is now set up. If you used the example values in the linked arti
 
 ### Use Azure Front Door and Azure Application Gateway to route traffic
 
-Azure Front Door is a global, scalable entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure Front Door provides the same multi-geo redundancy and routing to the closest region as Azure Traffic Manager. It also provide advanced feature such as TLS protocol termination, application layer processing, and Web Application Firewall (WAF). For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md).
+Azure Front Door is a global, scalable entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure Front Door provides the same multi-geo redundancy and routing to the closest region as Azure Traffic Manager. It also provides advanced features such as TLS protocol termination, application layer processing, and Web Application Firewall (WAF). For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md).
 
-The following illustration shows the architecture of a multi-geo redundancy, virtual-network-integrated Azure Spring Apps service. It shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. The architecture is based on the scenario described in [Expose application to the internet with end-to-end TLS/SSL](../spring-apps/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
+The following illustration shows the architecture of a multi-region redundancy, virtual-network-integrated Azure Spring Apps service. It shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. The architecture is based on the scenario described in [Expose application to the internet with end-to-end TLS/SSL](../spring-apps/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
 
-:::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Architecture of muti-region spring apps ." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
+:::image type="content" source="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Graphic showing the architecture of a multi-region Azure Spring Apps service." lightbox="media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
 
 ## Next steps
 
