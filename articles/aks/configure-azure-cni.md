@@ -185,7 +185,7 @@ The pods per node values when using Azure CNI with dynamic allocation of IPs hav
 |Traditional Azure CNI|30|Yes (up to 250)|
 |Azure CNI with dynamic allocation of IPs|250|Yes (up to 250)|
 
-All other guidance related to configuring the maximum nodes per pod remains the same.
+All other guidance related to configuring the maximum pods per node remains the same.
 
 ### Additional deployment parameters
 
