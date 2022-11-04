@@ -129,6 +129,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Monitor](#microsoftmonitor) |
 | [Microsoft.OperationalInsights](#microsoftoperationalinsights) |
 | [Microsoft.OperationsManagement](#microsoftoperationsmanagement) |
+| [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor) |
 | **Management and governance** |
 | [Microsoft.Advisor](#microsoftadvisor) |
 | [Microsoft.Authorization](#microsoftauthorization) |
@@ -11962,6 +11963,19 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationsManagement/solutions/write | Create new OMS solution |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationsManagement/solutions/delete | Delete existing OMS solution |
+
+### Microsoft.WorkloadMonitor
+
+Azure service: [Azure Monitor](../azure-monitor/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.WorkloadMonitor/register/action | Registers subscription with Microsoft.WorkloadMonitor resource provider |
+> | Microsoft.WorkloadMonitor/unregister/action | Unregisters subscription with Microsoft.WorkloadMonitor resource provider |
+> | Microsoft.WorkloadMonitor/monitors/read | Gets monitors and their current health states |
+> | Microsoft.WorkloadMonitor/monitors/history/read | Gets the history of health changes of a specific monitor |
+> | Microsoft.WorkloadMonitor/operations/read | Gets a list of the supported operations |
 
 ## Management and governance
 
