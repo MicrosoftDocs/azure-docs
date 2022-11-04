@@ -103,5 +103,17 @@ Call and chat client libraries must have the context for the call they join. Lik
 | iOS     | iOS 14 and later |
 | Android | API 21 and later |
 
+## Troubleshooting guide
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+When troubleshooting voice or video calls, you may be asked to provide a **CallID**.
+
+This can be retrieved via the action bar on the bottom of the call screen; you will see three dots, once the user perform the tap action an option of ***"Share diagnostic info"***, the user will have the capability to share with you the **CallID**.
+
+| | | |
+| ------------------| ------------------------| ----------- |
+ | :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Callscreen Diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Share Call ID with Contoso.":::|
+
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)
