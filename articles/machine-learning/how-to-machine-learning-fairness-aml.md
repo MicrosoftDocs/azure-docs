@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
-ms.reviewer: ssalgado
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
