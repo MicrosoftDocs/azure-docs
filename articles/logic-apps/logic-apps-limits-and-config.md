@@ -133,12 +133,6 @@ By default, the app setting named **Workflows.RuntimeConfiguration.RetentionInDa
 
 1. [Follow these steps to add the host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#manage-host-settings-visual-studio-code), and set the value to the number of days as the interval between when to check for and delete run history that you don't want to keep.
 
-#### Azure CLI
-
-1. [Follow these steps to add the app setting named **Workflows.RuntimeConfiguration.RetentionInDays**](edit-app-settings-host-settings.md?tabs=azure-cli#manage-app-settings), and set the value to the number days that you want to keep your workflow run history.
-
-1. [Follow these steps to add the host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#manage-host-settings-azure-cli), and set the value to the number of days as the interval between when to check for and delete run history that you don't want to keep.
-
 ---
 
 <a name="concurrency-looping-and-debatching-limits"></a>
