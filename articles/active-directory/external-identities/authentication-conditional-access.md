@@ -92,9 +92,8 @@ Learn more about [Conditional Access user assignments](../conditional-access/con
 
 The following table gives a detailed comparison of the security policy and compliance options in Azure AD External Identities. Security policy and compliance are managed by the host/inviting organization under Conditional Access policies.
 
-
-|Controls  |**B2B collaboration users**  |**B2B direct connect users**|
-|---------|---------|---------|
+|**Policy** |**B2B collaboration users**  |**B2B direct connect users**|
+| :------------ | :-------------- | :----- |
 |Grant controls — Block access   |   Supported       |   Supported      |
 |Grant controls — MFA     |  Supported        |   Supported Requires Accept within Cross-tenant access settings       |
 |Grant controls — Compliant Device     | Supported Requires Accept within Cross-tenant access settings         | Supported Requires Accept within Cross-tenant access settings         |
@@ -107,11 +106,6 @@ The following table gives a detailed comparison of the security policy and compl
 |Session controls — Conditional Access App control     |  Supported       |   Not supported       |
 |Session controls — Sign-in frequency     |  Supported       |   Not supported       |
 |Session controls — Persistent browser session   |   Supported      |  Not supported        |
-
-
-
-
-
 
 ### MFA for Azure AD external users
 
