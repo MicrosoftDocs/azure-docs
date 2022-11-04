@@ -238,7 +238,9 @@ The subnet you're using for the load test isn't in the `Succeeded` state and isn
 
 ### Create or updating the load test fails with `Subnet is delegated to other service (ALTVNET003)`
 
-The subnet you use for deploying the load test can't be delegated to another Azure service. Select another subnet that is not delegated to another service.
+The subnet you use for deploying the load test can't be delegated to another Azure service. Either remove the existing delegation, or select another subnet that is not delegated to a service.
+
+Learn more about [adding or removing a subnet delegation](/azure/virtual-network/manage-subnet-delegation#remove-subnet-delegation-from-an-azure-service).
 
 ### Starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
 
