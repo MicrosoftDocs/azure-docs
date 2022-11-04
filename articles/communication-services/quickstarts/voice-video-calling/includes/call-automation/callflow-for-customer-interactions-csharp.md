@@ -151,7 +151,7 @@ In Visual Studio, right click at your project and then select "Manage User Secre
 
 :::image type="content" source="./../../media/call-automation/dotNetUserSecret.jpg" alt-text="Screenshot of how to find out 'Manage User Secrets'":::
 
-Reading more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets)
+Reading more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/app-secrets)
 
 ``` json
 {
