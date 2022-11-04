@@ -29,26 +29,24 @@
       href: quickstart-terraform.md
 - name: Tutorials
   items:
-    - name: Create and manage data
+    - name: Build web applications
       items:
-        - name: Build a console app
-          items:
-            - name: .NET
-              href: quickstart-dotnet.md
-            - name: Java
-              href: quickstart-java.md?tabs=sync
-            - name: Async Java
-              href: quickstart-java.md?tabs=async
-            - name: Node.js
-              href: quickstart-nodejs.md
-        - name: Build a web app
-          items:
-            - name: .NET
-              href: tutorial-dotnet-web-app.md
-            - name: Java
-              href: tutorial-java-web-app.md
-            - name: Node.js
-              href: tutorial-nodejs-web-app.md
+        - name: .NET
+          href: tutorial-dotnet-web-app.md
+        - name: Java
+          href: tutorial-java-web-app.md
+        - name: Node.js
+          href: tutorial-nodejs-web-app.md
+    - name: Build console applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-console-app.md
+        - name: Java
+          href: quickstart-java.md?tabs=sync
+        - name: Async Java
+          href: quickstart-java.md?tabs=async
+        - name: Node.js
+          href: quickstart-nodejs.md
     - name: Query data
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service

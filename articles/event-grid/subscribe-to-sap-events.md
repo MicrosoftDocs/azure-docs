@@ -8,9 +8,6 @@ ms.date: 10/25/2022
 # Subscribe to events published by SAP
 This article describes steps to subscribe to events published by a SAP S/4HANA system. 
 
-> [!NOTE]
-> See the [New SAP events on Azure Event Grid](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372) for an announcement of this feature.
-
 ## High-level steps
 
 The common steps to subscribe to events published by any partner, including SAP, are described in [subscribe to partner events](subscribe-to-partner-events.md). For your quick reference, the steps are provided again here with the addition of a step to make sure that your SAP system has the required components. This article deals with steps 1 and 3.

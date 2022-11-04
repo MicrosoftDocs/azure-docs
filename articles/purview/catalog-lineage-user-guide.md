@@ -1,8 +1,8 @@
 ---
 title: Data Catalog lineage user guide
 description: This article provides an overview of the catalog lineage feature of Microsoft Purview.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/20/2022
