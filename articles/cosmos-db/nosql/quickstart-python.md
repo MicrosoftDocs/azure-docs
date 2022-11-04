@@ -88,7 +88,7 @@ For this sample code, the container will use the category as a logical partition
 
 ### Authenticate the client
 
-From the project directory, open the *app.py* file. In your editor, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` package.
+From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
 
