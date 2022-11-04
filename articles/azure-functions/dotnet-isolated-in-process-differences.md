@@ -5,20 +5,20 @@ ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 09/29/2022
 recommendations: false
-#Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best execution mode for my functions.
+#Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
 
 # Differences between in-process and isolate worker process .NET Azure Functions
 
-Functions supports two execution modes for .NET class library functions:
+Functions supports two process models for .NET class library functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)] 
 
-This article describes the current state of the functional and behavioral differences between the two execution modes.
+This article describes the current state of the functional and behavioral differences between the two models.
 
 ## Execution mode comparison table 
 
-Use the following table to compare feature and functional differences between the two execution modes:
+Use the following table to compare feature and functional differences between the two models:
 
 | Feature/behavior |  In-process<sup>3</sup> | Isolated worker process  |
 | ---- | ---- | ---- |
