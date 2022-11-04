@@ -79,16 +79,6 @@ This section describes the hyperparameters available specifically for computer v
 Please note that the `training_parameters` object can have properties from [Model Specific Hyperparameters](#model-specific-hyperparameters), [Model Agnostic Hyperparameters](#model-agnostic-hyperparameters) and [Image Classification (multi-class and multi-label) Specific Hyperparameters](#image-classification-multi-class-and-multi-label-specific-hyperparameters).
 
 #### Model Specific Hyperparameters
-This table summarizes hyperparameters specific to the `yolov5`.
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
-| `image_size` | integer | Image size for train and validation. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | | 640 |
-| `model_size` | string | Model size. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*. | `small`, `medium`, `large`, `extra_large` | `medium` |
-| `multi_scale` | bool | Enable multi-scale image by varying image size by +/- 50%. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory.* | `False`, `True` | `False` |
-| `nms_iou_threshold` | float | IOU threshold used during inference in non-maximum suppression post processing.| A value in the range [0, 1] | 0.5 |
-
 
 This table summarizes hyperparameters specific to the `maskrcnn_*`.
 
@@ -98,7 +88,6 @@ This table summarizes hyperparameters specific to the `maskrcnn_*`.
 | `max_number_of_polygon_points` | integer | Maximum number of (x, y) coordinate pairs in polygon after converting from a mask. | | 100 |
 | `export_as_image` | bool | Export masks as images. | `True`, `False` | False |
 | `image_type` | string | Type of image to export mask as.  | `jpg`, `png`, `bmp` | `jpg` |
-
 
 #### Model Agnostic Hyperparameters
 The following table describes the hyperparameters that are model agnostic.
