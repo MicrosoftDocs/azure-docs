@@ -14,7 +14,7 @@ ms.author: danlep
 
 This article introduces service capabilities and considerations to ensure that your API Management instance continues to serve API requests if Azure outages occur. 
 
-API Management supports the following key service capabilities that are recommended for [reliable and resilient](../reliability/overview-reliability.md) Azure solutions. Use them individually, or together, to improve the availability of your API Management solution:
+API Management supports the following key service capabilities that are recommended for [reliable and resilient](../reliability/overview.md) Azure solutions. Use them individually, or together, to improve the availability of your API Management solution:
 
 * **Availability zones**, to provide resilience to datacenter-level outages
 
@@ -71,6 +71,6 @@ For details, see the blog post [Back-end API redundancy with Azure API Manager](
 
 ## Next steps
 
-* Learn more about [reliability in Azure](../reliability/overview-reliability.md)
+* Learn more about [reliability in Azure](../reliability/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 * Read [API Management and reliability](/azure/architecture/framework/services/networking/api-management/reliability) in the Azure Well-Architected Framework
