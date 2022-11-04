@@ -185,7 +185,7 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 
 ### Get database
 
-Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](https://learn.microsoft.com/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
+Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
 
 ```python
 # Create database if it doesn't exist
@@ -203,7 +203,7 @@ else:
 
 ### Get collection
 
-Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](https://learn.microsoft.com/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
+Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
 
 ```python
 # Create collection if it doesn't exist
