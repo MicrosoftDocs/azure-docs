@@ -241,7 +241,7 @@ SELECT * FROM pg_replication_slots;
 * **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
 
 >[!IMPORTANT]
-> You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists.  Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops the logical replication slot and thus releasing WAL files to avoid your server unavailability due to storage full.
+> You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists.  Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops the logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.
 
 ## Next steps
 * Learn more about [networking options](concepts-networking.md)
