@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Contentkalender with Azure Activ
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Contentkalender single sign-on (SSO) enabled subscription (contact Contentkalender [customer service](info@contentkalender.nl)).
+* Contentkalender single sign-on (SSO) enabled subscription (contact Contentkalender [customer service](mailto:info@contentkalender.nl)).
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
