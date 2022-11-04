@@ -145,7 +145,7 @@ Follow these steps to perform a planned failover from your primary to the standb
 
 There are Azure regions that do not support availability zones. If you have already deployed non-HA servers, you cannot directly enable zone redundant HA on the server, but you can perform restore and enable HA in that server.  Following steps shows how to enable Zone redundant HA for that server.
 
-1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restoring-to-the-latest-restore-point). Choose **Latest restore point**. 
+1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restore-to-the-latest-restore-point). Choose **Latest restore point**. 
 2. Choose a server name, availability zone.
 3. Click **Review+Create**".
 4. A new Flexible server will be created from the backup. 

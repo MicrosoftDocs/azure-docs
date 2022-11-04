@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/24/2022
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -29,7 +29,7 @@ Azure NetApp Files lets you deploy new volumes in the logical availability zone 
 
 * NetApp accounts and capacity pools are not bound by the availability zone. A capacity pool can contain volumes in different availability zones.  
 
-* This feature provides zonal volume placement, with latency within the zonal latency envelopes. It does not provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee.
+* This feature provides zonal volume placement, with latency within the zonal latency envelopes. It ***does not*** provide proximity placement towards compute. As such, it ***does not*** provide lowest latency guarantee.
 
 * Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. This feature aligns with the generic logical-to-physical availability zone mapping for the subscription. 
 

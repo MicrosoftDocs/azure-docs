@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 10/23/2021
+ms.date: 10/24/2022
 author: mikefrobbins
 ms.author: mirobb
-manager: barbkess
+manager: mkluck
 
 ---
 > [!NOTE]
