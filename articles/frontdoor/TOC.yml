@@ -251,6 +251,8 @@
       items:
       - name: Configure
         items:
+        - name: Upgrade to Premium tier
+          href: tier-upgrade.md
         - name: Front Door manager
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
