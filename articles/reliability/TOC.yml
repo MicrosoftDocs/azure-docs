@@ -142,7 +142,7 @@
     - name: Reliability by service
       items:
       - name: Azure Active Directory Domain Services
-        href: ../active-directory-domain-services/overview.md
+        href: ../active-directory-domain-services/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure API Management
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md
       - name: Azure App Configuration
@@ -251,7 +251,7 @@
   - name: Service availability by sovereign cloud
     items:
     - name: US Government
-      href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../azure-government/compare-azure-government-global-azure.md#service-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure in China
       href: sovereign-cloud-china.md     
   - name: Service availability by region
