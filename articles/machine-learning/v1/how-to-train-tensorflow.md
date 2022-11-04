@@ -136,7 +136,7 @@ To define the Azure ML [Environment](../concept-environments.md) that encapsulat
 
 #### Use a curated environment
 
-Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. You can use the latest version of this environment using the `@latest` directive. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
 
 If you want to use a curated environment, the code will be similar to the following example:
 
