@@ -46,7 +46,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 This section describes how to assign an endpoint to Spring Cloud Gateway and configure its properties.
 
-To view the running state and resources given to Spring Cloud Gateway and its operator, open your Azure Spring Apps instance in the Azure portal, select the **Spring Cloud Gateway** section, then select **Overview**.
+To view the running state and resources given to Spring Cloud Gateway and its operator, open your Azure Spring Apps instance in the Azure portal, select the **Spring Cloud Gateway** section, and then select **Overview**.
 
 To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
 
