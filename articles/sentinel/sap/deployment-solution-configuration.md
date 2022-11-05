@@ -111,6 +111,7 @@ For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`
 ```
 ABAPJobLog = False
 ```
+Then restart the docker container `docker restart sapcon-[SID]`
 Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
 
 You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
