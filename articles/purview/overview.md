@@ -59,13 +59,13 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 ## Data Policy
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 Benefits:
-* Structure and simplify the process of granting/revoking access
-* Reduce the effort of access provisioning
-* Access decision in Microsoft data systems has negligible latency penalty
+* Structure and simplify the process of granting/revoking access.
+* Reduce the effort of access provisioning.
+* Access decision in Microsoft data systems has negligible latency penalty.
 * Enhanced security:
-   - Easier to review access/revoke it in a central vs. distributed access provisioning model
-   - Reduced need for privileged accounts to configure access
-   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects)
+   - Easier to review access/revoke it in a central vs. distributed access provisioning model.
+   - Reduced need for privileged accounts to configure access.
+   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
 
 For more information, see our introductory guides:
 * [Data owner access policies](concept-policies-data-owner.md)(preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
