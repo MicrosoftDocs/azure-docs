@@ -48,7 +48,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
 || [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
-||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-policies-data-owner-arc-sql-server.md) | No |
+||    SQL Server on Azure-Arc| No |No | No |[Yes](how-to-policies-data-owner-arc-sql-server.md) | No |
 ||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
 ||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |
