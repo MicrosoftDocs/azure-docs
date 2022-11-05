@@ -3,7 +3,7 @@ title: Migrate apps from Azure Functions version 3.x to 4.x
 description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 10/23/2022
+ms.date: 11/05/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -214,7 +214,7 @@ To update your project to Azure Functions 4.x:
 3. If needed, move to one of the [Node.js versions supported on version 4.x](functions-reference-node.md#node-version).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-3. If needed, upgrade to PowerShell 7.2. For more information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
+3. Take this opportunity to upgrade to PowerShell 7.2, which is recommended. For more information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 3. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
@@ -224,7 +224,7 @@ To update your project to Azure Functions 4.x:
 
 ## Breaking changes between 3.x and 4.x
 
-The following are key breaking changes to be aware of before upgrading a 3.x app to 4.x, including language-specific breaking changes. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
+The following are key breaking changes to be aware of before upgrading a 3.x app to 4.x, including language-specific breaking changes. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). 
 
 If you don't see your programming language, go select it from the [top of the page](#top). 
 
@@ -236,7 +236,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
-- Default and maximum timeouts are now enforced in 4.x for function app running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+- Default and maximum timeouts are now enforced in 4.x for function apps running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
 - Azure Functions 4.x uses `Azure.Identity` and `Azure.Security.KeyVault.Secrets` for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. For more information about how to configure function app settings, see the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories). ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
 
@@ -273,3 +273,8 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Default thread count has been updated. Functions that aren't thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Functions versions](functions-versions.md)

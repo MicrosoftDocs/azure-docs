@@ -29,7 +29,7 @@ Update-AzFunctionAppSetting -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "~4"} 
 ```
 ---
 
-During upgrade, you must also set an additional setting, which differs between Windows and Linux.
+During upgrade, you must also set another setting, which differs between Windows and Linux.
 
 # [Windows](#tab/windows/azure-cli)
 

@@ -3,7 +3,7 @@ title: Migrate apps from Azure Functions version 1.x to 4.x
 description: This article shows you how to upgrade your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 10/19/2022
+ms.date: 11/05/2022
 ms.custom: template-how-to-pattern 
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -365,7 +365,7 @@ To update your project to Azure Functions 4.x:
 
 1. Move to one of the [Node.js versions supported on version 4.x](functions-reference-node.md#node-version).
 
-1. Add both `version` and `extensionBundle` elements to the host.json, so that it looks like the following:
+1. Add both `version` and `extensionBundle` elements to the host.json, so that it looks like the following example:
 
     [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
  
@@ -385,9 +385,9 @@ To update your project to Azure Functions 4.x:
 
     The `AzureWebJobsStorage` setting can be either the Azurite storage emulator or an actual Azure storage account. For more information, see [Local storage emulator](/functions-develop-local.md#local-storage-emulator).
 ::: zone-end  
-
+::: zone pivot="programming-language-javascript,programming-language-csharp"
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
-
+::: zone-end
 ## Behavior changes after version 1.x
 
 This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
