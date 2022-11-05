@@ -18,19 +18,16 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: October 2022
 
-* Support for [Read Replica](./concepts-read-replicas.md) in preview.
-* Support for [Azure Active Directory](concepts-azure-ad-authentication.md) in preview.
-* Support for [Customer managed keys](concepts-data-encryption.md) in preview.
-* Published [Securoty and compliance certifications](./concepts-compliance.md) for Flexible Server.
+* Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.
+* Support for [Azure Active Directory](concepts-azure-ad-authentication.md) authentication in public preview.
+* Support for [Customer managed keys](concepts-data-encryption.md) in public preview.
+* Published [Security and compliance certifications](./concepts-compliance.md) for Flexible Server.
 * Postgres 14 is now the default PostgreSQL version.
   
 ## Release: September 2022
 
-* Support for [Fast Restore](./concepts-backup-restore.md) 
-* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md)                
- 
-Please see the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
-
+* Support for [Fast Restore](./concepts-backup-restore.md) feature.
+* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md). See the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
 
 ## Release: August 2022
 
