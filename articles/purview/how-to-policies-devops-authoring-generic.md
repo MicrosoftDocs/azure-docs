@@ -6,16 +6,10 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 11/16/2022
 ms.custom:
 ---
-<<<<<<< HEAD
-# Create, list, update and delete DevOps policies
-=======
-# Create, list, update and delete Microsoft Purview DevOps policies (preview)
->>>>>>> db9f90f360b54f125ccb03d291ffb28bc93cf31d
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Create, list, update and delete Microsoft Purview DevOps policies
 
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
 
