@@ -19,7 +19,7 @@ This article discusses concepts related to managing access to data sources in yo
 > This capability is different from access control for Microsoft Purview itself, which is described in [Access control in Microsoft Purview](./catalog-permissions.md).
 
 ## Overview
-Access to system metadata is crucial for database administrators and other DevOps users to perform their job. That access can be granted and revoked efficiently and at-scale through Microsoft Purview DevOps policies.
+Access to system metadata is crucial for IT operations and other DevOps personnel to perform their job. That access can be granted and revoked efficiently and at-scale through Microsoft Purview DevOps policies.
 
 ### Microsoft Purview access policies vs. DevOps policies
 Microsoft Purview access policies enable customers to manage access to different data systems across their entire data estate, all from a central location in the cloud. These policies are access grants that can be created through Microsoft Purview Studio, avoiding the need for code. They dictate whether a set of Azure AD principals (users, groups, etc.) should be allowed or denied a specific type of access to a data source or asset within it. These policies get communicated to the data sources where they get natively enforced.
