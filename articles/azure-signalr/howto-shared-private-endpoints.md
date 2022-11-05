@@ -12,7 +12,7 @@ ms.author: lianwei
 
 # Secure Azure SignalR outbound traffic through Shared Private Endpoints
 
-If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to an upstream service. Upstream services such as Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
+If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to an upstream service. Upstream services, such as Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. To reach these endpoints, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md).
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints\shared-private-endpoint-overview.png" :::
 
@@ -26,7 +26,7 @@ This outbound method is subject to the following requirements:
 
 ## Shared Private Link Resources Management
 
-Private endpoints of secured resources that are created through Azure SignalR Service APIs. They're referred to as *shared private link resources* because you're sharing access to a resource, such as an Azure Function that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure SignalR Service execution environment and aren't accessible outside this environment.
+Private endpoints of secured resources are created through the SignalR Service APIs. They're referred to as *shared private link resources* because you're sharing access to a resource, such as an Azure Function that is integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside the SignalR Service execution environment and aren't accessible outside this environment.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ You'll need the following resources to complete the steps in this article:
 
 - > [!NOTE]
 > The examples in this article are based on the following assumptions:
-> * The resource ID of this Azure SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
+> * The resource ID of the SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
 > * The resource ID of upstream Azure Function is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Web/sites/contoso-func_.
 > The rest of the examples show how the *contoso-signalr* service can be configured so that its upstream calls to the function go through a private endpoint rather than public network.
 >  You may use your own resource IDs in the examples. 
@@ -47,7 +47,7 @@ You'll need the following resources to complete the steps in this article:
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, go to your Azure SignalR Service resource.
+1. In the Azure portal, go to your SignalR Service resource.
 1. Select **Networking** with the left menu.
 1. Select the **Private access** tab.
 1. Select **Add shared private endpoint** in the **Shared private endpoints** section.
@@ -62,7 +62,7 @@ You'll need the following resources to complete the steps in this article:
     | **Subscription** | The subscription containing your Function app. |
     | **Resource** | Enter the name of your Function app. |
     | **Request Message** | Enter "please approve" |
-    
+
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-add.png" :::
@@ -111,7 +111,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 ## Approve the private endpoint connection for the function
 
 > [!IMPORTANT]
-> After you approved the private endpoint connection, the Function is no longer accessible from public network. You may need to create other private endpoints in your own virtual network to access the Function endpoint.
+> After you approve the private endpoint connection, the Function is no longer accessible from a public network. You may need to create other private endpoints in your virtual network to access the Function endpoint.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -165,7 +165,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 ## Query the status of the shared private link resource
 
-It takes a few minutes for the approval to be propagated to Azure SignalR Service. You can check the state using either Azure portal or Azure CLI.
+The approval takes a few minutes to propagate to the SignalR Service. You can check the state using either the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -193,24 +193,24 @@ The command will return a JSON structure, where the connection state is shown as
 
 ```
 
-When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and Azure SignalR Service can communicate over the private endpoint.
+When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and the SignalR Service can communicate over the private endpoint.
 
 -----
 
-At this point, the private endpoint between Azure SignalR Service and Azure Function is established.
+At this point, the private endpoint between the SignalR Service and Azure Function is established.
 
 ## Verify upstream calls are from a private IP
 
-Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
+Once the private endpoint is set up, you can verify incoming calls from a private IP by checking the `X-Forwarded-For` header upstream side.
 
 :::image type="content" alt-text="Screenshot of the Azure portal, showing incoming requests are from a private IP." source="media\howto-shared-private-endpoints\portal-function-log.png" :::
 
 ## Cleanup
 
-If you are not going to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+If you do not plan to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
 
 >[!CAUTION]
-> The deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
+> Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
 
 ## Next steps
 

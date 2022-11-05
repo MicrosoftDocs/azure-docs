@@ -12,13 +12,13 @@ ms.author: dayshen
 
 # Access Key Vault in a private network through shared private endpoints
 
-Through Shared Private Endpoints, Azure SignalR Service can access your Key Vault in a private network. This way, your Key Vault isn't exposed on a public network.
+Azure SignalR Service can access your Key Vault in a private network through Shared Private Endpoints. This way, your Key Vault isn't exposed on a public network.
 
 :::image type="content" alt-text="Diagram that shows the architecture of a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
 You can create private endpoints through Azure SignalR Service APIs for shared access to a resource integrated with [Azure Private Link service](https://azure.microsoft.com/services/private-link/).   These endpoints, called *shared private link resources*, are created inside the SignalR execution environment and aren't accessible outside this environment.
 
-In this article, you learn how to create a shared private endpoint to Key Vault.
+In this article, you'll learn how to create a shared private endpoint to Key Vault.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ You'll need the following resources to complete this article:
 - An Azure Key Vault instance.
 
 
-The examples in this article use the following naming convention.  You can use your own names instead.
+The examples in this article use the following naming convention, although you can use your own names instead.
 
 - The resource ID of this Azure SignalR Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr_.
 - The resource ID of Azure Key Vault is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv_.
@@ -55,12 +55,12 @@ The examples in this article use the following naming convention.  You can use y
     | **Subscription** | The subscription containing your Key Vault. |
     | **Resource** | Enter the name of your Key Vault resource. |
     | **Request Message** | Enter "please approve" |
-    
+
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-When the private endpoint is added successfully, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until the endpoint is approved on the Key Vault side.
+When you have successfully added the private endpoint, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until you approve the endpoint on the Key Vault side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
@@ -93,7 +93,7 @@ The process of creating an outbound private endpoint is a long-running (asynchro
 
 You can poll this URI periodically to obtain the status of the operation.
 
-If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value:
+You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value:
 
 ```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview
@@ -112,7 +112,7 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
 1. Select the **Private endpoint connections** tab. 
     After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
-1. Select the private endpoint that Azure SignalR Service created, then select **Approve**.
+1. Select the private endpoint that SignalR Service created, then select **Approve**.
 :::image type="content" source="media/howto-shared-private-endpoints-key-vault/portal-keyvault-private-endpoint-approve-connection.png" alt-text="Screenshot of Approve connection dialog for private endpoint in Azure Key Vault.":::
 1. Select **Yes** to approve the connection. 
 
@@ -126,7 +126,7 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
     az network private-endpoint-connection list -n <key-vault-resource-name>  -g <key-vault-resource-group-name> --type 'Microsoft.KeyVault/vaults'
     ```
 
-    There should be a pending private endpoint connection. Note down its ID.
+    There should be a pending private endpoint connection. Note its ID.
 
     ```json
     [
@@ -155,7 +155,7 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
 
 ## Verify the shared private endpoint is functional 
 
-After a few minutes,  the approval is propagated to the SignalR Service and the connection state is set to *Approved*.  You can check the state using either Azure portal or Azure CLI.
+After a few minutes, the approval propagates to the SignalR Service, and the connection state is set to *Approved*.  You can check the state using either Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -188,17 +188,14 @@ When the "Provisioning State" (`properties.provisioningState`) of the resource i
 
 -----
 
-When the provisioning state is set to **Succeeded** and the connection state is set to **Approved**, the private endpoint between the SignalR Service and Azure Key Vault is established.
-
-
-
+When the private endpoint between the SignalR Service and Azure Key Vault is functional,  the value of the provisioning state is **Succeeded**, and the connection state is **Approved**.
 
 ## Cleanup
 
-If you are not going to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+If you do not plan to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
 
 >[!CAUTION]
-> The deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
+> Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
 
 ## Next steps
 
