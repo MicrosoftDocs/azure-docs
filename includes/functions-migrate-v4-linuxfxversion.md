@@ -21,23 +21,17 @@ If you are migrating to .NET Functions isolated worker process, use either `DOTN
 ```azurecli
 az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Java|11"
 ```
-The `--linux-fx-version` value must match your target Java version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
+The `--linux-fx-version` value must match your target Java version. 
 :::zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 ```azurecli
 az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Node|16"
 ```
-The `--linux-fx-version` value must match your target Node.js version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
-:::zone-end
-::: zone pivot="programming-language-powershell"
-```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "PowerShell|7.2"
-```
-The `--linux-fx-version` value must match your target PowerShell version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
+The `--linux-fx-version` value must match your target Node.js version. 
 :::zone-end
 ::: zone pivot="programming-language-python"
 ```azurecli
 az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "Python|3.9"
 ```
-The `--linux-fx-version` value must match your target PowerShell version. To find all supported values, see [Valid `linuxFxVersion` values](../articles/azure-functions/functions-app-settings.md#valid-linuxfxversion-values).
+The `--linux-fx-version` value must match your target PowerShell version. 
 :::zone-end
