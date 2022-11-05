@@ -34,7 +34,6 @@ To send data to Log Analytics, create the data collection rule in the *same regi
 1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
@@ -109,15 +108,18 @@ For sample templates, see [Azure Resource Manager template samples for data coll
 ---
 ## Filter events using XPath queries
 
-You're charged for any data you collect in a Log Analytics workspace, so collect only the data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events.
+You're charged for any data you collect in a Log Analytics workspace, so collect only the data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events. There are two methods that you can use to further filter event data from the agent. Both of these methods are specified in the data collection rule.
 
-To specify more filters, use custom configuration and specify an XPath that filters out the events you don't need. XPath entries are written in the form `LogName!XPathQuery`. For example, you might want to return only events from the Application event log with an event ID of 1035. The `XPathQuery` for these events would be `*[System[EventID=1035]]`. Because you want to retrieve the events from the Application event log, the XPath is `Application!*[System[EventID=1035]]`
+- [XPath queries](#xpath-queries) filter data collected from the agent before it's sent to Azure Monitor.
+- [Transformations](#transformations) apply a KQL query to data sent from the agent that further filters or transforms the data before it's stored in the Log Analytics workspace.
 
-### Extract XPath queries from Windows Event Viewer
+:::image type="content" source="media/data-collection-rule-azure-monitor-agent/agent-filter-methods.png" alt-text="Diagram showing XPath query on agent sending filtered data to Azure Monitor where a transformation is applied and then transformed data sent to Log Analytics workspace." lightbox="media/data-collection-rule-azure-monitor-agent/agent-filter-methods.png":::
 
-In Windows, you can use Event Viewer to extract XPath queries as shown in the screenshots.
 
-When you paste the XPath query into the field on the **Add data source** screen, as shown in step 5, you must append the log type category followed by an exclamation point (!).
+### XPath queries
+Specify XPath queries in the **custom** configuration and specify an XPath that filters out the events you don't need. XPath entries are written in the form `LogName!XPathQuery`. For example, you might want to return only events from the Application event log with an event ID of 1035. The `XPathQuery` for these events would be `*[System[EventID=1035]]`. Because you want to retrieve the events from the Application event log, the XPath is `Application!*[System[EventID=1035]]`
+
+One method to build XPath queries is using the Windows Event Viewer to extract XPath queries as shown in the screenshots below. When you paste the XPath query into the field on the **Add data source** screen, as shown in step 5, you must append the log type category followed by an exclamation point (!).
 
 [ ![Screenshot that shows the steps to create an XPath query in the Windows Event Viewer.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
 
@@ -144,6 +146,48 @@ Examples of using a custom XPath to filter events:
 | Collect Security Log events with Event ID = 4648 and a process name of consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
 | Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | Collect all success and failure Security events except for Event ID 4624 (Successful logon) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
+
+### Transformations
+Use transformations when you need more granular criteria than you can define in an XPath query, or when you want to reduce data size by removing columns that you don't need. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to a Log Analytics workspace. Transformations use a [Kusto Query Language (KQL) statement](../essentials/data-collection-transformations-structure.md) that is applied individually to each entry in the incoming data. Because of the flexibility of KQL queries, you can use complex criteria to both filter records and individual columns from the incoming data.
+
+You can't currently define a transformation for the Azure Monitor agent in the Azure portal. You must manually edit the DCR to add the transformation. Use the following procedure to add a transformation to a data collection rule.
+
+1. Use the process described above to create a data collection rule that collects events. Wait several minutes for the DCR to deploy and collect some events that you can use to test your transformation query.
+
+2. Use [Log Analytics](../logs/log-analytics-overview.md) to create and test the query. This will typically use the [Event](/azure/azure-monitor/reference/tables/event) or [Syslog](/azure/azure-monitor/reference/tables/syslog) table which is where Azure Monitor agent sends data collected from the client machine. The below example shows a query that uses the `Event` table and filters records based on a particular string in the `RenderedDescription` column and removes three columns.
+
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/transformation-log-analytics.png" alt-text="Screenshot of Log Analytics with transformation query." lightbox="media/data-collection-rule-azure-monitor-agent/transformation-log-analytics.png":::
+
+3. Replace the table name in the query with `source`. You can't run this query in Log Analytics since this isn't the name od a table in the Log Analytics workspace. When the query is run in the transformation though, `source` is used in place of the table name.
+
+4. Use the process at [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md) to edit the DCR. Copy and paste the log query into the DCR before applying the changes. The query is used in the `transformKQL` entry which should be added to the `dataFlows` section as shown in the following sample code snippet. 
+
+
+    ```json
+    "dataFlows": [
+      {
+        "streams": [
+          "Microsoft-InsightsMetrics"
+        ],
+        "destinations": [
+          "azureMonitorMetrics-default"
+        ]
+      },
+      {
+        "streams": [
+          "Microsoft-Event"
+        ],
+        "destinations": [
+          "la-2147195954"
+        ],
+        "transformKql": "source | where RenderedDescription contains \"success\" | project-away TenantId, ManagementGroupName, Type"
+      }
+    ],
+    "provisioningState": "Succeeded"
+    ```
+
+
 
 ## Next steps
 
