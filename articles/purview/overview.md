@@ -6,7 +6,7 @@ ms.author: whhender
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/04/2022
+ms.date: 11/16/2022
 ---
 
 # What's available in the Microsoft Purview governance portal?
@@ -68,9 +68,9 @@ Benefits:
    - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
 
 For more information, see our introductory guides:
-* [Data owner access policies](concept-policies-data-owner.md)(preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
-* [Self-service access policies](concept-self-service-data-access-policy.md)(preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md)(preview): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
+* [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
+* [Self-service access policies](concept-self-service-data-access-policy.md) (preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
+* [DevOps policies](concept-policies-devops.md): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
 
 ## Traditional challenges that Microsoft Purview seeks to address
 
