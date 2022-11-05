@@ -146,6 +146,22 @@ For example:
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --retention-time -1 --total-retention-time -1
 ```
 
+# [PowerShell](#tab/PowerShell-1)
+
+Use the [Update-AzOperationalInsightsTable](https://learn.microsoft.com/en-us/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+
+```powershell
+Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
+```
+
+To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](https://learn.microsoft.com/en-us/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
+
+For example:
+
+```powershell
+Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName Syslog -RetentionInDays -1 -TotalRetentionInDays -1
+```
+
 ---
 
 ## Get retention and archive policy by table
@@ -183,6 +199,16 @@ For example:
 
 ```azurecli
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name SecurityEvent
+``` 
+
+# [PowerShell](#tab/PowerShell-2)
+
+To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](https://learn.microsoft.com/en-us/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-9.1.0) cmdlet.
+
+For example:
+
+```powershell
+Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -tableName SecurityEvent
 ``` 
 
 ---
