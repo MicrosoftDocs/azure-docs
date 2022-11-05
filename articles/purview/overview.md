@@ -57,19 +57,20 @@ Microsoft Purview Data Sharing enables organizations to securely share data both
 For more information, see our [introduction to Data Sharing](concept-data-share.md).
 
 ## Data Policy
-A set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
+Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 Benefits:
 * Structure and simplify the process of granting/revoking access
 * Reduce the effort of access provisioning
+* Access decision in Microsoft data systems has negligible latency penalty
 * Enhanced security:
    - Easier to review access/revoke it in a central vs. distributed access provisioning model
    - Reduced need for privileged accounts to configure access
    - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects)
 
 For more information, see our introductory guides:
-* [Data owner access policies](concept-policies-data-owner.md): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
-* [Self-service access policies](concept-self-service-data-access-policy.md): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
+* [Data owner access policies](concept-policies-data-owner.md)(preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
+* [Self-service access policies](concept-self-service-data-access-policy.md)(preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
+* [DevOps policies](concept-policies-devops.md)(preview): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
 
 ## Traditional challenges that Microsoft Purview seeks to address
 
