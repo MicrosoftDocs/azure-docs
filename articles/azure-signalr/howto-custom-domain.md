@@ -31,6 +31,7 @@ To configure a custom domain, you need to:
 - An Azure Resource Group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.
+- An custom domain certificate stored in your Key Vault instance  See [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
 - An Azure DNS zone. (Optional)
 
 ## Add a custom certificate
@@ -41,10 +42,6 @@ There are four steps to adding a domain certificate.
 
 1. Enable managed identity in SignalR Service.
 1. Give the managed identity access to the Key Vault.
-1. 
-    QUESTION: Where do you store the certificate in Key Vault?
-
-1. Store the certificate in your Key Vault.
 1. Add a custom certificate in SignalR Service.
 
 ### Enable managed identity in SignalR Service
@@ -118,7 +115,7 @@ If you're using the **Azure role-based access control** permission model, follow
 
 -----
 
-### Create a custom certificate
+### Add the custom certificate
 
 1. In the Azure portal, go to your Azure SignalR Service resource.
 1. In the menu pane, select **Custom domain**.
@@ -126,10 +123,7 @@ If you're using the **Azure role-based access control** permission model, follow
 
    :::image type="content" alt-text="Screenshot of custom certificate management." source="media/howto-custom-domain/portal-custom-certificate-management.png" :::
 
-1. Enter a name for the custom certificate.
-
-QUESTION: How does the Key Vault get the certificate?  Is it created by the user outside of the scope of this article? Is it created by the service?
-
+1. Enter a name of the custom certificate.
 1. Select **Select from your Key Vault** to choose a Key Vault certificate. After selection the following **Key Vault Base URI**, **Key Vault Secret Name** should be automatically filled. Alternatively you can also fill in these fields manually.
 1. Optionally, you can specify a **Key Vault Secret Version** if you want to pin the certificate to a specific version.
 1. Select **Add**.
@@ -142,9 +136,7 @@ Azure SignalR Service will then fetch the certificate and validate its content. 
 
 ## Create a custom domain CNAME record
 
-
-QUESTION: Isn't the purpose of the CNAME record to link an alias to a domain name? How does that validate ownership of the custom domain?
-    To validate the ownership of your custom domain, you need to create a CNAME record for the custom domain to point it to the default domain of SignalR Service.        
+You need to create a CNAME record for the custom domain to point it to the default domain of SignalR Service.  The SignalR Service uses the record validate the ownership of your custom domain. 
 
 For example, if your default domain is `contoso.service.signalr.net`, and your custom domain is `contoso.example.com`, you need to create a CNAME record on `example.com`.
 
@@ -214,12 +206,11 @@ It should return `200` status code without any certificate error.
 
 ## Access Key Vault in private network
 
-QUESTION: Are we talking about a private endpoint setup by another resource? If the user has to set up a shared private endpoint, would it be shared between other services?  Would the SignalR Service instance have the public custom domain and then a private network for access to Key Vault?
-If you've configured a [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure SignalR Service can't access the Key Vault via public network. You need to set up a [Shared Private Endpoint](./howto-shared-private-endpoints-key-vault.md) to let Azure SignalR Service access your Key Vault via private network.
+If you've configured a [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure SignalR Service won't be able to access the Key Vault via public network. To let SignalR Service access your Key Vault, set up a private network by creating a [Shared Private Endpoint](./howto-shared-private-endpoints-key-vault.md)
 
-After you create a Shared Private Endpoint, you can create a custom certificate as usual. **You don't have to change the domain in the Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you'll use this URI to configure custom certificate.
+After you create a Shared Private Endpoint, you can create a custom certificate as usual. **You don't have to change the domain in the Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you'll use this URI to configure a custom certificate.
 
-You don't have to explicitly allow Azure SignalR Service IP addresses in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
+You don't have to explicitly allow SignalR Service IP addresses in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 
 ## Cleanup
 

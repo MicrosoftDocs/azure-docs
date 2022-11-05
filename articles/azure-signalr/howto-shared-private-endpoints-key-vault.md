@@ -103,7 +103,7 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
 
 -----
 
-## Approve the private endpoint for the Key Vault
+## Approve the private endpoint connection for the Key Vault
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -153,9 +153,9 @@ Wait until the status changes to **Succeeded** before you proceed to the next st
 
 -----
 
-## Verify the private endpoint is functional 
+## Verify the shared private endpoint is functional 
 
-After a few minutes,  the approval is propagated to the Azure SignalR Service and the connection state is set to *Approved*.  You can check the state using either Azure portal or Azure CLI.
+After a few minutes,  the approval is propagated to the SignalR Service and the connection state is set to *Approved*.  You can check the state using either Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -184,15 +184,13 @@ The command will return a JSON object, where the connection state is shown as "s
 
 ```
 
-When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and Azure SignalR Service can communicate over the private endpoint.
+When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and the SignalR Service can communicate over the private endpoint.
 
 -----
 
-When the provisioning state is set to **Succeeded** and the connection state is set to **Approved**, the private endpoint between Azure SignalR Service and Azure Key Vault is established.
+When the provisioning state is set to **Succeeded** and the connection state is set to **Approved**, the private endpoint between the SignalR Service and Azure Key Vault is established.
 
-QUESTION: Do we need the paragraph below?  It seems somewhat out of place here.  I think it's better to put it in the "Configure custom domain" article.
 
-    Now you can configure features like custom domain. **You don't have to use a special domain for Key Vault**. DNS resolution is automatically handled by Azure SignalR Service.        
 
 
 ## Cleanup
