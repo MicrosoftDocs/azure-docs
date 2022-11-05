@@ -190,10 +190,14 @@ landingContent:
       links:
         - text: Registering data sources for Data Use Management
           url: how-to-enable-data-use-management.md
+        - text: DevOps policies - Create, list, update and delete policies
+          url: how-to-policies-devops-authoring-generic.md
+        - text: DevOps policies - Azure SQL Database 
+          url: how-to-policies-devops-azure-sql-db.md
+        - text: DevOps policies - Azure Arc enabled SQL Servers
+          url: how-to-policies-devops-arc-sql-server.md
         - text: Authoring and publishing data owner access policies
           url: how-to-policies-data-owner-authoring-generic.md
-    - linkListType: tutorial
-      links:
         - text: Data owner policies for Azure Storage
           url: how-to-policies-data-owner-storage.md
         - text: Data owner policies on resource groups or subscriptions

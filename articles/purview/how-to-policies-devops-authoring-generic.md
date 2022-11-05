@@ -1,19 +1,23 @@
 ---
-title: Create, list, update and delete DevOps policies (preview)
+title: Create, list, update and delete Microsoft Purview DevOps policies (preview)
 description: Step-by-step guide on provisioning access through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/11/2022
+ms.date: 11/04/2022
 ms.custom:
 ---
+<<<<<<< HEAD
 # Create, list, update and delete DevOps policies
+=======
+# Create, list, update and delete Microsoft Purview DevOps policies (preview)
+>>>>>>> db9f90f360b54f125ccb03d291ffb28bc93cf31d
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
 
 This how-to guide covers how to provision access from Microsoft Purview to SQL-type data sources via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
@@ -41,7 +45,7 @@ To create a new DevOps policy, ensure first that you have the Microsoft Purview 
 1.  Select the **Data source type** and then one of the listed data sources under **Data source name**. Then click on **Select**. This will take you back to the New Policy experience
 ![Screenshot shows to select a data source for policy.](./media/how-to-policies-devops-authoring-generic/select-a-data-source.png)
 
-1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
+1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are not supported. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
 ![Screenshot shows to select role and subject for policy.](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
 
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.

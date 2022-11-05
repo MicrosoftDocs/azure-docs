@@ -6,6 +6,31 @@
   - name: Payment HSM overview
     href: overview.md
 
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quickstart-cli.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: ARM template
+    href: quickstart-template.md
+
+- name: Tutorials
+  items:
+  - name: 1. Create a payment HSM
+    items:
+    - name: With host and management ports in same VNet
+      href: create-payment-hsm.md
+    - name: With host and management ports different VNets
+      href: create-different-vnet.md
+    - name: With host and management port with IP addresses in different different VNets
+      href: create-different-ip-addresses.md
+  - name: 2. Access the payShield manager for your payment HSM
+    href: access-payshield-manager.md
+  - name: 3. Delete a commissioned payment HSM
+    href: remove-payment-hsm.md
+
 - name: Get started
   items:
   - name: Getting started with Azure Payment HSM
@@ -13,14 +38,27 @@
 
 - name: Concepts
   items:
-  - name: Deployment scenarios
-    href: deployment-scenarios.md
   - name: Certification and compliance
     href: certification-compliance.md
 
+- name: How-to guides
+  items:
+  - name: Register resource provider and resource provider features
+    href: register-payment-hsm-resource-providers.md
+  - name: Reuse an existing virtual network
+    href: reuse-vnet.md
+  - name: Change payShield performance level
+    href: change-performance-level.md
+  - name: Peer payment HSM virtual networks
+    href: peer-vnets.md
+- name: Deployment scenarios
+  items:
+  - name: High availability & disaster recovery
+    href: deployment-scenarios.md
+
 - name: Support
   items:
-  - name: Azure Payment HSM Service support guide
+  - name: Azure Payment HSM service support guide
     href: support-guide.md
 
 - name: Reference

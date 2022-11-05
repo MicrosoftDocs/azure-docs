@@ -2,10 +2,9 @@
 title: Azure Communication Services Call Recording overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Recording feature and APIs.
-author: tophpalmer
-manager: anvalent
+author: dbasantes
+manager: seaen
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -25,14 +24,14 @@ Call Recording enables you to record multiple calling scenarios available in Azu
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
 For example, you can record 1:1 or 1:N scenarios for audio and video calls enabled by [Calling Client SDK](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). 
 
-
-![Diagram showing call recording architecture using calling client sdk.](../media/call-recording-with-calling-client.png)
-
+![Diagram showing a call that it's being recorded.](../media/call-recording-client.png)
 
 But also, you can use Call Recording to record complex PSTN or VoIP inbound and outbound calling workflows managed by [Call Automation](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/call-automation).
 Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
-## Media output and Channel types supported
+![Diagram showing call recording architecture using calling client sdk.](../media/call-recording-with-call-automation.png)
+
+## Call Recording that supports your business needs
 Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can use unmixed formats to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
 
 ### Video
@@ -53,7 +52,7 @@ Call Recording supports multiple media outputs and content types to address your
 
 
 
-## Call Recording APIs
+## Get full control over your recordings with our Call Recording APIs
 Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 A `recordingId` is returned when recording is started, which is then used for follow-on operations like pause and resume.  
 
@@ -68,7 +67,7 @@ A `recordingId` is returned when recording is started, which is then used for fo
 
 
 ## Event Grid notifications
-Notifications related to media and metadata are emitted via Event Grid.
+Call Recording use [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) to provide you with notifications related to media and metadata.
 
 > [!NOTE]
 > Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.

@@ -2,7 +2,7 @@
 title: Application Insights transaction diagnostics | Microsoft Docs
 description: This article explains Application Insights end-to-end transaction diagnostics.
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 10/31/2022
 ms.reviewer: sdash
 ---
 
@@ -31,11 +31,10 @@ This view has four key parts: a results list, a cross-component transaction char
 
 This chart provides a timeline with horizontal bars during requests and dependencies across components. Any exceptions that are collected are also marked on the timeline.
 
-* The top row on this chart represents the entry point. It's the incoming request to the first component called in this transaction. The duration is the total time taken for the transaction to complete.
-* Any calls to external dependencies are simple noncollapsible rows, with icons that represent the dependency type.
-* Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
-* By default, the request, dependency, or exception that you selected appears on the right side.
-* Select any row to see its [details on the right](#details-of-the-selected-telemetry).
+1. The top row on this chart represents the entry point. It's the incoming request to the first component called in this transaction. The duration is the total time taken for the transaction to complete.
+1. Any calls to external dependencies are simple noncollapsible rows, with icons that represent the dependency type.
+1. Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
+1. By default, the request, dependency, or exception that you selected appears on the right side. Select any row to see its [details](#details-of-the-selected-telemetry).
 
 > [!NOTE]
 > Calls to other components have two rows. One row represents the outbound call (dependency) from the caller component. The other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
@@ -107,4 +106,4 @@ If all calls were instrumented, in process is the likely root cause for the time
 
 ### What if I see the message ***Error retrieving data*** while navigating Application Insights in the Azure portal? 
 
-This error indicates that the browser was unable to call into a required API or the API returned a failure response. To troubleshoot the behavior, open a browser [InPrivate window](https://support.microsoft.com/microsoft-edge/browse-inprivate-in-microsoft-edge-cd2c9a48-0bc4-b98e-5e46-ac40c84e27e2) and [disable any browser extensions](https://support.microsoft.com/microsoft-edge/add-turn-off-or-remove-extensions-in-microsoft-edge-9c0ec68c-2fbc-2f2c-9ff0-bdc76f46b026) that are running, then identify if you can still reproduce the portal behavior. If the portal error still occurs, try testing with other browsers, or other machines, investigate DNS or other network related issues from the client machine where the API calls are failing. If the portal error persists and requires further investigations, then [collect a browser network trace](https://learn.microsoft.com/azure/azure-portal/capture-browser-trace) while you reproduce the unexpected portal behavior and open a support case from the Azure portal. 
+This error indicates that the browser was unable to call into a required API or the API returned a failure response. To troubleshoot the behavior, open a browser [InPrivate window](https://support.microsoft.com/microsoft-edge/browse-inprivate-in-microsoft-edge-cd2c9a48-0bc4-b98e-5e46-ac40c84e27e2) and [disable any browser extensions](https://support.microsoft.com/microsoft-edge/add-turn-off-or-remove-extensions-in-microsoft-edge-9c0ec68c-2fbc-2f2c-9ff0-bdc76f46b026) that are running, then identify if you can still reproduce the portal behavior. If the portal error still occurs, try testing with other browsers, or other machines, investigate DNS or other network related issues from the client machine where the API calls are failing. If the portal error persists and requires further investigations, then [collect a browser network trace](../../azure-portal/capture-browser-trace.md#capture-a-browser-trace-for-troubleshooting) while you reproduce the unexpected portal behavior and open a support case from the Azure portal.
