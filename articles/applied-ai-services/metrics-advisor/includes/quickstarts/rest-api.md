@@ -20,7 +20,7 @@ ms.author: mbullwin
 
 ## Set up
 
-The example code for this quickstart will show you how to call the REST API using Python. For specific REST API calls consult [GitHub Samples](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/MetricsAdvisor/stable/v1.0/examples)
+The example code for this quickstart will show you how to call the REST API using Python. For specific REST API calls, consult [GitHub Samples](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/MetricsAdvisor/stable/v1.0/examples)
 
 > [!TIP]
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
@@ -164,7 +164,7 @@ def add_data_feed(endpoint, subscription_key, api_key):
         "fillMissingPointValue": 0,
         "viewMode": "Private",
         "admins": [
-            "yongw@microsoft.com"
+            "admin@contoso.com"
         ],
         "viewers": [
         ],
@@ -245,7 +245,7 @@ def create_web_hook(endpoint, subscription_key, api_key):
         "description": "",
         "externalLink": "",
         "hookParameter": {
-            "endpoint": "https://www.xxx.com",
+            "endpoint": "https://www.contoso.com",
             "username": "",
             "password": ""
         }
