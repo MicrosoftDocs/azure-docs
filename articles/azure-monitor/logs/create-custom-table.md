@@ -13,7 +13,10 @@ ms.date: 11/09/2022
 
 # Create custom tables and columns in Azure Monitor Logs
 
-Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) in which you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to any table in your Log Analytics workspace.  
+Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) in which you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+
+> [!NOTE]
+> When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define the [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection) you use to collect logs from the data source. 
 
 ## Prerequisites
 
