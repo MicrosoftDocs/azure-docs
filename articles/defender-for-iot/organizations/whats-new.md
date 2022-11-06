@@ -23,7 +23,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### New OT monitoring software release notes
 
-Defender for IoT documentation now has a new [release notes](release-notes.md) page dedicated to OT monitoring software.
+Defender for IoT documentation now has a new [release notes](release-notes.md) page dedicated to OT monitoring software, with details about our version support models and update recommendations.
 
 :::image type="content" source="media/release-notes/ot-release-notes.png" alt-text="Screenshot of the new OT monitoring software release notes page in docs." lightbox="media/release-notes/ot-release-notes.png":::
 
@@ -36,6 +36,22 @@ In contrast, the new [OT monitoring software release notes](release-notes.md) li
 - **For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
 
 For more information, see [OT monitoring software release notes](release-notes.md).
+
+## October 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+
+### Enhanced OT monitoring alert reference
+
+Our alert reference article now includes the following details for each alert:
+
+- **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities
+
+- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. The *cyberx* user can modify alert thresholds as needed from the sensor's **Support** page.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md), specifically [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
 
 ## October 2022
 
