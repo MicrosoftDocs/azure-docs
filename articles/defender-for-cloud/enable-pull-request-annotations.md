@@ -113,7 +113,7 @@ Before you can enable pull request annotations, your main branch must have enabl
 
 1. Ensure the build validation for your repository is toggled to **On**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located." lightbox="media/tutorial-enable-pr-annotations/build-validation.png":::
 
 1. Select **Save**. 
 
