@@ -72,7 +72,7 @@ Our alert reference article now includes the following details for each alert:
 
 - **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities.
 
-- **MITRE ATT&CK for ICS tactics and techniques**, helpful to describe the actions an adversary may take while operating within the network. This shared framework enables efficient collaboration between security and OT personnel in the organization by highlighting which network areas might be exposed to a potential attack and need to be secured.
+- **MITRE ATT&CK for ICS tactics and techniques**, which describe the actions an adversary may take while operating within the network. Use the tactics and techniques listed for each alert to learn about the network areas that might be at risk and collaborate more efficiently across your security and OT teams more as you secure those assets.
 
 - **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. Modify alert thresholds as needed from the sensor's **Support** page.
 
