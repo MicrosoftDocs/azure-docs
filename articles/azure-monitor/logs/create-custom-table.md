@@ -35,7 +35,7 @@ To create a custom table, you need:
     ]
     ``` 
     
-    For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats)
+    For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 ## Create a custom table
 
 When you create a custom table, you need to set the table schema and the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that defines which data to collect, how to transform that data, and where to send that data.

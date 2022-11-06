@@ -32,7 +32,7 @@ Each workspace contains multiple tables that are organized into separate columns
 
 ## Cost
 
-There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the log data plan of each table, as described in [Log data plan](../logs/manage-logs-tables.md#log-data-plan).
+There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the log data plan of each table, as described in [Log data plan](../logs/basic-logs-configure.md).
 
 For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
 
