@@ -172,7 +172,7 @@ The CloudFormation template should be deployed using Stack (or StackSet if you h
 
 When deploying the CloudFormation template, the Stack creation wizard offers the following options:
 
-:::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="screen shot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
+:::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="Screenshot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
 
 1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Enter the URL to the S3 bucket in the AWS deployment wizard. 
 
