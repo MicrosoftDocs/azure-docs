@@ -24,8 +24,7 @@ To create a custom table, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
-- A [data collection rule (DCR)](../logs/tutorial-logs-ingestion-api.md#create-data-collection-rule).
-  
+- A JSON file in which you define the schema of your custom table.  
 ## Create a custom table
 
 When you create a custom table, you need to set the table schema and the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that defines which data to collect, how to transform that data, and where to send that data.
@@ -51,6 +50,32 @@ To create a custom table in the Azure portal:
 4. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) and select **Next**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
+
+1. Select **Browse for files** and locate the JSON file in which you defined the schema of your new table. 
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" alt-text="Screenshot showing custom log browse for files.":::
+
+    All log tables in Azure Monitor Logs must have a `TimeGenerated` column populated with the timestamp of the logged event. 
+
+1. If you want to [transform log data before ingestion](../essentials//data-collection-transformations.md) into your table: 
+
+    1. Select **Transformation editor**. 
+
+        The transformation editor lets you create a transformation for the incoming data stream. This is a KQL query that runs against each incoming record. Azure Monitor Logs stores the results of the query will in the destination table. 
+    
+        :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-data-preview.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-data-preview.png" alt-text="Screenshot showing custom log data preview.":::
+
+    1. Select **Run** to view the results. 
+    
+        :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-query-01.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-query-01.png" alt-text="Screenshot showing initial custom log data query.":::
+
+1. Select **Apply** to save the transformation and view the schema of the table that's about to be created. Select **Next** to proceed.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-final-schema.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-final-schema.png" alt-text="Screenshot showing custom log final schema.":::
+
+11. Verify the final details and select **Create** to save the custom log.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
 ## [PowerShell](#tab/powershell-1)
 
