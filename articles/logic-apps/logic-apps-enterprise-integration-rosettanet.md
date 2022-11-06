@@ -205,8 +205,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
    :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/request-trigger.png" alt-text="Screenshot of the designer. Under the Request trigger, 'New step' is selected.":::
 
-1. Under the search box, select **All**. In the search box, enter **rosettanet**. From the actions list, 
-select the action named **RosettaNet Decode**.
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter **rosettanet**. From the actions list, select the action named **RosettaNet Decode**.
 
    :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-decode-rosettanet-action.png" alt-text="Screenshot of the designer. Under the 'Choose an operation' search box, 'All' is selected. The search box contains 'rosettanet', and the 'RosettaNet Decode' action is selected.":::
 
@@ -232,7 +231,7 @@ select the action named **RosettaNet Decode**.
 
    :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/request-trigger.png" alt-text="Screenshot of the designer. Under the Request trigger, 'New step' is selected.":::
 
-1. Under the search box, select **All**. In the search box, enter **rosettanet**. From the actions list, select the action named **RosettaNet Encode**.
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter **rosettanet** From the actions list, select the action named **RosettaNet Encode**.
 
    :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-encode-rosettanet-action.png" alt-text="Screenshot of the designer. Under the 'Choose an operation' search box, 'All' is selected. The search box contains 'rosettanet', and the 'RosettaNet Encode' action is selected.":::
 
