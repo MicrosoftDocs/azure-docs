@@ -2,7 +2,7 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 11/06/2022
 ms.author: edbaynash
 ---
 
