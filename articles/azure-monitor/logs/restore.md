@@ -104,30 +104,13 @@ Set the query time range by either:
 
 ## Dismiss restored data
 
-To save costs, dismiss restored data when you no longer need it by deleting the restored table.
+To save costs, we recommend you [delete the restored table](../logs/create-custom-table.md#delete-a-table) to dismiss restored data when you no longer need it.
 
 Deleting the restored table doesn't delete the data in the source table.
 
 > [!NOTE]
 > Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly. 
 
-# [API](#tab/api-2)
-To delete a restore table, call the **Tables - Delete** API:
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
-```
-# [CLI](#tab/cli-2)
-
-To delete a restore table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
-
-For example:
-
-```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Heartbeat_RST
-```
-
----
 ## Limitations
 Restore is subject to the following limitations. 
 

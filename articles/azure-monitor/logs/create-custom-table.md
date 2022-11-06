@@ -1,5 +1,5 @@
 ---
-title: Create custom tables and columns in Azure Monitor Logs
+title: Add or delete tables and columns in Azure Monitor Logs
 description: Create a table with a custom schema to collect logs from any data source. 
 author: guywi-ms
 ms.author: guywild
@@ -8,10 +8,10 @@ ms.service: azure-monitor
 ms.topic: how-to 
 ms.date: 11/09/2022
 
-# Customer intent:  As a Log Analytics workspace administrator, I want to create a table with a custom schema to store logs from an Azure or non-Azure data source.
+# Customer intent: As a Log Analytics workspace administrator, I want to create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 
-# Create custom tables and columns in Azure Monitor Logs
+# Add or delete tables and columns in Azure Monitor Logs
 
 Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) where you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
@@ -126,17 +126,53 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
     ```
 
 ---
-## Create or edit a custom column
+
+## Delete a table
+
+You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type). 
+
+### [Portal](#tab/portal-3)
+
+To delete a table from the Azure portal:
+
+1. From the Log Analytics workspace menu, select **Tables**.
+1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
+    
+    :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
+
+1. Select the tabls you want to delete, select the ellipsis (**...**) to the right of the table, select **Delete**, and confirm the deletion by typing **yes**.
+
+    :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
+    
+### [API](#tab/api-3)
+
+To delete a table, call the **Tables - Delete** API: 
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
+```
+
+### [CLI](#tab/cli-3)
+
+To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
+```
+
+---
+## Add a custom column
 
 To add a custom column to an existing table in your Log Analytics workspace:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
-1. Select the ellipsis (**...**) to the right of the table you want to edit.
-1. Select **Edit schema**. 
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Select the ellipsis (**...**) to the right of the table you want to edit and select **Edit schema**. 
+1. Select **Add column**.
+1. Set the column name, description (optional), and expected value type from the **Type** dropdown, and select **Save** to to save the new column.
 
-## Delete a custom table
+## Delete a custom column
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
