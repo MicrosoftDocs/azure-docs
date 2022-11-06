@@ -29,6 +29,7 @@ The following table summarizes the two plans.
 > [!NOTE]
 > The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
+## Which tables support Basic Logs?
 
 By default, all tables in your Log Analytics workspace are Analytics tables, and they're available for query and alerts. You can currently configure the following tables for Basic Logs:
 
