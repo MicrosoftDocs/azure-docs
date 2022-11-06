@@ -16,10 +16,11 @@ This article lists significant changes to Azure Monitor documentation.
   
 |Service| Article | Description |
 |---|---|---|
+|General|Table of contents|We have updated the Azure Monitor Table of Contents. The new TOC structure better reflects the customer experience and makes it easier for users to navigate and discover our content.|
 Alerts|[Connect Azure to ITSM tools by using IT Service Management](https://docs.microsoft.com/azure/azure-monitor/alerts/itsmc-definition)|Deprecating support for sending ITSM actions and events to ServiceNow. Instead, use ITSM actions in action groups based on Azure alerts to create work items in your ITSM tool.|
 Alerts|[Create a new alert rule](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)|New PowerShell commands to create and manage log alerts.|
 Alerts|[Types of Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-types)|Updated to include Prometheus alerts.|
-Alerts|[Customize alert notifications using Logic Apps ](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-logic-apps)|New: How to use alerts to send emails or Teams posts using logic apps|
+Alerts|[Customize alert notifications using Logic Apps](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-logic-apps)|New: How to use alerts to send emails or Teams posts using logic apps|
 Application-insights|[Sampling in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sampling)|The  "When to use sampling" and "How sampling works" sections have been prioritized as prerequisite information for the rest of the article.|
 Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/codeless-overview)|The auto-instrumentation overview has been visually overhauled with links and footnotes.|
 Application-insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)](https://docs.microsoft.com/azure/azure-monitor/app/opentelemetry-enable)|Open Telemetry Metrics are now available for .NET, Node.js and Python applications.|
@@ -30,9 +31,8 @@ Application-insights|[Using Azure Monitor Application Insights with Spring Boot]
 Application-insights|[Configuration options: Azure Monitor Application Insights for Java](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)|New features include Capture Log4j Markers and Logback Markers as custom properties on the corresponding trace (log message) telemetry.|
 Application-insights|[Create custom KPI dashboards using Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/tutorial-app-dashboards)|This article has been refreshed with new screenshots and instructions.|
 Application-insights|[Share Azure dashboards by using Azure role-based access control](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access)|This article has been refreshed with new screenshots and instructions.|
-Application-insights|[Application Monitoring for Azure App Service and ASP.NET ](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps-net)|Important notes added regarding System.IO.FileNotFoundException after 2.8.44 auto-instrumentation upgrade.|
+Application-insights|[Application Monitoring for Azure App Service and ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps-net)|Important notes added regarding System.IO.FileNotFoundException after 2.8.44 auto-instrumentation upgrade.|
 Application-insights|[Geolocation and IP address handling](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)| Geolocation lookup information has been updated.|
-Containers|[Configure agent data collection for Container insights](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-agent-config)| |
 Containers|[Metric alert rules in Container insights (preview)](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-metric-alerts)|Container insights metric Alerts|
 Containers|[Custom metrics collected by Container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-custom-metrics?tabs=portal)|New article.|
 Containers|[Overview of Container insights in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)|Rewritten to simplify onboarding options.|
