@@ -197,7 +197,7 @@ Span attribute names are based on the OpenTelemetry semantic conventions:
 
 To see the exact set of attributes captured by Application Insights Java for your application, set the
 [self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
-with the text "exporting span:".
+with the text "exporting span".
 
 Note that only attributes set at the start of the span are available for sampling,
 so attributes such as `http.status_code` which are captured later on cannot be used for sampling.
