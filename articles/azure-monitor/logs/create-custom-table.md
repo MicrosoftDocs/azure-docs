@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 
 # Create custom tables and columns in Azure Monitor Logs
 
-Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) in which you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) where you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
 > [!NOTE]
 > When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define your [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection). 
@@ -25,7 +25,6 @@ To create a custom table, you need:
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
 - A JSON file with the schema of your custom table in the following format:
-    
     ```json
     [
       {
@@ -129,8 +128,11 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 ---
 ## Create or edit a custom column
 
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
+To add a custom column to an existing table in your Log Analytics workspace:
+
+1. From the **Log Analytics workspaces** menu, select **Tables**.  
+1. Select the ellipsis (**...**) to the right of the table you want to edit.
+1. Select **Edit schema**. 
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
