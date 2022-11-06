@@ -83,6 +83,25 @@ You can establish secure connection between the reverse proxy and services, thus
 
 The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. Learn how to improve security when you're using service remoting (in [C#](service-fabric-reliable-services-secure-communication.md) or [Java](service-fabric-reliable-services-secure-communication-java.md)) or using [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
+
+### Include endpoint certificate in Service Fabric applications
+
+To configure your application endpoint certificate, include the certificate by adding a **EndpointCertificate** element along with the **User** element for the principal account to the application manifest. By default the principal account is NetworkService. This will provide management of the application certificate private key ACL for the provided principal.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Principals>
+    <Users>
+      <User Name="Service1" AccountType="NetworkService" />
+    </Users>
+  </Principals>
+  <Certificates>
+    <EndpointCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbprint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
 ## Encrypt application data at rest
 Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/overview.md). Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to an attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/disk-encryption-powershell.md) to protect your application data.
 
