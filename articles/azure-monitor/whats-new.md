@@ -14,7 +14,7 @@ This article lists significant changes to Azure Monitor documentation.
   
   
   
-|Service| Article | Description |
+|Sub-service| Article | Description |
 |---|---|---|
 |General|Table of contents|We have updated the Azure Monitor Table of Contents. The new TOC structure better reflects the customer experience and makes it easier for users to navigate and discover our content.|
 Alerts|[Connect Azure to ITSM tools by using IT Service Management](https://docs.microsoft.com/azure/azure-monitor/alerts/itsmc-definition)|Deprecating support for sending ITSM actions and events to ServiceNow. Instead, use ITSM actions in action groups based on Azure alerts to create work items in your ITSM tool.|
