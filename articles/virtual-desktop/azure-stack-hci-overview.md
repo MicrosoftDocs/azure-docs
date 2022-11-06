@@ -3,13 +3,13 @@ title: Azure Virtual Desktop for Azure Stack HCI (preview) overview
 description: Overview of Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 10/20/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
 ms.custom: ignite-fall-2021
 ---
-# Azure Virtual Desktop for Azure Stack HCI (preview)
+# Azure Virtual Desktop for Azure Stack HCI overview (preview)
 
 Azure Virtual Desktop for Azure Stack HCI (preview) lets you deploy Azure Virtual Desktop session hosts on your on-premises Azure Stack HCI infrastructure. You manage your session hosts from the Azure portal.
 
@@ -85,8 +85,6 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
     - [Per-user access pricing](./remote-app-streaming/licensing.md)
 
 - Azure Virtual Desktop for Azure Stack HCI doesn't currently support host pools containing both cloud and on-premises session hosts. Each host pool in the deployment must have only one type of host pool.
-
-- When connecting to a Windows 10 or Windows 11 Enterprise multi-session virtual desktop, users may see activation issues, such as a desktop watermark saying "Activate Windows", even if they have an eligible license.
 
 - Session hosts on Azure Stack HCI don't support certain cloud-only Azure services.
 

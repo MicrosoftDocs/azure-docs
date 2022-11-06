@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/10/2022
+ms.date: 11/04/2022
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
@@ -20,6 +20,21 @@ compliant with the specific standard.
 [!INCLUDE [Azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
 
 ## Release notes
+
+### November 2022
+
+- Deprecation of policy **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- Deprecation of policy **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service apps should enable configuration routing to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable configuration routing to Azure Virtual Network**
+  - New policy created
 
 ### October 2022
 

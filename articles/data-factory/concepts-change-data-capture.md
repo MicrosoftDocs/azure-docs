@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/01/2022
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -22,30 +22,70 @@ To learn more, see [Azure Data Factory overview](introduction.md) or [Azure Syna
 
 ## Overview
 
-When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which includes row markers for inserts, upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. To easily capture changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you'll find in the table below.
+When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. ADF provides multiple different ways for you to easily get delta data only from the last run.
 
-## CDC Connector support
+### Native change data capture in mapping data flow
 
-| Connector   | Full CDC | Incremental CDC | Incremental pipeline pattern |
-| :-------------------- | :--------------------------- | :--------------------------------- | :--------------------------- |
-| [ADLS Gen1](load-azure-data-lake-store.md) | &nbsp; | ✓    |  &nbsp;    |
-| [ADLS Gen2](load-azure-data-lake-storage-gen2.md) | &nbsp; | ✓    |  &nbsp;    |
-| [Azure Blob Storage](connector-azure-blob-storage.md) | &nbsp;    | ✓    | &nbsp;   |   
-| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md) | ✓ | ✓ | &nbsp; |
-| [Azure Database for MySQL](connector-azure-database-for-mysql.md) | &nbsp; | ✓ | &nbsp; |
-| [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) | &nbsp; | ✓ | &nbsp; |
-| [Azure SQL Database](connector-azure-sql-database.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-portal.md) |
-| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-change-data-capture-feature-portal.md) |
-| [Azure SQL Server](connector-sql-server.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-multiple-tables-portal.md) |
-| [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
-| [SAP CDC](connector-sap-change-data-capture.md) | ✓ | ✓ | ✓ |
+The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you will see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5bkg2]
+
+**Supported connectors**
+-   [SAP CDC](connector-sap-change-data-capture.md)
+-   [Azure SQL Database](connector-azure-sql-database.md)
+-   [Azure SQL Server](connector-sql-server.md)
+-   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
+-   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
+
+### Auto incremental extraction in mapping data flow
+
+The newly updated rows or updated files can be automatically detected and extracted by ADF mapping data flow from the source stores. When you want to get delta data from the databases, the incremental column is required to identify the changes. When you want to load new files or updated files only from a storage store, ADF mapping data flow just works through files’ last modify time. 
+
+**Supported connectors**
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
+-   [ADLS Gen2](load-azure-data-lake-storage-gen2.md)
+-   [ADLS Gen1](load-azure-data-lake-store.md)
+-   [Azure SQL Database](connector-azure-sql-database.md)
+-   [Azure SQL Server](connector-sql-server.md)
+-   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
+-   [Azure Database for MySQL](connector-azure-database-for-mysql.md)
+-   [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)
+-   [Common data model](format-common-data-model.md)
+
+### Customer managed delta data extraction in pipeline
+
+You can always build your own delta data extraction pipeline for all ADF supported data stores including using lookup activity to get the watermark value stored in an external control table, copy activity or mapping data flow activity to query the delta data against timestamp or ID column, and SP activity to write the new watermark value back to your external control table for the next run.  When you want to load new files only from a storage store, you can either delete files every time after they have been moved to the destination successfully, or leverage the time partitioned folder or file names or last modified time to identify the new files. 
 
 
-ADF makes it super-simple to enable and use CDC. Many of the connectors listed above will enable a checkbox similar to the one shown below from the data flow source transformation.
+## Best Practices
 
-:::image type="content" source="media/data-flow/cdc.png" alt-text="Change data capture":::
+**Change data capture from databases:**
 
-The "Full CDC" and "Incremental CDC" features are available in both ADF and Synapse data flows and pipelines. In each of those options, ADF manages the checkpoint automatically for you. You can turn on the change data capture feature in the data flow source and you can also reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key. Connectors in ADF that support "full CDC" also provide automatic tagging of rows as update, insert, delete.
+-   Native change data capture is always recommended as the simplest way for you to get change data. It also brings much less burden on your source database when ADF extracts the change data for further processing. 
+-   If your database stores are not part of the ADF connector list with native change data capture support, we recommend you to check the auto incremental extraction option where you only need to input incremental column to capture the changes. ADF will take care of the rest including creating a dynamic query for delta loading and managing the checkpoint for each activity run. 
+-   Customer managed delta data extraction in pipeline covers all the ADF supported databases and give you the flexibility to control everything by yourself. 
+
+**Change files capture from file based storages:**
+
+-   When you want to load data from Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure Data Lake Storage Gen1, mapping data flow provides you the opportunity to get new or updated files only by simple one click. It is the simplest and recommended way for you to achieve delta load from these file based storages in mapping data flow. 
+-   You can get more [best practices](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/best-practices-of-how-to-use-adf-copy-activity-to-copy-new-files/ba-p/1532484). 
+
+
+## Checkpoint
+
+When you enable native change data capture or auto incremental extraction options in ADF mapping data flow, ADF helps you to manage the checkpoint to make sure each activity run will automatically only read the source data that has changed since the last time the pipeline run.  By default, the checkpoint is coupled with your pipeline and activity name.  If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own [Checkpoint key](control-flow-execute-data-flow-activity.md#checkpoint-key) in data flow activity to achieve that. 
+
+When you debug the pipeline, this feature works the same. The checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you first time trigger your published pipeline, it automatically restarts from the beginning or gets changes from now on.
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
+
+## Tutorials
+
+The followings are the tutorials to start the change data capture in Azure Data Factory and Azure Synapse Analytics.
+
+- [SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md#sap-cdc-capabilities)
+- [Incrementally copy data from a source data store to a destination data store tutorials](tutorial-incremental-copy-overview.md)
+
 
 ## Next steps
 

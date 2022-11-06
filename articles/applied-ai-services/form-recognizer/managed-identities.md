@@ -7,12 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Managed identities for Form Recognizer
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 

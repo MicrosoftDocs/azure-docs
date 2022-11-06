@@ -247,10 +247,10 @@ GitHub, Docker Hub, and other sources.
 Azure offers other services that you can use to host websites and web
 applications. For most scenarios, Web Apps is the best choice. For a
 micro service architecture, consider [Azure Service
-Fabric](/azure/service-fabric).
+Fabric](../../service-fabric/index.yml).
 If you need more control over the VMs that your code runs on, consider
 [Azure Virtual
-Machines](/azure/virtual-machines/).
+Machines](../../virtual-machines/index.yml).
 For more information about how to choose between these Azure services,
 see a [comparison of Azure App Service, Virtual Machines, Service
 Fabric, and Cloud

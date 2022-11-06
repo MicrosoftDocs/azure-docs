@@ -14,8 +14,8 @@ The **Microsoft Defender for IoT** solution enhances the integration between Def
 For more information, see:
 
 - [What's new in Microsoft Defender for IoT?](release-notes.md)
-- [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json)
-- [Tutorial: Investigate and detect threats for IoT devices](/azure/sentinel/iot-advanced-threat-monitoring?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json).
+- [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)
+- [Tutorial: Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
 ## Version 2.1
 
 **Released**: September 2022
@@ -40,7 +40,7 @@ For more information, see [Updates to the Microsoft Defender for IoT solution](r
 
 This version provides enhanced experiences for managing, installing, and updating the solution package in the Microsoft Sentinel content hub.
 
-For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](/azure/sentinel/sentinel-solutions-deploy)
+For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](../../sentinel/sentinel-solutions-deploy.md)
 ## Version 1.0.14
 
 **Released**: July 2022
@@ -68,4 +68,4 @@ For more information about earlier versions of the **Microsoft Defender for IoT*
 
 ## Next steps
 
-Learn more in [What's new in Microsoft Defender for IoT?](release-notes.md) and the [Microsoft Sentinel documentation](/azure/sentinel/).
+Learn more in [What's new in Microsoft Defender for IoT?](release-notes.md) and the [Microsoft Sentinel documentation](../../sentinel/index.yml).

@@ -1,7 +1,7 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
 ms.service: azure-arc
-ms.date: 10/12/2022
+ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -22,12 +22,12 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-- Install the following Azure CLI extensions:
-  - `connectedk8s` (version 1.2.0 or later)
-  - `k8s-extension` (version 1.0.0 or later)
-  - `customlocation` (version 0.1.3 or later)
+- Install the latest versions of the following Azure CLI extensions:
+  - `connectedk8s`
+  - `k8s-extension`
+  - `customlocation`
   
     ```azurecli
     az extension add --name connectedk8s
@@ -59,7 +59,7 @@ In this article, you learn how to:
         Once registered, the `RegistrationState` state will have the `Registered` value.
 
 - Verify you have an existing [Azure Arc-enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.5.3 or later.
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 ## Enable custom locations on your cluster
 
@@ -231,8 +231,15 @@ Optional parameters:
 To delete a custom location, use the following command:
 
 ```azurecli
-az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation delete -n <customLocationName> -g <resourceGroupName> 
 ```
+
+Required parameters:
+
+| Parameter name | Description |
+|----------------|------------|
+| `--name, --n` | Name of the custom location |
+| `--resource-group, --g` | Resource group of the custom location  |
 
 ## Troubleshooting
 

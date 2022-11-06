@@ -35,17 +35,17 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
-- **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Microsoft Cloud Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
+- **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Microsoft cloud security benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
     You can also [learn more about secure score](secure-score-security-controls.md).
 
 - **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multicloud resources.
 
-- **Analyze and secure your attack paths** through the Cloud Security Graph, which is a graph-based context engine that exists within Defender for Cloud. The Cloud Security Graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment. 
+- **Analyze and secure your attack paths** through the cloud security graph, which is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment. 
 
-    Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
+    Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
     
-    By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+    By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack path analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
 
     Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
@@ -102,7 +102,8 @@ Review the findings from these vulnerability scanners and respond to them all fr
 Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
-- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-va-acr.md#identify-vulnerabilities-in-images-in-other-container-registries)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-vulnerability-assessment-azure.md)
+- [Identify vulnerabilities in images in AWS Elastic Container Registry](defender-for-containers-vulnerability-assessment-elastic.md)
 
 ## Enforce your security policy from the top down
 
@@ -112,7 +113,7 @@ It's a security basic to know and make sure your workloads are secure, and it st
 
 Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they're configured according to security best practices. If not, they're flagged and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.
 
-The list of recommendations is enabled and supported by the Microsoft Cloud Security Benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments. Learn more in [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
+The list of recommendations is enabled and supported by the Microsoft cloud security benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments. Learn more in [Microsoft cloud security benchmark introduction](/security/benchmark/azure/introduction).
 
 In this way, Defender for Cloud enables you not just to set security policies, but to *apply secure configuration standards across your resources*.
 
@@ -144,8 +145,8 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
 - [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)
     - [Security governance and regulatory compliance](concept-cloud-security-posture-management.md#security-governance-and-regulatory-compliance)
-    - [Cloud Security Explorer](concept-cloud-security-posture-management.md#cloud-security-explorer)
-    - [Attack Path Analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
+    - [Cloud security explorer](concept-cloud-security-posture-management.md#cloud-security-explorer)
+    - [Attack path analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
     - [Agentless scanning for machines](concept-cloud-security-posture-management.md#agentless-scanning-for-machines)
 - [Defender for DevOps](defender-for-devops-introduction.md)
 

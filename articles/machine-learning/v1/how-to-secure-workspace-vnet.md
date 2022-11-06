@@ -60,11 +60,11 @@ In this article you learn how to enable the following workspaces resources in a 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
 
 ### Azure Container Registry
 
-* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus.md#changing-tiers).
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-tiers).
 
 * If your Azure Container Registry uses a __private endpoint__, it must be in the same _virtual network_ as the storage account and compute targets used for training or inference. If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
 
@@ -96,7 +96,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 ### Azure Monitor
 
 > [!WARNING]
-> Azure Monitor supports using Azure Private Link to connect to a VNet. However, you must use the open Private Link mode in Azure Monitor. For more information, see [Private Link access modes: Private only vs. Open](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
+> Azure Monitor supports using Azure Private Link to connect to a VNet. However, you must use the open Private Link mode in Azure Monitor. For more information, see [Private Link access modes: Private only vs. Open](../../azure-monitor/logs/private-link-security.md#private-link-access-modes-private-only-vs-open).
 
 ## Required public internet access
 
@@ -120,7 +120,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 # [Private endpoint](#tab/pe)
 
 1. In the Azure portal, select the Azure Storage Account.
-1. Use the information in [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints#creating-a-private-endpoint) to add private endpoints for the following storage resources:
+1. Use the information in [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md#creating-a-private-endpoint) to add private endpoints for the following storage resources:
 
     * **Blob**
     * **File**
@@ -133,17 +133,17 @@ Azure Machine Learning supports storage accounts configured to use either a priv
     > When configuring a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
 
 1. After creating the private endpoints for the storage resources, select the __Firewalls and virtual networks__ tab under __Networking__ for the storage account.
-1. Select __Selected networks__, and then under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__. Select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Select __Selected networks__, and then under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__. Select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](../../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
-    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security#trusted-microsoft-services).
+    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     :::image type="content" source="../media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-no-vnet.png" alt-text="The networking area on the Azure Storage page in the Azure portal when using private endpoint":::
 
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](/azure/storage/blobs/anonymous-read-access-configure#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -156,17 +156,17 @@ Azure Machine Learning supports storage accounts configured to use either a priv
     > [!IMPORTANT]
     > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-1. Under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__ and select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Under __Resource instances__, select `Microsoft.MachineLearningServices/Workspace` as the __Resource type__ and select your workspace using __Instance name__. For more information, see [Trusted access based on system-assigned managed identity](../../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
-    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security#trusted-microsoft-services).
+    > Alternatively, you can select __Allow Azure services on the trusted services list to access this storage account__ to more broadly allow access from trusted services. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     :::image type="content" source="../media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="The networking area on the Azure Storage page in the Azure portal":::
 
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](/azure/storage/blobs/anonymous-read-access-configure#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
 ---
 
@@ -184,7 +184,7 @@ Azure key vault can be configured to use either a private endpoint or service en
 
 # [Private endpoint](#tab/pe)
 
-For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # [Service endpoint](#tab/se)
@@ -200,7 +200,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 
     :::image type="content" source="../media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
-For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+For more information, see [Configure Azure Key Vault network settings](../../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ---
 
@@ -245,9 +245,9 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     ---
 
-1. Limit access to your virtual network using the steps in [Connect privately to an Azure Container Registry](/azure/container-registry/container-registry-private-link). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
+1. Limit access to your virtual network using the steps in [Connect privately to an Azure Container Registry](../../container-registry/container-registry-private-link.md). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
 
-1. Configure the ACR for the workspace to [Allow access by trusted services](/azure/container-registry/allow-access-trusted-services).
+1. Configure the ACR for the workspace to [Allow access by trusted services](../../container-registry/allow-access-trusted-services.md).
 
 1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
@@ -256,7 +256,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     > [!IMPORTANT]
     > The following limitations apply When using a compute cluster for image builds:
     > * Only a CPU SKU is supported.
-    > * If you use a compute cluster configured for no public IP address, you must provide some way for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use the public IP of your firewall, or you can use [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) with a public IP. For more information, see [How to securely train in a VNet](how-to-secure-training-vnet.md).
+    > * If you use a compute cluster configured for no public IP address, you must provide some way for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use the public IP of your firewall, or you can use [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) with a public IP. For more information, see [How to securely train in a VNet](how-to-secure-training-vnet.md).
 
     # [Azure CLI](#tab/cli)
 
@@ -287,7 +287,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ---
 
 > [!TIP]
-> When ACR is behind a VNet, you can also [disable public access](/azure/container-registry/container-registry-access-selected-networks#disable-public-network-access) to it.
+> When ACR is behind a VNet, you can also [disable public access](../../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
 
 ## Datastores and datasets
 The following table lists the services that you need to skip validation for:

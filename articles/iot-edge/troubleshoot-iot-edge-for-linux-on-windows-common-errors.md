@@ -46,7 +46,7 @@ The following section addresses the common errors when installing the EFLOW MSI 
 ## Provisioning and IoT Edge runtime
 
 The following section addresses the common errors when provisioning the EFLOW virtual machine and interact with the IoT Edge runtime. Ensure you have an understanding of the following EFLOW concepts:
-- [What is Azure IoT Hub Device Provisioning Service?](/azure/iot-dps/about-iot-dps)
+- [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md)
 - [Understand the Azure IoT Edge runtime and its architecture](./iot-edge-runtime.md)
 - [Troubleshoot your IoT Edge device](./troubleshoot.md)
 

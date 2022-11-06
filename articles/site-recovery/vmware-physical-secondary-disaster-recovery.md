@@ -5,6 +5,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
+ms.author: ankitadutta
 
 ---
 # Set up disaster recovery of on-premises VMware virtual machines or physical servers to a secondary site
