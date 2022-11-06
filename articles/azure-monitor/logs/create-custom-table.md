@@ -40,7 +40,7 @@ When you collect logs using the [Log Ingestion API](../logs/logs-ingestion-api-o
 > [!NOTE]
 > When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define your [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection). 
 
-## [Portal](#tab/portal-1)
+### [Portal](#tab/portal-1)
 
 To create a custom table in the Azure portal:
 
@@ -88,7 +88,7 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
-## [PowerShell](#tab/powershell-1)
+### [PowerShell](#tab/powershell-1)
 
 Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to create a custom table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
 
