@@ -116,7 +116,7 @@ Here are some examples of options that you can only use in the the API:
 
 ### Export of data between different tenants
 
-It is possible to use continuous export to send data between tenants without using [Azure Lighthouse](https://learn.microsoft.com/azure/lighthouse/overview).
+It is possible to use continuous export to send data between tenants without using [Azure Lighthouse](https://azure.microsoft.com/products/azure-lighthouse/).
  
 Export to Event Hub will work when configured both from the UI and API.
 
