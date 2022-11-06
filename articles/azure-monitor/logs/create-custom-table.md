@@ -24,7 +24,19 @@ To create a custom table, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
-- A JSON file in which you define the schema of your custom table.  
+- A JSON file with the schema of your custom table in the following format:
+    
+    ```json
+    [
+      {
+        "TimeGenerated": "supported_datetime_format",
+        "<column_name_1": "<column_name_1_value>",
+        "<column_name_2": "<column_name_2_value>"
+      }
+    ]
+    ``` 
+    
+    For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats)
 ## Create a custom table
 
 When you create a custom table, you need to set the table schema and the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that defines which data to collect, how to transform that data, and where to send that data.
