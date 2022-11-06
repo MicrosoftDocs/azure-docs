@@ -15,9 +15,6 @@ ms.date: 11/09/2022
 
 Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) where you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
-> [!NOTE]
-> When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define your [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection). 
-
 ## Prerequisites
 
 To create a custom table, you need:
@@ -38,7 +35,10 @@ To create a custom table, you need:
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 ## Create a custom table
 
-When you create a custom table, you need to set the table schema and the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that defines which data to collect, how to transform that data, and where to send that data.
+When you collect logs using the [Log Ingestion API](../logs/logs-ingestion-api-overview.md), you can send the data to one of the [Azure tables that supports the Log Ingestion API](../logs/logs-ingestion-api-overview.md#built-in-tables), or you can create a custom table to ingest the data into.
+
+> [!NOTE]
+> When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define your [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection). 
 
 ## [Portal](#tab/portal-1)
 
