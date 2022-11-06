@@ -82,16 +82,12 @@ Semantic search and spell check are available on services that meet the criteria
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------|---------|
-| Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) <sup>1</sup> | Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>2</sup>|
-| Spell check | Basic <sup>3</sup> and above  | All | None | None (free) |
+| Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
+| Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
-<sup>1</sup> Semantic search preview is available in regions that have the availability marker.
+<sup>1</sup> On the pricing page, scroll down to view additional features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
 
-  :::image type="content" source="media/semantic-search-overview/region-availability.png" alt-text="Screenshot of the Products available by region page.":::
-
-<sup>2</sup> On the pricing page, scroll down to view additional features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
-
-<sup>3</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
+<sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
 Charges for semantic search are levied when query requests include "queryType=semantic" and the search string is not empty (for example, "search=pet friendly hotels in New York". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
 
