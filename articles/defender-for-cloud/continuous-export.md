@@ -118,10 +118,9 @@ Here are some examples of options that you can only use in the the API:
 
 It is possible to use continuous export to send data between tenants without using [Azure Lighthouse](https://learn.microsoft.com/azure/lighthouse/overview).
  
-Export to [Event Hub](https://learn.microsoft.com/azure/event-hubs/event-hubs-about) will work when configured both from the UI and API.
+Export to Event Hub will work when configured both from the UI and API.
 
 Export to Log Analytics workspace between tenants can be configured through the API.
-[Learn more about REST API automations](https://learn.microsoft.com/rest/api/defenderforcloud/automations).
 
 Learn more about the automations API in the [REST API documentation](/rest/api/defenderforcloud/automations).
 
