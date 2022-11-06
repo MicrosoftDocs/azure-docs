@@ -1,8 +1,8 @@
 ---
 title: Create, import, export, and delete glossary terms
 description: Learn how to create, import, export, and manage business glossary terms in Microsoft Purview.
-author: nayenama
-ms.author: nayenama
+author: evangelinew
+ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
