@@ -49,15 +49,12 @@ Your Log Analytics workspace can contain the following types of tables:
 A table's schema is the set of columns into which Azure Monitor Logs collects logs from one or more data sources.  
 ### Azure table schema
 
-Each Azure table has a predefined schema into which Azure Monitor Logs collects data used Azure resources and data required by Azure services and solutions. 
+Each Azure table has a predefined schema into which Azure Monitor Logs collects logs defined by Azure resources, services, and solutions. 
 
-You can [add columns to an Azure table]() to: 
-
-- Transform data in an Azure table using a [workspace transformation data collection rule DCR](../essentials/data-collection-transformations.md).  
-- Enrich data in the Azure table with data from another source using the [Logs Ingestion API](../logs/logs-ingestion-api-overview.md). 
+You can [add columns to an Azure table](../logs/create-custom-table.md#create-or-edit-a-custom-column) to store transformed log data or enrich data in the Azure table with data from another source. 
 ### Custom table schema
 
-[Configure a custom table's schema]() based on how you want to store data you collect from a given data source. A custom table's schema doesn't have to be the same as the log schema of the data source. 
+You can [define a custom table's schema](../logs/create-custom-table.md) based on how you want to store data you collect from a given data source.  
 
 Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
 
@@ -67,14 +64,14 @@ A restored logs table has the same schema as the table from which you [restore l
 
 The schema of a search results table is based on the query you define when you [run the search job](../logs/search-jobs.md).
 
-You can't edit the schema of search results and restored logs tables.
+You can't edit the schema of existing search results and restored logs tables.
 ## Log data plan
 
 [Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table. The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. The **Analytics** plan makes log data available for interactive queries and use by features and services. 
 
 ## Retention and archive
 
- [Set table-level retention policies](../logs/data-retention-archive.md) to override the default workspace retention policy and to archive data within your workspace. 
+ Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. [Set table-level retention policies](../logs/data-retention-archive.md) to override the default workspace retention policy and to archive data within your workspace. 
 
-Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
+To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
 
