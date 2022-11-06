@@ -273,7 +273,7 @@
           href: dotnet-isolated-process-guide.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
-        - name: Exection mode comparison
+        - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
     - name: F#
       href: functions-reference-fsharp.md
