@@ -15,7 +15,7 @@ To enforce transaction integrity guarantees, an Azure Confidential Ledger uses a
 
 More details about how a Merkle Tree is used in a Confidential Ledger can be found in the [CCF documentation](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html). 
 
-## Get a write transaction receipt
+## Get write transaction receipts
 
 ### Setup and pre-requisites
 
