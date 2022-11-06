@@ -25,11 +25,11 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 We recommend that you make sure to update your sensor versions once every 6 months. When updating, we recommend that you generally update to the latest major version.
 
-- Update to minor versions only if you want to use the specific features available in that version.
+- **Update to minor versions** only if you want to use the specific features available in that version.
 
-- Update to patch versions only for specific bug fixes or security patches. When working with the Defender for IoT support team on a specific issue, verify whether a patch installation is recommended to resolve the issue.
+- **Update to patch versions** only for specific bug fixes or security patches. When working with the Defender for IoT support team on a specific issue, verify whether a patch installation is recommended to resolve the issue.
 
-- When updating your sensor software version, make sure to also update your on-premises management console to the same version, if you have one.
+- **When updating your sensor software version**, make sure to also update your on-premises management console to the same version, if you have one.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
