@@ -56,15 +56,13 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
 
 1. Select **Add Connection**.
 
-1. Specify the connection settings for the ITSM product that you're using:
+1. Specify the ServiceNow connection settings.
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
-    - [System Center Service Manager](./itsmc-connections.md)
 
-   > [!NOTE]
-   > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
-   >
-   > ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
+1. By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
+
+    ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
 
 ## Create ITSM work items from Azure alerts
 

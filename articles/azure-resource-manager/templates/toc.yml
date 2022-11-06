@@ -423,8 +423,10 @@
   - name: Test templates
     items:
     - name: Test toolkit
+      displayName: ttk,linter
       href: test-toolkit.md
     - name: Template test cases
+      displayName: ttk,linter
       href: template-test-cases.md
     - name: Parameter file test cases
       href: parameter-file-test-cases.md
@@ -441,7 +443,7 @@
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
-      displayName: continuous,ci,cd, CI/CD
+      displayName: continuous,ci,cd,CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       displayName: continuous,ci,cd,CI/CD
