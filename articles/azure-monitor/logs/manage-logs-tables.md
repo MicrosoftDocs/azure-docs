@@ -23,14 +23,6 @@ In the Azure portal, you can view and set most table configuration settings by s
 
 :::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-configuration.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace." lightbox="media/manage-logs-tables/azure-monitor-logs-table-configuration.png":::
 
-## Table-level read access
-
-Azure Monitor uses role-based authorization for access management.
-
-[Set table-level read access](../logs/manage-access.md#set-table-level-read-access) to allow specific users or groups to read data from specific tables in a Log Analytics workspace.
-
-For information about workspace-level access management, see [Manage access to Log Analytics workspaces](../logs/manage-access.md).
-
 ## Table type
 
 A Log Analytics workspace lets you collect logs from Azure resources and non-Azure sources into one space where you can use the data for analysis, alerts, other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). 
