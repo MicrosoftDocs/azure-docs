@@ -310,7 +310,7 @@ items:
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-  - name: Learn modules
+  - name: Training modules
     href: /training/paths/explore-computer-vision-microsoft-azure/
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
