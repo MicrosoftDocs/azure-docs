@@ -13,15 +13,14 @@ The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances a
 
 This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it's designed to take advantage of newer technology in Azure.
 
-> [!NOTE]
-> We've updated our Start/Stop VMs v2 function app resource to use .NET runtime version 4.x, and new customers will get this version by default when they install it from the marketplace. Existing customers should migrate from .NET runtime version 3.x to 4.x using our auto-update functionality to get the latest version either by running TriggerAutoUpdate timer function manually one time or wait for the schedule run if you have enabled it. 
-> 
-> [!NOTE]
-> We've added a plan (**AZ - Availability Zone**) to our Start/Stop VMs v2 solution to enable a high-availability offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
+## Important Start/Stop VMs v2 Updates
 
-> [!NOTE]
-> Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation. 
-> If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
+> + We've updated our Start/Stop VMs v2 function app resource to use [Azure Functions version 4.x](../functions-versions.md), and you'll get this version by default when you install Start/Stop VMs v2 from the marketplace. Existing customers should migrate from Functions version 3.x to version 4.x using our auto-update functionality. This functionality gets the latest version either by running the TriggerAutoUpdate timer function once manually or waiting for the schedule to run, if you've enabled it. 
+>
+> + We've added a plan (**AZ - Availability Zone**) to our Start/Stop VMs v2 solution to enable a high-availability offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
+>
+> + Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation.  
+>   If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
     
 ## Overview
 
