@@ -267,7 +267,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 **To switch to a new subscription**:
 
-1. In Defender for Endpoint, [onboard a new Enterprise IoT plan](#onboard-a-defender-for-iot-plan) to the new subscription you want to use.
+1. In Defender for Endpoint, onboard a new Enterprise IoT plan to the new subscription you want to use. For more information, see [Onboard a Defender for IoT plan](eiot-mde.md#onboard-a-defender-for-iot-plan).
 
 1. In the Azure portal, register your Enterprise IoT sensor under the new subscription and run the activation command. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
@@ -275,7 +275,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. In the row for your sensor, from the options (**...**) menu on the right, select **Delete** to delete the sensor from the previous subscription.
 
-1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 
 ## Next steps
 

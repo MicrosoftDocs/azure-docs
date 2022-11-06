@@ -61,7 +61,7 @@ In the **Device inventory** in Defender for Endpoint:
 
 Add the total number of discovered network devices with the total number of discovered IoT devices. Round that up to a multiple of 100, and that is the number of committed devices to use.
 
-For more information, see [Defender for IoT committed devices](how-to-manage-subscriptions.md#defender-for-iot-committed-devices).
+For more information, see [Defender for IoT committed devices](billing.md#defender-for-iot-committed-devices).
 
 
 ## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work?
@@ -82,7 +82,7 @@ To make any changes to an existing plan, you'll need to cancel your existing pla
 
 To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan).
 
-To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in Defender for IoT in the Azure portal. For more information, see [Cancel a Defender for IoT plan from a subscription](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-from-a-subscription).
+To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in Defender for IoT in the Azure portal. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 
 ## What happens when the 30-day trial ends?
 

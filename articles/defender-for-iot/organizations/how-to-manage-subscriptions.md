@@ -53,7 +53,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. In the **Purchase** pane, define the plan:
 
-     - **Purchase method**. Select a monthly or annual commitment, or a [trial](#about-defender-for-iot-trials).
+     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial).
 
         Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
 
@@ -155,7 +155,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan](#cancel-a-defender-for-iot-plan).
 
 
 > [!NOTE]

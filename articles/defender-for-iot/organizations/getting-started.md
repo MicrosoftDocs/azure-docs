@@ -82,7 +82,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. In the **Purchase** pane, define the plan:
 
-     - **Purchase method**. Select a monthly or annual commitment, or a [trial](how-to-manage-subscriptions.md#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 

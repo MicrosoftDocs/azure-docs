@@ -37,7 +37,7 @@ This procedure describes an example of how to configure a SPAN port on your vSwi
 
 1. Connect to the sensor, and verify that mirroring works.
 
-If you've jumped to this procedure from the tutorial procedure for [Prepare a physical appliance or VM](tutorial-getting-started-eiot-sensor.md#prepare-a-physical-appliance-or-vm), continue with [step 2](tutorial-getting-started-eiot-sensor.md#sign-in) to continue preparing your appliance.
+If you've jumped to this procedure from the tutorial procedure for [Prepare a physical appliance or VM](eiot-sensor.md#prepare-a-physical-appliance-or-vm), continue the procedure to [prepare your appliance](eiot-sensor.md#sign-in) to continue preparing your appliance.
 
 ## Validate your Enterprise IoT sensor setup
 
