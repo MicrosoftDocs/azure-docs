@@ -471,6 +471,16 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 - Regularly back up the credentials associated with the self-hosted integration runtime.
 - To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
 
+## Important Considerations
+
+When installing Self-Hosted Integration Runtime consider following
+
+- Keep it close to your data source but not necessarily on the same machine
+- Don't install it on the same machine as Power BI gateway
+- Windows Server only(FIPS-compliant encryption servers might cause jobs to fail)
+- Share across multiple data sources
+- Share across multiple data factories
+
 ## Next steps
 
 For step-by-step instructions, see [Tutorial: Copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md).
