@@ -32,7 +32,7 @@ When deploying a machine learning model to a batch endpoint, you can secure thei
 All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. No further configuration is required.
 
 > [!IMPORTANT]
-> When working on a private link-enabled workspaces, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Please use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
+> When working on a private link-enabled workspaces, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Please use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-job).
 
 The following diagram shows how the networking looks like for batch endpoints when deployed in a private workspace:
 

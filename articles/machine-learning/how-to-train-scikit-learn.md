@@ -125,7 +125,7 @@ In this article, we've provided the training script *train_iris.py*. In practice
 > - downloads and extracts the training data using `iris = datasets.load_iris()`; and
 > - trains a model, then saves and registers it.
 
-To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
+To use and access your own data, see [how to read and write data in a job](how-to-read-write-data-v2.md) to make data available during training.
 
 To use the training script, first create a directory where you will store the file.
 
