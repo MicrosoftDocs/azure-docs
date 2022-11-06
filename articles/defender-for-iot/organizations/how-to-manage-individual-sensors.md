@@ -11,6 +11,26 @@ This article describes how to manage individual sensors, such as managing activa
 
 You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
 
+## View overall sensor status
+
+When you sign into your sensor, the first page shown is the **Overview** page.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png" alt-text="Screenshot of the overview page.":::
+
+The **Overview** page shows the following widgets:
+
+| Name | Description |
+|--|--|
+| **General Settings** | description |
+| **Traffic Monitoring** | description |
+| **Top 5 OT Protocols** | description |
+| **Traffic By Port** | description |
+| **Top open alerts** | description |
+
+Select the link in each widget to drill down for more information in your sensor.
+
 ## Manage sensor activation files
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
