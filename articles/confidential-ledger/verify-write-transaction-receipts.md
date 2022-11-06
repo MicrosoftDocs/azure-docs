@@ -503,3 +503,8 @@ def verify_openssl_certificate(
     ctx = X509StoreContext(store, node_cert_pem, certs_chain) 
     ctx.verify_certificate() 
 ```
+
+## Next steps
+
+- [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Azure confidential ledger architecture](architecture.md)

@@ -235,3 +235,8 @@ Please refer to the following [CCF documentation](https://microsoft.github.io/CC
 * [Merkle Tree](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html)
 * [Cryptography](https://microsoft.github.io/CCF/main/architecture/cryptography.html)
 * [Certificates](https://microsoft.github.io/CCF/main/operations/certificates.html)
+
+## Next steps
+
+- [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Azure confidential ledger architecture](architecture.md)
