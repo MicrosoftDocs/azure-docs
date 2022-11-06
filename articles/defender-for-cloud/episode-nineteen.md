@@ -45,4 +45,4 @@ ms.date: 11/03/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Cloud security explorer and Attack path analysis](episode-twenty.md)
