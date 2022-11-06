@@ -60,7 +60,9 @@ To learn more, see [Authenticate devices signed with X.509 CA certificates](../i
 The provisioning service exposes two enrollment types that you can use to control device access with the X.509 attestation mechanism:  
 
 - [Individual enrollment](./concepts-service.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollments for specific devices.
-- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain. 
+- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain.
+
+A certificate can be specified in only one enrollment entry in your DPS instance.
 
 ### Mutual TLS support
 
@@ -93,13 +95,17 @@ If the device sends the full device chain as follows during provisioning, then D
 
 ### DPS order of operations with certificates
 
-When a device connects to the provisioning service, the service prioritizes more specific enrollment entries over less specific enrollment entries. That is, if an individual enrollment for the device exists, the provisioning service applies that entry. If there is no individual enrollment for the device and an enrollment group for the first intermediate certificate in the device's certificate chain exists, the service applies that entry, and so on, down the chain to the root. The service applies the first applicable entry that it finds, such that:
+When a device connects to the provisioning service, the service walks its certificate chain beginning with the device (leaf) certificate and looks for a corresponding enrollment entry. It uses the first entry that it finds in the chain to determine whether to provision the device. That is, if an individual enrollment for the device (leaf) certificate exists, the provisioning service applies that entry. If there isn't an individual enrollment for the device, the service looks for an enrollment group that corresponds to the first intermediate certificate. If it finds one, it applies that entry; otherwise, it looks for an enrollment group for the next intermediate certificate, and so on down the chain to the root.  
+
+The service applies the first entry that it finds, such that:
 
 - If the first enrollment entry found is enabled, the service provisions the device.
-- If the first enrollment entry found is disabled, the service does not provision the device.  
-- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service does not provision the device. 
+- If the first enrollment entry found is disabled, the service doesn't provision the device.  
+- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service doesn't provision the device.
 
-This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains: 
+Note that while each certificate in a device's certificate chain can be specified in an enrollment entry, it can be specified in only one entry.
+
+This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains:
 
 - *Device 1*: root certificate -> certificate A -> device 1 certificate
 - *Device 2*: root certificate -> certificate A -> device 2 certificate
