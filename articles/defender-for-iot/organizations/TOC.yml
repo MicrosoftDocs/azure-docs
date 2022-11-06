@@ -31,16 +31,12 @@
       href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:
+    - name: Subscription billing
+      href: billing.md
     - name: OT system architecture
       href: architecture.md
-    - name: Enterprise IoT system architecture
-      href: concept-eiot.md
-    - name: Subscription billing for Defender for IoT
-      href: billing.md
     - name: OT sensor cloud connection methods
       href: architecture-connections.md
-    - name: Monitor OT threats in enterprise SOCs
-      href: concept-sentinel-integration.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
@@ -59,7 +55,11 @@
         href: ot-virtual-appliances.md
     - name: Supported OT protocols
       href: concept-supported-protocols.md
-- name: How-to guides
+    - name: Monitoring OT threats in enterprise SOCs
+      href: concept-sentinel-integration.md
+    - name: Securing IoT devices in the enterprise
+      href: concept-eiot.md
+ - name: How-to guides
   items:
   - name: Visualize devices
     displayName: assets, network devices

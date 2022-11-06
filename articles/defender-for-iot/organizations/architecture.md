@@ -9,9 +9,9 @@ ms.date: 03/24/2022
 
 The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
-The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and partner sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
+The following image shows how data can stream into Defender for IoT from network sensors and partner sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
-:::image type="content" source="media/architecture/system-architecture.png" alt-text="Diagram of the Defender for IoT system architecture." border="false":::
+:::image type="content" source="media/architecture/system-architecture.png" alt-text="Diagram of the Defender for IoT OT system architecture." border="false":::
 
 Defender for IoT connects to both cloud and on-premises components, and is built for scalability in large and geographically distributed environments.
 
