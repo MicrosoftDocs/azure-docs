@@ -433,6 +433,10 @@ You will typically select this workflow when:
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
+> [!WARNING]
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio UI](https://ml.azure.com), please switch to the CLI or the SDK.
+
+
 ### Steps
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
@@ -468,7 +472,13 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        return results
    ```
 
-1. Let's create an environment where the scoring script can be executed:
+1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see [The MLmodel format](../concept-mlflow-models.md#the-mlmodel-format)). We are going then to build the environment using the conda dependencies from the file. However, __we need also to include__ the package `azureml-core` which is required for Batch Deployments.
+
+   > [!TIP]
+   > If your model is already registered in the model registry, you can download/copy the `conda.yml` file associated with your model by going to [Azure ML studio](https://ml.azure.com) > Models > Select your model from the list > Artifacts. Open the root folder in the navigation and select the `conda.yml` file listed. Click on Download or copy its content. 
+   
+   > [!IMPORTANT]
+   > This example uses a conda environment specified at `/heart-classifier-mlflow/environment/conda.yaml`. This file was created by combining the original MLflow conda dependencies file and adding the package `azureml-core`. __You can't use the `conda.yml` file from the model directly__.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -484,7 +494,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
    )
    ```
-
+   
 1. Let's create the deployment now:
 
    # [Azure ML CLI](#tab/cli)

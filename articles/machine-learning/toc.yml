@@ -513,7 +513,7 @@
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
             - name: Safe rollout for online endpoints
-              href: how-to-safely-rollout-managed-endpoints.md
+              href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
               items:
                 - name: Deploy a MLflow model with an online endpoint
@@ -556,6 +556,8 @@
               href: batch-inference/how-to-use-batch-endpoint.md
             - name: Accessing data from batch endpoints jobs
               href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
+            - name: Author scoring scripts for batch scoring
+              href: batch-inference/how-to-batch-scoring-script.md
             - name: Troubleshoot batch endpoints
               href: batch-inference/how-to-troubleshoot-batch-endpoints.md
             - name: Security

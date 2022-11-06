@@ -849,9 +849,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmos-dotnet-v3",
-      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
-      "branch": "v3",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -908,6 +914,7 @@
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
     ".openpublishing.redirection.azure-australia.json",
+    ".openpublishing.redirection.iot-hub-device-update.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
