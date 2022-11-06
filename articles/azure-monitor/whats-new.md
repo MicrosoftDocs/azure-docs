@@ -51,7 +51,7 @@ Logs|[Guided project - Analyze logs in Azure Monitor with KQL - Training](https:
 Logs|[Detect and analyze anomalies with KQL in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/logs/kql-machine-learning-azure-monitor)|New tutorial. Walkthrough of how to use KQL for time series analysis and anomaly detection in Azure Monitor Log Analytics. |
 Virtual-machines|[Enable VM insights for a hybrid virtual machine](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-enable-hybrid)|Updated versions of standalone installers.|
 Visualizations|[Retrieve legacy Application Insights workbooks](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks)|New article about how to access legacy workbooks in the Azure portal.|
-Visualizations|[Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview)| |
+Visualizations|[Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview)|New video to see how you can use Azure Workbooks to get insights and visualize your data. |
 
 ## September 2022
 
