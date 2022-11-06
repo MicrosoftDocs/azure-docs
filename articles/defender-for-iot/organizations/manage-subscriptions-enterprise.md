@@ -52,7 +52,7 @@ We recommend that you make an initial estimate of your committed devices when on
     - **Multi-cast groups**
     - **Broadcast groups**
     - **Inactive devices**: Devices that have no network activity detected for more than 30 days
-    - **Endpoints managed by Defender for Endpoint** <!--wouldn't this be all of them? since we're only looking in D4E? do we need to clarify this better?-->
+    - **Endpoints managed by Defender for Endpoint**
 
 1. Round up your total to a multiple of 100.
 
@@ -104,7 +104,7 @@ To edit your plan, such as to edit your commitment level or the number of commit
 
 You'll need to cancel your plan if you want to edit the details of your plan, such as the price plan or the number of committed devices, or if you no longer need the service.
 
-You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription. <!--right? b/c no need to add more committed devices if they're all managed by mde. no b/c it's only endpoints that get removed, not IT / IoT devices. plans and committed devices - this should go into a separate page. need to speak to krumer -->
+You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription. <!--right? b/c no need to add more committed devices if they're all managed by mde. no b/c it's only endpoints that get removed, not IT / IoT devices.  -->
 
 **To cancel your Enterprise IoT plan**:
 
@@ -122,14 +122,6 @@ The cancellation takes effect one hour after confirming the change.  This change
 > You can also [cancel a plan](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) from Defender for IoT in the Azure portal. However, canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT plans. Do this with care.
 >
 > If you've [registered an Enterprise IoT network sensor](eiot-sensor.md) (Public preview), device data collected by the sensor remains in your Microsoft 365 Defender instance. If you're canceling the Enterprise IoT plan because you no longer need the service, make sure to manually delete data from Microsoft 365 Defender as needed.
-
-<!-- what data? is this only if we've included a sensor? what if you're switching subscriptions or changing payment? should you delete data? how can you do this? maybe let's move this to the sensor page?-->
-
-<!--If you have an EIoT sensor, device data is also collected by MDE. If you remove a plan, remember to remove it from MDE too. And then remove the sensor. Need to find s
-If you are a Microsoft Defender for IoT customer and also have a subscription to Microsoft Defender for Endpoint, the data collected by Microsoft Defender for IoT will automatically populate in your Microsoft Defender for Endpoint instance as well. Customers who want to delete their data from Defender for IoT must also delete their data from Defender for Endpoint.-->
-
-
-
 
 ## Next steps
 

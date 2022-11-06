@@ -63,7 +63,6 @@ Add the total number of discovered network devices with the total number of disc
 
 For more information, see [Defender for IoT committed devices](how-to-manage-subscriptions.md#defender-for-iot-committed-devices).
 
-<!--is this even relevant if you don't have a network sensor? then it's all MDE managed-->
 
 ## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work?
 

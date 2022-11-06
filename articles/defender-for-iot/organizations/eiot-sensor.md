@@ -255,7 +255,6 @@ If you want to cancel your Enterprise IoT plan and stop the integration with Def
 
 ## Move existing sensors to a different subscription (Public preview)
 
-<!--this actually belongs in sensor how-to-->
 If you've registered an Enterprise IoT network sensor, you may need to apply it to a different subscription than the one you’re currently using.
 
 To do this:

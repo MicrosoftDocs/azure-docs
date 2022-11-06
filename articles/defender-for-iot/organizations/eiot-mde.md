@@ -48,9 +48,6 @@ For example:
 
 :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-<!--remove this procedure, jump straight to security value-->
-<!--1. conceptual. be careful with the sensor - also include the agnostic story. 2. onboarding / offboarding in mde, finding security value, 3. how to register and network sensor and shared inventory.-->
-
 ## View added security value in Microsoft 365 Defender
 
 This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender. These alerts, recommendations, and vulnerabilities are added with the Defender for IoT integration.
@@ -68,33 +65,6 @@ This procedure describes how to view related alerts, recommendations, and vulner
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
-
-
-<!-->
-## View detected IoT devices
-
-View and manage your IoT devices in the [Microsoft 365 Defender portal](https://security.microsoft.com/).
-
-1. On the Microsoft Defender **Home** page, scroll down to view the **Total discovered devices** widget. For example:
-
-    :::image type="content" source="media/enterprise-iot/total-discovered-devices.png" alt-text="Screenshot of the Microsoft 365 Defender Home page.":::
-
-1. Select **View all IoT devices** to jump directly to the **IoT devices** tab on the Defender for Endpoint **Device inventory** page. For example:
-
-    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-iot-devices.png" alt-text="Screenshot of the Defender for Endpoint Devices page.":::
-
-1. Some IoT devices come with backdoors, poor configurations, and known vulnerabilities, all which pose risk for customer environments. Sort the grid by the **Risk level** or **Exposure level** columns to identify devices most at risk.
-
-For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
-
-> [!TIP]
-> To control the devices discovered by Defender for Endpoint, modify the device discovery options in the Defender for Endpoint **Settings** > **Device discovery** area.
->
-> Select whether to discover devices using passive listening only, or both passive listening and smart, active device probing, and whether to run the discovery process on all devices, or specific devices only.
->
-> For more information, see [Configure device discovery](/microsoft-365/security/defender-endpoint/configure-device-discovery).
->
--->
 
 
 
