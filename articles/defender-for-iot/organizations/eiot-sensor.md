@@ -18,7 +18,7 @@ Customers that have set up an Enterprise IoT network sensor can see all discover
 **If you're a Defender for IoT customer** working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which may not be covered by your OT network sensors.
 
 
-For more information, see [Secure Enterprise IoT network resources with Defender for Endpoint and Defender for IoT](concept-eiot.md).
+For more information, see [Secure Enterprise IoT network resources with Defender for Endpoint and Defender for IoT](concept-enterprise.md).
 
 > [!IMPORTANT]
 > The Enterprise IoT Network sensor is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -27,7 +27,7 @@ For more information, see [Secure Enterprise IoT network resources with Defender
 
 Before you start adding a sensor:
 
-- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must be [onboard to Defender for IoT from Microsoft 365 Defender](eiot-mde.md).
+- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must be [onboard to Defender for IoT from Microsoft 365 Defender](eiot-defender-for-endpoint.md).
 
     If you only want to view data in the Azure portal, an Enterprise IoT plan is not required. You can also onboard to Defender for IoT from Microsoft 365 Defender after registering your network sensor to bring extra device visibility and security value to your organization.
 
@@ -267,7 +267,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 **To switch to a new subscription**:
 
-1. In Defender for Endpoint, onboard a new Enterprise IoT plan to the new subscription you want to use. For more information, see [Onboard a Defender for IoT plan](eiot-mde.md#onboard-a-defender-for-iot-plan).
+1. In Defender for Endpoint, onboard a new Enterprise IoT plan to the new subscription you want to use. For more information, see [Onboard a Defender for IoT plan](eiot-defender-for-endpoint.md#onboard-a-defender-for-iot-plan).
 
 1. In the Azure portal, register your Enterprise IoT sensor under the new subscription and run the activation command. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 

@@ -37,12 +37,12 @@ Defender for IoT's Enterprise IoT plan adds purpose-built alerts, recommendation
 For example, use the added security recommendations to open a single IT ticket to patch vulnerable applications on both servers and printers. Or, use a recommendation to request that the network team add firewall rules that apply for both workstations and cameras communicating with a suspicious IP address.
 
 > [!NOTE]
-> Defender for Endpoint doesn't issue IoT-specific alerts, recommendations, and vulnerability data without an Enterprise IoT plan in Microsoft 365 Defender. Use our [quickstart](eiot-mde.md) to start seeing this extra security value across your network.
+> Defender for Endpoint doesn't issue IoT-specific alerts, recommendations, and vulnerability data without an Enterprise IoT plan in Microsoft 365 Defender. Use our [quickstart](eiot-defender-for-endpoint.md) to start seeing this extra security value across your network.
 >
 
 For more information, see:
 
-- [Enable Enterprise IoT security in Defender for Endpoint](eiot-mde.md)
+- [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md)
 - [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
@@ -79,6 +79,6 @@ The following image shows the architecture of an Enterprise IoT network sensor c
 
 ## Next steps
 
-Start securing your Enterprise IoT network resources with by [onboarding to Defender for IoT from Microsoft 365 Defender](eiot-mde.md).
+Start securing your Enterprise IoT network resources with by [onboarding to Defender for IoT from Microsoft 365 Defender](eiot-defender-for-endpoint.md).
 
 For more information, see [Enterprise IoT networks frequently asked questions](faqs-eiot.md).

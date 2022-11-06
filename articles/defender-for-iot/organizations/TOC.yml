@@ -17,7 +17,7 @@
   - name: Get started with OT security monitoring
     href: getting-started.md
   - name: Get started with Enterprise IoT security monitoring
-    href: eiot-mde.md
+    href: eiot-defender-for-endpoint.md
 - name: Tutorials
   expanded: false
   items:
@@ -58,7 +58,7 @@
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: Securing IoT devices in the enterprise
-      href: concept-eiot.md
+      href: concept-enterprise.md
 - name: How-to guides
   items:
   - name: Visualize devices

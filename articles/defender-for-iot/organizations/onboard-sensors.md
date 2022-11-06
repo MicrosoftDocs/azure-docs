@@ -36,7 +36,7 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 Onboard an OT sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
 
 > [!NOTE]
-> Enterprise IoT sensors also require onboarding and activation, with slightly different steps. For more information, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md).
+> Enterprise IoT sensors also require onboarding and activation, with slightly different steps. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 >
 
 **Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Defender for IoT installation](how-to-install-software.md).
@@ -75,7 +75,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 ## Onboard Enterprise IoT sensors
 
-For more information, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
 ## Next steps
 

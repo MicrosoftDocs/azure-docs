@@ -9,7 +9,7 @@ ms.date: 08/08/2022
 
 This article provides extra steps for deploying an Enterprise IoT sensor, including a sample SPAN port configuration procedure, and CLI steps to validate your deployment or delete a sensor.
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
 ## Configure a SPAN monitoring interface for a virtual appliance
 
@@ -100,4 +100,4 @@ sudo apt purge -y microsoft-eiot-sensor
 
 ## Next steps
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md) and [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md) and [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).

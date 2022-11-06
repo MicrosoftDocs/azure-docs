@@ -248,9 +248,9 @@ For more information, see [Understand sensor health (Public preview)](how-to-man
 
 The Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
 
-- Onboard an Enterprise IoT plan directly in Defender for Endpoint. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+- Onboard an Enterprise IoT plan directly in Defender for Endpoint. For more information, see [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md).
 
-- Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see the [Enterprise IoT tutorial](tutorial-getting-started-eiot-sensor.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
+- Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md). You can continue to use an Enterprise IoT network sensor (Public preview) and view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
 
 - All Enterprise IoT sensors are now automatically added to the same site in Defender for IoT, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
 
@@ -429,7 +429,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Microsoft Defender for IoT architecture](architecture.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
-- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
 - [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 - [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
 

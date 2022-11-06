@@ -15,7 +15,7 @@ For example, IoT devices include printers, cameras, VOIP phones, smart TVs, and 
 
 ## Prerequisites
 
-Before starting this quickstart, read through [Secure IoT devices in the enterprise](concept-eiot.md) to understand more about the integration between Defender for Endpoint and Defender for IoT.
+Before starting this quickstart, read through [Secure IoT devices in the enterprise](concept-enterprise.md) to understand more about the integration between Defender for Endpoint and Defender for IoT.
 
 Make sure that you have:
 
