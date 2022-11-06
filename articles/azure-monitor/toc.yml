@@ -480,7 +480,7 @@ items:
           items:            
           - name: Overview
             href: logs/manage-logs-tables.md      
-          - name: Create a custom table or column
+          - name: Add or delete a table or column
             href: logs/create-custom-table.md
           - name: Set log data plan
             href: logs/basic-logs-configure.md
