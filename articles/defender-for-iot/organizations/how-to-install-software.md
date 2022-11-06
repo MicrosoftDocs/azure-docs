@@ -73,8 +73,9 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     By default, eno1 is reserved for the management interface and we recommend that you leave this option unselected.
     
-    IMPORTANT: Make sure that you select only interfaces that are connected. 
-    If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the CLI.    
+    > [!IMPORTANT] 
+    > Make sure that you select only interfaces that are connected. 
+    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the CLI.    
 
     For example:
 
