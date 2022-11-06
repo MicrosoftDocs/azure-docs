@@ -11,7 +11,7 @@ This article provides information on the alert types, descriptions, and severity
 
 ## Alerts disabled by default
 
-Several alerts are disabled by default, as indicated by asterisks (*) in the tables below. Sensor administrator users can enable or disable alerts from the Support page on a specific sensor.
+Several alerts are disabled by default, as indicated by asterisks (*) in the tables below. Sensor administrator users can enable or disable alerts from the **Support** page on a specific sensor.
 
 If you disable alerts that are referenced in other places, such as alert forwarding rules, make sure to update those references as needed.
 
