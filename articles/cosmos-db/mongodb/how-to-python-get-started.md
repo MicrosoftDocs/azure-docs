@@ -28,3 +28,6 @@ In this quickstart, you'll communicate with the Azure Cosmos DB’s API for Mong
 * [Python 3.8+](https://www.python.org/downloads/)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 * [Azure Cosmos DB for MongoDB resource](quickstart-python#create-a-database-account)
+
+## Create a new Python app
+
