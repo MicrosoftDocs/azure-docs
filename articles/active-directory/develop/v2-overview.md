@@ -72,7 +72,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
-[Azure Active Directory for developers (v1.0)](../azuread-dev/v1-overview.md) - Exclusively for developers with existing apps that use the older v1.0 endpoint. **Do not** use v1.0 for new projects.
+<!-- [Azure Active Directory for developers (v1.0)](../azuread-dev/v1-overview.md) - Exclusively for developers with existing apps that use the older v1.0 endpoint. **Do not** use v1.0 for new projects. -->
 
 ## Next steps
 

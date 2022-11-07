@@ -20,7 +20,7 @@ ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 
 Migrating your applications from using ADAL to using MSAL comes with security and resiliency benefits. This article outlines differences between MSAL.NET and ADAL.NET. In most cases you want to use MSAL.NET and the Microsoft identity platform, which is the latest generation of Microsoft Authentication Libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C.
 
-If you're already familiar with ADAL.NET and the Azure AD for developers (v1.0) endpoint, get to know [what's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md). You still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
+If you're already familiar with ADAL.NET and the Azure AD for developers (v1.0) endpoint, get to know [what's different about the Microsoft identity platform?](azure-ad-endpoint-comparison.md). You still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 |   | **ADAL NET**  | **MSAL NET**  |
 |-----------------------------|--------------------------------------------|---------------------|

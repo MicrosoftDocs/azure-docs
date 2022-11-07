@@ -36,7 +36,7 @@ Supports:
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-See [What's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md) for more details.
+See [What's different about the Microsoft identity platform?](azure-ad-endpoint-comparison.md) for more details.
 
 ### Scopes not resources
 
@@ -89,7 +89,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
     # which uses a resource rather than a scope,
     # you need to convert your v1 resource into v2 scopes
-    # See https://learn.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#scopes-not-resources
+    # See https://learn.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://learn.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
@@ -123,4 +123,4 @@ print("Migration completed")
 
 ## Next steps
 
-For more information, refer to [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md).
+For more information, refer to [v1.0 and v2.0 comparison](azure-ad-endpoint-comparison.md).

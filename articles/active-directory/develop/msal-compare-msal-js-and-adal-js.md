@@ -26,7 +26,7 @@ ms.custom: has-adal-ref
 
 - You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. See: [Redirect URI restrictions](./reply-url.md))
 - You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js relies on (e.g. promises) in order to run your apps on **Internet Explorer**
-- Make sure you have migrated your Azure AD apps to [v2 endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) if you haven't already
+- Make sure you have migrated your Azure AD apps to [v2 endpoint](azure-ad-endpoint-comparison.md) if you haven't already
 
 ## Install and import MSAL
 

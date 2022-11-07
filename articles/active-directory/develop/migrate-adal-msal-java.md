@@ -35,7 +35,7 @@ You can learn more about MSAL and get started with an [overview of the Microsoft
 
 ## Differences
 
-If you have been working with the Azure AD for developers (v1.0) endpoint (and ADAL4J), you might want to read [What's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md).
+If you have been working with the Azure AD for developers (v1.0) endpoint (and ADAL4J), you might want to read [What's different about the Microsoft identity platform?](azure-ad-endpoint-comparison.md).
 
 ## Scopes not resources
 
