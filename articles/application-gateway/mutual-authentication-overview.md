@@ -48,7 +48,7 @@ Application Gateway supports certificates issued from both public and privately 
 
 ### Verify client certificate DN
 
-You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This options is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
+You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This option is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
 
 If you choose to enable the Application Gateway to verify the client certificate's immediate issuer, here's how to determine what client certificate issuer DN will be extracted from the certificates uploaded. 
 * **Scenario 1:** Certificate chain includes: root certificate - intermediate certificate - leaf certificate 
