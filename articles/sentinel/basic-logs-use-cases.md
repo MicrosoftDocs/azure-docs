@@ -15,7 +15,7 @@ The primary log sources used for detection often contain the metadata and contex
 
 Event log data in Basic Logs can't be used as the primary log source for security incidents and alerts. But Basic Log event data is useful to correlate and draw conclusions when you investigate an incident or perform threat hunting.
 
-This topic highlights log sources to consider configuring for Basic Logs when they're stored in Log Analytics tables. Before configuring tables as Basic Logs, [compare log data plans](../azure-monitor/logs/log-analytics-workspace-overview.md#log-data-plans).
+This topic highlights log sources to consider configuring for Basic Logs when they're stored in Log Analytics tables. Before configuring tables as Basic Logs, [compare log data plans](../azure-monitor/logs/basic-logs-configure.md).
 
 ## Storage access logs for cloud providers
 
@@ -61,6 +61,5 @@ A new and growing source of log data is Internet of Things (IoT) connected devic
 
 ## Next steps
 
-- [Log plans](../azure-monitor/logs/log-analytics-workspace-overview.md#log-data-plans)
-- [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/basic-logs-configure.md)
+- [Set a table's log data plan in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
 - [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)
