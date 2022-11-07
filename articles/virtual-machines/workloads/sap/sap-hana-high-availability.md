@@ -531,7 +531,6 @@ With susChkSrv implemented, an immediate and configurable action is executed, wh
     ha_dr_saphanasr = info
     ```      
 
-   > [!NOTE]    
 Configuration pointing to the standard location /usr/share/SAPHanaSR, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the bold values of hn1/HN1 with correct SID.    
