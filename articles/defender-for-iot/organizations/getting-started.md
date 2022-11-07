@@ -65,7 +65,7 @@ For more information, see:
 - [Predeployment checklist](pre-deployment-checklist.md)
 - [Identify required appliances](how-to-identify-required-appliances.md)
 
-## Add a Defender for IoT plan for OT networks to an Azure subscription
+## Add a Defender for IoT plan for OT networks
 
 This procedure describes how to add a Defender for IoT plan for OT networks to an Azure subscription.
 
