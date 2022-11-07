@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 08/25/2022
+ms.date: 11/05/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -16,13 +16,18 @@ ms.date: 08/25/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: October 2022
+
+* Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.
+* Support for [Azure Active Directory](concepts-azure-ad-authentication.md) authentication in public preview.
+* Support for [Customer managed keys](concepts-data-encryption.md) in public preview.
+* Published [Security and compliance certifications](./concepts-compliance.md) for Flexible Server.
+* Postgres 14 is now the default PostgreSQL version.
+  
 ## Release: September 2022
 
-* Support for [Fast Restore](./concepts-backup-restore.md) 
-* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md)                
- 
-Please see the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
-
+* Support for [Fast Restore](./concepts-backup-restore.md) feature.
+* General availability of [Geo-Redundant Backups](./concepts-backup-restore.md). See the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
 
 ## Release: August 2022
 

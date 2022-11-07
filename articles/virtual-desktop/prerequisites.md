@@ -122,13 +122,16 @@ There are different automation and deployment options available depending on whi
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 11 Enterprise multi-session|Yes|Yes|Yes|Yes|
 |Windows 11 Enterprise|Yes|Yes|No|No|
-|Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise, version 1909 and later|Yes|Yes|No|No|
+|Windows 10 Enterprise multi-session, version 20H2 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 20H2 and later|Yes|Yes|No|No|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|Yes|Yes|
 |Windows Server 2016|Yes|Yes|No|No|
 |Windows Server 2012 R2|Yes|Yes|No|No|
+
+> [!TIP]
+> To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
 
 ## Network
 
@@ -161,12 +164,12 @@ To learn more, see [Understanding Azure Virtual Desktop network connectivity](ne
 
 Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to virtual desktops and remote apps. The following clients support Azure Virtual Desktop:
 
-- [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
-- [Web client](./user-documentation/connect-web.md)
-- [macOS client](./user-documentation/connect-macos.md)
-- [iOS client](./user-documentation/connect-ios.md)
-- [Android client](./user-documentation/connect-android.md)
-- [Microsoft Store client](./user-documentation/connect-microsoft-store.md)
+- [Windows Desktop client](./users/connect-windows.md)
+- [Web client](./users/connect-web.md)
+- [macOS client](./users/connect-macos.md)
+- [iOS and iPadOS client](./users/connect-ios-ipados.md)
+- [Android and Chrome OS client](./users/connect-android-chrome-os.md)
+- [Microsoft Store client](./users/connect-microsoft-store.md)
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.

@@ -1,6 +1,6 @@
 ---
-title: Active Directory Windows Virtual Machines in Azure with External NTP Source
-description: Active Directory Windows Virtual Machines in Azure with External NTP Source
+title: Time mechanism for Active Directory Windows Virtual Machines in Azure
+description: Time mechanism for Active Directory Windows Virtual Machines in Azure
 author: NDVALPHA
 ms.service: virtual-machines
 ms.collection: windows
@@ -10,45 +10,45 @@ ms.date: 08/05/2022
 ms.author: ndelvillar
 ---
 
-# Configure Active Directory Windows Virtual Machines in Azure with External NTP Source
+# Configure the time mechanism for Active Directory Windows Virtual Machines in Azure
 
 **Applies to:** :heavy_check_mark: Windows Virtual Machines
 
-Use this guide to learn how to setup time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain with an external NTP source.
+Use this guide to learn how to setup time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain.
 
-## Time Sync for Active Directory Windows Virtual Machines in Azure with External NTP Source
+## Time sync hierarchy in Active Directory Domain Services
 
-Time synchronization in Active Directory should be managed by only allowing the PDC to access an external time source or NTP Server. All other Domain Controllers would then sync time against the PDC. If your PDC is an Azure Virtual Machine follow these steps:
+Time synchronization in Active Directory should be managed by only allowing the **PDC** to access an external time source or NTP Server.
+
+All other Domain Controllers would then sync time against the PDC, and all other members will get their time from the Domain Controller that satisfied that member's authentication request.
+
+If you have an Active Directory domain running on virtual machines hosted in Azure, follow these steps to properly set up Time Sync.
 
 >[!NOTE]
->Due to Azure Security configurations, the following settings must be applied on the PDC using the **Local Group Policy Editor**.
+>This guide focuses on usign the **Group Policy Management** console to perform the configuration. You can achieve the same results by using the Command Prompt, PowerShell, or by manually modifying the Registry; however those methods are not in scope in this article. 
+
+## GPO to allow the PDC to synchronize with an External NTP Source
 
 To check current time source in your **PDC**, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
-1. From *Start* run *gpedit.msc*.
-2. Navigate to the *Global Configuration Settings* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service*.
-3. Set it to *Enabled* and configure the *AnnounceFlags* parameter to **5**.
-4. Navigate to *Computer Settings* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*.
-5. Double click the *Configure Windows NTP Client* policy and set it to *Enabled*, configure the parameter *NTPServer* to point to an IP address of a time server followed by `,0x9` for example: `131.107.13.100,0x9` and configure *Type* to NTP. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
-
->[!IMPORTANT]
->You must mark the VMIC provider as *Disabled* in the Local Registry. Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For how to back up and restore the Windows Registry follow the steps below.
-
-## Back up the registry manually
-
-- Select Start, type regedit.exe in the search box, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In Registry Editor, locate and click the registry key or subkey that you want to back up.
-- Select File -> Export.
-- In the Export Registry File dialog box, select the location to which you want to save the backup copy, and then type a name for the backup file in the File name field.
-- Select Save.
-
-## Restore a manual backup
-
-- Select Start, type regedit.exe, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In Registry Editor, click File -> Import.
-- In the Import Registry File dialog box, select the location to which you saved the backup copy, select the backup file, and then click Open.
-
-To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In the *Registry Editor* navigate to *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders* -> On key *VMICTimeProvider* set the value to **0**
+1. From *Start* run *gpmc.msc*.
+2. Browse to the Forest and Domain where you want to create the GPO.
+3. Create a new GPO, for example *PDC Time Sync*, in the container *Group Policy Objects*.
+4. Right-click on the newly created GPO and Edit.
+5. Navigate to the *Global Configuration Settings* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service*.
+6. Set it to *Enabled* and configure the *AnnounceFlags* parameter to **5**.
+7. Navigate to *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*.
+8. Double click the *Configure Windows NTP Client* policy and set it to *Enabled*, configure the parameter *NTPServer* to point to an IP address or FQDN of a time server followed by `,0x9` for example: `131.107.13.100,0x9` and configure *Type* to **NTP**. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
+9. Click the *Next Setting* button, set the *Enable Windows NTP Client* policy to *Enabled* and click *OK*
+10. In the *Scope* tab of the newly created GPO navigate to **Security Filtering** and highlight the *Authenticated Users* group -> Click the *Remove* button -> *OK* -> *OK*
+11. Create a WMI Filter to dinamycally get the Domain Controller that holds the PDC role:
+    - In the *Group Policy Management* console, navigate to *WMI Filters*, right-click on it and select *New*.
+    - In the *New WMI Filter* window, give a name to the new filter, for example, *Get PDC Emulator* -> Fill out the *Description* field (optional) -> Click the *Add* button.
+    - In the *WMI Query* window leave the *Namespace* as is, in the *Query* text box paste the following string `Select * from Win32_ComputerSystem where DomainRole = 5`, then click the *OK* button.
+    - Back in the *New WMI Filter* window click the *Save* button.
+12. In the *Scope* tab of the newly created GPO navigate to the **WMI Filtering** drop-down menu and select the previously created WMI filter then click *OK*.
+13. In the *Scope* tab of the newly created GPO navigate to the **Security Filtering** click the *Add* button and browse for the *Domain Controllers* group, then click the *OK* button.
+14. Link the GPO to the **Domain Controllers** Organizational Unit.
 
 >[!NOTE]
 >It can take up to 15 minutes for these changes to reflect in the system.
@@ -56,39 +56,55 @@ To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In th
 From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the NTP Server you chose.
 
 >[!TIP]
->Follow the steps below if you want to speed-up the process of changing the NTP source on your PDC. You can create a scheduled task to run at **System Start-up** with the **Delay** task for up to (random delay) set to **2 minutes**.
+>If you want to speed-up the process of changing the NTP source on your **PDC**, from an elevated command prompt run *gpupdate /force*, followed by *w32tm /resync /nowait*, then rerun *w32tm /query /source*; the output should be the NTP Server you used in the above GPO.
 
-## Scheduled task to set NTP source on your PDC
+## GPO for Members
 
-1. From *Start* run *Task Scheduler*.
-2. Browse to *Task Scheduler* Library -> *Microsoft* -> *Windows* -> *Time Synchronization* -> Right-click in the right hand side pane and select *Create New Task*.
-3. In the *General* tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*.
-4. Under *Configure for:* select your operating system version.
-5. Switch to the *Triggers* tab, click the *New...* button, and set the schedule as per your requirements. Before clicking *OK*, make sure the box next to *Enabled* is checked.
-6. Go to the *Actions* tab. Click the *New...* button and enter the following details: 
-- On *Action:* set *Start a program*. 
-- On *Program/script:* set the path to *%windir%\system32\w32tm.exe*. 
-- On *Add arguments:* type */resync*, and click *OK* to save changes.
-7. Under the *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is *not selected*. Click *OK*.
+Usually, NTP in Active Directory Domain Services will follow the AD DS Time Hierarchy mentioned at the beginning of this article and no further configuration is required.
 
-## GPO for Clients
+Nevertheless, virtual machines hosted in Azure have specific security settings applied to them directly by the Cloud platform.
 
-Configure the following Group Policy Object to enable your clients to synchronize time with any Domain Controller in your Domain:
+For all other domain members that are not Domain Controllers, you will need to modify the registry and set the value to **0** in the key **Enabled** under **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider**
 
-To check current time source in your client, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
+>[!IMPORTANT]
+>Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully and test them on a couple of test virtual machines to make sure you will get the expected outcome. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For how to back up and restore the Windows Registry follow the steps below.
+
+## Back up the Registry
+
+1. From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+2. In the *Registry Editor* window, locate and click the registry key or subkey that you want to back up.
+3. From the *File* menu select *Export*.
+4. In the *Export Registry File* dialog box, select the location to which you want to save the backup copy, type a name for the backup file in the *File name* field, and then click *Save*.
+
+## Restore a Registry backup
+
+1. From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+2. In the *Registry Editor* window, from the *File* menu select *Import*.
+3. In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
+
+## GPO to disable the VMICTimeProvider
+
+Configure the following Group Policy Object to enable domain members to synchronize time with Domain Controllers in their corresponding Active Directory Site:
+
+To check current time source, login to any domain member and from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
 1. From a Domain Controller go to *Start* run *gpmc.msc*.
 2. Browse to the Forest and Domain where you want to create the GPO.
 3. Create a new GPO, for example *Clients Time Sync*, in the container *Group Policy Objects*.
 4. Right-click on the newly created GPO and Edit.
-5. In the *Group Policy Management Editor* navigate to the *Configure Windows NTP Client* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*
-6. Set it to *Enabled*, configure the parameter *NTPServer* to point to a Domain Controller in your Domain followed by `,0x8` for example: `DC1.contoso.com,0x8` and configure *Type* to NT5DS. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
-7. Link the GPO to the Organizational Unit where your clients are located.
+5. Navigate to *Computer Configuration* -> *Preferences* -> Right-click on *Registry* -> *New* -> *Registry Item*
+6. In the *New Registry Properties* window set the following values:
+    - On **Action:** *Update*
+    - On **Hive:** *HKEY_LOCAL_MACHINE*
+    - On **Key Path**: browse to *SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider*
+    - On **Value Name** type *Enabled*
+    - On **Value Type**: *REG_DWORD*
+    - On **Value Data**: type *0*
+7. For all the other parameters use the default values and click *OK*
+8. Link the GPO to the Organizational Unit where your members are located.
+9. Wait or manually force a *Group Policy Update* on the domain member.
 
->[!IMPORTANT]
->In the the parameter `NTPServer` you can specify a list with all the Domain Controllers in your domain, like this: `DC1.contoso.com,0x8 DC2.contoso.com,0x8 DC3.contoso.com,0x8`
-
-From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the Domain Controller that satisfied the client's authentication request.
+Go back to the domain member and from an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the Domain Controller that satisfied the member's authentication request.
 
 ## Next steps
 

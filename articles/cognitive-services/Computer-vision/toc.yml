@@ -96,6 +96,14 @@ items:
     href: /samples/browse/?products=azure&terms=analyze-image
   - name: Responsible use of AI
     items:
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data, privacy, and security 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
     - name: Limited Access features
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
@@ -132,12 +140,18 @@ items:
       href: concept-generating-thumbnails.md
     - name: Adult content detection
       href: concept-detecting-adult-content.md
+    - name: Reading text (preview)
+      href: concept-ocr.md
+    - name: People detection (preview)
+      href: concept-people-detection.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items: 
+    - name: Image Analysis REST API v4.0 (preview)
+      href: https://aka.ms/vision-4-0-ref
     - name: Image Analysis REST API v3.2
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
     - name: Image Analysis REST API v3.1
@@ -264,6 +278,8 @@ items:
         href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
+      - name: Configure vehicle analysis
+        href: vehicle-analysis.md
       - name: Use a local video file
         href: spatial-analysis-local.md
       - name: Deploy a people counting web app

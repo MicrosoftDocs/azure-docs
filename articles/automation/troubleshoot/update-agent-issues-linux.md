@@ -192,7 +192,7 @@ This check verifies that your machine has access to the endpoints needed by the 
 Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
 Post making Network changes you can either rerun the Troubleshooter or
-Curl on provided OMS endpoint
+Curl on provided ODS endpoint.
 
 ### Log Analytics endpoint 2
 

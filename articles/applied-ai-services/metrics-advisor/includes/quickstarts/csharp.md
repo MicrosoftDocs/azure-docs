@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 11/04/2022
 ms.author: mbullwin
 ---
 
-[Reference documentation](/dotnet/api/overview/azure/ai.metricsadvisor-readme-pre) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
+[Reference documentation](/dotnet/api/overview/azure/ai.metricsadvisor-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ ms.author: mbullwin
 > * You can find .NET Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
->    * `https://<instance-name>.cognitiveservices.azure.com/`
-   
-## Setting up
+> * `https://<instance-name>.cognitiveservices.azure.com/`
+
+## Set up
 
 ### Install the client library 
 
@@ -54,327 +54,307 @@ Build succeeded.
 ...
 ```
 
-### Install the client library 
-
 If you are using an IDE other than Visual Studio you can install the Metrics Advisor client library for .NET with the following command:
 
 ```console
 dotnet add package Azure.AI.MetricsAdvisor --version 1.1.0
 ```
 
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples), which contains the code examples in this quickstart.
+## Environment variables
 
-From the project directory, open the *program.cs* file and add the following `using` directives:
+To successfully make a call against the Anomaly Detector service, you'll need the following values:
+
+|Variable name | Value |
+|--------------------------|-------------|
+| `METRICS_ADVISOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `METRICS_ADVISOR_KEY` | The key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+|`METRICS_ADVISOR_API_KEY` |The key value can be found under **Settings** >  **API keys** when examining your resource from the [Metrics Advisor portal](https://metricsadvisor.azurewebsites.net/). You can use either `KEY1` or `KEY2`.  |
+|`SQL_CONNECTION_STRING` | This quickstart requires you to have your own SQL Database + connection string. An example connection string would look similar to the following example:`Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>` for more information on constructing SQL connection strings, see the [SQL documentation](/azure/applied-ai-services/metrics-advisor/data-feeds-from-different-sources#azure-sql-database--sql-server).  |
+|`SQL_QUERY`| Unique query specific to your dataset.|
+
+### Create environment variables
+
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx METRICS_ADVISOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+```CMD
+setx METRICS_ADVISOR_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx METRICS_ADVISOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx SQL_CONNECTION_STRING "REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING" 
+```
+
+```CMD
+setx SQL_QUERY "REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA" 
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SQL_CONNECTION_STRING', 'REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SQL_QUERY', 'REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export METRICS_ADVISOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+
+```Bash
+echo export METRICS_ADVISOR_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export METRICS_ADVISOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export SQL_CONNECTION_STRING="REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA" >> /etc/environment && source /etc/environment
+```
+
+---
+
+## Create your application
+
+Edit your program.cs file and replace with the following:
 
 ```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Azure.AI.MetricsAdvisor.Administration;
-using Azure.AI.MetricsAdvisor;
 using Azure.AI.MetricsAdvisor.Models;
-```
+using Azure.AI.MetricsAdvisor.Tests;
+using Azure.Core.TestFramework;
+using NUnit.Framework;
+using static System.Environment;
 
-In the application’s `Main()` method, add calls for the methods used in this quickstart. You will create these later.
-
-```csharp
-static void Main(string[] args){
-    // You will create the below methods later in the quickstart
-    exampleTask1();
-}
-```
-
-## Object model
-
-The following classes handle some of the major features of the Metrics Advisor C# SDK.
-
-|Name|Description|
-|---|---|
-| [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
-| [MetricsAdvisorAdministrationClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs)| **Allows you to:** <br> - Manage data feeds <br> - Configure anomaly detection configurations <br> - Configure anomaly alerting configurations <br> - Manage hooks  |
-| [DataFeed](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeed.cs)| **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| [DataFeedMetric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeedMetric.cs)| A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Metrics Advisor client library for .NET:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Add a data feed](#add-a-data-feed)
-* [Check the ingestion status](#check-the-ingestion-status)
-* [Configure anomaly detection](#configure-anomaly-detection)
-* [Create a hook](#create-a-hook)
-* [Create an alert configuration](#create-an-alert-configuration)
-* [Query the alert](#query-the-alert)
-
-## Authenticate the client
-
-In the application's `Program` class, create variables for your resource's keys and endpoint.
-
-> [!IMPORTANT]
-> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
-
-Once you have the subscription and API keys, create a MetricsAdvisorKeyCredential. With the endpoint and the key credential, you can create a [`MetricsAdvisorClient`](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs):
-
-```csharp
-string endpoint = "<endpoint>";
-string subscriptionKey = "<subscriptionKey>";
-string apiKey = "<apiKey>";
-var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-var client = new MetricsAdvisorClient(new Uri(endpoint), credential);
-```
-
-You can also create a [`MetricsAdvisorAdministrationClient`](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs) to perform administrative operations:
-
-```csharp
-string endpoint = "<endpoint>";
-string subscriptionKey = "<subscriptionKey>";
-string apiKey = "<apiKey>";
-var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
-```
-
-> [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
-
-## Add a data feed
-
-Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. 
-
-Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedMetric` and `DataFeedDimension` values based on your custom data.
-
-> [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [Tutorial: Write a valid query](../../tutorials/write-a-valid-query.md) for more information, and examples.
-
-
-```csharp
-string sqlServerConnectionString = "<connection_String>";
-string sqlServerQuery = "<query>";
-
-var dataFeed = new DataFeed();
-dataFeed.Name = "Sample data feed";
-
-dataFeed.DataSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
-dataFeed.Granularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
-
-dataFeed.Schema = new DataFeedSchema();
-dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("cost"));
-dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("revenue"));
-dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("category"));
-dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("city"));
-
-dataFeed.IngestionSettings = new DataFeedIngestionSettings(DateTimeOffset.Parse("2020-01-01T00:00:00Z"));
-
-
-Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeed);
-
-DataFeed createdDataFeed = response.Value;
-
-Console.WriteLine($"Data feed ID: {createdDataFeed.Id}");
-Console.WriteLine($"Data feed status: {createdDataFeed.Status.Value}");
-Console.WriteLine($"Data feed created time: {createdDataFeed.CreatedOn.Value}");
-
-Console.WriteLine($"Data feed administrators:");
-foreach (string admin in createdDataFeed.Administrators)
+namespace Azure.AI.MetricsAdvisor.Samples
 {
-    Console.WriteLine($" - {admin}");
-}
-
-Console.WriteLine($"Metric IDs:");
-foreach (DataFeedMetric metric in createdDataFeed.Schema.MetricColumns)
-{
-    Console.WriteLine($" - {metric.Name}: {metric.Id}");
-}
-
-Console.WriteLine($"Dimensions:");
-foreach (DataFeedDimension dimension in createdDataFeed.Schema.DimensionColumns)
-{
-    Console.WriteLine($" - {dimension.Name}");
-}
-```
-
-## Check the ingestion status
-
-Check the ingestion status of a previously created `DataFeed`
-
-```csharp
-string dataFeedId = "<dataFeedId>";
-
-var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
-var endTime = DateTimeOffset.Parse("2020-09-09T00:00:00Z");
-var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime)
-{
-    MaxPageSize = 5
-};
-
-Console.WriteLine("Ingestion statuses:");
-Console.WriteLine();
-
-int statusCount = 0;
-
-await foreach (DataFeedIngestionStatus ingestionStatus in adminClient.GetDataFeedIngestionStatusesAsync(dataFeedId, options))
-{
-    Console.WriteLine($"Timestamp: {ingestionStatus.Timestamp}");
-    Console.WriteLine($"Status: {ingestionStatus.Status}");
-    Console.WriteLine($"Service message: {ingestionStatus.Message}");
-    Console.WriteLine();
-
-    // Print at most 5 statuses.
-    if (++statusCount >= 5)
+    [LiveOnly]
+    public partial class MetricsAdvisorSamples : MetricsAdvisorTestEnvironment
     {
-        break;
+        [Test]
+        public async Task CreateAndDeleteDataFeedAsync()
+        {
+            string endpoint =  GetEnvironmentVariable("METRICS_ADVISOR_ENDPOINT");
+            string subscriptionKey = GetEnvironmentVariable("METRICS_ADVISOR_KEY");
+            string apiKey = GetEnvironmentVariable("METRICS_ADVISOR_API_KEY");
+            var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
+
+            var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
+
+            #region Snippet:CreateDataFeedAsync
+#if SNIPPET
+            string sqlServerConnectionString = GetEnvironmentVariable("SQL_CONNECTION_STRING");
+            string sqlServerQuery = GetEnvironmentVariable("SQL_QUERY");
+#else
+            string sqlServerConnectionString = SqlServerConnectionString;
+            string sqlServerQuery = SqlServerQuery;
+#endif
+
+            var dataFeed = new DataFeed();
+
+#if SNIPPET
+            dataFeed.Name = "<dataFeedName>";
+#else
+            dataFeed.Name = GetUniqueName();
+#endif
+            dataFeed.DataSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
+            dataFeed.Granularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
+
+            dataFeed.Schema = new DataFeedSchema();
+            dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("cost"));
+            dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("revenue"));
+            dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("category"));
+            dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("region"));
+
+            dataFeed.IngestionSettings = new DataFeedIngestionSettings(DateTimeOffset.Parse("2020-01-01T00:00:00Z"));
+
+            Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeed);
+
+            DataFeed createdDataFeed = response.Value;
+
+            Console.WriteLine($"Data feed ID: {createdDataFeed.Id}");
+            Console.WriteLine($"Data feed status: {createdDataFeed.Status.Value}");
+            Console.WriteLine($"Data feed created time: {createdDataFeed.CreatedOn.Value}");
+
+            Console.WriteLine($"Data feed administrators:");
+            foreach (string admin in createdDataFeed.Administrators)
+            {
+                Console.WriteLine($" - {admin}");
+            }
+
+            Console.WriteLine($"Metric IDs:");
+            foreach (DataFeedMetric metric in createdDataFeed.Schema.MetricColumns)
+            {
+                Console.WriteLine($" - {metric.Name}: {metric.Id}");
+            }
+
+            Console.WriteLine($"Dimensions:");
+            foreach (DataFeedDimension dimension in createdDataFeed.Schema.DimensionColumns)
+            {
+                Console.WriteLine($" - {dimension.Name}");
+            }
+            #endregion
+
+            // Delete the created data feed to clean up the Metrics Advisor resource. Do not perform this
+            // step if you intend to keep using the data feed.
+
+            await adminClient.DeleteDataFeedAsync(createdDataFeed.Id);
+        }
+
+        [Test]
+        public async Task GetDataFeedAsync()
+        {
+            string endpoint = GetEnvironmentVariable("METRICS_ADVISOR_ENDPOINT");
+            string subscriptionKey = GetEnvironmentVariable("METRICS_ADVISOR_KEY");
+            string apiKey = GetEnvironmentVariable("METRICS_ADVISOR_API_KEY");
+            var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
+
+            var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
+
+            string dataFeedId = DataFeedId;
+
+            Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
+
+            DataFeed dataFeed = response.Value;
+
+            Console.WriteLine($"Data feed status: {dataFeed.Status.Value}");
+            Console.WriteLine($"Data feed created time: {dataFeed.CreatedOn.Value}");
+
+            Console.WriteLine($"Data feed administrators:");
+            foreach (string admin in dataFeed.Administrators)
+            {
+                Console.WriteLine($" - {admin}");
+            }
+
+            Console.WriteLine($"Metric IDs:");
+            foreach (DataFeedMetric metric in dataFeed.Schema.MetricColumns)
+            {
+                Console.WriteLine($" - {metric.Name}: {metric.Id}");
+            }
+
+            Console.WriteLine($"Dimensions:");
+            foreach (DataFeedDimension dimension in dataFeed.Schema.DimensionColumns)
+            {
+                Console.WriteLine($" - {dimension.Name}");
+            }
+        }
+
+        [Test]
+        public async Task UpdateDataFeedAsync()
+        {
+            string endpoint = GetEnvironmentVariable("METRICS_ADVISOR_ENDPOINT");
+            string subscriptionKey = GetEnvironmentVariable("METRICS_ADVISOR_KEY");
+            string apiKey = GetEnvironmentVariable("METRICS_ADVISOR_API_KEY");
+            var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
+
+            var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
+
+            string dataFeedId = DataFeedId;
+
+            Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
+            DataFeed dataFeed = response.Value;
+
+            string originalDescription = dataFeed.Description;
+            dataFeed.Description = "This description was generated by a sample.";
+
+            // Some properties, such as IngestionStartOffset, can be reset to their default value
+            // when set to null during an Update operation. Check the API documentation to verify
+            // when a property supports this feature.
+
+            TimeSpan? originalStartOffset = dataFeed.IngestionSettings.IngestionStartOffset;
+            dataFeed.IngestionSettings.IngestionStartOffset = null;
+
+            response = await adminClient.UpdateDataFeedAsync(dataFeed);
+            DataFeed updatedDataFeed = response.Value;
+
+            Console.WriteLine($"Updated description: {updatedDataFeed.Description}");
+            Console.WriteLine($"Updated ingestion start offset: {updatedDataFeed.IngestionSettings.IngestionStartOffset}");
+
+            // Undo the changes to leave the data feed unaltered. Skip this step if you intend to keep
+            // the changes.
+
+            dataFeed.Description = originalDescription;
+            dataFeed.IngestionSettings.IngestionStartOffset = originalStartOffset;
+
+            await adminClient.UpdateDataFeedAsync(dataFeed);
+        }
+
+        [Test]
+        public async Task GetDataFeedsAsync()
+        {
+            string endpoint = GetEnvironmentVariable("METRICS_ADVISOR_ENDPOINT");
+            string subscriptionKey = GetEnvironmentVariable("METRICS_ADVISOR_KEY");
+            string apiKey = GetEnvironmentVariable("METRICS_ADVISOR_API_KEY");
+            var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
+
+            var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
+
+            var filter = new DataFeedFilter()
+            {
+                Status = DataFeedStatus.Active,
+                GranularityType = DataFeedGranularityType.Daily
+            };
+            var options = new GetDataFeedsOptions()
+            {
+                Filter = filter,
+                MaxPageSize = 5
+            };
+
+            int dataFeedCount = 0;
+
+            await foreach (DataFeed dataFeed in adminClient.GetDataFeedsAsync(options))
+            {
+                Console.WriteLine($"Data feed ID: {dataFeed.Id}");
+                Console.WriteLine($"Name: {dataFeed.Name}");
+                Console.WriteLine($"Description: {dataFeed.Description}");
+                Console.WriteLine();
+
+                // Print at most 5 data feeds.
+                if (++dataFeedCount >= 5)
+                {
+                    break;
+                }
+            }
+        }
     }
 }
 ```
-
-## Configure anomaly detection 
-
-Create an anomaly detection configuration to tell the service which data points should be considered anomalies.
-
-```csharp
-string metricId = "<metricId>";
-string configurationName = "Sample anomaly detection configuration";
-
-var detectionConfiguration = new AnomalyDetectionConfiguration()
-{
-    MetricId = metricId,
-    Name = configurationName,
-    WholeSeriesDetectionConditions = new MetricWholeSeriesDetectionCondition()
-};
-
-var detectCondition = detectionConfiguration.WholeSeriesDetectionConditions;
-
-var hardSuppress = new SuppressCondition(1, 100);
-detectCondition.HardThresholdCondition = new HardThresholdCondition(AnomalyDetectorDirection.Down, hardSuppress)
-{
-    LowerBound = 5.0
-};
-
-var smartSuppress = new SuppressCondition(4, 50);
-detectCondition.SmartDetectionCondition = new SmartDetectionCondition(10.0, AnomalyDetectorDirection.Up, smartSuppress);
-
-detectCondition.ConditionOperator = DetectionConditionOperator.Or;
-
-Response<AnomalyDetectionConfiguration> response = await adminClient.CreateDetectionConfigurationAsync(detectionConfiguration);
-
-AnomalyDetectionConfiguration createdDetectionConfiguration = response.Value;
-
-Console.WriteLine($"Anomaly detection configuration ID: {createdDetectionConfiguration.Id}");
-```
-
-### Create a hook
-
-Metrics Advisor supports the `EmailNotificationHook` and `WebNotificationHook` classes as means of subscribing to alerts notifications. In this example we'll illustrate how to create an `EmailNotificationHook`. You need to pass the hook to an anomaly alert configuration to start getting notifications. See the sample [create an anomaly alert configuration](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration) for more information.
-
-```csharp
-string hookName = "Sample hook";
-var emailHook = new EmailNotificationHook(hookName);
-
-emailHook.EmailsToAlert.Add("email1@sample.com");
-emailHook.EmailsToAlert.Add("email2@sample.com");
-
-Response<NotificationHook> response = await adminClient.CreateHookAsync(emailHook);
-
-NotificationHook createdHook = response.Value;
-
-Console.WriteLine($"Hook ID: {createdHook.Id}");
-```
-
-##  Create an alert configuration
-
-Create an `AnomalyAlertConfiguration` to tell the service which anomalies should trigger alerts.
-
-```csharp
-string hookId = "<hookId>";
-string anomalyDetectionConfigurationId = "<anomalyDetectionConfigurationId>";
-
-string configurationName = "Sample anomaly alert configuration";
-var idsOfHooksToAlert = new List<string>() { hookId };
-
-var scope = MetricAnomalyAlertScope.GetScopeForWholeSeries();
-var metricAlertConfigurations = new List<MetricAnomalyAlertConfiguration>()
-{
-    new MetricAnomalyAlertConfiguration(anomalyDetectionConfigurationId, scope)
-};
-
-AnomalyAlertConfiguration alertConfiguration = new AnomalyAlertConfiguration(configurationName, idsOfHooksToAlert, metricAlertConfigurations);
-
-Response<string> response = await adminClient.CreateAlertConfigurationAsync(alertConfiguration);
-
-string alertConfigurationId = response.Value;
-
-Console.WriteLine($"Alert configuration ID: {alertConfigurationId}");
-```
-
-### Query the alert
-
-Look through the alerts created by a given anomaly alert configuration.
-
-```csharp
-string anomalyAlertConfigurationId = "<anomalyAlertConfigurationId>";
-
-var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
-var endTime = DateTimeOffset.UtcNow;
-var options = new GetAlertsOptions(startTime, endTime, AlertQueryTimeMode.AnomalyTime)
-{
-    MaxPageSize = 5
-};
-
-int alertCount = 0;
-
-await foreach (AnomalyAlert alert in client.GetAlertsAsync(anomalyAlertConfigurationId, options))
-{
-    Console.WriteLine($"Alert created at: {alert.CreatedTime}");
-    Console.WriteLine($"Alert at timestamp: {alert.Timestamp}");
-    Console.WriteLine($"Id: {alert.Id}");
-    Console.WriteLine();
-
-    // Print at most 5 alerts.
-    if (++alertCount >= 5)
-    {
-        break;
-    }
-}
-```
-
-Once you know an alert's ID, list the [anomalies](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/README.md#data-point-anomaly) that triggered this alert.
-
-```csharp
-string alertConfigurationId = "<alertConfigurationId>";
-string alertId = "<alertId>";
-
-var options = new GetAnomaliesForAlertOptions() { MaxPageSize = 3 };
-
-int anomalyCount = 0;
-
-await foreach (DataPointAnomaly anomaly in client.GetAnomaliesAsync(alertConfigurationId, alertId, options))
-{
-    Console.WriteLine($"Anomaly detection configuration ID: {anomaly.AnomalyDetectionConfigurationId}");
-    Console.WriteLine($"Metric ID: {anomaly.MetricId}");
-    Console.WriteLine($"Anomaly at timestamp: {anomaly.Timestamp}");
-    Console.WriteLine($"Anomaly detected at: {anomaly.CreatedTime}");
-    Console.WriteLine($"Status: {anomaly.Status}");
-    Console.WriteLine($"Severity: {anomaly.Severity}");
-    Console.WriteLine("Series key:");
-
-    foreach (KeyValuePair<string, string> keyValuePair in anomaly.SeriesKey.AsDictionary())
-    {
-        Console.WriteLine($"  Dimension '{keyValuePair.Key}': {keyValuePair.Value}");
-    }
-
-    Console.WriteLine();
-
-    // Print at most 3 anomalies.
-    if (++anomalyCount >= 3)
-    {
-        break;
-    }
-}
-```
-
 
 ### Run the application
 

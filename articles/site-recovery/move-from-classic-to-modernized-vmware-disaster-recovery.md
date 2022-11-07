@@ -3,12 +3,13 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 11/04/2022
+author: ankitaduttaMSFT
 ---
 
 # Move from classic to modernized VMware disaster recovery   
 
-This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-preview.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
+This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
 
 > [!Note]
 > - Movement of physical servers to modernized architecture is not yet supported.   
@@ -21,7 +22,7 @@ The components involved in the migration of replicated items of a VMware machine
 
 |Component|Requirement|
 |---------|-------------|
-|Replicated items in a classic Recovery Services vault|One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
+|Replicated items in a classic Recovery Services vault| One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
 |Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|  
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
 |A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.35.8419.34591<br>Recovery services agent: 2.0.9249.0<br>Replication service: 1.35.8433.24227|
@@ -31,8 +32,8 @@ The components involved in the migration of replicated items of a VMware machine
 Ensure the following for a successful movement of replicated item: 
 - A Recovery Services vault using the modernized experience.   
   >[!Note] 
-  >Any new Recovery Services vault created will have the modernized experience switched on by default. You can [switch to the classic experience](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience) but once done, you can’t switch again.   
-- An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-preview.md), which has been successfully registered to the vault, and all its components are in a non-critical state.   
+  >Any new Recovery Services vault created will have the modernized experience switched on by default. You can [switch to the classic experience](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience) but once done, you can’t switch again.   
+- An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which has been successfully registered to the vault, and all its components are in a non-critical state.   
 - The version of the appliance must be 9.50 or later. For a detailed version description, check [here](#architecture). 
 - The vCenter server or vSphere host’s details, where the existing replicated machines reside, are added to the appliance for the on-premises discovery to be successful.   
 
@@ -42,9 +43,9 @@ Ensure the following for a successful movement of replicated item:
 
 Ensure the following before you move from classic architecture to modernized architecture: 
 
-- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience has [not been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience). 
-- [Deploy an Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-preview.md). 
-- [Add the on-premises machine’s vCenter Server details](./deploy-vmware-azure-replication-appliance-preview.md) to the appliance, so that it successfully performs discovery.   
+- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience has [not been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience). 
+- [Deploy an Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md). 
+- [Add the on-premises machine’s vCenter Server details](./deploy-vmware-azure-replication-appliance-modernized.md) to the appliance, so that it successfully performs discovery.   
 
 ### Prepare classic Recovery Services vault   
 
@@ -52,7 +53,7 @@ Ensure the following for the replicated items you are planning to move:
 
 - The Recovery Services vault does not have MSI enabled on it.   
 - The replicated item is a VMware machine replicating via a configuration server. 
-- Replication is not happening to an unmanaged storage account but rather to managed disk. 
+- Replication is not happening to an un-managed storage account but rather to managed disk. 
 - Replication is happening from on-premises to Azure and the replicated item is not in a failed-over or in failed-back state. 
 - The replicated item is not replicating the data from Azure to on-premises.  
 - The initial replication is not under progress and has already been completed.   
@@ -100,7 +101,7 @@ The same formula will be used to calculate time for migration and is shown on th
 
 ## How to define required infrastructure 
 
-When migrating machines from classic to modernized architecture, you will need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-preview.md#sizing-and-capacity) to help define the required infrastructure.  
+When migrating machines from classic to modernized architecture, you will need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
 
 As a rule, you should set up the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should set up four replication appliances in the modernized Recovery Services vault.  
 
@@ -119,7 +120,7 @@ Site Recovery will start charging license fee on replicated items in the moderni
 
 Ultimately, the classic architecture will be deprecated, so one must ensure that they are using the latest modernized architecture. The table below shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
 
-|Classic architecture|Modernized architecture [New]|
+|Classic architecture| Modernized architecture [New]|
 |---------------------|-----------------------------|
 |Multiple setups required for discovering on-premises data.|**Central discovery** of on-premises data center using discovery service.| 
 |Extensive number of steps required for initial onboarding.|**Simplified the onboarding experience** by automating artifact creation and introduced defaults to reduce required inputs.|  

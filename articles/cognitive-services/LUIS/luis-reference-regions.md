@@ -12,6 +12,9 @@ ms.custom: references_regions
 
 # Authoring and publishing regions and the associated keys
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one predection key per region.
 
 <a name="luis-website"></a>

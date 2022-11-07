@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/18/2021
+ms.date: 10/20/2022
 ms.reviewer: arvinh
 ---
 
@@ -94,6 +94,9 @@ If a user and their manager are both in scope for provisioning, the service prov
 #### Global reader
 
 The global reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
+
+#### Microsoft Azure Government Cloud
+Credentials, including the secret token, notification email, and SSO certificate notification emails together have a 1KB limit in the Microsoft Azure Government Cloud. 
 
 ## On-premises application provisioning
 The following information is a current list of known limitations with the Azure AD ECMA Connector Host and on-premises application provisioning.

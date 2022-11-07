@@ -1,10 +1,10 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Cognitive Services
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Cognitive Services. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/12/2022
+ms.date: 11/04/2022
 ms.topic: sample
-author: nitinme
-ms.author: nitinme
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.custom: subject-policy-compliancecontrols
 ---

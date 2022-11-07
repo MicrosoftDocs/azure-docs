@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: lagayhar
-ms.date:  05/10/2022
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
 ---
@@ -63,4 +63,4 @@ To learn more about how to build a component, see:
 - [Component CLI v2 YAML reference](./reference-yaml-component-command.md).
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md).
 - Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components).
-- Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines).
+- Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines).

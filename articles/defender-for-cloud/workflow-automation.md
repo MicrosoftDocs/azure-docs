@@ -2,7 +2,10 @@
 title: Workflow automation in Microsoft Defender for Cloud
 description: Learn how to create and automate workflows in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 07/31/2022
+author: bmansheim
+ms.author: benmansheim
+ms.custom: ignite-2022
+ms.date: 09/21/2022
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -168,8 +171,8 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
     
     | Original name | New name|
     |--|--|
-    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When an Microsoft Defender for Clou dAlert is created or triggered <sup>[1](#footnote1)</sup>|
-    | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When an Microsoft Defender for Cloud Recommendation is created or triggered |
+    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When a Microsoft Defender for Cloud dAlert is created or triggered <sup>[1](#footnote1)</sup>|
+    | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When a Microsoft Defender for Cloud Recommendation is created or triggered |
     | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
 
     <sup><a name="footnote1"></a>1</sup> The typo `Clou dAlert` is intentional.

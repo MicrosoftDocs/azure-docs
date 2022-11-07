@@ -7,7 +7,7 @@ ms.topic: how-to
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Integrate Azure Active Directory with Azure Arc-enabled Kubernetes clusters
+# Use Azure RBAC for Azure Arc-enabled Kubernetes clusters
 
 Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
 
@@ -17,9 +17,9 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 ## Prerequisites
 
-- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to version 2.16.0 or later.
+- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-- Install the `connectedk8s` Azure CLI extension, version 1.1.0 or later:
+- Install the latest version of `connectedk8s` Azure CLI extension:
 
     ```azurecli
     az extension add --name connectedk8s
@@ -33,42 +33,139 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 - Connect an existing Azure Arc-enabled Kubernetes cluster:
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
 > You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. This feature isn't supported on AKS on Azure Stack HCI.
 
 ## Set up Azure AD applications
 
-### Create a server application
 
+### [AzureCLI >= v2.37](#tab/AzureCLI)
+#### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
     CLUSTER_NAME="<clusterName>"
     TENANT_ID="<tenant>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/ClientAnyUniqueSuffix" --query appId -o tsv)
+    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
     echo $SERVER_APP_ID
     ```
 
-1. Update the application's group membership claims:
+1. To grant "Sign in and read user profile" API permissions to the server application. Copy this JSON and save it in a file called oauth2-permissions.json: 
 
-    ```azurecli
-    az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
+    ```json
+    {
+        "oauth2PermissionScopes": [
+            {
+                "adminConsentDescription": "Sign in and read user profile",
+                "adminConsentDisplayName": "Sign in and read user profile",
+                "id": "<unique_guid>",
+                "isEnabled": true,
+                "type": "User",
+                "userConsentDescription": "Sign in and read user profile",
+                "userConsentDisplayName": "Sign in and read user profile",
+                "value": "User.Read"
+            }
+        ]
+    }
     ```
+
+1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
+    
+    ```azurecli 
+        az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
+        az ad app update --id ${SERVER_APP_ID} --set  api=@oauth2-permissions.json
+        az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
+        SERVER_OBJECT_ID=$(az ad app show --id "${SERVER_APP_ID}" --query "id" -o tsv)
+        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${SERVER_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
+    ```
+
 
 1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
 
     ```azurecli
-    az ad sp create --id "${SERVER_APP_ID}"
-    SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+        az ad sp create --id "${SERVER_APP_ID}"
+        SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
     ```
 
-1. Grant "Sign in and read user profile" API permissions to the application:
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
 
     ```azurecli
-    az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-    az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000
+        az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+        az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --scope User.Read
+    ```
+
+    > [!NOTE]
+    > An Azure tenant administrator has to run this step.
+    > 
+    > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
+
+#### Create a client application
+
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
+
+    ```azurecli
+        CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
+        CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --is-fallback-public-client --public-client-redirect-uris "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
+        echo $CLIENT_APP_ID 
+    ```
+
+
+2. Create a service principal for this client application:
+
+    ```azurecli
+    az ad sp create --id "${CLIENT_APP_ID}"
+    ```
+
+3. Get the `oAuthPermissionId` value for the server application:
+
+    ```azurecli
+        az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
+    ```
+
+4. Grant the required permissions for the client application. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
+
+    ```azurecli
+        az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+        RESOURCE_APP_ID=$(az ad app show --id "${CLIENT_APP_ID}"  --query "requiredResourceAccess[0].resourceAppId" -o tsv)
+        az ad app permission grant --id "${CLIENT_APP_ID}" --api "${RESOURCE_APP_ID}" --scope User.Read
+        az ad app update --id ${CLIENT_APP_ID} --set  signInAudience=AzureADMyOrg
+        CLIENT_OBJECT_ID=$(az ad app show --id "${CLIENT_APP_ID}" --query "id" -o tsv)
+        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
+    ```
+
+
+### [AzureCLI < v2.37](#tab/AzureCLI236)
+#### Create a server application
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
+
+    ```azurecli
+    CLUSTER_NAME="<clusterName>"
+    TENANT_ID="<tenant>"
+    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
+    echo $SERVER_APP_ID
+    ```
+
+1.  Update the application's group membership claims:
+    ```azurecli 
+        az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
+    ``` 
+
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. This secret is valid for one year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). You can also [set a custom expiration duration](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset).
+
+    ```azurecli
+        az ad sp create --id "${SERVER_APP_ID}"
+        SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+    ```
+
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
+
+    ```azurecli     
+        az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+        az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 
     ```
 
     > [!NOTE]
@@ -76,13 +173,14 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     > 
     > For usage of this feature in production, we recommend that you  create a different server application for every cluster.
 
-### Create a client application
+#### Create a client application
 
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
-    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/ServerAnyUniqueSuffix" --query appId -o tsv)
-    echo $CLIENT_APP_ID
+        CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
+        CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
+        echo $CLIENT_APP_ID
     ```
 
 2. Create a service principal for this client application:
@@ -94,15 +192,16 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 3. Get the `oAuthPermissionId` value for the server application:
 
     ```azurecli
-    az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
+        az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
     ```
 
 4. Grant the required permissions for the client application:
 
     ```azurecli
-    az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
-    az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
+        az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+        az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
+---
 
 ## Create a role assignment for the server application
 
@@ -159,6 +258,12 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
 
     1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+
+        ```console
+        sudo mkdir -p /etc/guard
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authn-webhook.yaml"' | base64 -d > /etc/guard/guard-authn-webhook.yaml
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authz-webhook.yaml"' | base64 -d > /etc/guard/guard-authz-webhook.yaml
+        ```
 
     1. Open the `apiserver` manifest in edit mode:
         

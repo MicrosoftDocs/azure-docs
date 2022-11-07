@@ -4,9 +4,10 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 10/12/2022
 ms.author: helohr
 ms.service: virtual-desktop
+ms.custom: ignite-2022
 manager: femila
 ---
 # Security best practices
@@ -28,7 +29,7 @@ Here are the security needs you're responsible for in your Azure Virtual Desktop
 |Identity|Yes|
 |User devices (mobile and PC)|Yes|
 |App security|Yes|
-|Session host OS|Yes|
+|Session host operating system (OS)|Yes|
 |Deployment configuration|Yes|
 |Network controls|Yes|
 |Virtualization control plane|No|
@@ -82,7 +83,7 @@ Enabling audit log collection lets you view user and admin activity related to A
 
 ### Use RemoteApps
 
-When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with with a subset of the remote machine exposed by the application.
+When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
@@ -151,6 +152,14 @@ By restricting operating system capabilities, you can strengthen the security of
 ## Azure Virtual Desktop support for Trusted Launch
 
 Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+## Azure Confidential Computing virtual machines (preview)
+
+> [!IMPORTANT]
+> Azure Virtual Desktop support for Azure Confidential virtual machines is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Virtual Desktop support for Azure Confidential Computing virtual machines (preview) ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential Computing overview](../confidential-computing/overview.md).
 
 ### Secure Boot
 

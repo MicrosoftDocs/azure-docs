@@ -2,9 +2,56 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/22/2022
+ms.date: 11/01/2022
 ms.author: eur
 ---
+
+### Speech SDK 1.24.1: November 2022 release
+
+#### New features
+- Published packages for the Embedded Speech preview. See https://aka.ms/embedded-speech for more information.
+
+#### Bug fixes
+
+- **All programing languages**
+    - Fix embedded TTS crash when voice font is not supported
+    - Fix stopSpeaking() cannot stop playback on Linux ([#1686](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1686))
+- **JavaScript SDK**
+    - Fixed regression in how conversation transcriber gated audio.
+- **Java**
+    - Temporarily Published updated POM and Javadocs files to Maven Central to enable the docs pipeline to update online reference docs.
+- **Python**
+    - Fix regression where python speak_text(ssml) returns void.
+
+
+### Speech SDK 1.24.0: October 2022 release
+
+#### New features
+
+- **All programing languages**: AMR-WB (16khz) added to the supported list of Text-to-speech audio output formats
+- **Python**: Package added for Linux ARM64 for supported Linux distributions.
+- **C#/C++/Java/Python**: Support added for ALAW & MULAW direct streaming to the speech service (in addition to existing PCM stream) using `AudioStreamWaveFormat`.
+- **C# MAUI**: NuGet package updated to support Android targets for [.NET MAUI](/dotnet/maui/what-is-maui) developers ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
+- **Mac**: Added separate XCframework for Mac, which does not contain any iOS binaries. This offers an option for developers who need only Mac binaries using a smaller XCframework package.
+- **Microsoft Audio Stack** (MAS):
+  - When beam-forming angles are specified, sound originating outside of specified range will be suppressed better.
+  - Approximately 70% reduction in the size of `libMicrosoft.CognitiveServices.Speech.extension.mas.so` for Linux ARM32 and Linux ARM64.
+- **Intent Recognition using pattern matching**:
+  - Add orthography support for the languages `fr`, `de`, `es`, `jp`
+  - Added pre-built integer support for language `es`.
+
+#### Bug fixes
+
+- **iOS**: fix speech synthesis error on iOS 16 caused by compressed audio decoding failure ([Customer Issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1613)).
+- **JavaScript**:
+  - Fix authentication token not working when getting speech synthesis voice list ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/551)).
+  - Use data URL for worker loading ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/563)).
+  - Create audio processor worklet only when AudioWorklet is supported in browser ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/572)). This was a community contribution by [William Wong](https://github.com/compulim). Thank you William!
+  - Fix recognized callback when LUIS response `connectionMessage` is empty ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1644)).
+  - Properly set speech segmentation timeout.
+- **Intent Recognition using pattern matching**:
+  - Non-json characters inside models will now load properly.
+  - Fix hanging issue when `recognizeOnceAsync(text)` was called during continuous recognition.
 
 ### Speech SDK 1.23.0: July 2022 release
 
