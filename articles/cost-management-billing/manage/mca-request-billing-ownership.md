@@ -174,30 +174,30 @@ As the user that approved the transfer:
 
 You can request billing ownership of products for the subscription types listed below.
 
-- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
-- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)<sup>1</sup>
-- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)<sup>1</sup>
+- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
+- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)¹
+- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)¹
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)<sup>1</sup>
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)¹
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)<sup>2</sup>
-- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)<sup>1</sup>
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)²
+- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)¹
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
     - Subscription and reservation transfer are supported for direct EA customers. A direct enterprise agreement is one that's signed between Microsoft and an enterprise agreement customer.
     - Only subscription transfers are supported for indirect EA customers. Reservation transfers aren't supported. An indirect EA agreement is one where a customer signs an agreement with a Microsoft partner.
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
-- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)<sup>1</sup>
-- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)<sup>1</sup>
-- [Visual Studio Enterprise (Cloud Partner Program) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)<sup>1</sup>
-- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)<sup>1</sup>
-- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)<sup>1</sup>
-- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)<sup>1</sup>
+- [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
+- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)¹
+- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)¹
+- [Visual Studio Enterprise (Cloud Partner Program) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)¹
+- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)¹
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)¹
+- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)¹
 
-<sup>1</sup> Any credit available on the subscription won't be available in the new account after the transfer.
+¹ Any credit available on the subscription won't be available in the new account after the transfer.
 
-<sup>2</sup> Only supported for products in accounts that are created during sign-up on the Azure website.
+² Only supported for products in accounts that are created during sign-up on the Azure website.
 
 ## Check for access
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

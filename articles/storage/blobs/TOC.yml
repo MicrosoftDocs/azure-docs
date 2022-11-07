@@ -88,6 +88,8 @@ items:
         href: storage-auth-abac-powershell.md
       - name: CLI
         href: storage-auth-abac-cli.md
+    - name: Encrypt and decrypt blobs using Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
   - name: Samples
     items:
     - name: .NET
@@ -222,6 +224,8 @@ items:
         href: storage-blob-reserved-capacity.md
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md
+      - name: Estimate the cost to archive data
+        href: archive-cost-estimation.md
       - name: Scalability and performance targets
         items:
         - name: Blob storage
@@ -937,7 +941,7 @@ items:
     - name: Authorization
       items:
       - name: Authorizing data operations
-        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
         items:
         - name: Authorize with Azure AD
           items:
