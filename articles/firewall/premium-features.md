@@ -81,7 +81,7 @@ The IDPS Bypass List allows you to not filter traffic to any of the IP addresses
 
 In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
 
-:::image type="content" source="media/premium-features/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
+:::image type="content" source="media/premium-features/idps-private-ip.png" alt-text="Screenshot showing IDPS private IP address ranges.":::
 
 ### IDPS signature rules
 
