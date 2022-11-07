@@ -5,7 +5,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2022
 author: ankitaduttaMSFT
-ms.topic: how-to
 ---
 
 # Move from classic to modernized VMware disaster recovery   
@@ -54,7 +53,7 @@ Ensure the following for the replicated items you are planning to move:
 
 - The Recovery Services vault does not have MSI enabled on it.   
 - The replicated item is a VMware machine replicating via a configuration server. 
-- Replication is not happening to an unmanaged storage account but rather to managed disk. 
+- Replication is not happening to an un-managed storage account but rather to managed disk. 
 - Replication is happening from on-premises to Azure and the replicated item is not in a failed-over or in failed-back state. 
 - The replicated item is not replicating the data from Azure to on-premises.  
 - The initial replication is not under progress and has already been completed.   
