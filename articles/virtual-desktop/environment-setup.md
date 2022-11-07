@@ -3,7 +3,7 @@ title: Azure Virtual Desktop terminology - Azure
 description: Learn about the basic elements of Azure Virtual Desktop, like host pools, app groups, and workspaces.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 11/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -27,12 +27,12 @@ The following table goes into more detail about the features each type of host p
 
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
-|Load balancing|||
-|Maximum session limit|||
-|User assignment process|||
-|Scaling|||
-|Updating|||
-|User data|||
+|Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool by the load balancing algorithm. You can choose which load balancing algorithm to use: breadth first or depth first. Sessions are load balanced based on user session count. |
+|Maximum session limit| One | As many as the user wants. |
+|User assignment process| Customers can either directly assign users to session hosts or automatically assign users to the first available session host. In automatic assignment, the load balancing algorithm will always assign them to the same session host if they sign out and sign back in. | Users aren't assigned to session hosts. After a user signs out and signs back in, the load balancing algorithm might assign them to a different session host. |
+|Scaling|None. | Autoscale for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
+|Updating|N/A (Awaiting PM feedback)|N/A (Awaiting PM feedback)|
+|User data| Each user only ever uses one session host, so they can store their user profile data in either drive C or the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in FSLogix. |
 
 You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Azure Virtual Desktop sessions. You control the resources published to users through app groups.
 
