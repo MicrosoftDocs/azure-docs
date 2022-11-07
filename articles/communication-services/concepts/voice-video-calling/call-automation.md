@@ -129,7 +129,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | PlayCompleted| Your application successfully played the audio file provided |
 | PlayFailed| Your application failed to play audio |
 | RecognizeCompleted | Recognition of user input was successfully completed |
-| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
+| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation-sdk/recognize-action.md)*|
 
 
 ## Known Issues
