@@ -58,8 +58,8 @@ The RosettaNet connector is available only for Consumption logic app workflows.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | **RosettaNet** managed connector (Standard class). The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet managed connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | **RosettaNet** managed connector (CORE class). The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet managed connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Integration service environment (ISE) | Built-in connector, which appears in the designer with the **CORE** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 
 <a name="rosettanet-operations"></a>
 
@@ -69,9 +69,9 @@ The **RosettaNet** connector has no triggers. The following table describes the 
 
 | Action | Description |
 |--------|-------------|
-| [**RosettaNet Encode** action](#send-or-encode-rosettanet-messages) | |
-| [**RosettaNet Decode** action](#receive-or-decode-rosettanet-messages) | |
-| [**RosettaNet wait for response** action](#send-or-encode-rosettanet-messages) | |
+| [**RosettaNet Encode** action](#send-encode-rosettanet) | Send RosettaNet messages using encoding that follows RosettaNet standards. |
+| [**RosettaNet Decode** action](#receive-decode-rosettanet) | Receive RosettaNet messages using decoding that follows RosettaNet standards. |
+| [**RosettaNet wait for response** action](#send-encode-rosettanet) | Have the host wait for a RosettaNet response or signal message from the receiver. |
 
 ## Prerequisites
 
@@ -123,6 +123,8 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
    :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/edit-rosettanet-pip.png" alt-text="Screenshot of the RosettaNet PIP page, with 'Edit as JSON' and a PIP selected. Under 'Edit as JSON,' encoded PIP properties are visible.":::
 
 1. Confirm that the settings correspond to the values in the appropriate PIP specification and meet your business needs. If necessary, update the values in JSON and save those changes.
+
+<a name="create-rosettanet-agreement"></a>
 
 ## Create RosettaNet agreement
 
@@ -195,6 +197,8 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
 After you complete these steps, you're ready to send or receive RosettaNet messages.
 
+<a name="receive-decode-rosettanet"></a>
+
 ## Receive or decode RosettaNet messages
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
@@ -220,6 +224,8 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
    | **Role** | Yes | The role of the host partner in the PIP |
 
    The output of the RosettaNet Decode action includes **Outbound signal**. You can encode this output and return it to the partner, or you can take any other action on this output.
+
+<a name="send-encode-rosettanet"></a>
 
 ## Send or encode RosettaNet messages
 
