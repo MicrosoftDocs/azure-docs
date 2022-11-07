@@ -143,7 +143,7 @@ sections:
           
           - Single-region deployment: Create a single origin group. Within that origin group, create a single origin to represent the App Service app. Your App Service app might be configured to scale out across worker instances, but from Front Door's perspective there's a single origin.
           - Multi-region active/passive deployment: Create a single origin group. Within that origin group, create an origin for each of the App Service apps. Configure each origin's priority to ensure that the primary application has a higher priority than the secondary application.
-          - Multi-region active/active deployment: Create a single origin group. Within that origin group, creae an origin for each of the App Service apps. Configure each origin's priority to be the same. Configure each origin's weight to set the proportion of requests that should go to that origin.
+          - Multi-region active/active deployment: Create a single origin group. Within that origin group, create an origin for each of the App Service apps. Configure each origin's priority to be the same. Configure each origin's weight to set the proportion of requests that should go to that origin.
 
           For more information, see [Origins and origin groups in Azure Front Door](origin.md).
 
