@@ -144,7 +144,7 @@ To enable MUA on a vault, the admin of the vault must have **Reader** role on th
 
 ## Enable MUA on a Recovery Services vault
 
-After the the *Reader* role assignment on the Resource Guard is complete, enable multi-user authorization on vaults (as the **Backup admin**) that you manage.
+After the Reader role assignment on the Resource Guard is complete, enable multi-user authorization on vaults (as the **Backup admin**) that you manage.
 
 **Choose a client**
 
