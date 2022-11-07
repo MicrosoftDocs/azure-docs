@@ -432,7 +432,7 @@
       - name: Self-hosted gateway configuration
         href: self-hosted-gateway-settings-reference.md  
       - name: Diagnostic logs settings
-        href: diagnotic-logs-reference.md
+        href: diagnostic-logs-reference.md
 - name: Resources
   items:
       - name: FAQ
