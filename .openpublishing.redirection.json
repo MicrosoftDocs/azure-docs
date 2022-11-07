@@ -799,6 +799,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/dapr-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/csi-secrets-store-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cdn/index.yml",
             "redirect_url": "/azure/frontdoor",
             "redirect_document_id": false

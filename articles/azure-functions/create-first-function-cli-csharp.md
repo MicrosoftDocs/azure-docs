@@ -119,7 +119,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 
 # [Isolated process](#tab/isolated-process)
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated worker process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
 

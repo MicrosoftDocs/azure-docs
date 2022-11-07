@@ -37,11 +37,15 @@ In early device development phases, while you're still designing and testing the
 
 After you attach production devices to a device template, evaluate the impact of any changes before you edit a device template. You shouldn't make breaking changes to a device template in production. To make such changes, create a new version of the device template. Test the new device template and then migrate your production devices to the new template at a scheduled downtime.
 
-## Update an IoT Edge device template
+### Update an IoT Edge device template
 
-IoT Edge device templates contain a _deployment manifest_ in addition to the device model. For an IoT Edge device, the model groups capabilities by modules that correspond to the IoT Edge modules running on the device. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install and how to configure them. The same guidance as outlined in the previous section applies to the modules in the device model. Also, every module defined in the device model must be included in the deployment manifest. Once an IoT Edge device template is published, you must create a new version if you need to replace the deployment manifest. For IoT Edge devices to receive the new deployment manifest, migrate them to the new template version.
+For an IoT Edge device, the model groups capabilities by modules that correspond to the IoT Edge modules running on the device. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install, how to configure them, and what properties the module has. If you've modified a deployment manifest, you can update the device template to include the modules and properties defined in the manifest:
 
-To learn more, see [IoT Edge deployment manifests and IoT Central device templates](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates).
+1. Navigate to the **Modules** node in the device template.
+1. On the **Modules summary** page, select **Import modules from manifest**.
+1. Select the appropriate deployment manifest and select **Import**.
+
+To learn more, see [IoT Edge devices and IoT Central](concepts-iot-edge.md#iot-edge-devices-and-iot-central).
 
 ### Edit and publish actions
 
