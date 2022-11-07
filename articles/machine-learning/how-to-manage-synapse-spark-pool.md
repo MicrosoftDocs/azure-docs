@@ -640,6 +640,6 @@ Some user scenarios may require access to a Synapse Spark Pool, during an Azure 
 
 ## Next steps
 
-- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](/interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 
-- [Submit Spark jobs in Azure Machine Learning (preview)](/how-to-submit-spark-jobs.md)
+- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
