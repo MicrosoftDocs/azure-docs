@@ -20,14 +20,18 @@ This article focuses on pod-managed identity migration to Azure Active Directory
 
 This section explains the migration options available depending on what version of the Azure Identity SDK is installed.
 
+For either scenario, you need to have the federated trust setup before you update your application to use the workload identity. The following are the minimum steps required:
+
+- [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application.
+- [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential trust
+- Associate the federated identity with the managed identity already used for the pod-manged identity or create a new managed identity with a federated identity.
+
 ### Migrate from latest version
 
-If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to:
+If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
 
-- [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
-- [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
-- [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential
-- Configure your application to authenticate using the workload identity.
+- Deploy workload identity in parallel to where the trust is setup. You can restart your application deployment to begin using the workload identity, where it injects the OIDC annotations into the application automatically.
+- After verifying the application is able to authenticate successfully, you can [remove the pod-managed identity](remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
 ## Migrate from older version
 
@@ -35,17 +39,13 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
 
 1. You can use a migration sidecar that we provide, which converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. Perform the following steps to:
 
-    - [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
-    - [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
-    - [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
+    - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
 2. Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps to:
 
-    - [Enable workload identity](#create-a-managed-identity) in parallel with pod-managed identity
-    - [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application
-    - [Create a federated identity](#establish-federated-identity-credential) establish-federated identity credential) credential
-    - Configure your application to authenticate using the workload identity.
+    - Restart your application deployment to begin authenticating using the workload identity.
+    - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
 ## Create a managed identity
 
