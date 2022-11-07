@@ -27,7 +27,7 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
 
-### Specifications
+## Specifications
 
 |Component  |Specifications|
 |---------|---------|
@@ -35,7 +35,7 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |Dimensions   |Four 3.5" chassis: 4.29 x 43.46 x 38.22 cm  /  1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-**DL20 Gen10 Plus BOM**:
+## DL20 Gen10 Plus BOM
 
 |Quantity|PN|Description|
 |----|---|----|
