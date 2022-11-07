@@ -31,7 +31,7 @@ To switch to a different directory, select the directory that you want to work i
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
-### Subscription filters
+## Subscription filters
 
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
 
@@ -48,7 +48,7 @@ This will enable the **Advanced filters** page, where you can create and manage 
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Screenshot showing the confirmation dialog box for disabling Advanced filters.":::
 
-## Advanced filters
+### Advanced filters
 
 After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
 
