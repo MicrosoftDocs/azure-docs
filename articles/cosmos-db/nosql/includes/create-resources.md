@@ -5,13 +5,13 @@ services: cosmos-db
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 09/22/2022
+ms.date: 11/07/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: include file, ignite-2022
 ---
 
-This quickstart will create a single Azure Cosmos DB account using the SQL API.
+This quickstart will create a single Azure Cosmos DB account using the API for NoSQL.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -37,7 +37,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --location $location
     ```
 
-1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB SQL API account with default settings.
+1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new API for NoSQL account with default settings.
 
     ```azurecli-interactive
     az cosmosdb create \
@@ -46,7 +46,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --locations regionName=$location
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
 
     ```azurecli-interactive
     az cosmosdb show \
@@ -93,7 +93,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB SQL API account with default settings.
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new API for NoSQL account with default settings.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -104,7 +104,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     New-AzCosmosDBAccount @parameters
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -140,7 +140,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
+1. On the **Select API option** page, select the **Create** option within the **NoSQL** section. Azure Cosmos DB has six APIs: NoSQL, MongoDB, PostgreSQL, Apache Cassandra, Apache Gremlin, and Table. [Learn more about the API for NoSQL](../index.yml).
 
    :::image type="content" source="../media/create-account-portal/cosmos-api-choices.png" lightbox="../media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB.":::
 
@@ -158,7 +158,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="../media/create-account-portal/new-cosmos-account-page.png" lightbox="../media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB SQL API.":::
+   :::image type="content" source="../media/create-account-portal/new-cosmos-account-page.png" lightbox="../media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for API for NoSQL.":::
 
 1. Select **Review + create**.
 
@@ -166,15 +166,15 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="../media/create-account-portal/cosmos-deployment-complete.png" lightbox="../media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL API resource.":::
+   :::image type="content" source="../media/create-account-portal/cosmos-deployment-complete.png" lightbox="../media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for API for NoSQL resource.":::
 
-1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
+1. From the API for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-keys-option.png" lightbox="../media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="../media/get-credentials-portal/cosmos-keys-option.png" lightbox="../media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL API account.":::
+   :::image type="content" source="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an API for NoSQL account.":::
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 

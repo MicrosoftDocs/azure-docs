@@ -5,13 +5,13 @@ services: cosmos-db
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 09/22/2022
+ms.date: 11/07/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: include file, ignite-2022
 ---
 
-When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
+When you no longer need the API for NoSQL account, you can delete the corresponding resource group.
 
 ### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
 
