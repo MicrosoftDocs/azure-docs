@@ -148,7 +148,7 @@ sections:
 
       - question: How to support profiles in Spring applications?
         answer: |
-          Your Spring profile(s) are the default value of your selected keys. This can be overridden by setting a label in your bootstrap failed.
+          Your Spring profile(s) are the default value of your selected keys. This can be overridden by setting a label in your bootstrap file.
 
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
