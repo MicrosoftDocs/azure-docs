@@ -33,12 +33,7 @@ In this article, you will learn how to use batch endpoints to do batch scoring.
 > [!TIP]
 > We suggest you to read the Scenarios sections (see the navigation bar at the left) to find more about how to use Batch Endpoints in specific scenarios including NLP, computer vision, or how to integrate them with other Azure services.
 
-## Prerequisites
-
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
-
-
-### About this example
+## About this example
 
 On this example, we are going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we are going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. On the second half, [we are going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
@@ -48,6 +43,54 @@ The information in this article is based on code samples contained in the [azure
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch
 ```
+
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mnist-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
+
+## Prerequisites
+
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+
+### Connect to your workspace
+
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
+
+# [Azure ML CLI](#tab/cli)
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Azure ML SDK for Python](#tab/sdk)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+```python
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
+from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+from azure.identity import DefaultAzureCredential
+```
+
+2. Configure workspace details and get a handle to the workspace:
+
+```python
+subscription_id = "<subscription>"
+resource_group = "<resource-group>"
+workspace = "<workspace>"
+
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+```
+
+# [studio](#tab/studio)
+
+Open the [Azure ML studio portal](https://ml.azure.com) and log in using your credentials.
+
+---
 
 ### Create compute
 
