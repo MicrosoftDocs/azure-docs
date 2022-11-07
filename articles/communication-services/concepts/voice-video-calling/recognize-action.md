@@ -63,4 +63,4 @@ As we invest more into this functionality, we recommend developers sign up to ou
 
 ## Next steps
 
-- Check out our how-to guide to learn how you can [gather user input](../../quickstarts/voice-video-calling/recognize-action.md).
+- Check out our how-to guide to learn how you can [gather user input](../../how-tos/call-automation-sdk/recognize-action.md).
