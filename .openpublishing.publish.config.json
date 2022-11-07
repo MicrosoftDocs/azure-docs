@@ -165,6 +165,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-quickstart-templates-v1",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v1.x",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-samples-java",
       "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
       "branch": "master",

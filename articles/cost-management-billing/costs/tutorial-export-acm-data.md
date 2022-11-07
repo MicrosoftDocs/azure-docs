@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/23/2022
+ms.date: 11/07/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -271,6 +271,8 @@ If you have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Ente
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
 If you don't have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, then you won't see the **File Partitioning** option.
+
+Partitioning isn't currently supported for resource groups or management group scopes.
 
 #### Update existing exports to use file partitioning
 
