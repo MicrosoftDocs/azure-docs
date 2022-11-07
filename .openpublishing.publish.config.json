@@ -165,6 +165,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-quickstart-templates-v1",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v1.x",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-samples-java",
       "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
       "branch": "master",
@@ -849,8 +855,14 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmos-dotnet-v3",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
       "branch": "main",
       "branch_mapping": {}
     },
