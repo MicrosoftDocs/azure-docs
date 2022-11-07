@@ -13,8 +13,8 @@ ms.author: kpunjabi
 
 ## Prerequisites
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- Create a new web service application using the [Call Automation SDK](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
@@ -25,7 +25,7 @@ The following parameters are available to customize the Recognize function:
 
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
-| Prompt <br/><br/> *(for details on Play action, refer to [this quickstart](../../play-action.md))* | FileSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
+| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-action.md))* | FileSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSilenceTimeout | TimeSpan | 5seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
@@ -50,11 +50,11 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 
 From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
 
-:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
+![Screenshot of Communication Services resource page on portal to access keys.](../../../quickstarts/voice-video-calling/media/call-automation/key.png) 
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../Callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
 
 ## Call the recognize action
 
