@@ -90,6 +90,10 @@ Change feed functionality is surfaced as change stream in API for MongoDB and Qu
 
 Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB for Apache Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB for Apache Cassandra](cassandra/change-feed.md).
 
+## Measuing change feed request unit consumption
+
+Use Azure Monitor to measure the request unit (RU) consupmtion of the change feed. For more information, see [monitor-request-unit-usage.md].
+
 ## Next steps
 
 You can now proceed to learn more about change feed in the following articles:
