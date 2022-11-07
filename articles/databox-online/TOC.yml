@@ -457,6 +457,8 @@
     items:         
     - name: Check network readiness 
       href: azure-stack-edge-deploy-check-network-readiness.md
+    - name: Deploy via config file
+      href: azure-stack-edge-zero-touch-provisioning.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry

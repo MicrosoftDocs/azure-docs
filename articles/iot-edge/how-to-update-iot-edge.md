@@ -182,6 +182,12 @@ For more information about update options, use the command `Get-Help Update-IoTE
 
 ---
 
+Then, re-apply configuration to ensure system is fully updated.
+
+```bash
+sudo iotedge config apply
+```
+
 ## Update the runtime containers
 
 The way that you update the IoT Edge agent and IoT Edge hub containers depends on whether you use rolling tags (like 1.1) or specific tags (like 1.1.1) in your deployment.

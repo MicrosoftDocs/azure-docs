@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

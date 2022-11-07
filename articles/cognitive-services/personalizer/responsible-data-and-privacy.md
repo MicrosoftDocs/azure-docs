@@ -24,8 +24,7 @@ Personalizer processes the following types of data:
 
 To understand more about what information you typically use with Personalizer, see [Features are information about Actions and Context](concepts-features.md).
 
-[!TIP] You decide which features to use, how to aggregate them, and where the information comes from when you call the Personalizer Rank API in your application. You also determine how to create reward scores. To make informed decisions about what information to use with Personalizer, see the [Personalizer responsible use guidelines](responsible-use-cases.md).
-
+[!TIP] You decide which features to use, how to aggregate them, and where the information comes from when you call the Personalizer Rank API in your application. You also determine how to create reward scores.
 
 ## How does Personalizer process data?
 
@@ -42,7 +41,7 @@ Personalizer processes data as follows:
 4. After the rank and reward information for events is correlated, it's removed from transient caches and placed in more permanent storage. It remains in permanent storage until the number of days specified in the Data Retention setting has gone by, at which time the information is deleted. If you choose not to specify a number of days in the Data Retention setting, this data will be saved as long as the Personalizer Azure Resource is not deleted or until you choose to Clear Data via the UI or APIs. You can change the Data Retention setting at any time.
 5. Personalizer continuously trains internal Personalizer AI models specific to this Personalizer loop by using the data in the permanent storage and machine learning configuration parameters in [Learning settings](concept-active-learning.md).
 6. Personalizer creates [offline evaluations either](concepts-offline-evaluation.md) automatically or on demand.
-Offline evaluations contain a report of rewards obtained by Personalizer models during a past time period. An offline evaluation embeds the models active at the time of their creation, and the learning settings used to create them, as well as a historical aggregate of average reward per event for that time window. Evaluations also include [feature importance](concept-feature-evaluation.md), which is a list of features observed in the time period, and their relative importance in the model.
+Offline evaluations contain a report of rewards obtained by Personalizer models during a past time period. An offline evaluation embeds the models active at the time of their creation, and the learning settings used to create them, as well as a historical aggregate of average reward per event for that time window. Evaluations also include [feature importance](how-to-feature-evaluation.md), which is a list of features observed in the time period, and their relative importance in the model.
 
 
 ### Independence of Personalizer loops

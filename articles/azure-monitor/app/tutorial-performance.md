@@ -105,4 +105,4 @@ Like the data collected for server performance, Application Insights makes all c
 Now that you've learned how to identify runtime exceptions, proceed to the next tutorial to learn how to create alerts in response to failures.
 
 > [!div class="nextstepaction"]
-> [Alert on application health](./tutorial-alert.md)
+> [Standard test](availability-standard-tests.md)

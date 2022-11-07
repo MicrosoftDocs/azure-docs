@@ -48,7 +48,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
 || [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
-||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-policies-data-owner-arc-sql-server.md) | No |
+||    **SQL Server on Azure-Arc**| Yes | Yes | No |Preview: [1.DevOps policies](how-to-policies-devops-arc-sql-server.md) [2.Data Owner](how-to-policies-data-owner-arc-sql-server.md) | No |
 ||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
 ||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |
@@ -109,10 +109,14 @@ The following file types are supported for scanning, for schema extraction, and 
  > * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
  > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
  > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
- > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. \
+ > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiter. If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
  > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
+
+## Schema extraction
+
+Currently, the maximum number of columns supported in asset schema tab is 800 for Azure sources, Power BI and SQL server.
 
 ## Nested data
 
