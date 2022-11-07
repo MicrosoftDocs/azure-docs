@@ -39,27 +39,27 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 #### LRS
 
 |Resource  |France Central   |Southeast Asia  |West US 2   |
-|---------|---------|---------|
+|---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |
 |Maximum total capacity (TiB)     |100         |100         |600        |
-|Maximum base capacity (TiB)    |100         |100         |100        |
+|Maximum base capacity (TiB)    |100         |100         |400        |
 |Minimum total capacity (TiB)    |1         |1         |1        |
-|Maximum total IOPS     |500,000         |500,000         |500,000        |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |8,000        |
+|Maximum total IOPS     |500,000         |500,000         |2,000,000        |
+|Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |
 
 
 #### ZRS
 
-ZRS is only available in France Central.
+ZRS is only available in France Central and West US 2.
 
-|Resource  |France Central  |
-|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |
-|Maximum total capacity (TiB)     |200         |
-|Maximum base capacity (TiB)    |100         |
-|Minimum total capacity (TiB)    |1         |
-|Maximum total IOPS     |500,000         |
-|Maximum total throughput (MB/s)    |8,000         |
+|Resource  |France Central  |West US 2    |
+|---------|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |
+|Maximum total capacity (TiB)     |200         |200        |
+|Maximum base capacity (TiB)    |100         |100        |
+|Minimum total capacity (TiB)    |1         |1        |
+|Maximum total IOPS     |500,000         |500,000        |
+|Maximum total throughput (MB/s)    |8,000         |8,000        |
 
 
 ## Volume group
