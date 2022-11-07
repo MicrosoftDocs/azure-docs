@@ -27,7 +27,7 @@ Resources:
 
 - [API reference documentation](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Library source code](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Samples](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Samples](../common/storage-samples-c-plus-plus.md?toc=/azure/storage/blobs/toc.json)
 
 ## Prerequisites
 
