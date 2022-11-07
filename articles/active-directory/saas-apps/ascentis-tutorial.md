@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-   ```https
+    ```https
     https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
     https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
     ```

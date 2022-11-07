@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to configure a catalog in your dev center to provide curated infra-as-code templates to your development teams to deploy self-serve environments.
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.author: meghaanand
-author: anandmeg
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/12/2022
 ms.topic: how-to
 ---

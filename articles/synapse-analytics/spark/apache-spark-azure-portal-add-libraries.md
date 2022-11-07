@@ -4,7 +4,7 @@ description: Learn how to add and manage libraries used by Apache Spark in Azure
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 11/03/2022
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment
@@ -45,6 +45,9 @@ In Synapse, workspace packages can be custom or private *.whl* or *.jar* files. 
 To learn more about how to manage workspace libraries, see the following article:
 
 - [Manage workspace packages](./apache-spark-manage-workspace-packages.md)
+
+> [!NOTE]
+> If you enabled [Data exfiltration protection](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries.
 
 ## Pool packages
 

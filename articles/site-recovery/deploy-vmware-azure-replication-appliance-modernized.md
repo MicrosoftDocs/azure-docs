@@ -4,6 +4,8 @@ description: This article describes support and requirements when deploying the 
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -47,6 +49,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |Fully qualified domain name (FQDN) | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
+|NAT | Supported |
 
 
 #### Allow URLs

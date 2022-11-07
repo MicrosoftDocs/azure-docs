@@ -71,8 +71,8 @@ This section will guide you through manually adding Application Insights to a te
 
 3. Copy the following XML configuration into your newly created file:
 
-     ```xml
-     <?xml version="1.0" encoding="utf-8"?>
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
       <TelemetryInitializers>
         <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector" />
@@ -214,7 +214,7 @@ This section will guide you through manually adding Application Insights to a te
       -->
       <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     </ApplicationInsights>
-     ```
+    ```
 
 4. Before the closing `</ApplicationInsights>` tag, add the connection string for your Application Insights resource. You can find your connection string on the overview pane of the newly created Application Insights resource.
 
@@ -249,7 +249,6 @@ This section will guide you through manually adding Application Insights to a te
             }
         }
     }
-    
     ```
 
 6. In the *App_Start* folder, open the *FilterConfig.cs* file and change it to match the sample:

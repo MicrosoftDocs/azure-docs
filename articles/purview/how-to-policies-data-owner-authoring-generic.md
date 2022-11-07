@@ -36,7 +36,7 @@ Before authoring data policies in the Microsoft Purview governance portal, you'l
 ## Create a new policy
 
 This section describes the steps to create a new policy in Microsoft Purview.
-Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies).
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -68,7 +68,7 @@ Ensure you have the *Policy Author* permission as described [here](how-to-enable
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Screenshot showing data owner can select the asset when creating or editing a policy statement.":::
 
-1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
+1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Note that Microsoft 365 groups are not supported. Then select the **OK** button. This will take you back to the policy editor.
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-subject.png" alt-text="Screenshot showing data owner can select the subject when creating or editing a policy statement.":::
 
@@ -81,7 +81,7 @@ Now that you have created your policy, you will need to publish it for it to bec
 ## Publish a policy
 A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
-Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies)
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
 
 The steps to publish a policy are as follows:
 
@@ -102,10 +102,25 @@ The steps to publish a policy are as follows:
 >[!Note]
 > After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
 
+## Unpublish a policy
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
+
+The steps to publish a policy are as follows:
+
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+
+1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
+
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-2.png" alt-text="Screenshot showing data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy by selecting Data policies.":::
+
+1. The Policy portal will present the list of existing policies in Microsoft Purview. Locate the policy that needs to be unpublished. Select the trash can icon.
+
+![Screenshot shows how to unpublish a data owner policy.](./media/how-to-policies-data-owner-authoring-generic/unpublish-policy.png)
+
 ## Update or delete a policy
 
 Steps to update or delete a policy in Microsoft Purview are as follows.
-Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-and-publish-data-owner-policies)
+Ensure you have the *Policy Author* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-create-or-update-access-policies)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
