@@ -86,6 +86,10 @@ workspace = "<workspace>"
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 ```
 
+# [studio](#tab/studio)
+
+Open the [Azure ML studio portal](https://ml.azure.com) and log in using your credentials.
+
 ---
 
 ### Create compute
