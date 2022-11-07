@@ -31,3 +31,38 @@ In this quickstart, you'll communicate with the Azure Cosmos DB’s API for Mong
 
 ## Create a new Python app
 
+### Create a new Python app
+
+1. Create a new empty folder using your preferred terminal and follow the steps below.
+
+    > [!NOTE]
+    > If you just want the finished code, download or fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub that has the full example. You can also `git clone` the repo in Azure Cloud Shell to try out the code.
+    
+2. Change directory to the root of the project folder. Create a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+
+    ```text
+    # requirements.txt
+    pymongo
+    python-dotenv
+    ```
+
+3. Create a virtual environment and install the packages.
+
+#### [Windows](#tab/venv-windows)
+
+```bash
+# py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+py -3 -m venv .venv
+source .venv/Scripts/activate   
+pip install -r requirements.txt
+```
+
+#### [Linux / macOS](#tab/venv-linux+macos)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
