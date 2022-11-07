@@ -128,7 +128,7 @@ Having features of high density helps the Personalizer extrapolate learning from
 
 ### Improve feature sets 
 
-Analyze the user behavior by running a [Feature Effectiveness Job](TODO: add link to Feature effectiveness instructions). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
+Analyze the user behavior by running a [Feature Evaluation Job](https://learn.microsoft.com/azure/cognitive-services/personalizer/how-to-feature-evaluation). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
 
 ### Expand feature sets with artificial intelligence and cognitive services
 
@@ -256,11 +256,6 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 ```JSON
 {
     "contextFeatures": [
-        { 
-            "user": {
-                "name":"Doug"
-            }
-        },
         {
             "state": {
                 "timeOfDay": "noon",
