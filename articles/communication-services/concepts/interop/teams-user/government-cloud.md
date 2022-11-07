@@ -19,7 +19,7 @@ The following table shows pair of government clouds that are currently supported
 | Microsoft 365 cloud| Azure cloud| Support |
 | --- | --- | --- |
 | [GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc) | Public | ❌ |
-| [GCC-H](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod) | [US Government](/azure/azure-government/documentation-government-welcome) | ❌ |
+| [GCC-H](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod) | [US Government](../../../../azure-government/documentation-government-welcome.md) | ❌ |
 
 ## Supported use cases
 

@@ -2,12 +2,12 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: sapnakeshari
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/07/2022
+ms.date: 10/20/2022
 ms.author: banders
 ---
 
@@ -79,6 +79,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Files](../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure VMware Solution](../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure SQL Edge](prepay-sql-edge.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
@@ -128,16 +129,17 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 - Cancellation
 - Scope change
 
-For customers with EA subscriptions:
+Notifications are sent to the following users:
 
-- Notifications are sent only to the EA notification contacts.
-- Users added to a reservation using Azure RBAC (IAM) permission don't receive any email notifications.
+- Customers with EA subscriptions
+    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
+- Customers with Microsoft Customer Agreement (Azure Plan)
+    - Notifications are sent to the reservation owners and the reservation administrator.
+- Cloud Solution Provider and new commerce partners
+    - Emails are sent to the partner notification contact. 
+- Individual subscription customers with pay-as-you-go rates
+    - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 
-For customers with individual subscriptions:
-
-- The purchaser receives a purchase notification.
-- At the time of purchase, the subscription billing account owner receives a purchase notification.
-- The account owner receives all other notifications.
 
 ## Next steps
 

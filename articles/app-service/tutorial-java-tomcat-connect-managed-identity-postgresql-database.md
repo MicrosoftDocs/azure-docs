@@ -4,13 +4,13 @@ description: Secure Azure Database for PostgreSQL connectivity with managed iden
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2022
-author: shizn
-ms.author: xshi
+author: KarlErickson
+ms.author: karler
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database.
@@ -25,7 +25,7 @@ ms.author: xshi
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
-* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
 
 ## Clone the sample app and prepare the repo
 
@@ -138,7 +138,7 @@ az webapp connection create postgres \
     --target-resource-group $RESOURCE_GROUP \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.

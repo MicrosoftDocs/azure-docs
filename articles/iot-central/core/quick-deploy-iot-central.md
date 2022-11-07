@@ -3,7 +3,7 @@ title: Quickstart - Connect a device to an Azure IoT Central application | Micro
 description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/26/2022
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -41,7 +41,7 @@ IoT Central provides various industry-focused application templates to help you 
 
 1. Navigate to the **Build** page and select **Create app** in the **Custom app** tile:
 
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-new-application.png" alt-text="Build your IoT application page":::
+    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-new-application.png" alt-text="Build your IoT application page" lightbox="media/quick-deploy-iot-central/iot-central-create-new-application.png":::
 
     If you're prompted to sign in, use the Microsoft account associated with your Azure subscription.
 
@@ -51,7 +51,7 @@ IoT Central provides various industry-focused application templates to help you 
 
 1. Azure IoT Central also generates a unique **URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like. This URL must be unique.
 
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-custom.png" alt-text="Azure IoT Central Create an application page":::
+    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-custom.png" alt-text="Azure IoT Central Create an application page" lightbox="media/quick-deploy-iot-central/iot-central-create-custom.png":::
 
 1. For this quickstart, leave the pricing plan set to **Standard 2**.
 
@@ -61,7 +61,7 @@ IoT Central provides various industry-focused application templates to help you 
 
 1. Review the Terms and Conditions, and select **Create** at the bottom of the page. After a few seconds, your IoT Central application is ready to use:
 
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-application.png" alt-text="Azure IoT Central application":::
+    :::image type="content" source="media/quick-deploy-iot-central/iot-central-application.png" alt-text="Azure IoT Central application" lightbox="media/quick-deploy-iot-central/iot-central-application.png":::
 
 ## Register a device
 
@@ -71,17 +71,17 @@ To register your device:
 
 1. In IoT Central, navigate to the **Devices** page and select **Add a device**:
 
-    :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Screenshot that shows create a device in IoT Central.":::
+    :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Screenshot that shows create a device in IoT Central." lightbox="media/quick-deploy-iot-central/create-device.png":::
 
 1. On the **Create a new device** page, accept the defaults, and then select **Create**.
 
 1. In the list of devices, click on the device name:
 
-    :::image type="content" source="media/quick-deploy-iot-central/device-name.png" alt-text="A screenshot that shows the highlighted device name that you can select.":::
+    :::image type="content" source="media/quick-deploy-iot-central/device-name.png" alt-text="A screenshot that shows the highlighted device name that you can select." lightbox="media/quick-deploy-iot-central/device-name.png":::
 
 1. On the device page, select **Connect** and then **QR Code**:
 
-    :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Screenshot that shows the QR code you can use to connect the smartphone app.":::
+    :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Screenshot that shows the QR code you can use to connect the smartphone app." lightbox="media/quick-deploy-iot-central/device-registration.png":::
 
 Keep this page open. In the next section, you scan this QR code using the smartphone app to connect it to IoT Central.
 
@@ -108,7 +108,7 @@ To view the telemetry from the smartphone app in IoT Central:
 
 1. In the list of devices, click on the device name, then select **Overview**:
 
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots.":::
+    :::image type="content" source="media/quick-deploy-iot-central/iot-central-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots." lightbox="media/quick-deploy-iot-central/iot-central-telemetry.png":::
 
 > [!TIP]
 > The smartphone app only sends data when the screen is on.
@@ -117,7 +117,7 @@ To view the telemetry from the smartphone app in IoT Central:
 
 To send a command from IoT Central to your device, select the **Commands** view for your device. The smartphone app can respond to three commands:
 
-:::image type="content" source="media/quick-deploy-iot-central/device-commands.png" alt-text="Screenshot that shows the three commands the smartphone app responds to.":::
+:::image type="content" source="media/quick-deploy-iot-central/device-commands.png" alt-text="Screenshot that shows the three commands the smartphone app responds to." lightbox="media/quick-deploy-iot-central/device-commands.png":::
 
 To make the light on your smartphone flash, use the **LightOn** command. Set the duration to three seconds, the pulse interval to five seconds, and the number of pulses to two. Select **Run** to send the command to the smartphone app. The light on your smartphone app flashes twice.
 

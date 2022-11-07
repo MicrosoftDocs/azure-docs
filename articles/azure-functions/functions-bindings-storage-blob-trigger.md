@@ -23,10 +23,11 @@ There are several ways to execute your function code based on changes to blobs i
 | Filters | [Blob name pattern](#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
 | Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
 | Supports high-scale² | No | Yes | Yes | Yes |
-| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). | 
+| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
 
-¹Blob Storage input and output bindings support blob-only accounts.  
-²High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+<sup>1</sup> Blob Storage input and output bindings support blob-only accounts.
+
+<sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 
@@ -54,7 +55,7 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 
 # [Isolated process](#tab/isolated-process)
 
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
 
@@ -231,7 +232,7 @@ def main(myblob: func.InputStream):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 

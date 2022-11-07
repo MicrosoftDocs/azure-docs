@@ -28,6 +28,9 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Consider using backup and restore functionality to have disaster recovery.
 * Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
 * Do handle InvalidOperationException. User transactions can be aborted by the system for variety of reasons. For example, when the Reliable State Manager is changing its role out of Primary or when a long-running transaction is blocking truncation of the transactional log. In such cases, user may receive InvalidOperationException indicating that their transaction has already been terminated. Assuming, the termination of the transaction was not requested by the user, best way to handle this exception is to dispose the transaction, check if the cancellation token has been signaled (or the role of the replica has been changed), and if not create a new transaction and retry.  
+* Do not apply any parallelism within a transaction.
+* Consider dispose transaction as soon as possible after commit completes (especially if using ConcurrentQueue).
+* Do not perform any blocking code inside a transaction.
 
 Here are some things to keep in mind:
 

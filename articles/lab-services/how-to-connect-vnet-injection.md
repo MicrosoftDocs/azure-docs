@@ -30,7 +30,7 @@ Before you configure advanced networking for your lab plan, complete the followi
 1. [Create a subnet](../virtual-network/virtual-network-manage-subnet.md) for the virtual network.
 1. [Delegate the subnet](#delegate-the-virtual-network-subnet-for-use-with-a-lab-plan) to **Microsoft.LabServices/labplans**.
 1. [Create a network security group (NSG)](../virtual-network/manage-network-security-group.md).
-1. [Create an inbound rule to allow traffic from SSH and RDP ports](/azure/virtual-network/manage-network-security-group).
+1. [Create an inbound rule to allow traffic from SSH and RDP ports](../virtual-network/manage-network-security-group.md).
 1. [Associate the NSG to the delegated subnet](#associate-delegated-subnet-with-nsg).
 
 Now that the prerequisites have been completed, you can [use advanced networking to connect your virtual network during lab plan creation](#connect-the-virtual-network-during-lab-plan-creation).

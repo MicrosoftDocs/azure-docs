@@ -1,10 +1,10 @@
 ---
-title: Mount SMB Azure file share on Linux | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
+title: Mount SMB Azure file share on Linux
+description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 11/03/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -12,11 +12,11 @@ ms.subservice: files
 # Mount SMB Azure file share on Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
-| Distribution | SMB 3.1.1 | SMB 3.0 |
+| Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
-| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
 | [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
@@ -231,6 +231,9 @@ sudo mkdir -p $mntPath
 ```
 
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+
+> [!Tip]
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the CIFS mount options to avoid sending byte range lock requests to the server.
 
 ```bash
 httpEndpoint=$(az storage account show \

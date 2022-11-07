@@ -19,7 +19,7 @@ Get started with the Azure Blob Storage client library for .NET. Azure Blob Stor
 The examples in this quickstart show you how to use the Azure Blob Storage client library for .NET to:
 
 * [Create the project and configure dependencies](#setting-up)
-* [Authenticate to Azure](#authenticate-the-app-to-azure)
+* [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
 * [Create a container](#create-a-container)
 * [Upload a blob to a container](#upload-a-blob-to-a-container)
 * [List blobs in a container](#list-blobs-in-a-container)
@@ -31,12 +31,12 @@ Additional resources:
 - [API reference documentation](/dotnet/api/azure.storage.blobs)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#blob-samples)
+- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](/azure/storage/common/storage-account-create)
+- Azure storage account - [create a storage account](../common/storage-account-create.md)
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
@@ -120,7 +120,7 @@ Console.WriteLine("Hello, World!");
 
 ## Object model
 
-Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 - The storage account
 - A container in the storage account

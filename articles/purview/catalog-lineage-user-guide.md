@@ -1,8 +1,8 @@
 ---
 title: Data Catalog lineage user guide
 description: This article provides an overview of the catalog lineage feature of Microsoft Purview.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/20/2022
@@ -15,7 +15,8 @@ This article provides an overview of the data lineage features in Microsoft Purv
 
 One of the platform features of Microsoft Purview is the ability to show the lineage between datasets created by data processes. Systems like Data Factory, Data Share, and Power BI capture the lineage of data as it moves. Custom lineage reporting is also supported via Atlas hooks and REST API.
 
-## Lineage collection 
+## Lineage collection
+
  Metadata collected in Microsoft Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Microsoft Purview are broadly categorized into following three types:
  
  - [Data processing systems](#data-processing-systems)
@@ -26,7 +27,7 @@ Each system supports a different level of lineage scope. Check the sections belo
 
 ### Known limitations
 
-* Database Views used as source of process activity(Azure Data Factory, Synapse Pipelines, Azure SQL Database, Azure Data Share) are currently captured as Database Table objects in Microsoft Purview. If the Database is also scanned, the View assets are discovered separately in Microsoft Purview. In this scenario, two assets with same name captured in Microsoft Purview, one as a Table with data lineage and another as a View.   
+* Database Views used as source of process activity(Azure Data Factory, Synapse Pipelines, Azure SQL Database, Azure Data Share) are currently captured as Database Table objects in Microsoft Purview. If the Database is also scanned, the View assets are discovered separately in Microsoft Purview. In this scenario, two assets with same name captured in Microsoft Purview, one as a Table with data lineage and another as a View.
 
 ### Data processing systems
 Data integration and ETL tools can push lineage into Microsoft Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data processing systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Microsoft Purview for lineage are listed in below table.
@@ -90,7 +91,39 @@ To access lineage information for an asset in Microsoft Purview, follow the step
 
 Microsoft Purview supports asset level lineage for the datasets and processes. To see the asset level lineage go to the **Lineage** tab of the current asset in the catalog. Select the current dataset asset node. By default the list of columns belonging to the data appears in the left pane.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage-inline.png" alt-text="Screenshot showing how to select View columns in the lineage page" lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png"border="true":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage-inline.png" alt-text="Screenshot showing how to select View columns in the lineage page." lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png"border="true":::
+
+## Manual lineage (preview)
+
+Data lineage in Microsoft Purview is [automated](#lineage-collection) for many assets in on-premises, multicloud, and SaaS environments. While we continue to add more automated sources, manual lineage allows you to document lineage metadata for sources where automation isn't yet supported, without using any code.
+
+To add manual lineage for any of your assets, follow these steps:
+
+1. [Search for your asset in the data catalog](how-to-search-catalog.md) and select it to view details.
+1. Select **Edit** and navigate to the **Lineage** tab.
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-edit.png" alt-text="Screenshot of a data asset in Microsoft Purview, with the edit option highlighted.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage.png" alt-text="Screenshot of a data asset edit page, with the Lineage tab highlighted.":::
+1. Select **Add Lineage** in the list panel to add an asset as part of the manual lineage.
+   :::image type="content" source="./media/catalog-lineage-user-guide/add-lineage.png" alt-text="Screenshot of a data asset lineage page, with the add lineage button highlighted.":::
+1. Select the relationship type:
+    1. For upstream lineage - select the relationship as **Consumes**
+    1. For downstream lineage - select the relationship as **Produces**
+1. Select the asset dropdown to find the asset from the suggested list or **View more** to search the full catalog. Select your asset.
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-asset-dropdown.png" alt-text="Screenshot of a data asset lineage page, with the asset dropdown highlighted.":::
+1. Now you can see the lineage relationship. You can add another by selecting the **Add Lineage** button again, or delete the newly added lineage by selecting the trash can icon. When you're finished, select the **Save** button to save your lineage and exit edit mode.
+   :::image type="content" source="./media/catalog-lineage-user-guide/delete-or-save.png" alt-text="Screenshot of a data asset lineage page, the delete and save buttons highlighted.":::
+
+### Known limitations of manual lineage
+
+* Current asset picker experience allows selecting only one asset at a time.
+* Column level manual lineage is currently not supported.
+* Data curation access required for both source and target assets.
+* These asset types don't currently allow manual lineage because they support automated lineage:
+    * Azure Data Factory
+    * Synapse pipelines
+    * Power BI datasets
+    * Teradata stored procedure
+    * Azure SQL stored procedure
 
 ## Dataset column lineage
 

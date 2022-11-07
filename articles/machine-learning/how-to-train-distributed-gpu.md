@@ -2,8 +2,8 @@
 title: Distributed GPU training guide 
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: fuhuifang
-ms.author: fufang
+author: rtanase
+ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -416,6 +416,6 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 ## Next steps
 
-* [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+* [Deploy machine learning models to Azure](./how-to-deploy-managed-online-endpoints.md)
 * [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -56,6 +56,8 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Default protection 
+      href: concept-authentication-default-enablement.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
@@ -174,8 +176,6 @@
     href: how-to-mfa-number-match.md
   - name: Use additional context 
     href: how-to-mfa-additional-context.md
-  - name: Use Microsoft managed settings 
-    href: how-to-mfa-microsoft-managed.md
   - name: Use a Temporary Access Pass
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication

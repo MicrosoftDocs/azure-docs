@@ -22,11 +22,11 @@ An application gateway is a dedicated deployment in your virtual network. Within
 
 ### Size of the subnet
 
-Application Gateway uses one private IP address per instance, plus another private IP address if a private front-end IP is configured.
+Application Gateway uses one private IP address per instance, plus another private IP address if a private frontend IP is configured.
 
-Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses. For example, consider 15 application gateway instances with no private front-end IP. You need at least 20 IP addresses for this subnet: five for internal use and 15 for the application gateway instances.
+Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses. For example, consider 15 application gateway instances with no private frontend IP. You need at least 20 IP addresses for this subnet: five for internal use and 15 for the application gateway instances.
 
-Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the application gateway instances, one for the private front end, and five for internal use.
+Consider a subnet that has 27 application gateway instances and an IP address for a private frontend IP. In this case, you need 33 IP addresses: 27 for the application gateway instances, one for the private front end, and five for internal use.
 
 Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private frontend IP configuration + 5 Azure reserved) – so a minimum subnet size of /26 is recommended
 
@@ -80,7 +80,7 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
 1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
-2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
+2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [backend health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
 3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
 4. Allow expected inbound traffic to match your listener configuration (i.e. if you have listeners configured for port 80, you will want an allow inbound rule for port 80)
 5. Block all other incoming traffic by using a deny-all rule.
@@ -89,7 +89,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 ## Supported user-defined routes 
 
 > [!IMPORTANT]
-> Using UDRs on the Application Gateway subnet might cause the health status in the [back-end health view](./application-gateway-diagnostics.md#back-end-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](./application-gateway-diagnostics.md#backend-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
 
 - **v1**
 
@@ -141,4 +141,4 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 ## Next steps
 
-- [Learn about front-end IP address configuration](configuration-front-end-ip.md).
+- [Learn about frontend IP address configuration](configuration-frontend-ip.md).

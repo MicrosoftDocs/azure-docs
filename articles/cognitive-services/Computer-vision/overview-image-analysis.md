@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision 
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -44,6 +44,14 @@ For a more structured approach, follow a Learn module for Image Analysis.
 
 You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
 
+### Extract text from images (preview)
+
+Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
+
+
+### Detect people in images (preview)
+
+Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ### Tag visual features
 
@@ -91,28 +99,15 @@ Use domain models to detect and identify domain-specific content in an image, su
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
-### Generate a thumbnail
+### Get the area of interest / smart crop
 
-Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs. [Generate a thumbnail](concept-generating-thumbnails.md)
+Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail](concept-generating-thumbnails.md)
 
 :::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
-
-
-### Get the area of interest
-
-Analyze the contents of an image to return the coordinates of the *area of interest*. Instead of cropping the image and generating a thumbnail, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Get the area of interest](concept-generating-thumbnails.md#area-of-interest)
 
 ### Moderate content in images
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
-
-### Read text in images (preview)
-
-Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the main [OCR service](overview-ocr.md), but in Image Analysis this feature is optimized for image inputs as opposed to documents. [Reading text in images](concept-ocr.md)
-
-### Detect people in images (preview)
-
-Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ## Image requirements
 

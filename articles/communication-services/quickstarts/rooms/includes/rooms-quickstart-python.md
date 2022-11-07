@@ -54,6 +54,8 @@ if __name__ == '__main__':
 
 ### Install the packages
 
+You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0b2](https://pypi.org/project/azure-communication-rooms/) or above. 
+
 From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
 
 ```console

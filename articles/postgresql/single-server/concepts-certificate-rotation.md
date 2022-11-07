@@ -20,7 +20,7 @@ Azure Database for PostgreSQL Single Server planning the root certificate change
 
 Historically, Azure database for PostgreSQL users could only use the predefined certificate to connect to their PostgreSQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
-As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
+As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for PostgreSQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your Postgres servers.
 
 The new certificate is rolled out and in effect starting December, 2022 (12/2022). 
 

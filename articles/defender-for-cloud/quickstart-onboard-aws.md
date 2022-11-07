@@ -2,7 +2,10 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 09/20/2022
+
+ms.date: 10/23/2022
+author: bmansheim
+ms.author: benmansheim
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -133,7 +136,7 @@ The native cloud connector requires:
     > [!IMPORTANT]
     > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
 
-1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
+1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
     
     - (Optional) Select **Configure**, to edit the configuration as required. 
 
@@ -160,6 +163,44 @@ The native cloud connector requires:
 1. Select **Create**.
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+
+## CloudFormation deployment source
+
+As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template should be deployed to the AWS account. This CloudFormation template creates all the required resources so Microsoft Defender for Cloud can connect to the AWS account.
+
+The CloudFormation template should be deployed using Stack (or StackSet if you have a management account).
+
+When deploying the CloudFormation template, the Stack creation wizard offers the following options:
+
+:::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="Screenshot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png":::
+
+1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Enter the URL to the S3 bucket in the AWS deployment wizard. 
+
+1. **Upload a template file** – AWS will automatically create an S3 bucket in which the CloudFormation template will be saved. With this automation, the S3 bucket is created with a security misconfiguration that will result in the security recommendation “S3 buckets should require requests to use Secure Socket Layer”. Apply the following policy to fix this recommendation: 
+
+```bash
+{
+  "Id": "ExamplePolicy",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowSSLRequestsOnly",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": [
+        "<S3_Bucket ARN>",
+        "<S3_Bucket ARN>/*"
+      ],
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
+        }
+      },
+      "Principal": "*"
+    }
+  ]
+}
+```
 
 ### Remove 'classic' connectors
 

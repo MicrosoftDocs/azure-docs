@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -93,7 +93,7 @@ In this article you learn how to secure the following training compute resources
         > 
         > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
         >
-        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
 
         * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
         * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.

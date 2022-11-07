@@ -36,19 +36,9 @@ Flexible servers are best suited for
 - Zone redundant high availability
 - Managed maintenance windows
   
-## High availability
+## Architecture and high availability
 
 The flexible server deployment model is designed to support high availability within a single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
-
-During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
-
-1. A new compute Linux VM is provisioned.
-2. The storage with data files is mapped to the new Virtual Machine
-3. PostgreSQL database engine is brought online on the new Virtual Machine.
-
-Picture below shows transition for VM and storage failure.
-
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
 If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
@@ -127,7 +117,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | US Gov Arizona | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UK West | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |

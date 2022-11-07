@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
-author: steveesp
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
-ms.author: steveesp
+ms.author: allensu
 
 ---
 

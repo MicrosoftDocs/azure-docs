@@ -5,9 +5,9 @@ description: Learn to deploy your AutoML model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sehan
-ms.reviewer: larryfr
-author: dem108
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
@@ -251,7 +251,7 @@ Next, we'll create the managed online endpoints and deployments.
     model = Model(path="./src/model.pkl")
     env = Environment(
         conda_file="./src/conda_env_v_1_0_0.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
