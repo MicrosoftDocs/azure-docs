@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 11/07/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -38,15 +38,14 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
-
-|Resource  |France Central   |Southeast Asia  |
+|Resource  |France Central   |Southeast Asia  |US West 2    |
 |---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |
-|Maximum total capacity (TiB)     |100         |100         |
-|Maximum base capacity (TiB)    |100         |100         |
-|Minimum total capacity (TiB)    |1         |1         |
-|Maximum total IOPS     |500,000         |500,000         |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |
+|Maximum total capacity (TiB)     |100         |100         |600        |
+|Maximum base capacity (TiB)    |100         |100         |100        |
+|Minimum total capacity (TiB)    |1         |1         |1        |
+|Maximum total IOPS     |500,000         |500,000         |500,000        |
+|Maximum total throughput (MB/s)    |8,000         |8,000         |8,000        |
 
 
 #### ZRS
