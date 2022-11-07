@@ -200,7 +200,7 @@ items:
       items:
       - name: Using the agent extension
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer (preview)
+      - name: Using Windows client installer
         href: agents/azure-monitor-agent-windows-client.md
     - name: Configure data collection
       items:
