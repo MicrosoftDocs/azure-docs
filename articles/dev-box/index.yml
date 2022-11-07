@@ -38,7 +38,8 @@ landingContent:
             url: quickstart-configure-dev-box-project.md
           - text: Create a Dev Box
             url: quickstart-create-dev-box.md  
-
+          - text: Use the Remote Desktop client to connect to a dev box
+            url: quickstart-connect-to-dev-box-with-remote-desktop-app.md
   # Card
   - title: Provide access to dev box
     linkLists:
@@ -57,19 +58,12 @@ landingContent:
           - text: Configure an Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
 
-  # Card
-  - title: Connect to your dev box
+   # Card
+  - title: Reference docs
     linkLists:
-      - linkListType: tutorial
+      - linkListType: reference
         links:
-          - text: Use the Remote Desktop client to connect to a dev box
-            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-
- # <!-- Adding later 
-  # Card
- # - title: Reference docs
- #   linkLists:
- #     - linkListType: reference
- #       links:
- #       - text: REST API
- #         url: /rest/api/loadtesting/
+          - text: CLI
+            url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
+          - text: REST API
+            url: https://aka.ms/dev-box/restapidocs
