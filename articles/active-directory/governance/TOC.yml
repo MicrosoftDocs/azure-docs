@@ -75,8 +75,8 @@
       href: conditional-access-exclusion.md
     - name: Review recommendations for access reviews
       href: review-recommendations-access-reviews.md
-  - name:  Review and remove users from external organizations
-    href: access-reviews-external-users.md
+    - name:  Review and remove users from external organizations
+      href: access-reviews-external-users.md
   - name: Lifecycle Workflows (Preview) 
     items:
     - name: Understanding Lifecycle Workflows (Preview)

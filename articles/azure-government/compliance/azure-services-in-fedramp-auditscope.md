@@ -1,13 +1,11 @@
 ---
 title: Azure and other Microsoft cloud services compliance scope
 description: This article tracks FedRAMP and DoD compliance scope for Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services across Azure, Azure Government, and Azure Government Secret cloud environments.
-author: timwarner-msft
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.author: timwarner
 recommendations: false
-ms.date: 11/03/2022
+ms.date: 09/29/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -52,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: November 2022*
+*Last updated: September 2022*
 
 ### Terminology used
 
@@ -93,7 +91,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; |
-| [Azure Automanage Guest Configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; |
+| [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; |
@@ -250,7 +248,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: November 2022*
+*Last updated: September 2022*
 
 ### Terminology used
 
@@ -278,7 +276,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Application Gateway](../../application-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Automation](../../automation/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory (Free and Basic)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Active Directory (Premium P1 + P2, specifically Privileged Identity Management and Access Reviews)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Active Directory (Premium P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -298,7 +296,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md) and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Automanage Machine Configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -391,12 +389,12 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Migrate](../../migrate/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-and-updates.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Power Apps](/powerapps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Power Apps](/powerapps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
