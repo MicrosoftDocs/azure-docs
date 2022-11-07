@@ -1,6 +1,6 @@
 ---
 title: Set a table's log data plan in Azure Monitor Logs
-description: Learn how to configure a table's log data plan in Azure Monitor Logs.
+description: Learn how to configure the table log data plan to optimize log ingestion and retention costs in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
