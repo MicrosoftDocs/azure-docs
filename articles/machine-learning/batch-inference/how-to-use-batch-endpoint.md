@@ -33,11 +33,6 @@ In this article, you will learn how to use batch endpoints to do batch scoring.
 > [!TIP]
 > We suggest you to read the Scenarios sections (see the navigation bar at the left) to find more about how to use Batch Endpoints in specific scenarios including NLP, computer vision, or how to integrate them with other Azure services.
 
-## Prerequisites
-
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
-
-
 ### About this example
 
 On this example, we are going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we are going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. On the second half, [we are going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
@@ -48,6 +43,10 @@ The information in this article is based on code samples contained in the [azure
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch
 ```
+
+## Prerequisites
+
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
 ### Create compute
 
