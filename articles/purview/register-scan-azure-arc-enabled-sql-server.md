@@ -65,7 +65,7 @@ If SQL Authentication is applied, ensure the SQL Server deployment is configured
 
 To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
 
-:::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="The Server Properties window is open with the security page selected. Under Server authentication, SQL Server and Windows Authentication mode is selected.":::
+:::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="Screenshot that shows the open Server Properties window. The security page is selected. Under Server authentication, SQL Server and Windows Authentication mode is selected.":::
 
 If Windows Authentication is applied, configure the SQL Server deployment to use Windows Authentication mode.
 
@@ -82,19 +82,19 @@ The account must have access to the **master** database. This is because the `sy
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. If Windows Authentication is applied, select "Windows authentication". If SQL Authentication is applied, make sure to select "SQL authentication".
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/create-new-login-user.png" alt-text="Screenshot that shows how to create a new login and user.":::
 
 1. Select Server roles on the left navigation and ensure that public role is assigned.
 
 1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/user-mapping.png" alt-text="user mapping.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/user-mapping.png" alt-text="Screenshot that shows user mapping.":::
 
 1. Select OK to save.
 
 1. If SQL Authentication is applied, navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/change-password.png" alt-text="change password.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/change-password.png" alt-text="Screenshot that shows how to change a password.":::
 
 ##### Storing your SQL login password in a key vault and creating a credential in Microsoft Purview
 
@@ -116,7 +116,7 @@ The account must have access to the **master** database. This is because the `sy
 
 1. Select **SQL server** and then **Continue**
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Set up the SQL data source.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows how to set up the SQL data source.":::
 
 1. Provide a friendly name, which will be a short name you can use to identify your server, and the server endpoint.
 
@@ -138,19 +138,19 @@ To create and run a new scan, do the following:
 
 1. Select the credential to connect to your data source. The credentials are grouped and listed under different authentication methods.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-set-up-scan-win-auth.png" alt-text="Set up scan":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-set-up-scan-win-auth.png" alt-text="Screenshot that shows how to set up a scan.":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scope-your-scan.png" alt-text="Screenshot that shows how to scope your scan.":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scan-rule-set.png" alt-text="Screenshot that shows the scan rule set.":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/trigger-scan.png" alt-text="Screenshot that shows how to choose a trigger.":::
 
 1. Review your scan and select **Save and run**.
 
