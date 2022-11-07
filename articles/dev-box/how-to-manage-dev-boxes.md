@@ -33,6 +33,16 @@ For example, say you were working on a bug. You could a separate dev box for the
 
 [!INCLUDE [create a dev box](./includes/create-dev-box.md)]
 
+
+## Connect to a dev box
+Once you create your dev box, you can connect to it through the remote desktop app, or through the browser. 
+
+:::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
+
+For most cases, use the remote desktop app when accessing a dev box. The remote desktop provides the highest performance and best user-experience for heavy workloads. 
+
+Use the browser for lighter workloads. When you access your dev box via your phone or chrome book, you can use the browser. The browser is useful for tasks such as a quick bug fix, or a pull request (PR) review.
+
 ## Delete a dev box
 When you no longer need a dev box, you can delete it.
 
@@ -45,14 +55,6 @@ You can delete dev boxes once you finish your tasks. Say you finished fixing you
 
 [!INCLUDE [clean up resources](./includes/clean-up-resources.md)]  
  
-## Connect to a dev box
-Once you create your dev box, you can connect to it through the remote desktop app, or through the browser. 
-
-:::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
-
-For most cases, use the remote desktop app when accessing a dev box. The remote desktop provides the highest performance and best user-experience for heavy workloads. 
-
-Use the browser for lighter workloads. When you access your dev box via your phone or chrome book, you can use the browser. The browser is useful for tasks such as a quick bug fix, or a pull request (PR) review.
 
 ## Next steps
 

@@ -6,9 +6,6 @@ ms.topic: include
 ms.service: dev-box
 ---
 
-## Clean up resources
-
-When no longer needed, you can delete your dev box.
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. For the dev box you want to delete, from the setting menu, select **Delete**.

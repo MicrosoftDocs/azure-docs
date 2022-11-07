@@ -44,6 +44,8 @@
       href: how-to-manage-network-connection.md
     - name: Microsoft Dev Box CLI
       href: how-to-install-dev-box-cli.md  
+    - name: Manage a dev box
+      href: how-to-manage-dev-boxes.md
 - name: Reference
   items:
     - name: Azure CLI
