@@ -141,6 +141,16 @@ Instead of setting the sampling parameter in the `.config` file, you can program
 1. Remove all the `AdaptiveSamplingTelemetryProcessor` node(s) from the `.config` file.
 2. Use the following snippet to configure adaptive sampling:
 
+    ### [ASP.NET Core 6.0](#tab/netcore6)
+
+    ```csharp
+
+    // to be added
+
+    ```
+
+    ### [ASP.NET Core 3.1](#tab/netcore3)
+
     ```csharp
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -161,15 +171,29 @@ Instead of setting the sampling parameter in the `.config` file, you can program
 
     builder.Build();
     ```
+    
+    ---
 
     ([Learn about telemetry processors](./api-filtering-sampling.md#filtering).)
 
 You can also adjust the sampling rate for each telemetry type individually, or can even exclude certain types from being sampled at all:
 
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+
+// to be added
+
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
 ```csharp
 // The following configures adaptive sampling with 5 items per second, and also excludes Dependency telemetry from being subjected to sampling.
 builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 ```
+
+---
 
 ### Configuring adaptive sampling for ASP.NET Core applications
 
@@ -203,6 +227,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddApplicationInsightsTelemetry(aiOptions);
 }
 ```
+
+---
 
 The above code will disable adaptive sampling. Follow the steps below to add sampling with more customization options.
 
@@ -246,6 +272,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     // ...
 }
 ```
+
+---
 
 ### Configuring adaptive sampling for Azure Functions
 
@@ -313,6 +341,8 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
     builder.Build();
     ```
+    
+    ---
 
     ([Learn about telemetry processors](./api-filtering-sampling.md#filtering).)
 
@@ -342,6 +372,8 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         //...
     }
     ```
+    
+    ---
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the `Configure` method as shown in the below snippet:
 
@@ -373,6 +405,8 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // ...
     }
     ```
+    
+    ---
 
 ### Configuring sampling overrides and fixed-rate sampling for Java applications
 
