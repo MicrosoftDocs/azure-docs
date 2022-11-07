@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/02/2022
+ms.date: 11/07/2022
 author: bmansheim
 ms.author: benmansheim
 zone_pivot_groups: connect-aws-accounts
@@ -90,12 +90,12 @@ The native cloud connector requires:
         
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
-    - Additional extensions should be enabled on the Arc-connected machines:
+    - Other extensions should be enabled on the Arc-connected machines:
         - Microsoft Defender for Endpoint
         - VA solution (TVM/Qualys)
         - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
 
-        The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regard to the LA agent.
+        The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings regarding the LA agent.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -187,7 +187,43 @@ The architecture of the authentication process across clouds is as follows:
 
 1. After the Azure AD token is validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
 
+## CloudFormation deployment source 
 
+As part of connecting an AWS account to Microsoft Defender for Cloud, a CloudFormation template should be deployed to the AWS account. This CloudFormation template creates all of the required resources necessary for Microsoft Defender for Cloud to connect to the AWS account. 
+
+The CloudFormation template should be deployed using Stack (or StackSet if you have a management account). 
+
+When deploying the CloudFormation template, the Stack creation wizard offers the following options: 
+
+:::image type="content" source="media/quickstart-onboard-aws/cloudformation-template.png" alt-text="Screenshot showing stack creation wizard." lightbox="media/quickstart-onboard-aws/cloudformation-template.png"::: 
+
+1. **Amazon S3 URL** – upload the downloaded CloudFormation template to your own S3 bucket with your own security configurations. Enter the URL to the S3 bucket in the AWS deployment wizard. 
+
+1. **Upload a template file** – AWS will automatically create an S3 bucket that the CloudFormation template will be saved to. The automation for the S3 bucket will have a security misconfiguration that will cause the `S3 buckets should require requests to use Secure Socket Layer` recommendation to appear. You can remediate the recommendation by applying the following policy: 
+
+    ```bash
+    {  
+      "Id": "ExamplePolicy",  
+      "Version": "2012-10-17",  
+      "Statement": [  
+        {  
+          "Sid": "AllowSSLRequestsOnly",  
+          "Action": "s3:*",  
+          "Effect": "Deny",  
+          "Resource": [  
+            "<S3_Bucket ARN>",  
+            "<S3_Bucket ARN>/*"  
+          ],  
+          "Condition": {  
+            "Bool": {  
+              "aws:SecureTransport": "false"  
+            }  
+          },  
+          "Principal": "*"  
+        }  
+      ]  
+    }  
+    ``` 
 
 ### Remove 'classic' connectors
 
