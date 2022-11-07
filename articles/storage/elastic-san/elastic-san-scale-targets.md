@@ -38,7 +38,7 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
-|Resource  |France Central   |Southeast Asia  |US West 2    |
+|Resource  |France Central   |Southeast Asia  |West US 2   |
 |---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |
 |Maximum total capacity (TiB)     |100         |100         |600        |

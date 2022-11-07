@@ -13,4 +13,4 @@ Currently, Elastic SAN (preview) is only available in the following regions:
 
 - France Central
 - Southeast Asia
-- US West 2
+- West US 2
