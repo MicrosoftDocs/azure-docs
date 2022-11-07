@@ -44,8 +44,6 @@ When all traffic routing is enabled, all outbound traffic is sent into your virt
 
 The feature supports two virtual interface per worker. Two virtual interfaces per worker means two regional virtual network integrations per App Service plan. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet. If you need an app to connect to additional virtual networks or additional subnets in the same virtual network, you need to create another App Service plan. The virtual interfaces used isn't a resource that customers have direct access to.
 
-Because of the nature of how this technology operates, the traffic that's used with virtual network integration doesn't show up in Azure Network Watcher or NSG flow logs.
-
 ### Subnet requirements
 
 Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used.
@@ -101,11 +99,11 @@ Learn [how to configure application routing](./configure-vnet-integration-routin
 
 When you're using virtual network integration, you can configure how parts of the configuration traffic are managed. By default, configuration traffic will go directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
 
-##### Content storage
+##### Content share
 
-Bringing your own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+Bringing your own storage for content in often used in Functions where [content share](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
 
-To route content storage traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure content storage routing](./configure-vnet-integration-routing.md#content-storage). 
+To route content share traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure content share routing](./configure-vnet-integration-routing.md#content-share). 
 
 In addition to configuring the routing, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
