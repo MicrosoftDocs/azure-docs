@@ -95,6 +95,7 @@ These actions can be performed on the calls that are answered or placed using Ca
 
 **Terminate** – Whether your application has answered a one-to-one or group call, or placed an outbound call with one or more participants, this action will remove all participants and end the call. This operation is triggered by setting `forEveryOne` property to true in Hang-Up call action.
 
+
 ## Events
 
 The following table outlines the current events emitted by Azure Communication Services. The two tables below show events emitted by Event Grid and from the Call Automation as webhook events.
@@ -110,6 +111,8 @@ Most of the events sent by Event Grid are platform agnostic meaning they're emit
 | CallEnded         | A call is terminated and all participants are removed |
 | ParticipantAdded  | A participant has been added to a call |
 | ParticipantRemoved| A participant has been removed from a call |
+
+Read more about these events and payload schema [here](../../../event-grid/communication-services-voice-video-events.md)
 
 ### Call Automation webhook events
 
@@ -131,6 +134,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | RecognizeCompleted | Recognition of user input was successfully completed |
 | RecognizeFailed | Recognition of user input was unsuccessful <br/><br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
 
+To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation-sdk/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
+
 ## Known Issues
 
 1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
@@ -140,3 +145,9 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 > [!div class="nextstepaction"]
 > [Get started with Call Automation](./../../quickstarts/voice-video-calling/Callflows-for-customer-interactions.md)
+
+Here are some articles of interest to you: 
+1. Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
+2. Learn about metrics and logs available for this service.
+1. Troubleshoot common issues. 
+ 
