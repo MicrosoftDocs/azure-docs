@@ -60,7 +60,7 @@ The following alert details are displayed by default in the grid:
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
 
-**To view additional information:**
+### View more alert details
 
 1. Select **Edit columns** from the Alerts page.
 1. In the Edit Columns dialog box, select **Add Column** and choose an item to add. The following items are available:
@@ -86,39 +86,6 @@ Use the **Search** box, **Time range**, and **Add filter** options to filter the
 For example, filter alerts by **Category**:
 
 :::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal.":::
-
-Supported categories include:
-
-:::row:::
-   :::column span="":::
-      - Abnormal Communication Behavior
-      - Abnormal HTTP Communication Behavior
-      - Authentication
-      - Backup
-      - Bandwidth Anomalies
-      - Buffer overflow
-      - Command Failures
-      - Configuration changes
-      - Custom Alerts
-      - Discovery
-      - Firmware change
-      - Illegal commands
-   :::column-end:::
-   :::column span="":::
-      - Internet Access
-      - Operation Failures
-      - Operational issues
-      - Programming
-      - Remote access
-      - Restart/Stop Commands
-      - Scan
-      - Sensor traffic
-      - Suspicion of malicious activity
-      - Suspicion of Malware
-      - Unauthorized Communication Behavior
-      - Unresponsive
-   :::column-end:::
-:::row-end:::
 
 ### Group alerts displayed
 

@@ -493,6 +493,8 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?term=defender%20for%20cloud
+  - name: Defender for Cloud glossary of terms
+    href: defender-for-cloud-glossary.md
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
@@ -530,7 +532,9 @@
     - name: Defender for Servers integration with Microsoft Entra
       href: episode-seventeen.md
     - name: Defender for Azure Cosmos DB
-      href: episode-eighteen.md   
+      href: episode-eighteen.md
+    - name: Defender for DevOps
+      href: episode-nineteen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

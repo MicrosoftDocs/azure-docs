@@ -43,6 +43,10 @@ The model has been trained using an `XGBBoost` classifier and all the required p
 
 [!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [custom-output-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/custom-output-batch.ipynb).
+
 ## Creating a batch deployment with a custom output
 
 In this example, we are going to create a deployment that can write directly to the output folder of the batch deployment job. The deployment will use this feature to write custom parquet files.

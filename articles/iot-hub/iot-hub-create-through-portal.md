@@ -93,7 +93,7 @@ If you have a custom endpoint to add, select the **Custom endpoints** tab. You s
 > [!NOTE]
 > If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, select the **Custom endpoints** tab, select the endpoint you want to delete, then choose **Delete**.
 
-You can read more about custom endpoints in [Reference - IoT hub endpoints](iot-hub-devguide-endpoints.md).
+You can read more about custom endpoints in [IoT hub endpoints](iot-hub-devguide-endpoints.md).
 
 You can define up to 10 custom endpoints for an IoT hub.
 
