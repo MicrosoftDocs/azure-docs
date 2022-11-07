@@ -60,7 +60,7 @@ If you are using an IDE other than Visual Studio you can install the Metrics Adv
 dotnet add package Azure.AI.MetricsAdvisor --version 1.1.0
 ```
 
-## Creating environment variables
+## Environment variables
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
@@ -145,7 +145,7 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
-### Create a new application
+## Create your application
 
 Edit your program.cs file and replace with the following:
 
