@@ -458,7 +458,7 @@ From the Azure portal, follow these steps:
     | Prefix             | Optional. This prefix will be trimmed from the exported keys. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. Prefix will be ignored for feature flags.           | *TestApp:*                 |
     | Export as reference | Optional. Check to export key-values to App Service as App Configuration references. [Learn more](../app-service/app-service-configuration-references.md) |
     | At a specific time | Optional. Fill out to export key-values from a specific point in time. This is the point in time of the resource you selected in the previous step and the version of key-values that existed in the resource at the specified time will be exported. Format: "YYYY-MM-DDThh:mm:ssZ". This field defaults to the current point in time of the resource when left empty.                                                  | *07/28/2022 12:00:00 AM*  |
-    | From label         | Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, only key-values with the "No label" label will be exported. See note below.                                         | *prod*                    |
+    | From label         | Optional. Select an existing label to restrict your export to key-values with a specific label. If you don't select a label, only key-values with the "No label" label will be exported. See note below.                                         | *prod*                    |
 
 1. Select **Apply** to proceed with the export.
 
