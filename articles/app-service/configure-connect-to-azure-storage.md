@@ -131,7 +131,7 @@ The following features are supported for Linux containers:
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
 - Mapping `/` or `/home` to custom-mounted storage is not supported.
 - Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
-- Azure Storage is not supported with [Docker Compose Scenarios](configure-custom-container?pivots=container-linux#docker-compose-options)
+- Azure Storage is not supported with [Docker Compose Scenarios](configure-custom-container.md?pivots=container-linux#docker-compose-options)
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 - Only Azure Files [SMB](../storage/files/files-smb-protocol.md) are supported.  Azure Files [NFS](../storage/files/files-nfs-protocol.md) is not currently supported for Linux App Services.
