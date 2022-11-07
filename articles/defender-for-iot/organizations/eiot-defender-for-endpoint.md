@@ -72,8 +72,9 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
 ## Next steps
 
-To gain more visibility into more IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview).
+Advance to the next article to learn how to set up an Enterprise IoT network sensor (Public preview), and gain more visibility into more IoT segments of your corporate network that are not otherwise covered by Defender for Endpoint.
 
 Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Microsoft 365 Defender, or Defender for IoT in the Azure portal.
 
-For more information, see [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md).
+> [!div class="nextstepaction"]
+> [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md)

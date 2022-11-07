@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/19/2022
 ---
 
-# Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)
+# Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)
 
 This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
