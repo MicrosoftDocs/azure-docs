@@ -35,18 +35,19 @@
       items:
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
+        - name: Delegated access
+          href: delegated-access-primer.md
+        - name: Scopes and permissions
+          href: scopes-oidc.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
           href: custom-rbac-for-developers.md
-        - name: Scopes, permissions, and consent
-          displayName: Scopes
-          href: v2-permissions-and-consent.md
+        - name: Requesting permissions through consent
+          href: consent-types-developer.md
         - name: Application consent experiences
           displayName: App consent experiences
           href: application-consent-experience.md
-        - name: Consent framework
-          href: consent-framework.md
         - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
           displayName: ca
@@ -182,6 +183,8 @@
           href: app-resilience-continuous-access-evaluation.md
         - name: Claims challenges and requests
           href: claims-challenge.md
+        - name: Configure app instance property lock
+          href: howto-configure-app-instance-property-locks.md
     - name: Test
       items:
         - name: Build a test environment

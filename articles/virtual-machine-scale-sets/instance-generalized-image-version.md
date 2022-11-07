@@ -7,14 +7,14 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 11/01/2022
 ms.reviewer: cynthn
 ---
 
 # Create a scale set from a generalized image
 
 > [!IMPORTANT]
-> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+> You can't currently create a Flexible Virtual Machine Scale Set from an image shared by another tenant.
 
 Create a scale set from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). If you want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 

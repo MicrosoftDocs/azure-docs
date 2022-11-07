@@ -59,6 +59,8 @@ landingContent:
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
+          - text: Quotas
+            url: quotas.md
       - linkListType: concept
         links:
           - text: Dapr integration

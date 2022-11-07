@@ -90,6 +90,9 @@ You can add extra expressions using **And/Or** to create complex conditionals, a
 
  [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
+> [!NOTE]
+> For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta#supported-user-properties-and-query-parameters)
+
 For more information, see [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
 

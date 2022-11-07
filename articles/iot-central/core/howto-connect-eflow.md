@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central | Microsoft Docs
 description: Learn how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central 
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 06/16/2022
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/11/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -14,6 +14,7 @@ ms.service: iot-central
 
 In this how-to article, you learn how to:
 
+* Import a device manifest for an IoT Edge device.
 * Create a device template for an IoT Edge device.
 * Create an IoT Edge device in IoT Central.
 * Connect and provision an EFLOW device.
@@ -35,6 +36,18 @@ To complete the steps in this article, you need:
 
 To follow the steps in this article, download the [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/iotedge/EnvironmentalSensorManifest.json) file to your computer.
 
+## Import a deployment manifest
+
+You use a deployment manifest to specify the modules to run on an IoT Edge device. IoT Central manages the deployment manifests for the IoT Edge devices in your solution. To import the deployment manifest for this example:
+
+1. In your IoT Central application, navigate to **Edge manifests**.
+
+1. Select **+ New**. Enter a name such as *Environmental Sensor* for your deployment manifest, and then upload the *EnvironmentalSensorManifest.json* file you downloaded previously.
+
+1. Select **Next** and then **Create**.
+
+The example deployment manifest includes a custom module called *SimulatedTemperatureSensor*.
+
 ## Add device template
 
 In this section, you create an IoT Central device template for an IoT Edge device. You import an IoT Edge manifest to get started, and then modify the template to add telemetry definitions and views:
@@ -45,9 +58,11 @@ In this section, you create an IoT Central device template for an IoT Edge devic
 
 1. On the **Customize** page of the wizard, enter a name such as *Environmental Sensor Edge Device* for the device template.
 
-1. Select **Browse** and upload the *EnvironmentalSensorManifest.json* manifest file you downloaded previously.
-
 1. On the **Review** page, select **Create**.
+
+1. On the **Create a model** page, select **Custom model**.
+
+1. In the model, select **Modules** and then **Import modules from manifest**. Select the **Environmental Sensor** deployment manifest and then select **Import**.
 
 1. Select the **management** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
@@ -119,7 +134,9 @@ Before you can connect a device to IoT Central, you must register the device in 
 
 1. In your IoT Central application, navigate to the **Devices** page and select **Environmental Sensor Edge Device** in the list of available templates.
 
-1. Select **+ New** to add a new device from the template. On the **Create new device** page, select **Create**.
+1. Select **+ New** to add a new device from the template.
+
+1. On the **Create new device** page, select the **Environmental Sensor** deployment manifest, and then select **Create**.
 
 You now have a new device with the status **Registered**:
 
@@ -174,6 +191,15 @@ To learn about other ways you can deploy and provision an EFLOW device, see [Ins
 Go to the **Device Details** page in your IoT Central application and you can see telemetry flowing from your EFLOW device:
 
 :::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Telemetry from the device.":::
+
+## Clean up resources
+
+If you want to remove the Azure IoT Edge for Linux on Windows installation from your device, use the following commands.
+
+1. Open **Settings** on Windows
+1. Select **Add or Remove Programs**
+1. Select **Azure IoT Edge LTS** app
+1. Select **Uninstall**
 
 ## Next Steps
 

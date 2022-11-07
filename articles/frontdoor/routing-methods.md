@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2022
+ms.date: 11/08/2022
 ms.author: duau
 ---
 
@@ -41,7 +41,11 @@ All Front Door configurations have backend health monitoring and automated insta
 
 ## Overall decision flow
 
-The following list shows the overall decision flow:
+The following diagram shows the overall decision flow:
+
+:::image type="content" source="./media/routing-methods/routing.png" alt-text="Diagram explaining how origins are selected based on priority, latency and weight settings in Azure Front Door." lightbox="./media/routing-methods/routing-expanded.png":::
+
+The decision steps are:
 
 1. **Available origins:** Select all origins that are enabled and returned healthy (200 OK) for the health probe.
    - *Example: Suppose there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.*
@@ -56,7 +60,7 @@ If session affinity is enabled, then the first request in a session follows the 
 
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
-Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users get the best performance based on their location.
+Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users gets the best performance based on their location.
 
 The 'closest' origin isn't necessarily closest as measured by geographic distance. Instead, Azure Front Door determines the closest origin by measuring network latency. Read more about [Azure Front Door routing architecture](front-door-routing-architecture.md). 
 
