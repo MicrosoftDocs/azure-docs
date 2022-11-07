@@ -42,7 +42,7 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
-2. Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps to:
+2. Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 
     - Restart your application deployment to begin authenticating using the workload identity.
     - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
