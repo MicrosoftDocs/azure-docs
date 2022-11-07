@@ -6,118 +6,74 @@ ms.author: hannahhunter
 ms.reviewer: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 11/07/2022
 ms.custom: devx-track-azurecli
 ---
 
 # Migrate from Dapr OSS to the Dapr extension for Azure Kubernetes Service (AKS)
 
-You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. Before you can successfully migrate to the Dapr extension, you need to fully remove Dapr OSS from your AKS cluster. In this guide, you will migrate from Dapr OSS by:
+You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you will learn how to move your managed clusters from Dapr OSS to the Dapr extension using either the:
 
-> [!div class="checklist"]
-> - Uninstalling Dapr, including CRDs and the `dapr-system` namespace
-> - Installing Dapr via the Dapr extension for AKS
-> - Applying your components
-> - Restarting your applications that use Dapr
+- Non-interactive flow
+- Interactive flow
 
-> [!NOTE]
-> Expect downtime of approximately 10 minutes while migrating to Dapr extension for AKS. Downtime may take longer depending on varying factors. During this downtime, no Dapr functionality should be expected to run.
+When creating the Dapr extension for AKS, specify the `configuration-settings` to enable or disable a check for an existing Dapr installation. 
 
-## Uninstall Dapr 
+## Before you begin
 
-#### [Dapr CLI](#tab/cli)
+If you updated the default values for `global.ha.*` or `dapr_placement.*` in your existing Dapr installation, you must provide them in the `configuration-settings` when creating the Dapr extension. Failing to do so will result in an error, since the Helm upgrade will try to modify the `StatefulSet`. 
 
-1. Run the following command to uninstall Dapr and all CRDs:
+You can update HA or placement via one of the following two ways:
 
-```bash
-dapr uninstall -k –-all
+1. Delete and recreate HA or placement values, or
+1. For advanced users, run the following commands:
+
+   ```azurecli-interactive
+   kubectl delete statefulset.apps/dapr-placement-server -n dapr-system
+   az k8s-extension create
+   ```
+
+   For more information, read the [Dapr Production Guidelines][dapr-prod-guidelines].
+
+## Non-interactive flow 
+
+To bypass the existing Dapr check, set `skipExistingDaprCheck` to `true`:
+
+```azurecli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKScluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--configuration-settings skipExistingDaprCheck=true
 ```
 
-1. Uninstall the Dapr namespace:
+## Interactive flow
 
-```bash
-kubectl delete namespace dapr-system
+To receive prompts and messages notifying you of an existing Dapr OSS install, add the following `configuration-settings` to the create command:
+
+```azurecli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKScluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--configuration-settings existingDaprReleaseName=dapr \
+--configuration-settings existingDaprReleaseNamespace=dapr-system
 ```
 
 > [!NOTE]
 > `dapr-system` is the default namespace installed with `dapr init -k`. If you created a custom namespace, replace `dapr-system` with your namespace.
 
-#### [Helm](#tab/helm)
-
-1. Run the following command to uninstall Dapr:
-
-```bash
-dapr uninstall -k –-all
-```
-
-1. Uninstall CRDs: 
-
-```bash
-kubectl delete crd components.dapr.io
-kubectl delete crd configurations.dapr.io
-kubectl delete crd subscriptions.dapr.io
-kubectl delete crd resiliencies.dapr.io
-```
-
-1. Uninstall the Dapr namespace:
-
-```bash
-kubectl delete namespace dapr-system
-```
-
-> [!NOTE]
-> `dapr-system` is the default namespace while doing a Helm install. If you created a custom namespace (`helm install dapr dapr/dapr --namespace <my-namespace>`), replace `dapr-system` with your namespace.
-
----
-
-## Register the `KubernetesConfiguration` service provider
-
-If you have not previously used cluster extensions, you may need to register the service provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
-
-```azurecli-interactive
-az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
-```
-
-The *Microsoft.KubernetesConfiguration* provider should report as *Registered*, as shown in the following example output:
-
-```output
-Namespace                          RegistrationState    RegistrationPolicy
----------------------------------  -------------------  --------------------
-Microsoft.KubernetesConfiguration  Registered           RegistrationRequired
-```
-
-If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration
-```
-
-## Install Dapr via the AKS extension
-
-Once you've uninstalled Dapr from your system, install the [Dapr extension for AKS and Arc-enabled Kubernetes](./dapr.md#create-the-extension-and-install-dapr-on-your-aks-or-arc-enabled-kubernetes-cluster).
-
-```bash
-az k8s-extension create --cluster-type managedClusters \                                               
---cluster-name <dapr-cluster-name> \
---resource-group <dapr-resource-group> \
---name <dapr-ext> \
---extension-type Microsoft.Dapr
-```
-
-## Apply your components
-
-```bash
-kubectl apply -f <component.yaml>
-```
-
-## Restart your applications that use Dapr
-
-Restarting the deployment will create a new sidecar from the new Dapr installation.
-
-```bash
-kubectl rollout restart <deployment-name>
-```
 
 ## Next steps
 
-Learn more about [the cluster extension](./dapr-overview.md) and [how to use it](./dapr.md).
+Learn more about [the cluster extension][dapr-overview.md] and [how to use it][dapr-howto].
+
+
+<!-- LINKS INTERNAL -->
+[dapr-overview]: ./dapr-overview.md
+[dapr-howto]: ./dapr.md
+
+<!-- LINKS EXTERNAL -->
+[dapr-prod-guidelines]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production/#enabling-high-availability-in-an-existing-dapr-deployment
