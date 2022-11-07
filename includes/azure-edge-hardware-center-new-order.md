@@ -40,7 +40,7 @@ To place an order through the Azure Edge Hardware Center, do these steps:
    - Hardware requirements 
    - Geographic presence 
 
-   Microsoft will evaluate the deployment details you provide and may contact you by email for more information. If you have questions, you can send email to [AzureStack1Pinquiry@microsoft.com](mailto:AzureStack1Pinquiry@microsoft.com).
+   Microsoft will evaluate the deployment details you provide and may contact you by email for more information. We have certain requirements in place for new customers to ensure that Azure Stack Edge is the right fit for the use case; not all requests will be fulfilled. If you have questions, you can send email to [AzureStack1Pinquiry@microsoft.com](mailto:AzureStack1Pinquiry@microsoft.com).
 
    ![Screenshot of web form for first-time customer Azure Stack Edge hardware orders. The Sign-up button for a product is highlighted.](media/azure-edge-hardware-center-new-order/azure-edge-hardware-center-new-customer-hardware-order.png)
 
