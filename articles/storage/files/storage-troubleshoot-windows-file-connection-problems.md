@@ -588,8 +588,8 @@ If this is the case, ask your Azure AD admin to grant admin consent to the new A
 
 When enabling Azure AD Kerberos authentication, you might encounter this error if the following conditions are met:
 
-1. You're using the beta/preview feature of [application management policies](/graph/api/resources/applicationauthenticationmethodpolicy?view=graph-rest-beta).
-2. You (or your administrator) have set a [tenant-wide policy](/graph/api/resources/tenantappmanagementpolicy?view=graph-rest-beta) that:
+1. You're using the beta/preview feature of [application management policies](/graph/api/resources/applicationauthenticationmethodpolicy).
+2. You (or your administrator) have set a [tenant-wide policy](/graph/api/resources/tenantappmanagementpolicy) that:
     - Has no start date, or has a start date before 2019-01-01
     - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
 
