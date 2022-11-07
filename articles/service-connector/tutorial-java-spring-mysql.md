@@ -148,15 +148,16 @@ az mysql flexible-server create \
 1. Query app status after deployment with the following command.
 
     ```azurecli
-    az spring app list -o table
+    az spring app list  --resource-group ServiceConnector-tutorial-mysqlf --service my-azure-spring --output table
     ```
 
     You should see the following output:
 
     ```output
-    Name               Location    ResourceGroup                      Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
-    -----------------  ----------  --------------------------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    hellospring        eastus     ServiceConnector-tutorial-mysqlf    default                                                                       Succeeded              1      2         1/1                 0/1                    -
+    Name         Location    ResourceGroup                     Public Url                                                 Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
+    -----------  ----------  --------------------------------  ---------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
+    hellospring  eastus      ServiceConnector-tutorial-mysqlf  https://my-azure-spring-hellospring.azuremicroservices.io  default                  Succeeded             1      1Gi       1/1                 0/1                    -                     -
+
     ```
 
 ## Next steps
