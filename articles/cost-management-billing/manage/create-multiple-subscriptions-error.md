@@ -1,5 +1,6 @@
 ---
 title: Error when you create multiple subscriptions
+titleSuffix: Microsoft Cost Management
 description: Provides the solution for a problem where you get an error message when you try to create multiple subscriptions.
 author: bandersmsft
 ms.reviewer: sgautam
@@ -30,3 +31,7 @@ Expect a delay before you can create another subscription.
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Next steps
+
+- Learn more about [Programmatically creating Azure subscriptions for a Microsoft Customer Agreement with the latest APIs](programmatically-create-subscription-microsoft-customer-agreement.md).
