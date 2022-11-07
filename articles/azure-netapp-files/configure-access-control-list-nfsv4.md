@@ -5,7 +5,7 @@ author: sluce
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 11/07/2022
 ms.author: anfdocs
 ---
 # Configure access control lists on NFSv4.1 with Azure NetApp Files
