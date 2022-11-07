@@ -383,7 +383,7 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 
 **Resources**
 * [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)
-* [How To Use Environments](https://aka.ms/azureml/environments/how-to-use-environments)
+* [How To Use Environments](https://aka.ms/azureml/environment/how-to-use-environments)
 
 ### *Docker pull issues*
 ### Failed to pull Docker image
