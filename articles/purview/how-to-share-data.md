@@ -95,12 +95,15 @@ This registration is only needed the first time when sharing or receiving data i
  
     :::image type="content" source="./media/how-to-share-data/create-share-edit-asset-name.png" alt-text="Screenshot showing the add assets second page, with the asset paths listed and the display name bars available to edit." border="true":::  
 
-1. Select **Add Recipient**. Enter the Azure log in email address of who you want to share data with. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+1. Select **Add Recipient** and select **User**. Enter the Azure log in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
-    > [!NOTE]
-    > In Microsoft Purview governance portal, you can only use user's Azure login email address as recipient. In Microsoft Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
+    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true":::  
+    
+Select **Add Recipient** and select **App** if you want to share data with a service principal. Enter the object ID and tenant ID of the recipient you want to share data with.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, two users added." border="true":::  
+    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true":::  
+
+Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
 You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account. 
 
