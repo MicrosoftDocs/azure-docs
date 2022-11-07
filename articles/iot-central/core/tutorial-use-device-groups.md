@@ -123,7 +123,7 @@ To learn more about analytics, see [How to use data explorer to analyze device d
 
 ## Next steps
 
-Now that you've learned how to use device groups in your Azure IoT Central application, here is the suggested next step:
+Now that you've learned how to use device groups in your Azure IoT Central application, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [How to create telemetry rules](tutorial-create-telemetry-rules.md)

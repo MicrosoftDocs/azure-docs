@@ -18,7 +18,7 @@ As an operator in your Azure IoT Central application, you can:
 
 * View the device properties on the **About** page. This page shows the properties from the device information component and the two thermostat components:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="Screenshot that dows the device properties view." lightbox="media/iot-central-monitor-thermostat/about-properties.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="Screenshot that shows the device properties view." lightbox="media/iot-central-monitor-thermostat/about-properties.png":::
 
 ## Customize the device template
 
@@ -80,4 +80,4 @@ An operator can now use the **Properties** view to update the property values, a
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Screenshot that shows calling a command." lightbox="media/iot-central-monitor-thermostat/call-command.png":::
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="Screenshot tha shows a command response." lightbox="media/iot-central-monitor-thermostat/command-response.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="Screenshot that shows a command response." lightbox="media/iot-central-monitor-thermostat/command-response.png":::
