@@ -110,7 +110,7 @@ Place the resource ID of the web app that you created earlier into a shell varia
 # [**Dynamic IP**](#tab/dynamic-ip)
 
 ```azurecli-interactive
-id=$(az webapp list \
+$id= (az webapp list \
     --resource-group CreatePrivateEndpointQS-rg \
     --query '[].[id]' \
     --output tsv)
