@@ -235,7 +235,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
     kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
     ```
 
-The output should match the following:
+    The output should match the following:
 
     ```azurecli
     secret1
@@ -248,7 +248,7 @@ The output should match the following:
        -- cat /mnt/secrets-store/secret1
     ```
 
-The output should match the following:
+    The output should match the following:
 
     ```azurecli
     Hello
