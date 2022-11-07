@@ -70,6 +70,8 @@
           href: howto-enable-fips-openshift.md
         - name: Enable Network Security Group flow logs
           href: howto-enable-nsg-flowlogs.md
+        - name: Deploy Azure Key Vault CSI
+          href: howto-deploy-azure-key-vault-csi.md
     - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
