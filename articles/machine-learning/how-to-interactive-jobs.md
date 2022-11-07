@@ -33,7 +33,7 @@ Interactive training is supported on **AzureML Compute Cluster** and **Azure Arc
 By specifying interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. Once you have access to the job container, you can test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
 
 ### Enable during job submission
-# [AzureML Studio](#tab/python)
+# [AzureML Studio](#tab/ui)
 1. Create a new job from the left navigation pane in the studio portal.
 
   ![screenshot select-job-ui](media/interactive-jobs/create-job.png) 
@@ -166,7 +166,7 @@ By specifying interactive applications at job creation, you can connect directly
 ---
 
 ### Connect to endpoints
-# [AzureML Studio](#tab/python)
+# [AzureML Studio](#tab/ui)
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 ![screenshot debug-and-monitor](media/interactive-jobs/debug-and-monitor.png)
