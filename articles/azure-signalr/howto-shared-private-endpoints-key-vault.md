@@ -60,7 +60,7 @@ The examples in this article use the following naming convention, although you c
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-When you have successfully added the private endpoint, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until you approve the endpoint on the Key Vault side.
+When you've successfully added the private endpoint, the provisioning state will be **Succeeded**.  The connection state will be **Pending** until you approve the endpoint on the Key Vault side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
@@ -192,7 +192,7 @@ When the private endpoint between the SignalR Service and Azure Key Vault is fun
 
 ## Cleanup
 
-If you do not plan to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+If you don't plan to use the resources you've created in this article, you can delete the Resource Group.
 
 >[!CAUTION]
 > Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.

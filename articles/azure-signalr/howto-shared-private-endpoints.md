@@ -12,21 +12,23 @@ ms.author: lianwei
 
 # Secure Azure SignalR outbound traffic through Shared Private Endpoints
 
-If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to an upstream service. Upstream services, such as Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. To reach these endpoints, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md).
+When you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service,  you can create outbound [private endpoint connections](../private-link/private-endpoint-overview.md) to an upstream service. 
+
+Upstream services, such as Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. To reach these endpoints, you can create an outbound private endpoint connection.
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints\shared-private-endpoint-overview.png" :::
 
 This outbound method is subject to the following requirements:
 
 + The upstream service must be Azure Web App or Azure Function.
-
 + The Azure SignalR service not must be on the free tier.
-
 + The Azure Web App or Azure Function must be on certain SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
+
+In this article, you'll learn how to create a shared private endpoint with an outbound private endpoint connection to secure outbound traffic to an upstream Azure Function instance.
 
 ## Shared Private Link Resources Management
 
-Private endpoints of secured resources are created through the SignalR Service APIs. They're referred to as *shared private link resources* because you're sharing access to a resource, such as an Azure Function that is integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside the SignalR Service execution environment and aren't accessible outside this environment.
+You create private endpoints of secured resources through the SignalR Service APIs. These endpoints, called *shared private link resources*, allow you to share access to a resource, such as an Azure Function integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside the SignalR Service execution environment and aren't accessible outside this environment.
 
 ## Prerequisites
 
@@ -207,7 +209,7 @@ Once the private endpoint is set up, you can verify incoming calls from a privat
 
 ## Cleanup
 
-If you do not plan to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+If you don't plan to use the resources you've created in this article, you can delete the Resource Group.
 
 >[!CAUTION]
 > Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
