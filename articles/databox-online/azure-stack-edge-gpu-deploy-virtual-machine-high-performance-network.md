@@ -67,7 +67,7 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
 -  You have access to a Windows or Linux VHD that you'll use to create the VM image for the VM you intend to create.
 
     > [!NOTE] 
-    > - Versions 2210 and higher have the default setting for SkuPolicy, with four logical processors reserved for root processes, and four processors available for HPN VMs.
+    > - Versions 2210 and higher have the default setting for SkuPolicy, with four logical processors reserved for root processes, and four processors available for HPN VMs. NUMA configuration is optional and, in most scenarios, the default configuration is appropriate.
     > - Versions 2209 and lower will carry forward the existing NUMA configuration, even if updated to 2210 from a lower version.
 
 In addition to the above prerequisites that are used for VM creation, you'll also need to configure the following prerequisite specifically for the HPN VMs:
@@ -225,13 +225,13 @@ In addition to the above prerequisites that are used for VM creation, you'll als
     [dbe-1csphq2.microsoftdatabox.com]: PS>
     ```
 
-         > [!Note]
-         > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0. 
-         > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
-         > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
+    > [!Note]
+    > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0. 
+    > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
+    > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
 
-       > [!NOTE] 
-       > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
+    > [!NOTE] 
+    > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
         
     8. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
     
