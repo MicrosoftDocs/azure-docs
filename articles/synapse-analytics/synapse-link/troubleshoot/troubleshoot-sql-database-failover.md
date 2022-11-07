@@ -16,7 +16,7 @@ This article is a guide to troubleshoot and configure Azure Synapse Link for Azu
 
 ## Symptom
 
-For the safety of data, users may choose to set [auto-failover group](/sql/azure-sql/database/failover-group-add-single-database-tutorial) for Azure SQL Database. By setting failover group, users can group multiple geo-replicated databases which can protect an potential data loss. However, when Synapse Link for Azure SQL Database has been started for the table in the Azure SQL Database and the database experiences failover, Synapse Link will be disabled in the backend even though its status is still displayed as running. 
+For the safety of data, users may choose to set [auto-failover group](/sql/azure-sql/database/failover-group-add-single-database-tutorial) for Azure SQL Database. By setting failover group, users can group multiple geo-replicated databases that can protect a potential data loss. However, when Azure Synapse Link for Azure SQL Database has been started for the table in the Azure SQL Database and the database experiences failover, Synapse Link will be disabled in the backend even though its status is still displayed as running. 
 
 You must stop Synapse Link manually and configure Synapse Link according to the new primary server's information so that it can continue to work normally.  
 
@@ -32,8 +32,8 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
 
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-linked-services.png" alt-text="A screenshot of Synapse Studio. The Manage hub is open. Under External connections, the Linked Services page is selected. In the list of Linked services, the AzureSqlDatabase1 linked service is highlighted." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-linked-services.png":::
 
-1. You must to reset the linked service connection string based on the new primary server after failover so that Synapse Link can connect to the new primary logical server's database. There are two options:
-    * Use [the auto-failover group read/write listener endpoint](/sql/azure-sql/managed-instance/auto-failover-group-configure-sql-mi#locate-listener-endpoint) and the workspace's managed identity to connect your Synapse workspace to the source database. Because of Read/Write listener endpoint which automatically maps to the new primary server after failover, so you only need to set it once. If failover occurs later, it will automatically use the Fully qualified domain name (FQDN) of the listener endpoint. 
+1. You must reset the linked service connection string based on the new primary server after failover so that Synapse Link can connect to the new primary logical server's database. There are two options:
+    * Use [the auto-failover group read/write listener endpoint](/sql/azure-sql/managed-instance/auto-failover-group-configure-sql-mi#locate-listener-endpoint) and the workspace's managed identity to connect your Synapse workspace to the source database. Because of Read/Write listener endpoint that automatically maps to the new primary server after failover, so you only need to set it once. If failover occurs later, it will automatically use the Fully qualified domain name (FQDN) of the listener endpoint. 
     * After each failover, edit the linked service **Connection string** with the **Server name**, **Database name**, and authentication information for the new primary server.
     To the auto-failover group read/write listener endpoint:
 
