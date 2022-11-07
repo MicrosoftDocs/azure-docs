@@ -1,19 +1,19 @@
 ---
-title: Quickstart: Build a streaming application with a few clicks
+title: Quickstart: Build a streaming application in a few clicks
 description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
 ms.service: stream-analytics
-author: alex lin
+author: alexlin
 ms.author: zhenxilin
 ms.date: 10/27/2022
 ms.topic: quickstart
 ---
 
-# Build a streaming application with a few clicks
+# Build a streaming application in a few clicks
 
-This quickstart shows how to build a streaming application with executing a few commands on PowerShell. It's the fastest way to deploy the Azure resources and test your streaming application with generated data streams. You can choose the following application examples and explore different stream analytic scenarios.
+This quickstart shows how to build a streaming application with executing a few commands on PowerShell. It's the fastest way to deploy the Azure resources and get your streaming application running with auto-generated data streams. You can choose the following application examples and explore different stream analytic scenarios.
 - filter clickstream requests
 - join clickstream with a file
-- analyze Twitter sentiment
+- analyze Twitter sentiment (coming soon)
 - build geofencing (coming soon)
 
 ## Prerequisites
@@ -49,24 +49,24 @@ Follow these steps to deploy resources:
 
 1. Clone this [GitHub repository](https://github.com/Azure/azure-stream-analytics) to your working directory. 
 
-2. Open PowerShell, go to the folder `Build Applications` with command `cd`.
+2. Open PowerShell, go to the folder `BuildApplications` with command `cd`.
 
 3. Sign in to Azure with the following command. Enter your Azure credentials in the pop-up browser.
 
     ```powershell
-    Connect-AzAccount
+    $ Connect-AzAccount
     ```
 
 4. Deploy Azure sources. Replace `<subscription-id>` with your Azure subscription id and run the following command. This process may take a few minutes to complete.
 
     ```powershell
-    .\CreateJob.ps1 -job ClickStream-Filter -subscriptionid <subscription-id> -eventsPerMinute 11
+    $ .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid <subscription-id> 
     ```
 
-    * Subscription id can be found in the Azure dashboard.
     * `eventsPerMinute` is the input rate for generated data. In this case, the input source generates 11 events per minute.
+    * You can find your subscription-id in **Azure portal > Subscriptions**.
 
-5. Once it's done, open your browser and sign in to Azure portal. You see an Azure Resource Group named **ClickStream-Filter-rg-\*** is created with five resources:
+5. Once it's done, it opens your browser automatically, and you can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains following five resources:
 
     | Resource Type | Name | Description |
     | ------------ | --------------------------------------------- | -------------------------------- |
@@ -92,27 +92,27 @@ Follow these steps to deploy resources:
 
 8. **Congratulation!** You've deployed your first streaming application to filter a website clickstream. For other stream analytic scenarios with one stream input, you can use the following examples for the query:
 
-* Count clicks for every hour
-
-    ```sql
-    select System.Timestamp as Systime, count( * )
-    FROM clickstream
-    TIMESTAMP BY EventTime
-    GROUP BY TumblingWindow(hour, 1)
-    ```
-
-* Select distinct user
-
-    ```sql
-    SELECT *
-    FROM clickstream
-    TIMESTAMP BY Time
-    WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
-    ```
+    * Count clicks for every hour
+    
+        ```sql
+        select System.Timestamp as Systime, count( * )
+        FROM clickstream
+        TIMESTAMP BY EventTime
+        GROUP BY TumblingWindow(hour, 1)
+        ```
+    
+    * Select distinct user
+    
+        ```sql
+        SELECT *
+        FROM clickstream
+        TIMESTAMP BY Time
+        WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
+        ```
 
 ## Clickstream-RefJoin
 
-If you've a user file and want to find out the username for the clickstream, you can join the clickstream with a reference input as following architecture:
+If you want to find out the username for the clickstream with a user file in storage, you can join the clickstream with a reference input as following architecture:
 ![Clickstream two input](./media/quick-start-with-mock-data/clickstream-two-inputs.png)
 
 Assume you've completed the steps for previous example, follow these steps to create a new resource group: 
@@ -120,7 +120,7 @@ Assume you've completed the steps for previous example, follow these steps to cr
 1. Replace `<subscription-id>` with your Azure subscription ID and run the following command. This process may take a few minutes to deploy the resources: 
 
     ```powershell
-    .\CreateJob.ps1 -job ClickStream-RefJoin -subscriptionid <subscription-id> -eventsPerMinute 11
+    $ .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid <subscription-id> 
     ```
 
 2. Once it's done, sign in to the Azure portal, and you can see a resource group named **ClickStream-RefJoin-rg-\***.
@@ -146,7 +146,7 @@ Assume you've completed the steps for previous example, follow these steps to cr
 If you've tried out this project and no longer need the resource group, run this command on PowerShell to delete the resource group.
 
 ```powershell
-Remove-AzResourceGroup -Name $resourceGroup
+$ Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 If you're planning to use this project in the future, you can skip deleting it, and stop the job for now.
