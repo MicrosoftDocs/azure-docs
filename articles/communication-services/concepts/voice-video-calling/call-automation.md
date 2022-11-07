@@ -16,7 +16,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
 > Call Automation currently doesnt interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isnt supported. 
@@ -30,6 +30,7 @@ Some of the common use cases that can be build using Call Automation include:
 - Integrate your communication applications with Contact Centers and your private telephony networks using Direct Routing.
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
+- Analyze in a post-call process your unmixed audio recordings for quality assurance purposes.  
 
 ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture below. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
 
@@ -56,6 +57,7 @@ The following list presents the set of features that are currently available in 
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
+| Call Recording        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |
 
 *Transfer of VoIP call to a phone number is currently not supported.
 
@@ -92,6 +94,8 @@ These actions can be performed on the calls that are answered or placed using Ca
 **Recognize input** - After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md).
 
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
+
+**Record** - You decide when to start/pause/resume/stop recording based on your application business logic, or you can grant control to the end user to trigger those actions. To learn more, view our [concepts](./call-recording.md) and [quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 
 **Hang-up** – When your application has answered a one-to-one call, the hang-up action will remove the call leg and terminate the call with the other endpoint. If there are more than two participants in the call (group call), performing a ‘hang-up’ action will remove your application’s endpoint from the group call.
 
