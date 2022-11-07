@@ -111,4 +111,4 @@ sections:
           
       - question: |
           Can I deploy applications with managed identities?
-        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).
+        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity).
