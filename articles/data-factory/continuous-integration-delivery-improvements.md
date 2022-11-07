@@ -119,7 +119,7 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"
@@ -193,6 +193,9 @@ Follow these steps to get started:
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
+
+> [!NOTE]
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually.
 
 ## Next steps
 

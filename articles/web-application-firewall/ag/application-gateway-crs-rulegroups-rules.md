@@ -240,7 +240,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -284,7 +284,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -497,7 +497,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
@@ -540,7 +540,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -744,7 +744,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
+|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
@@ -778,7 +778,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|

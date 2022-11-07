@@ -10,7 +10,7 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: mimart
-ms.custom: "engagement-fy23, it-pro"
+ms.custom: engagement-fy23, it-pro
 ms.collection: M365-identity-device-management
 
 # Customer intent: As a tenant administrator, I want to create custom attributes for the self-service sign-up user flows.
