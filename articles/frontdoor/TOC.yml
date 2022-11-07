@@ -169,6 +169,12 @@
         href: best-practices.md
     - name: Classic
       items:
+        - name: Migrate to Standard or Premium Tier
+          items:
+          - name: About tier migration
+            href: tier-migration.md
+          - name: Classic to Standard/Premium mapping
+            href: tier-mapping.md
         - name: Caching
           href: front-door-caching.md?pivots=front-door-classic
         - name: Traffic acceleration
@@ -245,6 +251,8 @@
       items:
       - name: Configure
         items:
+        - name: Upgrade to Premium tier
+          href: tier-upgrade.md
         - name: Front Door manager
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
@@ -294,7 +302,9 @@
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
     - name : Classic
-      items:    
+      items:
+      - name: Migrate to Standard or Premium tier
+        href: migrate-tier.md
       - name: Add a custom domain
         href: front-door-custom-domain.md
       - name: Configure HTTPS on a custom domain
