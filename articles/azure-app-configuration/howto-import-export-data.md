@@ -476,7 +476,6 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--destination`        | Enter `appservice` to indicate that you're exporting data to App Service.                                                                                          | `appservice`                                                                                                              |
     | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration.                   | `/subscriptions/123/resourceGroups/my-as-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
     | `--label`              | Optional. Enter a label to export keys and feature flags with this label. If you don't specify a label, by default, you will only export keys and feature flags with no label. | `prod`                                                                                                                    |
-    | `--export-as-reference` `-r` | Optional. Flag to specify whether key-values are exported to App Service as App Configuration references. [Learn more](../app-service/app-service-configuration-references.md). If you don't specify this flag, the key-value(s) will be exported as-is. |
 
     To get the value for `--appservice-account`, use the command `az webapp show --resource-group <resource-group> --name <resource-name>`.
 
@@ -491,13 +490,31 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     ```azurecli
     az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
     ```
-
-1. The command line displays a list of key-values getting exported to the file. Confirm the export by selecting `y`.
+    The command line displays a list of key-values getting exported to an App Service resource. Confirm the export by selecting `y`.
 
     :::image type="content" source="./media/import-export/continue-export-app-service-prompt.png" alt-text="Screenshot of the CLI. Export to App Service confirmation prompt.":::
 
-You've exported all keys with the label "prod" to an Azure App Service resource and have trimmed the prefix "TestApp:".
+    You've exported all keys with the label "prod" to an Azure App Service resource and have trimmed the prefix "TestApp:".
 
+
+1. Optionally specify a flag to export as an App Configuration Reference.
+    | Parameter  | Description                                                                                                                                                    |
+    |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `--export-as-reference` `-r` | Optional. Specify whether key-values are exported to App Service as App Configuration references. [Learn more](../app-service/app-service-configuration-references.md). |
+
+    Example: export all key-values with the label "prod" as app configuration references to an App Service application.
+
+    ```azurecli
+    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account "/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service" --label prod --export-as-reference
+    ```
+    The command line displays a list of key-values getting exported as app configuration references to an App Service resource. Confirm the export by selecting `y`.
+
+    :::image type="content" source="./media/import-export/export-app-service-reference-cli-preview.png" alt-text="Screenshot of the CLI. Export to App Service confirmation prompt.":::
+    
+    You've exported all keys with the label "prod" as app configuration references to an Azure App Service resource. In your App Service resource, the import key-values will indicated as App Configuration references in the "Source" column.
+
+    :::image type="content" source="./media/import-export/export-app-service-reference-value.png" alt-text="Screenshot of the CLI. Export to App Service confirmation prompt.":::
+    
 For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
 ---
