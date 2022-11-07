@@ -20,7 +20,7 @@ Recording file is generated at the end of a call or meeting. The recording can b
 
 [!IMPORTANT]
 
-Please note the call recording logs will be published once the call recording is ready to be downloaded. The log will be published within the standard latency time for Azure Monitor Resource logs see [Log data ingestion time in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-ingestion-time#azure-metrics-resource-logs-activity-log)
+Please note the call recording logs will be published once the call recording is ready to be downloaded. The log will be published within the standard latency time for Azure Monitor Resource logs see [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log)
 
 
 ### Properties Description
