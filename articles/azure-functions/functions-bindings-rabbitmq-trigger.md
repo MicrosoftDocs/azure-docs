@@ -181,7 +181,7 @@ def main(myQueueItem) -> None:
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 
@@ -212,7 +212,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
-Here's a `RabbitMQTrigger` attribute in a method signature for an isolated process library:
+Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worker process library:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
 

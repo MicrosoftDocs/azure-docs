@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 06/02/2022
+ms.date: 11/07/2022
 ms.topic: how-to
 ---
 
@@ -10,6 +10,26 @@ ms.topic: how-to
 This article describes how to manage individual sensors, such as managing activation files, certificates, backups, and more.
 
 You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
+
+## View overall sensor status
+
+When you sign into your sensor, the first page shown is the **Overview** page.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png" alt-text="Screenshot of the overview page." lightbox="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png":::
+
+The **Overview** page shows the following widgets:
+
+| Name | Description |
+|--|--|
+| **General Settings** | Displays a list of the sensor's basic configuration settings |
+| **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
+| **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
+| **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
+| **Top open alerts** | Displays a table listing any currently open alerts with high severity levels, including critical details about each alert. |
+
+Select the link in each widget to drill down for more information in your sensor.
 
 ## Manage sensor activation files
 
@@ -79,7 +99,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
 
-Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
+Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen, for example,  if a certificate expired.
 
 **To update a certificate:**
 
@@ -99,11 +119,11 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
 
 1. Select **Save**.
 
-For more information about first-time certificate upload see,
+For more information about first-time certificate upload, see,
 [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
 
 ## Connect a sensor to the management console
