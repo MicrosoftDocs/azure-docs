@@ -36,9 +36,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An existing Azure Cosmos DB for NoSQL account.
-  - If you have an Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
-  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Visual Studio Code](https://code.visualstudio.com)
 - [.NET 6 (LTS) or later](https://dotnet.microsoft.com/download/dotnet/6.0)
 - Experience writing C# applications.
