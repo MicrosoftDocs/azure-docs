@@ -15,7 +15,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET. To create C# functions [in an isolated process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) before getting started. 
+By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET. To create C# functions [in an isolated worker process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) before getting started. 
 
 In this article, you learn how to:
 
@@ -60,7 +60,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 6 Isolated** | When you choose **.NET 6 Isolated**, you create a project that runs in a separate worker process. Choose isolated process when you need to run your function app on .NET 7.0 or on .NET Framework 4.8 (preview). To learn more, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).   |
+    | **Functions worker** | **.NET 6 Isolated** | When you choose **.NET 6 Isolated**, you create a project that runs in a separate worker process. Choose isolated worker process when you need to run your function app on .NET 7.0 or on .NET Framework 4.8 (preview). To learn more, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).   |
     | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
@@ -153,7 +153,7 @@ Advance to the next article to learn how to add an Azure Storage queue binding t
 
 # [.NET 6 Isolated](#tab/isolated-process)
 
-To learn more about working with C# functions that run in an isolated process, see the [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated process .
+To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process .
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
