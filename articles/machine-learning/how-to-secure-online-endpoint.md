@@ -102,14 +102,14 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 ---
 When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
-> [!NOTE]
+> [!CAUTION]
 > You cannot update the `public_network_access` flag after creating the endpoint. Attempting to change the flag while updating the endpoint will fail with an error.
 
 ## Outbound (resource access)
 
 To restrict communication between a deployment and the Azure resources used to by the deployment, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
 
-> [!NOTE]
+> [!CAUTION]
 > You cannot update the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
 
 The following are the resources that the deployment communicates with over the private endpoint:
