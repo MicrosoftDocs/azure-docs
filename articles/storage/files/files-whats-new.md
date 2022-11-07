@@ -15,8 +15,8 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 ## What's new in 2022
 
 ### 2022 quarter 4 (October, November, December)
-#### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files (GA)
-This [feature](storage-files-identity-auth-azure-active-directory-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for line-of-sight to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers.
+#### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
+This [feature](storage-files-identity-auth-azure-active-directory-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for line-of-sight to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers.
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
