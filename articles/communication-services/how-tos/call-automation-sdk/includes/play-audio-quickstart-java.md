@@ -14,8 +14,8 @@ ms.author: kpunjabi
 ## Prerequisites
 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- Create a new web service application using the [Call Automation SDK](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -69,11 +69,11 @@ Create an audio file, if you don't already have one, to use for playing prompts 
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../callflows-for-customer-interactions.md) section.
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) section.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
@@ -167,7 +167,7 @@ Your application will receive action lifecycle event updates on the callback URL
 }]
 ```
 
-To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/call-automation.md#call-automation-webhook-events).
+To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/voice-video-calling/call-automation.md#call-automation-webhook-events).
 
 ## Cancel play action
 
