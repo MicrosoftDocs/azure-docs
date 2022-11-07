@@ -171,11 +171,24 @@ az monitor log-analytics workspace table delete --subscription ContosoSID --reso
 To add a custom column to an existing table in your Log Analytics workspace:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
-1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Edit schema**. 
-1. Select **Add column**.
-1. Set the column name, description (optional), and expected value type from the **Type** dropdown, and select **Save** to to save the new column.
+1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Edit schema**.
+
+    This opens the **Schema Editor** screen.
+  
+1. Scroll down to the **Custom Columns** section of the **Schema Editor** screen and select **Add a column**.
+1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
+1. Select **Save** to to save the new column.
 
 ## Delete a custom column
+
+To delete a custom column from a table in your Log Analytics workspace:
+
+1. From the **Log Analytics workspaces** menu, select **Tables**.  
+1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Edit schema**.
+
+    This opens the **Schema Editor** screen.
+  
+1. Scroll down to the **Custom Columns** section of the **Schema Editor** screen and select the **Delete** icon to the left of the column you want to delete.
 
 ## Next steps
 
