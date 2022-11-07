@@ -17,7 +17,7 @@ When you sign into your sensor, the first page shown is the **Overview** page.
 
 For example:
 
-:::image type="content" source="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png" alt-text="Screenshot of the overview page.":::
+:::image type="content" source="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png" alt-text="Screenshot of the overview page." lightbox="media/how-to-manage-individual-sensors/screenshot-of-overview-page.png":::
 
 The **Overview** page shows the following widgets:
 
