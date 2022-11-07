@@ -20,13 +20,13 @@ ms.date: 11/07/2022
 > [!IMPORTANT]
 > It's recommended to access Azure Cosmos DB is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [certificate-based authentication](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the Azure Key vault solution in this article.
 
-If you are using Azure Cosmos DB as your database, you connect to databases, container, and items by using an SDK, the API endpoint, and either the primary or secondary key.
+If you're using Azure Cosmos DB as your database, you connect to databases, container, and items by using an SDK, the API endpoint, and either the primary or secondary key.
 
 It's not a good practice to store the endpoint URI and sensitive read-write keys directly within application code or configuration file. Ideally, this data is read from environment variables within the host. In Azure App Service, [app settings](/azure/app-service/configure-common#configure-app-settings) allow you to inject runtime credentials for your Azure Cosmos DB account without the need for developers to store these credentials in an insecure clear text manner.
 
 Azure Key Vault iterates on this best practice further by allowing you to store these credentials securely while giving services like Azure App Service managed access to the credentials. Azure App Service will securely read your credentials from Azure Key Vault and inject those credentials into your running application.
 
-With this best practice, developers can store the credentials for features/tools like the [Azure Cosmos DB emulator](local-emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development and the operations team can ensure that the correct production settings are injected at runtime.
+With this best practice, developers can store the credentials for tools like the [Azure Cosmos DB emulator](local-emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development. Then, the operations team can ensure that the correct production settings are injected at runtime.
 
 In this tutorial, you learn how to:
 
@@ -89,7 +89,7 @@ First, create a new key vault to store your API for NoSQL credentials.
 
 ## Add Azure Cosmos DB access keys to the Key Vault
 
-Now, store the your Azure Cosmos DB credentials as secrets in the key vault.
+Now, store your Azure Cosmos DB credentials as secrets in the key vault.
 
 1. Select **Go to resource** to go to the Azure Key Vault resource page.
 
@@ -173,52 +173,79 @@ In this section, create a new Azure Web App, deploy a sample application, and th
 
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
 
-1.
+1. You may need to wait a few extra minutes for the web application to be initially deployed to the web app. From the Azure Web App resource page, select **Browse** to see the default state of the app.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/sample-web-app-empty.png" lightbox="media/access-secrets-from-keyvault/sample-web-app-empty.png" alt-text="Screenshot of the web application in it's default state without credentials.":::
+
+1. Select the **Identity** navigation menu option.
+
+1. On the **Identity** page, select **On** for **System-assigned** managed identity, and then select **Save**.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/enable-managed-identity.png" alt-text="Screenshot of system-assigned managed identity being enabled from the Identity page.":::
 
 ## Inject Azure Key Vault secrets as Azure Web App app settings
 
-Finally, inject the secrets stored in your key vault as app settings within the web app. This will, in turn, inject the credentials into the application at runtime without storing the credentials in clear text.
+Finally, inject the secrets stored in your key vault as app settings within the web app. The app settings will, in turn, inject the credentials into the application at runtime without storing the credentials in clear text.
 
-1.
+1. Return to the key vault page in the Azure portal. Select **Access policies** from the navigation menu.
 
+1. On the **Access policies** page, select **Create** from the menu.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/create-access-policy.png" alt-text="Screenshot of the Create option in the Access policies menu.":::
+
+1. On the **Permissions** tab of the **Create an access policy** page, select the **Get** option in the **Secret permissions** section. Select **Next**.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/get-secrets-permission.png" alt-text="Screenshot of the Get permission enabled for Secret permissions.":::
+
+1. On the **Principal** tab, select the name of the web app you created earlier in this tutorial. Select **Next**.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/assign-principal.png" alt-text="Screenshot of a web app managed identity assigned to a permission.":::
+
+    > [!NOTE]
+    > In this example screenshot, the web app is named **msdocs-dotnet-web**.
+
+1. Select **Next** again to skip the **Application** tab. On the **Review + create** tab, review the settings you provide, and then select **Create**.
+
+1. Return to the web app page in the Azure portal. Select **Configuration** from the navigation menu.
+
+1. On the **Configuration** page, select **New application setting**. In the **Add/Edit application setting** dialog, enter the following information:
+
+    | Setting | Description |
+    | --- | --- |
+    | **Name** | `CREDENTIALS__ENDPOINT` |
+    | **Key** | Get the **secret identifier** for the **cosmos-endpoint** secret in your key vault that you created earlier in this tutorial. Enter the identifier in the following format: `@Microsoft.KeyVault(SecretUri=<secret-identifier>)`. |
+
+    > [!TIP]
+    > Ensure that the environment variable has a double underscore (`__`) value instead of a single underscore. The double-underscore is a key delimeter supported by .NET on all platforms. For more information, see [environment variables configuration](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
+
+    > [!NOTE]
+    > For example, if the secret identifier is `https://msdocs-key-vault.vault.azure.net/secrets/cosmos-endpoint/69621c59ef5b4b7294b5def118921b07`, then the reference would be `@Microsoft.KeyVault(SecretUri=https://msdocs-key-vault.vault.azure.net/secrets/cosmos-endpoint/69621c59ef5b4b7294b5def118921b07)`.
+    >
+    > :::image type="content" source="media/access-secrets-from-keyvault/create-app-setting.png" alt-text="Screenshot of the Add/Edit application setting dialog with a new app setting referencing a key vault secret.":::
+    >
+
+1. Select **OK** to persist the new app setting
+
+1. Select **New application setting** again. In the **Add/Edit application setting** dialog, enter the following information and then select **OK**:
+
+    | Setting | Description |
+    | --- | --- |
+    | **Name** | `CREDENTIALS__KEY` |
+    | **Key** | Get the **secret identifier** for the **cosmos-readwrite-key** secret in your key vault that you created earlier in this tutorial. Enter the identifier in the following format: `@Microsoft.KeyVault(SecretUri=<secret-identifier>)`. |
+
+1. Back on the **Configuration** page, select **Save** to update the app settings for the web app.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/save-app-settings.png" alt-text="Screenshot of the Save option in the Configuration page's menu.":::
+
+1. Wait a few minutes for the web app to restart with the new app settings. At this point, the new app settings should indicate that they're a **Key vault Reference**.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/app-settings-reference.png" lightbox="media/access-secrets-from-keyvault/app-settings-reference.png" alt-text="Screenshot of the Key vault Reference designation on two app settings in a web app.":::
+
+1. Select **Overview** from the navigation menu. Select **Browse** to see the app with populated credentials.
+
+    :::image type="content" source="media/access-secrets-from-keyvault/sample-web-app-populated.png" lightbox="media/access-secrets-from-keyvault/sample-web-app-populated.png" alt-text="Screenshot of the web application with valid Azure Cosmos DB for NoSQL account credentials.":::
 
 ## Next steps
 
 - To configure a firewall for Azure Cosmos DB, see [firewall support](how-to-configure-firewall.md) article.
 - To configure virtual network service endpoint, see [secure access by using VNet service endpoint](how-to-configure-vnet-service-endpoint.md) article.
-
----
-
-Old stuff
-
-
-1. Create an Azure web application or you can download the app from the [GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). It's a simple MVC application.  
-
-2. Unzip the downloaded application and open the **HomeController.cs** file. Update the secret ID in the following line:
-
-   `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
-
-3. **Save** the file, **Build** the solution.  
-4. Next deploy the application to Azure. Open the context menu for the project and choose **publish**. Create a new app service profile (you can name the app WebAppKeyVault1) and select **Publish**.
-
-5. Once the application is deployed from the Azure portal, navigate to web app that you deployed, and turn on the **Managed service identity** of this application.  
-
-   :::image type="content" source="media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Screenshot of the Managed service identity page in the Azure portal.":::
-
-If you run the application now, you'll see the following error, as you have not given any permission to this application in Key Vault.
-
-:::image type="content" source="media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Screenshot of the error message displayed by an app deployed without access.":::
-
-In this section, you register the application with Azure Active Directory and give permissions for the application to read the Key Vault.
-
-1. Navigate to the Azure portal, open the **Key Vault** you created in the previous section.  
-
-2. Open **Access policies**, select **+Add New** find the web app you deployed, select permissions and select **OK**.  
-
-   :::image type="content" source="media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Add access policy":::
-
-Now, if you run the application, you can read the secret from Key Vault.
-
-:::image type="content" source="media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="App deployed with secret":::
-
-Similarly, you can add a user to access the key Vault. You need to add yourself to the Key Vault by selecting **Access Policies** and then grant all the permissions you need to run the application from Visual studio. When this application is running from your desktop, it takes your identity.
