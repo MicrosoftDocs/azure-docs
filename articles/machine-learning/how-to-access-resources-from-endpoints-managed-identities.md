@@ -488,14 +488,11 @@ storage_account_parameters = StorageAccountCreateParameters(
     sku=Sku(name="Standard_LRS"), kind="Storage", location=workspace_location
 )
 
-poller = storage_client.storage_accounts.begin_create(
+storage_account = storage_client.storage_accounts.begin_create(
     resource_group_name=resource_group,
     account_name=storage_account_name,
     parameters=storage_account_parameters,
-)
-poller.wait()
-
-storage_account = poller.result()
+).result()
 ``` 
 
 Next, create the blob container in the storage account:
@@ -555,14 +552,11 @@ storage_account_parameters = StorageAccountCreateParameters(
     sku=Sku(name="Standard_LRS"), kind="Storage", location=workspace_location
 )
 
-poller = storage_client.storage_accounts.begin_create(
+storage_account = storage_client.storage_accounts.begin_create(
     resource_group_name=resource_group,
     account_name=storage_account_name,
     parameters=storage_account_parameters,
-)
-poller.wait()
-
-storage_account = poller.result()
+).result()
 ``` 
 
 Next, create the blob container in the storage account:
@@ -635,7 +629,7 @@ If you encounter any issues, see [Troubleshooting online endpoints deployment an
 When you create an online endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 ```python
-endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
+endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ``` 
 
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
@@ -670,7 +664,7 @@ endpoint = ManagedOnlineEndpoint(
     ),
 )
 
-ml_client.online_endpoints.begin_create_or_update(endpoint)
+ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ``` 
 
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
@@ -954,7 +948,7 @@ To check the init method output, see the deployment log with the following code.
 First, create the deployment:  
 
 ```python 
-deployment = ml_client.online_deployments.begin_create_or_update(deployment)
+deployment = ml_client.online_deployments.begin_create_or_update(deployment).result()
 ```
 
 Once deployment completes, check its status and confirm its identity details: 
@@ -980,7 +974,7 @@ Now that the deployment is confirmed, set the traffic to 100%:
 
 ```python 
 endpoint.traffic = {str(deployment.name): 100}
-ml_client.begin_create_or_update(endpoint)
+ml_client.begin_create_or_update(endpoint).result()
 ```
 
 # [User-assigned (Python)](#tab/user-identity-python)
@@ -994,7 +988,7 @@ deployment.environment_variables['UAI_CLIENT_ID'] = uai_client_id
 Now, create the deployment: 
 
 ```python 
-deployment = ml_client.online_deployments.begin_create_or_update(deployment)
+deployment = ml_client.online_deployments.begin_create_or_update(deployment).result()
 ```
 
 Once deployment completes, check its status and confirm its identity details: 
@@ -1019,7 +1013,7 @@ Now that the deployment is confirmed, set the traffic to 100%:
 
 ```python 
 endpoint.traffic = {str(deployment.name): 100}
-ml_client.begin_create_or_update(endpoint)
+ml_client.begin_create_or_update(endpoint).result()
 ```
 
 ---
