@@ -99,7 +99,7 @@ In addition to the default fields, the interactive sign-in log also shows:
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Screenshot customize columns button.](./media/concept-all-sign-ins/sign-in-logs-columns.png)
+![Screenshot customize columns button.](./media/concept-all-sign-ins/sign-in-logs-columns-preview.png)
 
 ### Non-interactive user sign-ins
 
@@ -181,7 +181,7 @@ Some filter options prompt you to select more options. Follow the prompts to mak
 
 Select the **Add filters** option from the top of the table to get started.
 
-![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/concept-all-sign-ins/sign-in-logs-filter.png)
+![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/concept-all-sign-ins/sign-in-logs-filter-preview.png)
 
 There are several filter options to choose from. Below are some notable options and details.
 
