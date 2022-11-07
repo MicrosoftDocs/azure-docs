@@ -43,7 +43,7 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 |Azure portal | <ul><li>[Azure Government Portal](https://portal.azure.us/)</li></ul>|
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
 |Available pricing tiers|<ul><li>Free (F0) and Standard (S1). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
-|Supported Features | <ul><li>[Text Translation](reference/v3-0-reference)</li><li>[Document Translation](document-translation/overview.md)</li><li>[Custom Translator](custom-translator/overview.md)</li></ul>|
+|Supported Features | <ul><li>[Text Translation](reference/v3-0-reference.md)</li><li>[Document Translation](document-translation/overview.md)</li><li>[Custom Translator](custom-translator/overview.md)</li></ul>|
 |Supported Languages| <ul><li>[Translator language support](language-support.md)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
