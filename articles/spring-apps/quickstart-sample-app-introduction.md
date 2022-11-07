@@ -13,9 +13,6 @@ zone_pivot_groups: programming-languages-spring-apps
 # Introduction to the sample app
 
 > [!NOTE]
-> The first 50 vCPU-hours and 100 memory GB-hours are free each month. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
-
-> [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
