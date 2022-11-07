@@ -12,7 +12,7 @@ ms.author: dayshen
 
 # How to Configure a custom domain for Azure SignalR Service
 
-In addition to the default domain provided with Azure SignalR Service, you can also add a custom DNS domain to your service.  In this article, you will learn how to add a custom domain to your SignalR Service.
+In addition to the default domain provided with Azure SignalR Service, you can also add a custom DNS domain to your service.  In this article, you'll learn how to add a custom domain to your SignalR Service.
 
 > [!NOTE]
 > Custom domains is a Premium tier feature. Standard tier resources can be upgraded to Premium tier without downtime.
@@ -31,7 +31,7 @@ To configure a custom domain, you need to:
 - An Azure Resource Group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.
-- An custom domain SSL certificate stored in your Key Vault instance.  See [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
+- A custom domain SSL certificate stored in your Key Vault instance.  See [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
 - An Azure DNS zone. (Optional)
 
 ## Add a custom certificate
@@ -143,7 +143,7 @@ You must create a CNAME record for your custom domain in an Azure DNS Zone or wi
 For example, if your default domain is `contoso.service.signalr.net`, and your custom domain is `contoso.example.com`, you need to create a CNAME record on `example.com`.  
 
 Once you've created the CNAME record, you can perform a DNS lookup to see the CNAME information. 
-In example, the output from the linux dig (DNS lookup) command should look similar to this:
+In example, the output from the linux dig (DNS lookup) command should look similar to this output:
 
 ```
  contoso.example.com. 0 IN CNAME contoso.service.signalr.net.
@@ -219,7 +219,7 @@ You don't have to explicitly allow SignalR Service IP addresses in Key Vault fir
 
 ## Cleanup
 
-If you do not plan to use the resources that you've created in this article, you can delete them  by deleting the Azure Resource Group that contains them.  
+If you don't plan to use the resources you've created in this article, you can delete the Resource Group.
 
 >[!CAUTION]
 > Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
