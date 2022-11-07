@@ -36,7 +36,7 @@ IoT Edge is made up of three components:
 
 IoT Central enables the following capabilities to for IoT Edge devices:
 
-* Deployment manifest management. An IoT Central application can mange a collection of deployment manifests and assign them to devices.
+* Deployment manifest management. An IoT Central application can manage a collection of deployment manifests and assign them to devices.
 * Device templates to describe the capabilities of an IoT Edge device, such as:
   * The telemetry each IoT Edge module sends.
   * The properties each IoT Edge module reports.
@@ -174,7 +174,7 @@ You can also manage individual modules on unassigned devices:
 
 IoT Central device templates use models to describe the capabilities of IoT Edge devices. Device templates are optional for IoT Edge devices. The device template enables you to interact with telemetry, properties, and commands using IoT Central capabilities such as dashboards and analytics. The following diagram shows the structure of the model for an IoT Edge device:
 
-:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Structure of model for IoT Edge device connected to IoT Central" border="false":::
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Diagram that shows the model structure for an IoT Edge device connected to IoT Central" border="false":::
 
 IoT Central models an IoT Edge device as follows:
 

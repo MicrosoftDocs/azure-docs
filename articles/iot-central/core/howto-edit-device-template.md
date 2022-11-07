@@ -39,11 +39,11 @@ After you attach production devices to a device template, evaluate the impact of
 
 ### Update an IoT Edge device template
 
-For an IoT Edge device, the model groups capabilities by modules that correspond to the IoT Edge modules running on the device. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install, how to configure them, and what properties the module has. If you've modified a deployment manifest, you can update the the device template to include the modules and properties defined in the manifest:
+For an IoT Edge device, the model groups capabilities by modules that correspond to the IoT Edge modules running on the device. The deployment manifest is a separate JSON document that tells an IoT Edge device which modules to install, how to configure them, and what properties the module has. If you've modified a deployment manifest, you can update the device template to include the modules and properties defined in the manifest:
 
-- Navigate to the **Modules** node in the device template.
-- On the **Modules summary** page, select **Import modules from manifest**.
-- Select the appropriate deployment manifest and select **Import**.
+1. Navigate to the **Modules** node in the device template.
+1. On the **Modules summary** page, select **Import modules from manifest**.
+1. Select the appropriate deployment manifest and select **Import**.
 
 To learn more, see [IoT Edge devices and IoT Central](concepts-iot-edge.md#iot-edge-devices-and-iot-central).
 
