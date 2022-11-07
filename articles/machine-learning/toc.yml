@@ -317,6 +317,9 @@
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+        - name: Attach and Manage a Synapse Spark pool
+          displayName: Attach and Manage a Synapse Spark pool
+          href: how-to-manage-synapse-spark-pool.md
     - name: AKS and Azure Arc-enabled Kubernetes
       items:
         - name: What is Kubernetes compute target
@@ -408,6 +411,12 @@
         - name: Read & write data in jobs
           displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
+        - name: Submit Spark jobs in Azure Machine Learning
+          displayName: Submit Spark jobs in Azure Machine Learning
+          href: how-to-submit-spark-jobs.md
+        - name: Interactive Data Wrangling with Apache Spark
+          displayName: Interactive Data Wrangling with Apache Spark
+          href: interactive-data-wrangling-with-apache-spark-azure-ml.md
         - name: Data administration
           displayName: Data administration
           href: how-to-administrate-data-authentication.md
@@ -556,6 +565,8 @@
               href: batch-inference/how-to-use-batch-endpoint.md
             - name: Accessing data from batch endpoints jobs
               href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
+            - name: Author scoring scripts for batch scoring
+              href: batch-inference/how-to-batch-scoring-script.md
             - name: Troubleshoot batch endpoints
               href: batch-inference/how-to-troubleshoot-batch-endpoints.md
             - name: Security
