@@ -490,7 +490,7 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## Implement the Python system replication hooks SAPHanaSR and susChkSrv
+## Implement HANA hooks SAPHanaSR and susChkSrv
 
 This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook. The SAPHanaSR package brings several individual high-availability providers. The main provider SAPHanaSR and second the susChkSrv provider for crashed HANA indexserver  are both recommended. SusChkSrv extends the functionality of main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes or is killed. If a single process crashes typically HANA tries to restart it. Restarting a crashed or killed indexserver process can take a long time period, during which the HANA database is not responsive to requests. With susChkSrv implemented, an immediate and configurable action is executed, fencing the affected node or killing the whole HANA instance. By either action, fence or kill, a failover is executed in the configured timeout period instead of waiting on hdbindexserver process to restart. 
 
