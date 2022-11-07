@@ -48,7 +48,7 @@ You can [add columns to an Azure table](../logs/create-custom-table.md#create-or
 
 You can [define a custom table's schema](../logs/create-custom-table.md) based on how you want to store data you collect from a given data source.  
 
-Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md).    
+Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
 
 ### Search results and restored logs table schema
 
