@@ -479,7 +479,7 @@ Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-avai
 
 ## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure both SAPHanaSR and susChkSrv Python hooks.  Follow the steps mentioned in, [Implement the Python System Replication hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-the-python-system-replication-hooks-saphanasr-and-suschksrv)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure both SAPHanaSR and susChkSrv Python hooks.  Follow the steps mentioned in, [Implement the Python System Replication hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv)
 
 
 ## Configure SAP HANA cluster resources
