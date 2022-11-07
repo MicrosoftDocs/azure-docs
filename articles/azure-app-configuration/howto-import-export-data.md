@@ -498,6 +498,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
 
 1. Optionally specify a flag to export as an App Configuration Reference.
+
     | Parameter  | Description                                                                                                                                                    |
     |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | `--export-as-reference` `-r` | Optional. Specify whether key-values are exported to App Service as App Configuration references. [Learn more](../app-service/app-service-configuration-references.md). |
@@ -509,11 +510,11 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     ```
     The command line displays a list of key-values getting exported as app configuration references to an App Service resource. Confirm the export by selecting `y`.
 
-    :::image type="content" source="./media/import-export/export-app-service-reference-cli-preview.png" alt-text="Screenshot of the CLI. Export to App Service confirmation prompt.":::
+    :::image type="content" source="./media/import-export/export-app-service-reference-cli-preview.png" alt-text="Screenshot of the CLI. Export App Configuration reference to App Service confirmation prompt.":::
     
     You've exported all keys with the label "prod" as app configuration references to an Azure App Service resource. In your App Service resource, the import key-values will indicated as App Configuration references in the "Source" column.
 
-    :::image type="content" source="./media/import-export/export-app-service-reference-value.png" alt-text="Screenshot of the CLI. Export to App Service confirmation prompt.":::
+    :::image type="content" source="./media/import-export/export-app-service-reference-value.png" alt-text="Screenshot of App Service configuration settings. Exported App Configuration reference in App Service.":::
     
 For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
