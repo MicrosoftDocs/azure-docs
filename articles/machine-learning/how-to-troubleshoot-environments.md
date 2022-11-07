@@ -380,11 +380,10 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 * Only Azure Machine Learning compute clusters are supported. Compute, Azure Kubernetes Service (AKS), or other instance types are not supported for image build compute.
 * Make sure the compute cluster's VNet that's used for the image build compute has access to the workspace's ACR.
 * Make sure the compute cluster is CPU based.
-* If your scenario involves a VNet, you may need to build images using a compute cluster. See [secure a workspace using virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint).
 
 **Resources**
-* [Enable Azure Container Registry (ACR)](https://docs.microsoft.com/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Cpython#enable-azure-container-registry-acr)
-* [How To Use Environments](https://learn.microsoft.com/azure/machine-learning/how-to-use-environments)
+* [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)
+* [How To Use Environments](https://aka.ms/azureml/environments/how-to-use-environments)
 
 ### *Docker pull issues*
 ### Failed to pull Docker image
