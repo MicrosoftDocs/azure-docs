@@ -1,7 +1,7 @@
 ---
 title: "Create a C# function from the command line - Azure Functions"
 description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
-ms.date: 09/14/2021
+ms.date: 11/08/2022
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
@@ -19,7 +19,7 @@ This article supports creating both types of compiled C# functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
-This article creates an HTTP triggered function that runs on .NET 6.0. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+This article creates an HTTP triggered function that runs on .NET in-process or isolated worker process with an example of .NET 6. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -27,7 +27,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you begin, you must have the following:
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 

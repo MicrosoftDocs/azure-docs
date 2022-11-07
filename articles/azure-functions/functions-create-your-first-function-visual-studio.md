@@ -3,7 +3,7 @@ title: "Quickstart: Create your first C# function in Azure using Visual Studio"
 description: "In this quickstart, you learn how to use Visual Studio to create and publish a C# HTTP triggered function to Azure Functions."
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/08/2022
+ms.date: 11/08/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui
 adobe-target: true
@@ -15,7 +15,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET. To create C# functions [in an isolated worker process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) before getting started. 
+By default, this article shows you how to create C# functions that run on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions, such as .NET 6. When creating your project, you can choose to instead create a function that runs on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). [Isolated worker process](dotnet-isolated-process-guide.md) supports both LTS and Standard Term Support (STS) versions of .NET. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions) in the .NET Functions isolated worker process guide.
 
 In this article, you learn how to:
 
@@ -45,7 +45,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. For the **Additional information** settings, use the values in the following table:
      
-    # [.NET 6](#tab/in-process) 
+    # [In-process](#tab/in-process) 
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -56,7 +56,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     
      :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Screenshot of Azure Functions project settings.":::
     
-    # [.NET 6 Isolated](#tab/isolated-process)
+    # [Isolated process](#tab/isolated-process)
     
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -87,11 +87,11 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Your function definition should now look like the following code:
 
-# [.NET 6](#tab/in-process) 
+# [In-process](#tab/in-process) 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
 
-# [.NET 6 Isolated](#tab/isolated-process)
+# [Isolated process](#tab/isolated-process)
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
 
@@ -143,7 +143,7 @@ You created Azure resources to complete this quickstart. You may be billed for t
 
 In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function. 
 
-# [.NET 6](#tab/in-process) 
+# [In-process](#tab/in-process) 
 
 To learn more about working with C# functions that run in-process with the Functions host, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md). 
 
@@ -151,7 +151,7 @@ Advance to the next article to learn how to add an Azure Storage queue binding t
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=in-process)
 
-# [.NET 6 Isolated](#tab/isolated-process)
+# [Isolated process](#tab/isolated-process)
 
 To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process .
 
