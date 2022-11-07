@@ -7,7 +7,7 @@ ms.service: web-application-firewall
 ms.date: 11/07/2022
 ms.author: victorh
 ms.topic: article
-ms.custom FY23 content-maintenance
+ms.custom FY23-content-maintenance
 ---
 
 # Customize Web Application Firewall rules using the Azure portal
