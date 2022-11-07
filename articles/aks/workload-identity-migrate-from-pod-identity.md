@@ -20,11 +20,11 @@ This article focuses on pod-managed identity migration to Azure Active Directory
 
 This section explains the migration options available depending on what version of the Azure Identity SDK is installed.
 
-For either scenario, you need to have the federated trust setup before you update your application to use the workload identity. The following are the minimum steps required:
+For either scenario, you need to have the federated trust set up before you update your application to use the workload identity. The following are the minimum steps required:
 
-- [Create a kubernetes service account](#create-kubernetes-service-account) if you don't have one already dedicated to the application.
-- [Create a federated identity](#establish-federated-identity-credential) credential.
-- Associate the federated identity with the managed identity already used for the pod-manged identity or [create a new managed identity](#create-a-managed-identity) and then associate it with the federated identity.
+- [Create a managed identity](#create-a-managed-identity) credential.
+- Associate the managed identity with the kubernetes service account already used for the pod-manged identity or [create a new kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
+- [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
 
 ### Migrate from latest version
 
@@ -103,7 +103,7 @@ The following output resembles successful creation of the identity:
 Serviceaccount/workload-identity-sa created
 ```
 
-## Establish federated identity credential
+## Establish federated identity credential trust
 
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
 
