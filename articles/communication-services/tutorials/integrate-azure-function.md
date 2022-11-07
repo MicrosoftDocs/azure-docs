@@ -32,20 +32,20 @@ Before you get started, make sure to:
 ```JavaScript
 const { CommunicationIdentityClient } = require('@azure/communication-identity');
 const connectionString = '<your_connection_string>'
-const ACSEndpoint = "<your_ACS_endpoint>"
+const acsEndpoint = "<your_ACS_endpoint>"
 
 module.exports = async function (context, req) {
     let tokenClient = new CommunicationIdentityClient(connectionString);
 
     const userIDHolder = await tokenClient.createUser();
-    const userID = userIDHolder.communicationUserId
+    const userId = userIDHolder.communicationUserId
 
     const userToken = await (await tokenClient.getToken(userIDHolder, ["chat"])).token;
 
     context.res = {
         body: {
-            ACSEndpoint,
-            userID,
+            acsEndpoint,
+            userId,
             userToken
         }
     };
@@ -63,9 +63,9 @@ HttpTrigger1: [GET,POST] http://localhost:7071/api/HttpTrigger1
 Open the link in a browser. Example result will be similar to this:
 ```
 {
-  "ACSEndpoint": "<your_ACS_endpoint>",
-  "userID": "8:acs:a636364c-c565-435d-9818-95247f8a1471_00000013-8aef-e2a1-9806-113a0d00a8a4",
-  "userToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOmE2MzYzNjRjLWM1NjUtNDM1ZC05ODE4LTk1MjQ3ZjhhMTQ3MV8wMDAwMDAxMy04YWVmLWUyYTEtOTgwNi0xMTNhMGQwMGE4YTQiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjE4MDA5NTUiLCJleHAiOjE2NjE4ODczNTUsImFjc1Njb3BlIjoiY2hhdCIsInJlc291cmNlSWQiOiJhNjM2MzY0Yy1jNTY1LTQzNWQtOTgxOC05NTI0N2Y4YTE0NzEiLCJpYXQiOjE2NjE4MDA5NTV9.IyBLeJztoSf9JIsyKjD6Ew4OmzaF5LskdoczTd4iD5GlmnuHxuPAV-t-De47Tt74a5nVdsUKT-HgWpUw8HBfQQAT9vXgQT94sgQWv_hGXNbx97y2_-n1wRyqqJTU2xV2yk1DKlofwh1UK3rwxaOog_5vH16Sgfojl9fh4UK75G1qN2FpxeOW1mYIZD9WGeDFAgc41Lr-AjlUcQvFf4IJieEk6JmxsOGcyGShjgkQ7USVfOffdYQ7jvxt90ouhRIOnSk3UOMhDAyALENqz7JCK_F7H-Cckm6yqicykuw7v18sTfp5rVbmI_h7UMNe7jR_6sEhRV4HX8ZDWuN81o_E_g"
+  "acsEndpoint": "<Azure Function endpoint>",
+  "userId": "8:acs:a636364c-c565-435d-9818-95247f8a1471_00000014-f43f-b90f-9f3b-8e3a0d00c5d9",
+  "userToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOmE2MzYzNjRjLWM1NjUtNDM1ZC05ODE4LTk1MjQ3ZjhhMTQ3MV8wMDAwMDAxNC1mNDNmLWI5MGYtOWYzYi04ZTNhMGQwMGM1ZDkiLCJzY3AiOjE3OTIsImNzaSI6IjE2Njc4NjI3NjIiLCJleHAiOjE2Njc5NDkxNjIsImFjc1Njb3BlIjoiY2hhdCIsInJlc291cmNlSWQiOiJhNjM2MzY0Yy1jNTY1LTQzNWQtOTgxOC05NTI0N2Y4YTE0NzEiLCJyZXNvdXJjZUxvY2F0aW9uIjoidW5pdGVkc3RhdGVzIiwiaWF0IjoxNjY3ODYyNzYyfQ.t-WpaUUmLJaD0V2vgn3M5EKdJUQ_JnR2jnBUZq3J0zMADTnFss6TNHMIQ-Zvsumwy14T1rpw-1FMjR-zz2icxo_mcTEM6hG77gHzEgMR4ClGuE1uRN7O4-326ql5MDixczFeIvIG8s9kAeJQl8N9YjulvRkGS_JZaqMs2T8Mu7qzdIOiXxxlmcl0HeplxLaW59ICF_M4VPgUYFb4PWMRqLXWjKyQ_WhiaDC3FvhpE_Bdb5U1eQXDw793V1_CRyx9jMuOB8Ao7DzqLBQEhgNN3A9jfEvIE3gdwafpBWlQEdw-Uuf2p1_xzvr0Akf3ziWUsVXb9pxNlQQCc19ztl3MIQ"
 }
 ```
 
