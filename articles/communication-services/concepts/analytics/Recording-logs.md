@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Recording Analytics Preview
 titleSuffix: An Azure Communication Services concept document
-description: About using Log a Analytics for recording logs
+description: About using Log Analytics for recording logs
 author:  Mkhribech
 services: azure-communication-services
 
@@ -18,7 +18,7 @@ Call recording summary logs provide details about the call duration, media conte
 
 Recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot) or ended  due to a system failure.
 
-[!IMPORTANT]
+[**IMPORTANT**]
 
 Please note the call recording logs will be published once the call recording is ready to be downloaded. The log will be published within the standard latency time for Azure Monitor Resource logs see [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log)
 
@@ -51,7 +51,7 @@ Please note the call recording logs will be published once the call recording is
 "category":                 "RecordingSummaryPRIVATEPREVIEW",
 
 ```
-A call can have one recording or many recordings depending on how many times a recording events are triggered.
+A call can have one recording or many recordings depending on how many times a recording event is triggered.
 
 For example, if an agent initiates an outbound call in a recorded line and the call drops due to poor network signal, the `callid` will have one `recordingid`. If the agent calls back the customer, the system will generate a new `callid` as well as a new `recordingid`. 
 
