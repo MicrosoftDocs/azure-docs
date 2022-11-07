@@ -4,7 +4,7 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/21/2021
+ms.date: 11/07/2022
 ms.author: victorh
 ms.topic: article
 ---
@@ -30,7 +30,7 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 ## Disable rule groups and rules
 
 > [!IMPORTANT]
-> Use caution when disabling any rule groups or rules. This may expose you to increased security risks.
+> Use caution when disabling any rule groups or rules. This may expose you to increased security risks. The [anomaly score](ag-overview.md#anomaly-scoring-mode) is not incremented and no logging happens for disabled rules.
 
 **To disable rule groups or specific rules**
 
