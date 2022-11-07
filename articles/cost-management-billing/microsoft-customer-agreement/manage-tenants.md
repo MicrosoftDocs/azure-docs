@@ -19,7 +19,9 @@ The article helps you understand and manage tenants associated with your Microso
 
 A tenant is a digital representation of your organization and is primarily associated with a domain, like Microsoft.com. It's an environment managed through Azure Active Directory that enables you to assign users permissions to manage Azure resources and billing.
 
-Each tenant is distinct and separate from other tenants, yet you can allow guest users from other tenants to access your tenant to track your costs and manage billing.
+Each tenant is distinct and separate from other tenants. You can allow users from other tenants to access your billing account by 
+-	creating guest users in your tenants and assigning the appropriate billing role(s) or by
+-	associating the other tenant to your tenant and assigning the appropriate billing role(s)
 
 ## What's an associated tenant? 
 An associated tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 365 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants. Read more about associated tenants [Manage billing across multiple tenants using associated billing tenants](../manage/manage-billing-across-tenants.md). 
