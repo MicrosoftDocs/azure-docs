@@ -42,7 +42,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 ### Architecture and background
 
-:::image type="content" source="./media/connect-logstash/logstash-architecture.png" alt-text="Diagram of the Logstash architecture" border="false":::
+:::image type="content" source="./media/connect-logstash/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false":::
 
 The Logstash engine is comprised of three components:
 
@@ -51,23 +51,28 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named *[microsoft-sentinel-logstash-output-plugin]*(https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin), v1.0.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.16**.
+> - See the [prerequisites](#prerequisites) for the plugin’s Logstash version support.
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
 - Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md).
+- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md). 
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
 ### Prerequisites
 
-- Install Logstash version 7.0 to 7.9.
-- [Submit the signup form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR82cGrAJ87tNoz63iRjsdE1UNU5DM1dKUEIxT01PRTVBMVBHR0tHQUhWWS4u) to register to the DCR-based custom logs public preview.
+- Install a supported version of Logstash. The plugin supports: 
+    - Logstash version 7.0 to 7.17.6.
+    - Logstash version 8.0 to 8.4.2. 
+    
+    > [!NOTE]
+    > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
+
 - Verify that you have a Log Analytics workspace with at least contributor rights.
 - Verify that you have permissions to create DCR objects in the workspace.
 
@@ -209,12 +214,13 @@ To ingest the data to a custom table, follow these steps (based on the [Send dat
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
 1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application).
 1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint).
-1. [Generate sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#generate-sample-data).
-1. [Add custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-custom-log-table). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
-1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data).
-1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr). In this step, provide [the sample file you created in the previous section](#create-a-sample-file).
+1. [Add custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-custom-log-table). 
+1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
+1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
 1. [Assign permissions to DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-dcr).
-1. [Send sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#send-sample-data).
+
+> [!NOTE]
+> Skip the Send sample data step.
 
 If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#troubleshooting).
 
@@ -234,7 +240,9 @@ To ingest the data to a standard table like Syslog or CommonSecurityLog, you use
     - Configure the value of the `outputStream` property with the name of the standard table instead of the custom table. Unlike custom tables, standard table names don't have the `_CL` suffix.  
     - The prefix of the table name should be `Microsoft-` instead of `Custom-`. In our example, the `outputStream` property value is `Microsoft-Syslog`.  
 1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#assign-permissions-to-dcr).
-1. [Send sample data](../azure-monitor/logs/tutorial-logs-ingestion-api.md#send-sample-data).
+
+> [!NOTE]
+> Skip the Send sample data step.
 
 If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-api.md#troubleshooting).
 
@@ -268,6 +276,17 @@ Note that:
 				"description": "Specifies the location in which to create the Data Collection Rule."
 			}
 		},
+        "location": { 
+
+            "defaultValue": "[resourceGroup().location]", 
+            "type": "String", 
+            "metadata": { 
+
+                "description": "Specifies the location in which to create the Data Collection Rule." 
+
+            } 
+
+        },
 		"workspaceResourceId": {
 			"type": "String",
 			"metadata": {
