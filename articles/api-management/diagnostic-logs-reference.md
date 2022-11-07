@@ -42,4 +42,4 @@ This reference describes settings for API diagnostics logging from an API Manage
 ## Next steps
 
 * For more information, see the reference for the [Diagnostic](/rest/api/apimanagement/current-ga/diagnostic/) entity in the API Management REST API.
-* Use the [trace](api-management-advanced-policies.md#trace) policy to add custom traces to Application Insights telemetry, resource logs, or request tracing. 
+* Use the [trace](api-management-advanced-policies.md#Trace) policy to add custom traces to Application Insights telemetry, resource logs, or request tracing. 
