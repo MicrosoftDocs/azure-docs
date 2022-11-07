@@ -41,7 +41,7 @@ All Front Door configurations have backend health monitoring and automated insta
 
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
-Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users get the best performance based on their location.
+Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users gets the best performance based on their location.
 
 The 'closest' origin isn't necessarily closest as measured by geographic distance. Instead, Azure Front Door determines the closest origin by measuring network latency. Read more about [Azure Front Door routing architecture](front-door-routing-architecture.md). 
 
