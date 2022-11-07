@@ -512,7 +512,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/export-app-service-reference-cli-preview.png" alt-text="Screenshot of the CLI. Export App Configuration reference to App Service confirmation prompt.":::
     
-    You've exported all keys with the label "prod" as app configuration references to an Azure App Service resource. In your App Service resource, the import key-values will indicated as App Configuration references in the "Source" column.
+    You've exported all keys with the label "prod" as app configuration references to an Azure App Service resource. In your App Service resource, the imported key-values will be indicated as App Configuration references in the "Source" column.
 
     :::image type="content" source="./media/import-export/export-app-service-reference-value.png" alt-text="Screenshot of App Service configuration settings. Exported App Configuration reference in App Service.":::
     
