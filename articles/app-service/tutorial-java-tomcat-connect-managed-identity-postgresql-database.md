@@ -118,17 +118,17 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 
 Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using a WAR packaging.
 
-The changes you made in *application.properties* also apply to the managed identity, so the only thing to do is to remove the existing application settings in App Service.
-
-1. The sample app contains a *pom-war.xml* file that can generate the WAR file. Run the following command to build the app.
+1. The sample app contains a *pom.xml* file that can generate the WAR file. Run the following command to build the app.
 
    ```bash
-   mvn clean package -f pom-war.xml
+   mvn clean package -f pom.xml
    ```
 
 1. Create an Azure App Service resource on Linux using Tomcat 9.0.
 
    ```azurecli-interactive
+   APPSERVICE_PLAN=<app-service-plan>
+   APPSERVICE_NAME=<app-service-name>
    # Create an App Service plan
    az appservice plan create \
        --resource-group $RESOURCE_GROUP \
@@ -162,13 +162,7 @@ Next, connect your app to an Postgres Database with a system-assigned managed id
 ### [Flexible Server](#tab/flexible)
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 ```azurecli-interactive
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity
+v
 ```
 
 ### [Single Server](#tab/single)
