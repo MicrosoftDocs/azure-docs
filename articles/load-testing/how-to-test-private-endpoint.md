@@ -46,6 +46,7 @@ These resources are ephemeral and exist only during the load test run. If you re
 
 - An existing virtual network and a subnet to use with Azure Load Testing.
 - The virtual network must be in the same subscription and the same region as the Azure Load Testing resource.
+- The virtual network address range cannot overlap with 172.29.0.0/30, the address range that Azure Load Testing uses.
 - You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
