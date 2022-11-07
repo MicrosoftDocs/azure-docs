@@ -3,7 +3,7 @@ title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
 ms.topic: article
-ms.date: 11/1/2022
+ms.date: 11/3/2022
 
 ms.custom: contperf-fy21q4
 
@@ -193,6 +193,7 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-val
 
 > [!IMPORTANT]
 > During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH key.
+
 
 ## Next steps
 
