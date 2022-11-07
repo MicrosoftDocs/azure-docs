@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure a cross-tenant connection in Azure Virtual Network Manager Preview - portal
 
-In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the Azure portal. First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from single network manager.
+In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the Azure portal. First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from a single network manager.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview. We provide this preview version without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -55,7 +55,7 @@ After you create the scope connection, switch to the target managed tenant. Conn
 1. Select **Create a connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-connection-target.png" alt-text="Screenshot of the pane for cross-tenant connections.":::
-1. On the **Create a connection** page, enter the information for your central network manager tenant, and then select **Create**.
+1. On the **Create a connection** page, enter the information for your central management tenant, and then select **Create**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-connection-settings-target.png" alt-text="Screenshot of settings for creating a cross-tenant connection.":::
 
@@ -64,9 +64,9 @@ After you create the scope connection, switch to the target managed tenant. Conn
 After you create both connections, it's time to verify the connection on the central management tenant:
 
 1. On your central management tenant, select your network manager.
-1. Select **Cross-tenant connections** under **Settings**, and verify your cross-tenant connection is listed as **Connected**.
+1. Select **Cross-tenant connections** under **Settings**, and verify that your cross-tenant connection is listed as **Connected**.
 
-:::image type="content" source="media/how-to-configure-cross-tenant-portal/verify-status.png" alt-text="Screenshot that shows a cross-connection status of Connected.":::
+   :::image type="content" source="media/how-to-configure-cross-tenant-portal/verify-status.png" alt-text="Screenshot that shows a cross-connection status of Connected.":::
 
 ## Add static members to a network group
 
