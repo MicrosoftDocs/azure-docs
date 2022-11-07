@@ -231,36 +231,7 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 ---
 
 ## Delete search a job table
-We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
-### [Portal](#tab/portal-3)
-1. From the Log Analytics workspace menu, select **Tables.**
-1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
-    
-    :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
-
-1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
-
-    :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
-    
-### [API](#tab/api-3)
-
-To delete a table, call the **Tables - Delete** API: 
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
-```
-
-### [CLI](#tab/cli-3)
-
-To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
-
-For example:
-
-```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
-```
-
----
+We recommend you [delete the search job table](../logs/create-custom-table.md#delete-a-table) when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
 
 ## Limitations
 Search jobs are subject to the following limitations:
