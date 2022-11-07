@@ -23,6 +23,7 @@ The application code used in this tutorial is a simple app. When you've complete
 This quickstart explains how to:
 
 > [!div class="checklist"]
+
 > - Generate a basic Spring project.
 > - Provision a service instance.
 > - Build and deploy an app with a public endpoint.
@@ -36,7 +37,7 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, the prerequisites described in the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Provision an instance of Azure Spring Apps
 
@@ -137,21 +138,21 @@ Deploying the application can take a few minutes.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, the prerequisites described in the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Generate a Spring project
 
 Use the following steps to create the project:
 
-1. Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you. 
+1. Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you.
 
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 
-The following image shows the recommended Initializr settings for the *hellospring* sample project. 
+The following image shows the recommended Initializr settings for the *hellospring* sample project.
 
-This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**. 
+This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**.
 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
@@ -253,7 +254,7 @@ Use the following steps to build and deploy your app.
 
 ## Prerequisites
 
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, the prerequisites described in the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
 
