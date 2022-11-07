@@ -84,6 +84,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    Delete the existing content in *application.properties* and replace with the following to configure the database for dev, test, and production modes:
 
    ### [Flexible Server](#tab/flexible)
+
    ```properties
    quarkus.package.type=uber-jar
 
@@ -144,6 +145,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    ```
 
    ### [Single Server](#tab/single)
+
    ```properties
    quarkus.package.type=uber-jar
 
@@ -272,6 +274,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 1. Create the database service.
 
    ### [Flexible Server](#tab/flexible)
+
    ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'
@@ -287,6 +290,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
 
    ### [Single Server](#tab/single)
+
    ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
    ADMIN_USERNAME='demoadmin'
@@ -300,7 +304,9 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --admin-password $DB_PASSWORD \
        --sku-name GP_Gen5_2
    ```
+
    ---
+
    The following parameters are used in the above Azure CLI command:
 
    * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
@@ -316,7 +322,9 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `GP_Gen5_2`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 1. Create a database named `fruits` within the PostgreSQL service with this command:
+
    ### [Flexible Server](#tab/flexible)
+
    ```azurecli
    az postgres flexible-server db create \
        --resource-group $RESOURCE_GROUP \
@@ -325,6 +333,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
 
    ### [Single Server](#tab/single)
+
    ```azurecli
    az postgres db create \
        --resource-group $RESOURCE_GROUP \
@@ -333,7 +342,9 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
+
    ### [Flexible Server](#tab/flexible)
+
    ```azurecli
    az containerapp connection create postgres-flexible \
        --resource-group $RESOURCE_GROUP \
@@ -345,6 +356,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
 
    ### [Single Server](#tab/single)
+
    ```azurecli
    az containerapp connection create postgres \
        --resource-group $RESOURCE_GROUP \
