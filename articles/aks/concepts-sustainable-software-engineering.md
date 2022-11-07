@@ -3,7 +3,7 @@ title: Concepts - Sustainable software engineering in Azure Kubernetes Services 
 description: Learn about sustainable software engineering in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 ---
 
 # Sustainable software engineering practices in Azure Kubernetes Service (AKS)
@@ -61,7 +61,7 @@ We recommend careful consideration of these design patterns for building a susta
 | [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
 | [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
-| [Use spot node pools when possible](#use-spot-node-pools-when-possible) |  | ✔️ |
+| [Use energy efficient hardware](#use-energy-efficient-hardware) |  | ✔️ |
 | [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
@@ -112,7 +112,7 @@ An up-to-date cluster avoids unnecessary performance issues and ensures you bene
 
 Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations throughout your cluster lifecycle.
 
-* Ensure you install [Keda](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
+* Ensure you install [KEDA](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
 
 ### Containerize your workload where applicable
 
@@ -120,11 +120,11 @@ Containers allow for reducing unnecessary resource allocation and making better 
 
 * Use [Draft](/azure/aks/draft) to simplify application containerization by generating Dockerfiles and Kubernetes manifests.
 
-### Use spot node pools when possible
+### Use energy efficient hardware
 
-Spot nodes use Spot VMs and are great for workloads that can handle interruptions, early terminations, or evictions such as batch processing jobs and development and testing environments.
+Ampere's Cloud Native Processors are uniquely designed to meet both the high performance and power efficiency needs of the cloud.
 
-* Use [spot node pools](/azure/aks/spot-node-pool) to take advantage of unused capacity in Azure at a significant cost saving for a more sustainable platform design for your [interruptible workloads](/azure/architecture/guide/spot/spot-eviction).
+* Evaluate if nodes with [Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
 
 ### Match the scalability needs and utilize auto-scaling and bursting capabilities
 
@@ -218,7 +218,7 @@ Azure Font Door and Application Gateway help manage traffic from web application
 
 Many attacks on cloud infrastructure seek to misuse deployed resources for the attacker's direct gain leading to an unnecessary spike in usage and cost. Vulnerability scanning tools help minimize the window of opportunity for attackers and mitigate any potential malicious usage of resources.
 
-* Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management) and run automated vulnerability scanning tools such as [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-va-acr) to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
+* Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management) and run automated vulnerability scanning tools such as [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure) to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
 
 ## Next steps
 

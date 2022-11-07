@@ -123,9 +123,7 @@ Enter the following parameters:
 
 | Syslog text message output fields | Description |
 |--|--|
-| Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User. Alert |
-| Hostname | Sensor IP address |
 | Message | CyberX platform name: The sensor name.<br /> Microsoft Defender for IoT Alert: The title of the alert.<br /> Type: The type of the alert. Can be **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**.<br /> Severity: The severity of the alert. Can be **Warning**, **Minor**, **Major**, or **Critical**.<br /> Source: The source device name.<br /> Source IP: The source device IP address.<br /> Protocol (Optional): The detected source protocol.<br /> Address (Optional): Source protocol address.<br /> Destination: The destination device name.<br /> Destination IP: The IP address of the destination device.<br /> Protocol (Optional): The detected destination protocol.<br /> Address (Optional): The destination protocol address.<br /> Message: The message of the alert.<br /> Alert group: The alert group associated with the alert. <br /> UUID (Optional): The UUID the alert. |
 
 | Syslog object output | Description |
@@ -137,10 +135,10 @@ Enter the following parameters:
 
 | Syslog CEF output format | Description |
 |--|--|
-| Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
-| Hostname | Sensor IP address |
-| Message | CEF:0 <br />Microsoft Defender for IoT <br />Sensor name= The name of the sensor appliance. <br />Sensor version <br />Alert title= The title of the alert. <br />msg= The message of the alert. <br />protocol= The protocol of the alert. <br />severity= **Warning**, **Minor**, **Major**, or **Critical**. <br />type= **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> start= The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip= IP address of the source device.  <br />dst_ip= IP address of the destination device.<br />cat= The alert group associated with the alert.  |
+| Date and time | Date and time that sensor sent the information |
+| Hostname | Sensor hostname |
+| Message | CEF:0 <br />Microsoft Defender for IoT/CyberX <br />Sensor name <br />Sensor version <br />Microsoft Defender for IoT Alert <br />Alert title <br />Integer indication of serverity. 1=**Warning**, 4=**Minor**, 8=**Major**, or 10=**Critical**.<br />msg= The message of the alert. <br />protocol= The protocol of the alert. <br />severity= **Warning**, **Minor**, **Major**, or **Critical**. <br />type= **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />UUID= UUID of the alert <br /> start= The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip= IP address of the source device. <br />src_mac= MAC address of the source device. (Optional)  <br />dst_ip= IP address of the destination device.<br />dst_mac= MAC address of the destination device. (Optional)<br />cat= The alert group associated with the alert.  |
 
 | Syslog LEEF output format | Description |
 |--|--|

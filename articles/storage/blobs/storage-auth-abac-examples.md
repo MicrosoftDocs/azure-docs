@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/21/2022
+ms.date: 10/25/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -27,16 +27,18 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Blob index tags
 
-> [!IMPORTANT]
-> Although “Read content from a blob with tag conditions” is currently supported for compatibility with conditions implemented during the ABAC feature preview, that suboperation has been deprecated and Microsoft recommends using the “Read a blob” suboperation instead.
+This section includes examples involving blob index tags.
+
+> [!NOTE]
+> Although the `Read content from a blob with tag conditions` suboperation is currently supported for compatibility with conditions implemented during the ABAC feature preview, it has been deprecated and Microsoft recommends using the [`Read a blob`](storage-auth-abac-attributes.md#read-a-blob) action instead.
 >
-> When configuring ABAC conditions in the Azure portal, you might see "DEPRECATED: Read content from a blob with tag conditions". Remove the operation and replace it with the “Read a blob” suboperation instead.
+> When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
 >
-> If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](#example-read-blobs-with-a-blob-index-tag).
+> If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag).
 
 ### Example: Read blobs with a blob index tag
 
-This condition allows users to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
+This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -97,7 +99,7 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 
 ### Example: New blobs must include a blob index tag
 
-This condition requires that any new blobs must include a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade.
+This condition requires that any new blobs must include a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade.
 
 There are two actions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
@@ -168,7 +170,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 
 ### Example: Existing blobs must have blob index tag keys
 
-This condition requires that any existing blobs be tagged with at least one of the allowed [blob index tag](../blobs/storage-blob-index-how-to.md) keys: Project or Program. This condition is useful for adding governance to existing blobs.
+This condition requires that any existing blobs be tagged with at least one of the allowed [blob index tag](storage-blob-index-how-to.md) keys: Project or Program. This condition is useful for adding governance to existing blobs.
 
 There are two actions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
@@ -238,7 +240,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 
 ### Example: Existing blobs must have a blob index tag key and values
 
-This condition requires that any existing blobs to have a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and values of Cascade, Baker, or Skagit. This condition is useful for adding governance to existing blobs.
+This condition requires that any existing blobs to have a [blob index tag](storage-blob-index-how-to.md) key of Project and values of Cascade, Baker, or Skagit. This condition is useful for adding governance to existing blobs.
 
 There are two actions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
@@ -732,7 +734,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
 
 ### Example: Read blobs with a blob index tag and a path
 
-This condition allows a user to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Program, a value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name.
+This condition allows a user to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Program, a value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -1036,7 +1038,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read only storage accounts with hierarchical namespace enabled
 
-This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
+This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -1192,7 +1194,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read or write blobs based on blob index tags and custom security attributes
 
-This condition allows read or write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the [blob index tag](../blobs/storage-blob-index-how-to.md).
+This condition allows read or write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the [blob index tag](storage-blob-index-how-to.md).
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read or write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read or write blobs with `Project=Cascade`.
 
@@ -1264,7 +1266,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read blobs based on blob index tags and multi-value custom security attributes
 
-This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the [blob index tag](../blobs/storage-blob-index-how-to.md).
+This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the [blob index tag](storage-blob-index-how-to.md).
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
 
