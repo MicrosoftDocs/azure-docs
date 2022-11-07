@@ -54,37 +54,39 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ### Connect to your workspace
 
-1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
 
-   # [Azure ML CLI](#tab/cli)
-   
-   ```azurecli
-   az account set --subscription <subscription>
-   az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-   ```
-   
-   # [Azure ML SDK for Python](#tab/sdk)
-   
-   The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-   
-   1. Import the required libraries:
-   
-   ```python
-   from azure.ai.ml import MLClient, Input
-   from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-   from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-   from azure.identity import DefaultAzureCredential
-   ```
-   
-   2. Configure workspace details and get a handle to the workspace:
-   
-   ```python
-   subscription_id = "<subscription>"
-   resource_group = "<resource-group>"
-   workspace = "<workspace>"
-   
-   ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-   ```
+# [Azure ML CLI](#tab/cli)
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Azure ML SDK for Python](#tab/sdk)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+```python
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
+from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+from azure.identity import DefaultAzureCredential
+```
+
+2. Configure workspace details and get a handle to the workspace:
+
+```python
+subscription_id = "<subscription>"
+resource_group = "<resource-group>"
+workspace = "<workspace>"
+
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+```
+
+---
 
 ### Create compute
 
