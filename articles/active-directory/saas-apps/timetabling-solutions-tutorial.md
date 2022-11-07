@@ -147,7 +147,7 @@ In this section, you create a user called Britta Simon in the Timetabling Soluti
 
 
 > [!NOTE]
-> Work with [Timetabling Solutions support team](https://www.timetabling.com.au/contact-us/) to add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
+> To add the users in the Timetabling Solutions platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
