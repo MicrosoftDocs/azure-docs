@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2021
+ms.date: 11/07/2022
 ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-minus-graph
@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Review permissions granted to applications
+# Review permissions granted to enterprise applications
 
 In this article, you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary.
 
-The steps in this article apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent. For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
+The steps in this article apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To review permissions granted to applications, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator.
 - A Service principal owner who isn't an administrator is able to invalidate refresh tokens.
 
-## Review application permissions
+## Review permissions
 
 :::zone pivot="portal"
 
@@ -53,6 +53,9 @@ Each option generates PowerShell scripts that enable you to control user access 
 
 :::zone pivot="aad-powershell"
 
+## Revoke permissions
+
+
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
@@ -72,7 +75,7 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 # Get all application permissions for the service principal
 $spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
-# Remove all delegated permissions
+# Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
     Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
@@ -107,7 +110,7 @@ $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
 
 Example: Get-MgServicePrincipal -ServicePrincipalId '22c1770d-30df-49e7-a763-f39d2ef9b369'
 
-# Get all application permissions for the service principal
+# Get all delegated permissions for the service principal
 $spOAuth2PermissionsGrants= Get-MgOauth2PermissionGrant -All| Where-Object { $_.clientId -eq $sp.Id }
 
 # Remove all delegated permissions
