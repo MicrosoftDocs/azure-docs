@@ -232,6 +232,8 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
+        - name: Manage dashboards  
+          href: core/howto-manage-dashboards-with-rest-api.md
         - name: File upload
           href: core/howto-upload-file-rest-api.md
           

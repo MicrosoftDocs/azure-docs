@@ -5,21 +5,16 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/03/2022
 ms.author: kendownie
 ---
 
 # Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares
-
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) using three different methods: 
-
-- On-premises Active Directory Domain Services (AD DS)
-- Azure Active Directory Domain Services (Azure AD DS)
-- Azure Active Directory (Azure AD) Kerberos for hybrid identities (preview)
+[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring on-premises AD DS for authentication with Azure file shares.
 
-If you're new to Azure Files, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
+If you're new to Azure Files, we recommend reading our [planning guide](storage-files-planning.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -30,13 +25,13 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or use a default share-level permission. Password hash synchronization is optional. 
+- AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities). Password hash synchronization is optional.
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with [AES 256 encryption](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running OS versions Windows 8/Windows Server 2012 or newer.
 - Only supported against the AD forest that the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) for details.
-- Doesn't support authentication against computer accounts created in AD DS.
+- Doesn't support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC. You can either [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow computer accounts to access the share, or consider using a service logon account instead.
 - Doesn't support authentication against Network File System (NFS) file shares.
 - Doesn't support using CNAME to mount file shares.
 
@@ -55,7 +50,7 @@ To help you set up identity-based authentication for some common use cases, we p
 
 Before you enable AD DS authentication for Azure file shares, make sure you've completed the following prerequisites: 
 
-- Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) with Azure AD Connect. 
+- Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using either the on-premises [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Azure Active Directory Admin Center.
 
     You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Azure AD or use a default share-level permission. The Azure AD tenant and the file share that you're accessing must be associated with the same subscription.
 
@@ -79,7 +74,7 @@ Azure Files authentication with AD DS is available in [all Azure Public, China a
 
 If you plan to enable any networking configurations on your file share, we recommend you read the [networking considerations](./storage-files-networking-overview.md) article and complete the related configuration before enabling AD DS authentication.
 
-Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-premises AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-premises AD DS to Azure AD with AD Connect. You assign share-level permissions to hybrid identities synced to Azure AD while managing file/directory level access using Windows ACLs.
+Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-premises AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-premises AD DS to Azure AD using either the on-premises [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Azure Active Directory Admin Center. You assign share-level permissions to hybrid identities synced to Azure AD while managing file/directory-level access using Windows ACLs.
 
 Follow these steps to set up Azure Files for AD DS authentication: 
 

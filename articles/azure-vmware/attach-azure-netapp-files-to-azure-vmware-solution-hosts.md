@@ -1,9 +1,9 @@
 ---
-title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
+title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/08/2022
+ms.date: 10/18/2022
 ms.custom: references_regions
 ---
 
@@ -45,15 +45,15 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 Azure VMware Solution currently supports the following regions:
 
-**America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
-
-**Europe**    : West Europe, North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
-
-**Asia**      : Southeast Asia, Japan West.
+**Asia**      : East Asia, Japan East, Japan West, Southeast Asia.
 
 **Australia** : Australia East, Australia Southeast.
 
 **Brazil**    : Brazil South.
+
+**Europe**    : France Central, Germany West Central, North Europe, Switzerland West, UK South, UK West, West Europe
+
+**North America**   : Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US.
 
 The list of supported regions will expand as the preview progresses. 
 
@@ -64,8 +64,11 @@ There are some important best practices to follow for optimal performance of NFS
 - Create Azure NetApp Files volumes using **Standard** network features to enable optimized connectivity from Azure VMware Solution private cloud via ExpressRoute FastPath connectivity.
 - For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
-- Create multiple datastores of 4-TB size for better performance. The default limit is 8 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- Create multiple datastores of 4-TB size for better performance. The default limit is 64 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Work with your Microsoft representative to ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within same [Availability Zone](../availability-zones/az-overview.md#availability-zones). 
+
+> [!IMPORTANT]
+>Changing the Azure NetApp Files volumes tier after creating the datastore will result in unexpected behavior in portal and API due to metadata mismatch. Set your performance tier of the Azure NetApp Files volume when creating the datastore. If you need to change tier during run time, detach the datastore, change the performance tier of the volume and attach the datastore. We are working on improvements to make this seamless.
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -181,7 +184,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
-    The default limit is 8 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    The default limit is 64 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 

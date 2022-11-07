@@ -88,6 +88,8 @@ items:
         href: storage-auth-abac-powershell.md
       - name: CLI
         href: storage-auth-abac-cli.md
+    - name: Encrypt and decrypt blobs using Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
   - name: Samples
     items:
     - name: .NET
@@ -222,6 +224,8 @@ items:
         href: storage-blob-reserved-capacity.md
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md
+      - name: Estimate the cost to archive data
+        href: archive-cost-estimation.md
       - name: Scalability and performance targets
         items:
         - name: Blob storage
@@ -374,9 +378,9 @@ items:
             href: sas-service-create.md
           - name: Create an account SAS (.NET)
             href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json
-          - name: Define a stored access policy
+          - name: Create a stored access policy
             href: ../common/storage-stored-access-policy-define-dotnet.md?toc=/azure/storage/blobs/toc.json
-          - name: Create a SAS expiration policy
+          - name: Configure a SAS expiration policy
             href: ../common/sas-expiration-policy.md?toc=/azure/storage/blobs/toc.json
         - name: Manage anonymous read access to blob data
           items:
@@ -398,13 +402,13 @@ items:
               href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/blobs/toc.json
             - name: Configure customer-managed keys in Azure Key Vault
               items:
-              - name: Configure customer-managed keys in the same tenant
+              - name: Configure keys and storage account in the same tenant
                 items:
-                - name: Configure customer-managed keys for a new account
+                - name: Configure keys for a new account
                   href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json
-                - name: Configure customer-managed keys for an existing account
+                - name: Configure keys for an existing account
                   href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json
-              - name: Configure customer-managed keys in a different tenant
+              - name: Configure keys and storage account in different tenants
                 items:
                 - name: Configure customer-managed keys for a new account
                   href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json
@@ -540,15 +544,15 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2?
+        - name: What is BlobFuse2 (preview)?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
-        - name: Health Monitor
+        - name: Health Monitor for BlobFuse2
           href: blobfuse2-health-monitor.md
-        - name: Troubleshooting
+        - name: Troubleshoot BlobFuse2
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json
@@ -703,9 +707,9 @@ items:
       - name: Java SDK
         href: /java/api/overview/azure/storage/management
       - name: Python SDK
-        href: /python/api/overview/azure/storage/management
+        href: /python/api/overview/azure/storage#management
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/storage/management
+        href: /javascript/api/overview/azure/storage#management
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json#resource-handing
     - name: AzCopy v10
@@ -752,7 +756,7 @@ items:
         href: ../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json
     - name: BlobFuse2
       items:
-      - name: Configuration settings
+      - name: Configure settings
         href: blobfuse2-configuration.md?toc=/azure/storage/blobs/toc.json
       - name: Commands
         items:

@@ -7,8 +7,7 @@ author: hhunter-ms
 ms.contributor: cawa
 ms.date: 08/23/2022 
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Use Change Analysis in Azure Monitor
@@ -51,7 +50,7 @@ Azure Monitor Change Analysis service supports resource property level changes i
     - Storage
     - SQL
     - Redis Cache
-    - Cosmos DB, etc.
+    - Azure Cosmos DB, etc.
 
 ## Data sources
 

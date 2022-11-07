@@ -1,6 +1,41 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },       
+        {
+            "source_path":  "articles/sentinel/whats-new-archive.md",
+            "redirect_url":  "/azure/sentinel/whats-new",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false  
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-connect.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-connect-windows",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -16,6 +51,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/pytorch-enterprise/pte-overview.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/support-boundaries.md",
+            "redirect_url": "https://aka.ms/PTELandingPage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -23,6 +68,11 @@
         {
             "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
             "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url":  "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id":  false
         },
         {
@@ -721,6 +771,41 @@
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
             "redirect_url": "/azure/frontdoor/create-front-door-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-create-origin.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-origin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/aks-resource-health.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/concepts-diagnostics.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/troubleshoot-linux.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/dapr-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/csi-secrets-store-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
         },
         {
@@ -5879,11 +5964,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/index.md",
-            "redirect_url": "/azure/partner-solutions/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
             "redirect_url": "/azure/fxt-edge-filer/add-nodes",
             "redirect_document_id": false
@@ -6356,11 +6436,6 @@
         {
             "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
             "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
-            "redirect_url": "/azure/storage/blobs/client-side-encryption",
             "redirect_document_id": false
         },
         {
@@ -9509,6 +9584,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
             "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
             "redirect_document_id": false
@@ -9565,7 +9645,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
-            "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
             "redirect_document_id": false
         },
         {
@@ -10115,6 +10195,101 @@
         },
         {
             "source_path_from_root": "/articles/blockchain/service/whats-new.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/architecture.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/configuration.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/create-app.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/data-excel.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/data-powerbi.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/data-sql-management-studio.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/database-firewall.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/database-views.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/deploy.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/getdb-details.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/index.yml",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/integration-patterns.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/manage-users.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/messages-overview.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/overview.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/troubleshooting.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/use-api.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/use.md",
+            "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/blockchain/workbench/version-app.md",
             "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
             "redirect_document_id": false
         },
@@ -11049,6 +11224,11 @@
             "redirect_document_id": false
         },
         {
+		    "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
+		    "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-azure-portal",
+		    "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
             "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
             "redirect_document_id": false
@@ -11311,6 +11491,11 @@
         {
             "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
             "redirect_url": "/azure/ddos-protection/telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ddos-protection/ddos-protection-standard-features.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-features",
             "redirect_document_id": false
         },
         {
@@ -14101,61 +14286,6 @@
         {
             "source_path_from_root": "/articles/industry/retail/visual-search-use-case-overview.md",
             "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-auto-provisioning.md",
-            "redirect_url": "/azure/iot-dps/concepts-roles-operations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-device.md",
-            "redirect_url": "/azure/iot-dps/concepts-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-security.md",
-            "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/use-hsm-with-sdk.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-use-sdk-tools.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-manage-enrollments-sdks.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509-java",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-manage-dps-with-cli.md",
-            "redirect_url": "/azure/iot-dps/quick-setup-auto-provision-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
-            "redirect_url": "/azure/iot-dps/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
             "redirect_document_id": false
         },
         {
@@ -18501,6 +18631,436 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/frequently-asked-questions-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-azure-portal-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/hadr-windows-server-failover-cluster-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup-sql-2014",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-patching.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-cli.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-quickstart-template.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/backup-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-bulk-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-change-edition.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-sql-server-edition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-dedicated-host.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/dedicated-host",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-manage-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manage-sql-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-move-different-region.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-security.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-extend-end-of-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/pricing-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-storage-configuration.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/storage-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/provision-sql-server-linux-virtual-machine.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sql-server-linux-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/frequently-asked-questions-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sql-server-linux-virtual-machines-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/quickstart-sql-vm-create-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/quickstart-sql-vm-create-powershell.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-migrate-sql.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-availability-group-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-azure-portal-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-availability-group-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-availability-group-prereq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-create-failover-cluster.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/hadr-windows-server-failover-cluster-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-ps-sql-create.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-ps-sql-keyvault.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-ahb.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-automated-backup-v2.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-automated-backup.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-automated-patching.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-availability-group-cli.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-availability-group-quickstart-template.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-backup-recovery.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/backup-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-bulk-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-change-edition.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-sql-server-edition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-connect.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-dedicated-host.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/dedicated-host",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-high-availability-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-manage-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manage-sql-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-move-different-region.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-performance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-security.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-2008-eos-extend-support.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-extend-end-of-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-agent-extension.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-iaas-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-iaas-release-notes.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-pricing-guidance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/pricing-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sql-server-storage-configuration.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/storage-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use",
             "redirect_document_id": false
         },
         {
@@ -26459,11 +27019,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-dps/how-to-connect-mxchip-iot-devkit.md",
-            "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/app-service-api/app-service-api-dotnet-swashbuckle-customize.md",
             "redirect_url": "https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse",
             "redirect_document_id": false
@@ -28540,116 +29095,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-symmetric-key-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-java.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-node.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-python.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-java.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-node.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-python.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-use-custom-allocation-policies.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-allocation-policies",
-            "redirect_document_id": false
-          },          
-        {
             "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md",
             "redirect_url": "/azure/app-service/environment/integrate-with-application-gateway",
             "redirect_document_id": false
@@ -28903,7 +29348,36 @@
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/index.yml",
+            "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/keda-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
+            "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
+            "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/developer/terraform/quickstart-configure",
+            "redirect_document_id": false
         }
     ]
 }
-

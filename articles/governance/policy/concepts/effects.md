@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 09/23/2022
+ms.date: 10/20/2022
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -613,8 +613,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -747,10 +750,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
-allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you'll need to create an attestation for that compliance state.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
@@ -806,13 +806,7 @@ state appears in the Azure portal:
 
 ![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
 
-When a policy definition with `manual` effect is assigned, you have the option to include **evidence**, which refers to optional supplemental information which supports the custom compliance attestation. Evidence itself is stored in Azure Storage, and you can specify the storage blob container in the [policy assignment's metadata](../concepts/assignment-structure.md#metadata) under the property `evidenceStorages`. Further details of the evidence file are described in the attestation JSON resource.
-
-### Attestations
-
-`Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
- that sets the compliance states for targeted resources in a manual policy. Learn more about
-the attestation resource by reading [Azure Policy attestation structure](attestation-structure.md).
+When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
 ## Modify
 

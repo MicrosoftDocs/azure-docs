@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 11/04/2022
 ms.author: mbullwin
 ---
 
@@ -24,9 +24,9 @@ ms.author: mbullwin
 > * You can find JavaScript Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
->    * `https://<instance-name>.cognitiveservices.azure.com/`
-    
-## Setting up
+> * `https://<instance-name>.cognitiveservices.azure.com/`
+
+## Set up
 
 ### Create a new Node.js application
 
@@ -44,7 +44,7 @@ npm init
 
 ### Install the client library
 
-Install the `@azure/ai-metrics-advisor` NPM package:
+Install the `@azure/ai-metrics-advisor` npm package:
 
 ```console
 npm install @azure/ai-metrics-advisor
@@ -52,91 +52,172 @@ npm install @azure/ai-metrics-advisor
 
 Your app's `package.json` file will be updated with the dependencies.
 
-Create a file named `index.js` and import the following libraries:
+## Environment variables
 
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript), which contains the code examples in this quickstart.
+To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
-Create variables for your resource's Azure endpoint and key. 
+|Variable name | Value |
+|--------------------------|-------------|
+| `METRICS_ADVISOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `METRICS_ADVISOR_KEY` | The key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+|`METRICS_ADVISOR_API_KEY` |The key value can be found under **Settings** >  **API keys** when examining your resource from the [Metrics Advisor portal](https://metricsadvisor.azurewebsites.net/). You can use either `KEY1` or `KEY2`.  |
+|`SQL_CONNECTION_STRING` | This quickstart requires you to have your own SQL Database + connection string. An example connection string would look similar to the following example:`Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>` for more information on constructing SQL connection strings, see the [SQL documentation](/azure/applied-ai-services/metrics-advisor/data-feeds-from-different-sources#azure-sql-database--sql-server).  |
+|`SQL_QUERY`| Unique query specific to your dataset.|
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
+### Create environment variables
 
-```javascript
-subscriptionKey = "<paste-your-metrics-advisor-key-here>";
-apiKey ="<paste-your-metrics-advisor-api-key-here>";
-endpoint = "<paste-your-metrics-advisor-endpoint-here>";
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx METRICS_ADVISOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
-> [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Metrics Advisor JavaScript SDK.
-
-|Name|Description|
-|---|---|
-| MetricsAdvisorClient | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
-| MetricsAdvisorAdministrationClient | **Allows you to:** <br> - Manage data feeds <br> - Create, configure, retrieve, list, and delete anomaly alerting configurations <br> - Manage hooks  |
-| DataFeed | **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| DataFeedMetric | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
-
-## Code examples
-
-These code snippets show you how to do the following with the Metrics Advisor client library for JavaScript:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Add a data feed](#add-a-data-feed)
-* [Check ingestion status](#check-ingestion-status)
-* [Configure anomaly detection](#configure-anomaly-detection)
-* [Create a hook](#create-a-hook)
-* [Create an alert configuration](#create-an-alert-configuration)
-* [Query the alert](#query-the-alert)
-
-## Authenticate the client
-
-Once you have the two keys and endpoint address, you can use the MetricsAdvisorKeyCredential class to authenticate the clients as follows:
-
-```javascript
-const {
-  MetricsAdvisorKeyCredential,
-  MetricsAdvisorClient,
-  MetricsAdvisorAdministrationClient
-} = require("@azure/ai-metrics-advisor");
-
-const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-const client = new MetricsAdvisorClient(endpoint, credential);
-const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
+```CMD
+setx METRICS_ADVISOR_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
-## Add a data feed
+```CMD
+setx METRICS_ADVISOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
 
-Metrics Advisor supports connecting different types of data sources. Here is a sample to ingest data from SQL Server.
+```CMD
+setx SQL_CONNECTION_STRING "REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING" 
+```
 
-Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
+```CMD
+setx SQL_QUERY "REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA" 
+```
 
-> [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [Tutorial: Write a valid query](../../tutorials/write-a-valid-query.md) for more information, and examples.
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('METRICS_ADVISOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SQL_CONNECTION_STRING', 'REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SQL_QUERY', 'REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export METRICS_ADVISOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+
+```Bash
+echo export METRICS_ADVISOR_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export METRICS_ADVISOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export SQL_CONNECTION_STRING="REPLACE_WITH_YOUR_UNIQUE_SQL_CONNECTION_STRING" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYING_STRUCTURE_OF_YOUR_DATA" >> /etc/environment && source /etc/environment
+```
+
+---
+
+
+Create a file named `index.js` and copy the following code:
 
 ```javascript
+/**
+ *  @summary This sample demonstrates how to get started by creating a data feed, checking ingestion status,
+ * creating detection and alerting configurations, and querying for alerts and anomalies.
+ */
+
+// Load the .env file if it exists
+const dotenv = require("dotenv");
+dotenv.config();
+
 const {
   MetricsAdvisorKeyCredential,
-  MetricsAdvisorAdministrationClient
+  MetricsAdvisorAdministrationClient,
+  MetricsAdvisorClient
 } = require("@azure/ai-metrics-advisor");
 
 async function main() {
-  const subscriptionKey = "<paste-your-metrics-advisor-key-here>";
-  const apiKey ="<paste-your-metrics-advisor-api-key-here>";
-  const endpoint = "<paste-your-metrics-advisor-endpoint-here>";
-  const sqlServerConnectionString ="<sql_server_connection_string>";
-  const sqlServerQuery ="<query>";
+  // You will need to set these environment variables or edit the following values
+  const endpoint = process.env["METRICS_ADVISOR_ENDPOINT"] || "<service endpoint>";
+  const subscriptionKey = process.env["METRICS_ADVISOR_KEY"] || "<subscription key>";
+  const apiKey = process.env["METRICS_ADVISOR_API_KEY"] || "<api key>";
+  const sqlServerConnectionString =
+    process.env["SQL_SERVER_CONNECTION_STRING"] ||
+    "<connection string to SQL Server>";
+  const sqlServerQuery =
+    process.env["SQL_SERVER_QUERY"] || "<SQL Server query to retrive data>";
+
   const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
 
+  const client = new MetricsAdvisorClient(endpoint, credential);
   const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
 
   const created = await createDataFeed(adminClient, sqlServerConnectionString, sqlServerQuery);
   console.log(`Data feed created: ${created.id}`);
+  console.log("  metrics: ");
+  console.log(created.schema.metrics);
+
+  console.log("Waiting for a minute before checking ingestion status...");
+  await delay(60 * 1000);
+
+  try {
+    await checkIngestionStatus(
+      adminClient,
+      created.id,
+      new Date(Date.UTC(2020, 8, 1)),
+      new Date(Date.UTC(2020, 8, 12))
+    );
+
+    const metricId = created.schema.metrics[0].id;
+    const detectionConfig = await configureAnomalyDetectionConfiguration(adminClient, metricId);
+    console.log(`Detection configuration created: ${detectionConfig.id}`);
+
+    const hook = await createWebhookHook(adminClient);
+    console.log(`Webhook hook created: ${hook.id}`);
+
+    const alertConfig = await configureAlertConfiguration(adminClient, detectionConfig.id, [
+      hook.id
+    ]);
+    console.log(`Alert configuration created: ${alertConfig.id}`);
+
+    // you can use alert configuration created in above step to query the alert.
+    const alerts = await queryAlerts(
+      client,
+      alertConfig.id,
+      new Date(Date.UTC(2020, 8, 1)),
+      new Date(Date.UTC(2020, 8, 12))
+    );
+
+    if (alerts.length > 1) {
+      // query anomalies using an alert id.
+      await queryAnomaliesByAlert(client, alerts[0]);
+    } else {
+      console.log("No alerts during the time period");
+    }
+  } finally {
+    console.log(`Deleting the data feed '${created.id}`);
+    await adminClient.deleteDataFeed(created.id);
+  }
 }
 
 async function createDataFeed(adminClient, sqlServerConnectionString, sqlServerQuery) {
@@ -145,10 +226,9 @@ async function createDataFeed(adminClient, sqlServerConnectionString, sqlServerQ
     name: "test_datafeed_" + new Date().getTime().toString(),
     source: {
       dataSourceType: "SqlServer",
-      dataSourceParameter: {
-        connectionString: sqlServerConnectionString,
-        query: sqlServerQuery
-      }
+      connectionString: sqlServerConnectionString,
+      query: sqlServerQuery,
+      authenticationType: "Basic"
     },
     granularity: {
       granularityType: "Daily"
@@ -170,7 +250,7 @@ async function createDataFeed(adminClient, sqlServerConnectionString, sqlServerQ
         { name: "city", displayName: "city display" },
         { name: "category", displayName: "category display" }
       ],
-      timestampColumn: null
+      timestampColumn: undefined
     },
     ingestionSettings: {
       ingestionStartTime: new Date(Date.UTC(2020, 5, 1)),
@@ -182,83 +262,31 @@ async function createDataFeed(adminClient, sqlServerConnectionString, sqlServerQ
     rollupSettings: {
       rollupType: "AutoRollup",
       rollupMethod: "Sum",
-      rollupIdentificationValue: "__CUSTOM_SUM__"
+      rollupIdentificationValue: "__SUM__"
     },
     missingDataPointFillSettings: {
       fillType: "SmartFilling"
     },
     accessMode: "Private",
-    admins: ["xyz@example.com"]
+    admins: ["xyz@microsoft.com"]
   };
   const result = await adminClient.createDataFeed(dataFeed);
 
   return result;
 }
-```
-
-## Check ingestion status
-
-After we start the data ingestion, we can check the ingestion status.
-
-```javascript
-const {
-  MetricsAdvisorKeyCredential,
-  MetricsAdvisorAdministrationClient
-} = require("@azure/ai-metrics-advisor");
-
-async function main() {
-  // You will need to set these environment variables or edit the following values
-  const endpoint = "<service endpoint>";
-  const subscriptionKey = "<subscription key>";
-  const apiKey = "<api key>";
-  const dataFeedId = "<data feed id>";
-  const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-
-  const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
-  await checkIngestionStatus(
-    adminClient,
-    dataFeedId,
-    new Date(Date.UTC(2020, 8, 1)),
-    new Date(Date.UTC(2020, 8, 12))
-  );
-}
 
 async function checkIngestionStatus(adminClient, datafeedId, startTime, endTime) {
   // This shows how to use for-await-of syntax to list status
   console.log("Checking ingestion status...");
-  const iterator = adminClient.listDataFeedIngestionStatus(datafeedId, startTime, endTime);
-  for await (const status of iterator) {
+  const listIterator = adminClient.listDataFeedIngestionStatus(datafeedId, startTime, endTime);
+  for await (const status of listIterator) {
     console.log(`  [${status.timestamp}] ${status.status} - ${status.message}`);
   }
-}
-```
-
-## Configure anomaly detection
-
-We need an anomaly detection configuration to determine whether a point in the time series is an anomaly. While a default detection configuration is automatically applied to each metric, you can tune the detection modes used on your data by creating a customized anomaly detection configuration.
-
-```javascript
-const {
-  MetricsAdvisorKeyCredential,
-  MetricsAdvisorAdministrationClient
-} = require("@azure/ai-metrics-advisor");
-
-async function main() {
-  const endpoint = "<service endpoint>";
-  const subscriptionKey = "<subscription key>";
-  const apiKey = "<api key>";
-  const metricId =  "<metric id>";
-  const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-
-  const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
-
-  const detectionConfig = await configureAnomalyDetectionConfiguration(adminClient, metricId);
-  console.log(`Detection configuration created: ${detectionConfig.id}`);
 }
 
 async function configureAnomalyDetectionConfiguration(adminClient, metricId) {
   console.log(`Creating an anomaly detection configuration on metric '${metricId}'...`);
-  const detectionConfig = {
+  const anomalyConfig = {
     name: "test_detection_configuration" + new Date().getTime().toString(),
     metricId,
     wholeSeriesDetectionCondition: {
@@ -273,79 +301,30 @@ async function configureAnomalyDetectionConfiguration(adminClient, metricId) {
     },
     description: "Detection configuration description"
   };
-  return await adminClient.createDetectionConfig(detectionConfig);
-}
-```
-
-### Create a hook
-
-We use hooks to subscribe to real-time alerts. In this example, we create a webhook for the Metrics Advisor service to POST the alert to.
-
-```javascript
-
-const {
-  MetricsAdvisorKeyCredential,
-  MetricsAdvisorAdministrationClient
-} = require("@azure/ai-metrics-advisor");
-
-async function main() {
-  // You will need to set these environment variables or edit the following values
-  const endpoint = "<service endpoint>";
-  const subscriptionKey = "<subscription key>";
-  const apiKey = "<api key>";
-  const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-
-  const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
-  const hook = await createWebhookHook(adminClient);
-  console.log(`Webhook hook created: ${hook.id}`);
+  return await adminClient.createDetectionConfig(anomalyConfig);
 }
 
 async function createWebhookHook(adminClient) {
   console.log("Creating a webhook hook");
   const hook = {
     hookType: "Webhook",
-    name: "web hook " + new Date().getTime().toFixed(),
+    name: "web hook " + new Date().getTime().toString(),
     description: "description",
     hookParameter: {
-      endpoint: "https://example.com/handleAlerts", // you must enter a valid webhook url to post the alert payload
-      username: "username",
-      password: "password"
-      // certificateKey: "certificate key",
-      // certificatePassword: "certificate password"
+      endpoint: "https://httpbin.org/post",
+      username: "user",
+      password: "pass"
+      // certificateKey: "k",
+      // certificatePassword: "kp"
     }
   };
 
   return await adminClient.createHook(hook);
 }
-```
-
-##  Create an alert configuration
-
-This sample will show you how to configure conditions an alert needs to be triggered and which hooks to use as a destination for an alert.
-
-```javascript
-const {
-  MetricsAdvisorKeyCredential,
-  MetricsAdvisorAdministrationClient
-} = require("@azure/ai-metrics-advisor");
-
-async function main() {
-  // You will need to set these environment variables or edit the following values
-  const endpoint = "<service endpoint>";
-  const subscriptionKey = "<subscription key>";
-  const apiKey = "<api key>";
-  const detectionConfigId = "<detection id>";
-  const hookId = "<hook id>";
-  const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-
-  const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
-  const alertConfig = await configureAlertConfiguration(adminClient, detectionConfigId, [hookId]);
-  console.log(`Alert configuration created: ${alertConfig.id}`);
-}
 
 async function configureAlertConfiguration(adminClient, detectionConfigId, hookIds) {
   console.log("Creating a new alerting configuration...");
-  const anomalyAlertConfig = {
+  const anomalyAlert = {
     name: "test_alert_config_" + new Date().getTime().toString(),
     crossMetricsOperator: "AND",
     metricAlertConfigurations: [
@@ -355,7 +334,10 @@ async function configureAlertConfiguration(adminClient, detectionConfigId, hookI
           scopeType: "All"
         },
         alertConditions: {
-          severityCondition: { minAlertSeverity: "Medium", maxAlertSeverity: "High" }
+          severityCondition: {
+            minAlertSeverity: "Medium",
+            maxAlertSeverity: "High"
+          }
         },
         snoozeCondition: {
           autoSnooze: 0,
@@ -367,45 +349,37 @@ async function configureAlertConfiguration(adminClient, detectionConfigId, hookI
     hookIds,
     description: "Alerting config description"
   };
-  return await adminClient.createAlertConfig(anomalyAlertConfig);
-}
-```
-
-## Query the alert
-
-```javascript
-const { MetricsAdvisorKeyCredential, MetricsAdvisorClient } = require("@azure/ai-metrics-advisor");
-
-async function main() {
-  // You will need to set these environment variables or edit the following values
-  const endpoint = "<service endpoint>";
-  const subscriptionKey = "<subscription key>";
-  const apiKey = "<api key>";
-  const alertConfigId = "<alert config id>";
-  const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
-
-  const client = new MetricsAdvisorClient(endpoint, credential);
-
-  const alertIds = await queryAlerts(
-    client,
-    alertConfigId,
-    new Date(Date.UTC(2020, 8, 1)),
-    new Date(Date.UTC(2020, 8, 12))
-  );
-
-  if (alertIds.length > 1) {
-    // query anomalies using an alert id.
-    await queryAnomaliesByAlert(client, alertConfigId, alertIds[0]);
-  } else {
-    console.log("No alerts during the time period");
-  }
+  return await adminClient.createAlertConfig(anomalyAlert);
 }
 
 async function queryAlerts(client, alertConfigId, startTime, endTime) {
+  console.log(`Listing alerts for alert configuration '${alertConfigId}'`);
+  // This shows how to use `for-await-of` syntax to list alerts
+  console.log("  using for-await-of syntax");
   let alerts = [];
-  const iterator = client.listAlerts(alertConfigId, startTime, endTime, "AnomalyTime");
-  for await (const alert of iterator) {
+  const listIterator = client.listAlerts(alertConfigId, startTime, endTime, "AnomalyTime");
+  for await (const alert of listIterator) {
     alerts.push(alert);
+    console.log("    Alert");
+    console.log(`      id: ${alert.id}`);
+    console.log(`      timestamp: ${alert.timestamp}`);
+    console.log(`      created on: ${alert.createdOn}`);
+  }
+  // alternatively we could list results by pages
+  console.log(`  by pages`);
+  const iterator = client
+    .listAlerts(alertConfigId, startTime, endTime, "AnomalyTime")
+    .byPage({ maxPageSize: 2 });
+
+  let result = await iterator.next();
+  while (!result.done) {
+    console.log("    -- Page -- ");
+    for (const item of result.value) {
+      console.log(`      id: ${item.id}`);
+      console.log(`      timestamp: ${item.timestamp}`);
+      console.log(`      created on: ${item.createdOn}`);
+    }
+    result = await iterator.next();
   }
 
   return alerts;
@@ -415,14 +389,28 @@ async function queryAnomaliesByAlert(client, alert) {
   console.log(
     `Listing anomalies for alert configuration '${alert.alertConfigId}' and alert '${alert.id}'`
   );
-  const iterator = client.listAnomaliesForAlert(alert);
-  for await (const anomaly of iterator) {
+  const listIterator = client.listAnomaliesForAlert(alert);
+  for await (const anomaly of listIterator) {
     console.log(
-      `  Anomaly ${anomaly.severity} ${anomaly.status} ${anomaly.seriesKey} ${anomaly.timestamp}`
+      `  Anomaly ${anomaly.severity} ${anomaly.status} ${anomaly.seriesKey.dimension} ${anomaly.timestamp}`
     );
   }
 }
+
+async function delay(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+main()
+  .then((_) => {
+    console.log("Succeeded");
+  })
+  .catch((err) => {
+    console.log("Error occurred:");
+    console.log(err);
+  });
 ```
+
 
 ### Run the application
 

@@ -3,7 +3,7 @@ title: Virtual network business continuity | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption impacting Azure Virtual Networks.
 services: virtual-network
 documentationcenter: ''
-author: NarayanAnnamalai
+author: asudbring
 manager: jefco
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: virtual-network
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/16/2016
-ms.author: narayan
+ms.author: allensu
 ms.reviewer: aglick
 
 ---

@@ -43,6 +43,6 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | Category | Value |
 |--|--|
 | What is it? | Client IDE for Python language |
-| Supported DSVM versions | Windows 2019, Ubuntu 18.04 |
+| Supported DSVM versions | Windows 2019, Linux |
 | Typical uses | Python development |
 | How to use and run it | Desktop shortcut (`C:\Program Files\tk`) on Windows. Desktop shortcut (`/usr/bin/pycharm`) on Linux |

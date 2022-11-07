@@ -277,7 +277,7 @@ The device responds with an acknowledgment that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
@@ -450,6 +450,6 @@ On a device or module, multiple component interfaces use command names with the 
 Now that you've learned about IoT Plug and Play conventions, here are some additional resources:
 
 - [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
-- [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

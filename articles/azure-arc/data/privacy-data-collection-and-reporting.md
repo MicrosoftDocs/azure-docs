@@ -11,10 +11,11 @@ ms.date: 07/30/2021
 ms.custom: template-concept 
 ---
 
-# Azure Arc data services data collection and reporting
+# Azure Arc-enabled data services data collection and reporting
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
+Azure Arc-enabled data services doesn't store any customer data.
 
 ## Related products
 
@@ -83,12 +84,12 @@ There are three resource types:
 
 - Azure Arc-enabled SQL Managed Instance 
 - Azure Arc-enabled PostgreSQL server 
-- SQL Server on Azure Arc-enabled servers 
+- Azure Arc-enabled SQL Server 
 - Data controller 
 
 The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
-### SQL Server on Azure Arc-enabled servers 
+### Azure Arc-enabled SQL Server
 - SQL Server edition. 
    - `string: Edition` 
 - Resource ID of the container resource (Azure Arc for Servers). 

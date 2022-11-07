@@ -4,6 +4,7 @@ description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/29/2022
 ms.author: v-bcatherine
@@ -20,6 +21,7 @@ These features include:
 |[Log streaming](log-streaming.md) | View streaming console logs from a container in near real-time. |
 |[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
 |[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
+|[Application logging](logging.md) | Monitor, analyze and debug your app using log data.|
 |[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application logs. |
 |[Azure Monitor alerts](alerts.md) | Create and manage alerts to notify you of events and conditions based on metric and log data.|
 
@@ -57,5 +59,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-- [Monitor an app in Azure Container Apps](monitor.md)
-- [Health probes in Azure Container Apps](health-probes.md)
+> [!div class="nextstepaction"]
+> [Health probes in Azure Container Apps](health-probes.md)

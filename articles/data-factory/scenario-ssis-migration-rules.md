@@ -27,10 +27,10 @@ Connection that contains host name may fail, typically because the Azure virtual
 
 You can use below options for SSIS Integration runtime to access these resources:
 
-- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](./join-azure-ssis-integration-runtime-virtual-network.md)
 - Migrate your data to Azure and use Azure resource endpoint.
 - Use Managed Identity authentication if moving to Azure resources.
-- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Use self-hosted IR to connect on-premises sources](./self-hosted-integration-runtime-proxy-ssis.md).
 
 ### [1002]Connection with absolute or UNC path might not be accessible
 
@@ -42,10 +42,10 @@ Recommendation
 
 You can use below options for SSIS Integration runtime to access these resources:
 
-- [Change to %TEMP%](/azure/data-factory/ssis-azure-files-file-shares)
-- [Migrate your files to Azure Files](/azure/data-factory/ssis-azure-files-file-shares)
-- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Change to %TEMP%](./ssis-azure-files-file-shares.md)
+- [Migrate your files to Azure Files](./ssis-azure-files-file-shares.md)
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](./join-azure-ssis-integration-runtime-virtual-network.md).
+- [Use self-hosted IR to connect on-premises sources](./self-hosted-integration-runtime-proxy-ssis.md).
 
 ### [1003]Connection with Windows authentication may fail
 
@@ -70,7 +70,7 @@ Azure-SSIS IR only includes built-in providers or drivers by default. Without cu
 
 Recommendation
 
-[Customize Azure-SSIS integration runtime](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) to install non built-in provider or driver.
+[Customize Azure-SSIS integration runtime](./how-to-configure-azure-ssis-ir-custom-setup.md) to install non built-in provider or driver.
 
 ### [1005]Analysis Services Connection Manager cannot use an account with MFA enabled
 
@@ -96,7 +96,7 @@ Recommendation
 
 You can use below methods to have Windows environment variables working in SSIS Integration runtime:
 
-- [Customize SSIS integration runtime setup](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) with Windows environment variables.
+- [Customize SSIS integration runtime setup](./how-to-configure-azure-ssis-ir-custom-setup.md) with Windows environment variables.
 - [Use Package or Project Parameter](/sql/integration-services/integration-services-ssis-package-and-project-parameters).
 
 ### [1007]SQL Server Native Client (SNAC) OLE DB driver is deprecated
@@ -113,7 +113,7 @@ The component is only supported in Azure SSIS integration runtime enterprise edi
 
 Recommendation
 
-[Configure Azure SSIS integration runtime to enterprise edition](/azure/data-factory/how-to-configure-azure-ssis-ir-enterprise-edition).
+[Configure Azure SSIS integration runtime to enterprise edition](./how-to-configure-azure-ssis-ir-enterprise-edition.md).
 
 ### [2002]ORC and Parquet file format aren't by default enabled
 
@@ -123,7 +123,7 @@ ORC and Parquet file format need JRE, which isn't by default installed in Azure 
 
 Recommendation
 
-Install compatible JRE by [customize setup for the Azure-SSIS integration runtime](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+Install compatible JRE by [customize setup for the Azure-SSIS integration runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### [2003]Third party component isn't by default enabled
 
@@ -135,7 +135,7 @@ Recommendation
 
 - Contact the third party to get an SSIS Integration runtime compatible version.
 
-- For in-house or open source component, [customize Azure-SSIS integration runtime](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) to install necessary SQL Server 2017 compatible components.
+- For in-house or open source component, [customize Azure-SSIS integration runtime](./how-to-configure-azure-ssis-ir-custom-setup.md) to install necessary SQL Server 2017 compatible components.
 
 ### [2004]Azure Blob source and destination is discovered
 
@@ -151,7 +151,7 @@ Azure SSIS integration time is provisioned with built-in log providers by defaul
 
 Recommendation
 
-[Customize Azure-SSIS integration runtime](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) to install non built-in provider or driver.
+[Customize Azure-SSIS integration runtime](./how-to-configure-azure-ssis-ir-custom-setup.md) to install non built-in provider or driver.
 
 ### [3001]Absolute or UNC path is discovered in Execute Process Task
 
@@ -163,9 +163,9 @@ Recommendation
 
 You can use below options for SSIS Integration runtime to launch your executable(s):
 
-- [Migrate your executable(s) to Azure Files](/azure/data-factory/ssis-azure-files-file-shares).
-- [Join Azure-SSIS IR to a virtual network](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) that connects to on-premises sources.
-- If necessary, [customize setup script to install your executable(s)](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) in advance when starting IR.
+- [Migrate your executable(s) to Azure Files](./ssis-azure-files-file-shares.md).
+- [Join Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md) that connects to on-premises sources.
+- If necessary, [customize setup script to install your executable(s)](./how-to-configure-azure-ssis-ir-custom-setup.md) in advance when starting IR.
 
 ### [4001]Absolute or UNC configuration path is discovered in package configuration
 
@@ -177,9 +177,9 @@ Recommendation
 
 You can use below options for SSIS Integration runtime to access these resources:
 
-- [Migrate your files to Azure Files](/azure/data-factory/ssis-azure-files-file-shares)
-- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Migrate your files to Azure Files](./ssis-azure-files-file-shares.md)
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](./join-azure-ssis-integration-runtime-virtual-network.md).
+- [Use self-hosted IR to connect on-premises sources](./self-hosted-integration-runtime-proxy-ssis.md).
 
 ### [4002]Registry entry is discovered in package configuration
 

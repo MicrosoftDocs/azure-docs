@@ -24,7 +24,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a new tenant for your organization
 
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
-
+>[!Important]
+>If users with the business need to create tenants are unable to create them, review your user settings page to ensure that **Tenant Creation** is not switched off. If it is switched off, reach out to your Global Administrator to provide those who need it with access to the Tenant Creator role.
 ### To create a new tenant
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).

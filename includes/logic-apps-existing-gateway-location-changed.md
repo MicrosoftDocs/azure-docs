@@ -3,7 +3,7 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 11/09/2018	
+ms.date: 10/15/2022
 ---
 
 **Q**: Why did the location for my existing gateway change? <br/>

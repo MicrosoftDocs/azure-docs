@@ -51,6 +51,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Confluence SAML SSO by Microsoft single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> For the information on application proxy configuration for Confluence, please refer [this](confluence-app-proxy-tutorial.md) tutorial.
+
 ## Supported versions of Confluence
 
 As of now, following versions of Confluence are supported:
@@ -179,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform following steps on configuration page:
 
-    ![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/add-on-53.png)
+    ![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/confluence-configure-addon.png)
 
     > [!TIP]
     > Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -210,6 +213,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
        > [!Note]
        > To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
        > `https://<DOMAIN:PORT>/login.action?force_azure_login=false`
+
+    1. **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup. For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
 
     1. Click **Save** button to save the settings.
 

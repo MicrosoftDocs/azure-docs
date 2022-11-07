@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
@@ -22,6 +23,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -73,6 +88,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/obj/**",
           "healthcare-apis/**"
@@ -82,6 +98,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-form-recognizer",
+        "src": "articles/applied-ai-services/form-recognizer",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -130,6 +162,10 @@
       "grp-iot-edge": {
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-2018-06"
+      },
+      "grp-form-recognizer": {
+        "dest": "destformrecognizer",
+        "moniker_range": ">=form-recog-2.1.0"
       }
     },
     "overwrite": [],
@@ -312,7 +348,7 @@
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
         "articles/jenkins/**/*.md": "TomArcherMsft",
-        "articles/lab-services/**/*.md": "j-martens",
+        "articles/lab-services/**/*.md": "ntrogh",
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/marketplace/**/*.md": "mingshen-ms",
@@ -329,7 +365,7 @@
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
-        "articles/site-recovery/*.md": "jsuri",
+        "articles/site-recovery/*.md": "ankitaduttaMSFT",
         "articles/stream-analytics/*.md": "sidramadoss",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
@@ -904,7 +940,8 @@
         "articles/sentinel/**/*.md": "microsoft-sentinel"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
@@ -1109,6 +1146,8 @@
         "articles/open-datasets/**/*.yml": "Azure Open Datasets",
         "articles/openshift/**/*.md": "Azure Red Hat OpenShift",
         "articles/openshift/**/*.yml": "Azure Red Hat OpenShift",
+        "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
+        "articles/partner-solutions/**/*.yml": "Azure Native ISV Services",
         "articles/purview/**/*.md": "Microsoft Purview",
         "articles/purview/**/*.yml": "Microsoft Purview",
         "articles/quotas/**/*.md": "Azure Quotas",

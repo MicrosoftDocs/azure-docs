@@ -8,8 +8,7 @@ manager: hemantm
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: azure-resource-manager
-ms.subservice: troubleshooting
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -185,8 +184,8 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 Bash:
 
   ```
-  token=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
-  curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token"
+  token="Bearer $(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")"
+  curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell:

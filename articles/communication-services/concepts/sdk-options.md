@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -31,7 +31,6 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Calling Server | [REST](/rest/api/communication/callautomation/server-calls) | Service| Make and manage calls, play audio, and configure recording |
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
