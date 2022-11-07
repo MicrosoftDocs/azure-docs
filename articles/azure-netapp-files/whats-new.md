@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2022 
 
-* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage.
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage. 
 
 * [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
 
