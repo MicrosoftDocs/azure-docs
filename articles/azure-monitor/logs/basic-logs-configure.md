@@ -157,7 +157,7 @@ For example:
 
 # [Portal](#tab/portal-2)
 
-To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration).
+To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-a-tables-log-data-plan).
 
 Alternatively:
 
@@ -235,5 +235,4 @@ Basic Logs tables retain data for eight days. When you change an existing table'
 
 ## Next steps
 
-- [Learn more about the different log plans](log-analytics-workspace-overview.md#log-data-plans)
 - [Query data in Basic Logs](basic-logs-query.md)
