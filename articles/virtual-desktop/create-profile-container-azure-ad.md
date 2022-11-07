@@ -13,7 +13,7 @@ ms.author: helohr
 
 In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (Azure AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-This feature is currently supported in the Azure Public, Azure Government, and Azure China 21Vianet clouds.
+This feature is currently supported in the Azure Public cloud.
 
 ## Configure your Azure storage account and file share
 
