@@ -1,7 +1,7 @@
 ---
-title: Recognize Action
-titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quick start for recognizing user input from participants on a call.
+title: Gather user input
+titleSuffix: An Azure Communication Services how-to document
+description: Provides a how-to guide for gathering user input from participants on a call.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -12,11 +12,9 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Recognize action
+# Gather user input
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 This quickstart will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
