@@ -26,7 +26,7 @@ For information on setup and configuration details, see [How to work with Event 
 The type of the output parameter used with an Event Grid output binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
+* [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime. 
 * [C# script](functions-reference-csharp.md): used primarily when creating C# functions in the Azure portal.
 
 # [In-process](#tab/in-process)
@@ -441,7 +441,7 @@ def main(eventGridEvent: func.EventGridEvent,
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.    
 
 The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
@@ -564,7 +564,7 @@ Requires you to define a custom type, or use a string. See the [Example section]
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process. 
+Functions version 1.x doesn't support isolated worker process. 
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 

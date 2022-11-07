@@ -130,7 +130,7 @@ For example, the following commands create a root CA certificate, a parent devic
 
     For more information about creating test certificates, see [create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). 
 
-01. You'll need to transfer the certificates and keys to each device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario.
+01. You'll need to transfer the certificates and keys to each device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario. Copy the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
 For more information on installing certificates on a device, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
 
@@ -140,14 +140,14 @@ To configure your parent device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge parent device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
+01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the preferred directory `/var/aziot` for the certificates and keys.
 
 01. Install the **root CA certificate** on the parent IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
 
     ```bash
-    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
 
     sudo update-ca-certificates
     ```
@@ -155,7 +155,7 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     **IoT Edge for Linux on Windows (EFLOW):**
 
     ```bash
-    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
 
     sudo update-ca-trust
     ```
@@ -216,15 +216,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
     device. For example:
 
     ```toml
-    trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
+    trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
 01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-gateway.cert.pem"
-    pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
@@ -238,11 +238,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
     ```toml
     hostname = "10.0.0.4"
-    trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
+    trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-gateway.cert.pem"
-    pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
 01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
@@ -319,14 +319,14 @@ To configure your child device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge child device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the child device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
+01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the child device. The examples in this article use the directory `/var/aziot` for the certificates and keys directory.
 
 01. Install the **root CA certificate** on the child IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
 
     ```bash
-    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
 
     sudo update-ca-certificates
     ```
@@ -334,7 +334,7 @@ To enable secure connections, every IoT Edge child device in a gateway scenario 
     **IoT Edge for Linux on Windows (EFLOW):**
 
     ```bash
-    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
 
     sudo update-ca-trust
     ```
@@ -383,15 +383,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
     device. For example:
 
     ```toml
-    trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
+    trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
 01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge child device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-downstream.cert.pem"
-    pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
@@ -405,11 +405,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
     ```toml
     parent_hostname = "10.0.0.4"
-    trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
+    trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-downstream.cert.pem"
-    pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
 01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
