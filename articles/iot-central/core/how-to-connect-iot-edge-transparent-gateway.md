@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an Azure IoT Central applicati
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application. The article shows how to use both the IoT Edge 1.1 and 1.2 runtimes.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/08/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -51,6 +51,16 @@ To follow the steps in this article, download the following files to your comput
 
 ---
 
+## Import deployment manifest
+
+Every IoT Edge device needs a deployment manifest to configure the IoT Edge runtime. To import a deployment manifest for the IoT Edge transparent gateway:
+
+1. Navigate to **Edge manifests**.
+
+1. Select **+ New**, enter a name for the deployment manifest such as *Transparent gateway* and then upload the *EdgeTransparentGatewayManifest.json* file you downloaded previously.
+
+1. Select **Create** to save the deployment manifest in your application.
+
 ## Add device templates
 
 Both the downstream devices and the gateway device can use device templates in IoT Central. IoT Central lets you model the relationship between your downstream devices and your gateway so you can view and manage them after they're connected. A device template isn't required to attach a downstream device to a gateway.
@@ -75,9 +85,11 @@ To create a device template for an IoT Edge transparent gateway device:
 
 1. On the **Customize** page of the wizard, enter a name such as *Edge Gateway* for the device template.
 
-1. On the **Customize** page of the wizard, check **Gateway device with downstream devices**.
+1. On the **Customize** page of the wizard, check **This is a gateway device**.
 
-1. On the **Customize** page of the wizard, select **Browse**. Upload the *EdgeTransparentGatewayManifest.json* file you downloaded previously.
+1. On the **Review** page, select **Create**.
+
+1. On the **Create a model** page, select **Custom model**.
 
 1. Add an entry in **Relationships** to the downstream device template.
 
@@ -97,7 +109,7 @@ To add the devices:
 
 1. Navigate to the devices page in your IoT Central application.
 
-1. Add an instance of the transparent gateway IoT Edge device. In this article, the gateway device ID is `edgegateway`.
+1. Add an instance of the transparent gateway IoT Edge device. When you add the device, make sure that you select the **Transparent gateway** deployment manifest. In this article, the gateway device ID is `edgegateway`.
 
 1. Add one or more instances of the downstream device. In this article, the downstream devices are thermostats with IDs `thermostat1` and `thermostat2`.
 
@@ -260,7 +272,7 @@ Your transparent gateway is now configured and ready to start forwarding telemet
     sudo nano /etc/aziot/config.toml
     ```
 
-1. Locate the `Certificate settings` settings. Add the certificate settings as follows:
+1. Locate the following settings in the configuration file. Add the certificate settings as follows:
 
     ```text
     trust_bundle_cert = "file:///home/AzureUser/certs/certs/azure-iot-test-only.root.ca.cert.pem"
@@ -372,6 +384,9 @@ To run the thermostat simulator on the `leafdevice` virtual machine:
     Sent message
     ...
     ```
+
+    > [!TIP]
+    > If you see an error when the downstream device tries to connect. Try re-running the device provisioning steps above.
 
 1. To see the telemetry in IoT Central, navigate to the **Overview** page for the **thermostat1** device:
 
