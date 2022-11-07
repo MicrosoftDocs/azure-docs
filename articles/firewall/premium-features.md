@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/07/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -76,6 +76,12 @@ The Azure Firewall signatures/rulesets include:
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
+
+### IDPS Private IP ranges
+
+In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
+
+:::image type="content" source="media/premium-features/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
 
 ### IDPS signature rules
 
