@@ -54,6 +54,10 @@ Type | Input/Output | `direct` | `download` | `ro_mount`
 `mlflow`    | Output | ✓  |  ✓ |   ✓ | 
 
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in a Jupyter Notebook. In the [azureml-examples](https://github.com/azure/azureml-examples) repository, open the notebook: [model.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/model/model.ipynb).
+
 ## Create a model in the model registry
 
 [Model registration](concept-model-management-and-deployment.md) allows you to store and version your models in the Azure cloud, in your workspace. The model registry helps you organize and keep track of your trained models.
