@@ -101,50 +101,21 @@ Code running in the VM can now get a token using its system-assigned managed ide
 
 ## Access data
 
-This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. You use the **access token** method of creating a connection to SQL. This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
+This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. This method doesn't require supplying credentials on the connection string.
 
-Here's a .NET code example of opening a connection to SQL using an access token. The code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6** or higher or **.NET Core 2.2** or higher is required to use the access token method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly. Note the resource ID for Azure SQL is `https://database.windows.net/`.
+Here's a .NET code example of opening a connection to SQL using Active Directory Managed Identity authentication. The code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6.2** or higher or **.NET Core 3.1** or higher is required to use this method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly and add a NuGet reference to the Microsoft.Data.SqlClient library.
 
 ```csharp
-using System.Net;
-using System.IO;
-using System.Data.SqlClient;
-using System.Web.Script.Serialization;
-
-//
-// Get an access token for SQL.
-//
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
-request.Headers["Metadata"] = "true";
-request.Method = "GET";
-string accessToken = null;
+using Microsoft.Data.SqlClient;
 
 try
 {
-    // Call managed identities for Azure resources endpoint.
-    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-    // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-    string stringResponse = streamResponse.ReadToEnd();
-    JavaScriptSerializer j = new JavaScriptSerializer();
-    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
-    accessToken = list["access_token"];
-}
-catch (Exception e)
-{
-    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
-}
-
 //
-// Open a connection to the server using the access token.
+// Open a connection to the server using Active Direcotry Managed Identity authentication.
 //
-if (accessToken != null) {
-    string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
-    SqlConnection conn = new SqlConnection(connectionString);
-    conn.AccessToken = accessToken;
-    conn.Open();
-}
+string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
+SqlConnection conn = new SqlConnection(connectionString);
+conn.Open();
 ```
 
 >[!NOTE]
@@ -177,7 +148,7 @@ Alternatively, a quick way to test the end-to-end setup without having to write 
 
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
-    $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>"
+    $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>; Encrypt=True;"
     $SqlConnection.AccessToken = $AccessToken
     $SqlConnection.Open()
     ```
