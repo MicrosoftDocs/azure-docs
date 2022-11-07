@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 11/07/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -49,8 +49,6 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 ```
 
 ## Display claims
-
-The display claims feature is currently in **preview**.
 
 The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of display claims, use the input claims that were previously described. The element may also contain a default value.
 
