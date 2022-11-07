@@ -244,6 +244,8 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
 ## Add a File System action
 
+### [Consumption](#tab/consumption)
+
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer, if not already open.
 
 1. After the last step or between steps in your workflow, add a new step or action.
@@ -300,6 +302,10 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 1. Save your logic app. Test your workflow by uploading a file to Dropbox.
 
    If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
+
+### [Standard](#tab/standard)
+
+---
 
 ## Next steps
 
