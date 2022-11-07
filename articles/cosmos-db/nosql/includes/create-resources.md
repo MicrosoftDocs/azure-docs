@@ -37,7 +37,7 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
    | Account Name | A unique name | Enter a name to identify your Azure Cosmos account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data. |
    | Capacity mode |Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../../serverless.md) mode. |
-   | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** |With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+   | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** | Enable Azure Cosmos DB free tier. With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
@@ -90,8 +90,12 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
     az cosmosdb create \
         --resource-group $resourceGroupName \
         --name $accountName \
-        --locations regionName=$location
+        --locations regionName=$location \
+        --enable-free-tier true
     ```
+
+    > [!NOTE]
+    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier. To find other free-tier enabled accounts, see [find an existing Azure Cosmos DB free-tier account in a subscription](../../scripts/cli/common/free-tier.md#run-the-script).
 
 1. Get the API for NoSQL endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
 
@@ -147,9 +151,13 @@ This quickstart will create a single Azure Cosmos DB account using the API for N
         ResourceGroupName = $RESOURCE_GROUP_NAME
         Name = $ACCOUNT_NAME
         Location = $LOCATION
+        EnableFreeTier = true
     }
     New-AzCosmosDBAccount @parameters
     ```
+
+   > [!NOTE]
+   > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
 1. Get the API for NoSQL endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
 
