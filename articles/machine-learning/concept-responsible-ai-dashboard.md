@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 08/17/2022
+ms.date: 11/07/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -24,15 +24,15 @@ The Responsible AI dashboard provides a single interface to help you implement R
 - [Machine learning interpretability](https://interpret.ml/)
 - [Error analysis](https://erroranalysis.ai/)
 - [Counterfactual analysis and perturbations](https://github.com/interpretml/DiCE)
-- [Causal inference](https://github.com/microsoft/EconML) 
+- [Causal inference](https://github.com/microsoft/EconML)
 
 The dashboard offers a holistic assessment and debugging of models so you can make informed data-driven decisions. Having access to all of these tools in one interface empowers you to:
 
 - Evaluate and debug your machine learning models by identifying model errors and fairness issues, diagnosing why those errors are happening, and informing your mitigation steps.
 - Boost your data-driven decision-making abilities by addressing questions such as:
-   
+
    "What is the minimum change that users can apply to their features to get a different outcome from the model?"
-   
+
    "What is the causal effect of reducing or increasing a feature (for example, red meat consumption) on a real-world outcome (for example, diabetes progression)?"
 
 You can customize the dashboard to include only the subset of tools that are relevant to your use case.
@@ -153,7 +153,7 @@ Need some inspiration? Here are some examples of how the dashboard's components 
 
 ## People who should use the Responsible AI dashboard
 
-The following people can use the Responsible AI dashboard, and its corresponding [Responsible AI scorecard](how-to-responsible-ai-scorecard.md), to build trust with AI systems:
+The following people can use the Responsible AI dashboard, and its corresponding [Responsible AI scorecard](concept-responsible-ai-scorecard.md), to build trust with AI systems:
 
 - Machine learning professionals and data scientists who are interested in debugging and improving their machine learning models before deployment
 - Machine learning professionals and data scientists who are interested in sharing their model health records with product managers and business stakeholders to build trust and receive deployment permissions
@@ -175,4 +175,4 @@ The following people can use the Responsible AI dashboard, and its corresponding
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed on the Responsible AI dashboard.
+- Learn how to generate a [Responsible AI scorecard](concept-responsible-ai-scorecard.md) based on the insights observed on the Responsible AI dashboard.
