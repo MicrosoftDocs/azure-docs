@@ -370,22 +370,28 @@
               href: configure-azure-cni.md
             - name: Use Azure-CNI Overlay (Preview)
               href: azure-cni-overlay.md
-        - name: Use API Server VNet Integration
-          href: api-server-vnet-integration.md
-        - name: Bring your own CNI
-          href: use-byo-cni.md
-        - name: Use Azure CNI Powered by Cilium (Preview)
-          href: azure-cni-powered-by-cilium.md
-        - name: Create an internal load balancer
-          href: internal-lb.md
-        - name: Use a Standard Load Balancer
-          href: load-balancer-standard.md
-        - name: Use kube-proxy configuration (IPVS)
-          href: configure-kube-proxy.md
-        - name: Use a static IP address and DNS label
-          href: static-ip.md
-        - name: Use an HTTP proxy
-          href: http-proxy.md
+        - name: CNI
+          items:
+            - name: Bring your own CNI
+              href: use-byo-cni.md
+            - name: Use Azure CNI Powered by Cilium (Preview)
+              href: azure-cni-powered-by-cilium.md
+        - name: DNS
+          items:
+            - name: Use a static IP address and DNS label
+              href: static-ip.md
+            - name: Customize CoreDNS
+              href: coredns-custom.md
+        - name: Egress
+          items:
+            - name: Restrict and control cluster egress traffic
+              href: limit-egress-traffic.md
+            - name: Use a user defined route for egress
+              href: egress-outboundtype.md
+            - name: Managed NAT Gateway
+              href: nat-gateway.md
+            - name: Use an HTTP proxy
+              href: http-proxy.md
         - name: Ingress
           items:
             - name: Use ingress-nginx
@@ -399,16 +405,22 @@
             - name: Enable the AGIC add-on for an existing AKS cluster
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
-        - name: Egress
+            - name: Use Web Application Routing (preview)
+              href: web-app-routing.md
+        - name: Load balancing
           items:
-            - name: Restrict and control cluster egress traffic
-              href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
-              href: egress-outboundtype.md
-            - name: Managed NAT Gateway
-              href: nat-gateway.md
-        - name: Customize CoreDNS
-          href: coredns-custom.md
+            - name: Create an internal load balancer
+              href: internal-lb.md
+            - name: Use a Standard Load Balancer
+              href: load-balancer-standard.md
+            - name: Use kube-proxy configuration (IPVS)
+              href: configure-kube-proxy.md   
+        - name: Security
+          items:
+            - name: Use API Server VNet Integration
+              href: api-server-vnet-integration.md
+            - name: Private Endpoint
+              href: private-clusters.md#use-a-private-endpoint-connection
     - name: Configure storage
       items:
         - name: CSI storage drivers
@@ -532,8 +544,6 @@
           href: keda-integrations.md
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
           href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
-    - name: Use Web Application Routing (preview)
-      href: web-app-routing.md
     - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
