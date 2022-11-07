@@ -44,9 +44,9 @@ The user must have a [Microsoft account][account] or access to their [organizati
 
 #### Go to a resource group or directly to the resource itself
 
-1. Assign the Contributor role to the Azure RBAC.
+Assign the Contributor role to Azure RBAC.
 
-    For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 #### Select a role
 
