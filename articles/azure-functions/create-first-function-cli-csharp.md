@@ -19,7 +19,7 @@ This article supports creating both types of compiled C# functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
-This article creates an HTTP triggered function that runs on .NET in-process or isolated worker process with an example of .NET 6. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+This article creates an HTTP triggered function that runs on .NET in-process or isolated worker process with an example of .NET 6. There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -41,7 +41,7 @@ You also need an Azure account with an active subscription. [Create an account f
 
 ### Prerequisite check
 
-Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
+Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -99,7 +99,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    `func new` creates a HttpExample.cs code file.
+    `func new` creates an HttpExample.cs code file.
 
 ### (Optional) Examine the file contents
 
@@ -211,7 +211,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

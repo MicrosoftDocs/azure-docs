@@ -31,7 +31,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 + [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure to select the **Azure development** workload during installation. 
 
-+ [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
++ [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create a function app project
 
@@ -109,7 +109,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Publish the project to Azure
 
-Visual Studio can publish your local project to Azure. Before you can publish your project, you must have a function app in your Azure subscription. If you don't already have a function app in Azure, Visual Studio publishing creates one for you the first time you publish your project. In this article you create a function app and related Azure resources. 
+Visual Studio can publish your local project to Azure. Before you can publish your project, you must have a function app in your Azure subscription. If you don't already have a function app in Azure, Visual Studio publishing creates one for you the first time you publish your project. In this article, you create a function app and related Azure resources. 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
@@ -135,7 +135,7 @@ Visual Studio can publish your local project to Azure. Before you can publish yo
 
 *Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group. 
 
-You created Azure resources to complete this quickstart. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). Other quickstarts in this collection build upon this quickstart. If you plan to work with subsequent quickstarts, tutorials, or with any of the services you have created in this quickstart, don't clean up the resources.
+You created Azure resources to complete this quickstart. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). Other quickstarts in this collection build upon this quickstart. If you plan to work with subsequent quickstarts, tutorials, or with any of the services you've created in this quickstart, don't clean up the resources.
 
 [!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
@@ -153,7 +153,7 @@ Advance to the next article to learn how to add an Azure Storage queue binding t
 
 # [Isolated process](#tab/isolated-process)
 
-To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process .
+To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process.
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
