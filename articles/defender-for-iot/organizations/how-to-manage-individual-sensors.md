@@ -23,11 +23,11 @@ The **Overview** page shows the following widgets:
 
 | Name | Description |
 |--|--|
-| **General Settings** | The General Settings gadget displays a list of the sensor's basic configuration settings |
-| **Traffic Monitoring** | The Traffic Monitoring gadget displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing |
-| **Top 5 OT Protocols** | The Top 5 OT Protocols gadget displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols |
-| **Traffic By Port** | The Traffic By Port gadget displays a pie chart of different types of ports. The chart also provides the amount of traffic that goes through each type |
-| **Top open alerts** | The Top open alerts gadget displays a table with the current open alerts of high severity levels. The table provides critical details such as the name of the alert, the type of engine, and the time of detection |
+| **General Settings** | Displays a list of the sensor's basic configuration settings |
+| **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
+| **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
+| **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
+| **Top open alerts** | Displays a table listing any currently open alerts with high severity levels, including critical details about each alert. |
 
 Select the link in each widget to drill down for more information in your sensor.
 
