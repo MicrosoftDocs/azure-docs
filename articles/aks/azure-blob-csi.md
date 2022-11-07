@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 10/18/2022
+ms.date: 11/07/2022
 author: mgoedtel
 
 ---
@@ -21,6 +21,9 @@ Mounting Azure Blob storage as a file system into a container or pod, enables yo
 * Disaster recovery data
 
 The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *azureblob-fuse-premium* and *azureblob-nfs-premium*.
+
+> [!NOTE]
+> Azure Blob CSI driver supports NFS 3.0 and Blobfuse v1 protocols for Kubernetes versions up to 1.24 on AKS. For Kubernetes version 1.25 (preview), only NFS 3.0 protocol is supported.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
@@ -177,50 +180,23 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 - To learn how to manually set up a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
 - To learn how to dynamically set up a persistent volume, see [Create and use a dynamic persistent volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
-- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver](azure-disk-csi.md).
-- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
+- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi-driver]
+- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi-driver]
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
-[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [csi-blob-storage-open-source-driver]: https://github.com/kubernetes-sigs/blob-csi-driver
 [csi-blob-storage-open-source-driver-uninstall-steps]: https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/docs/install-csi-driver-master.md#clean-up-blob-csi-driver
 
 <!-- LINKS - internal -->
-[install-azure-cli]: /cli/azure/install-azure-cli
-[azure-disk-volume]: azure-disk-volume.md
-[azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/disks-types.md
 [compare-access-with-nfs]: ../storage/common/nfs-comparison.md
-[az-disk-list]: /cli/azure/disk#az_disk_list
-[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
-[az-disk-create]: /cli/azure/disk#az_disk_create
-[az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
-[install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [csi-drivers-aks]: csi-storage-drivers.md
-[storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[storage-skus]: ../storage/common/storage-redundancy.md
-[use-tags]: use-tags.md
-[az-tags]: ../azure-resource-manager/management/tag-resources.md
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
 [csi-storage-driver-overview]: csi-storage-drivers.md
+[azure-disk-csi-driver]: azure-disk-csi-md
+[azure-files-csi-driver]: azure-files-csi.md
