@@ -162,7 +162,13 @@ Next, connect your app to an Postgres Database with a system-assigned managed id
 ### [Flexible Server](#tab/flexible)
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 ```azurecli-interactive
-v
+az webapp connection create postgres-flexible \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $POSTGRESQL_HOST \
+    --database $DATABASE_NAME \
+    --system-identity
 ```
 
 ### [Single Server](#tab/single)
