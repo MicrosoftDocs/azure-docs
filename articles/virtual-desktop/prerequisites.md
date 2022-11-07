@@ -130,7 +130,8 @@ There are different automation and deployment options available depending on whi
 |Windows Server 2016|Yes|Yes|No|No|
 |Windows Server 2012 R2|Yes|Yes|No|No|
 
-To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If authorized users deploy Azure Virtual Desktop within an Azure Dev/Test subscription, then end users may connect to that deployment without separate entitlement in order to perform acceptance tests or provide feedback.
+> [!TIP]
+> To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
 
 ## Network
 
