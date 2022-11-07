@@ -42,7 +42,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 ### Architecture and background
 
-:::image type="content" source="./media/connect-logstash/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false":::
+:::image type="content" source="./media/connect-logstash-dcr/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false":::
 
 The Logstash engine is comprised of three components:
 
@@ -230,16 +230,16 @@ To ingest the data to a standard table like Syslog or CommonSecurityLog, you use
  
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-api.md#prerequisites).
 1. [Collect workspace details](../azure-monitor/logs/tutorial-logs-ingestion-api.md#collect-workspace-details).
-1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#configure-application). 
+1. [Configure an application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#configure-an-application). 
     > [!NOTE]
     > Skip the Create new table in Log Analytics workspace step. This step is not relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
-1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-endpoint).
-1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-rule). In this step: 
+1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-a-data-collection-endpoint).
+1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-a-data-collection-rule). In this step: 
     - Provide [the sample file you created in the previous section](#create-a-sample-file). 
     - Use the sample file you created to define the `streamDeclarations` property. Each of the fields in the sample file should have a corresponding column with the same name and the appropriate type (see the [example](#example-dcr-that-ingests-data-into-the-syslog-table) below). 
     - Configure the value of the `outputStream` property with the name of the standard table instead of the custom table. Unlike custom tables, standard table names don't have the `_CL` suffix.  
     - The prefix of the table name should be `Microsoft-` instead of `Custom-`. In our example, the `outputStream` property value is `Microsoft-Syslog`.  
-1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#assign-permissions-to-dcr).
+1. [Assign permissions to a DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
 
 > [!NOTE]
 > Skip the Send sample data step.
@@ -377,14 +377,14 @@ Note that:
 
 To configure the Logstash configuration file to ingest the logs into a custom table, retrieve these values:
 
-|Field  |How to retrieve for custom logs  |How to retrieve for standard logs  |
-|---------|---------|---------|
-|`client_app_Id` |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application) section, under step 3. |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#configure-application) section, under step 3.         |
-|`client_app_secret` |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application) section, under step 5. |The `Application (client) ID` value you create in the [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#configure-application) section, under step 5.         |
-|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |
-|`data_collection_endpoint`   |The value of the `logsIngestion` URI in the [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint) section, step 3.       |The value of the `logsIngestion` URI in the [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-endpoint) section, step 3. |
-|`dcr_immutable_id` |The value of the DCR `immutableId` in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr) section. |The value of the DCR `immutableId` in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr) section. |
-|`dcr_stream_name` |As explained in the [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr) section, go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below. |The value is `Custom-SyslogStream`. |
+|Field  |How to retrieve  |
+|---------|---------|
+|`client_app_Id` |The `Application (client) ID` value you create in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
+|`client_app_secret` |The `Application (client) ID` value you create in step 5 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
+|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |
+|`data_collection_endpoint`   |The value of the `logsIngestion` URI in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section.       |
+|`dcr_immutable_id` |The value of the DCR `immutableId` in step 6 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
+|`dcr_stream_name` |For custom tables, as explained in step 6 when you [create the DCR resources](#create-dcr-resources-for-ingestion-into-a-custom-table), go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below.<br><br>For standard tables, the value is `Custom-SyslogStream`. |
 
 After you retrieve the required values: 
 
@@ -413,7 +413,7 @@ To set other parameters for the Microsoft Sentinel Logstash output plugin, see t
 > [!NOTE]
 > For security reasons, we recommend that you don't implicitly state the `client_app_Id`, `client_app_secret`, `tenant_id`, `data_collection_endpoint`, and `dcr_immutable_id` attributes in your Logstash configuration file. We recommend that you store this sensitive information in a [Logstash KeyStore](https://www.elastic.co/guide/en/logstash/current/keystore.html#keystore). 
 
-### Restart Logstash and send sample data
+### Restart Logstash
 
 Restart Logstash with the updated output plugin configuration and see that data is ingested to the right table according to your DCR configuration.
 
