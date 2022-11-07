@@ -5,8 +5,8 @@ author: awysza
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 10/20/2022
-ms.author: rarco
+ms.date: 11/7/2022
+ms.author: robbag
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
