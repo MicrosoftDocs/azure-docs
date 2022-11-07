@@ -68,7 +68,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 
 ## Attach an identity to the dev center
 
-After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the two [types of identities](how-to-configure-managed-identity.md#types-of-managed-identities) you can attach:
+After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity) you can attach:
 
 - System-assigned managed identity
 - User-assigned managed identity
@@ -79,25 +79,25 @@ For more information, see [Configure a managed identity](how-to-configure-manage
 
 To attach a system-assigned managed identity to your dev center:
 
-1. Complete the steps to create a [system-assigned managed identity](how-to-configure-managed-identity.md#configure-a-system-assigned-managed-identity-for-a-dev-center).
+1. Complete the steps to create a [system-assigned managed identity](how-to-configure-managed-identity.md#add-a-system-assigned-managed-identity-to-a-dev-center).
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity.":::
 
 1. After you create a system-assigned managed identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
-   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access your repository.
+   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access your repository.
 
 ### Attach an existing user-assigned managed identity
 
 To attach a user-assigned managed identity to your dev center:
 
-1. Complete the steps to attach a [user-assigned managed identity](how-to-configure-managed-identity.md#configure-a-user-assigned-managed-identity-for-a-dev-center).
+1. Complete the steps to attach a [user-assigned managed identity](how-to-configure-managed-identity.md#add-a-user-assigned-managed-identity-to-a-dev-center).
 
    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot that shows a user-assigned managed identity.":::
 
 1. After you attach the identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](how-to-configure-project-environment-types.md). Give the identity Reader access to all subscriptions that a project lives in.
 
-   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access the repository.
+   Make sure that the identity has [access to the key vault secret](how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) that contains the personal access token to access the repository.
 
 > [!NOTE]
 > The [identity](concept-environments-key-concepts.md#identities) that's attached to the dev center should be assigned the Owner role for access to the deployment subscription for each environment type.

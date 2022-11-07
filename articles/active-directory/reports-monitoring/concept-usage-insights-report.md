@@ -2,61 +2,75 @@
 title: Usage and insights report | Microsoft Docs
 description: Introduction to usage and insights report in the Azure Active Directory portal 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
 ms.service: active-directory
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/03/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
-# Usage and insights report in the Azure Active Directory portal
+# Usage and insights in Azure Active Directory
 
-With the usage and insights report, you can get an application-centric view of your sign-in data. You can find answers to the following questions:
+With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights also includes a report on authentication methods activity. You can find answers to the following questions:
 
 *	What are the top used applications in my organization?
 *	What applications have the most failed sign-ins? 
 *	What are the top sign-in errors for each application?
 
-## Prerequisites 
+This article provides an overview of three reports that look sign-in data. 
 
-To access the data from the usage and insights report, you need:
+## Access Usage & insights 
+
+Accessing the data from Usage and insights requires:
 
 * An Azure AD tenant
 * An Azure AD premium (P1/P2) license to view the sign-in data
-* A user in the global administrator, security administrator, security reader, or report reader roles. In addition, any user (non-admins) can access their own sign-ins. 
+* A user in the Global Administrator, Security Administrator, Security Reader, or Report Reader roles.
 
-## Access the usage and insights report
+To access Usage & insights:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Select the right directory, then select **Azure Active Directory** and choose **Enterprise applications**.
-3. From the **Activity** section, select **Usage & insights** to open the report. 
+1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
+1. Go to **Azure Active Directory** > **Usage & insights**.
 
-![Screenshot shows Usage & insights selected from the Activity section.](./media/concept-usage-insights-report/main-menu.png)
-                                     
+The **Usage & insights** report is also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
-## Use the report
+## View the Usage & insights reports
 
-The usage and insights report shows the list of applications with one or more sign-in attempts, and allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate. The sign-in graph per application only counts interactive user sign-ins.
+There are currently three reports available in Azure AD Usage & insights. All three reports use sign-in data to provide helpful information an application usage and authentication methods.
 
-Clicking **Load more** at the bottom of the list allows you to view additional applications on the page. You can select the date range to view all applications that have been used within the range.
+### Azure AD application activity (preview)
 
-![Screenshot shows Usage & insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
 
-You can also set the focus on a specific application. Select **view sign-in activity** to see the sign-in activity over time for the application as well as the top errors.  
+Select the **View sign in activity** link for an application to view more details. The sign-in graph per application counts interactive user sign-ins. The details of any sign-in failures appears below the table. 
 
-When you select a day in the application usage graph, you get a detailed list of the sign-in activities for the application.  
+![Screenshot shows Usage and insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-insights-overview.png)
 
-:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="Screenshot shows Usage & insights for a specific application where you can see a graph for the sign-in activity.":::
+Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date.
+
+![Screenshot of the sign-in activity details for a selected application.](./media/concept-usage-insights-report/application-activity-sign-in-detail.png)
+
+### AD FS application activity
+
+The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
+
+### Authentication methods activity
+
+The **Authentication methods activity** in Usage & insights displays visualizations of the different authentication methods used by your organization. The **Registration tab** displays statistics of users registered for each of your available authentication methods. Select the **Usage** tab at the top of the page to see actual usage for each authentication method. 
+
+You can also access several other reports and tools related to authentication. 
+
+Are you planning on running a registration campaign to nudge users to sign up for MFA? Use the **Registration campaign** option from the side menu to set up a registration campaign. For more information, see [Nudge users to set up Microsoft Authenticator](../authentication/how-to-mfa-registration-campaign.md).
+
+Looking for the details of a user and their authentication methods? Look at the **User registration details** report from the side menu and search for a name or UPN. The default MFA method and other methods registered are displayed. You can also see if the user is capable of registering for one of the authentication methods.
+
+Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You'll be able to see the method used to attempt to register or reset an authentication method.
 
 ## Next steps
 
-* [Sign-ins report](concept-sign-ins.md)
+- [Learn about the sign-ins report](concept-sign-ins.md)
+- [Learn about Azure AD authentication](../authentication/overview-authentication.md)

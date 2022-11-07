@@ -90,9 +90,9 @@
         href: how-to-forward-alert-information-to-partners.md
     - name: Manage OT alerts from an on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
-  - name: Monitor vulnerabilities and threats
+  - name: Visualize and monitor data
     items:
-    - name: View and create Azure Monitor workbooks
+    - name: Visualize data with workbooks
       href: workbooks.md
     - name: Create OT sensor reports
       items:
