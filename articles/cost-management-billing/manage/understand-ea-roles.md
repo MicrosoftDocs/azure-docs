@@ -16,15 +16,15 @@ ms.custom: contperf-fy21q1
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign six distinct administrative roles:
 
 - Enterprise Administrator
-- Enterprise Administrator (read only)<sup>1</sup>
+- Enterprise Administrator (read only)¹
 - EA purchaser
 - Department Administrator
 - Department Administrator (read only)
-- Account Owner<sup>2</sup>
+- Account Owner²
 
-<sup>1</sup> The Bill-To contact of the EA contract will be under this role.
+¹ The Bill-To contact of the EA contract will be under this role.
 
-<sup>2</sup> The Bill-To contact cannot be added or changed in the Azure EA Portal and will be added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
+² The Bill-To contact cannot be added or changed in the Azure EA Portal and will be added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
 
 The first enrollment administrator that is set up during the enrollment provisioning determines the authentication type of the Bill-to contact account. When the bill-to contact gets added to the EA Portal as a read-only administrator, they are given Microsoft account authentication. 
 
@@ -157,9 +157,9 @@ The following sections describe the limitations and capabilities of each role.
 | EA purchaser assigned to an SPN | Unlimited |
 |Department Administrator|Unlimited|
 |Department Administrator (read only)|Unlimited|
-|Account Owner|1 per account<sup>3</sup>|
+|Account Owner|1 per account³|
 
-<sup>3</sup> Each account requires a unique Microsoft account, or work or school account.
+³ Each account requires a unique Microsoft account, or work or school account.
 
 ## Organization structure and permissions by role
 
@@ -167,18 +167,18 @@ The following sections describe the limitations and capabilities of each role.
 |---|---|---|---|---|---|---|---|
 |View Enterprise Administrators|✔|✔| ✔|✘|✘|✘|✔|
 |Add or remove Enterprise Administrators|✔|✘|✘|✘|✘|✘|✘|
-|View Notification Contacts<sup>4</sup> |✔|✔|✔|✘|✘|✘|✔|
-|Add or remove Notification Contacts<sup>4</sup> |✔|✘|✘|✘|✘|✘|✘|
+|View Notification Contacts⁴ |✔|✔|✔|✘|✘|✘|✔|
+|Add or remove Notification Contacts⁴ |✔|✘|✘|✘|✘|✘|✘|
 |Create and manage Departments |✔|✘|✘|✘|✘|✘|✘|
 |View Department Administrators|✔|✔|✔|✔|✔|✘|✔|
 |Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
-|View Accounts in the enrollment |✔|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
-|Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔<sup>5</sup>|✘|✘|✘|
+|View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
+|Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
 |Purchase reservations|✔|✘|✔|✘|✘|✘|✘|
 |Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✘|✔|✘|
 
-- <sup>4</sup> Notification contacts are sent email communications about the Azure Enterprise Agreement.
-- <sup>5</sup> Task is limited to accounts in your department.
+- ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
+- ⁵ Task is limited to accounts in your department.
 
 ## Add a new enterprise administrator
 
@@ -203,11 +203,11 @@ Direct EA admins can add department admins in the Azure portal. For more informa
 |View department spending quotas|✔|✔|✔|✘|✘|✘|✔|
 |Set department spending quotas|✔|✘|✘|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✔|✘|✘|✘|✔|
-|View usage and cost details|✔|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|View usage and cost details|✔|✔|✔|✔⁶|✔⁶|✔⁷|✔|
 |Manage resources in Azure portal|✘|✘|✘|✘|✘|✔|✘|
 
-- <sup>6</sup> Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
-- <sup>7</sup> Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
+- ⁶ Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
+- ⁷ Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
 
 ## See pricing for different user roles
 
