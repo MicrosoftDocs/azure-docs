@@ -74,7 +74,10 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 ### Create a new Python app
 
-Create a new empty folder using your preferred terminal. Or, you can fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub.
+Create a new empty folder using your preferred terminal and follow the steps below.
+
+> [!NOTE]
+> If you just want the finished code, download or fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub that has the full example. You can also git clone the repo into an Azure Cloud Shell to try out the code.
 
 Change directory to the root of the project folder. Make sure there's a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
@@ -156,7 +159,7 @@ For the steps below, the database won't use sharding and shows a synchronous app
 
     ```python
     load_dotenv()
-    CONNECTION_STRING = os.environ.get('COSMOS_CONNECTION_STRING')
+    CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
     ```
     <!--
         :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
@@ -192,10 +195,10 @@ Check if the database exists with [list_database_names](https://pymongo.readthed
 db = client[DB_NAME]
 if DB_NAME not in client.list_database_names():
     # Database with 400 RU throughput that can be shared across the DB's collections
-    db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
-    print("Created db {} with shared throughput.\n". format(DB_NAME))
+    db.command({"customAction": "CreateDatabase", "offerThroughput": 400})
+    print("Created db '{}' with shared throughput.\n".format(DB_NAME))
 else:
-    print("Using database: {}\n".format(DB_NAME))
+    print("Using database: '{}'.\n".format(DB_NAME))
 ```
 <!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
@@ -210,8 +213,8 @@ Check if the collection exists with the [list_collection_names](https://pymongo.
 collection = db[COLLECTION_NAME]
 if COLLECTION_NAME not in db.list_collection_names():
     # Creates a unsharded collection that uses the DBs shared throughput
-    db.command({'customAction': "CreateCollection", 'collection': COLLECTION_NAME})
-    print("Created collection '{}'.\n". format(COLLECTION_NAME))
+    db.command({"customAction": "CreateCollection", "collection": COLLECTION_NAME})
+    print("Created collection '{}'.\n".format(COLLECTION_NAME))
 else:
     print("Using collection: '{}'.\n".format(COLLECTION_NAME))
 ```
@@ -224,8 +227,17 @@ else:
 Create an index using the [update collection extension command](/azure/cosmos-db/mongodb/custom-commands#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
 
 ```python
-indexes = [{'key': {'_id': 1}, 'name': "_id_1"},{'key': {'name': 2}, 'name': "_id_2"}]
-db.command({'customAction': "UpdateCollection", 'collection': COLLECTION_NAME, 'indexes': indexes})
+indexes = [
+    {"key": {"_id": 1}, "name": "_id_1"},
+    {"key": {"name": 2}, "name": "_id_2"},
+]
+db.command(
+    {
+        "customAction": "UpdateCollection",
+        "collection": COLLECTION_NAME,
+        "indexes": indexes,
+    }
+)
 print("Indexes are: {}\n".format(sorted(collection.index_information())))
 ```
 <!---
@@ -245,15 +257,14 @@ Create a document with the *product* properties for the `adventureworks` databas
 ```python
 """Create new document and upsert (create or replace) to collection"""
 product = {
-    'category': 'gear-surf-surfboards',
-    'name': 'Yamba Surfboard-{}'.format(randint(50, 5000)),
-    'quantity': 1,
-    'sale': False
+    "category": "gear-surf-surfboards",
+    "name": "Yamba Surfboard-{}".format(randint(50, 5000)),
+    "quantity": 1,
+    "sale": False,
 }
 result = collection.update_one(
-    {'name': product['name']},
-    {'$set': product}, 
-    upsert=True)
+    {"name": product["name"]}, {"$set": product}, upsert=True
+)
 print("Upserted document with _id {}\n".format(result.upserted_id))
 ```
 <!---
@@ -281,10 +292,8 @@ After you insert a doc, you can run a query to get all docs that match a specifi
 ```python
 """Query for documents in the collection"""
 print("Products with category 'gear-surf-surfboards':\n")
-allProductsQuery = {
-    "category": "gear-surf-surfboards"
-} 
-for doc in collection.find(allProductsQuery).sort('name', pymongo.ASCENDING):
+allProductsQuery = {"category": "gear-surf-surfboards"}
+for doc in collection.find(allProductsQuery).sort("name", pymongo.ASCENDING):
     print("Found a product with _id {}: {}\n".format(doc["_id"], doc))
 ```
 <!---
