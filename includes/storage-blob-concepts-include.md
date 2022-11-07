@@ -33,7 +33,7 @@ Users or client applications can access objects in Blob Storage via HTTP/HTTPS, 
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
 
-Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) or mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
+Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
 ## About Azure Data Lake Storage Gen2
 

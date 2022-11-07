@@ -73,7 +73,9 @@ Blob Storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby). Clients can securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) or mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
+Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby). 
+
+Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
 For more information about Blob Storage, see [Introduction to Blob Storage](../blobs/storage-blobs-introduction.md).
 
