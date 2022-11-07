@@ -3,7 +3,7 @@ title: Try Azure Cosmos DB free
 description: Try Azure Cosmos DB free of charge. No sign-up or credit card required. It's easy to test your apps, deploy, and run small workloads free for 30 days. Upgrade your account at any time during your trial.
 author: seesharprun
 ms.author: sidandrews
-ms.reviewer: mjbrown
+ms.reviewer: merae
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: overview
