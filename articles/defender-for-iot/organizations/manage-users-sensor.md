@@ -67,6 +67,9 @@ This procedure is available for the *cyberx* and *support* users, and any user w
 
     - **Primary Domain**: The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration.
 
+        Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**
+
+
     - **Active Directory Groups**: Select **+ Add** to add an Active Directory group to each permission level listed, as needed.
 
         When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.

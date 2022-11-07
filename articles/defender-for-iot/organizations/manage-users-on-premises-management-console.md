@@ -259,9 +259,13 @@ For more information, see [Other firewall rules for external services (optional)
 
     - **Primary Domain**: The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration.
 
+        Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**
+
     - **Active Directory Groups**: Select **+ Add** to add an Active Directory group to each permission level listed, as needed. When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.
 
-        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**. On the on-premises management console, add groups as **Trusted Domains** in a separate row from the other Active Directory groups.
+        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.
+
+        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--validate this-->
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
