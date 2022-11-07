@@ -48,24 +48,24 @@ In this quickstart, you'll communicate with the Azure Cosmos DB’s API for Mong
 
 3. Create a virtual environment and install the packages.
 
-#### [Windows](#tab/venv-windows)
-
-```bash
-# py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
-py -3 -m venv .venv
-source .venv/Scripts/activate   
-pip install -r requirements.txt
-```
-
-#### [Linux / macOS](#tab/venv-linux+macos)
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
----
+    #### [Windows](#tab/venv-windows)
+    
+    ```bash
+    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    py -3 -m venv .venv
+    source .venv/Scripts/activate   
+    pip install -r requirements.txt
+    ```
+    
+    #### [Linux / macOS](#tab/venv-linux+macos)
+    
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    ```
+    
+    ---
 
 ## Connect with PyMongo driver to Azure Cosmos DB for MongoDB
 
