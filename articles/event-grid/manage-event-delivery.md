@@ -11,8 +11,6 @@ ms.devlang: azurecli
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 > [!NOTE]
 > To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry](delivery-and-retry.md).
 
@@ -22,9 +20,11 @@ To set a dead letter location, you need a storage account for holding events tha
 
 > [!NOTE]
 > - Create a storage account and a blob container in the storage before running commands in this article.
-> - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
-> - In the above example .../2019/8/8/5/... represents the non-zero padded date and hour (UTC): .../YYYY/MM/DD/HH/...
-> - The dead letter blobs created will contain one or more events in an array. An important behavior to consider when processing dead letters.
+> - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is `My-Blob-Subscription`, names of the dead letter blobs will have `MY-BLOB-SUBSCRIPTION` (`myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json`). This behavior is to protect against differences in case handling between Azure services.
+> - In the above example `.../2019/8/8/5/...` represents the non-zero padded date and hour (UTC): `.../YYYY/MM/DD/HH/...`.`
+> - The dead letter blobs created will contain one or more events in an array, which is an important behavior to consider when processing dead letters.
+
+### Azure portal
 
 
 ### Azure CLI
