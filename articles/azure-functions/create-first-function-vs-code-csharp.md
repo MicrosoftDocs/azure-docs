@@ -15,7 +15,7 @@ adobe-target-content: ./create-first-function-vs-code-csharp-ieux
 
 In this article, you use Visual Studio Code to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. This article creates an HTTP triggered function that runs on .NET 6.0. There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET, such as .NET 6. To create C# functions on .NET 6 that can also run on [other supported versions](functions-versions.md) for Azure functions [in an isolated process](dotnet-isolated-process-guide.md). 
+By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET, such as .NET 6. To create C# functions on .NET 6 that can also run on [other supported versions](functions-versions.md) for Azure functions [in an isolated worker process](dotnet-isolated-process-guide.md). 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

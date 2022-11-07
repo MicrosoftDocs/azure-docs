@@ -9,7 +9,7 @@ ms.author: glenga
 > When using custom containers, you are required to keep the base image of your container updated to the latest supported base image. Supported base images for Azure Functions are language-specific and are found in Azure Functions base image repos, by language: 
 >
 > + [C# in-process](https://hub.docker.com/_/microsoft-azure-functions-base).
-> + [C# isolated process](https://hub.docker.com/_/microsoft-azure-functions-dotnet-isolated)
+> + [C# isolated worker process](https://hub.docker.com/_/microsoft-azure-functions-dotnet-isolated)
 > + [Java](https://hub.docker.com/_/microsoft-azure-functions-java)
 > + [JavaScript/TypeScript](https://hub.docker.com/_/microsoft-azure-functions-node) 
 > + [PowerShell](https://hub.docker.com/_/microsoft-azure-functions-powershell)
