@@ -28,7 +28,7 @@ ms.author: mbullwin
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
     
-## Setting up
+## Set up
 
 ### Create a new Gradle project
 
@@ -72,7 +72,7 @@ Navigate to the new folder and create a file called *MetricsAdvisorQuickstarts.j
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples), which contains the code examples in this quickstart.
 
 
-## Creating environment variables
+## Environment variables
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
@@ -157,7 +157,7 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
-### Creating your java application
+## Create your application
 
 Replace the contents of your .java file with the following:
 

@@ -143,7 +143,7 @@ To let you try out this scenario, the following steps show you how to deploy the
 
 To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine has the IoT Edge 1.1 runtime installed and is the transparent IoT Edge gateway. The other virtual machine is a downstream device where you run code to send simulated thermostat telemetry:
 
-[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway-1-1%2FDeployGatewayVMs.json)
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmain%2Ftransparent-gateway-1-1%2FDeployGatewayVMs.json)
 
 When the two virtual machines are deployed and running, verify the IoT Edge gateway device is running on the `edgegateway` virtual machine:
 
@@ -160,7 +160,7 @@ When the two virtual machines are deployed and running, verify the IoT Edge gate
 
 To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine has the IoT Edge 1.2 runtime installed and is the transparent IoT Edge gateway. The other virtual machine is a downstream device where you run code to send simulated thermostat telemetry:
 
-[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway-1-2%2FDeployGatewayVMs.json)
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmain%2Ftransparent-gateway-1-2%2FDeployGatewayVMs.json)
 
 When the two virtual machines are deployed and running, verify the IoT Edge gateway device is running on the `edgegateway` virtual machine:
 

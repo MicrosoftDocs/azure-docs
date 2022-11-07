@@ -162,7 +162,7 @@ To create a simulated gateway device:
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **Yes**. Select **Create**.
 
-To create a simulated downstream device:
+To create simulated downstream devices:
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates.
 
@@ -328,4 +328,4 @@ In this tutorial, you learned how to:
 Next you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/)
+> [Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
