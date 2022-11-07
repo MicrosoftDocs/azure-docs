@@ -32,7 +32,7 @@
     - name: Build web applications
       items:
         - name: .NET
-          href: tutorial-dotnet-console-app.md
+          href: tutorial-dotnet-web-app.md
         - name: Java
           href: tutorial-java-web-app.md
         - name: Node.js
@@ -40,7 +40,7 @@
     - name: Build console applications
       items:
         - name: .NET
-          href: tutorial-dotnet-web-app.md
+          href: tutorial-dotnet-console-app.md
         - name: Java
           href: quickstart-java.md?tabs=sync
         - name: Async Java
