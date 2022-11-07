@@ -230,7 +230,7 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ---
 
-## Delete search a job table
+## Delete a search job table
 We recommend you [delete the search job table](../logs/create-custom-table.md#delete-a-table) when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
 
 ## Limitations
