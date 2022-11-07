@@ -436,8 +436,10 @@
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
-      - name: Configure Microsoft Sentinel Solution for SAP
+      - name: Configure the solution
         href: sap/deployment-solution-configuration.md
+      - name: Update the connector
+        href: sap/update-sap-data-connector.md      
       - name: Disable the connector
         displayName: disable, stop ingestion, stop
         href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector

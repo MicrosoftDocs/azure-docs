@@ -114,12 +114,6 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Restoring a deleted server isn't supported.
 - Cross region restore isn't supported.
 
-### Other features
-
-* Azure AD authentication isn't yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require Azure AD authentication.
-* Read replicas aren't yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require read replicas.
-* Moving resources to another subscription isn't supported. 
-
 
 ## Next steps
 

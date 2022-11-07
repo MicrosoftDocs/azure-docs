@@ -17,6 +17,27 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 :::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagram of Azure VMware Solution private cloud adjacency to Azure and on-premises." border="false":::
 
+## AV36P and AV52 node sizes generally available in Azure VMware Solution
+
+ The new node sizes in will increase memory and storage options to optimize your workloads. These gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of these new nodes allows large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.
+
+**AV36P key highlights for Memory and Storage optimized Workloads:**
+
+- Runs on Intel® Xeon® Gold 6240 Processor with 36 Cores and a Base Frequency of 2.6Ghz and Turbo of 3.9Ghz.
+- 768 GB of DRAM Memory
+- 19.2 TB Storage Capacity with all NVMe based SSDs (With Random Read of 636500 IOPS and Random Write of 223300 IOPS)
+- 1.5TB of NVMe Cache
+
+**AV52 key highlights for Memory and Storage optimized Workloads:**
+
+- Runs on Intel® Xeon® Platinum 8270 with 52 Cores and a Base
+Frequency of 2.7Ghz and Turbo of 4.0Ghz.
+- 1.5 TB of DRAM Memory
+- 38.4TB storage capacity with all NVMe based SSDs (With Random Read of 636500 IOPS and Random Write of 223300 IOPS)
+- 1.5TB of NVMe Cache
+
+For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+
 ## Hosts, clusters, and private clouds
 
 [!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
