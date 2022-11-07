@@ -140,7 +140,7 @@ To delete a table from the Azure portal:
     
     :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
 
-1. Select the tabls you want to delete, select the ellipsis (**...**) to the right of the table, select **Delete**, and confirm the deletion by typing **yes**.
+1. Select the table you want to delete, select the ellipsis (**...**) to the right of the table, select **Delete**, and confirm the deletion by typing **yes**.
 
     :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
     
