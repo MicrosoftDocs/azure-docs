@@ -120,7 +120,7 @@ You can remove the access permission for a user who isn't managing the Azure loa
 
 ### Configure Azure RBAC using PowerShell
 
-You can also configure role-based access to an load testing resource using the following [Azure PowerShell cmdlets](/azure/role-based-access-control/role-assignments-powershell):
+You can also configure role-based access to a load testing resource using the following [Azure PowerShell cmdlets](/azure/role-based-access-control/role-assignments-powershell):
 
 * [Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Azure Active Directory. You can use this cmdlet with the Name parameter to list all the actions that a specific role can perform.
 
