@@ -42,8 +42,9 @@ var client = new CallAutomationClient("<resource_connection_string>");
 ```
 
 ## Make an outbound call 
-You can place a 1:1 or group call to a communication user or phone number (public or Communication Services owned number). Below sample makes an outbound call from your service application to a Communication Services user. 
-callerIdentifier is used by Call Automation as your application's identity when making an outbound a call. When calling a PSTN endpoint, you also need to provide a phone number that will be used as the source caller ID and shown in the call notification to the target PSTN endpoint.  
+You can place a 1:1 or group call to a communication user or phone number (public or Communication Services owned number). Below sample makes an outbound call from your service application to a phone number. 
+callerIdentifier is used by Call Automation as your application's identity when making an outbound a call. When calling a PSTN endpoint, you also need to provide a phone number that will be used as the source caller ID and shown in the call notification to the target PSTN endpoint. 
+To place a call to a Communication Services user, you will need to provide a CommunicationUserIdentifier object instead of PhoneNumberIdentifier.  
 ### [csharp](#tab/csharp)
 ```csharp
 Uri callBackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
@@ -65,33 +66,13 @@ CreateCallOptions createCallOptions = new CreateCallOptions(callerIdentifier, ta
         .setSourceCallerId("+18001234567"); // This is the ACS provisioned phone number for the caller  
 Response<CreateCallResult> response = client.createCallWithResponse(createCallOptions).block(); 
 ```
-### [csharp](#tab/csharp)
-```csharp
-Uri callBackUri = new Uri("https://<myendpoint>/Events"); 
-var callerIdentifier = new CommunicationUserIdentifier("8:calleridentity-can-be-provisioned-from-azure-portal");  
-CallSource callsource = new CallSource(callerIdentifier); 
-var callThisPerson = new CommunicationUserIdentifier("8:a1b1c1-...."); 
-var listOfPersonToBeCalled = new List<CommunicationIdentifier>();  
-listOfPersonToBeCalled.Add(callThisPerson); 
-var createCallOptions = new CreateCallOptions(callsource, listOfPersonToBeCalled, callBackUri); 
-CreateCallResult response = await client.CreateCallAsync(createCallOptions); 
-```
-### [Java](#tab/java)
-
-```java
-String callbackUri = "https://<myendpoint>/Events"; 
-List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(new CommunicationUserIdentifier("8:acs:123...."))); 
-CommunicationUserIdentifier caller = new CommunicationUserIdentifier("8:calleridentity-can-be-provisioned-from-azure-portal"); 
-CreateCallOptions createCallOptions = new CreateCallOptions(caller, targets, callbackUri); 
-Response<CreateCallResult> response = client.createCallWithResponse(createCallOptions).block(); 
-```
 The response provides you with CallConnection object that you can use to take further actions on this call once it's connected. Once the call is answered, two events will be published to the callback endpoint you provided earlier:
 1. `CallConnected` event notifying that the call has been established with the callee. 
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 ![Sequence diagram for answering an incoming call](media/make-call-flow.png)
 
 
-## Answer an incoming call 
+## Answer an incoming call
 Once you've subscribed to receive [incoming call notifications](../../concepts/voice-video-calling/incoming-call-notification.md) to your resource, below is sample code on how to answer that call. When answering a call, it's necessary to provide a callback url. Communication Services will post all subsequent events about this call to that url.  
 ### [csharp](#tab/csharp)
 
