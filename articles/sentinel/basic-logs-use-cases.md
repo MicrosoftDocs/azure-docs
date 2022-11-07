@@ -61,5 +61,5 @@ A new and growing source of log data is Internet of Things (IoT) connected devic
 
 ## Next steps
 
-- [Set a table's log data plan in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+- [Set a table's log data plan in Azure Monitor Logs](../azure-monitor/logs/basic-logs-configure.md)
 - [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)
