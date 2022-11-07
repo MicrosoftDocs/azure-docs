@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > * [.NET](samples-dotnet.md)
 >
 
-The [cosmos-db-sql-api-dotnet-samples](https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
+The [cosmos-db-nosql-dotnet-samples](https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
 
 ## Prerequisites
 
