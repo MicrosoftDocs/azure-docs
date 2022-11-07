@@ -189,7 +189,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Either `Analytics` or `Basic`. |
-|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is 8 days, fixed. In `Analytics Logs`, the value is between 7 and 730 days.|
+|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is eight days, fixed. In `Analytics Logs`, the value is between 7 and 730 days.|
 |properties.totalRetentionInDays | integer  | The table's data retention that also includes the archive period.|
 |properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
 |properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
