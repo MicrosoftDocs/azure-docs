@@ -98,7 +98,9 @@ Set-AzApplicationGateway -ApplicationGateway $AppGw
 https://learn.microsoft.com/en-us/powershell/module/az.network/set-azapplicationgatewayclientauthconfiguration?view=azps-9.0.1
 
 # [Azure CLI](#tab/cli)
-Azure CLI support is currently not available.
+```azurecli
+# Update existing gateway's SSL Profile
+az network application-gateway update -n ApplicationGateway01 -g ResourceGroup01 --ssl-profiles [0].client-auth-configuration.verify-client-revocation=OCSP
 
 # [Azure Portal](#tab/portal)
 Azure portal support is currently not available.
