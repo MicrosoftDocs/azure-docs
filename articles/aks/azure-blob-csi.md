@@ -198,5 +198,5 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
 [csi-storage-driver-overview]: csi-storage-drivers.md
-[azure-disk-csi-driver]: azure-disk-csi-md
+[azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
