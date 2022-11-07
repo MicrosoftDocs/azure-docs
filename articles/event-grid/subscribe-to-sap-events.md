@@ -11,17 +11,6 @@ This article describes steps to subscribe to events published by a SAP S/4HANA s
 > [!NOTE]
 > See the [New SAP events on Azure Event Grid](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372) for an announcement of this feature.
 
-## High-level steps
-
-The common steps to subscribe to events published by any partner, including SAP, are described in [subscribe to partner events](subscribe-to-partner-events.md). For your quick reference, the steps are provided again here with the addition of a step to make sure that your SAP system has the required components. This article deals with steps 1 and 3.
-
-1. [Ensure you meet all prerequisites](#prerequisites).
-1. Register the Event Grid resource provider with your Azure subscription.
-1. Authorize partner to create a partner topic in your resource group.
-1. [Enable SAP S/4HANA events to flow to a partner topic](#enable-events-to-flow-to-your-partner-topic).
-1. Activate partner topic so that your events start flowing to your partner topic.
-1. Subscribe to events.
-
 ## Prerequisites
 
 Following are the prerequisites that your system needs to meet before attempting to configure your SAP system to send events to Azure Event Grid.
