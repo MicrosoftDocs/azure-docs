@@ -5,13 +5,13 @@ ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
-# Onboard sensors to Defender for IoT in the Azure portal
+# Onboard OT sensors to Defender for IoT
 
 This article describes how to onboard sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 ## Purchase sensors or download software for sensors
 
-This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances. 
+This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances.
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Sensor**.
 
@@ -73,9 +73,6 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-## Onboard Enterprise IoT sensors
-
-For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
 ## Next steps
 

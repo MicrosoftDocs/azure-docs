@@ -13,7 +13,7 @@ As you plan your Microsoft Defender for IoT deployment, you typically want to un
 
 If you would like to evaluate Defender for IoT, you can use a trial commitment.
 
-The trial is valid for 30 days and supports 1,000 *committed devices*, which are the approximate number of devices that will be monitored in your enterprise.
+The trial is valid for 30 days and supports 1,000 [committed devices](#defender-for-iot-committed-devices), which are the number of devices you want to monitor in your network.
 
 - **For OT networks**, use a trial to deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more.
 
