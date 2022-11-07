@@ -68,9 +68,6 @@ Before you begin, make sure that:
 
     ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
     
-    > [!NOTE]
-    > Do not format or modify the contents or existing file structure of the disk.
-
 2. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
 
     ![Data Box Disk unlock passkey](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
@@ -79,7 +76,7 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 
 ## Unlock disks on Windows client
 
-Perform the following steps to connect and unlock your disks.
+Perform the following steps to connect and unlock your disks. Do not format or modify the contents or existing file structure of the disk.
 
 1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
 2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
@@ -141,6 +138,8 @@ Perform the following steps to connect and unlock your disks.
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
 
 ## Unlock disks on Linux client
+
+Perform the following steps to connect and unlock your disks. Do not format or modify the contents or existing file structure of the disk.
 
 1. In the Azure portal, go to **General > Device details**.
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
