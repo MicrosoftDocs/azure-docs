@@ -81,7 +81,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | ------------ | --------- |
     | groups | user.groups [All] |
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, select copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![Screenshot shows the Certificate download link](common/copy-metadataurl.png "Certificate")
 
