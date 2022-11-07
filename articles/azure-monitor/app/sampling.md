@@ -181,16 +181,26 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 The default sampling feature can be disabled while adding Application Insights service, in the method `ConfigureServices`, using `ApplicationInsightsServiceOptions` within the `Startup.cs` file:
 
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+builder.Services.AddApplicationInsightsTelemetry(aiOptions);
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    // ...
-
     var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
     aiOptions.EnableAdaptiveSampling = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
-
-    //...
 }
 ```
 
@@ -202,6 +212,16 @@ Use extension methods of `TelemetryProcessorChainBuilder` as shown below to cust
 
 > [!IMPORTANT]
 > If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](../logs/daily-cap.md) to help control your costs.
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+
+// to be added
+
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -265,7 +285,17 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
       Alternatively, instead of setting the sampling parameter in the `ApplicationInsights.config` file, you can programmatically set these values:
-
+      
+    ### [ASP.NET Core 6.0](#tab/netcore6)
+    
+    ```csharp
+    
+    // to be added
+    
+    ```
+    
+    ### [ASP.NET Core 3.1](#tab/netcore3)
+    
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
@@ -290,6 +320,16 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 1. **Disable adaptive sampling**:  Changes can be made in the `ConfigureServices` method, using `ApplicationInsightsServiceOptions`:
 
+    ### [ASP.NET Core 6.0](#tab/netcore6)
+    
+    ```csharp
+    
+    // to be added
+    
+    ```
+
+    ### [ASP.NET Core 3.1](#tab/netcore3)
+
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -304,6 +344,16 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the `Configure` method as shown in the below snippet:
+
+    ### [ASP.NET Core 6.0](#tab/netcore6)
+    
+    ```csharp
+    
+    // to be added
+    
+    ```
+
+    ### [ASP.NET Core 3.1](#tab/netcore3)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
