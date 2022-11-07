@@ -14,7 +14,7 @@ ms.author: lwainstein
 
 Microsoft Sentinel's new Logstash output plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Microsoft Sentinel. 
 
-In this article, you learn how to set up the new Logstash plugin to stream the data into Microsoft Sentinel using DCRs, with full control over the output schema. 
+In this article, you learn how to set up the new Logstash plugin to stream the data into Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
 
 > [!NOTE]
 > A [previous version of the Logstash plugin](connect-logstash.md) allows you to connect data sources through Logstash via the Data Collection API. 
@@ -28,21 +28,11 @@ Ingestion into standard tables is limited only to [standard tables supported for
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
-**To set up the plugin, follow these steps**:
-
-1. [Install the plugin](#install-the-plugin)
-1. [Create a sample file](#create-a-sample-file) 
-1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
-1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
-1. Restart Logstash
-1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
-1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
-
 ## Overview
 
 ### Architecture and background
 
-:::image type="content" source="./media/connect-logstash-dcr/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false":::
+:::image type="content" source="./media/connect-logstash-dcr/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false" lightbox="./media/connect-logstash-dcr/logstash-dcr-architecture.png":::
 
 The Logstash engine is comprised of three components:
 
@@ -51,7 +41,7 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named *[microsoft-sentinel-logstash-output-plugin]*(https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin), v1.0.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)**, v1.0.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
@@ -63,6 +53,17 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 - Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md). 
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
+
+**To set up the plugin, follow these steps**:
+
+1. Review the [prerequisites](#prerequisites)
+1. [Install the plugin](#install-the-plugin)
+1. [Create a sample file](#create-a-sample-file) 
+1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
+1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
+1. [Restart Logstash](#restart-logstash)
+1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
+1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 
 ### Prerequisites
 
@@ -80,7 +81,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 The Microsoft Sentinel output plugin is available in the Logstash collection.
 
-- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the ***[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** plugin.   
+- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)** plugin.   
 - If your Logstash system does not have Internet access, follow the instructions in the Logstash [Offline Plugin Management](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) document to prepare and use an offline plugin pack. (This will require you to build another Logstash system with Internet access.)
  
 ### Create a sample file
@@ -194,7 +195,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
         
     ```
     The plugin automatically adds these properties to every record:  
-    - `ls_timestamp`: The time when the record is received from the input plugin and "
+    - `ls_timestamp`: The time when the record is received from the input plugin
     - `ls_version`: The Logstash pipeline version.
         
     You can remove these fields when you [create the DCR](#create-the-required-dcr-resources).
@@ -219,8 +220,7 @@ To ingest the data to a custom table, follow these steps (based on the [Send dat
 1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
 1. [Assign permissions to DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-dcr).
 
-> [!NOTE]
-> Skip the Send sample data step.
+    Skip the Send sample data step.
 
 If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#troubleshooting).
 
@@ -231,8 +231,9 @@ To ingest the data to a standard table like Syslog or CommonSecurityLog, you use
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-api.md#prerequisites).
 1. [Collect workspace details](../azure-monitor/logs/tutorial-logs-ingestion-api.md#collect-workspace-details).
 1. [Configure an application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#configure-an-application). 
-    > [!NOTE]
-    > Skip the Create new table in Log Analytics workspace step. This step is not relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
+    
+    Skip the Create new table in Log Analytics workspace step. This step isn't relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
+
 1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-a-data-collection-endpoint).
 1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-a-data-collection-rule). In this step: 
     - Provide [the sample file you created in the previous section](#create-a-sample-file). 
@@ -241,8 +242,7 @@ To ingest the data to a standard table like Syslog or CommonSecurityLog, you use
     - The prefix of the table name should be `Microsoft-` instead of `Custom-`. In our example, the `outputStream` property value is `Microsoft-Syslog`.  
 1. [Assign permissions to a DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
 
-> [!NOTE]
-> Skip the Send sample data step.
+    Skip the Send sample data step.
 
 If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-api.md#troubleshooting).
 
@@ -276,16 +276,12 @@ Note that:
 				"description": "Specifies the location in which to create the Data Collection Rule."
 			}
 		},
-        "location": { 
-
+        "location": {
             "defaultValue": "[resourceGroup().location]", 
             "type": "String", 
-            "metadata": { 
-
+            "metadata": {
                 "description": "Specifies the location in which to create the Data Collection Rule." 
-
             } 
-
         },
 		"workspaceResourceId": {
 			"type": "String",
@@ -391,6 +387,15 @@ After you retrieve the required values:
 1. Replace the output section of the [Logstash configuration file](#create-a-sample-file) you created in the previous step with the example below. 
 1. Replace the placeholder strings in the [example](#example-output-plugin-configuration-section) below with the values you retrieved. 
 1. Make sure you change the `create_sample_file` attribute to `false`. 
+
+#### Optional configuration
+
+|Field  |How to retrieve  |Default value |
+|---------|---------|---------|
+|`key_names` |An array of strings. Provide this field if you want to send a subset of the columns to Log Analytics. |None (field is empty) |
+|`plugin_flush_interval` |Defines the maximal time difference (in seconds) between sending two messages to Log Analytics.  |`5` |
+|`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
+|`compress_data` |When this field is `True`, the event data is compressed before using the API. Recommended for high throughput pipelines. |`False` |
 
 #### Example: Output plugin configuration section
 
