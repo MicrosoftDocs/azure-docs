@@ -153,8 +153,8 @@ sections:
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
           ```
-
-          To select other labels with your Spring profile(s), you can put up to 5 labels in a single select including all Spring profiles. For example `',${spring.profiles.active}'` will select all keys without a label and the ones matching your Spring profiles. The right most label(s) take priority when duplicate keys are found.
+          
+          To select other labels with your Spring profile(s), you can put up to 5 labels in a single select, including all Spring profiles. For example, `',${spring.profiles.active}'` will select all keys without a label and the ones matching your Spring profiles. The rightmost label(s) take priority when duplicate keys are found.
 
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
