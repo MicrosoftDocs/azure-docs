@@ -10,10 +10,10 @@ ms.date: 09/10/2022
 
 # Set a table's log data plan in Azure Monitor Logs
 
-Setting a table's log data plan to **Basic Logs** lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
+Setting a table's log data plan to **Basic Logs** lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. This article describes how to configure the log data plan of a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
-> You can switch a table's plan once a week. The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> You can switch a table's plan once a week.<br/> The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Compare the Basic and Analytics log data plans 
 
