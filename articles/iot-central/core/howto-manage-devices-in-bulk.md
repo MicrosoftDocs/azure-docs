@@ -30,9 +30,9 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
-1. Choose **Cloud property**, **Property**, **Command**, or **Change device template** as the **Job type**:
+1. Choose **Cloud property**, **Property**, **Command**, **Change device template**, or **Change edge deployment manifest** as the **Job type**:
 
-    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group.
+    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group. To configure a **Change edge deployment manifest** job, select the IoT Edge deployment manifest to assign to the IoT Edge devices in the device group.
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
@@ -192,7 +192,6 @@ If the device import operation fails, you see an error message on the **Device O
 If your devices use SAS tokens to authenticate, [export a CSV file from your IoT Central application](#export-devices). The exported CSV file includes the device IDs and the SAS keys.
 
 If your devices use X.509 certificates to authenticate, generate X.509 leaf certificates for your devices using the root or intermediate certificate in your X.509 enrollment group. Use the device IDs you imported as the `CNAME` value in the leaf certificates.
-
 
 ## Export devices
 
