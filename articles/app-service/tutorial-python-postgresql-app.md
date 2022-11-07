@@ -325,7 +325,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 4.** Back in the App Service page, in the left menu, select **Development Tools**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
@@ -347,7 +347,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 4.** Back in the App Service page, in the left menu, select **Development Tools**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
