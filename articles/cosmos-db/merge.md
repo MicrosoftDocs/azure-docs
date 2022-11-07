@@ -43,7 +43,7 @@ Containers that meet both of these conditions are likely to benefit from merging
 Condition 1 often occurs when you've previously scaled up the RU/s (often for a data ingestion) and now want to scale down in steady state.
 Condition 2 often occurs when you delete/TTL a large volume of data, leaving unused partitions.
 
-#### Criteria 1
+#### Condition 1
 
 To determine the current RU/s per physical partition, from your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Throughput** and filter to your database and container. Apply splitting by **PhysicalPartitionId**.
 
@@ -53,7 +53,7 @@ In the below example, we have an autoscale container provisioned with 5000 RU/s 
 
 :::image type="content" source="media/merge/RU-per-physical-partition-metric.png" alt-text="Screenshot of Azure Monitor metric Physical Partition Throughput in Azure portal.":::
 
-#### Criteria 2
+#### Condition 2
 
 To determine the current average storage per physical partition, first find the overall storage (data + index) of the container.
 
@@ -61,11 +61,11 @@ Navigate to **Insights** > **Storage** > **Data & Index Usage**. The total stora
 
 :::image type="content" source="media/merge/storage-per-container.png" alt-text="Screenshot of Azure Monitor storage (data + index) metric for container in Azure portal.":::
 
-Next, find the total number of physical partitions. This metric is the distinct number of **PhysicalPartitionIds** in the **PhysicalPartitionThroughput** chart we saw in Criteria 1. In our example, we have five physical partitions.
+Next, find the total number of physical partitions. This metric is the distinct number of **PhysicalPartitionIds** in the **PhysicalPartitionThroughput** chart we saw in Condition 1. In our example, we have five physical partitions.
 
 Finally, calculate: Total storage in GB / number of physical partitions. In our example, we have an average of (74 GB / five physical partitions) = 14.8 GB per physical partition.
 
-Based on criteria 1 and 2, our container can potentially benefit from merging partitions.
+Based on conditions 1 and 2, our container can potentially benefit from merging partitions.
 
 ### Merging physical partitions
 
