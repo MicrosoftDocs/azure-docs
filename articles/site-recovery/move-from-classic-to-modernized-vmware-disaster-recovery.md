@@ -120,14 +120,8 @@ Site Recovery will start charging license fee on replicated items in the moderni
 
 Ultimately, the classic architecture will be deprecated, so one must ensure that they are using the latest modernized architecture. The table below shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
 
-<<<<<<< HEAD
-
-|Classic architecture | Modernized architecture [New] |
-|---------|---------| 
-=======
 |Classic architecture| Modernized architecture [New]|
 |---------------------|-----------------------------|
->>>>>>> f72135341a044bd0ef378dec3cab90b360e4f3f5
 |Multiple setups required for discovering on-premises data.|**Central discovery** of on-premises data center using discovery service.| 
 |Extensive number of steps required for initial onboarding.|**Simplified the onboarding experience** by automating artifact creation and introduced defaults to reduce required inputs.|  
 |Utilizes a manually downloaded file to obtain cloud context.|**Introduced replication key** for obtaining cloud context when setting up the appliance.|
