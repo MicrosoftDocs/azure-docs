@@ -79,9 +79,9 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template: 
+1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template:
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition" lightbox="media/tutorial-create-telemetry-rules/device-filters.png":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition." lightbox="media/tutorial-create-telemetry-rules/device-filters.png":::
 
     To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button.
 
@@ -93,7 +93,7 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
 1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**:
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out" lightbox="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out." lightbox="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png":::
 
     Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
@@ -113,7 +113,7 @@ After you define the condition, you set up the actions to take when the rule fir
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule" lightbox="media/tutorial-create-telemetry-rules/configure-action.png":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule." lightbox="media/tutorial-create-telemetry-rules/configure-action.png":::
 
 1. To save the action, choose **Done**. You can add multiple actions to a rule.
 
@@ -121,7 +121,7 @@ After you define the condition, you set up the actions to take when the rule fir
 
 After a while, you receive an email message when the rule fires:
 
-:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email" lightbox="media/tutorial-create-telemetry-rules/email.png":::
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email." lightbox="media/tutorial-create-telemetry-rules/email.png":::
 
 ## Delete a rule
 

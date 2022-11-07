@@ -14,11 +14,11 @@ As an operator in your Azure IoT Central application, you can:
 
 * View the telemetry sent by the two thermostat components on the **Overview** page:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/view-telemetry.png" alt-text="View device telemetry" lightbox="media/iot-central-monitor-thermostat/view-telemetry.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/view-telemetry.png" alt-text="Screenshot that shows the device overview page." lightbox="media/iot-central-monitor-thermostat/view-telemetry.png":::
 
 * View the device properties on the **About** page. This page shows the properties from the device information component and the two thermostat components:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="View device properties" lightbox="media/iot-central-monitor-thermostat/about-properties.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="Screenshot that dows the device properties view." lightbox="media/iot-central-monitor-thermostat/about-properties.png":::
 
 ## Customize the device template
 
@@ -62,7 +62,7 @@ The thermostat components in the **Temperature Controller** model include the **
 
 1. Save your changes.
 
-:::image type="content" source="media/iot-central-monitor-thermostat/properties-view.png" alt-text="View for updating property values" lightbox="media/iot-central-monitor-thermostat/properties-view.png":::
+:::image type="content" source="media/iot-central-monitor-thermostat/properties-view.png" alt-text="Screenshot that shows a view for updating property values." lightbox="media/iot-central-monitor-thermostat/properties-view.png":::
 
 ## Publish the device template
 
@@ -74,10 +74,10 @@ An operator can now use the **Properties** view to update the property values, a
 
 * Update writable property values on the **Properties** page:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Update the device properties" lightbox="media/iot-central-monitor-thermostat/update-properties.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Screenshot that shows updating the device properties." lightbox="media/iot-central-monitor-thermostat/update-properties.png":::
 
 * Call the commands from the **Commands** page. If you run the status report command, select a date and time for the **Since** parameter before you run it:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Call the command" lightbox="media/iot-central-monitor-thermostat/call-command.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Screenshot that shows calling a command." lightbox="media/iot-central-monitor-thermostat/call-command.png":::
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="View the command response" lightbox="media/iot-central-monitor-thermostat/command-response.png":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="Screenshot tha shows a command response." lightbox="media/iot-central-monitor-thermostat/command-response.png":::

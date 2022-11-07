@@ -68,11 +68,11 @@ Now publish the device template.
 
 Before you create a device group, add at least five simulated devices based on the **Sensor Controller** device template to use in this tutorial:
 
-:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices" lightbox="media/tutorial-use-device-groups/simulated-devices.png":::
+:::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices." lightbox="media/tutorial-use-device-groups/simulated-devices.png":::
 
 For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso* and select **Save**.
 
-:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property" lightbox="media/tutorial-use-device-groups/customer-name.png":::
+:::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property." lightbox="media/tutorial-use-device-groups/customer-name.png":::
 
 ## Create a device group
 
@@ -92,7 +92,7 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 1. Choose **Save**.
 
-:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Screenshot that shows the device group query configuration" lightbox="media/tutorial-use-device-groups/device-group-query.png":::
+:::image type="content" source="media/tutorial-use-device-groups/device-group-query.png" alt-text="Screenshot that shows the device group query configuration." lightbox="media/tutorial-use-device-groups/device-group-query.png":::
 
 > [!NOTE]
 > For Azure IoT Edge devices, select Azure IoT Edge templates to create a device group.
@@ -113,7 +113,7 @@ To analyze the telemetry for a device group:
 
     You can customize the view, change the time period shown, and export the data as CSV or view data as table.
 
-    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices" lightbox="media/tutorial-use-device-groups/export-data.png":::
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices." lightbox="media/tutorial-use-device-groups/export-data.png":::
 
 To learn more about analytics, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 

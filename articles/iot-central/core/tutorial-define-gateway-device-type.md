@@ -17,7 +17,7 @@ This tutorial shows you how to use a gateway device template to define a gateway
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
-![Diagram of relationship between gateway device and downstream devices](./media/tutorial-define-gateway-device-type/gatewaypattern.png)
+:::image type="content" source="media/tutorial-define-gateway-device-type/gatewaypattern.png" alt-text="Diagram that shows the relationship between a gateway device and its downstream devices." border="false":::
 
 As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
 
