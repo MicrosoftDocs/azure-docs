@@ -53,14 +53,14 @@ A Load Test Owner can manage everything, including access. The following table s
 | Actions | Description |
 | ------- | ----------- |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments. | 
+| Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules. |
 | Microsoft.Authorization/*/read | Read authorization. |
 | Microsoft.LoadTestService/* | Create and manage load testing resources. |
-| Microsoft.LoadTestService/loadtests/startTest | Start load tests. |
-| Microsoft.LoadTestService/loadtests/stopTest | Stop load tests. |
-| Microsoft.LoadTestService/loadtests/writeTest | Create or update load tests. |
-| Microsoft.LoadTestService/loadtests/deleteTest | Delete load tests. |
-| Microsoft.LoadTestService/loadtests/readTest | Read load tests. |
+
+| DataActions | Description |
+| ------- | ----------- |
+| Microsoft.LoadTestService/loadtests/* | Start, stop, and manage load tests. |
 
 ### Load Test Contributor
 
@@ -69,14 +69,14 @@ A Load Test Contributor can manage everything except access. The following table
 | Actions | Description |
 | ------- | ----------- |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments. | 
+| Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules. |
 | Microsoft.Authorization/*/read | Read authorization. |
 | Microsoft.LoadTestService/*/read | Create and manage load testing resources. |
-| Microsoft.LoadTestService/loadtests/startTest | Start load tests. |
-| Microsoft.LoadTestService/loadtests/stopTest | Stop load tests. |
-| Microsoft.LoadTestService/loadtests/writeTest | Create or update load tests. |
-| Microsoft.LoadTestService/loadtests/deleteTest | Delete load tests. |
-| Microsoft.LoadTestService/loadtests/readTest | Read load tests. |
+
+| DataActions | Description |
+| ------- | ----------- |
+| Microsoft.LoadTestService/loadtests/* | Start, stop, and manage load tests. |
 
 ### Load Test Reader
 
@@ -85,10 +85,14 @@ A Load Test Reader can view all the resources in a load testing resource but can
 | Actions | Description |
 | ------- | ----------- |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments. | 
+| Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules. |
 | Microsoft.Authorization/*/read | Read authorization. |
 | Microsoft.LoadTestService/*/read | Create and manage load testing resources. |
-| Microsoft.LoadTestService/loadtests/readTest | Read load tests. |
+
+| DataActions | Description |
+| ------- | ----------- |
+| Microsoft.LoadTestService/loadtests/readTest/action | Read load tests. |
 
 ## Configure Azure RBAC for your load testing resource
 
