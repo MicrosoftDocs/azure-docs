@@ -145,7 +145,17 @@ sections:
           Yes. While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
 
           Evaluating and consuming feature flags in your application requires the App Configuration provider and feature management libraries, which are available in .NET and Java Spring. Check out the _Feature management_ section under _Quickstarts_ and _Tutorials_ for more information.
-          
+
+      - question: How to support profiles in Spring applications?
+        answer: |
+          Your Spring profile(s) are the default value of your selected keys. This can be overridden by setting a label in your bootstrap failed.
+
+          ```yaml
+          spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
+          ```
+
+          To select other labels with your Spring profile(s), you can put up to 5 labels in a single select including all Spring profiles. For example `',${spring.profiles.active}'` will select all keys without a label and the ones matching your Spring profiles. The right most label(s) take priority when duplicate keys are found.
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
