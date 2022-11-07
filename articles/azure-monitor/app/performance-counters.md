@@ -62,7 +62,7 @@ If the performance counter you want isn't included in the list of metrics, you c
 
     For more information, see [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter).
 
-1. Open ApplicationInsights.config.
+1. Open `ApplicationInsights.config`.
 
     If you added Application Insights to your app during development:
     1. Edit `ApplicationInsights.config` in your project.
@@ -85,7 +85,7 @@ If the performance counter you want isn't included in the list of metrics, you c
 
 You can capture both standard counters and counters you've implemented yourself. `\Objects\Processes` is an example of a standard counter that's available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service.
 
-The format is `\Category(instance)\Counter"`, or for categories that don't have instances, just `\Category\Counter`.
+The format is `\Category(instance)\Counter`, or for categories that don't have instances, just `\Category\Counter`.
 
 The `ReportAs` parameter is required for counter names that don't match `[a-zA-Z()/-_ \.]+`. That is, they contain characters that aren't in the following sets: letters, round brackets, forward slash, hyphen, underscore, space, and dot.
 
@@ -101,7 +101,7 @@ To collect system performance counters and send them to Application Insights, yo
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-Or you can do the same thing with custom metrics you created:
+Or you can do the same thing with custom metrics that you created:
 
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
