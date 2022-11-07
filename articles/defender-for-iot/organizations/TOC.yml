@@ -140,7 +140,7 @@
         href: tutorial-servicenow.md
       - name: Legacy integration
         href: integrations/service-now-legacy.md
-  - name: Setup OT network monitoring
+  - name: Set up OT network monitoring
     items:
     - name: Prepare your network
       href: how-to-set-up-your-network.md

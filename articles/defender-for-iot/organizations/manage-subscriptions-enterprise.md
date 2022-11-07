@@ -32,7 +32,7 @@ Before performing the procedures in this article, make sure that you have:
 
 If you're adding an Enterprise IoT plan with a monthly or annual commitment, you'll be asked to enter the number of committed devices.
 
-We recommend that you make an initial estimate of your committed devices when onboarding your plan. You can skip this procedure if you're adding a trial plan.
+We recommend that you make an initial estimate of your committed devices when onboarding your plan. You can skip this procedure if you're adding a [trial plan](billing.md#free-trial).
 
 **To calculate committed devices:**:
 
@@ -98,7 +98,7 @@ On the Defender for IoT **Pricing** page, expand the **Enterprise IoT** site to 
 
 ## Edit your Enterprise IoT plan
 
-To edit your plan, such as to edit your commitment level or the number of committed devices, [cancel the plan](#cancel-your-enterprise-iot-plan) and onboard a new plan.
+To edit your plan, such as to edit your commitment level or the number of committed devices, [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
 
 ## Cancel your Enterprise IoT plan
 
@@ -117,6 +117,8 @@ You'd also need to cancel your plan and onboard again if you need to work with a
 After you cancel your plan, the integration stops and you'll no longer get added security value in Microsoft 365 Defender, or detect new Enterprise IoT devices in Defender for IoT.
 
 The cancellation takes effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time the plan was in effect.
+
+If you're canceling your plan as part of an [editing procedure](#edit-your-enterprise-iot-plan), make sure to [onboard a new plan](#onboard-an-enterprise-iot-plan) back with the new details.
 
 > [!IMPORTANT]
 > You can also [cancel a plan](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) from Defender for IoT in the Azure portal. However, canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT plans. Do this with care.

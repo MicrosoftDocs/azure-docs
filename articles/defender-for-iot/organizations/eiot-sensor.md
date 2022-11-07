@@ -104,7 +104,7 @@ This procedure describes how to access the sensor setup from Microsoft 365 Defen
 > While this procedure describes how to install sensor software on a VM using ESXi, enterprise IoT sensors are also supported using Hyper-V.
 >
 
-## Access sensor setup from Microsoft 365 Defender
+### Access sensor setup from Microsoft 365 Defender
 
 In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal:
 
@@ -121,7 +121,7 @@ This brings you to the sensor setup process in the Azure portal. For example:
 > [!NOTE]
 > You can also access the sensor setup directly from Defender for IoT. In the Azure portal > Defender for IoT, select **Getting started** > **Set up Enterprise IoT Security**.
 
-## Register a sensor
+### Register a sensor
 
 1. On the **Set up Enterprise IoT Security** page, enter the following details, and then select **Register**:
 
@@ -185,55 +185,11 @@ View all your detected devices, including both those detected by Defender for En
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-
-## Edit the number of committed devices
-
-After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
-
-You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
-
-**To calculate the updated number of committed devices**:
-
-In the **Device inventory** page in the **Microsoft 365 Defender** portal:
-
-1. Add the total number of discovered **network devices** with the total number of discovered **IoT devices**.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Microsoft 365 Defender.":::
-
-    For more information, see the [Microsoft 365 Defender Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
-
-1. Remove any devices that are *not* considered as committed devices by Defender for IoT, including:
-
-    - **Public internet IP addresses**
-    - **Multi-cast groups**
-    - **Broadcast groups**
-    - **Inactive devices**: Network-monitored, Enterprise IoT devices with no network activity detected for more than 30 days
-    - **Endpoints managed by Defender for Endpoint**
-
-    For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
-
-1. Round up your total to a multiple of 100.
-
-For example:
-
-- In the Microsoft 365 Defender **Device inventory**, you have 473 network devices and 1206 IoT devices. Added together the total is **1679** devices.
-- 500 of those devices were detected and are managed by Microsoft 365 Defender, and can be removed. The updated total is now **1179**.
-- Round your total up to a multiple of 100. The new value is **1200**. Use **1200** as the estimated number of committed devices.
-
-**To cancel your current plan and add a new one**:
-
-1. In the [https://security.microsoft.com](https://security.microsoft.com/) portal, go to **Settings** \> **Device discovery** \> **Enterprise IoT**, and select **Cancel plan**. For example:
-
-    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-cancel-plan.png" alt-text="Screenshot of the Cancel plan option on the Microsoft 365 Defender page.":::
-
-1. Add back a new plan.
-
-    - You can select the same subscription as before, or a different one, as needed.
-    - Select a monthly or annual plan, and then enter the number of committed devices that you'd calculated earlier.
-
-1. Accept the **terms and conditions** and select **Save**.
+> [!TIP]
+> After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
+>
+> You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring), [Defender for IoT subscription billing](billing.md), and the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+>
 
 
 ## Delete an Enterprise IoT network sensor
