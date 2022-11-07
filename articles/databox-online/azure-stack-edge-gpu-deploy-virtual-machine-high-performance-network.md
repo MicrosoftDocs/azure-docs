@@ -203,7 +203,6 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        |-------|----------|
        |Set-HcsNumaLpMapping |Set a policy. You also have the option to specify a custom logical processor set.|
        |Get-HcsNumaLpMapping |Confirm that a setting has been applied. |
-       |
 
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
            
@@ -295,7 +294,7 @@ Follow these steps to create an HPN VM on your device.
 
 ## Troubleshooting
 
- - **Issue: HPN VM provisioning fails**
+### **Issue: HPN VM provisioning fails**
    
    **Error description:** Use the following cmdlet to check capacity/host resource when HPN VM provisioning fails. 
 
@@ -307,7 +306,7 @@ Follow these steps to create an HPN VM on your device.
 
    Next steps:
 
-- **Issue: Insufficient CPU or memory resources**
+### **Issue: Insufficient CPU or memory resources**
 
    **Error description:** If deployment fails because not enough vCPUs are reserved for HPN VMs, you will see the following error message: 
 
