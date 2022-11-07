@@ -22,7 +22,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior |  In-process<sup>3</sup> | Isolated worker process  |
 | ---- | ---- | ---- |
-| .NET versions | Long Term Support (LTS) versions<br/>(.NET 6.0) | All supported versions + .NET Framework<br/>(.NET 6.0, .NET 7.0 (Preview), .NET Framework 4.8 (GA)) |
+| .NET versions | Long Term Support (LTS) versions<br/>(.NET 6.0) | All supported versions + .NET Framework<br/>(.NET 6.0, .NET 7.0, .NET Framework 4.8) |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
