@@ -33,13 +33,13 @@ For more information on the *Basic* and *Standard* SKUs, see [Azure load balance
 This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, create one [using the Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall, or proxy for that purpose, you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The Outbound type defines the egress method for a cluster and it defaults to type: load balancer.
+> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall, or proxy for that purpose, you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The outbound type defines the egress method for a cluster and defaults to type `loadBalancer`.
 
 ## Use the public standard load balancer
 
-After creating an AKS cluster with outbound type `LoadBalancer` (default), the cluster is ready to use the load balancer to expose services as well.
+After creating an AKS cluster with outbound type `LoadBalancer` (default), the cluster is ready to use the load balancer to expose services.
 
-For that you can create a public service of type `LoadBalancer` as shown in the following example. Start by creating a service manifest named `public-svc.yaml`:
+To do this, you can create a public service of type `LoadBalancer`. Start by creating a service manifest named `public-svc.yaml`.
 
 ```yaml
 apiVersion: v1
@@ -73,35 +73,35 @@ NAMESPACE     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S
 default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:32068/TCP    52s
 ```
 
-When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a minute or two for the IP address to change from *\<pending\>* to an actual public IP address, as shown in the above example.
+When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
 
 ## Configure the public standard load balancer
 
-When using the standard SKU public load balancer, there's a set of options that can be customized at creation time or by updating the cluster. These options allow you to customize the load balancer to meet your workloads needs and should be reviewed accordingly. With the standard load balancer you can:
+When using the standard public load balancer, there's a set of options you can customize at creation time or by updating the cluster. These options allow you to customize the load balancer to meet your workloads needs and should be reviewed accordingly. With the standard load balancer, you can:
 
-* Set or scale the number of Managed Outbound IPs
-* Bring your own custom [Outbound IPs or Outbound IP Prefix](#provide-your-own-outbound-public-ips-or-prefixes)
+* Set or scale the number of managed outbound IPs
+* Bring your own custom [outbound IPs or outbound IP prefix](#provide-your-own-outbound-public-ips-or-prefixes)
 * Customize the number of allocated outbound ports to each node of the cluster
 * Configure the timeout setting for idle connections
 
 > [!IMPORTANT]
-> Only one outbound IP option (managed IPs, bring your own IP, or IP Prefix) can be used at a given time.
+> Only one outbound IP option (managed IPs, bring your own IP, or IP prefix) can be used at a given time.
 
 ### Scale the number of managed outbound public IPs
 
-Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound. Outbound rules make it simple to configure public Standard Load Balancer's outbound network address translation.
+Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound. Outbound rules make it simple to configure network address translation for the public standard load balancer.
 
-Like all Load Balancer rules, outbound rules follow the same familiar syntax as load balancing and inbound NAT rules:
+Like all load balancer rules, outbound rules follow the same syntax as load balancing and inbound NAT rules:
 
 ***frontend IPs + parameters + backend pool***
 
-An outbound rule configures outbound NAT for all virtual machines identified by the backend pool to be translated to the frontend. And parameters provide additional fine grained control over the outbound NAT algorithm.
+An outbound rule configures outbound NAT for all virtual machines identified by the backend pool to be translated to the frontend. Parameters provide additional control over the outbound NAT algorithm.
 
-While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios and you can use outbound rules to mitigate SNAT exhaustion prone patterns. Each additional IP address provided by a frontend provides 64k ephemeral ports for Load Balancer to use as SNAT ports. 
+While an outbound rule can be used with a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios, and you can use outbound rules to mitigate SNAT exhaustion prone patterns. Each additional IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
 
 When using a *Standard* SKU load balancer with managed outbound public IPs, which are created by default, you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
 
-To update an existing cluster, run the following command. This parameter can also be set at cluster create-time to have multiple managed outbound public IPs.
+To update an existing cluster, run the following command. This parameter can also be set at cluster creation time to have multiple managed outbound public IPs.
 
 ```azurecli-interactive
 az aks update \
@@ -110,21 +110,21 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*. 
+The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*.
 
-You can also use the **`load-balancer-managed-ip-count`** parameter to set the initial number of managed outbound public IPs when creating your cluster by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is 1.
+You can also use the **`load-balancer-managed-ip-count`** parameter to set the initial number of managed outbound public IPs when creating your cluster by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
 
 ### Provide your own outbound public IPs or prefixes
 
-When you use a *Standard* SKU load balancer, by default the AKS cluster automatically creates a public IP in the AKS-managed infrastructure resource group and assigns it to the load balancer outbound pool.
+When you use a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in the AKS-managed infrastructure resource group and assigns it to the load balancer outbound pool by default.
 
-A public IP created by AKS is considered an AKS managed resource. This means the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
+A public IP created by AKS is considered an AKS-managed resource. This means the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
 
 Requirements for using your own public IP or prefix:
 
-- Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
-- You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP. As per the [required public IP permissions list](kubernetes-service-principal.md#networking).
-- Make sure you meet the [pre-requisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure Outbound IPs or Outbound IP prefixes.
+* Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
+* You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP, as per the [required public IP permissions list](kubernetes-service-principal.md#networking).
+* Make sure you meet the [pre-requisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure outbound IPs or outbound IP prefixes.
 
 #### Update the cluster with your own outbound public IP
 
@@ -149,7 +149,7 @@ az aks update \
 
 #### Update the cluster with your own outbound public IP prefix
 
-You can also use public IP prefixes for egress with your *Standard* SKU load balancer. The following example uses the [az network public-ip prefix show][az-network-public-ip-prefix-show] command to list the IDs of your public IP prefixes:
+You can also use public IP prefixes for egress with your *Standard* SKU load balancer. The following example uses the [az network public-ip prefix show][az-network-public-ip-prefix-show] command to list the IDs of your public IP prefixes.
 
 ```azurecli-interactive
 az network public-ip prefix show --resource-group myResourceGroup --name myPublicIPPrefix --query id -o tsv
@@ -168,7 +168,7 @@ az aks update \
 
 #### Create the cluster with your own public IP or prefixes
 
-You may wish to bring your own IP addresses or IP prefixes for egress at cluster creation time to support scenarios like adding egress endpoints to an allowlist. Append the same parameters shown above to your cluster creation step to define your own public IPs and IP prefixes at the start of a cluster's lifecycle.
+You can bring your own IP addresses or IP prefixes for egress at cluster creation time to support scenarios like adding egress endpoints to an allowlist. Append the same parameters shown above to your cluster creation step to define your own public IPs and IP prefixes at the start of a cluster's lifecycle.
 
 Use the *az aks create* command with the *load-balancer-outbound-ips* parameter to create a new cluster with your public IPs at the start.
 
@@ -190,16 +190,16 @@ az aks create \
 ### Configure the allocated outbound ports
 
 > [!IMPORTANT]
-> If you have applications on your cluster which can establish a large number of connections to small set of destinations, for example many instances of a frontend application connecting to a database, you may have a scenario very susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario where you may encounter SNAT port exhaustion, it is highly recommended that you increase the allocated outbound ports and outbound frontend IPs on the load balancer to prevent SNAT port exhaustion. See below for information on how to properly calculate outbound ports and outbound frontend IP values.
+> If you have applications on your cluster that can establish a large number of connections to small set of destinations, such as many instances of a frontend application connecting to a database, you may have a scenario very susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario where you may encounter SNAT port exhaustion, we highly recommended that you increase the allocated outbound ports and outbound frontend IPs on the load balancer to prevent SNAT port exhaustion. See below for information on how to properly calculate outbound ports and outbound frontend IP values.
 
-By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`. For example:
+By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster is increased, fewer ports will be available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`. 
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
 ```
 
-The following example output shows that automatic outbound port assignment based on backend pool size is enabled for the cluster:
+The following example output shows that automatic outbound port assignment based on backend pool size is enabled for the cluster.
 
 ```console
 AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
@@ -207,24 +207,27 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-To configure a specific value for *AllocatedOutboundPorts* and outbound IP address when creating or updating a cluster, use `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes`. Before setting a specific value or increasing an existing value for either for outbound ports and outbound IP address, you must calculate the appropriate number of outbound ports and IP address. Use the following equation for this calculation rounded to the nearest integer: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
+To configure a specific value for *AllocatedOutboundPorts* and outbound IP address when creating or updating a cluster, use `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes`. Before setting a specific value or increasing an existing value for either for outbound ports and outbound IP address, you must calculate the appropriate number of outbound ports and IP addresses. Use the following equation for this calculation rounded to the nearest integer: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
 
 When calculating the number of outbound ports and IPs and setting the values, remember:
+
 * The number of outbound ports is fixed per node based on the value you set.
 * The value for outbound ports must be a multiple of 8.
 * Adding more IPs does not add more ports to any node. It provides capacity for more nodes in the cluster.
 * You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
 The following examples show how the number of outbound ports and IP addresses are affected by the values you set:
-- If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
-- If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
-- If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
-- If outbound ports is set to 1,000 and outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
-- If outbound ports is set to 4,000 and outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
-- If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
+
+* If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
+* If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
+* If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
+* If outbound ports is set to 1,000 and outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
+* If outbound ports is set to 4,000 and outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
+* If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
 
 > [!IMPORTANT]
-> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It is critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example if you calculated you needed 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
+> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It is critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example, if you calculated you needed 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
+>
 > * 2 surge nodes * 4000 ports per node = 8000 ports needed for node surge during upgrades.
 > * 100 nodes * 4000 ports per node = 400,000 ports required for your cluster.
 > * 7 IPs * 64000 ports per IP = 448,000 ports available for your cluster.
@@ -243,8 +246,9 @@ az aks update \
 
 ### Configure the load balancer idle timeout
 
-When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and the AKS-configured load balancer uses a 30-minute idle timeout for reclaiming SNAT ports from idle flows.
-You can also use transport (for example, **`TCP keepalives`**) or **`application-layer keepalives`** to refresh an idle flow and reset this idle timeout if necessary. You can configure this timeout following the below example: 
+When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load balancer reclaims SNAT ports when the flow closes and the AKS-configured load balancer uses a 30-minute idle timeout for reclaiming SNAT ports from idle flows.
+
+You can also use transport (for example, **`TCP keepalives`** or **`application-layer keepalives`**) to refresh an idle flow and reset this idle timeout if necessary. You can configure this timeout following the below example.
 
 ```azurecli-interactive
 az aks update \
@@ -253,7 +257,7 @@ az aks update \
     --load-balancer-idle-timeout 4
 ```
 
-If you expect to have numerous short lived connections, and no connections that are long lived and might have long times of idle, like leveraging `kubectl proxy` or `kubectl port-forward` consider using a low timeout value such as 4 minutes. Also, when using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow and it's not necessary for both sides to start TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
+If you expect to have numerous short-lived connections and no connections that are long lived and might have long times of idle, like leveraging `kubectl proxy` or `kubectl port-forward` consider using a low timeout value such as 4 minutes. Also, when using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow and it's not necessary for both sides to start TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
 
 > [!IMPORTANT]
 > AKS enables TCP Reset on idle by default and recommends you keep this configuration on and leverage it for more predictable application behavior on your scenarios.
