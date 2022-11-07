@@ -1,29 +1,34 @@
 ---
-title: Use Logstash to stream logs into custom and standard tables in Microsoft Sentinel
+title: Use Logstash to stream logs with pipeline transformations via DCR-based API
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
 author: limwainstein
 ms.topic: how-to
-ms.date: 10/31/2021
+ms.date: 11/07/2022
 ms.author: lwainstein
 ---
 
-# Use Logstash to stream logs into custom and standard tables and configure output with DCRs
+# Use Logstash to stream logs with pipeline transformations via DCR-based API
 
 > [!IMPORTANT]
-> Data ingestion using the Logstash output plugin with Data Collection Rules (DCRs) is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Data ingestion using the Logstash output plugin with Data Collection Rules (DCRs) is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Using Microsoft Sentinel's Logstash output plugin, you forward any type of logs from external data sources into custom and standard tables in Microsoft Sentinel, and configure the output with DCRs. You use DCRs to fully control the output schema including the configuration of the columns' names and types. You can also send custom logs to specific standard tables.
+Microsoft Sentinel's new Logstash output plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Microsoft Sentinel. 
 
-Your logs are sent to a custom table that you define using the output plugin. This article describes how to set up the plugin in two scenarios:
+In this article, you learn how to set up the new Logstash plugin to stream the data into Microsoft Sentinel using DCRs, with full control over the output schema. 
 
-- Ingest custom logs into a custom table
-- Ingest a Syslog input stream into the Microsoft Sentinel Syslog table
+> [!NOTE]
+> A [previous version of the Logstash plugin](connect-logstash.md) allows you to connect data sources through Logstash via the Data Collection API. 
+
+With the new plugin, you can:
+- Control the configuration of the column names and types.
+- Perform ingestion-time transformations like filtering or enrichment. 
+- Ingest custom logs into a custom table, or ingest a Syslog input stream into the Microsoft Sentinel Syslog table.
 
 Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
-To set up the plugin, follow these steps:
+**To set up the plugin, follow these steps**:
 
 1. [Install the plugin](#install-the-plugin)
 2. [Create a sample file](#create-a-sample-file) 
