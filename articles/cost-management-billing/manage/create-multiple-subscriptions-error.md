@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 11/04/2022
+ms.date: 11/07/2022
 ms.author: banders
 ---
 
@@ -19,9 +19,8 @@ When you try to create multiple Azure subscriptions in a short period of time, y
 
 The error is normal and expected.
 
-The error can occur for customers with the following Azure subscription agreement types:
+The error can occur for customers with the following Azure subscription agreement type:
 
-- Microsoft Online Services Program (MOSP), also referred to as pay-as-you-go
 - Microsoft Customer Agreement purchased directly through Azure.com
 
 ## Solution
