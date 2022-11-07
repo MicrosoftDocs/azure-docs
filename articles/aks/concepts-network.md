@@ -186,7 +186,7 @@ If you're using client source IP preservation on your ingress controller, you ca
 
 ## Control outbound (egress) traffic
 
-AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). These endpoints are required for the nodes to communicate with the API server or to download and install core Kubernetes cluster components and node security updates. By default, AKS clusters have unrestricted outbound (egress) internet access. This allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
+AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). By default, AKS clusters have unrestricted outbound (egress) internet access. This allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
 
 For more information, see [Control egress traffic for cluster nodes in AKS][limit-egress].
 
