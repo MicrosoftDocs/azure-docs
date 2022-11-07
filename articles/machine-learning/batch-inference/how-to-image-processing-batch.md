@@ -35,6 +35,10 @@ The model we are going to work with was built using TensorFlow along with the Re
 
 A sample of this model can be downloaded from `https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip`.
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [imagenet-classifier-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/imagenet-classifier-batch.ipynb).
+
 ## Image classification with batch deployments
 
 In this example, we are going to learn how to deploy a deep learning model that can classify a given image according to the [taxonomy of ImageNet](https://image-net.org/). 

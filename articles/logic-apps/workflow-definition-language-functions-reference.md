@@ -5481,9 +5481,9 @@ In this example, suppose your `items` XML string also contains these attributes:
 </produce>
 ```
 
-This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
+This example passes in the XPath expression, `'//name[@price>35]'`, to find all the `name` elements that have `price > 35`:
 
-`xpath(xml(parameters('items')), '//name[price>35]')`
+`xpath(xml(parameters('items')), '//name[@price>35]')`
 
 Here's the result: `Honeycrisp`
 
