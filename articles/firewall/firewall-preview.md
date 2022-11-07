@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/07/2022
 ms.author: victorh
 ---
 
@@ -175,9 +175,9 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 
 ### Single click upgrade/downgrade (preview)
 
-You can now easily upgrade you existing Firewall Standard SKU to Premium SKU as well as downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
+You can now easily upgrade your existing Firewall Standard SKU to Premium SKU as well as downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
 
-In the upgrade process, you can select the policy to be attached to the upgraded Premium SKU. Either by using an existing Premium Policy or by using your existing Standard Policy. You can use your existing Standard policy and let the system automatically duplicate, upgrade to Premium Policy, and then attach it to the newly created Premium Firewall.
+In the upgrade process, you can select the policy to be attached to the upgraded Premium SKU. You can select an existing Premium Policy or an existing Standard Policy. You can use your existing Standard policy and let the system automatically duplicate, upgrade to Premium Policy, and then attach it to the newly created Premium Firewall.
 
 This new capability is available through the Azure portal as as shown here, as well as via PowerShell and Terraform simply by changing the sku_tier attribute.
 
