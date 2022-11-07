@@ -117,6 +117,15 @@ The Application Gateway WAF can be configured to run in the following two modes:
 > [!NOTE]
 > It is recommended that you run a newly deployed WAF in Detection mode for a short period of time in a production environment. This provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) prior to transition to Prevention mode. This can help reduce the occurrence of unexpected blocked traffic.
 
+### WAF actions
+
+WAF customers can choose which action is run when a request matches a rules conditions. Below is the listed of supported actions.
+
+*Allow: Request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request.
+*Block: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
+*Log: Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
+*AnomalyScoring: This is the default action for OWASP and DRS rulesets where total anomaly score is incremented when a rule with this action is matched. The Bot Manager ruleset does not support this action.
+
 ### WAF engines
 
 The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the new [WAF engine](waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on an older engine. New features will only be available on the new Azure WAF engine.
