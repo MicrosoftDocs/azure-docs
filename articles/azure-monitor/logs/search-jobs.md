@@ -30,7 +30,7 @@ Search jobs also let you retrieve records from [Archived Logs](data-retention-ar
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans) table that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
+The search job results table is an [Analytics table](../logs/basic-logs-configure.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
 
 The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
