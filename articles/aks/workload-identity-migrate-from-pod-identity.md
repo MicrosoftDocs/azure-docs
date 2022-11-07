@@ -37,12 +37,12 @@ If your cluster is already using the latest version of the Azure Identity SDK, p
 
 If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
 
-1. You can use a migration sidecar that we provide, which converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. Perform the following steps to:
+- You can use a migration sidecar that we provide, which converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. Perform the following steps to:
 
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
-2. Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
+- Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 
     - Restart your application deployment to begin authenticating using the workload identity.
     - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
