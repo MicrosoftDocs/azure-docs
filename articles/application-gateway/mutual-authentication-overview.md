@@ -95,12 +95,20 @@ Set-AzApplicationGatewayClientAuthConfiguration -SslProfile $profile -VerifyClie
 Set-AzApplicationGateway -ApplicationGateway $AppGw
 
 ```
-https://learn.microsoft.com/en-us/powershell/module/az.network/set-azapplicationgatewayclientauthconfiguration?view=azps-9.0.1
+
+A list of all Azure PowerShell references for Client Authentication Configuration on Application Gateway can be found here:
+- https://learn.microsoft.com/powershell/module/az.network/set-azapplicationgatewayclientauthconfiguration
+- https://learn.microsoft.com/powershell/module/az.network/new-azapplicationgatewayclientauthconfiguration
 
 # [Azure CLI](#tab/cli)
 ```azurecli
 # Update existing gateway's SSL Profile
 az network application-gateway update -n ApplicationGateway01 -g ResourceGroup01 --ssl-profiles [0].client-auth-configuration.verify-client-revocation=OCSP
+
+```
+
+A list of all Azure CLI references for client authentication configuration on Application Gateway can be found here:
+- [Azure CLI - Application Gateway](/cli/azure/network/application-gateway)
 
 # [Azure Portal](#tab/portal)
 Azure portal support is currently not available.
