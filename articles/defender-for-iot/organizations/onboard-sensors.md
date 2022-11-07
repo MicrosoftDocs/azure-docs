@@ -17,13 +17,15 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
 1. Do one of the following:
 
-    - To buy a pre-configured appliance, select **Contact** under **Buy preconfigured appliance**. This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
+    - **To buy a pre-configured appliance**, select **Contact** under **Buy preconfigured appliance**.
 
-    - To install software on your own appliances, do the following:
+        This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
 
-        1. Make sure that you have a supported appliance available.
+    - **To install software on your own appliances**, do the following:
 
-        1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+        1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+        1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
 
         1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
@@ -39,7 +41,7 @@ Onboard an OT sensor by registering it with Microsoft Defender for IoT and downl
 > Enterprise IoT sensors also require onboarding and activation, with slightly different steps. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 >
 
-**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Defender for IoT installation](how-to-install-software.md).
+**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Traffic mirroring methods for OT monitoring](best-practices/traffic-mirroring-methods.md).
 
 **To onboard your sensor to Defender for IoT**:
 
@@ -76,6 +78,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 ## Next steps
 
+- [Install OT agentless monitoring software](how-to-install-software.md)
 - [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage individual sensors](how-to-manage-individual-sensors.md)

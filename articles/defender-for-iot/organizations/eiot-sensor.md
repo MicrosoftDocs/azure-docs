@@ -131,7 +131,7 @@ This brings you to the sensor setup process in the Azure portal. For example:
 
 1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-sensor-software).
 
-## Install sensor software
+## Install Enterprise IoT sensor software
 
 This procedure describes how to install Enterprise IoT monitoring software on [your sensor machine](#prepare-a-physical-appliance-or-vm), either a physical appliance or VM.
 
@@ -186,11 +186,13 @@ If you're a Defender for Endpoint customer with an Enterprise IoT plan, you'll b
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-> [!TIP]
-> After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
->
-> You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring), [Defender for IoT subscription billing](billing.md), and the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
->
+After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
+
+You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see:
+
+- [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring)
+- [Defender for IoT subscription billing](billing.md)
+- The [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/)
 
 ## Delete an Enterprise IoT network sensor
 
@@ -200,19 +202,17 @@ Delete a sensor if it's no longer in use with Defender for IoT.
 
 1. In the row for your sensor, select the **...** options menu on the right > **Delete sensor**.
 
-If you want to cancel your Enterprise IoT plan and stop the integration with Defender for Endpoint, use one of the following methods carefully:
-
-- To cancel your plan for Enterprise IoT networks only, do so from Microsoft 365 Defender.
-- To cancel a plan for both OT and Enterprise IoT networks together, use the **Pricing** page in Defender for IoT in the Azure portal.
-
-For more information, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
+For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 > [!TIP]
 > You can also remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
-For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
+If you want to cancel your Enterprise IoT plan and stop the integration with Defender for Endpoint, use one of the following methods carefully:
 
-## Move existing sensors to a different subscription (Public preview)
+- **To cancel your plan for Enterprise IoT networks only**, do so from [Microsoft 365 Defender](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
+- **To cancel a plan for both OT and Enterprise IoT networks together**, use the [**Pricing** page in Defender for IoT](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) in the Azure portal.
+
+## Move existing sensors to a different subscription
 
 If you've registered an Enterprise IoT network sensor, you may need to apply it to a different subscription than the one you’re currently using.
 

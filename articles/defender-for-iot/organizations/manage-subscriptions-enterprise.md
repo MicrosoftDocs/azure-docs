@@ -7,9 +7,9 @@ ms.topic: how-to
 
 # Manage Defender for IoT plans for Enterprise IoT security monitoring
 
-Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done in Microsoft 365 Defender.
+Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
 
-For each monthly or annual price plan, you'll be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise.
+For each monthly or annual price plan, you'll be asked to define the number of [committed devices](billing.md#defender-for-iot-committed-devices). Committed devices are the approximate number of devices that will be monitored in your enterprise.
 
 For information about OT networks, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
@@ -23,10 +23,9 @@ Before performing the procedures in this article, make sure that you have:
 
 - The following user roles:
 
-    |Identity management  |Roles required  |
-    |---------|---------|
-    |**In Azure Active Directory**     |   [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant      |
-    |**In Azure RBAC**     | [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration        |
+    - **In Azure Active Directory**: [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant
+
+    - **In Azure RBAC**:  [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration
 
 ## Calculate committed devices for Enterprise IoT monitoring
 
@@ -75,8 +74,8 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
 
-    > [!TIP]
-    > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
+        > [!TIP]
+        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
 
     - **Price plan**: Select a trial, monthly, or annual commitment.
 
@@ -90,15 +89,13 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-After you've onboarded your plan, you'll see it listed in Defender for IoT in the Azure portal. Go to the Defender for IoT **Pricing** page and find your subscription with the new **Enterprise IoT** plan listed.
+After you've onboarded your plan, you'll see it listed in Defender for IoT in the Azure portal. Go to the Defender for IoT **Pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
 
-On the Defender for IoT **Pricing** page, expand the **Enterprise IoT** site to find your subscription and plan. For example: <!--add image-->
-
-<!--validate this-->
+:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Pricing page.":::
 
 ## Edit your Enterprise IoT plan
 
-To edit your plan, such as to edit your commitment level or the number of committed devices, [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
+To edit your plan, such as to edit your commitment level or the number of committed devices, first [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
 
 ## Cancel your Enterprise IoT plan
 
