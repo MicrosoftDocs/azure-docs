@@ -100,6 +100,9 @@ To set the orientation:
 
 You can choose the resolution for your remote session from a predefined list. This setting applies to all workspaces.
 
+> [!NOTE]
+> Changes to the display resolution only take effect for new connections. For current connections, you'll need to disconnect and reconnect from a remote session
+
 To set the resolution:
 
 1. Open the **RD Client** application on your device.
@@ -110,7 +113,31 @@ To set the resolution:
 
 1. Tap a resolution from the list.
 
-1. You can also set **Use Home Indicator Area**. Toggling this on will show graphics from the remote session in the area at the bottom of the screen occupied by the Home indicator. This setting only applies in landscape orientation. For more information about display orientation, see [Set orientation](#set-orientation).
+1. Tap the back arrow (**<**), then tap the **X** mark.
+
+### Use full display or home indicator area
+
+On iPadOS, you can set **Use Full Display**. Toggling this on will use the full display of your device, but will result in some content from the remote session being obscured, such as graphics n the rounded corners of the screen.
+
+1. Open the **RD Client** application on your device.
+
+1. In the top left-hand corner, tap the menu icon (the circle with three dots inside), then tap **Settings**.
+
+1. Tap **Display**.
+
+1. Toggle **Use Full Display**.
+
+1. Tap the back arrow (**<**), then tap the **X** mark.
+
+On iOS, you can set **Use Home Indicator Area**. Toggling this on will show graphics from the remote session in the area at the bottom of the screen occupied by the Home indicator. This setting only applies in landscape orientation. For more information about display orientation, see [Set orientation](#set-orientation). To set **Use Home Indicator Area**:
+
+1. Open the **RD Client** application on your device.
+
+1. In the top left-hand corner, tap the menu icon (the circle with three dots inside), then tap **Settings**.
+
+1. Tap **Display**.
+
+1. Toggle **Use Home Indicator Area**.
 
 1. Tap the back arrow (**<**), then tap the **X** mark.
 

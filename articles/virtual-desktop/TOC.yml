@@ -391,8 +391,6 @@
       href: troubleshoot-client-android-chrome-os.md
     - name: Windows Microsoft Store client
       href: troubleshoot-client-microsoft-store.md
-  - name: Remote Desktop client issues
-    href: troubleshoot-client.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs

@@ -2,7 +2,7 @@
 title: Troubleshoot the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Troubleshoot issues you may experience with the Remote Desktop client for Windows when connecting to Azure Virtual Desktop.
 author: dknappettmsft
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 11/01/2022
 ms.author: daknappe
 ---
@@ -11,45 +11,95 @@ ms.author: daknappe
 
 This article describes issues you may experience with the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json) when connecting to Azure Virtual Desktop and how to fix them.
 
-## Access client logs
+## General
 
-You might need the client logs when investigating an issue. You can then review the logs  To retrieve the client logs:
+In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
 
-1. Ensure no sessions are active and the client process isn't running in the background by right-clicking on the **Remote Desktop** icon in the system tray and selecting **Disconnect all sessions**.
-1. Open **File Explorer**.
-1. Navigate to the **%temp%\DiagOutputDir\RdClientAutoTrace** folder.
+[!INCLUDE [remote-desktop-client-doesnt-show-resources](includes/troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-Below you will find different methods used to read the client logs.
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
 
-#### Event Viewer
+### Client stops responding or cannot be opened
 
-1. Navigate to the Start menu, Control Panel, System and Security, and select **view event logs** under "Windows Tools".
-1. Once the **Event Viewer** is open, click the Action tab at the top and select **Open Saved Log...**.
-1. Navigate to the **%temp%\DiagOutputDir\RdClientAutoTrace** folder and select the log file you want to view.
-1. The **Event Viewer** dialog box will open requesting a response to which it will convert etl format to evtx format. Select **Yes**.
-1. In the **Open Saved Log** dialog box, you have the options to rename the log file and add a description. Select **Ok**.
-1. The **Event Viewer** dialog box will open asking to overwrite the log file. Select **Yes**. This will not overwrite your original etl log file but create a copy in evtx format.
+If the Remote Desktop client for Windows stops responding or cannot be opened, you may need to reset user data. If you can open the client, you can reset user data from the **About** menu, or if you can't open the client, you can reset user data from the command line. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
 
-#### Command-line
+To reset user data from the client:
 
-This method will enable you to convert the log file from etl format to either _csv_ or _xml_ format using the `tracerpt` command. Open the Command Prompt or PowerShell and run the following:
+1. Open the **Remote Desktop** app on your device.
 
+1. Select the three dots at the top right-hand corner to show the menu, then select **About**.
+
+1. In the section **Reset user data**, select **Reset**. To confirm you want to reset your user data, select **Continue**. 
+
+To reset user data from the command line:
+
+1. Open PowerShell.
+
+1. Change the directory to where the Remote Desktop client is installed, by default this is `C:\Program Files\Remote Desktop`.
+
+1. Run the following command to reset user data. You will be prompted to confirm you want to reset your user data.
+
+   ```powershell
+   .\msrdcw.exe /reset
+   ```
+
+   You can also add the `/f` option, where your user data will be reset without confirmation:
+
+   ```powershell
+   .\msrdcw.exe /reset /f
+   ```
+
+## Authentication and identity
+
+In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
+
+[!INCLUDE [troubleshoot-aadj-connections-windows](includes/troubleshoot-aadj-connections-windows.md)]
+
+### Authentication issues while using an N SKU of Windows
+
+Authentication issues can happen because you're using an *N* SKU of Windows on your local device without the *Media Feature Pack*. For more information and to learn how to install the Media Feature Pack, see [Media Feature Pack list for Windows N editions](https://support.microsoft.com/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a).
+
+### Authentication issues when TLS 1.2 not enabled
+
+Authentication issues can happen when your local Windows device doesn't have TLS 1.2 enabled. This is most likely with Windows 7 where TLS 1.2 isn't enabled by default. To enable TLS 1.2 on Windows 7, you need to set the following registry values:
+
+- **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client`
+
+   | Value Name | Type | Value Data |
+   |--|--|--|
+   | DisabledByDefault | DWORD | 0 |
+   | Enabled | DWORD | 1 |
+
+- **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server`
+
+   | Value Name | Type | Value Data |
+   |--|--|--|
+   | DisabledByDefault | DWORD | 0 |
+   | Enabled | DWORD | 1 |
+
+- **Key**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319`
+
+   | Value Name | Type | Value Data |
+   |--|--|--|
+   | SystemDefaultTlsVersions | DWORD | 1 |
+   | SchUseStrongCrypto | DWORD | 1 |
+
+You can configure these registry values by opening PowerShell as an administrator and running the following commands:
+
+```powershell
+New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Force
+New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Name 'Enabled' -Value '1' -PropertyType 'DWORD' -Force
+New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Name 'DisabledByDefault' -Value '0' -PropertyType 'DWORD' -Force
+
+New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Force
+New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Name 'Enabled' -Value '1' -PropertyType 'DWORD' -Force
+New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Name 'DisabledByDefault' -Value '0' -PropertyType 'DWORD' -Force
+
+New-Item 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Force
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Name 'SystemDefaultTlsVersions' -Value '1' -PropertyType 'DWORD' -Force
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -PropertyType 'DWORD' -Force
 ```
-tracerpt "<FilePath>.etl" -o "<OutputFilePath>.extension"
-```
 
-**CSV example:**
+## Issue isn't listed here
 
-```
-tracerpt "C:\Users\admin\AppData\Local\Temp\DiagOutputDir\RdClientAutoTrace\msrdcw_09-07-2022-15-48-44.etl" -o "C:\Users\admin\Desktop\LogFile.csv" -of csv
-```
-
-If the `-of csv` parameter is omitted from the command above, it won't properly convert the file.
-
-**XML example:**
-
-```
-tracerpt "C:\Users\admin\AppData\Local\Temp\DiagOutputDir\RdClientAutoTrace\msrdcw_09-07-2022-15-48-44.etl" -o "C:\Users\admin\Desktop\LogFile.xml"
-```
-
-The `-of xml` parameter is not necessary in this instance as the default output for the conversion is in _xml_ format.
+If your issue isn't listed here, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md) for information about how to open an Azure support case for Azure Virtual Desktop.
