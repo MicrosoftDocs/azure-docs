@@ -157,7 +157,7 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
-### Create your application
+## Create your application
 
 Replace the contents of your .java file with the following:
 

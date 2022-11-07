@@ -26,7 +26,7 @@ ms.author: mbullwin
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 > * `https://<instance-name>.cognitiveservices.azure.com/`
 
-## Setting up
+## Set up
 
 ### Install the client library 
 
