@@ -1,6 +1,6 @@
 ---
 title: Grant tenant-wide admin consent to an application 
-description: Learn how to grant tenant-wide consent to an application so that end-users are not prompted for consent when signing in to an application.
+description: Learn how to grant tenant-wide consent to an application so that end-users aren't prompted for consent when signing in to an application.
 services: active-directory
 author: eringreenlee
 manager: CelesteDG
@@ -25,7 +25,7 @@ When you grant tenant-wide admin consent to an application, you give the applica
 
 By default, granting tenant-wide admin consent to an application will allow all users to access the application unless otherwise restricted. To restrict which users can sign-in to an application, configure the app to [require user assignment](application-properties.md#assignment-required) and then [assign users or groups to the application](assign-user-or-group-access-portal.md). 
 
-Granting tenant-wide admin consent may revoke any permissions which had previously been granted tenant-wide for that application. Permissions which have previously been granted by users on their own behalf will not be affected.
+Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ As always, carefully review the permissions an application requests before grant
 
 In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users.
 
-In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions `User.Read.All` and `Group.Read.All`. The consentType is AllPrincipals, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
+In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `AllPrincipals`, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
 
 > [!CAUTION] 
 > Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
@@ -131,7 +131,7 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
   ```      
 ## Grant admin consent for application permissions
 
-In the following example you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
+In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
 1. Connect to Microsoft Graph PowerShell:
 
@@ -168,7 +168,7 @@ Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to gr
 
 In the following example, you'll grant delegated permissions defined by a resource enterprise application to a client enterprise application on behalf of all users.
 
-In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions `User.Read.All` and `Group.Read.All`. The consentType is AllPrincipals, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
+In the example, the resource enterprise application is Microsoft Graph of object ID `7ea9e944-71ce-443d-811c-71e8047b557a`. The Microsoft Graph defines the delegated permissions, `User.Read.All` and `Group.Read.All`. The consentType is `AllPrincipals`, indicating that you're consenting on behalf of all users in the tenant. The object ID of the client enterprise application is `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a941`.
 
 > [!CAUTION] 
 > Be careful! Permissions granted programmatically are not subject to review or confirmation. They take effect immediately.
@@ -199,7 +199,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
    ```
 ## Grant admin consent for application permissions
 
-In the following example you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
+In the following example, you grant the Microsoft Graph enterprise application (the principal of ID `b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94`) an app role (application permission) of ID `df021288-bdef-4463-88db-98f22de89214` that's exposed by a resource enterprise application of ID `7ea9e944-71ce-443d-811c-71e8047b557a`.
 
 1. Retrieve the app roles defined by Microsoft graph in your tenant. Identify the app role that you'll grant the client enterprise application. In this example, the app role ID is `df021288-bdef-4463-88db-98f22de89214`
 
@@ -219,7 +219,6 @@ In the following example you grant the Microsoft Graph enterprise application (t
       "appRoleId": "df021288-bdef-4463-88db-98f22de89214"
    }
    ```
-
 :::zone-end
 
 ## Next steps
