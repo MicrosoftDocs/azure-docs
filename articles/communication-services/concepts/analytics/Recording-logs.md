@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Recording Analytics Preview
+title: Azure Communication Services - Recording Analytics Public Preview
 titleSuffix: An Azure Communication Services concept document
 description: About using Log Analytics for recording logs
 author:  Mkhribech
@@ -48,7 +48,7 @@ Please note the call recording logs will be published once the call recording is
 ```json
 "operationName":            "Call Recording Summary",
 "operationVersion":         "1.0",
-"category":                 "RecordingSummaryPRIVATEPREVIEW",
+"category":                 "RecordingSummaryPUBLICPREVIEW",
 
 ```
 A call can have one recording or many recordings depending on how many times a recording event is triggered.
