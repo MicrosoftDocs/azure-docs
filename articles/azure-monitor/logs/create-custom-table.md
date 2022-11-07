@@ -175,6 +175,9 @@ To add a custom column to an existing table in your Log Analytics workspace:
 ## Delete a custom column
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+
+Learn more about:
+
+- [Log Ingestion API](../logs/logs-ingestion-api-overview.md).
+- [Sending custom logs to your Log Analytics workspace using the Azure portal](tutorial-logs-ingestion-portal.md).
+- [Sending custom logs o your Log Analytics workspace using Resource Manager templates and REST API](tutorial-logs-ingestion-api.md).
