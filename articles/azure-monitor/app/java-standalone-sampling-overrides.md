@@ -186,28 +186,18 @@ those will also be collected for all '/login' requests.
 }
 ```
 
-## Common span attributes
+## Span attributes available for sampling
 
-This section lists some common span attributes that sampling overrides can use.
+Span attribute names are based on the OpenTelemetry semantic conventions:
 
-### HTTP spans
+* [HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
+* [Messaging](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/messaging.md)
+* [Database](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md)
+* [RPC](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/rpc.md)
 
-| Attribute  | Type | Description | 
-|---|---|---|
-| `http.method` | string | HTTP request method.|
-| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.flavor` | string | Type of HTTP protocol. |
-| `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+To see the exact set of attributes captured by Application Insights Java for your application, set the
+[self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
+with the text "exporting span".
 
-Please note that `http.status_code` cannot be used for sampling decisions because it is not available
-at the start of the span.
-
-### JDBC spans
-
-| Attribute  | Type | Description  |
-|---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
-| `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
-| `db.user` | string | Username for accessing the database. |
-| `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
-| `db.statement` | string | Database statement that's being run.|
+Note that only attributes set at the start of the span are available for sampling,
+so attributes such as `http.status_code` which are captured later on cannot be used for sampling.
