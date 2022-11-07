@@ -131,6 +131,9 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type). 
 
+> [!NOTE]
+> Deleting a restored table doesn't delete the data in the source table.
+
 ### [Portal](#tab/portal-2)
 
 To delete a table from the Azure portal:
