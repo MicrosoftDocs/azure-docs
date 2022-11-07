@@ -48,7 +48,7 @@ Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosm
 
 * [API for NoSQL Quickstart](nosql/quickstart-portal.md#create-container-database)
 * [API for PostgreSQL Quickstart](postgresql/quickstart-create-portal.md)
-* [API for MongoDB Quickstart](mongodb/quickstart-python.md#learn-the-object-model)
+* [API for MongoDB Quickstart](mongodb/quickstart-python.md#object-model)
 * [API for Apache Cassandra](cassandra/adoption.md)
 * [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
 * [API for Table](table/quickstart-dotnet.md)
@@ -127,7 +127,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 * Get started with Azure Cosmos DB with one of our quickstarts:
   * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
   * [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
-  * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
+  * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#object-model)
   * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
   * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
   * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
