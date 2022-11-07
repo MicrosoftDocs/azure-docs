@@ -10,12 +10,8 @@
     href: qs-install-marketplace.md
 - name: Tutorials
   items:
-  - name: 1. Create a Cluster
-    href: ./tutorials/create-cluster.md
-  - name: 2. Submit Jobs & Scale Cluster
-    href: ./tutorials/submit-jobs.md
-  - name: 3. Autostop & Clean-up
-    href: ./tutorials/clean-up.md
+  - name: Create a Cluster
+    href: ./tutorials/tutorial.md
 - name: Concepts
   items:
   - name: Core
