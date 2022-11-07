@@ -115,7 +115,7 @@ In a Microsoft Customer Agreement, billing roles come from a single Azure AD ten
 
 ## RBAC and role assignments in Azure
 
-In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles]../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
+In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles](../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
 
 Azure AD roles operate on concepts like [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC uses Azure Resource Management to control access to Azure resources such as virtual machines or storage, and Azure AD roles control access to Azure AD, applications, and Microsoft services such as Office 365.
 
@@ -310,14 +310,14 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 ![Diagram that shows Azure AD authentication to Azure VMs.](media/secure-with-azure-ad-resource-management/sign-into-vm.png)
 
-**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
+**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux).
 
 **Credentials**: One of the key benefits of signing into virtual machines in Azure using Azure AD authentication is the ability to use the same federated or managed Azure AD credentials that you normally use for access to Azure AD services for sign-in to the virtual machine.
 
 >[!NOTE]
 >The Azure AD tenant that is used for sign-in in this scenario is the Azure AD tenant that is associated with the subscription that the virtual machine has been provisioned into. This Azure AD tenant can be one that has identities synchronized from on-premises AD DS. Organizations should make an informed choice that aligns with their isolation principals when choosing which subscription and Azure AD tenant they wish to use for sign-in to these servers.
 
-**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad) for more information.
+**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux) for more information.
 
 **Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure AD Portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
 

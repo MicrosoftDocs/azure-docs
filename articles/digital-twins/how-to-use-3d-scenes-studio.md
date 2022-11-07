@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/03/2022
+ms.date: 11/02/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -323,6 +323,20 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
 When looking at your scene in the viewer, you can use the **Select layers** button to choose which layers show up in the visualization. Behaviors that aren't part of any layer are grouped under **Default layer**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-select-viewer.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The layer selection is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-select-viewer.png":::
+
+## Configure minimum refresh rate
+
+You can manually configure the **minimum refresh rate** for the 3D scene viewer, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate to be anywhere between 10 seconds and one hour.
+
+In the builder for a scene, select the **Scene configuration** button.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-configuration.png" alt-text="Screenshot of 3D Scenes Studio in Build mode. The scene configuration option is highlighted." lightbox="media/how-to-use-3d-scenes-studio/scene-configuration.png":::
+
+Use the dropdown list to select a refresh rate option.
+
+While looking at the scene in the viewer, you can hover over the **Refresh** button to see the refresh rate setting and the time of the last refresh. You can also select it to refresh the scene manually.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/viewer-refresh.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The refresh button highlighted." lightbox="media/how-to-use-3d-scenes-studio/viewer-refresh.png":::
 
 ## Modify theme 
 

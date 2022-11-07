@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: blackmist
-ms.author: larryfr
+author: ositanachi  
+ms.author: osiotugo
+ms.reviewer: larryfr
 ms.date: 09/27/2022
-ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 

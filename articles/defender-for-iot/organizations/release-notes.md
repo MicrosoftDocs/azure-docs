@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 11/03/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -60,6 +60,24 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## October 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+
+### Enhanced OT monitoring alert reference
+
+Our alert reference article now includes the following details for each alert:
+
+- **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities.
+
+- **MITRE ATT&CK for ICS tactics and techniques**, which describe the actions an adversary may take while operating within the network. Use the tactics and techniques listed for each alert to learn about the network areas that might be at risk and collaborate more efficiently across your security and OT teams more as you secure those assets.
+
+- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. Modify alert thresholds as needed from the sensor's **Support** page.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md), specifically [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
+
 ## September 2022
 
 |Service area  |Updates  |
@@ -94,7 +112,7 @@ Defender for IoT now provides vulnerability data in the Azure portal for detecte
 
 Access vulnerability data in the Azure portal from the following locations:
 
-- On a device details page select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
+- On a device details page, select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
 
     For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
@@ -285,13 +303,13 @@ Use the following table to understand the mapping between legacy hardware profil
 
 |Legacy name  |New name  | Description |
 |---------|---------|---------|
-|**Corporate**     |    **C5600** | A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
-|**Enterprise**     | **E1800** | An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
-|**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
-|**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
-|**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
+|**Corporate**     |    **C5600** | A *Corporate* environment, with: <br>16 Cores<br>32-GB RAM<br>5.6-TB disk storage |
+|**Enterprise**     | **E1800** | An *Enterprise* environment, with: <br>8 Cores<br>32-GB RAM<br>1.8-TB disk storage        |
+|**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>500-GB disk storage  |
+|**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>100-GB disk storage      |
+|**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>64-GB disk storage     |
 
-We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
+We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1-TB disk sizes.
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
 

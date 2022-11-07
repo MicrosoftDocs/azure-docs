@@ -55,7 +55,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Active Directory limits
+## Azure Active Directory limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -405,6 +405,10 @@ This section lists the most common service limits you might encounter as you use
 ### Machine learning-based limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+
+## Multi workspace limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
 
 ### Notebook limits
 

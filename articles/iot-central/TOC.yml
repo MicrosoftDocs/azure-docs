@@ -141,6 +141,8 @@
           href: core/howto-use-commands.md
         - name: Connect devices that use X.509
           href: core/how-to-connect-devices-x509.md
+        - name: Manage IoT Edge deployment manifests
+          href: core/howto-manage-deployment-manifests.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an IoT Edge for Linux on Windows device 

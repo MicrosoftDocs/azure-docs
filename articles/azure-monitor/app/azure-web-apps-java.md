@@ -22,6 +22,8 @@ You can apply additional configurations, and then based on your specific scenari
 
 You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
     :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected."::: 
