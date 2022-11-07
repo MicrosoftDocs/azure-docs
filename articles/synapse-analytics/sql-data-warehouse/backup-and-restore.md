@@ -97,9 +97,9 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) with the MODIFY NAME option.
 
-To restore a data warehouse, see [Restore a dedicated SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
+To restore a data warehouse, see [Restore a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server.md).
+To restore a deleted data warehouse, see [Restore a deleted database (formerly SQL DW)](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server (formerly SQL DW)](sql-data-warehouse-restore-from-deleted-server.md).
 
 ## Cross subscription restore
 
