@@ -1,12 +1,12 @@
 ---
-title: Create and run custom availability tests using Azure Functions
+title: Create and run custom availability tests by using Azure Functions
 description: This article explains how to create an Azure function with TrackAvailability() that will run periodically according to the configuration given in a TimerTrigger function. 
 ms.topic: conceptual
 ms.date: 05/06/2021
 ms.devlang: csharp
 ---
 
-# Create and run custom availability tests using Azure Functions
+# Create and run custom availability tests by using Azure Functions
 
 This article explains how to create an Azure function with `TrackAvailability()` that will run periodically according to the configuration given in the `TimerTrigger` function with your own business logic. The results of this test will be sent to your Application Insights resource, where you can query for and alert on the availability results data. Then you can create customized tests similar to what you can do via [availability monitoring](./monitor-web-app-availability.md) in the Azure portal. By using customized tests, you can:
 
@@ -27,9 +27,10 @@ This article explains how to create an Azure function with `TrackAvailability()`
     
         - By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
         - Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
-            - On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
+          
+          On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
             
-                :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
+          :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
 
     - If you don't have an Application Insights resource created yet for your timer-triggered function:
         - By default, when you're creating your Azure Functions application, it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
@@ -81,7 +82,7 @@ To create a new file, right-click under your timer trigger function (for example
     } 
     ```
 
-1. Copy the following code into the **run.csx** file (you'll replace the preexisting code):
+1. Copy the following code into the **run.csx** file. (You'll replace the preexisting code.)
 
     ```csharp
     #load "runAvailabilityTest.csx" 
