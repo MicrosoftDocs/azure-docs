@@ -66,7 +66,7 @@ The **Attach Synapse Spark pool (preview)** panel will open on the right side of
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The Azure Machine Learning CLI provides the ability to attach and manage a Synapse Spark pool from the command line interface, using intuitive YAML syntax and commands.
+With the Azure Machine Learning CLI, we can attach and manage a Synapse Spark pool from the command line interface, using intuitive YAML syntax and commands.
 
 To define an attached Synapse Spark pool using YAML syntax, the YAML file should cover these properties: 
 
@@ -129,7 +129,7 @@ The YAML files above can be used in the `az ml compute attach` command as the `-
 az ml compute attach --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli
 Class SynapseSparkCompute: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
@@ -174,7 +174,7 @@ To display details of an attached Synapse Spark pool, execute the `az ml compute
 az ml compute show --name <ATTACHED_SPARK_POOL_NAME> --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli
 <ATTACHED_SPARK_POOL_NAME>
@@ -209,7 +209,7 @@ To see a list of all computes, including the attached Synapse Spark pools in a w
    az ml compute list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli
 [
@@ -417,7 +417,7 @@ Execute the `az ml compute update` command, with appropriate parameters, to upda
 az ml compute update --identity SystemAssigned --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME> --name <ATTACHED_SPARK_POOL_NAME>
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli
 Class SynapseSparkCompute: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
@@ -460,7 +460,7 @@ az ml compute update --identity UserAssigned --user-assigned-identities /subscri
 
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli
 Class SynapseSparkCompute: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
@@ -582,7 +582,7 @@ We might want to detach an attached Synapse Spark pool, to clean up a workspace.
 
 # [Studio UI](#tab/studio-ui)
 
-The Azure Machine Learning studio UI also provides a way to detach an attached Synapse Spark pool. To do this:
+The Azure Machine Learning studio UI also provides a way to detach an attached Synapse Spark pool. Follow these steps to do this:
 
 1. Open the **Details** page for the Synapse Spark pool, in the Azure Machine Learning studio.
 
@@ -592,7 +592,7 @@ The Azure Machine Learning studio UI also provides a way to detach an attached S
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-An attached Synapse Spark pool can be detached by executing the `az ml compute detach` command with name of the pool passed using `--name` parameter as following:
+An attached Synapse Spark pool can be detached by executing the `az ml compute detach` command with name of the pool passed using `--name` parameter as shown here:
 
 ```azurecli
 
@@ -600,7 +600,7 @@ az ml compute detach --name <ATTACHED_SPARK_POOL_NAME> --subscription <SUBSCRIPT
  
 ```
 
-This shows the expected output of the above command:
+This sample shows the expected output of the above command:
 
 ```azurecli 
 Are you sure you want to perform this operation? (y/n): y
@@ -611,7 +611,7 @@ Are you sure you want to perform this operation? (y/n): y
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
- An `MLClient.compute.begin_delete()` function call will do this for us. Pass the `name` of the attached Synapse Spark pool, along with the action `Detach`, to the function. This code snippet detaches a Synapse Spark pool from an Azure Machine Learning workspace:
+ We will use an `MLClient.compute.begin_delete()` function call. Pass the `name` of the attached Synapse Spark pool, along with the action `Detach`, to the function. This code snippet detaches a Synapse Spark pool from an Azure Machine Learning workspace:
 
 ```python
 # import required libraries
