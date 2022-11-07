@@ -22,7 +22,7 @@ In this tutorial, you create a **Smart Building** gateway device template. A **S
 As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
 
 * Send its own telemetry, such as temperature.
-* Respond to writable property updates made by an operator. For example, an operator could changes the telemetry send interval.
+* Respond to writable property updates made by an operator. For example, an operator could change the telemetry send interval.
 * Respond to commands, such as rebooting the device.
 
 In this tutorial, you learn how to:
@@ -163,7 +163,7 @@ To create a simulated gateway device:
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **On**. Select **Create**.
 
-To create a simulated downstream devices:
+To create simulated downstream devices:
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates.
 
@@ -207,7 +207,7 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 In the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial, the sample code shows how to include the model ID from the device template in the provisioning payload the device sends.
 
-When you connect a downstream device, you can modify the provisioning payload to include the the ID of the gateway device. The model ID lets IoT Central assign the device to the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
+When you connect a downstream device, you can modify the provisioning payload to include the ID of the gateway device. The model ID lets IoT Central assign the device to the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
 
 ```json
 {
@@ -329,4 +329,4 @@ In this tutorial, you learned how to:
 Next you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/)
+> [Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
