@@ -3,7 +3,7 @@ title: Tutorial - Connect a generic client app to Azure IoT Central | Microsoft 
 description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/10/2022
+ms.date: 10/26/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -77,7 +77,7 @@ In this tutorial, you learn how to:
 
 You can use the **Raw data** view to examine the raw data your device is sending to IoT Central:
 
-:::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="The raw data view":::
+:::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/tutorial-connect-device/raw-data.png":::
 
 On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows device data that doesn't match any property or telemetry definitions in the device template.
 
