@@ -47,7 +47,7 @@ kubectl delete namespace dapr-system
 1. Run the following command to uninstall Dapr:
 
 ```bash
-dapr uninstall -k –-all
+helm uninstall dapr -n dapr-system
 ```
 
 1. Uninstall CRDs: 

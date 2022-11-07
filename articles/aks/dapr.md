@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 11/07/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
@@ -149,7 +149,7 @@ Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubern
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr
 ```
 
@@ -157,6 +157,19 @@ You have the option of allowing Dapr to auto-update its minor version by specify
 
 ```azure-cli-interactive
 --auto-upgrade-minor-version true
+```
+
+When a new Dapr version is released, you can be added to a `--release-train` option. Specify one of the two release train values:
+
+| Value    | Description                               |
+| -------- | ----------------------------------------- |
+| `stable` | Default.                                  |
+| `dev`    | For testing. Not suitable for production. |
+
+For example:
+
+```azure-cli-interactive
+--release-train stable
 ```
 
 ## Configuration settings
@@ -167,7 +180,7 @@ The extension enables you to set Dapr configuration options by using the `--conf
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -208,7 +221,7 @@ The same command-line argument is used for installing a specific version of Dapr
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
 --version X.X.X
@@ -222,7 +235,7 @@ In some configurations, you may only want to run Dapr on certain nodes. You can 
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -236,13 +249,31 @@ For managing OS and architecture, use the [supported versions](https://github.co
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=2" \
 --configuration-settings "global.daprControlPlaneOs=linux” \
 --configuration-settings "global.daprControlPlaneArch=amd64”
+```
+
+## Set automatic CRD updates
+
+Starting from Dapr version 1.9.2, you can add an `applyCrds` configuration setting to automatically update the Dapr CRDs.
+
+```azure-cli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.daprControlPlaneOs=linux” \
+--configuration-settings "global.daprControlPlaneArch=amd64” \
+--configuration-settings "hooks.applyCrds=true"
 ```
 
 ## Show current configuration settings
@@ -253,7 +284,7 @@ Use the `az k8s-extension show` command to show the current Dapr configuration s
 az k8s-extension show --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension
+--name dapr
 ```
 
 ## Update configuration settings
@@ -262,9 +293,8 @@ az k8s-extension show --cluster-type managedClusters \
 > Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension, applicable to the following settings:
 > * `global.ha.*`
 > * `dapr_placement.*`
-
-> [!NOTE]
-> High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
+>
+> HA is enabled enabled by default. Disabling it requires deletion and recreation of the extension.
 
 To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 
@@ -272,7 +302,7 @@ To update your Dapr configuration settings, recreate the extension with the desi
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \  
 --configuration-settings "global.ha.enabled=true" \
@@ -285,7 +315,7 @@ To update the `dapr_operator.replicaCount` from two to three, use the following 
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -319,7 +349,7 @@ Troubleshoot Dapr errors via the [common Dapr issues and solutions guide][dapr-t
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
 ```azure-cli-interactive
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension
+az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name dapr
 ```
 
 ## Next Steps
