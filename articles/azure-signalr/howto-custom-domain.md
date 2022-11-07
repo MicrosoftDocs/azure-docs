@@ -36,17 +36,17 @@ To configure a custom domain, you need to:
 
 ## Add a custom certificate
 
-Before you can add a custom domain, you need to add a custom SSL certificate. Your SignalR Service accesses the certificate stored in Key Vault through a managed identity.
+Before you can add a custom domain, you need to add a custom SSL certificate. Your SignalR Service accesses the certificate stored in your key vault through a managed identity.
 
 There are three steps to adding a domain certificate.
 
 1. Enable managed identity in your SignalR Service.
-1. Give the managed identity access to your Key Vault.
+1. Give the managed identity access to your key vault.
 1. Add a custom certificate to your SignalR Service.
 
 ### Enable managed identity in SignalR Service
 
-You can use either system-assigned or user-assigned managed identity. This article demonstrates using a system-assign managed identity.
+You can use either a system-assigned or user-assigned managed identity. This article demonstrates using a system-assigned managed identity.
 
 1. In the Azure portal, go to your SignalR service resource.
 1. Select **Identity** from the menu on the left.
@@ -54,19 +54,22 @@ You can use either system-assigned or user-assigned managed identity. This artic
 
    :::image type="content" alt-text="Screenshot of enabling managed identity." source="media/howto-custom-domain/portal-identity.png" :::
 
-1. Select **Save**, and then select **Yes** when prompted to enable system assigned managed identity.
+1. Select **Save**, and then select **Yes** when prompted to enable system-assigned managed identity.
 
-When the configuration is complete, the screen will show an **Object (principal) ID**. The object ID is the ID of the system-assigned managed identity SignalR Service will use to access the Key Vault. The name of the managed identity is the same as the name of the SignalR Service instance.  In the next section, you'll need to search for the principal (managed identity) using the name or Object ID.
+Once the identity is created, the **Object (principal) ID** is displayed. SignalR Service will use the object ID of the system-assigned managed identity to access the key vault.  The name of the managed identity is the same as the name of the SignalR Service instance.  In the next section, you'll need to search for the principal (managed identity) using the name or Object ID.
 
-### Give the managed identity access to Key Vault
 
-SignalR Service uses a [managed identity](~/articles/active-directory/managed-identities-azure-resources/overview.md) to access your Key Vault. You must give the managed identity permission to access your Key Vault. The way you grant permission depends on your Key Vault permission model.
+### Give the managed identity access to your key vault
+
+SignalR Service uses a [managed identity](~/articles/active-directory/managed-identities-azure-resources/overview.md) to access your key vault. You must give the managed identity permission to access your key vault. 
+
+The steps to grant permission depends whether you selected *vault access policy* or *Azure role-based access control* as your key vault permission model.
 
 #### [Vault access policy](#tab/vault-access-policy)
 
-If you're using **Vault access policy** as the Key Vault permission model, follow this procedure to add a new access policy.
+If you're using **Vault access policy** as your key vault permission model, follow this procedure to add a new access policy.
 
-1. Go to your Key Vault resource.
+1. Go to your key vault resource.
 1. Select **Access policies** from the menu on the left.
 1. Select **Create**.
     :::image type="content" source="media/howto-custom-domain/portal-key-vault-access-policies.png" alt-text="Screenshot of Key Vault's access policy page.":::
@@ -95,7 +98,7 @@ When using the **Azure role-based access control** permission model, follow this
 
    :::image type="content" alt-text="Screenshot of Azure role-based access control selected as the vault permission model." source="media/howto-custom-domain/portal-key-vault-perm-model-rbac.png" :::
 
-1. Go to your Key Vault resource.
+1. Go to your key vault resource.
 1. In the menu on the left, select **Access control (IAM)**.
 1. Select **Add**. Select **Add role assignment**.
 
@@ -126,7 +129,7 @@ Use the following steps to add the custom certificate to your SignalR Service:
    :::image type="content" alt-text="Screenshot of custom certificate management." source="media/howto-custom-domain/portal-custom-certificate-management.png" :::
 
 1. Enter a name of the custom certificate.
-1. Select **Select from your Key Vault** to choose a Key Vault certificate. After selection the following **Key Vault Base URI**, **Key Vault Secret Name** should be automatically filled. Alternatively you can also fill in these fields manually.
+1. Select **Select from your Key Vault** to choose a key vault certificate. After selection the following **Key Vault Base URI**, **Key Vault Secret Name** should be automatically filled. Alternatively you can also fill in these fields manually.
 1. Optionally, you can specify a **Key Vault Secret Version** if you want to pin the certificate to a specific version.
 1. Select **Add**.
 
@@ -153,7 +156,7 @@ If you're using Azure DNS Zone, see [manage DNS records](~/articles/dns/dns-oper
 
    :::image type="content" alt-text="Screenshot of adding a CNAME record in Azure DNS Zone." source="media/howto-custom-domain/portal-dns-cname.png" :::
 
-If you're using other DNS providers, follow provider's guide to create a CNAME record.
+If you're using other DNS providers, follow the provider's guide to create a CNAME record.
 
 ## Add a custom domain
 
@@ -165,8 +168,8 @@ Now add the custom domain to your SignalR Service.
 
    :::image type="content" alt-text="Screenshot of custom domain management." source="media/howto-custom-domain/portal-custom-domain-management.png" :::
 
-1. Fill in a name for the custom domain. 
-1. Fill in the full domain name of your custom domain, for example, `contoso.com`.
+1. Enter a name for the custom domain. 
+1. Enter the full domain name of your custom domain, for example, `contoso.com`.
 1. Select a custom certificate that applies to this custom domain.
 1. Select **Add**.
 
@@ -208,14 +211,14 @@ It should return `200` status code without any certificate error.
 
 ## Access Key Vault in private network
 
-If you've configured a [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, your SignalR Service won't be able to access the Key Vault via a public network. You can give your SignalR Service access to your Key Vault through a private network by creating a [Shared Private Endpoint](./howto-shared-private-endpoints-key-vault.md).
+If you've configured a [Private Endpoint](../private-link/private-endpoint-overview.md) to your key vault, your SignalR Service won't be able to access your key vault via a public network. You can give your SignalR Service access to your key vault through a private network by creating a [Shared Private Endpoint](./howto-shared-private-endpoints-key-vault.md).
 
 After you create a Shared Private Endpoint, you can add a custom certificate as described in the [Add a custom certificate to your SignalR Service](#add-a-custom-certificate-to-your-signalr-service) section above. 
 
 >[!IMPORTANT]
->**You don't have to change the domain in the Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you'll use this URI to configure a custom certificate.
+>**You don't have to change the domain in your key vault URI**. For example, if your key vault base URI is `https://contoso.vault.azure.net`, you'll use this URI to configure a custom certificate.
 
-You don't have to explicitly allow SignalR Service IP addresses in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
+You don't have to explicitly allow SignalR Service IP addresses in key vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 
 ## Cleanup
 
