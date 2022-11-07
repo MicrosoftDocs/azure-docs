@@ -241,7 +241,7 @@ db.command(
 print("Indexes are: {}\n".format(sorted(collection.index_information())))
 ```
 <!---
-:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="create_index":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="create_index":::
 --->
 
 ### Create a document
@@ -268,7 +268,7 @@ result = collection.update_one(
 print("Upserted document with _id {}\n".format(result.upserted_id))
 ```
 <!---
-:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="new_doc":::
 --->
 
 Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
@@ -282,7 +282,7 @@ doc = collection.find_one({"_id": result.upserted_id})
 print("Found a document with _id {}: {}\n".format(result.upserted_id, doc))
 ```
 <!---
-:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="read_doc":::
 --->
 
 ### Query documents
@@ -297,7 +297,7 @@ for doc in collection.find(allProductsQuery).sort("name", pymongo.ASCENDING):
     print("Found a product with _id {}: {}\n".format(doc["_id"], doc))
 ```
 <!---
-:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="query_doc":::
 --->
 
 Troubleshooting:
@@ -333,7 +333,7 @@ Found a product with _id <ID>: {'_id': ObjectId('<ID>'), 'name': 'Yamba Surfboar
 ```
 
 <!---
-:::code language="python" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="console_result":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="console_result":::
 --->
 
 ## Clean up resources
