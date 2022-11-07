@@ -22,7 +22,7 @@ Before you get started, make sure to:
 
 ## Setting up functions
 1. Install Azure Function extension in Visual Studio Code. It could be installed within Visual Studio Code application or follow this [Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-2. Set up local Azure Function APP following this [Link](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
+2. Set up local Azure Function APP following this [Link](../../azure-functions/functions-develop-vs-code?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
 3. Install communication services libraries. We'll use the Identity library to generate User Access Tokens. Run the npm install command in Local Azure Function APP directory, to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```
@@ -69,7 +69,7 @@ Open the link in a browser. Example result will be similar to this:
 }
 ```
 
-6. Deploy the local function to cloud. More details could be found from this [documentation](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files)
+6. Deploy the local function to cloud. More details could be found from this [documentation](../../azure-functions/functions-develop-vs-code.md).
 
 7. Test the deployed Azure Function. First find your Azure Function in Azure portal. Then client the Get Function URL button to get the Azure Function endpoint. Hitting the endpoint. The result should be similar to step 5. The Azure Funcion endpoint will be used in APP for initialing application parameters.
 
@@ -88,4 +88,4 @@ Note that we currently don't support Azure AD in sample code. Follow links below
 
 [Register your app under Azure Active Directory (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
 
-[Configure your App Service or Azure Functions app to use Azure AD log in](../../active-directory/app)(https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad).
+[Configure your App Service or Azure Functions app to use Azure AD log in](../../app-service/configure-authentication-provider-aad.md).
