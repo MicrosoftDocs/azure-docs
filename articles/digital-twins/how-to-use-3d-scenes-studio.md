@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/02/2022
+ms.date: 11/07/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -204,7 +204,7 @@ If you started the behavior creation process from a specific element, that eleme
 
 On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any additional twins.
 
-You can add secondary digital twin data sources for an element. After configuring other twins, you'll be able to use properties from those twins in your behavior expressions for this element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
+You can add secondary digital twin data sources for an element. After configuring other twins, you'll be able to use properties from those twins in your behavior expressions for this element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your [visual rules](#visual-rules) and [widgets](#widgets) for this behavior.
 
 To add a new twin data source, select **Add twin** and **Create twin**.
 
@@ -217,35 +217,35 @@ This will open a **New twin** panel where you can name the additional twin and s
 >[!TIP]
 >[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the primary twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<primary-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
 
-### Status 
+### Visual rules 
 
-In the **Status** tab, you can define states for your element. *States* are data-driven overlays on your elements to indicate the health or status of the element. 
+In the **Visual rules** tab, you can configure data-driven overlays on your elements to indicate their health or status in the viewer.
 
-To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+To create a rule, start by selecting **Add Rule**.
 
-Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization. The min of each value range is inclusive, and the max is exclusive.
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Visual Rules tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules.png":::
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Status tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status.png":::
+Choose a **Display name** for the rule.
 
-### Alerts
+Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-In the **Alerts** tab, you can set conditional notifications to help you quickly see when an element requires your attention.
+Once you've defined your property expression, select **New condition** to define the conditional visual effects.
 
-First, enter a **Trigger expression**. This is a JavaScript expression involving one or more properties of *PrimaryTwin* that yields a boolean result. This expression will generate an alert badge in the visualization when it evaluates to true. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The described fields are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png":::
 
-Then, customize your alert badge with an **Icon** and **Color**, and a string for **Scenario Description**. 
+In the **Add condition** options, enter a **Label** for the condition in the visualization.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
+Under **Conditions**, use the **Min** and **Max** fields to identify value boundaries for the condition. The min of each value range is inclusive, and the max is exclusive.
 
-Notification text can also include calculation expressions with this syntax: `${<calculation-expression>}`. Expressions will be computed and displayed dynamically in the [viewer](#view-scenes-individually).
+Under **Actions**, define what happens in the scene visualization when the condition is met. You can use **Mesh coloring** to control the color of the property expression in the viewer, or **Badge** to display a badge of a certain color and icon when the condition for the property expression is met.
 
-For an example of notification text with an expression, consider a behavior for a pasteurization tank, whose twin has double properties for `InFlow` and `OutFlow`. To display the difference between the tank's inflow and outflow in the notification, you could use this notification text: `Too much flow (InFlow is ${PrimaryTwin.InFlow - PrimaryTwin.OutFlow} greater than OutFlow)`. The computed result of the expression will be shown in the alert text in the viewer.
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The Add condition options are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-3.png":::
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png" alt-text="Screenshots showing the notification text being entered on the Alerts dialog, and how the alert appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png":::
+When you're done, select **Save**.
 
 ### Widgets 
 
-Widgets are managed on the **Widgets** tab. *Widgets* are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.
+Widgets are managed on the **Widgets** tab. *Widgets* are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when a certain condition is active.
 
 Select **Add widget** to bring up the **Widget library**, where you can select from different type of available widgets. 
 
@@ -285,13 +285,13 @@ Here are the types of widget that you can create:
 
 ### Use custom (advanced) expressions
 
-While defining [status](#status), [alerts](#alerts), and [widgets](#widgets) in your behaviors, you may want to use custom expressions to define a property condition.
+While defining [visual rules](#visual-rules) and [widgets](#widgets) in your behaviors, you may want to use custom expressions to define a property condition.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png" alt-text="Screenshot of defining a custom expression for a Status in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-custom-property-expression.png" alt-text="Screenshot of defining a custom expression in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-custom-property-expression.png":::
 
-These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic.
+These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic. The result of your expression must match the result type that you specify in the **Type** field.
 
-The following chart indicates which JavaScript operators are supported in 3D Scenes Studio.
+The following chart indicates which JavaScript operators are supported in 3D Scenes Studio custom expressions.
 
 | Operator type | Supported? |
 | --- | --- |

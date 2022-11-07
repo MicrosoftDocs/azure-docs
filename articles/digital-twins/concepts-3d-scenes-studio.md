@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/02/2022
+ms.date: 11/07/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -94,9 +94,8 @@ When creating a behavior for an element, you'll define the following components:
 
 * **Elements**: Behaviors describe the visuals that are applied to each [element](#elements) in the visualization. You can choose which elements this behavior applies to.
 * **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any other twins.
-* **Status**: States are data-driven overlays on your elements to indicate the health or status of the element. 
-* **Alerts**: Alerts are conditional notifications to help you quickly see when an element requires attention.
-* **Widgets**: Widgets are data-driven visuals that provide additional data to help you diagnose and investigate the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.
+* **Visual rules**: Visual rules are data-driven overlays on your elements that you can configure to indicate the health or status of the element.
+* **Widgets**: Widgets are data-driven visuals that provide additional data to help you diagnose and investigate the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when a particular condition is active.
 
 You can also create **layers** in your scene to help organize your behaviors. Layers act like tags on the behaviors, enabling you to define which behaviors need to be seen together, thus creating custom views of your scene for different roles or tasks.
 
@@ -108,7 +107,7 @@ Here's what the viewer looks like:
 
 :::image type="content" source="media/concepts-3d-scenes-studio/view-mode.png" alt-text="Screenshot of 3D Scenes Studio viewer."  lightbox="media/concepts-3d-scenes-studio/view-mode.png":::
 
-You can use the **Elements** list to explore all the elements and active alerts in your scene, or you can click elements directly in the visualization to explore their details.
+You can use the **Elements** list to explore all the elements and active conditions in your scene, or you can click elements directly in the visualization to explore their details.
 
 ## Embeddable viewer component
 
