@@ -32,24 +32,24 @@ There are two ways to enable file compression:
 You can enable compression in the following ways:
 * During quick create - When you enable caching, you can enable compression.
 * During custom create - Enable caching and compression when you're adding a route. 
-* In Endpoint Manager route.
+* In Front Door manager.
 * On the Optimization page.
 
-### Enable compression in Endpoint manager
+### Enable compression in Front Door manager
 
-1. From the Azure Front Door Standard/Premium profile page, go to **Endpoint Manager** and select the endpoint you want to enable compression.
+1. From the Azure Front Door Standard/Premium profile page, go to **Front Door manager** and select the endpoint you want to enable compression.
 
-1. Select **Edit Endpoint**, then select the **route** you want to enable compression. 
+1. Within the endpoint, select the **route** you want to enable compression on.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Front Door manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
 
-1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
+1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in endpoint manager.":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in Front Door manager.":::   
 
 1. Select **Update** to save the configuration.
 
-### Enable compression in Optimization
+### Enable compression in Optimizations
 
 1. From the Azure Front Door Standard/Premium profile page, go to **Optimizations** under Settings. Expand the endpoint to see the list of routes. 
 
@@ -57,9 +57,9 @@ You can enable compression in the following ways:
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Screen of enable compression on the optimization page." lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
 
-1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
+1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
 
-     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screen shot of enabling compression in endpoint manager."::: 
+     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screen shot of enabling compression in the optimizations page."::: 
 
 1. Click **Update**.
 
@@ -82,14 +82,14 @@ You can modify the default list of MIME types on Optimizations page.
 ## Disabling compression
 
 You can disable compression in the following ways:
-* Disable compression in Endpoint manager route.
-* Disable compression in Optimization page.
+* Disable compression in Front Door manager route.
+* Disable compression in Optimizations page.
 
-### Disable compression in Endpoint manager
+### Disable compression in Front Door manager
 
-1. From the Azure Front Door Standard/Premium profile page, go to **Endpoint manager** under Settings. Select the endpoint you want to disable compression.
+1. From the Azure Front Door Standard/Premium profile page, go to **Front Door manager** under Settings.
 
-1. Select **Edit Endpoint** and then select the **route** you want to disable compression. Uncheck the **Enable compression** box.
+1. Select the **route** you want to disable compression on. Uncheck the **Enable compression** box.
 
 1. Select **Update** to save the configuration.
 
