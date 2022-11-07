@@ -1,11 +1,11 @@
 ---
-title: Manage Microsoft Defender for IoT plans on Azure subscriptions
-description: Manage Microsoft Defender for IoT plans on your Azure subscriptions.
-ms.date: 07/06/2022
+title: Manage OT plans on Azure subscriptions
+description: Manage Microsoft Defender for IoT plans for OT monitoring on your Azure subscriptions.
+ms.date: 11/07/2022
 ms.topic: how-to
 ---
 
-# Manage Defender for IoT plans
+# Manage OT plans on Azure subscriptions
 
 Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscription. For OT networks, use Defender for IoT in the Azure portal to onboard, edit, and cancel Defender for IoT plans.
 

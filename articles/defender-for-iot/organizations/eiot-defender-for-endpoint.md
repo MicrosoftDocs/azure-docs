@@ -1,11 +1,11 @@
 ---
-title: Secure Enterprise IoT devices from Microsoft 365 with Microsoft Defender for Endpoint and Microsoft Defender for IoT
-description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint.
+title: Enable Enterprise IoT security in Microsoft 365 with Defender for Endpoint - Microsoft Defender for IoT
+description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint in Microsoft 365 Defender.
 ms.topic: quickstart
 ms.date: 10/19/2022
 ---
 
-# Enable Enterprise IoT security in Defender for Endpoint
+# Enable Enterprise IoT security with Defender for Endpoint
 
 This article describes how Microsoft Defender for Endpoint customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices.
 

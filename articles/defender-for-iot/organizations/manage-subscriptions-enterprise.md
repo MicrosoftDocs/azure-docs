@@ -1,6 +1,6 @@
 ---
-title: Manage Defender for IoT plans on Azure subscriptions
-description: Manage Defender for IoT plans on your Azure subscriptions.
+title: Manage Enterprise IoT plans on Azure subscriptions
+description: Manage Defender for IoT plans for Enterprise IoT monitoring on your Azure subscriptions.
 ms.date: 07/06/2022
 ms.topic: how-to
 ---

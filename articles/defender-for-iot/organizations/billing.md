@@ -1,5 +1,5 @@
 ---
-title: Subscription billing in Microsoft Defender for IoT
+title: Subscription billing
 description: Learn how you're billed for the Microsoft Defender for IoT service on your Azure subscription.
 ms.topic: conceptual
 ms.date: 10/30/2022
