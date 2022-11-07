@@ -23,7 +23,7 @@ For an example of a Service Fabric managed cluster deployment that makes use of 
 > Only user-assigned identities are currently supported for this feature.
 
 > [!NOTE]
-> See [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity) for application configuration.
+> See [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md) for application configuration.
 
 ## Prerequisites
 
