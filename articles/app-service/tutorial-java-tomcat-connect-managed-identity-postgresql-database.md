@@ -94,7 +94,17 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    ```
 
 1. Create a database for the application.
+   ### [Flexible Server](#tab/flexible)
+   ```azurecli-interactive
+   DATABASE_NAME=checklist
 
+   az postgres flexible-server db create \
+       --resource-group $RESOURCE_GROUP \
+       --server-name $POSTGRESQL_HOST \
+       --database-name $DATABASE_NAME
+   ```
+
+   ### [Single Server](#tab/single)
    ```azurecli-interactive
    DATABASE_NAME=checklist
 

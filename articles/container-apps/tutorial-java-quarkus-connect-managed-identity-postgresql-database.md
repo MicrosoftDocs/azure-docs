@@ -316,7 +316,15 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `GP_Gen5_2`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 1. Create a database named `fruits` within the PostgreSQL service with this command:
+   ### [Flexible Server](#tab/flexible)
+   ```azurecli
+   az postgres flexible-server db create \
+       --resource-group $RESOURCE_GROUP \
+       --server-name $DB_SERVER_NAME \
+       --database-name fruits
+   ```
 
+   ### [Single Server](#tab/single)
    ```azurecli
    az postgres db create \
        --resource-group $RESOURCE_GROUP \
