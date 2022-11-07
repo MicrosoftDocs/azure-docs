@@ -892,6 +892,12 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
+      - name: Troubleshoot
+        items:
+        - name: Failover of an Azure SQL Database
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
+        - name: Azure Active Directory (AAD) user impersonation
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
