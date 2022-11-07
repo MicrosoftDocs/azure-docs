@@ -39,11 +39,11 @@ From the Azure portal, locate your Communication Service resource and click on t
 
 ## Prepare your audio file
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16 KHz sample rate.
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
