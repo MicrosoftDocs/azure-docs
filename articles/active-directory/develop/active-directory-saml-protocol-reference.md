@@ -17,7 +17,7 @@ ms.reviewer: paulgarn
 
 # How the Microsoft identity platform uses the SAML protocol
 
-The Microsoft identity platform uses the SAML 2.0 and other protocols to enable applications to provide a single sign-on (SSO) experience to their users. The [Single Sign-On (SSO)](single-sign-on-saml-protocol.md) and [Single Sign-Out](single-sign-out-saml-protocol.md) SAML profiles of Azure Active Directory (Azure AD) explain how SAML assertions, protocols, and bindings are used in the identity provider service.
+The Microsoft identity platform uses the SAML 2.0 and other protocols to enable applications to provide a single sign-on (SSO) experience to their users. The [SSO](single-sign-on-saml-protocol.md) and [Single Sign-Out](single-sign-out-saml-protocol.md) SAML profiles of Azure Active Directory (Azure AD) explain how SAML assertions, protocols, and bindings are used in the identity provider service.
 
 The SAML protocol requires the identity provider (Microsoft identity platform) and the service provider (the application) to exchange information about themselves.
 
