@@ -26,7 +26,7 @@ Interactive training is supported on **AzureML Compute Cluster** and **Azure Arc
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all AzureML curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported. 
 
-  ![screenshot supported-distribution-types](media/interactive-jobs/supported-distribution-types.png)
+![screenshot supported-distribution-types](media/interactive-jobs/supported-distribution-types.png)
 
 ## Interact with your job container
 
@@ -232,7 +232,7 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command. You can also find this information on the job details page.
    
-   ![screenshot debug-path-and-port](./media/interactive-jobs/debug-path-and-port.png)
+ ![screenshot debug-path-and-port](./media/interactive-jobs/debug-path-and-port.png)
    
    ![screenshot remote-attach](./media/interactive-jobs/remote-attach.png)
 
