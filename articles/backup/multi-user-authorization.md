@@ -91,7 +91,7 @@ Choose the operations you want to protect using the Resource Guard out of all su
 
 # [Azure portal](#tab/azure-portal)
 
-To iexempt operations, follow these steps:
+To exempt operations, follow these steps:
 
 1. In the Resource Guard created above, go to **Properties**.
 2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
