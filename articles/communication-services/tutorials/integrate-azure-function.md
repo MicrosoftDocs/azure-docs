@@ -22,7 +22,7 @@ Before you get started, make sure to:
 
 ## Setting up functions
 1. Install Azure Function extension in Visual Studio Code. It could be installed within Visual Studio Code application or follow this [Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-2. Set up local Azure Function APP following this [Link](../../azure-functions/functions-develop-vs-code?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
+2. Set up local Azure Function APP following this [Link](../../azure-functions/functions-develop-vs-code.md?tabs=csharp#create-an-azure-functions-project). We need to create a local function using the HTTP trigger template in JavaScript. 
 3. Install communication services libraries. We'll use the Identity library to generate User Access Tokens. Run the npm install command in Local Azure Function APP directory, to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```
@@ -77,7 +77,7 @@ Open the link in a browser. Example result will be similar to this:
 
 ## Trouble shooting guide
 1. If the Azure Function extension failed to deploy local function to the Azure side, it's likely due to the versions of VS code, and Azure Function extension being used have a bug. This version combination has been tested to work: VS code version '1.68.1' and Azure Function extension version '1.2.1'.
-2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](../quickstarts/chat/includes/chat-android.md). The highlight note in section 'Set up application constants'. And compare with the sample APP with the version you are consuming.
+2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started). The highlight note in section 'Set up application constants'. And compare with the sample APP with the version you are consuming.
 
 ## (Optional) secure the Azure Function endpoint
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, one option is to use your own secured endpoint to provision your own tokens.
