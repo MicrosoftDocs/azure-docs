@@ -183,8 +183,6 @@ This new capability is available through the Azure portal as as shown here, as w
 
 :::image type="content" source="media/premium-features/upgrade.png" alt-text="Screenshot showing SKU upgrade" lightbox="media/premium-features/upgrade.png":::
 
-<SCU Screenshot>
-
 > [!NOTE]
 > This new upgrade/downgrade capability will also support the Basic SKU for GA.
 
