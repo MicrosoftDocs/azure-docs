@@ -1,11 +1,11 @@
 ---
-title: Use Azure Monitor workbooks in Microsoft Defender for IoT
+title: Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
 ms.date: 09/04/2022
 ---
 
-# Use Azure Monitor workbooks in Microsoft Defender for IoT
+# Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
