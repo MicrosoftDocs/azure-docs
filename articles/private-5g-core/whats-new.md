@@ -54,7 +54,9 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 2. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. You must list your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
 3. Remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
 
-Example template using 2022-04-01-preview API:
+See below for a comparison between templates using 2022-04-01-preview and the 2022-11-01 APIs.
+
+# [2022-04-01-preview API](#tab/2022-04-01-preview)
 
 ```json
 {
@@ -102,7 +104,7 @@ Example template using 2022-04-01-preview API:
   }
 ```
 
-Example template using 2022-11-01 API:
+# [2022-11-01 API](#tab/2022-11-01)
 
 ```json
 {
