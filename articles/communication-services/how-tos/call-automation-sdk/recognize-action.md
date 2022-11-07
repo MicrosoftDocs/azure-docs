@@ -19,11 +19,11 @@ zone_pivot_groups: acs-csharp-java
 This quickstart will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Recognize action with .NET](./includes/call-automation-media/recognize-action-quickstart-csharp.md)]
+[!INCLUDE [Recognize action with .NET](./includes/recognize-action-quickstart-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Recognize action with Java](./includes/call-automation-media/recognize-action-quickstart-java.md)]
+[!INCLUDE [Recognize action with Java](./includes/recognize-action-quickstart-java.md)]
 ::: zone-end
 
 ## Event codes
@@ -41,7 +41,7 @@ This quickstart will help you get started with recognizing DTMF input provided b
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next Steps
 
