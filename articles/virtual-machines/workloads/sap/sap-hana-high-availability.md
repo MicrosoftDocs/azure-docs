@@ -492,7 +492,11 @@ The steps in this section use the following prefixes:
 
 ## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook. The SAPHanaSR package brings several individual high-availability providers. The main provider SAPHanaSR and second the susChkSrv provider for crashed HANA indexserver  are both recommended. SusChkSrv extends the functionality of main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes or is killed. If a single process crashes typically HANA tries to restart it. Restarting a crashed or killed indexserver process can take a long time period, during which the HANA database is not responsive to requests. With susChkSrv implemented, an immediate and configurable action is executed, fencing the affected node or killing the whole HANA instance. By either action, fence or kill, a failover is executed in the configured timeout period instead of waiting on hdbindexserver process to restart. 
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  For HANA 2.0 SP5 and above,  implementing SAPHanaSR, along with susChkSrv hook is recommended.  
+
+SusChkSrv extends the functionality of  the main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database is not responsive.
+
+With susChkSrv implemented, an immediate and configurable action is executed, which triggers a failover in the configured timeout period,  instead of waiting on hdbindexserver process to restart on the same node. 
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
