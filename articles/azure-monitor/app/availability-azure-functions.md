@@ -35,10 +35,10 @@ This article explains how to create an Azure function with `TrackAvailability()`
         - By default, when you're creating your Azure Functions application, it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
         
     > [!NOTE]
-    > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing non-public endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
+    > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
 1. Create a timer trigger function.
     1. In your function app, select the **Functions** tab.
-    1. Select **Add**. On the **Add function** tab, select the following configurations:
+    1. Select **Add**. On the **Add function** pane, select the following configurations:
         1. **Development environment**: **Develop in portal**
         1. **Select a template**: **Timer trigger**
     1. Select **Add** to create the timer trigger function.
@@ -81,7 +81,7 @@ To create a new file, right-click under your timer trigger function (for example
     } 
     ```
 
-1. Copy the following code into the **run.csx** file (replace the preexisting code):
+1. Copy the following code into the **run.csx** file (you'll replace the preexisting code):
 
     ```csharp
     #load "runAvailabilityTest.csx" 
