@@ -174,7 +174,7 @@ You can also manage individual modules on unassigned devices:
 
 IoT Central device templates use models to describe the capabilities of IoT Edge devices. Device templates are optional for IoT Edge devices. The device template enables you to interact with telemetry, properties, and commands using IoT Central capabilities such as dashboards and analytics. The following diagram shows the structure of the model for an IoT Edge device:
 
-:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Diagram that shows the model structure for an IoT Edge device connected to IoT Central" border="false":::
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Diagram that shows the model structure for an IoT Edge device connected to IoT Central." border="false":::
 
 IoT Central models an IoT Edge device as follows:
 
