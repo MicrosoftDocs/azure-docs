@@ -29,12 +29,6 @@ In this article, you will:
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A WebSocket API. 
 - Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-
-- Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
-
 
 ## WebSocket passthrough
 
@@ -84,12 +78,6 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
     | Gateways | Associate your WebSocket API with existing gateways. |
  
 1. Click **Create**.
-
-#### [Azure CLI](#tab/cli)
-
-
-
-#### [PowerShell](#tab/powershell)
 
 ---
 
