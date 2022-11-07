@@ -4,6 +4,7 @@ description: In this tutorial, set up disaster recovery for Azure VMs to another
 ms.topic: tutorial
 ms.date: 10/19/2022
 ms.custom: mvc
+ms.author: ankitadutta
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs

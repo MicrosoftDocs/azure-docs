@@ -20,18 +20,18 @@
       href: whats-new-webrtc.md
     - name: Remote Desktop clients
       items:
-      - name: Windows (Desktop)
-        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-      - name: Windows (Microsoft Store)
-        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-      - name: macOS
-        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-      - name: iOS/iPadOS
-        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-      - name: Android/Chrome OS
-        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-      - name: Web
+      - name: Windows Desktop client
+        href: whats-new-client-windows.md
+      - name: Web client
         href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: macOS client
+        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: iOS/iPadOS client
+        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Android/Chrome OS client
+        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Windows Microsoft Store client
+        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Quickstarts
@@ -83,6 +83,8 @@
         href: proxy-server-support.md
       - name: Determine user connection quality
         href: connection-latency.md
+      - name: Azure Private Link
+        href: private-link-overview.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Identity and access management
@@ -116,7 +118,9 @@
       - name: How the scaling tool works
         href: scaling-automation-logic-apps.md
   - name: Remote Desktop clients
-    items: 
+    items:
+    - name: Clients overview
+      href: ./users/remote-desktop-clients-overview.md
     - name: Compare the clients
       href: compare-remote-desktop-clients.md
     - name: Supported RDP properties
@@ -157,6 +161,8 @@
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported features for Teams
     href: teams-supported-features.md
+  - name: Printing using Universal Print
+    href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
 - name: How-to guides
   items:
   - name: Migrate your deployment
@@ -305,8 +311,10 @@
     items:
       - name: Enforce Azure AD MFA
         href: set-up-mfa.md
-      - name: Configure single sign-on
+      - name: Configure single sign-on using Azure AD
         href: configure-single-sign-on.md
+      - name: Configure single sign-on using AD FS
+        href: configure-adfs-sso.md
       - name: Set up the KDC proxy
         href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
@@ -341,6 +349,8 @@
       href: configure-rdp-shortpath.md
     - name: Limit RDP Shortpath port range
       href: configure-rdp-shortpath-limit-ports-public-networks.md
+    - name: Set up Azure Private Link
+      href: private-link-setup.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI

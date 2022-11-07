@@ -30,7 +30,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -85,11 +85,11 @@ Tables are included in a combined package for Azure Storage. Install the [Micros
 
 # [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Azure Cosmos DB for Table extension does not currently support isolated process. You will instead need to use the [Storage extension](#storage-extension).
+The Azure Cosmos DB for Table extension does not currently support isolated worker process. You will instead need to use the [Storage extension](#storage-extension).
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
 
