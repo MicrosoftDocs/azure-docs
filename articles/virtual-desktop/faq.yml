@@ -5,7 +5,7 @@ metadata:
   author: Heidilohr
   ms.topic: faq
   ms.service: virtual-desktop
-  ms.date: 12/17/2021
+  ms.date: 11/07/2022
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
@@ -186,3 +186,10 @@ sections:
          Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
         answer: |
           No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported with Azure Virtual Desktop.
+
+      - question: |
+         If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but goes down but the VM region stays online?
+        answer: |
+         If the region you stored your host pool metadata in goes down, Azure Virtual Desktop won't accept new user connections. However, any existing sessions will remain connected.
+
+        
