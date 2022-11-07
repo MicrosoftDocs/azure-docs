@@ -267,7 +267,6 @@ JSON objects can include nested JSON objects and simple property/values. An arra
                 "mobile":true,
                 "Windows":true,
                 "screensize": [1680,1050]
-                }
             }
         }
     ]
