@@ -57,7 +57,7 @@ You must grant your consent to Auth0 to create a partner topic in a resource gro
 1. On the **Review** page, review all settings, and then select **Create** to create the partner registration. 
 
     :::image type="content" source="./media/auth0-how-to/review-partner-authorization.png" alt-text="Screenshot showing the Create Partner Configuration page with Auth0.":::
-1. After the deployment is complete, select **Go to resource** to navigate to the **Event Grid Partner Configuration** page that show **Auth0** partner authorization.
+1. After the deployment is complete, select **Go to resource** to navigate to the **Event Grid Partner Configuration** page that shows **Auth0** partner authorization.
 
     :::image type="content" source="./media/auth0-how-to/partner-configuration.png" alt-text="Screenshot showing the Partner Configuration page with Auth0.":::
 
