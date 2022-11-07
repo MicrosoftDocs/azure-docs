@@ -194,6 +194,6 @@ To delete a custom column from a table in your Log Analytics workspace:
 
 Learn more about:
 
-- [Log Ingestion API](../logs/logs-ingestion-api-overview.md).
+- [The Log Ingestion API](../logs/logs-ingestion-api-overview.md).
 - [Sending custom logs to your Log Analytics workspace using the Azure portal](tutorial-logs-ingestion-portal.md).
 - [Sending custom logs o your Log Analytics workspace using Resource Manager templates and REST API](tutorial-logs-ingestion-api.md).
