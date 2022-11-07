@@ -267,7 +267,8 @@ Limitations:
 * Using the same route table with multiple AKS clusters isn't supported.
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubelet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, the identity ID cannot be retrieved before creating a cluster, which causes a delay during role assignment.
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, the identity ID cannot be retrieved before creating a cluster, which causes a delay during role assignment.
+> 
 > To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. But user-assigned managed identity is more recommended for BYO scenarios.
 
 After creating a custom route table and associating it with a subnet in your virtual network, you can create a new AKS cluster specifying your route table with a user-assigned managed identity.

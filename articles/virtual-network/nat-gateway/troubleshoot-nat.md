@@ -163,7 +163,7 @@ To get your virtual machine NIC out of a failed state, you can use one of the tw
 
 NAT gateway can't be associated with more than 16 public IP addresses. You can use any combination of public IP addresses and prefixes with NAT gateway up to a total of 16 IP addresses. The following IP prefix sizes can be used with NAT gateway: 
 
-* /28 (16 addresses) 
+* /28 (sixteen addresses) 
 
 * /29 (eight addresses) 
 

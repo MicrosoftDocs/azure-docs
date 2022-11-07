@@ -3,13 +3,13 @@ title: How to use Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 09/05/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -39,7 +39,7 @@ The following table describes the minimum and recommended specifications for the
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
-| **1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
+| **1 document/request**   |  4 core, 12GB memory | 6 core, 12GB memory |15 | 30|
 | **10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.

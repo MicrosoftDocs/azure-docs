@@ -29,26 +29,24 @@
       href: quickstart-terraform.md
 - name: Tutorials
   items:
-    - name: Create and manage data
+    - name: Build web applications
       items:
-        - name: Build a console app
-          items:
-            - name: .NET
-              href: quickstart-dotnet.md
-            - name: Java
-              href: quickstart-java.md?tabs=sync
-            - name: Async Java
-              href: quickstart-java.md?tabs=async
-            - name: Node.js
-              href: quickstart-nodejs.md
-        - name: Build a web app
-          items:
-            - name: .NET
-              href: tutorial-dotnet-web-app.md
-            - name: Java
-              href: tutorial-java-web-app.md
-            - name: Node.js
-              href: tutorial-nodejs-web-app.md
+        - name: .NET
+          href: tutorial-dotnet-web-app.md
+        - name: Java
+          href: tutorial-java-web-app.md
+        - name: Node.js
+          href: tutorial-nodejs-web-app.md
+    - name: Build console applications
+      items:
+        - name: .NET
+          href: tutorial-dotnet-console-app.md
+        - name: Java
+          href: quickstart-java.md?tabs=sync
+        - name: Async Java
+          href: quickstart-java.md?tabs=async
+        - name: Node.js
+          href: quickstart-nodejs.md
     - name: Query data
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
@@ -358,8 +356,10 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
@@ -392,6 +392,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Jupyter notebooks
       items:
         - name: Overview
