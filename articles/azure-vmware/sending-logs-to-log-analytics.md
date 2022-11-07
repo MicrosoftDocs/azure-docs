@@ -7,6 +7,7 @@ ms.date: 11/07/2022
 ---
 
 # Sending your Azure VMware Solution logs to Log Analytics
+
 You can now send your Azure VMware Solution logs to Azure Monitor Log Analytics, adding another tool to your toolkit in addition to Azure Blob Storage, Azure Event Hub, and third-party solutions. Configuring such a tool has never been easier! In this article, we’ll show how you can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the rich feature set Log Analytics has to offer - from powerful querying capabilities with Kusto Query Language (KQL) to creating interactive reports with your data using Workbooks - without having to get your logs out of the Microsoft ecosystem.
 Once configured, you can take advantage of Log Analytics’ rich feature set, including:
 
@@ -48,16 +49,16 @@ Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it 
 
 At this point, your Log Analytics workspace has been successfully configured to receive logs from your AVS private cloud.
 
-# Search and Analyze Logs using Kusto
+## Search and Analyze Logs using Kusto
 
 Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature. 
 Log Analytics uses a language called the Kusto Query Language (or Kusto) to search through your logs.
 
-# Recommended content
+## Recommended content
 
 To understand how Kusto works and how you can write your own queries, check out these tutorials:
 
 [Kusto Query Language (KQL) from Scratch | Pluralsight
 Introduction - Training | Microsoft Docs](https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch/table-of-contents)
 
-To see how commonly used SQL queries would translate to  Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet)
+To see how commonly used SQL queries would translate to  Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet)
