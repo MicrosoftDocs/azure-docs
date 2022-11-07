@@ -43,7 +43,7 @@ If you have any questions, contact us at <a href="mailto:ask-grid-and-ms-sap@mic
 
 [!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
 
-[!INCLUDE [authorize-partner-to-create-topic](includes/authorize-partner-to-create-topic.md)]
+[!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
 
 
 ## Enable events to flow to your partner topic
