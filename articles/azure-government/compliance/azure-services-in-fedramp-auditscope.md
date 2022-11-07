@@ -104,7 +104,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Video Indexer](../../azure-video-indexer/index.yml) | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; |
-| [Azure VM Image Builder](../../virtual-machines/image-builder-overview?tabs=azure-powershell/index.yml) | &#x2705; | &#x2705; |
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; |
 | [Bastion](../../bastion/index.yml) | &#x2705; | &#x2705; |
 | [Batch](../../batch/index.yml) | &#x2705; | &#x2705; |
@@ -241,6 +240,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; |
+| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; |
 | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | &#x2705; | &#x2705; |
