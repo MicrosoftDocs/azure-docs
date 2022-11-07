@@ -196,6 +196,8 @@
       href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
+    - name: Sending logs to Log anaylitcs
+      href: sending-logs-to-log-anaylitcs.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
