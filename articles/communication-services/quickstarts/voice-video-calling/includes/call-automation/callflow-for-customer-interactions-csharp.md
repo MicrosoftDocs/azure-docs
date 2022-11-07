@@ -147,7 +147,7 @@ app.Run();
 In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
 First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
-:::image type="content" source="./../../media/call-automation/dotNetApplicationPort.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
+:::image type="content" source="./../../media/call-automation/dotnet-application-port.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
 
 Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
@@ -155,9 +155,9 @@ Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the followi
 
 In Visual Studio, right click at your project and then select "Manage User Secrets" to configure confidential environment variables.
 
-:::image type="content" source="./../../media/call-automation/dotNetUserSecret.jpg" alt-text="Screenshot of how to find out 'Manage User Secrets'":::
+:::image type="content" source="./../../media/call-automation/dotnet-user-secret.jpg" alt-text="Screenshot of how to find out 'Manage User Secrets'":::
 
-Reading more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/app-secrets)
+Read more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/app-secrets)
 
 ``` json
 {

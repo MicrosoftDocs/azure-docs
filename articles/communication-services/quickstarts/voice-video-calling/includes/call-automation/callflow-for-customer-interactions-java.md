@@ -29,8 +29,6 @@ Configure the [Spring Initializr](https://start.spring.io/) to create a new Java
 3. Add Spring Web to Dependencies section.
 4. Generate the application and it will be downloaded as a zip file. Unzip the file and start coding.
 
-:::image type="content" source="./../../media/call-automation/springBootInitializer.png" alt-text="Screenshot of Spring initializer page to create a new Java Spring application":::
-
 ## Install the Maven package
 
 **Configure Azure Artifacts development feed:**
