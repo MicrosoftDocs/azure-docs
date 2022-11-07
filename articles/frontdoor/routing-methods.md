@@ -44,11 +44,11 @@ All Front Door configurations have backend health monitoring and automated insta
 The following list shows the overall decision flow:
 
 1. **Available origins:** Select all origins that are enabled and returned healthy (200 OK) for the health probe.
-   - *Example: If there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.*
-1. **Priority:** Next, the top priority origins among the available ones are selected.
-   - *Example: If origin A, B, and D have priority 1 and origin F has a priority of 2. Then, the selected origins will be A, B, and D.*
-1. **Latency signal (based on health probe):** Select the origins with latency range (least latency & latency sensitivity in ms specified).
-   - *Example: If origin A is 15 ms, B is 30 ms and D is 60 ms away from the Azure Front Door environment where the request landed, and latency sensitivity is 30 ms, then the lowest latency pool consist of origin A and B, because D is beyond 30 ms away from the closest origin that is A.*
+   - *Example: Suppose there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.*
+1. **Priority:** The top priority origins among the available ones are selected.
+   - *Example: Suppose origin A, B, and D have priority 1 and origin F has a priority of 2. Then, the selected origins will be A, B, and D.*
+1. **Latency signal (based on health probe):** Select the origins within the allowable latency range from the Front Door environment where the request arrived. This signal is based on the latency sensitivity setting on the origin group, as well as the latency of the closer origins.
+   - *Example: Suppose Front Door has measured the latency from the environment where the request arrived to origin A at 15 ms, while the latency for B is 30 ms and D is 60 ms away. If the origin group's latency sensitivity is set to 30 ms, then the lowest latency pool consists of origins A and B, because D is beyond 30 ms away from the closest origin that is A.*
 1. **Weights:** Lastly, Azure Front Door will round robin the traffic among the final selected group of origins in the ratio of weights specified.
    - *Example: If origin A has a weight of 5 and origin B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among origins A and B.*
 
@@ -60,7 +60,7 @@ Deploying origins in two or more locations across the globe can improve the resp
 
 The 'closest' origin isn't necessarily closest as measured by geographic distance. Instead, Azure Front Door determines the closest origin by measuring network latency. Read more about [Azure Front Door routing architecture](front-door-routing-architecture.md). 
 
-Each Front Door point of presence (PoP) measures the origin latency separately. This means that different users in different locations are routed to the origin with the best performance for that PoP.
+Each Front Door environment measures the origin latency separately. This means that different users in different locations are routed to the origin with the best performance for that environment.
 
 >[!NOTE]
 > By default, the latency sensitivity property is set to 0 ms. With this setting the request is always forwarded to the fastest available origins and weights on the origin don't take effect unless two origins have the same network latency.
