@@ -230,7 +230,7 @@ To deploy directly to Azure without a separate build step, use the following pip
     Package: $(Build.SourcesDirectory)
 ```
 
-### Deploy from Custom Image
+### Deploy from custom image
 
 To deploy directly from an existing container image, use the following pipeline template.
 
