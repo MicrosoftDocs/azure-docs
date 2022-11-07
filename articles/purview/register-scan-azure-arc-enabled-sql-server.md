@@ -10,7 +10,9 @@ ms.date: 11/07/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage an Azure Arc-enabled SQL Server instance in Microsoft Purview
+# Connect to and manage an Azure Arc-enabled SQL Server instance in Microsoft Purview (Public preview)
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article outlines how to register Azure Arc-enabled SQL Server instances, and how to authenticate and interact with an Azure Arc-enabled SQL Server instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
