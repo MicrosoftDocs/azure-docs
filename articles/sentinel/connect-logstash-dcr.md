@@ -31,10 +31,10 @@ To learn more about working with the Logstash data collection engine, see [Getti
 **To set up the plugin, follow these steps**:
 
 1. [Install the plugin](#install-the-plugin)
-2. [Create a sample file](#create-a-sample-file) 
-3. [Create the required DCR-related resources](#create-the-required-dcr-resources)
-4. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
-5. [Restart Logstash and send sample data](#restart-logstash-and-send-sample-data)
+1. [Create a sample file](#create-a-sample-file) 
+1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
+1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
+1. Restart Logstash
 1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
 1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 

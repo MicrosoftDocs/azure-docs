@@ -1,6 +1,6 @@
 ---
-title: Connect data sources through Logstash to Microsoft Sentinel | Microsoft Docs
-description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel.
+title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
+description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
@@ -8,15 +8,15 @@ ms.date: 11/09/2021
 ms.author: yelevin
 ---
 
-# Use Logstash to connect data sources to Microsoft Sentinel
+# Use Logstash to stream logs with HTTP Data Collection API (legacy)
 
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> A [newer version of the Logstash plugin](connect-logstash-dcr.md) can forward logs from external data sources into custom and standard tables. The new plugin also supports DCRs, for full control over the output schema, including the configuration of the columns' names and types. 
+> A [newer version of the Logstash plugin](connect-logstash-dcr.md) can forward logs from external data sources into custom and standard tables using the DCR based API. The new plugin allows full control over the output schema, including the configuration of the column names and types. 
 
-Using Microsoft Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Microsoft Sentinel. Your logs will be sent to a custom table that you will define using the output plugin.
+Using Microsoft Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Microsoft Sentinel. Your logs will be sent to a custom table that you define using the output plugin. This version of the plugin uses the HTTP Data Collection API. 
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
