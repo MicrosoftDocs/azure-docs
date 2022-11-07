@@ -20,12 +20,11 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using the [
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
 
-[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (npm)](https://www.npmjs.com/package/mongodb)
-
+In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open-source MongoDB client drivers for Python. Here, we'll use the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) driver. Also, you'll use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands), designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](/azure/cosmos-db/account-databases-containers-items).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [Node.js LTS](https://nodejs.org/en/download/)
+* [Python 3.8+](https://www.python.org/downloads/)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-* [Azure Cosmos DB for MongoDB resource](quickstart-nodejs.md#create-an-azure-cosmos-db-account)
+* [Azure Cosmos DB for MongoDB resource](quickstart-python#create-a-database-account)
