@@ -92,7 +92,7 @@ Native Apache Cassandra provides change data capture (CDC), a mechanism to flag 
 
 ## Measuing change feed request unit consumption
 
-Use Azure Monitor to measure the request unit (RU) consupmtion of the change feed. For more information, see [monitor-request-unit-usage.md].
+Use Azure Monitor to measure the request unit (RU) consumption of the change feed. For more information, see [monitor throughput or request unit usage in Azure Cosmos DB](monitor-request-unit-usage.md).
 
 ## Next steps
 
