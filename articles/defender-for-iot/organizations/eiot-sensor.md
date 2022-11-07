@@ -143,7 +143,7 @@ This procedure describes how to install Enterprise IoT monitoring software on [y
 
 1. On your sensor machine, sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
 
-1. Run the command that you'd copied from the [sensor registration](#register-a-sensor) step. For example:
+1. Run the command that you'd copied from the [sensor registration](#register-a-sensor-in-the-azure-portal) step. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/enter-command.png" alt-text="Screenshot of running the command to install the Enterprise IoT sensor monitoring software.":::
 
