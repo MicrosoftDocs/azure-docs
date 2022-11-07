@@ -47,7 +47,7 @@ The following table describes the different types of storage accounts that are s
 | Block blob | Premium | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency. [Learn more about workloads for premium block blob accounts...](../blobs/storage-blob-block-blob-premium.md) |
 | Page blob | Premium | Premium storage account type for page blobs only. [Learn more about workloads for premium page blob accounts...](../blobs/storage-blob-pageblob-overview.md) |
 
-To learn more about types of storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). For information about legacy storage account types, see [Legacy storage account types](../common/storage-account-overview.md#legacy-storage-account-types).
+To learn more about types of storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json). For information about legacy storage account types, see [Legacy storage account types](../common/storage-account-overview.md#legacy-storage-account-types).
 
 To learn how to create a storage account, see [Create a storage account](../common/storage-account-create.md).
 
@@ -104,12 +104,12 @@ A number of solutions exist for migrating existing data to Blob Storage:
 
 - **AzCopy** is an easy-to-use command-line tool for Windows and Linux that copies data to and from Blob Storage, across containers, or across storage accounts. For more information about AzCopy, see [Transfer data with the AzCopy v10](../common/storage-use-azcopy-v10.md).
 - The **Azure Storage Data Movement library** is a .NET library for moving data between Azure Storage services. The AzCopy utility is built with the Data Movement library. For more information, see the [reference documentation](/dotnet/api/microsoft.azure.storage.datamovement) for the Data Movement library.
-- **Azure Data Factory** supports copying data to and from Blob Storage by using the account key, a shared access signature, a service principal, or managed identities for Azure resources. For more information, see [Copy data to or from Azure Blob Storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Azure Data Factory** supports copying data to and from Blob Storage by using the account key, a shared access signature, a service principal, or managed identities for Azure resources. For more information, see [Copy data to or from Azure Blob Storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json).
 - **Blobfuse** is a virtual file system driver for Azure Blob Storage. You can use BlobFuse to access your existing block blob data in your Storage account through the Linux file system. For more information, see [What is BlobFuse? - BlobFuse2 (preview)](blobfuse2-what-is.md).
 - **Azure Data Box** service is available to transfer on-premises data to Blob Storage when large datasets or network constraints make uploading data over the wire unrealistic. Depending on your data size, you can request [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md), or [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) devices from Microsoft. You can then copy your data to those devices and ship them back to Microsoft to be uploaded into Blob Storage.
 - The **Azure Import/Export service** provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide. For more information, see [Use the Microsoft Azure Import/Export service to transfer data to Blob Storage](../../import-export/storage-import-export-service.md).
 
 ## Next steps
 
-- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/blobs/toc.json)
 - [Scalability and performance targets for Blob Storage](scalability-targets.md)

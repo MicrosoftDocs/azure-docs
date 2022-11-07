@@ -269,6 +269,8 @@
           href: app-resilience-continuous-access-evaluation.md
         - name: Claims challenges and requests
           href: claims-challenge.md
+        - name: Configure app instance property lock
+          href: howto-configure-app-instance-property-locks.md
     - name: Test
       items:
         - name: Build a test environment

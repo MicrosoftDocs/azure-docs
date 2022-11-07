@@ -83,7 +83,7 @@ To authorize passwordless access with Azure AD, you'll need to use an Azure cred
 |Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
 |Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
 |Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
-|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=/azure/storage/blobs/toc.json)|
 
 ### Set up storage account roles
 
