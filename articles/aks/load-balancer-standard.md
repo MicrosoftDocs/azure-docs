@@ -1,5 +1,5 @@
 ---
-title: Use a Public Load Balancer
+title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
