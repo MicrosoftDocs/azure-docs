@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/03/2022
+ms.date: 11/04/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ To use this feature, you need:
 * A user who's a **Global Administrator** or **Security Administrator** for the Azure AD tenant.
 * Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
 
-Depending on where you want to route the audit log data, you need either of the following:
+Depending on where you want to route the audit log data, you need one of the following endpoints:
 
 * An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * An Azure Event Hubs namespace to integrate with third-party solutions.
@@ -49,7 +49,7 @@ Depending on where you want to route the audit log data, you need either of the 
 
 ## Cost considerations
 
-If you already have an Azure AD license, you need an Azure subscription to set up the storage account and Event Hub. The Azure subscription comes at no cost, but you have to pay to utilize Azure resources, including the storage account that you use for archival and the Event Hub that you use for streaming. The amount of data and, thus, the cost incurred, can vary significantly depending on the tenant size. 
+If you already have an Azure AD license, you need an Azure subscription to set up the storage account and Event Hubs. The Azure subscription comes at no cost, but you have to pay to utilize Azure resources, including the storage account that you use for archival and the Event Hubs that you use for streaming. The amount of data and, thus, the cost incurred, can vary significantly depending on the tenant size. 
 
 ### Storage size for activity logs
 
@@ -67,9 +67,9 @@ The following table contains a cost estimate of, depending on the size of the te
 | Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
  
 
-### Event Hub messages for activity logs
+### Event Hubs messages for activity logs
 
-Events are batched into approximately five-minute intervals and sent as a single message that contains all the events within that timeframe. A message in the Event Hub has a maximum size of 256 KB, and if the total size of all the messages within the timeframe exceeds that volume, multiple messages are sent. 
+Events are batched into approximately five-minute intervals and sent as a single message that contains all the events within that timeframe. A message in the Event Hubs has a maximum size of 256 KB. If the total size of all the messages within the timeframe exceeds that volume, multiple messages are sent. 
 
 For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Because audit logs are about 2 KB per event, this equates to 10.8 MB of data. Therefore, 43 messages are sent to the Event Hub in that five-minute interval. 
 
