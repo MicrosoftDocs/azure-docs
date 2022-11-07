@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage a Power BI tenant same tenant
+title: Govern a Power BI tenant same tenant
 description: This guide describes how to connect to a Power BI tenant in the same tenant as Microsoft Purview, and use Microsoft Purview's features to scan and manage your Power BI tenant source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/03/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage a Power BI tenant in Microsoft Purview (Same Tenant)
+# Govern a Power BI tenant in Microsoft Purview (Same Tenant)
 
 This article outlines how to register a Power BI tenant in a **same-tenant scenario**, and how to authenticate and interact with the tenant in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

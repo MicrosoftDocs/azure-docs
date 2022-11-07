@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Looker
+title: Govern Looker
 description: This guide describes how to connect to  Looker  in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Looker source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Looker in Microsoft Purview (Preview)
+# Govern Looker in Microsoft Purview (Preview)
 
 This article outlines how to register Looker, and how to authenticate and interact with Looker in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

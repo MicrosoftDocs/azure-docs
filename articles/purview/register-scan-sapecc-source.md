@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage an SAP ECC source
+title: Govern an SAP ECC source
 description: This guide describes how to connect to SAP ECC in Microsoft Purview, and use Microsoft Purview's features to scan and manage your SAP ECC source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage SAP ECC in Microsoft Purview
+# Govern SAP ECC in Microsoft Purview
 
 This article outlines how to register SAP ECC, and how to authenticate and interact with SAP ECC in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

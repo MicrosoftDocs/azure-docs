@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage multiple Azure sources
+title: Govern multiple Azure sources
 description: This guide describes how to connect to multiple Azure sources in Microsoft Purview at once, and use Microsoft Purview's features to scan and manage your sources.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/28/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage multiple Azure sources in Microsoft Purview
+# Govern multiple Azure sources in Microsoft Purview
 
 This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

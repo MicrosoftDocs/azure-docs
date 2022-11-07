@@ -1,5 +1,5 @@
 ---
-title: 'Connect to and manage dedicated SQL pools (formerly SQL DW)'
+title: 'Govern dedicated SQL pools (formerly SQL DW)'
 description: This guide describes how to connect to dedicated SQL pools (formerly SQL DW) in Microsoft Purview, and use Microsoft Purview's features to scan and manage your dedicated SQL pools source.
 author: heniot
 ms.author: shjia
@@ -10,7 +10,7 @@ ms.date: 11/10/2021
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
-# Connect to and manage dedicated SQL pools in Microsoft Purview
+# Govern dedicated SQL pools in Microsoft Purview
 
 This article outlines how to register dedicated SQL pools (formerly SQL DW), and how to authenticate and interact with dedicated SQL pools in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md)
 

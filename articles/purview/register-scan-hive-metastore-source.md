@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Hive Metastore databases
+title: Govern Hive Metastore databases
 description: This guide describes how to connect to Hive Metastore databases in Microsoft Purview, and how to use Microsoft Purview to scan and manage your Hive Metastore database source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Hive Metastore databases in Microsoft Purview
+# Govern Hive Metastore databases in Microsoft Purview
 
 This article outlines how to register Hive Metastore databases, and how to authenticate and interact with Hive Metastore databases in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

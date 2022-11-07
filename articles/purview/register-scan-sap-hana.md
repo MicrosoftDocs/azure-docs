@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage SAP HANA
+title: Govern SAP HANA
 description: This guide describes how to connect to SAP HANA in Microsoft Purview, and how to use Microsoft Purview to scan and manage your SAP HANA source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP HANA in Microsoft Purview
+# Govern SAP HANA in Microsoft Purview
 
 This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage a Power BI tenant (cross-tenant)
+title: Govern a Power BI tenant (cross-tenant)
 description: This guide describes how to connect to a Power BI tenant in a cross-tenant scenario. You use Microsoft Purview to scan and manage your Power BI tenant source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage a Power BI tenant in Microsoft Purview (cross-tenant)
+# Govern a Power BI tenant in Microsoft Purview (cross-tenant)
 
 This article outlines how to register a Power BI tenant in a cross-tenant scenario, and how to authenticate and interact with the tenant in Microsoft Purview. If you're unfamiliar with the service, see [What is Microsoft Purview?](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage HDFS
+title: Govern HDFS
 description: This guide describes how to connect to HDFS in Microsoft Purview, and use Microsoft Purview's features to scan and manage your HDFS source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 08/03/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage HDFS in Microsoft Purview
+# Govern HDFS in Microsoft Purview
 
 This article outlines how to register Hadoop Distributed File System (HDFS), and how to authenticate and interact with HDFS in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

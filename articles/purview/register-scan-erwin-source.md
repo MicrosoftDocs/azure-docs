@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage erwin Mart servers
+title: Govern erwin Mart servers
 description: This guide describes how to connect to erwin Mart servers in Microsoft Purview, and use Microsoft Purview's features to scan and manage your erwin Mart server source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage erwin Mart servers in Microsoft Purview
+# Govern erwin Mart servers in Microsoft Purview
 
 This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

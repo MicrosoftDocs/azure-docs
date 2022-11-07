@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage PostgreSQL
+title: Govern PostgreSQL
 description: This guide describes how to connect to PostgreSQL in Microsoft Purview, and use Microsoft Purview's features to scan and manage your PostgreSQL source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage PostgreSQL in Microsoft Purview
+# Govern PostgreSQL in Microsoft Purview
 
 This article outlines how to register PostgreSQL, and how to authenticate and interact with PostgreSQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

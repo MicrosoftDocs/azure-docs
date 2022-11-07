@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Db2
+title: Govern Db2
 description: This guide describes how to connect to Db2 in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Db2 source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage Db2 in Microsoft Purview
+# Govern Db2 in Microsoft Purview
 
 This article outlines how to register Db2, and how to authenticate and interact with Db2 in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Oracle
+title: Govern Oracle
 description: This guide describes how to connect to Oracle in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Oracle source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Oracle in Microsoft Purview
+# Govern Oracle in Microsoft Purview
 
 This article outlines how to register Oracle, and how to authenticate and interact with Oracle in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

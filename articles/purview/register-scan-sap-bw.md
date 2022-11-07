@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage an SAP Business Warehouse
+title: Govern an SAP Business Warehouse
 description: This guide describes how to connect to SAP Business Warehouse in Microsoft Purview, and use Microsoft Purview's features to scan and manage your SAP BW source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP Business Warehouse in Microsoft Purview
+# Govern SAP Business Warehouse in Microsoft Purview
 
 This article outlines how to register SAP Business Warehouse (BW), and how to authenticate and interact with SAP BW in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

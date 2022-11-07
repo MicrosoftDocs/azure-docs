@@ -1,5 +1,5 @@
 ---
-title: 'Connect to and manage Azure SQL Managed Instance'
+title: 'Govern Azure SQL Managed Instance'
 description: This guide describes how to connect to Azure SQL Managed Instance in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure SQL Managed Instance source.
 author: hophanms
 ms.author: hophan
@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an Azure SQL Managed Instance in Microsoft Purview
+# Govern an Azure SQL Managed Instance in Microsoft Purview
 
 This article outlines how to register and Azure SQL Managed Instance, as well as how to authenticate and interact with the Azure SQL Managed Instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md)
 

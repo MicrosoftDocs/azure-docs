@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage on-premises SQL server instances
+title: Govern on-premises SQL server instances
 description: This guide describes how to connect to on-premises SQL server instances in Microsoft Purview, and use Microsoft Purview's features to scan and manage your on-premises SQL server source.
 author: heniot
 ms.author: shjia
@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an on-premises SQL server instance in Microsoft Purview
+# Govern an on-premises SQL server instance in Microsoft Purview
 
 This article outlines how to register on-premises SQL server instances, and how to authenticate and interact with an on-premises SQL server instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Teradata
+title: Govern Teradata
 description: This guide describes how to connect to Teradata in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Teradata source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Teradata in Microsoft Purview
+# Govern Teradata in Microsoft Purview
 
 This article outlines how to register Teradata, and how to authenticate and interact with Teradata in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

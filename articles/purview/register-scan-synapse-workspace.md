@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Azure Synapse Analytics workspaces
+title: Govern Azure Synapse Analytics workspaces
 description: This guide describes how to connect to Azure Synapse Analytics workspaces in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Synapse Analytics workspace source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 09/06/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Azure Synapse Analytics workspaces in Microsoft Purview
+# Govern Azure Synapse Analytics workspaces in Microsoft Purview
 
 This article outlines how to register Azure Synapse Analytics workspaces and how to authenticate and interact with Azure Synapse Analytics workspaces in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Google BigQuery projects
+title: Govern Google BigQuery projects
 description: This guide describes how to connect to Google BigQuery projects in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Google BigQuery source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Google BigQuery projects in Microsoft Purview
+# Govern Google BigQuery projects in Microsoft Purview
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

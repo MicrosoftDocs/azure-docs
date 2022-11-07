@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Azure Files
+title: Govern Azure Files
 description: This guide describes how to connect to Azure Files in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Files source.
 author: heniot
 ms.author: shjia
@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Azure Files in Microsoft Purview
+# Govern Azure Files in Microsoft Purview
 
 This article outlines how to register Azure Files, and how to authenticate and interact with Azure Files in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
