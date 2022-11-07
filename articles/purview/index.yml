@@ -67,17 +67,17 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Scan Multiple Azure sources
+          - text: Govern Multiple Azure sources
             url: register-scan-azure-multiple-sources.md
-          - text: Scan Azure SQL Database
+          - text: Govern Azure SQL Database
             url: register-scan-azure-sql-database.md
-          - text: Scan Azure Data Lake Storage Gen 2
+          - text: Govern Azure Data Lake Storage Gen 2
             url: register-scan-adls-gen2.md
-          - text: Scan Azure Synapse Workspace
+          - text: Govern Azure Synapse Workspace
             url: register-scan-synapse-workspace.md
-          - text: Scan Power BI Tenant
+          - text: Govern Power BI Tenant
             url: register-scan-power-bi-tenant.md
-          - text: Scan Azure Blob Storage
+          - text: Govern Azure Blob Storage
             url: register-scan-azure-blob-storage-source.md
           - text: Troubleshoot connections
             url: troubleshoot-connections.md
@@ -135,21 +135,21 @@ landingContent:
         - text: Share data from ADLS Gen 2
           url: register-scan-adls-gen2.md#data-sharing
   #Card
-  - title: Scan non-Azure data sources
+  - title: Govern non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Scan SQL server on-premises
+        - text: Govern SQL server on-premises
           url: register-scan-on-premises-sql-server.md
-        - text: Scan Google BigQuery
+        - text: Govern Google BigQuery
           url: register-scan-google-bigquery-source.md
-        - text: Scan Amazon S3
+        - text: Govern Amazon S3
           url: register-scan-amazon-s3.md
-        - text: Scan Amazon RDS
+        - text: Govern Amazon RDS
           url: register-scan-amazon-rds.md
-        - text: Scan Oracle
+        - text: Govern Oracle
           url: register-scan-oracle-source.md
-        - text: Scan Hive Metastore Database
+        - text: Govern Hive Metastore Database
           url: register-scan-hive-metastore-source.md
   #Card
   - title: Understand your data
