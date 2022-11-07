@@ -15,7 +15,7 @@ This article describes issues you may experience with the [Remote Desktop Web cl
 
 In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
 
-[!INCLUDE [remote-desktop-client-doesnt-show-resources](includes/remote-desktop-client-doesnt-show-resources.md)]
+[!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
 [!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
 
