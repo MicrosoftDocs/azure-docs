@@ -20,7 +20,7 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 
 ## What changes should you expect?
 
-- Starting November 2022, you'll receive Azure portal notifications & email communications with the upcoming deprecation of classic replication experience of VMware and physical machines. The capability will be completelt deprecated and go out of support on November 2023.
+- Starting November 2022, you'll receive Azure portal notifications & email communications with the upcoming deprecation of classic replication experience of VMware and physical machines. The capability will be completely deprecated and go out of support on November 2023.
 
 - Starting 15 November 2022, only use the new, modernized experience can be used to enable Azure Site Recovery for all newly created Recovery Services vaults.
 
