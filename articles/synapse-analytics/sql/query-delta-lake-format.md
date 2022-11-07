@@ -49,7 +49,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
 ```
 
@@ -168,7 +168,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 
