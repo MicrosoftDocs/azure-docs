@@ -44,15 +44,7 @@ You should see the partner topic in the resource group you specified. [Activate 
 
 :::image type="content" source="./media/auth0-how-to/partner-topic.png" alt-text="Screenshot showing the partner topic in the list.":::
  
-## Activate the partner topic
-
-1. On the **Event Grid Partner Topics** page, select the partner topic in the list. You should see the **Partner Topic** page. 
-1. Review the activate message, and select **Activate** on the page or on the command bar to activate the partner topic before the expiration time mentioned on the page. 
-
-    :::image type="content" source="./media/auth0-how-to/activate-partner-topic-button.png" lightbox="./media/onboard-partner/activate-partner-topic-button.png" alt-text="Image showing the selection of the Activate button on the command bar or on the page.":::    
-1. Confirm that the activation status is set to **Activated** and then create event subscriptions for the partner topic by selecting **+ Event Subscription** on the command bar. 
-
-    :::image type="content" source="./media/auth0-how-to/partner-topic-activation-status.png" lightbox="./media/onboard-partner/partner-topic-activation-status.png" alt-text="Image showing the activation state as **Activated**.":::   
+[!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 
 [!INCLUDE [subscribe-to-events](includes/subscribe-to-events.md)]
 

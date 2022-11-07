@@ -37,7 +37,7 @@ If you have any questions, contact us at <a href="mailto:ask-grid-and-ms-sap@mic
 
 ## Enable events to flow to your partner topic
 
-SAP's capability to send events to Azure Event Grid is available through SAP's [beta program](https://influence.sap.com/sap/ino/#campaign/3314). Using this program, you can let SAP know about your desire to have your S4/HANA events available on Azure. You can find the SAP's announcement of this new feature [here](https://blogs.sap.com/2022/10/11/sap-event-mesh-event-bridge-to-microsoft-azure-to-go-beta/). Through SAP's Beta program, you'll be provided with the documentation on how to configure your SAP S4/HANA system to flow events to Event Grid. At at that point, you may proceed with the next step in the process described in the [High-level steps](#high-level-steps) section.
+SAP's capability to send events to Azure Event Grid is available through SAP's [beta program](https://influence.sap.com/sap/ino/#campaign/3314). Using this program, you can let SAP know about your desire to have your S4/HANA events available on Azure. You can find the SAP's announcement of this new feature [here](https://blogs.sap.com/2022/10/11/sap-event-mesh-event-bridge-to-microsoft-azure-to-go-beta/). Through SAP's Beta program, you'll be provided with the documentation on how to configure your SAP S4/HANA system to flow events to Event Grid. 
 
 SAP's BETA program started in October 2022 and will last a couple of months. Thereafter, the feature will be released by SAP as a generally available (GA) capability. Event Grid's capability to receive events from a partner, like SAP, is already a GA feature.
 
