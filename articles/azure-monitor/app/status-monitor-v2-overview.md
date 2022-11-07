@@ -9,7 +9,7 @@ ms.reviewer: abinetabate
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
 
 > [!IMPORTANT]
-> This guidance is recommended for on-premises and non-Azure cloud deployments of Application Insights Agent. Here's the recommended approach for [Azure Virtual Machine and Azure Virtual Machine Scale Sets deployments](./azure-vm-vmss-apps.md).
+> This guidance is recommended for on-premises and non-Azure cloud deployments of Application Insights Agent. We recommend a [different deployment approach for Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md).
 
 Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces Status Monitor.
@@ -28,7 +28,7 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 
 ## Instructions
 - To get started with concise code samples, see [Get started](status-monitor-v2-get-started.md).
-- For a deep dive on how to get started, see the [Detailed instructions](status-monitor-v2-detailed-instructions.md).
+- For a deep dive on how to get started, see the [detailed instructions](status-monitor-v2-detailed-instructions.md).
 
 ## PowerShell API reference
 - [Disable-ApplicationInsightsMonitoring](./status-monitor-v2-api-reference.md#disable-applicationinsightsmonitoring)
@@ -51,7 +51,7 @@ Yes. There are multiple ways to download Application Insights Agent:
 - If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 - You can also manually download the module and either install it on your computer or use it directly.
 
-Each of these options is described in the [Detailed instructions](status-monitor-v2-detailed-instructions.md).
+Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
 
 ### Does Status Monitor v2 support ASP.NET Core applications?
 
@@ -59,7 +59,7 @@ Each of these options is described in the [Detailed instructions](status-monitor
 
 ### How do I verify that the enablement succeeded?
 
-  - The [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
+  - You can use the [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
   - Use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
   - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
   
@@ -69,7 +69,7 @@ Each of these options is described in the [Detailed instructions](status-monitor
 
 ## Troubleshooting
 
-See the dedicated [Troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
