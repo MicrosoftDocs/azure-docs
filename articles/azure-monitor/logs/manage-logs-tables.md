@@ -11,7 +11,7 @@ ms.date: 11/01/2022
 
 # Manage tables in a Log Analytics workspace
 
-Azure Monitor Logs stores log data in tables. Log tables have a set of properties that let you define how to store collected data, how long to retain the data, and whether you collect the data for auditing and troubleshooting, or for ongoing data analysis and regular use by features and services. This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
+Azure Monitor Logs stores log data in tables. Log tables have a set of properties that let you define how to store collected data, how long to retain the data, and whether you collect the data for auditing and troubleshooting or for ongoing data analysis and regular use by features and services. This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
 
 ## Table configuration settings
 
@@ -25,7 +25,7 @@ In the Azure portal, you can view and set most table configuration settings by s
 
 ## Table type
 
-A Log Analytics workspace lets you collect logs from Azure resources and non-Azure sources into one space where you can use the data for analysis, alerts, other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). 
+A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). 
 
 Your Log Analytics workspace can contain the following types of tables:
 
@@ -48,7 +48,7 @@ You can [add columns to an Azure table](../logs/create-custom-table.md#create-or
 
 You can [define a custom table's schema](../logs/create-custom-table.md) based on how you want to store data you collect from a given data source.  
 
-Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
+Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md).    
 
 ### Search results and restored logs table schema
 
