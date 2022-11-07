@@ -131,7 +131,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type). 
 
-### [Portal](#tab/portal-3)
+### [Portal](#tab/portal-2)
 
 To delete a table from the Azure portal:
 
@@ -140,11 +140,11 @@ To delete a table from the Azure portal:
     
     :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
 
-1. Select the table you want to delete, select the ellipsis (**...**) to the right of the table, select **Delete**, and confirm the deletion by typing **yes**.
+1. Select the table you want to delete, select the ellipsis ( **...** ) to the right of the table, select **Delete**, and confirm the deletion by typing **yes**.
 
     :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
     
-### [API](#tab/api-3)
+### [API](#tab/api-2)
 
 To delete a table, call the **Tables - Delete** API: 
 
@@ -152,7 +152,7 @@ To delete a table, call the **Tables - Delete** API:
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### [CLI](#tab/cli-3)
+### [CLI](#tab/cli-2)
 
 To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
@@ -168,7 +168,7 @@ az monitor log-analytics workspace table delete --subscription ContosoSID --reso
 To add a custom column to an existing table in your Log Analytics workspace:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
-1. Select the ellipsis (**...**) to the right of the table you want to edit and select **Edit schema**. 
+1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Edit schema**. 
 1. Select **Add column**.
 1. Set the column name, description (optional), and expected value type from the **Type** dropdown, and select **Save** to to save the new column.
 
