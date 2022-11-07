@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/7/2022
 ms.custom: devx-track-csharp
 #Customer intent: As a logic apps developer, I want to set up a long-running task by creating a logic app workflow that monitors and responds to messages or events and uses Azure Functions to call the workflow.
 ---
@@ -22,7 +22,7 @@ This how-to guide shows how to create a logic app workflow that starts with the 
 
 > [!NOTE]
 >
-> Although you can implement this behavior using either a Consumption and Standard logic app workflow, 
+> Although you can implement this behavior using either a Consumption or Standard logic app workflow, 
 > this example continues with a Consumption workflow.
 
 ## Prerequisites
@@ -31,7 +31,7 @@ This how-to guide shows how to create a logic app workflow that starts with the 
 
 * A Service Bus namespace. If you don't have a namespace, [create your namespace first](../service-bus-messaging/service-bus-create-namespace-portal.md). For more information, see [What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
 
-* A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure to and make sure that you select .NET for the **Runtime stack** property.
+* A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure that you select .NET for the **Runtime stack** property.
 
 * Basic knowledge about [how to create a Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md).
 
@@ -89,7 +89,7 @@ This how-to guide shows how to create a logic app workflow that starts with the 
       }
       ```
 
-1. Under the trigger, add any other actions that you want use to process the received message.
+1. Under the trigger, add any other actions that you want to use to process the received message.
 
    For example, you can add an action that sends email with the Office 365 Outlook connector.
 
@@ -107,7 +107,7 @@ Next, create the function that listens to the queue and calls the endpoint on th
 
 1. On the function app navigation menu, select **Functions**. On the **Functions** pane, select **Create**.
 
-   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png" alt-text="Screenshot of the Azure portal with a function app open, and 'Functions' is highlighted on the function app menu. The 'Functions' page is opened, and 'Create' is highlighted.":::
+   :::image type="content" source="./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png" alt-text="Screenshot of a function app with 'Functions' highlighted on the function app menu. The 'Functions' page is opened, and 'Create' is highlighted.":::
 
 1. Under **Select a template**, select the template named **Azure Service Bus Queue trigger**. After the **Template details** section appears, which shows different options based on your template selection, provide the following information:
 
@@ -123,7 +123,7 @@ Next, create the function that listens to the queue and calls the endpoint on th
 
    The Azure portal now shows the **Overview** page for your new Azure Service Bus Queue trigger function.
 
-1. Now, write a basic function to call the endpoint for the logic app workflow that you created earlier.Before you write your function, review the following considerations:
+1. Now, write a basic function to call the endpoint for the logic app workflow that you created earlier. Before you write your function, review the following considerations:
 
    * Trigger the function by using the message from the queue message.
 
@@ -139,7 +139,7 @@ Next, create the function that listens to the queue and calls the endpoint on th
    using System.Net.Http;
    using System.Text;
 
-   // Set up the URI for the logic app workflow. You can also get this value on the logic app's 'Overview' pane, under the trigger history or an environment variable.
+   // Set up the URI for the logic app workflow. You can also get this value on the logic app's 'Overview' pane, under the trigger history, or from an environment variable.
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
    // Reuse the instance of HTTP clients if possible. For more information, see https://learn.microsoft.com/azure/azure-functions/manage-connections.
