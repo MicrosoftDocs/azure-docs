@@ -20,7 +20,7 @@ ms.reviewer: ssalgado
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
 
-
+a
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
