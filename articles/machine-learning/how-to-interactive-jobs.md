@@ -32,8 +32,8 @@ Interactive training is supported on **AzureML Compute Cluster** and **Azure Arc
 
 By specifying interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. Once you have access to the job container, you can test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
 
-### Get started with AzureML Studio
-#### Enable during job submission
+### Enable during job submission
+# [AzureML Studio](#tab/python)
 1. Create a new job from the left navigation pane in the studio portal.
 
   ![screenshot select-job-ui](media/interactive-jobs/create-job.png) 
@@ -67,24 +67,11 @@ By specifying interactive applications at job creation, you can connect directly
 
 6. Review and create the job.
 
-#### Connect to endpoints
-To interact with your running job, click the button **Debug and monitor** on the job details page. 
-
-![screenshot debug-and-monitor](media/interactive-jobs/debug-and-monitor.png)
-
-Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
-
-![screenshot ij-right-panel](media/interactive-jobs/ij-right-panel.png)
-
-It might take a few minutes to start the job and the training applications specified during job creation.
-
-### Get started with the AzureML SDKv2/CLIv2
-#### Enable during job submission
 
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
-Note that you have to import the `JobService` class from the `azure.ai.entities` package to configure interactive services via the SDKv2. 
+   Note that you have to import the `JobService` class from the `azure.ai.entities` package to configure interactive services via the SDKv2. 
 
     ```python
     command_job = command(...
@@ -178,19 +165,29 @@ Note that you have to import the `JobService` class from the `azure.ai.entities`
 
 ---
 
-#### Connect to endpoints
+### Connect to endpoints
+# [AzureML Studio](#tab/python)
+To interact with your running job, click the button **Debug and monitor** on the job details page. 
+
+![screenshot debug-and-monitor](media/interactive-jobs/debug-and-monitor.png)
+
+Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
+
+![screenshot ij-right-panel](media/interactive-jobs/ij-right-panel.png)
+
+It might take a few minutes to start the job and the training applications specified during job creation.
 
 # [Python SDK](#tab/python)
 - Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
     
-- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the AzureML CLIv2, follow this [guide](./how-to-configure-cli?tabs=public). 
+- To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the AzureML CLIv2, follow this [guide](./how-to-configure-cli.md). 
   
 You can find the reference documentation for the SDKv2 [here](/sdk/azure/ml).
 
 You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 
 # [Azure CLI](#tab/azurecli)
-- When the job is **running**, Run the command `az ml job show-services --name <job name> --node-index <compute node index>` to get the URL to the applications. The endpoint URL will show under `services` in the output. 
+- When the job is **running**, Run the command `az ml job show-services --name <job name> --node-index <compute node index>` to get the URL to the applications. The endpoint URL will show under `services` in the output. Note that for VS Code, you must copy and paste the provided URL in your browser. 
 
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. 
 
@@ -211,11 +208,11 @@ When you click on the endpoints to interact when your job, you're taken to the u
 
 - You can also interact with the job container within VS Code. To attach a debugger to a job during job submission and pause execution, [navigate here](./how-to-interactive-jobs.md#attach-a-debugger-to-a-job).
 
-   ![screenshot vs-code-open](./media/interactive-jobs/vs-code-open.png)
+  ![screenshot vs-code-open](./media/interactive-jobs/vs-code-open.png)
 
 - If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
 
-   ![screenshot tensorboard-open](./media/interactive-jobs/tensorboard-open.png)
+  ![screenshot tensorboard-open](./media/interactive-jobs/tensorboard-open.png)
 
 ### End job
 Once you're done with the interactive training, you can also go to the job details page to cancel the job which will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
@@ -229,12 +226,14 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
    ![screenshot use-debugpy](./media/interactive-jobs/use-debugpy.png)
 
-2. Once the job has been submitted, [click out to VS Code](./how-to-interactive-jobs.md#interact-with-the-applications), and click on the in-built debugger.
-
+2. Once the job has been submitted, [connect to the VS Code](./how-to-interactive-jobs.md#connect-to-endpoints), and click on the in-built debugger.
+   
    ![screenshot open-debugger](./media/interactive-jobs/open-debugger.png)
 
-3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command.
-
+3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command. You can also find this information on the job details page.
+   
+   ![screenshot debug-path-and-port](./media/interactive-jobs/debug-path-and-port.png)
+   
    ![screenshot remote-attach](./media/interactive-jobs/remote-attach.png)
 
 4. Set breakpoints and walk through your job execution as you would in your local debugging workflow. 
