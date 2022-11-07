@@ -39,7 +39,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
     1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
 
 >[!NOTE]
->Azure NetApp Files datastores for Azure VMware Solution are generally available. You must still register before using Azure NetApp Files datastores for Azure VMware Solution.
+>Azure NetApp Files datastores for Azure VMware Solution are generally available. You must register Azure NetApp Files datastores for Azure VMware Solution before using it.
 
 ## Supported regions
 
