@@ -45,12 +45,12 @@ The following example creates a resource group named `myResourceGroup` in the Ea
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, `myContainerRegistry007` is used. Update this to a unique value.
+Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, contain 5-50 alphanumeric characters. All leters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
 ```azurecli
 az acr create \
     --resource-group myResourceGroup \
-    --name myContainerRegistry007 \
+    --name mycontainerregistry007 \
     --sku Basic
 ```
 
@@ -207,11 +207,11 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Build the container image.
 
-   Run the following command to build the Quarkus app image. You must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *myContainerRegistry007.azurecr.io*. Replace the name with your own registry name.
+   Run the following command to build the Quarkus app image. You must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *mycontainerregistry007.azurecr.io*. Replace the name with your own registry name.
 
    ```bash
    mvnw quarkus:add-extension -Dextensions="container-image-jib"
-   mvnw clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=myContainerRegistry007 -Dquarkus.container-image.name=quarkus-postgres-passwordless-app -Dquarkus.container-image.tag=v1
+   mvnw clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=mycontainerregistry007 -Dquarkus.container-image.name=quarkus-postgres-passwordless-app -Dquarkus.container-image.tag=v1
    ```
 
 1. Log in to the registry.
@@ -226,10 +226,10 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Push the image to the registry.
 
-   Use [docker push][docker-push] to push the image to the registry instance. Replace `myContainerRegistry007` with the login server name of your registry instance. This example creates the `quarkus-postgres-passwordless-app` repository, containing the `quarkus-postgres-passwordless-app:v1` image.
+   Use [docker push][docker-push] to push the image to the registry instance. Replace `mycontainerregistry007` with the login server name of your registry instance. This example creates the `quarkus-postgres-passwordless-app` repository, containing the `quarkus-postgres-passwordless-app:v1` image.
 
    ```bash
-   docker push myContainerRegistry007/quarkus-postgres-passwordless-app:v1
+   docker push mycontainerregistry007/quarkus-postgres-passwordless-app:v1
    ```
 
 ## 4. Create a Container App on Azure
@@ -251,7 +251,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
    ```azurecli
    CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1
-   REGISTRY_SERVER=myContainerRegistry007
+   REGISTRY_SERVER=mycontainerregistry007
    REGISTRY_USERNAME=<REGISTRY_USERNAME>
    REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 
