@@ -133,45 +133,26 @@ The following steps create a new virtual network with a subnet for the cluster n
 
 1. Create a virtual network with a subnet for the cluster nodes. Replace the values for the variables `resourceGroup`, `vnet` and `location`.
 
-```azurecli-interactive
-resourceGroup="myResourceGroup"
-vnet="myVirtualNetwork"
-location="westcentralus"
-
-# Create the resource group
-az group create --name $resourceGroup --location $location
-
-# Create a VNet and a subnet for the cluster nodes 
-az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
-```
+    ```azurecli-interactive
+    resourceGroup="myResourceGroup"
+    vnet="myVirtualNetwork"
+    location="westcentralus"
+    
+    # Create the resource group
+    az group create --name $resourceGroup --location $location
+    
+    # Create a VNet and a subnet for the cluster nodes 
+    az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none
+    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
+    ```
 
 2. Create a cluster with Azure CNI Overlay. Use the argument `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. Replace the values for the variables `clusterName` and `subscription`.
 
-```azurecli-interactive
-clusterName="myOverlayCluster"
-subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+    ```azurecli-interactive
+    clusterName="myOverlayCluster"
+    subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+    
+    az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
+    ```
 
-az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
-```
-
-## Frequently asked questions
-
-* *How do pods and cluster nodes communicate with each other?*
-
-  Pods and nodes talk to each other directly without any SNAT requirements.
-
-
-* *Can I configure the size of the address space assigned to each space?*
-
-  No, this is fixed at `/24` today and can't be changed.
-
-
-* *Can I add more private pod CIDRs to a cluster after the cluster has been created?*
-
-  No, a private pod CIDR can only be specified at the time of cluster creation.
-
-
-* *What are the max nodes and pods per cluster supported by Azure CNI Overlay?*
-
-  The max scale in terms of nodes and pods per cluster is the same as the max limits supported by AKS today.
+## Next steps
