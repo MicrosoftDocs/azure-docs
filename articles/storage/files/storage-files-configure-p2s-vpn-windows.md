@@ -1,10 +1,10 @@
 ---
-title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files | Microsoft Docs
+title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
 description: How to configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 11/08/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -31,7 +31,7 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 
 - A virtual network with a private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
-- A [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) must be created on the virtual network.
+- A [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) must be created on the virtual network, and you'll need to know the name of the gateway subnet.
 
 ## Collect environment information
 In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, gateway subnet, and/or private endpoints.
@@ -127,7 +127,7 @@ Deploying this service requires two basic components:
 1. A public IP address that will identify the gateway to your clients wherever they are in the world
 2. The root certificate you created earlier, which will be used to authenticate your clients
 
-Remember to replace `<desired-vpn-name-here>` and `<desired-region-here>` in the below script with the proper values for these variables.
+Remember to replace `<desired-vpn-name-here>`, `<desired-region-here>`, and `<gateway-subnet-name-here>` in the below script with the proper values for these variables.
 
 > [!Note]  
 > Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this PowerShell script will block for the deployment to be completed. This is expected.
@@ -136,6 +136,7 @@ Remember to replace `<desired-vpn-name-here>` and `<desired-region-here>` in the
 $vpnName = "<desired-vpn-name-here>" 
 $publicIpAddressName = "$vpnName-PublicIP"
 $region = "<desired-region-here>"
+$gatewaySubnet = "<gateway-subnet-name-here>"
 
 $publicIPAddress = New-AzPublicIpAddress `
     -ResourceGroupName $resourceGroupName `
@@ -212,7 +213,7 @@ Export-PfxCertificate `
 ```
 
 ## Configure the VPN client
-The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. We will configure the VPN connection using the [Always On VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/) feature of Windows 10/Windows Server 2016+. This package also contains executable packages which will configure the legacy Windows VPN client, if so desired. This guide uses Always On VPN rather than the legacy Windows VPN client as the Always On VPN client allows end-users to connect/disconnect from the Azure VPN without having administrator permissions to their machine. 
+The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. We will configure the VPN connection using the [Always On VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/) feature introduced in Windows 10/Windows Server 2016. This package also contains executable packages which will configure the legacy Windows VPN client, if so desired. This guide uses Always On VPN rather than the legacy Windows VPN client as the Always On VPN client allows end-users to connect/disconnect from the Azure VPN without having administrator permissions to their machine. 
 
 The following script will install the client certificate required for authentication against the virtual network gateway, download, and install the VPN package. Remember to replace `<computer1>` and `<computer2>` with the desired computers. You can run this script on as many machines as you desire by adding more PowerShell sessions to the `$sessions` array. Your use account must be an administrator on each of these machines. If one of these machines is the local machine you are running the script from, you must run the script from an elevated PowerShell session. 
 
