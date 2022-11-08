@@ -39,7 +39,7 @@ Using the cloud security explorer, you can proactively identify security risks i
 
 Cloud security explorer provides you with the ability to perform proactive exploration features. You can search for security risks within your organization by running graph-based path-finding queries on top the contextual security data that is already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
 
-Learn how to use the [cloud security explorer](how-to-manage-cloud-security-explorer.md), or check out the list of [insights and connections](attack-path-reference.md#insights-and-connections).
+Learn how to use the [cloud security explorer](how-to-manage-cloud-security-explorer.md), or check out the [cloud security graph components list](attack-path-reference.md#cloud-security-graph-components-list).
 
 ## Next steps
 
