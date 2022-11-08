@@ -55,10 +55,8 @@ Customers use the **Test Drive** button on your offer's listing page to get acce
 
 ## Contact Me
 
-This option is a simple listing of your application or service. Customers use the **Contact Me** button on your offer's listing page to request that you connect with them about your offer.
-
+This option is a simple listing of your application or service. Customers use the **Contact Me** button on your offer's listing page to ask that you connect with them about your offer. They can write notes to express their needs, so make sure to read them and to get back to valid leads. [See lead management] (https://learn.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 ## Get It Now
-
 This listing option includes transactable offers (subscriptions or user-based pricing), bring your own license (BYOL) offers, and **Get It Now (Free)**. Transactable offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. Customers use the **Get It Now** button to get the offer.
 
 > [!NOTE]
@@ -162,3 +160,4 @@ Non-transactable offers earn benefits based on whether or not a free trial is at
 ## Next steps
 
 - To choose an offer type, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
+
