@@ -377,7 +377,7 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 ```
 
 > [!NOTE]
-* Only Azure Machine Learning compute clusters are supported. Compute, Azure Kubernetes Service (AKS), or other instance types are not supported for image build compute.
+> * Only Azure Machine Learning compute clusters are supported. Compute, Azure Kubernetes Service (AKS), or other instance types are not supported for image build compute.
 * Make sure the compute cluster's VNet that's used for the image build compute has access to the workspace's ACR.
 * Make sure the compute cluster is CPU based.
 
