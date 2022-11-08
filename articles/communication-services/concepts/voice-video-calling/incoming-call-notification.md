@@ -30,7 +30,7 @@ Given the above examples, the following scenarios will trigger an `IncomingCall`
 | Source | Destination | Scenario(s) |
 | ------ | ----------- | -------- |
 | Azure Communication Services identity | Azure Communication Services identity | Call, Redirect, Add Participant, Transfer |
-| Azure Communication Services identity | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant
+| Azure Communication Services identity | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
 | Public PSTN | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
 
 > [!NOTE]
@@ -57,5 +57,5 @@ You can use [advanced filters](../../../event-grid/event-filtering.md) in your E
 Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
 
 ## Next steps
-1. [Build a Call Automation application](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) to simulate a customer interaction.
-2. [Redirect an inbound PSTN call](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md) to your resource.
+- [Build a Call Automation application](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) to simulate a customer interaction.
+- [Redirect an inbound PSTN call](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md) to your resource.
