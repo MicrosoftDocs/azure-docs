@@ -365,7 +365,7 @@
           href: ../how-to-setup-customer-managed-keys.md
         - name: Configure cross-tenant customer-managed keys
           href: ../how-to-setup-cross-tenant-customer-managed-keys.md
-        - name: Use a managed identity
+        - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
     - name: Enterprise readiness
       items:
