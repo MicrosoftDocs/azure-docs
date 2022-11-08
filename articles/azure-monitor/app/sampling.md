@@ -9,7 +9,7 @@ ms.reviewer: mmcc
 
 # Sampling in Application Insights
 
-Sampling is a feature in [Azure Application Insights](./app-insights-overview.md). It's the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you're doing diagnostic investigations.
+Sampling is a feature in [Application Insights](./app-insights-overview.md). It's the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you're doing diagnostic investigations.
 
 When metric counts are presented in the portal, they're renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
 
@@ -288,17 +288,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     </TelemetryProcessors>
     ```
 
-      Alternatively, instead of setting the sampling parameter in the `ApplicationInsights.config` file, you can programmatically set these values:
-      
-    ### [ASP.NET Core 6.0](#tab/netcore6)
-    
-    ```csharp
-    
-    // to be added
-    
-    ```
-    
-    ### [ASP.NET Core 3.1](#tab/netcore3)
+    Alternatively, instead of setting the sampling parameter in the `ApplicationInsights.config` file, you can programmatically set these values:
     
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -317,8 +307,6 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
     builder.Build();
     ```
-    
-    ---
 
     ([Learn about telemetry processors](./api-filtering-sampling.md#filtering).)
 
@@ -329,7 +317,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ### [ASP.NET Core 6.0](#tab/netcore6)
     
     ```csharp
-    var builder = WebApplication.CreateBuilder(args);    
+    var builder = WebApplication.CreateBuilder(args);
 
     var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
     aiOptions.EnableAdaptiveSampling = false;
@@ -356,9 +344,17 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ### [ASP.NET Core 6.0](#tab/netcore6)
     
     ```csharp
+    var builder = WebApplication.CreateBuilder(args);
     
-    // to be added
+    Configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
     
+    builder.Configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+    
+    // Using fixed rate sampling
+    double fixedSamplingPercentage = 10;
+    builder.UseSampling(fixedSamplingPercentage);
+    
+    var app = builder.Build();
     ```
 
     ### [ASP.NET Core 3.1](#tab/netcore3)
