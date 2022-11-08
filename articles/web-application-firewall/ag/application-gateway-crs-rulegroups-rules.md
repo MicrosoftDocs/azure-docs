@@ -124,6 +124,8 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 ### Bot rules
 
+You can enable a managed bot protection rule set to take custom actions on requests from all bot   categories.
+
 |Rule group|Description|
 |---|---|
 |**[BadBots](#bot100)**|Protect against bad bots|
