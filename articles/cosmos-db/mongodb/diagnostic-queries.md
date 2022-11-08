@@ -1,26 +1,20 @@
 ---
 title: Troubleshoot issues with advanced diagnostics queries for API for MongoDB
-titleSuffix: Azure Cosmos DB
 description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the API for MongoDB.
-services: cosmos-db
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/12/2021
-ms.author: esarroyo
-author: StefArroyo 
+ms.date: 11/08/2022
 ---
 
 # Troubleshoot issues with advanced diagnostics queries for the API for MongoDB
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](../includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
-> [!div class="op_single_selector"]
-> * [API for NoSQL](../advanced-queries.md)
-> * [API for MongoDB](diagnostic-queries.md)
-> * [API for Cassandra](../cassandra/diagnostic-queries.md)
-> * [API for Gremlin](../queries-gremlin.md)
->
+[!INCLUDE[Diagnostic queries selector](../includes/diagnostic-queries-selector.md)]
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview)** tables.
 

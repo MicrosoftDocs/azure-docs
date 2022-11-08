@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Cosmos DB data by using Azure Diagnostic settings
 description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
-author: StefArroyo
-ms.author: esarroyo
-ms.reviewer: sidandrews
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: how-to
@@ -272,7 +272,14 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 ---
 
-To learn how to query using this newly enabled feature visit [advanced queries](advanced-queries.md).
+## Query data
+
+To learn how to query using these newly enabled features, see:
+
+- [API for NoSQL](nosql/diagnostic-queries.md)
+- [API for MongoDB](mongodb/diagnostic-queries.md)
+- [API for Apache Cassandra](cassandra/diagnostic-queries.md)
+- [API for Apache Gremlin](gremlin/diagnostic-queries.md)
 
 ## Next steps
 
