@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Automated invoice processing
+# Azure Form Recognizer invoice model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -23,17 +23,27 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## What is automated invoice processing?
+The machine-learning-based invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+
+## Automated invoice processing
 
 Automated invoice processing is the process of extracting key accounts payable fields from including invoice line items from invoices and integrating it with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been very manual and time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
 
-## Form Recognizer Invoice model
-
-The machine learning based invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+::: moniker range="form-recog-3.0.0"
 
 **Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
 :::image type="content" source="media/studio/overview-invoices.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connections)**:
+
+:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a processed Contoso invoice." 
+
+::: moniker-end
 
 ## Development options
 
@@ -57,7 +67,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ::: moniker-end
 
-## Try invoice data extraction
+## Try Form Recognizer
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio. You'll need the following resources:
 

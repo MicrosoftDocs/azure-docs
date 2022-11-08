@@ -14,21 +14,29 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Receipt data extraction
-
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
-
-## What is receipt digitization
-
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. OCR powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
-
-## Form Recognizer receipt model
+# Azure Form Recognizer receipt model
 
 The Form Recognizer receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
+
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
+
+# Receipt data extraction
+
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
+
+::: moniker range="form-recog-3.0.0"
 
 ***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
 :::image type="content" source="media/studio/overview-receipt.png" alt-text="sample receipt" lightbox="media/overview-receipt.jpg":::
+
+::: moniker-end
 
 ## Development options
 
