@@ -291,7 +291,7 @@ You can create customized versions of our models using the fine-tuning APIs. The
 
 This API will list your resource's fine-tuning jobs
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version={api-version}
 ```
 
@@ -500,7 +500,7 @@ curl https://your-resource-name.openai.azure.com/openai/fine-tunes?api-version=2
 
 This API will retrieve information about a specific fine tuning job
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}?api-version={api-version}
 ```
 
