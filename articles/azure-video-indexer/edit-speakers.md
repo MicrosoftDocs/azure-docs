@@ -16,15 +16,14 @@ Azure Video Indexer identifies speakers in your video but in some cases you may 
     The update applies to all speakers identified by this name.
 - Assign a speaker for a transcript line. 
 
-    The update only applies to the currently selected speaker.
-
-The article demonstrates how to edit speakers with the [Azure Video Indexer website](https://www.videoindexer.ai/). The same editing operations are possible with an API.
+The article demonstrates how to edit speakers with the [Azure Video Indexer website](https://www.videoindexer.ai/). The same editing operations are possible with an API. To use API, call [update video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index).
 
 ## Prerequisites
 
 1. Sign in to the [Azure Video Indexer website](https://www.videoindexer.ai/).
-1. Select the **Timeline** tab.
-1. Choose to view speakers.
+2. Select a video.
+3. Select the **Timeline** tab.
+4. Choose to view speakers.
 
 :::image type="content" alt-text="Screenshot of how to view speakers." source="./media/edit-speakers-website/view-speakers.png":::
 
@@ -35,16 +34,19 @@ This action allows adding new speakers that were not identified by Azure Video I
 1. Select the edit mode.
 
     :::image type="content" alt-text="Screenshot of how to edit speakers." source="./media/edit-speakers-website/edit.png":::
-1. Go to the transcript line you want to assign a new speaker to.
+1. Go to the speakers drop down menu above the transcript line you wish to assign a new speaker to.
 1. Select **Assign a new speaker**.
 
     :::image type="content" alt-text="Screenshot of how to add a new speaker." source="./media/edit-speakers-website/assign-new.png":::
-1. Add the name of the speaker you would like to use.
+1. Add the name of the speaker you would like to assign.
 1. Press a checkmark to save.
+
+> [!NOTE]
+> Speaker names should be unique across the speakers in the current video.
  
 ## Rename an existing speaker
 
-This action allows renaming an existing speaker that was identified by Azure Video Indexer. To add a new speaker from the website for the selected video, do the following: 
+This action allows renaming an existing speaker that was identified by Azure Video Indexer. To rename a speaker from the website for the selected video, do the following: 
 
 1. Select the edit mode.
 1. Go to the transcript line where the speaker you wish to rename appears.
@@ -60,15 +62,15 @@ This action allows renaming an existing speaker that was identified by Azure Vid
 This action allows assigning a speaker to a specific transcript line with a wrong assignment. To assign a speaker to a transcript line from the website, do the following: 
 
 1. Go to the transcript line you want to assign a different speaker to. 
-1. Select a speaker you wish to assign from the list.
+1. Select a speaker from the speakers drop down menu above that you wish to assign.
  
-    The update only applies to the currently selected speaker.
+    The update only applies to the currently selected transcript line.
 
 If the speaker you wish to assign doesn't appear on the list you can either **Assign a new speaker** or **Rename an existing speaker** as described above.
 
 ## Limitations
 
-When when adding a new speaker, the new name should be unique.
+When adding a new speaker or renaming a speaker, the new name should be unique.
 
 ## Next steps 
 
