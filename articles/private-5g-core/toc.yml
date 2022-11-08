@@ -62,14 +62,14 @@ items:
       href: create-a-site.md
     - name: Create a site - ARM template
       href: create-site-arm-template.md
-    - name: Packet core
-      items:
-      - name: Modify a packet core instance
-        href: modify-packet-core.md
-      - name: Upgrade a packet core instance - Azure portal
-        href: upgrade-packet-core-azure-portal.md
-      - name: Upgrade a packet core instance - ARM template
-        href: upgrade-packet-core-arm-template.md
+  - name: Packet core
+    items:
+    - name: Modify a packet core instance
+      href: modify-packet-core.md
+    - name: Upgrade a packet core instance - Azure portal
+      href: upgrade-packet-core-azure-portal.md
+    - name: Upgrade a packet core instance - ARM template
+      href: upgrade-packet-core-arm-template.md
   - name: Policy control
     items:
     - name: Collect the required information for a service

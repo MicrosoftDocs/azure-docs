@@ -21,7 +21,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
     > [!NOTE]
     > You can't update a packet core instance's **Technology type** or **Version** field.
     >
-    > - To change the technology type, you'll need to delete the site and [recreate it](create-a-site.md). <!-- TODO: link to new site deletion section -->
+    > - To change the technology type, you'll need to delete the site and [recreate it](create-a-site.md). <!-- link to new site deletion section -->
     > - To change the version, [upgrade the packet core instance](upgrade-packet-core-azure-portal.md).
 
 - If you want to make changes to the attached data network, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
@@ -46,7 +46,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
 
-7. If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration). If you only want to make changes to the attached data network, go to [Modify attached data network](#modify-attached-data-network).
+7. If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration). If you only want to make changes to the attached data network, go to [Modify the attached data network configuration](#modify-the-attached-data-network-configuration).
 
 ### Modify the packet core configuration
 
@@ -59,7 +59,7 @@ To modify the packet core and/or access network configuration:
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
 
-2. If you also want to make changes to the attached data network, select the **Data network** tab and go to [Modify attached data network](#modify-attached-data-network). Otherwise, go to [Submit and verify changes](#submit-and-verify-changes).
+2. If you also want to make changes to the attached data network, select the **Data network** tab and go to [Modify the attached data network configuration](#modify-the-attached-data-network-configuration). Otherwise, go to [Submit and verify changes](#submit-and-verify-changes).
 
 ### Modify the attached data network configuration
 
@@ -72,7 +72,6 @@ To make changes to the data network attached to your packet core instance:
 2. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Modify a data network** window.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-modify-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
-       <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
 
 3. Select **Modify**. You should see your changes under the **Data network** tab.
 
@@ -83,7 +82,7 @@ To make changes to the data network attached to your packet core instance:
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
-3. Navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance).
+3. Navigate to the **Packet Core Control Plane** resource as described in [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
     - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Custom ARC location** and **Access network** contain the updated information.
     - If you made changes to the attached data network, check that the fields under **Data network** contain the updated information.
