@@ -35,7 +35,7 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 1. Select **Users**.
 1. In the list, select the user's name to open their user profile.
 1. If the user wants to sign in using a different email:
-   - Select the **Edit properties** tab.
+   - Select **Edit properties**.
    - Select the **Contact Information** tab.
    - Next to **Email**, type the new email.
    - Updateâ€¯**Other emails** to also include the new email.
