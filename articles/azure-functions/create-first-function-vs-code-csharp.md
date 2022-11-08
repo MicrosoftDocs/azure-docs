@@ -13,11 +13,7 @@ adobe-target-content: ./create-first-function-vs-code-csharp-ieux
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-This article creates an HTTP triggered function that runs on .NET 6, either in-process or isolated worker process. .NET Functions isolated worker process also lets you run on .NET 7 (in preview). For information about all .NET versions supported by isolated worker process, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
-
-There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
-
-By default, this article shows you how to create C# functions that run on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions, such as .NET 6. When creating your project, you can choose to instead create a function that runs on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). [Isolated worker process](dotnet-isolated-process-guide.md) supports both LTS and Standard Term Support (STS) versions of .NET. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions) in the .NET Functions isolated worker process guide.
+This article shows you how to create C# functions that run on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions, such as .NET 6. When creating your project, you can choose to instead create a function that runs on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). [Isolated worker process](dotnet-isolated-process-guide.md) supports both LTS and Standard Term Support (STS) versions of .NET. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions) in the .NET Functions isolated worker process guide.There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
