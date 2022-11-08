@@ -138,7 +138,7 @@
 - name: Reliability Guidance
   items:
     - name: Reliability in Microsoft Azure Well-Architected Framework
-      href: /azure/architecture/framework/resiliency/
+      href: /azure/architecture/framework/resiliency?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Reliability by service
       items:
       - name: Azure API Management
