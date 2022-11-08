@@ -26,7 +26,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change: November 2022**
 
-The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md) is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan, which will be released in the future. 
+The ability to create custom assessments for [AWS accounts (Preview)](how-to-manage-aws-assessments-standards.md#create-a-new-custom-assessment-for-your-aws-account-preview) and [GCP projects (Preview)](how-to-manage-gcp-assessments-standards.md#create-a-new-custom-assessment-for-your-gcp-project-preview) is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan, which will be released in the future. 
 
 ### Recommendation to configure dead-letter queues for Lambda functions to be deprecated
 
