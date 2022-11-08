@@ -13,37 +13,38 @@ The built-in Azure [Security Reader](../../role-based-access-control/built-in-ro
 
 This article provides a reference of Defender for IoT actions available for each role in the Azure portal. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
-## Permissions for management actions
+## Roles and permissions reference
 
 Roles for management actions are applied to user roles across an entire Azure subscription.
 
-| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
+| Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
-|  **Onboard sensors** <!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too--> | ✔      |  ✔       |   ✔      | ✔ |
-| **Onboard Enterprise IoT in Microsoft 365 Defender for Endpoint** | - | - |✔ | - |
-|  **Download OT sensor and on-premises management console software** | ✔      |  ✔       |   ✔      | ✔ |
-|  **Download sensor activation files**|   -     |   ✔      | ✔ | ✔ |
-|  **Modify values on the Pricing page**  | -       |   ✔     | ✔ | ✔ |
-|  **Modify values on the Sites and sensors page**   |   -    |   ✔    | ✔ | ✔|
-|  **Recover on-premises management console passwords**  | -      |   ✔     | ✔ | ✔ |
-|  **Download threat intelligence packages** | ✔      |  ✔       |   ✔      | ✔ |
-|  **Push threat intelligence updates**  | -     |   ✔     | ✔ | ✔ |
+|  **Onboard OT sensors** <br>Subscription-level only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | -       |  ✔       |   ✔      | ✔ |
+|  **Onboard Enterprise IoT sensors** <br>Subscription-level only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | ✔      |  ✔       |   ✔      | ✔ |
+|  **Download OT sensor and on-premises management console software** <br>Apply per subscription only| ✔      |  ✔       |   ✔      | ✔ |
+|  **Download sensor activation files** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
+|  **View values on the Pricing page**  <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
+|  **Modify values on the Pricing page**  <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
+|  **View values on the Sites and sensors page**   <br>Apply per subscription only|   ✔   |   ✔    | ✔ | ✔|
+|  **Modify values on the Sites and sensors page**   <br>Apply per subscription only|   -    |   ✔    | ✔ | ✔|
+|  **Recover on-premises management console passwords**   <br>Apply per subscription only| -      |   ✔     | ✔ | ✔ |
+|  **Download OT threat intelligence packages** <br>Apply per subscription only| ✔      |  ✔       |   ✔      | ✔ |
+|  **Push OT threat intelligence updates** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
+| **Onboard an Enterprise IoT plan from Microsoft 365 Defender** [*](#enterprise-iot-security) <br>Apply per subscription only| - | ✔ | - | - |
+| **View alerts** <br>Apply per subscription only| ✔ | ✔ |✔ | ✔|
+| **Modify alerts (write access)** <br>Apply per subscription only|  - | ✔ |✔ | ✔ |
+| **View device inventory** <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
+| **Manage device inventory (write access)** <br>Apply per subscription or site  | - | ✔ |✔ | ✔ |
+| **View workbooks** <br>Apply per subscription or site<!--check with idan and yair about this--> | - | ✔ |✔ | ✔ |
+| **Manage workbooks (write access)** <br>Apply per subscription or site<!--check with idan and yair about this--> |  - | ✔ |✔ | ✔ |
 
-> [!NOTE]
-> To modify settings for Enterprise IoT support, remove your current plan and onboard again from Defender for Endpoint. For more information, see [Onboard with Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration?view=o365-worldwide).
+## Enterprise IoT security
 
-## Permissions for security monitoring actions
+Add, edit, or cancel an Enterprise IoT plan with Defender for Endpoint from Microsoft 365 Defender. To add an Enterprise IoT plan, you'll need an E5 license and specific permissions in your Microsoft 365 Defender tenant. Alerts, vulnerabilities, and recommendations are also only available from Microsoft 365 Defender.
 
-Roles for security monitoring actions can be applied across an entire Azure subscription, or for a specific OT site only. For more information, see [Define Azure access control per OT site](manage-users-portal.md#define-azure-access-control-per-ot-site).
+To view Enterprise IoT devices in your Defender for IoT device inventory, you'll need an Enterprise IoT network sensor installed.
 
-| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-|---------|---------|---------|---------|---------|
-| **Alerts page** | Read-only | Read-write |Read-write | Read-write |
-| **Device inventory page**  | Read-only | Read-write |Read-write | Read-write |
-| **Workbooks page** <!--check with idan and yair about this--> | Read-only | Read-write |Read-write | Read-write |
-
-> [!NOTE]
-> To view alerts for Enterprise IoT devices in Defender for IoT, you must have an Enterprise IoT network sensor installed (Public Preview). To view alerts for devices detected by Microsoft Defender for Endpoint, use the [**Alerts** page in Defender Endpoint](/microsoft-365/security/defender-endpoint/alerts-queue) and [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md). <!--update xref-->
 
 ## Next steps
 
