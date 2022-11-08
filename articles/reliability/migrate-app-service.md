@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 This guide describes how to migrate the public multi-tenant App Service from non-availability zone support to availability support. We'll take you through the different options for migration.
 
-Azure App Service can be deployed into [Availability Zones (AZ)](../reliability/az-service-support.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
+Azure App Service can be deployed into [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
 An App Service lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. App Services are zonal services, which means that App Services can be deployed using one of the following methods:
 

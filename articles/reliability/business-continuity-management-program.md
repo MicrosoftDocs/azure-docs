@@ -90,6 +90,6 @@ For more information on certifications, see the [Microsoft Trust Center](https:/
 
 ## Next steps
 
-- [Azure services and regions that support availability zones](az-service-support.md)
+- [Azure services and regions that support availability zones](availability-zones-service-support.md)
 - [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Quickstart templates](https://aka.ms/azqs)

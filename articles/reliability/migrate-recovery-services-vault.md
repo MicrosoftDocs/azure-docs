@@ -122,4 +122,4 @@ Follow these steps:
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](az-service-support.md)
+> [Azure services and regions that support availability zones](availability-zones-service-support.md)

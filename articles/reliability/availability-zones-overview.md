@@ -20,7 +20,7 @@ Azure regions and availability zones are designed to help you achieve  reliabili
 
 Each Azure region features datacenters deployed within a latency-defined perimeter. They're connected through a dedicated regional low-latency network. This design ensures that Azure services within any region offer the best possible performance and security. 
 
-To see which regions support availability zones, see [Azure regions with availability zone support](az-service-support.md#azure-regions-with-availability-zone-support).
+To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ## Availability zones
 
@@ -44,16 +44,16 @@ Some organizations require high availability of availability zones and protectio
 
 ![Image showing availability zones that protect against localized disasters and regional or large geography disasters by using another region.](media/availability-zones-region-geography.png)
 
-To see which services support availability zones, see [Azure regions with availability zone support](az-service-support.md#azure-regions-with-availability-zone-support).
+To see which services support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](az-service-support.md)
+> [Azure services and regions with availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Availability zone migration guidance overview](az-migration-overview.md)
+> [Availability zone migration guidance](availability-zones-migration-overview.md)
 
 > [!div class="nextstepaction"]
 > [Availability of service by category](availability-service-by-category.md)

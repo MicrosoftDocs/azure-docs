@@ -55,4 +55,4 @@ To delete and redeploy a container group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](az-service-support.md)
+> [Azure services and regions that support availability zones](availability-zones-service-support.md)

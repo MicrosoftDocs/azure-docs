@@ -6,6 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.prod: non-product-specific
+ms.custom: references_regions
 ms.date: 10/07/2022
 ---
 
@@ -21,11 +22,11 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](az-service-support.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](az-service-support.md#azure-services-with-availability-zone-support).
+There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-Azure Functions supports both [zone-redundant and zonal instances](az-service-support.md#azure-services-with-availability-zone-support). 
+Azure Functions supports both [zone-redundant and zonal instances](availability-zones-service-support.md#azure-services-with-availability-zone-support). 
 
 - **Zonal**. Function app instances are placed in a single zone that's selected by the platform in the selected region. A zonal function app is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the function app, the function app won't be available. 
 

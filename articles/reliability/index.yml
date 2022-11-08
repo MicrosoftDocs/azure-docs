@@ -4,7 +4,7 @@ title: Azure reliability documentation
 summary: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 
 metadata:
-  title: Azure Reliability Documentation
+  title: Azure reliability documentation
   description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
   ms.topic: landing-page
   ms.author: anaharris
@@ -26,13 +26,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: What are Azure availability zones and regions?
-            url: az-overview.md
+            url: availability-zones-overview.md
           - text: Services and regions with availability zone support
-            url: az-service-support.md
+            url: availability-zones-service-support.md
       - linkListType: how-to-guide
         links:
           - text: Migrate to availability zone support
-            url: az-migration-overview.md
+            url: availability-zones-migration-overview.md
   # Card
   - title: Disaster recovery
     linkLists:

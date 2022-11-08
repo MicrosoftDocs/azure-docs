@@ -29356,7 +29356,7 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/az-overview.md",
-            "redirect_url": "/azure/reliablity/az-service-support",
+            "redirect_url": "/azure/reliablity/availability-zones-overview.md",
             "redirect_document_id": false
         },
         {
@@ -29366,7 +29366,7 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/az-region.md",
-            "redirect_URL": "/azure/reliability/az-service-support",
+            "redirect_URL": "/azure/reliability/availability-zones-service-support",
             "redirect_document_id": false
         },
         {
@@ -29407,6 +29407,11 @@
         {
             "source_path_from_root": "/articles/availability-zones/migrate-container-instances.md",
             "redirect_URL": "/azure/reliability/migrate-container-instances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/toc.yml",
+            "redirect_URL": "/azure/reliability/toc.yml",
             "redirect_document_id": false
         },
         {

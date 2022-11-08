@@ -68,4 +68,4 @@ Learn more about:
 > [Azure Monitor Logs Dedicated Clusters](../azure-monitor/logs/logs-dedicated-clusters.md)
 
 > [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-service-support.md)
+> [Azure Services that support Availability Zones](availability-zones-service-support.md)
