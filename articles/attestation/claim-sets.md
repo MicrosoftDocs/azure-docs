@@ -199,7 +199,7 @@ The following claims are additionally supported by the SevSnpVm attestation type
 
 - **x-ms-sevsnpvm-authorkeydigest**: SHA384 hash of the author signing key 
 - **x-ms-sevsnpvm-bootloader-svn** :AMD boot loader security version number (SVN)
-- **x-ms-sevsnpvm-familyId**: HCL family identification string
+- **x-ms-sevsnpvm-familyId**: Host Compatibility Layer (HCL) family identification string
 - **x-ms-sevsnpvm-guestsvn**: HCL security version number (SVN)
 - **x-ms-sevsnpvm-hostdata**: Arbitrary data defined by the host at VM launch time
 - **x-ms-sevsnpvm-idkeydigest**: SHA384 hash of the identification signing key
