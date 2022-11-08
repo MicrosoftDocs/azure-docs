@@ -124,7 +124,7 @@ az postgres flexible-server create \
 
 Follow the steps below to set up an Azure AD administrator after server creation:
 
-1. In the Azure portal, select the instance of Azure Database for PostgreSQL Flexible Server that you want to enable for Azure AD.
+1. In the Azure portal, select the Azure Database for PostgreSQL flexible server instance created and enable Azure AD.
 1. Under Security, select Authentication and choose either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
 set azure ad administrator
 
@@ -144,6 +144,7 @@ az postgres flexible-server create \
     --location $AZ_LOCATION \
     --admin-user $AZ_POSTGRESQL_ADMIN_USERNAME \
     --admin-password $AZ_POSTGRESQL_ADMIN_PASSWORD \
+    --yes \
     --output tsv
 ```
 
@@ -263,8 +264,6 @@ rm create_user.sql
 ```
 
 ---
-
-### Create a new Java project
 
 ### Create a new Java project
 
