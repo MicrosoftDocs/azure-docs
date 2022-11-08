@@ -1,5 +1,5 @@
 ---
-title: What is Form Recognizer
+title: What is Azure Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Machine-learning based OCR and intelligent document processing understanding service to automate extraction of text, table and structure, and key-value pairs from your forms and documents.
 author: laujan
