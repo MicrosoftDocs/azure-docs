@@ -26,16 +26,18 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    
    - **IoT hub name**: Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.
 
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+
    - **Region**: Select the region, closest to you, where you want your hub to be located. Some features, such as [IoT Hub device streams](../articles/iot-hub/iot-hub-device-streams-overview.md), are only available in specific regions. For these limited features, you must select one of the supported regions.
    
    - **Tier**: Select the tier that you want to use for your hub. Tier selection depends on how many features you want and how many messages you send through your solution per day. Some features, such as [device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md), are only available in specific tiers. The free tier is intended for testing and evaluation. The free tier allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier. 
+   
    To compare the features available to each tier, select **Compare tiers** and select the tier that contains the features you want to use for your hub. For more information, see [Choose the right IoT Hub tier for your solution](../articles/iot-hub/iot-hub-scaling.md).
+   
    If you're working through a quickstart, select the free tier.
    
    -  **Daily message limit**: Select the maximum daily quota of messages for your hub. The available options depend on the tier you've selected for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
    
-   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
-
    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Screenshot that shows how to create an IoT hub in the Azure portal.":::
 
 1. Select **Next: Networking** to continue creating your hub.
