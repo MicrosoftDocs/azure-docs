@@ -4,7 +4,7 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 6/3/2022
+ms.date: 11/10/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -56,7 +56,7 @@ You can install this version of the extension in your function app by registerin
 ::: zone-end 
 
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 
 ## Install bundle    
@@ -148,10 +148,10 @@ Support for Python durable functions with SQL bindings isn't yet available.
 ::: zone-end
 
 
-::: zone pivot="programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-java"  
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), [PowerShell functions](functions-reference-powershell.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
 

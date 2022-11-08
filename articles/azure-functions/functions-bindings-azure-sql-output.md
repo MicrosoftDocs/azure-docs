@@ -188,7 +188,7 @@ The examples refer to a database table:
 <a id="http-trigger-write-records-to-table-javascript"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows a SQL output binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 The following is binding data in the function.json file:
 
@@ -244,7 +244,7 @@ module.exports = async function (context, req) {
 <a id="http-trigger-write-to-two-tables-javascript"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+The following example shows a SQL output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
 The second table, `dbo.RequestLog`, corresponds to the following definition:
 
@@ -341,7 +341,7 @@ The examples refer to a database table:
 <a id="http-trigger-write-records-to-table-powershell"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows a SQL output binding in a function.json file and a PowerShell function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 The following is binding data in the function.json file:
 
@@ -371,7 +371,9 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code:
+The following is sample PowerShell code for the function in the `run.ps1` file:
+
+```powershell
 
 ```powershell
 using namespace System.Net
@@ -396,7 +398,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-write-to-two-tables-powershell"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+The following example shows a SQL output binding in a function.json file and a PowerShell function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
 The second table, `dbo.RequestLog`, corresponds to the following definition:
 
@@ -443,7 +445,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code:
+The following is sample PowerShell code for the function in the `run.ps1` file:
 
 ```powershell
 using namespace System.Net
@@ -489,7 +491,7 @@ The examples refer to a database table:
 <a id="http-trigger-write-records-to-table-python"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a SQL input binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows a SQL output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 The following is binding data in the function.json file:
 
@@ -552,7 +554,7 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpRe
 <a id="http-trigger-write-to-two-tables-python"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL input binding in a function.json file and a Python function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+The following example shows a SQL output binding in a function.json file and a Python function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
 The second table, `dbo.RequestLog`, corresponds to the following definition:
 

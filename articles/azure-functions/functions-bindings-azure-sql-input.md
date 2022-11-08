@@ -353,7 +353,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code:
+The following is sample PowerShell code for the function in the `run.ps1` file:
 
 ```powershell
 using namespace System.Net
@@ -403,7 +403,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code:
+The following is sample PowerShell code for the function in the `run.ps1` file:
 
 
 ```powershell
@@ -457,7 +457,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code:
+The following is sample PowerShell code for the function in the `run.ps1` file:
 
 
 ```powershell
