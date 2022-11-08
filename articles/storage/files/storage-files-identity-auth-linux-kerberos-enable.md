@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 11/08/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,7 +18,7 @@ For more information on all supported options and considerations, see [Overview 
 - On-premises Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
 
-Both of these methods use the Kerberos authentication protocol. In order to use the first option, you must sync your AD DS to the cloud using Azure AD Connect.
+In order to use the first option, you must sync your AD DS to the cloud using Azure AD Connect.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -418,8 +418,25 @@ lxsmbadmin@lxsmb-canvm15:~$ id
 uid=12604(lxsmbadmin) gid=10513(domain users) groups=10513(domain users),10520(group policy creator owners),10572(denied rodc password replication group),11102(dnsadmins),11104(aad dc administrators),11164(group-readwrite),11165(fileshareallaccess),12604(lxsmbadmin) 
 ```
 
+## Mount the file share
+
+After you've enabled Azure AD Kerberos authentication and domain-joined your Linux VM, you'll need to mount the file share. The mount options differ somewhat depending on the [access control model](#access-control-models) you're using. These mount options are specific to Linux clients connecting to an Azure file share. Your scenario could span multiple use cases, in which case you can merge the mount options.
+
+The following are base mount options for all access control models: serverino,nosharesock,cache=strict,mfsymlinks
+
+### Mount options for server enforced access control (default)
+
+If your environment is mostly Windows and you're enforcing access control using NT ACLs, use the following mount options.
+
+| **Parameter** | **Use case** | **Mount options** | **Comments** |
+| Security mode | Mount point accessed by a single user of AD domain. Not shared with other users of the domain. | Sec=krb5 | Each file access happens in the context of the user whose krb5 credentials were used to mount the file share. Any user on the local system who accesses the mount point will impersonate that user. |
+| File permissions | File permissions matter. File share accessed by Linux and Windows clients. | cifsacl,noperm | Converts file permissions to DACLs on file. Decision-making is offloaded to server using noperm, because Windows clients could set DACLs in ways that don't exactly map to permissions. |
+| File ownership | File ownership matters. File share is accessed by Linux and Windows clients. | cifsacl | Converts file ownership UID/GID to owner/group SID on file DACL. |
+| File attribute cache coherency | Performance is important. Even if file attributes are not always accurate. | actimeo=LARGEVAL | Default actimeo value is 1 (second), which means that the file attributes are fetched again from the server if the cached attributes are more than 1 second old. Increasing to 60 means that attributes are cached for at least 1 minute. Recommend a value of 30 for this option. |
+
+
 ## Next steps
 
-To mount the SMB file share, see:
+For more information on how to mount an SMB file share, see:
 
 - [Mount SMB Azure file share on Linux](storage-how-to-use-files-linux.md)
