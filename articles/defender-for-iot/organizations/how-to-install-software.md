@@ -130,7 +130,7 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-    For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
     Select `<Ok>` when you're ready to continue.
 
@@ -290,7 +290,7 @@ The interface between the IT firewall, on-premises management console, and the O
 
 **To enable tunneling access for sensors**:
 
-1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

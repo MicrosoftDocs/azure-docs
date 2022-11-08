@@ -19,8 +19,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
-|  **Onboard OT sensors** <br>Subscription-level only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | -       |  ✔       |   ✔      | ✔ |
-|  **Onboard Enterprise IoT sensors** <br>Subscription-level only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | ✔      |  ✔       |   ✔      | ✔ |
+|  **Onboard OT or Enterprise IoT sensors** <br>Apply per subscription only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | -       |  ✔       |   ✔      | ✔ |
 |  **Download OT sensor and on-premises management console software** <br>Apply per subscription only| ✔      |  ✔       |   ✔      | ✔ |
 |  **Download sensor activation files** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
 |  **View values on the Pricing page**  <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |

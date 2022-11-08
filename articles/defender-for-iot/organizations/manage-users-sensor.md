@@ -128,7 +128,7 @@ This procedure is not supported for users with **Security analyst** or **Read-on
 
 ### Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users)..
+This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 **To recover privileged access to a sensor**:
 
