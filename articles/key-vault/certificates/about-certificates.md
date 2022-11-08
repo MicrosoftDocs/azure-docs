@@ -127,7 +127,7 @@ The following table represents the mapping of X.509 key usage policies to effect
 
 A Key Vault certificate object holds a configuration that's used to communicate with a selected certificate issuer provider to order X.509 certificates.  
 
-Key Vault partners with the following certificate issuer providers for TLS/SSL certificates:
+Key Vault partners with the following certificate issuer providers for TLS/SSL certificates.
 
 |Provider name|Locations|
 |----------|--------|
