@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
+# Context and Actions
+
 Personalizer works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
 
+## Table of Contents
 
-# Table of Contents
 * [Context](#context) Information about the current user or state of the system 
 * [Actions](#actions) A list of options to choose from
 * [Features](#features) Attributes describing the Context and Actions
 * [Feature Engineering](#feature-engineering) Tips for constructing impactful features
 * [Namespaces](#namespaces) Grouping Features
-* [Examples](#JSON-examples) Examples of Context and Action features in JSON format
+* [Examples](#json-examples) Examples of Context and Action features in JSON format
 
 
 ## Context
