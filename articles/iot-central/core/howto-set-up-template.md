@@ -97,7 +97,7 @@ To create a device model, you can:
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
-    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
+    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model ID for device template root interface.":::
 
 1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
