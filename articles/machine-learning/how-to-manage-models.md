@@ -308,8 +308,6 @@ from azure.ai.ml import Input
 from azure.ai.ml.constants import AssetTypes
 from azure.ai.ml import MLClient
 
-ml_client = MLClient.from_config()
-
 # Possible Asset Types for Data:
 # AssetTypes.MLFLOW_MODEL
 # AssetTypes.CUSTOM_MODEL
@@ -330,7 +328,7 @@ job = command(
     code="./src",  # local path where the code is stored
     command="ls ${{inputs.input_model}}",
     inputs=my_job_inputs,
-    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest",
+    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
     compute="cpu-cluster",
 )
 
@@ -402,19 +400,20 @@ from azure.ai.ml.constants import AssetTypes
 # Model Asset: azureml:<my_model>:<version>
 
 my_job_inputs = {
-    "input_model": Input(type=AssetTypes.MLFLOW_MODEL, path="<path>")
+    "input_model": Input(type=AssetTypes.MLFLOW_MODEL, path="mlflow-model"),
+    "input_data": Input(type=AssetTypes.URI_FILE, path="./mlflow-model/input_example.json"),
 }
 
 my_job_outputs = {
-    "output_folder": Output(type=AssetTypes.MLFLOW_MODEL)
+    "output_folder": Output(type=AssetTypes.CUSTOM_MODEL)
 }
 
 job = command(
     code="./src",  # local path where the code is stored
-    command="python load_score.py --input_model ${{inputs.input_model}} --output_folder ${{outputs.output_folder}}",
+    command="python load_write_score.py --input_model ${{inputs.input_model}} --input_data ${{inputs.input_data}} --output_folder ${{outputs.output_folder}}",
     inputs=my_job_inputs,
     outputs=my_job_outputs,
-    environment="<environment_name>:<version>",
+    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
     compute="cpu-cluster",
 )
 
