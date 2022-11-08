@@ -1,5 +1,5 @@
 ---
-title: Disable how a how a user signs in
+title: Disable user sign-in for application
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
 author: eringreenlee
@@ -12,19 +12,19 @@ ms.date: 09/06/2022
 ms.author: ergreenl
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-#customer intent: As an admin, I want to disable the way a user signs in for an application so that no user can sign in to it in Azure Active Directory.
+#customer intent: As an admin, I want to disable user sign-in for an application so that no user can sign in to it in Azure Active Directory.
 ---
 # Disable user sign-in for an application
 
 There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to preemptively block an application that you do not want your employees to try to access. To accomplish this, you can disable user sign-in for the application, which will prevent all tokens from being issued for that application.
 
-In this article, you will learn how to disable how a user signs in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you are looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
+In this article, you will learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you are looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
 
 
 
 ## Prerequisites
 
-To disable how a user signs in, you need:
+To disable user sign-in, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.

@@ -238,7 +238,7 @@ In this article, we first define names of online endpoint and deployment for deb
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -286,7 +286,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of the scoring script for multi models, see [multimodel-minimal-score.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/multimodel-minimal-score.py).
+Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel/README.md).
 
 ## Understand the scoring script
 
@@ -384,7 +384,7 @@ The output should appear similar to the following JSON. The `provisioning_state`
 ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
 ```
 
-The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md). The `provisioning_state` is `Succeeded`.
+The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint). The `provisioning_state` is `Succeeded`.
 
 ```python
 ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'local-10061534497697', 'description': 'this is a sample local endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
@@ -520,7 +520,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -587,7 +587,7 @@ for endpoint in ml_client.online_endpoints.list():
     print(endpoint.name)
 ```
 
-The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md#parameters).
+The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
 
 For example, output the list of endpoints like a table:
 
@@ -780,8 +780,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ## Next steps
 
 Try safe rollout of your models as a next step:
-- [Safe rollout for online endpoints (CLI v2)](how-to-safely-rollout-managed-endpoints.md)
-- [Safe rollout for online endpoints (SDK v2)](how-to-safely-rollout-managed-endpoints-sdk-v2.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 
 To learn more, review these articles:
 

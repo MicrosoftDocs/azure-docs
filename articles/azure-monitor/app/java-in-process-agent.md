@@ -30,7 +30,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.4.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.2/applicationinsights-agent-3.4.2.jar) file.
+Download the [applicationinsights-agent-3.4.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.3/applicationinsights-agent-3.4.3.jar) file.
 
 > [!WARNING]
 >
@@ -62,7 +62,7 @@ Download the [applicationinsights-agent-3.4.2.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.2.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.3.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -80,7 +80,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.4.2.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.2.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.3.jar` with the following content:
 
         ```json
         {
