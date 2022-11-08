@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -39,7 +39,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
-|  Maximum number of files ([`maxfiles`](#maxfiles)) per volume     |    100 million    |    Yes    |    
+|  Maximum number of files ([`maxfiles`](#maxfiles)) per volume     |    106,255,630    |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
