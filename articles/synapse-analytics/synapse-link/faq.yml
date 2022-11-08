@@ -40,7 +40,7 @@ sections:
       - question: |
           Can I pause the data replication from my link connection, and then resume it from where it is paused?
         answer: |
-          No, you cannot. Pausing and resuming a link connection will be coming soon.
+          Yes, you can.
       - question: |
           Can I select managed virtual network in Synapse workspace with Synapse managed private endpoints which allow the link connection to privately connect to the source database?
         answer: |
