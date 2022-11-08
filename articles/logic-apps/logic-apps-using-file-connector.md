@@ -35,7 +35,7 @@ The File System connector has different versions, based on [logic app type and h
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector, which appears in the designer under the **Built-in** label. The built-in version differs in the following ways: <br><br>- The built-in version supports only Standard logic apps that run in an App Service Environment v3 with Windows plans only. <br><br>- The built-in version can connect directly to a file share and access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [File System built-in connector reference](/azure/logic-apps/connectors/built-in/reference/filesystem/) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
-## Limitations
+## General limitations
 
 - The File System connector currently supports only Windows file systems on Windows operating systems.
 - Mapped network drives aren't supported.
@@ -313,6 +313,8 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 ### [Standard](#tab/standard)
 
 #### Built-in connector action
+
+These steps apply only to Standard logic apps in an App Service Environment v3 with Windows plans only.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
