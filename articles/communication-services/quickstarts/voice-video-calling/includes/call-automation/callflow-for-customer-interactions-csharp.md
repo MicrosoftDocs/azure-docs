@@ -15,41 +15,39 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A Communication Service resource.
-- [Acquire a phone number for your Communication Service resource](../../../telephony/get-phone-number.md?pivots=programming-language-csharp).
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
+- [Acquire a phone number for your Communication Service resource](../../../telephony/get-phone-number.md?pivots=programming-language-csharp). Note the phone number you acquired for use in this quickstart. 
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature. 
+- An audio file for the message you want to play in the call. This audio should be accessible via a url. 
 
 ## Create a new C# application
 
 In the console window of your operating system, use the `dotnet` command to create a new web application.
-
 ```console
     dotnet new web -n MyApplication
 ```
 
-## Configure NuGet package manager
+## Install required packages
 
-During the preview phase, the `Azure.Communication.CallAutomation` NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+1. Configure NuGet Package Manager to use dev feed: During the preview phase, the CallAutomation package is published to the dev feed. Configure your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 
-## Install required NuGet packages
+2. Install the NuGet packages: [Azure.Communication.CallAutomation](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) and [Azure.Messaging.EventGrid](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/) to your project. 
+```console 
+dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerelease
+dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
+```
+## Set up a public URI for the local application 
 
-Install the following NuGet packages to your project using the `dotnot add <package>` command. 
+In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-*Azure.Communication.CallAutomation* - [Package details](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/)
+First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
+:::image type="content" source="./../../media/call-automation/dotnet-application-port.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
 
-*Azure.Messaging.EventGrid* - [Package details](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/)
-
-## Obtain your connection string and phone number
-
-From the Azure portal, locate your Communication Service resource.
-
-1. Select on the Keys section to obtain your connection string.
-:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
-2. Then select on the Phone numbers section to obtain your ACS phone number.
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
 ## Update Program.cs
 
-Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your web server for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your application for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
 
 In this code snippet, /api/incomingCall is the default route that will be used to listen for and answer incoming calls. At a later step, you'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).  
 
@@ -67,8 +65,11 @@ using System.Text.Json.Nodes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var client = new CallAutomationClient(builder.Configuration["ConnectionString"]);
-var callbackUriBase = builder.Configuration["callbackUriBase"]; // i.e. https://someguid.ngrok.io
+var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
+var callbackUriBase = "<public_url_generated_by_ngrok>";
+var mediaFileSource = new Uri("<link_to_media_file>");
+var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
+var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in format of +1...
 
 var app = builder.Build();
 app.MapPost("/api/incomingCall", async (
@@ -116,7 +117,7 @@ app.MapPost("/api/calls/{contextId}", async (
                     InterruptPrompt = true,
                     InterToneTimeout = TimeSpan.FromSeconds(10),
                     InitialSilenceTimeout = TimeSpan.FromSeconds(5),
-                    Prompt = new FileSource(new Uri(builder.Configuration["MediaSource"])),
+                    Prompt = new FileSource(mediaFileSource),
                     StopTones = new[] { DtmfTone.Pound },
                     OperationContext = "MainMenu"
                 };
@@ -127,13 +128,12 @@ app.MapPost("/api/calls/{contextId}", async (
         if (@event is RecognizeCompleted { OperationContext: "MainMenu" })
         {
             // this RecognizeCompleted correlates to the previous action as per the OperationContext value
-            await client.GetCallConnection(@event.CallConnectionId)
-                .AddParticipantsAsync(new AddParticipantsOptions(
-                    new List<CommunicationIdentifier>()
-                    {
-                        new CommunicationUserIdentifier(builder.Configuration["ParticipantToAdd"])
-                    })
-                );
+            var addThisPerson = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
+            var listOfPersonToBeAdded = new List<CommunicationIdentifier>(); 
+            listOfPersonToBeAdded.Add(addThisPerson); 
+            var addParticipantsOption = new AddParticipantsOptions(listOfPersonToBeAdded); 
+            addParticipantsOption.SourceCallerId = new PhoneNumberIdentifier(applicationPhoneNumber);
+            AddParticipantsResult result = await client.GetCallConnection(@event.CallConnectionId).AddParticipantsAsync(addParticipantsOption);
         }
     }
     return Results.Ok();
@@ -141,41 +141,8 @@ app.MapPost("/api/calls/{contextId}", async (
 
 app.Run();
 ```
-
-## Set up a public URI for the local application 
-
-In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
-
-First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
-:::image type="content" source="./../../media/call-automation/dotnet-application-port.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
-
-Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
-
-## Set up environment variables
-
-In Visual Studio, right click at your project and then select "Manage User Secrets" to configure confidential environment variables.
-
-:::image type="content" source="./../../media/call-automation/dotnet-user-secret.jpg" alt-text="Screenshot of how to find out 'Manage User Secrets'":::
-
-Read more about Secret Manager at [Safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/app-secrets)
-
-``` json
-{
-  ...
-    "ConnectionString": "Your_ACS_resource_connection_string",
-    "CallbackUriBase": "Your_Ngrok_FQDN",
-    "MediaSource": "Link_to_media_file_for_play_prompt",
-    "ParticipantToAdd": "The_participant_to_be_added_after_recognizing_tones"
-  ...
-}
-```
-
-ParticipantToAdd used in the code snippet is assumed to be an ACS User MRI.
-
+Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this.  
+ 
 ## Run the app
 
 Open Your_Project_Name.csproj file in your project with Visual Studio, and then select Run button or press F5 on your keyboard.
-
-## Set up IncomingCall event
-
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource, like the phone number purchased in pre-requisites. Follow [this guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.

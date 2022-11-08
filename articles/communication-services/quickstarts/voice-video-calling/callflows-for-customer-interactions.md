@@ -21,7 +21,7 @@ zone_pivot_groups: acs-csharp-java
 In this quickstart, you'll learn how to build an application that uses the Azure Communication Services Call Automation SDK to handle the following scenario:
 - handling the `IncomingCall` event from Event Grid
 - answering a call
-- playing an audio file
+- playing an audio file and recognising input(DTMF) from caller
 - adding a communication user to the call such as a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
 
 ::: zone pivot="programming-language-csharp"
@@ -32,13 +32,28 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 [!INCLUDE [Call flows for customer interactions with Java](./includes/call-automation/Callflow-for-customer-interactions-java.md)]
 ::: zone-end
 
+# Subscribe to IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/voice-video-calling/incoming-call-notification.md). 
+1. Navigate to your resource on Azure portal and select `Events` from the left side menu.
+1. Select `+ Event Subscription` to create a new subscription. 
+1. Filter for Incoming Call event. 
+1. Choose endpoint type as web hook and provide the public url generated for your application by ngrok. Make sure to provide the exact api route that you programmed to receive the event previously. In this case, it would be <ngrok_url>/api/incomingCall. 
+![Screenshot of portal page to create a new event subscription.](./media/call-automation//event-susbcription.png)
+
+1. Select create to start the creation of subscription and validation of your endpoint as mentioned previously. The subscription is ready when the provisioning status is marked as succeeded. 
+
+This subscription currently has no filters and hence all incoming calls will be sent to your application. To filter for specific phone number or a communication user, use the Filters tab.
+
 ## Testing the application
 
-1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
-2. Your Event Grid subscription to the `IncomingCall` should execute and call your web server.
-3. The call will be answered, and an asynchronous web hook callback will be sent to the NGROK callback URI.
-4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point, the application will request audio to be played and input from a targeted phone number.
-5. When the input has been received and recognized, the web server will make a request to add a participant to the call.
+1. Place a call to the number you acquired in the Azure portal.
+2. Your Event Grid subscription to the `IncomingCall` should execute and call your application which will request to answer the call. 
+3. When the call is connected, a `CallConnected` event will be sent to your application's callback url. At this point, the application will request audio to be played and to receive input from the caller.
+4. From your phone, press any 3 number keys, or press one number key and then # key. 
+5. When the input has been received and recognized, the application will make a request to add a participant to the call.
+6. Once the added user answers, you can talk to them. 
+
 
 ## Clean up resources
 
