@@ -43,7 +43,7 @@ The Responsible AI dashboard is accompanied by a [PDF scorecard](how-to-responsi
 
 The Responsible AI dashboard brings together, in a comprehensive view, various new and pre-existing tools. The dashboard integrates these tools with [Azure Machine Learning CLI v2, Azure Machine Learning Python SDK v2](concept-v2.md), and [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). The tools include:  
 
-- [Data explorer](concept-data-analysis.md), to understand and explore your dataset distributions and statistics.
+- [Data analysis](concept-data-analysis.md), to understand and explore your dataset distributions and statistics.
 - [Model overview and fairness assessment](concept-fairness-ml.md), to evaluate the performance of your model and evaluate your model's group fairness issues (how your model's predictions affect diverse groups of people).
 - [Error analysis](concept-error-analysis.md), to view and understand how errors are distributed in your dataset.  
 - [Model interpretability](how-to-machine-learning-interpretability.md) (importance values for aggregate and individual features), to understand your model's predictions and how those overall and individual predictions are made.
@@ -83,7 +83,7 @@ The following table describes when to use Responsible AI dashboard components to
 | Identify | Error analysis | The error analysis component helps you get a deeper understanding of model failure distribution and quickly identify erroneous cohorts (subgroups) of data. <br><br> The capabilities of this component in the dashboard come from the [Error Analysis](https://erroranalysis.ai/) package.|
 | Identify | Fairness analysis | The fairness component defines groups in terms of sensitive attributes such as sex, race, and age. It then assesses how your model predictions affect these groups and how you can mitigate disparities. It evaluates the performance of your model by exploring the distribution of your prediction values and the values of your model performance metrics across the groups. <br><br>The capabilities of this component in the dashboard come from the [Fairlearn](https://fairlearn.org/) package.  |
 | Identify | Model overview | The model overview component aggregates model assessment metrics in a high-level view of model prediction distribution for better investigation of its performance. This component also enables group fairness assessment by highlighting the breakdown of model performance across sensitive groups. |
-| Diagnose | Data explorer | The data explorer visualizes datasets based on predicted and actual outcomes, error groups, and specific features. You can then identify issues of overrepresentation and underrepresentation, along with seeing how data is clustered in the dataset.  |
+| Diagnose | Data analysis | Data analysis visualizes datasets based on predicted and actual outcomes, error groups, and specific features. You can then identify issues of overrepresentation and underrepresentation, along with seeing how data is clustered in the dataset.  |
 | Diagnose | Model interpretability | The interpretability component generates human-understandable explanations of the predictions of a machine learning model. It provides multiple views into a model's behavior: <br> - Global explanations (for example, which features affect the overall behavior of a loan allocation model) <br> - Local explanations (for example, why an applicant's loan application was approved or rejected) <br><br> The capabilities of this component in the dashboard come from the [InterpretML](https://interpret.ml/) package. |
 | Diagnose | Counterfactual analysis and what-if| This component consists of two functionalities for better error diagnosis: <br> - Generating a set of examples in which minimal changes to a particular point alter the model's prediction. That is, the examples show the closest data points with opposite model predictions. <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard come from the [DiCE](https://github.com/interpretml/DiCE) package.  |
 
@@ -108,7 +108,7 @@ Exploratory data analysis, causal inference, and counterfactual analysis capabil
 
 These components of the Responsible AI dashboard support responsible decision-making:
 
-- **Data explorer**: You can reuse the data explorer component here to understand data distributions and to identify overrepresentation and underrepresentation. Data exploration is a critical part of decision making, because it isn't feasible to make informed decisions about a cohort that's underrepresented in the data.
+- **Data analysis**: You can reuse the data analysis component here to understand data distributions and to identify overrepresentation and underrepresentation. Data exploration is a critical part of decision making, because it isn't feasible to make informed decisions about a cohort that's underrepresented in the data.
 - **Causal inference**: The causal inference component estimates how a real-world outcome changes in the presence of an intervention. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from a particular intervention. Collectively, these functionalities allow you to apply new policies and effect real-world change.
   
   The capabilities of this component come from the [EconML](https://github.com/Microsoft/EconML) package, which estimates heterogeneous treatment effects from observational data via machine learning.
@@ -142,14 +142,14 @@ Need some inspiration? Here are some examples of how the dashboard's components 
 
 | Responsible AI dashboard flow | Use case |
 |-------------------------------|----------|
-| Model overview > error analysis > data explorer | To identify model errors and diagnose them by understanding the underlying data distribution |
-| Model overview > fairness assessment > data explorer | To identify model fairness issues and diagnose them by understanding the underlying data distribution |
+| Model overview > error analysis > data analysis | To identify model errors and diagnose them by understanding the underlying data distribution |
+| Model overview > fairness assessment > data analysis | To identify model fairness issues and diagnose them by understanding the underlying data distribution |
 | Model overview > error analysis > counterfactuals analysis and what-if  | To diagnose errors in individual instances with counterfactual analysis (minimum change to lead to a different model prediction) |
-| Model overview > data explorer | To understand the root cause of errors and fairness issues introduced via data imbalances or lack of representation of a particular data cohort |
+| Model overview > data analysis | To understand the root cause of errors and fairness issues introduced via data imbalances or lack of representation of a particular data cohort |
 | Model overview > interpretability | To diagnose model errors through understanding how the model has made its predictions |
-| Data explorer > causal inference  | To distinguish between correlations and causations in the data or decide the best treatments to apply to get a positive outcome |
+| Data analysis > causal inference  | To distinguish between correlations and causations in the data or decide the best treatments to apply to get a positive outcome |
 | Interpretability > causal inference | To learn whether the factors that the model has used for prediction-making have any causal effect on the real-world outcome|
-| Data explorer > counterfactuals analysis and what-if | To address customers' questions about what they can do next time to get a different outcome from an AI system|
+| Data analysis > counterfactuals analysis and what-if | To address customers' questions about what they can do next time to get a different outcome from an AI system|
 
 ## People who should use the Responsible AI dashboard
 

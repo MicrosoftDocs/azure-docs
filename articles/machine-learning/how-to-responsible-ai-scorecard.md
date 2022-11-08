@@ -38,9 +38,9 @@ The Responsible AI scorecard is a PDF summary of key insights from your Responsi
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-summary.png" alt-text="Screenshot of the model summary on the Responsible AI scorecard PDF.":::
 
-The data explorer segment shows you characteristics of your data, because any model story is incomplete without a correct understanding of your data:
+The data analysis segment shows you characteristics of your data, because any model story is incomplete without a correct understanding of your data:
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-data-explorer.png" alt-text="Screenshot of the data explorer on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-data-explorer.png" alt-text="Screenshot of the data analysis on the Responsible AI scorecard PDF.":::
 
 The model performance segment displays your model's most important metrics and characteristics of your predictions and how well they satisfy your desired target values:
 

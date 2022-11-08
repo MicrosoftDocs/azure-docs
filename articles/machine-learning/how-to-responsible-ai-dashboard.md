@@ -168,7 +168,7 @@ Select the **Heat map** tab to switch to a different view of the error in the da
 5. **Cells**: Represents a cohort of the dataset, with filters applied, and the percentage of errors out of the total number of data points in the cohort. A blue outline indicates selected cells, and the darkness of red represents the concentration of failures.
 6. **Prediction path (filters)**: Lists the filters placed over the full dataset for each selected cohort.
 
-### Model overview
+### Model overview and fairness metrics
 
 The model overview component provides a comprehensive set of performance and fairness metrics for evaluating your model, along with key performance disparity metrics along specified features and dataset cohorts.  
 
@@ -219,7 +219,7 @@ With the data analysis component, the **Table view** pane shows you a table view
 
 The **Chart view** panel shows you aggregate and individual plots of datapoints. You can analyze data statistics along the x-axis and y-axis by using filters such as predicted outcome, dataset features, and error groups. This view helps you understand overrepresentation and underrepresentation in your dataset.  
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-analysis-table-view.png" alt-text="Screenshot of the dashboard, showing the data explorer." lightbox= "./media/how-to-responsible-ai-dashboard/data-analysis-table-view.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-analysis-table-view.png" alt-text="Screenshot of the dashboard, showing the data analysis." lightbox= "./media/how-to-responsible-ai-dashboard/data-analysis-table-view.png":::
 
 1. **Select a dataset cohort to explore**: Specify which dataset cohort from your list of cohorts you want to view data statistics for.
 2. **X-axis**: Displays the type of value being plotted horizontally. Modify the values by selecting the button to open a side panel.
@@ -228,7 +228,7 @@ The **Chart view** panel shows you aggregate and individual plots of datapoints.
 
    By selecting the **Individual data points** option under **Chart type**, you can shift to a disaggregated view of the data with the availability of a color axis.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-analysis-individual-datapoints.png" alt-text="Screenshot of the dashboard, showing the data explorer with the 'Individual data points' option selected." lightbox= "./media/how-to-responsible-ai-dashboard/data-analysis-individual-datapoints.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-analysis-individual-datapoints.png" alt-text="Screenshot of the dashboard, showing the data analysis with the 'Individual data points' option selected." lightbox= "./media/how-to-responsible-ai-dashboard/data-analysis-individual-datapoints.png":::
 
 ### Feature importances (model explanations)
 

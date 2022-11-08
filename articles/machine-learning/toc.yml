@@ -172,11 +172,13 @@
       items:
         - name: Responsible AI overview
           displayName: responsible, ml
-          href: concept-responsible-ml.md
+          href: concept-responsible-ai.md
         - name: Implement Responsible AI in Practice
           items:
             - name: Responsible AI dashboard
               href: concept-responsible-ai-dashboard.md
+            - name: Responsible AI scorecard
+              href: concept-responsible-ai-scorecard.md
             - name: Model interpretability
               displayName: explainability, explanations, interpretability
               href: how-to-machine-learning-interpretability.md
@@ -658,18 +660,18 @@
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
       items:
-        - name: Generate Responsible AI dashboard
+        - name: Generate Responsible AI insights
           items:
-            - name: Responsible AI dashboard (V2)
+            - name: Responsible AI insights (V2)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-dashboard-sdk-cli.md
-            - name: Responsible AI dashboard (UI)
+              href: how-to-responsible-ai-insights-sdk-cli.md
+            - name: Responsible AI insights (UI)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-dashboard-ui.md
+              href: how-to-responsible-ai-insights-ui.md
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
-        - name: Responsible AI dashboard scorecard
+        - name: Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
