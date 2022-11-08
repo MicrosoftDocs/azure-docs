@@ -164,19 +164,19 @@ Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo
 
 Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database":::
 
 ### Get collection
 
 Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="create_collection":::
 
 ### Create an index
 
 Create an index using the [update collection extension command](/azure/cosmos-db/mongodb/custom-commands#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="create_index":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="create_index":::
 
 ### Create a document
 
@@ -188,7 +188,7 @@ Create a document with the *product* properties for the `adventureworks` databas
 * An inventory *quantity* property.
 * A *sale* property, indicating whether the product is on sale.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="new_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_doc":::
 
 Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
 
@@ -196,13 +196,13 @@ Create a document in the collection by calling the collection level operation [u
 
 In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and partition key (`category`).
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="read_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="read_doc":::
 
 ### Query documents
 
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [`Collection.find`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [`Cursor`](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="query_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="query_doc":::
 
 Troubleshooting:
 
@@ -220,7 +220,7 @@ python run.py
 
 The output of the app should be similar to this example:
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="console_result":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="console_result":::
 
 ## Clean up resources
 
