@@ -1,12 +1,12 @@
 ---
-title: Import a GraphQL API to Azure API Management using the portal | Microsoft Docs
+title: Import a GraphQL API to Azure API Management | Microsoft Docs
 titleSuffix: 
-description: Learn how to add an existing GraphQL service as an API in Azure API Management. Manage the API and enable queries to pass through to the GraphQL endpoint.
+description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 10/27/2022
 ms.custom: event-tier1-build-2022
 ---
 
@@ -27,13 +27,19 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
+- Azure CLI
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
+- Azure PowerShell
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Add a GraphQL API
 
-1. Navigate to your API Management instance.
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
+#### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select the **GraphQL** icon.
 
     :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting GraphQL icon from list of APIs.":::
@@ -60,6 +66,57 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 1. Select **Create**.
 1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
        :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Screenshot of exploring the GraphQL schema in the portal.":::
+
+#### [Azure CLI](#tab/cli)
+
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
+
+```azurecli-interactive
+# API Management service-specific details
+APIMServiceName="apim-hello-world"
+ResourceGroupName="myResourceGroup"
+
+# API-specific details
+APIId="my-graphql-api"
+APIPath="myapi"
+DisplayName="MyGraphQLAPI"
+SpecificationFormat="GraphQL"
+SpecificationURL="<GraphQL backend endpoint>"
+
+# Import API
+az apim api import --path $APIPath --resource-group $ResourceGroupName \
+    --service-name $APIMServiceName --api-id $APIId \
+    --display-name $DisplayName --specification-format $SpecificationFormat --specification-url $SpecificationURL
+```
+
+After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
+
+
+#### [PowerShell](#tab/powershell)
+
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import a GraphQL passthrough API from the specified URL to an API Management instance named *apim-hello-world*. 
+
+```powershell-interactive
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# API-specific details
+$apiId = "my-graphql-api"
+$apiPath = "myapi"
+$specificationFormat = "GraphQL"
+$specificationUrl = "<GraphQL backend endpoint>"
+
+# Get context of the API Management instance. 
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+
+# Import API
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
+```
+
+After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
+
+---
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 
