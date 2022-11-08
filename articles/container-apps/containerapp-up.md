@@ -92,7 +92,7 @@ az containerapp up \
   --target-port <PORT_NUMBER> 
 ```
 
-You can use the `up` command to redeploy a container app. If you want to redeploy with a new image, you can use the `--image` option to specify a new image. 
+You can use the `up` command to redeploy a container app. If you want to redeploy with a new image, use the `--image` option to specify a new image.  Ensure that the `--resource-group` and `environment` options are set to the same values as the original deployment.  
 
 ```azurecli
 az containerapp up \
