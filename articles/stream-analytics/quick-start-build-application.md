@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Build a streaming application in a few clicks
+title: Quickstart - Build a streaming application in a few clicks
 description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
 ms.service: stream-analytics
 author: alexlin
@@ -11,14 +11,14 @@ ms.topic: quickstart
 # Build a streaming application in a few clicks
 
 This quickstart shows how to build a streaming application with executing a few commands on PowerShell. It's the fastest way to deploy the Azure resources and get your streaming application running with auto-generated data streams. You can choose the following application examples and explore different stream analytic scenarios.
-- filter clickstream requests
-- join clickstream with a file
-- analyze Twitter sentiment (coming soon)
-- build geofencing (coming soon)
+- Filter clickstream requests
+- Join clickstream with a file
+- Analyze Twitter sentiment (coming soon)
+- Build geofencing (coming soon)
 
 ## Prerequisites
-- Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- Windows PowerShell. You can find it from the Windows Start Menu or install the [latest version](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7).
+* Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* Azure PowerShell module. If you need to install or upgrade, see [Install Azure PowerShell module](https://learn.microsoft.com/en-us/powershell/azure/install-Az-ps).
 
 ## Filter clickstream requests
 
@@ -47,26 +47,26 @@ Sample of clickstream:
 
 Follow these steps to deploy resources: 
 
-1. Clone this [GitHub repository](https://github.com/Azure/azure-stream-analytics) to your working directory. 
+1. Open PowerShell from the Start Menu, clone this [GitHub repository](https://github.com/Azure/azure-stream-analytics) to your working directory.
 
-2. Open PowerShell, go to the folder `BuildApplications` with command `cd`.
+2. Go to **BuildApplications** folder with command `cd`.
 
-3. Sign in to Azure with the following command. Enter your Azure credentials in the pop-up browser.
+3. Run the following command to sign in to Azure and enter your Azure credentials in the pop-up browser.
 
     ```powershell
     $ Connect-AzAccount
     ```
 
-4. Deploy Azure sources. Replace `<subscription-id>` with your Azure subscription id and run the following command. This process may take a few minutes to complete.
+4. Replace `$subscriptionId` with your Azure subscription id and run the following command to deploy Azure resources. This process may take a few minutes to complete.
 
     ```powershell
-    $ .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid <subscription-id> 
+    $ .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
     * `eventsPerMinute` is the input rate for generated data. In this case, the input source generates 11 events per minute.
-    * You can find your subscription-id in **Azure portal > Subscriptions**.
+    * You can find your subscription id in **Azure portal > Subscriptions**.
 
-5. Once it's done, it opens your browser automatically, and you can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains following five resources:
+5. Once the deployment is completed, it opens your browser automatically, and you can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains the following five resources:
 
     | Resource Type | Name | Description |
     | ------------ | --------------------------------------------- | -------------------------------- |
@@ -90,7 +90,9 @@ Follow these steps to deploy resources:
 7. All output results are stored as `JSON` file in the Blog Storage. You can find it via: Blob Storage > Containers > job-output.
 ![Blob Storage](./media/quick-start-with-mock-data/blog-storage-containers.png)
 
-8. **Congratulation!** You've deployed your first streaming application to filter a website clickstream. For other stream analytic scenarios with one stream input, you can use the following examples for the query:
+8. **Congratulation!** You've deployed a streaming application to filter a website clickstream. 
+
+<!-- For other stream analytic scenarios with one stream input, you can use the following examples for the query:
 
     * Count clicks for every hour
     
@@ -108,22 +110,22 @@ Follow these steps to deploy resources:
         FROM clickstream
         TIMESTAMP BY Time
         WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
-        ```
+        ``` -->
 
 ## Clickstream-RefJoin
 
-If you want to find out the username for the clickstream with a user file in storage, you can join the clickstream with a reference input as following architecture:
+If you want to find out the username for the clickstream using a user file in storage, you can join the clickstream with a reference input as following architecture:
 ![Clickstream two input](./media/quick-start-with-mock-data/clickstream-two-inputs.png)
 
-Assume you've completed the steps for previous example, follow these steps to create a new resource group: 
+Assume you've completed the steps for previous example, run following commands to create a new resource group: 
 
-1. Replace `<subscription-id>` with your Azure subscription ID and run the following command. This process may take a few minutes to deploy the resources: 
+1. Replace `$subscriptionId` with your Azure subscription ID. This process may take a few minutes to deploy the resources: 
 
     ```powershell
-    $ .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid <subscription-id> 
+    $ .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
-2. Once it's done, sign in to the Azure portal, and you can see a resource group named **ClickStream-RefJoin-rg-\***.
+2. Once it's done, it opens your browser automatically and you can see a resource group named **ClickStream-RefJoin-rg-\*** in the Azure portal. 
 
 3. The ASA job **ClickStream-RefJoin** uses the following query to join the clickstream with reference sql input.
 
