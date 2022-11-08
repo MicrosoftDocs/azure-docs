@@ -2,8 +2,8 @@
 title: Monitor Azure Cosmos DB data by using Azure Diagnostic settings
 description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
 author: StefArroyo
-ms.author: esarroyo 
-services: cosmos-db
+ms.author: esarroyo
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: how-to
