@@ -62,7 +62,6 @@ The price change feature does not support the following scenarios:
 - Price changes on hidden plans.
 - Price changes on plans available in Azure Government cloud.
 - Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan-a-price-change) below.
-- Canceling and modifying a price change through Partner Center. To cancel a price update, contact [support](https://go.microsoft.com/fwlink/?linkid=2056405).
 - Changing prices from free or $0 to paid.
 - Changing prices via APIs.
 
@@ -98,9 +97,9 @@ To update the monthly or yearly price of a SaaS or Azure app offer:
     3. Import the spreadsheet using **Import pricing data**.
 7. To change prices across all markets, edit the desired **billing term price** box.
 
-    > [!NOTE]
+1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -131,9 +130,9 @@ To update the per user monthly or yearly fee of a SaaS offer:
     3. Import the spreadsheet using **Import pricing data**.
 7. To change prices across all markets, edit the desired **billing term price** box.
 
-    > [!NOTE]
+1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -167,9 +166,9 @@ To update the price per unit of a meter dimension of a SaaS or Azure app offer:
     1. Locate the dimension to update.
     1. Edit the **Price per unit in USD** box.
 
-    > [!NOTE]
+1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
+    
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -207,10 +206,10 @@ To update the price per core or per core size of a VM offer.
 
 7. To change prices across all markets:
 
-    > [!NOTE]
+1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
-    1. **Per core**: Edit the price per core in the **USD/hour** box.
+    
+1. **Per core**: Edit the price per core in the **USD/hour** box.
     2. **Per core size**: Edit each core size in the **Price per hour in USD** box.
 
 8. Select **Save draft**.
@@ -237,3 +236,4 @@ After the price change is canceled, follow the steps in the appropriate part of 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
