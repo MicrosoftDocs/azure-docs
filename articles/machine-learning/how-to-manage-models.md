@@ -359,7 +359,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
 code: src
 command: >-
-  python load_score.py 
+  python load_write_model.py 
   --input_model ${{inputs.input_model}} 
   --custom_model_output ${{outputs.output_folder}}
 inputs:
