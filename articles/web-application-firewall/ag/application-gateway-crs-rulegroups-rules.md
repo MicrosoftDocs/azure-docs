@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Web Application Firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. Rules can be disabled on a rule-by-rule basis, or you can set specific actions by individual rule. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
 
 ## Core rule sets
 
@@ -32,6 +32,29 @@ The WAF protects against the following web vulnerabilities:
 - HTTP protocol anomalies, such as missing host user-agent and accept headers
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
+
+CRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Core Rule Set to meet your application requirements. You can also set specific actions per rule. The available actions are: Allow, Block, Log, and Anomaly score; however, Anomaly score is not available on the Bot Manager ruleset.
+
+Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. [For more information, see Web Application Firewall (WAF) with Application Gateway exclusion lists(https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal)].
+
+By default, CRS blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
+
+Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
+
+### Anomaly scoring
+
+When you use CRS, your WAF uses anomaly scoring. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: Critical, Error, Warning, or Notice. The severity affects a numeric value for the request, which is called the anomaly score:
+
+| Rule severity | Value contributed to anomaly score |
+|-|-|
+| Critical | 5 |
+| Error | 4 |
+| Warning | 3 |
+| Notice | 2 |
+
+If the anomaly score is 5 or greater, WAF blocks the request.
+
+For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
 
 ### OWASP CRS 3.2
 
