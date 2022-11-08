@@ -121,10 +121,10 @@ The Application Gateway WAF can be configured to run in the following two modes:
 
 WAF customers can choose which action is run when a request matches a rules conditions. Below is the listed of supported actions.
 
-*Allow: Request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request.
-*Block: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
-*Log: Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
-*AnomalyScoring: This is the default action for OWASP and DRS rulesets where total anomaly score is incremented when a rule with this action is matched. The Bot Manager ruleset does not support this action.
+* Allow: Request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request.
+* Block: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
+* Log: Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
+* AnomalyScoring: This is the default action for OWASP and DRS rulesets where total anomaly score is incremented when a rule with this action is matched. The Bot Manager ruleset does not support this action.
 
 ### WAF engines
 
