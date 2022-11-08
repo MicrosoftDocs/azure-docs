@@ -28,13 +28,13 @@ This page is updated on a monthly basis to list what's new with Azure Private 5G
 
 **Date available:** November 1, 2022
 
-The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From November 15, the 2022-11-01 API will become the default for Azure Private 5G Core deployments.
+The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From November 15, 2022-11-01 will become the default API version for Azure Private 5G Core deployments.
 
-If you use the Azure portal to manage your deployment and all your resources were created using the 2021-04-01-preview API, your deployment will be automatically upgraded to the 2022-11-01 API.
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, your deployment will be automatically upgraded to the 2022-11-01 API on November 15.
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used the 2021-04-01-preview or the 2022-03-01-preview APIs to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Delete these resources and redeploy them using the 2022-04-01-preview API before the 2022-11-01 API becomes the default version.
+If you used an API version older than the 2022-04-01-preview to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Before November 15, delete these resources and redeploy them using the 2022-04-01-preview API.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 
@@ -42,9 +42,9 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
-   2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource that this control plane is being created under.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum that can be set to either **AAD** to use Microsoft Azure Active Directory (Azure AD) to authenticate users of local diagnostics APIs or **Password** to use passwords to authenticate users.
-   4. The billing SKU **properties.sku** should be updated to use the latest enum. Refer to the following table for the mapping between the old and new SKUs.
+   2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum governing how users of local diagnostics APIs will be authenticated. Set this field to **AAD** to use Microsoft Azure Active Directory (Azure AD) or **Password** to use passwords.
+   4. Update the billing SKU **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
         |--|--|
@@ -56,10 +56,10 @@ Make the following changes for each 2022-04-01-preview API template that you wan
         | MediumPackage | G5 |
         | LargePackage | G10 |
 
-2. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. You must list your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
+2. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
 3. Remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
 
-See below for a comparison between templates using 2022-04-01-preview and the 2022-11-01 APIs.
+See below for a comparison between templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
 # [2022-04-01-preview API](#tab/2022-04-01-preview)
 
@@ -173,13 +173,13 @@ When deploying a site directly on an ASE device, you no longer need to specify t
 
 See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. <!-- If your site is already deployed, you can link it to your ASE device by following the relevant steps in Modify packet core. -->
 
-### CMK and managed identity
+### Customer Managed Keys (CMK) and managed identity
 
 **Type:** New feature
 
 **Date available:** October 18, 2022
 
-In addition to the default Microsoft-Managed Keys (MMK), you can now use Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or when [deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network) to encrypt data using your own key.
+In addition to the default Microsoft-Managed Keys (MMK), you can now use Customer Managed Keys (CMK) to encrypt data using your own key when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or when [deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network).
 
 Once a SIM group is created, you can't change the encryption type. If you want to protect the existing SIMs' secrets with CMK, [delete their corresponding SIM groups](manage-sim-groups.md#delete-a-sim-group) and [recreate them](manage-sim-groups.md#create-a-sim-group) with CMK enabled. Once a SIM group that uses CMK is created, you can update the key used for encryption.
 
