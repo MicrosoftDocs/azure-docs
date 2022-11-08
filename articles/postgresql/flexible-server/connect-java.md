@@ -45,7 +45,7 @@ export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=demo-non-admin
-export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGED_IDENTITY_NAME>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
 export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 ```
@@ -56,6 +56,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The database name of the PostgreSQL server, which should be unique within Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
 - `<YOUR_USER_ASSIGNED_MANAGED_IDENTITY_NAME>`: The name of your user assigned managed identity server, which should be unique across Azure.
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
@@ -68,6 +69,7 @@ export AZ_POSTGRESQL_ADMIN_USERNAME=demo
 export AZ_POSTGRESQL_ADMIN_PASSWORD=<YOUR_POSTGRESQL_ADMIN_PASSWORD>
 export AZ_POSTGRESQL_NON_ADMIN_USERNAME=demo-non-admin
 export AZ_POSTGRESQL_NON_ADMIN_PASSWORD=<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -76,6 +78,9 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The database name of the PostgreSQL server, which should be unique within Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
 - `<YOUR_POSTGRESQL_ADMIN_PASSWORD>` and `<YOUR_POSTGRESQL_NON_ADMIN_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+---
 
 Next, create a resource group by using the following command:
 
@@ -85,8 +90,6 @@ az group create \
     --location $AZ_LOCATION \
     --output tsv
 ```
-
----
 
 ## Create an Azure Database for PostgreSQL instance
 
@@ -116,34 +119,14 @@ az postgres flexible-server create \
     --output tsv
 ```
 
-Run the following command to create a user-assigned identity for assigning:
+Now run the following command to set the Azure AD admin user:
 
 ```azurecli
-az identity create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_USER_IDENTITY_NAME
-```
-
-> [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/postgresql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/postgresql/flexible-server/concepts-azure-ad-authentication).
-Run the following command to assign the identity to PostgreSQL server for creating Azure AD admin:
-
-```azurecli
-az postgres flexible-server identity assign \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_SERVER_NAME \
-    --identity $AZ_USER_IDENTITY_NAME
-```
-
-Run the following command to set the Azure AD admin user:
-
-```azurecli
-az postgres flexible-server ad-admin create \
+az postgres server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_SERVER_NAME \
     --display-name $CURRENT_USERNAME \
-    --object-id $CURRENT_USER_OBJECTID \
-    --identity $AZ_USER_IDENTITY_NAME
+    --object-id $CURRENT_USER_OBJECTID
 ```
 
 > [!IMPORTANT]
@@ -179,8 +162,8 @@ Because you configured your local IP address at the beginning of this article, y
 ```azurecli
 az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     --output tsv
@@ -205,8 +188,8 @@ Then, use the following command to open the server's firewall to your WSL-based 
 ```azurecli
 az postgres flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_SERVER_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
+    --rule-name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
     --output tsv
