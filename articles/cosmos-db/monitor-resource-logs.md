@@ -61,8 +61,31 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 > [!NOTE]
 > If you are using API for NoSQL, we recommend setting the **export-to-resource-specific** property to **true**.
 
+1. Create shell variables for `subscriptionId`, `diagnosticSettingName`, `workspaceName` and `resourceGroupName`.
+
+    ```azurecli
+    # Variable for subscription id
+    subscriptionId="<subscription-id>"
+
+    # Variable for resource group name
+    resourceGroupName="<resource-group-name>"
+    
+    # Variable for workspace name
+    workspaceName="<workspace-name>"
+
+    # Variable for diagnostic setting name
+    diagnosticSettingName="<diagnostic-setting-name>"
+    ```
+
+1. Use `az monitor diagnostic-settings create` to create the setting.
+
 ```azurecli-interactive
-az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
+az monitor diagnostic-settings create \
+    --resource "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDb/databaseAccounts/" \
+    --name $diagnosticSettingName \
+    --export-to-resource-specific true \
+    --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' \
+    --workspace "/subscriptions/$subscriptionId/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$workspaceName"
 ```
 
 ### [REST API](#tab/rest-api)
@@ -84,9 +107,9 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
    |Parameters/Headers  | Value/Description  |
    |---------|---------|
    |name     |  The name of your Diagnostic setting.      |
-   |resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
-   |api-version     |    2017-05-01-preview     |
-   |Content-Type     |    application/json     |
+   |resourceUri     |   `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`      |
+   |api-version     |    `2017-05-01-preview`     |
+   |Content-Type     |    `application/json`     |
 
 1. Set the body of the request to this JSON payload.
 
