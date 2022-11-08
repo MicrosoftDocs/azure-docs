@@ -69,9 +69,15 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
 1. For the **Policy definition** field, select the **More** button, and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
 
-:::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
-
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent enabling Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
+    
 1. Select **Review + create**.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
+  
+1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
 
 > [!NOTE]
 > The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
@@ -81,12 +87,6 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
 >- Non-compliance messages: *(none)*
 >
 > If you want to set a non-compliance message, select the **Non-Compliance messages** tab and type the message you want displayed when a storage account is out of compliance.
-
-:::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
-
-1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
-
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
 
 #### Monitor compliance with the Shared Key access policy
 
@@ -257,7 +257,7 @@ The **AllowSharedKeyAccess** property is supported for storage accounts that use
 
 ### Update Azure Policy assignment to prevent enabling Shared Key access
 
-To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode), **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny requests for enabling Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
+To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode) for policy **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny requests for enabling Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
 
 1. On the Azure Policy dashboard, locate and select the policy assignment [you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode).
 
