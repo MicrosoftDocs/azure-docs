@@ -15,7 +15,7 @@ Azure Monitor Logs stores log data in tables. Table configuration lets you defin
 
 This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
 
-## Table configuration
+## Table configuration settings
 
 This diagram provides an overview of the table configuration options in Azure Monitor Logs:
 
