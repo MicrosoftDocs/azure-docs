@@ -616,7 +616,7 @@ The following pre-defined policies are available for Azure Files and Azure File 
 
 | Action | Service | Condition | Policy name |
 |-|-|-|-|
-| Audit | Azure Files | The storage account's public endpoint is enabled. See [Disable access to the storage account public endpoint](#disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
+| Audit | Azure Files | The storage account's public endpoint is enabled. See [Grant access to trusted Azure services and disable access to the storage account public endpoint](#grant-access-to-trusted-azure-services-and-disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
 | Audit | Azure File Sync | The Storage Sync Service's public endpoint is enabled. See [Disable access to the Storage Sync Service public endpoint](#disable-access-to-the-storage-sync-service-public-endpoint) for more information. | Public network access should be disabled for Azure File Sync |
 | Audit | Azure Files | The storage account needs at least one private endpoint. See [Create the storage account private endpoint](#create-the-storage-account-private-endpoint) for more information. | Storage account should use a private link connection |
 | Audit | Azure File Sync | The Storage Sync Service needs at least one private endpoint. See [Create the Storage Sync Service private endpoint](#create-the-storage-sync-service-private-endpoint) for more information. | Azure File Sync should use private link |
