@@ -100,7 +100,7 @@ Hub 2 will show a similar table for the effective routes, where the VNets and br
 
 ## Scenario 3: Cross-connecting the ExpressRoute circuits to both hubs
 
-In order to add direct links between the Azure regions and the on-premises locations connected via ExpressRoute, it is often desirable connecting an single ExpressRoute circuit to multiple Virtual WAN hubs in a topology some times described as "bow tie", as the following topology shows:
+In order to add direct links between the Azure regions and the on-premises locations connected via ExpressRoute, it is often desirable connecting a single ExpressRoute circuit to multiple Virtual WAN hubs in a topology some times described as "bow tie", as the following topology shows:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits in bow tie with Global Reach and two V P N branches." :::
 
