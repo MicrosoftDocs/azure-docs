@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues with advanced diagnostics queries for API for Cassandra
-description: Learn how to use Azure Log Analytics to improve the performance and health of your Azure Cosmos DB for Apache Cassandra account.
+title: Troubleshoot issues with advanced diagnostics queries with Azure Cosmos DB for Apache Cassandra
+description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for Apache Cassandra.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 11/08/2022
 ---
 
-# Troubleshoot issues with advanced diagnostics queries for the API for Cassandra
+# Troubleshoot issues with advanced diagnostics queries with Azure Cosmos DB for Apache Cassandra
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](../includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
