@@ -132,7 +132,7 @@
         href: recommendations-reference.md
       - name: Reference list of AWS recommendations
         href: recommendations-reference-aws.md
-      - name: Reference list of attack paths
+      - name: Reference list of attack paths and cloud security graph components
         href: attack-path-reference.md
   - name: Protect cloud workloads
     items:
