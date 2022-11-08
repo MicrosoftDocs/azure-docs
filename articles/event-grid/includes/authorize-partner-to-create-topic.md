@@ -28,13 +28,13 @@ Following example shows the way to create a partner configuration resource that 
 1. In the search bar at the top, enter **Partner Configurations**, and select **Event Grid Partner Configurations** under **Services** in the results. 
 1. On the **Event Grid Partner Configurations** page, select **Create Event Grid partner configuration** button on the page (or) select **+ Create** on the command bar. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/partner-configurations.png" alt-text="Event Grid Partner Configurations page showing the list of partner configurations and the link to create a partner registration.":::    
+    :::image type="content" source="./media/subscribe-to-partner-events/partner-configurations.png" alt-text="Screenshot showing the Event Grid Partner Configurations with the list of partner configurations and a link to create a partner registration.":::    
 1. On the **Create Partner Configuration** page, do the following steps: 
     1. In the **Project Details** section, select the **Azure subscription** and the **resource group** where you want to allow the partner to create a partner topic. 
     1. In the **Partner Authorizations** section, specify a default expiration time for partner authorizations defined in this configuration. 
     1. To provide your authorization for a partner to create partner topics in the specified resource group, select **+ Partner Authorization** link. 
     
-        :::image type="content" source="./media/subscribe-to-partner-events/partner-authorization-configuration.png" alt-text="Create Partner Configuration page with the Partner Authorization link selected.":::
+        :::image type="content" source="./media/subscribe-to-partner-events/partner-authorization-configuration.png" alt-text="Screenshot showing the Create Partner Configuration page with the Partner Authorization link selected.":::
         
 1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft. You can select a verified partner, and select **Add** button at the bottom to give the partner the authorization to add a partner topic in your resource group. This authorization is effective up to the expiration time. 
 
@@ -58,7 +58,7 @@ Following example shows the way to create a partner configuration resource that 
 1. Back on the **Create Partner Configuration** page, verify that the partner is added to the partner authorization list at the bottom. 
 1. Select **Review + create** at the bottom of the page. 
 
-    :::image type="content" source="./media/subscribe-to-partner-events/create-partner-registration.png" alt-text="Create Partner Configuration page showing the partner authorization you just added.":::                    
+    :::image type="content" source="./media/subscribe-to-partner-events/create-partner-registration.png" alt-text="Screenshot showing the Create Partner Configuration page with the partner authorization you just added.":::                    
 1. On the **Review** page, review all settings, and then select **Create** to create the partner registration. 
 
 
