@@ -58,7 +58,7 @@ To complete the scenario in this tutorial, you need:
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Users**.
-1. Select **Invite external user**.
+1. Select **New user**, and then select **Invite external user**.
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
 
