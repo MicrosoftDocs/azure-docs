@@ -68,7 +68,7 @@ To enable this plan:
 
 <a name="auto-provision-mma"></a>
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [customize the Log Analytics agent configuration](working-with-log-analytics-agent.md). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [customize the Log Analytics agent configuration](working-with-log-analytics-agent.md).
 - **SQL Server on Azure Arc-enabled servers** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Defender for Cloud recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”.
 
 - **SQL Server on-premises** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you can connect the machine to Azure by either:
