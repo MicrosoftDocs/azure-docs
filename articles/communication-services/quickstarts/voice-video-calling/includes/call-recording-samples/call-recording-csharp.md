@@ -60,8 +60,8 @@ Response<RecordingStateResult> response = await callAutomationClient.getCallReco
 .StartRecordingAsync(recordingOptions);
 ```
 
-### 2.1. Only for Unmixed - Specify a user on a channel 0
-To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
+### 2.1. Only for Unmixed - Specify a user on channel 0
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
@@ -70,16 +70,10 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingChannel = RecordingChannel.Unmixed,
     RecordingFormat = RecordingFormat.Wav,
     RecordingStateCallbackEndpoint = new Uri("<CallbackUri>"),
-    ChannelAffinity = new List<ChannelAffinity>
-    {
-        new ChannelAffinity {
-            Channel = 0,
-            Participant = new CommunicationUserIdentifier("<ACS_USER_MRI>")
-        }
-    }
+    AudioChannelParticipantOrdering = { new CommunicationUserIdentifier("<ACS_USER_MRI>") }
+    
 };
-Response<RecordingStateResult> response = await callAutomationClient.getCallRecording()
-.StartRecordingAsync(recordingOptions);
+Response<RecordingStateResult> response = await callAutomationClient.getCallRecording().StartRecordingAsync(recordingOptions);
 ```
 The `StartRecordingAsync` API response contains the `recordingId` of the recording session.
 
