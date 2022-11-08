@@ -54,9 +54,6 @@
         - name: Introduction
           displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
           href: tutorial-x509-introduction.md
-        - name: Certificate fields
-          displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
-          href: tutorial-x509-certificates.md
         - name: Using the supplied scripts
           displayName: PowerShell scripts, Windows Certificate Store, CA certificate
           href: tutorial-x509-scripts.md
@@ -270,6 +267,12 @@
           href: ./security-controls-policy.md
         - name: Secure using X.509 CA certificates
           items:
+            - name: X.509 certificate concepts
+              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
+              href: iot-hub-x509-certificate-concepts.md
+            - name: Certificate fields
+              displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
+              href: tutorial-x509-certificates.md
             - name: X.509 CA certificate security concepts
               displayName: certificate-based authentication, cryptographic chain of trust, Device Provisioning Service (DPS), Hardware Secure Modules (HSM), self-signed certificate, Public Key Infrastructure (PKI)
               href: iot-hub-x509ca-concept.md

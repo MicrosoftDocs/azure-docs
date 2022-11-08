@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Understand Cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
-description: Tutorial - Understand cryptography and X.509 PKI for Azure IoT Hub
+title: Understand Cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
+description: Understand cryptography and X.509 PKI for Azure IoT Hub
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 11/08/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
-#Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to X.509 Public Key Infrastructure and public key encryption.
+#Customer intent: As a developer, I want to understand X.509 Public Key Infrastructure (PKI) and public key cryptography so I can use X.509 certificates to authenticate devices to an IoT hub.
 ---
 
-# Tutorial: Understanding Public Key Cryptography and X.509 Public Key Infrastructure
+# Understanding Public Key Cryptography and X.509 Public Key Infrastructure
 
 You can use X.509 certificates to authenticate devices to an Azure IoT Hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certification authorities (CAs):
 
@@ -43,7 +43,7 @@ There are two types of encryption. Symmetric encryption uses the same key for bo
 
 Symmetric encryption uses the same key to encrypt plaintext into ciphertext and decrypt ciphertext back into plaintext. The necessary length of the key, expressed in number of bits, is determined by the algorithm. After the key is used to encrypt plaintext, the encrypted message is sent to the recipient who then decrypts the ciphertext. The symmetric key must be securely transmitted to the recipient. Sending the key is the greatest security risk when using a symmetric algorithm.
 
-![Symmetric encryption example](media/tutorial-x509-introduction/symmetric-keys.png)
+![Symmetric encryption example](media/iot-hub-x509-certificate-concepts/symmetric-keys.png)
 
 ### Asymmetric encryption
 
@@ -51,7 +51,7 @@ If only symmetric encryption is used, the problem is that all parties to the com
 
 In asymmetric cryptography, every user has two mathematically related keys called a key pair. One key is public and the other key is private. The key pair ensures that only the recipient has access to the private key needed to decrypt the data. The following illustration summarizes the asymmetric encryption process.
 
-![Asymmetric encryption example](media/tutorial-x509-introduction/asymmetric-keys.png)
+![Asymmetric encryption example](media/iot-hub-x509-certificate-concepts/asymmetric-keys.png)
 
 1. The recipient creates a public-private key pair and sends the public key to a CA. The CA packages the public key in an X.509 certificate.
 
@@ -67,7 +67,7 @@ In asymmetric cryptography, every user has two mathematically related keys calle
 
 Symmetric and asymmetric encryption can be combined to take advantage of their relative strengths. Symmetric encryption is much faster than asymmetric but, because of the necessity of sending private keys to other parties, is not as secure. To combine the two types together, symmetric encryption can be used to convert plaintext to ciphertext. Asymmetric encryption is used to exchange the symmetric key. This is demonstrated by the following diagram.
 
-![Symmetric and assymetric encryption](media/tutorial-x509-introduction/symmetric-asymmetric-encryption.png)
+![Symmetric and assymetric encryption](media/iot-hub-x509-certificate-concepts/symmetric-asymmetric-encryption.png)
 
 1. The sender retrieves the recipient's public key.
 
@@ -85,7 +85,7 @@ Symmetric and asymmetric encryption can be combined to take advantage of their r
 
 Asymmetric algorithms can be used to protect data from modification and prove the identity of the data creator. The following illustration shows how asymmetric signing helps prove the sender's identity.
 
-![Asymmetric signing example](media/tutorial-x509-introduction/asymmetric-signing.png)
+![Asymmetric signing example](media/iot-hub-x509-certificate-concepts/asymmetric-signing.png)
 
 1. The sender passes plaintext data through an asymmetric encryption algorithm, using the private key for encryption. Notice that this scenario reverses use of the private and public keys outlined in the preceding section that detailed asymmetric encryption.
 
@@ -99,7 +99,7 @@ Asymmetric algorithms can be used to protect data from modification and prove th
 
 Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, or *thumbprint*. A hash value cannot be reversed to obtain the original message. Because A small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message has not been modified.
 
-![Signing example](media/tutorial-x509-introduction/signing.png)
+![Signing example](media/iot-hub-x509-certificate-concepts/signing.png)
 
 1. The sender creates a plaintext message.
 
