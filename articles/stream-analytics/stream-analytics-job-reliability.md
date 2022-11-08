@@ -3,10 +3,9 @@ title: Avoid service interruptions in Azure Stream Analytics jobs
 description: This article describes guidance on making your Stream Analytics jobs upgrade resilient.
 author: sidramadoss
 ms.author: sidram
-
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2019
+ms.date: 11/07/2022
 ms.custom: seodec18
 ---
 
@@ -16,9 +15,7 @@ Part of being a fully managed service is the capability to introduce new service
 
 ## How do Azure paired regions address this concern?
 
-Stream Analytics guarantees jobs in paired regions are updated in separate batches. As a result there is a sufficient time gap between the updates to identify potential issues and remediate them.
-
-_With the exception of Central India_ (whose paired region, South India, does not have Stream Analytics presence), the deployment of an update to Stream Analytics would not occur at the same time in a set of paired regions. Deployments in multiple regions **in the same group** may occur **at the same time**.
+Stream Analytics guarantees jobs in paired regions are updated in separate batches. The deployment of an update to Stream Analytics would not occur at the same time in a set of paired regions. As a result there is a sufficient time gap between the updates to identify potential issues and remediate them.
 
 The article on **[availability and paired regions](../availability-zones/cross-region-replication-azure.md)** has the most up-to-date information on which regions are paired.
 

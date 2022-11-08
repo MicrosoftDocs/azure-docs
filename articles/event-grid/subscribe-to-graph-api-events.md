@@ -22,7 +22,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
 
 
-## Why you should use Microsoft Graph API with Event Grid as a destination?
+## Why should I use Microsoft Graph API as a destination?
 Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
 - You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
@@ -34,15 +34,19 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 
 ## High-level steps
 
-The common steps to subscribe to events published by any partner, including Graph API, are described in [subscribe to partner events](subscribe-to-partner-events.md). For a quick reference, the steps described in that article are listed here. This article deals with step 3: enable events flow to a partner topic.
+1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
+1. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
+3. [Enable events to flow to a partner topic](#enable-graph-api-events-to-flow-to-your-partner-topic)
+4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
+5. [Subscribe to events](#subscribe-to-events).
 
-1. Register the Event Grid resource provider with your Azure subscription.
-2. Authorize partner to create a partner topic in your resource group.
-3. [Enable events to flow to a partner topic](#enable-microsoft-graph-api-events-to-flow-to-your-partner-topic)
-4. Activate partner topic so that your events start flowing to your partner topic.
-5. Subscribe to events.
 
-### Enable Microsoft Graph API events to flow to your partner topic
+[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+
+[!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
+
+
+## Enable Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
 > Microsoft Graph API's (MGA) ability to send events to Event Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask-graph-and-grid@microsoft.com?subject=Please allow my application ID">mailto:ask-graph-and-grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
@@ -89,6 +93,10 @@ When you create a Graph API subscription with a `notificationUrl` bound to Event
 
 #### Microsoft Graph API Explorer
 For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs as described above. 
+
+[!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
+
+[!INCLUDE [subscribe-to-events](includes/subscribe-to-events.md)]
 
 ## Next steps
 

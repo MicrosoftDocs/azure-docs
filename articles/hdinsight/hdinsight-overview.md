@@ -4,8 +4,8 @@ description: An introduction to HDInsight, and the Apache Hadoop and Apache Spar
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.date: 09/20/2022
-#Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
+ms.date: 11/08/2022
+#Customer intent: As a data analyst, I want understand what is Azure HDInsight and Hadoop and how it is offered in so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
 # What is Azure HDInsight?
@@ -14,15 +14,13 @@ Azure HDInsight is a managed, full-spectrum, open-source analytics service in th
 
 ## What is HDInsight and the Hadoop technology stack?
 
-Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data in a customizable environment. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka  and more. With these frameworks, you can enable a broad range of scenarios such as extract, transform, and load (ETL), data warehousing, machine learning, and IoT.
-
-To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](./hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
+Azure HDInsight is a full-spectrum, managed cluster platform which simplifies running big data frameworks in large volume and velocity using Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Hadoop, and more in your Azure environment.
 
 ## Why should I use Azure HDInsight?
 
 |Capability  |Description  |
 |---------|---------|
-|Cloud native     |     Azure HDInsight enables you to create optimized clusters for Hadoop, Spark, [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, HBase on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
+|Cloud native     |     Azure HDInsight enables you to create optimized clusters for Spark, [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, HBase and Hadoop on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
 |Low-cost and scalable     | HDInsight enables you to scale workloads up or down. You can reduce costs by creating clusters on demand and paying only for what you use. You can also build data pipelines to operationalize your jobs. Decoupled compute and storage provide better performance and flexibility. |
 |Secure and compliant    | HDInsight enables you to protect your enterprise data assets with Azure Virtual Network, encryption, and integration with Azure Active Directory. HDInsight also meets the most popular industry and government compliance standards.        |
 |Monitoring    | Azure HDInsight integrates with Azure Monitor logs to provide a single interface with which you can monitor all your clusters.        |
@@ -74,7 +72,7 @@ You can use HDInsight to extend your existing on-premises [big data](#what-is-bi
 
 ## Open-source components in HDInsight
 
-Azure HDInsight enables you to create clusters with open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, and HBase. These clusters, by default, come with other open-source components that are included on the cluster such as Apache Ambari, Avro, Apache Hive3, HCatalog, Apache Hadoop MapReduce, Apache Hadoop YARN, Apache Phoenix, Apache Pig, Apache Sqoop, Apache Tez, Apache Oozie, and Apache ZooKeeper.
+Azure HDInsight enables you to create clusters with open-source frameworks such as Spark, Hive, LLAP, Kafka, Hadoop and HBase. These clusters, by default, come with other open-source components that are included on the cluster such as Apache Ambari, Avro, Apache Hive3, HCatalog, Apache Hadoop MapReduce, Apache Hadoop YARN, Apache Phoenix, Apache Pig, Apache Sqoop, Apache Tez, Apache Oozie, and Apache ZooKeeper.
 
 ## Programming languages in HDInsight
 

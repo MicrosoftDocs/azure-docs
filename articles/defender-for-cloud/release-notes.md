@@ -65,7 +65,7 @@ Agentless vulnerability scanning is available in both Defender Cloud Security Po
 
 Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources. 
 
-Now, the new Defender for DevOps service integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
+Now, the new Defender for DevOps plan integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
 
 Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
@@ -83,7 +83,7 @@ You can configure the Microsoft Security DevOps tools on Azure Pipelines and Git
 | [Terrascan](https://github.com/tenable/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | Container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
 
-The following new recommendations are now available for DevOps security assessments:
+The following new recommendations are now available for DevOps:
 
 | Recommendation | Description | Severity | 
 |--|--|--|
@@ -123,7 +123,7 @@ Learn more on how to [Improve your regulatory compliance](regulatory-compliance-
 
 We have renamed the Auto-provisioning page to **Settings & monitoring**. 
 
-Auto-provisioning was meant to allow at-scale enablement of pre-requisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
+Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
 
 **The Defender for Cloud's plans page now includes**:
 - When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
@@ -139,7 +139,7 @@ Learn more about [managing your monitoring settings](monitoring-components.md).
 
 One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
-We are announcing the addition of the new Defender Cloud Security Posture Management (CSPM) plan for Defender for Cloud. Defender Cloud Security Posture Management (CSPM) enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
+We are announcing a new Defender plan: Defender CSPM. This plan enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
 
 - Continuous assessment of the security configuration of your cloud resources
 - Security recommendations to fix misconfigurations and weaknesses
@@ -150,7 +150,7 @@ We are announcing the addition of the new Defender Cloud Security Posture Manage
 - Attack path analysis
 - Agentless scanning for machines
 
-Learn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
+Learn more about the [Defender CSPM plan](concept-cloud-security-posture-management.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 

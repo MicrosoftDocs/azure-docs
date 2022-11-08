@@ -1,6 +1,6 @@
 ---
-title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
-description: Languages, platforms, and integrations available for Application Insights
+title: 'Application Insights: Languages, platforms, and integrations | Microsoft Docs'
+description: Languages, platforms, and integrations that are available for Application Insights.
 ms.topic: conceptual
 ms.date: 10/24/2022
 ms.reviewer: mmcc
@@ -16,8 +16,10 @@ ms.reviewer: mmcc
 
 ## Supported platforms and frameworks
 
-### Azure Service Integration (Portal Enablement, ARM Deployments)
-* [Azure VM and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
+Supported platforms and frameworks are listed here.
+
+### Azure service integration (portal enablement, Azure Resource Manager deployments)
+* [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
@@ -32,7 +34,7 @@ ms.reviewer: mmcc
 * [ASP.NET Core](./asp-net-core.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-* [JavaScript - Web](./javascript.md)
+* [JavaScript - web](./javascript.md)
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
@@ -42,13 +44,13 @@ ms.reviewer: mmcc
 * [iOS](../app/mobile-center-quickstart.md) (App Center)
 
 > [!NOTE]
-> OpenTelemetry-based instrumentation is available in PREVIEW state for [C#, Node.js, and Python](opentelemetry-enable.md). Please review the limitations noted at the beginning of each langauge's official documentation. Those who require a full-feature experience should use the existing Application Insights SDKs.
+> OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
 
 ## Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
 * [Log4J, Logback, or java.util.logging](./java-in-process-agent.md#autocollected-logs)
-* [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 ## Export and data analysis
@@ -56,4 +58,4 @@ ms.reviewer: mmcc
 * [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
 ## Unsupported SDKs
-Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when using the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
+Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when you use the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
