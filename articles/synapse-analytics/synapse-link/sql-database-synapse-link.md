@@ -37,9 +37,9 @@ You can monitor Azure Synapse Link for SQL at the link and table levels. For eac
 * **Initial:** a link connection is created but not started. You will not be charged in initial state.
 * **Starting:** a link connection is setting up compute engines to replicate data.
 * **Running:** a link connection is replicating data.
-* **Stopping:** a link connection is going to be stopped. The compute engines is being shut down. 
+* **Stopping:** a link connection is going to be stopped. The compute engine is being shut down. 
 * **Stopped:** a link connection is stopped. You will not be charged in stopped state.
-* **Pausing:** a link connection is going to be paused. The compute engines is being shut down. 
+* **Pausing:** a link connection is going to be paused. The compute engine is being shut down. 
 * **Paused:** a link connection is paused. You will not be charged in paused state.
 * **Resuming:** a link connection is going to be resumed by setting up compute engines to continue to replicate the changes.
 
