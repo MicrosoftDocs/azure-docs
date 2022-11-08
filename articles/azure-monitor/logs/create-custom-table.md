@@ -187,6 +187,6 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
 
 Learn more about:
 
-- [The Log Ingestion API](../logs/logs-ingestion-api-overview.md)
-- [Sending custom logs to your Log Analytics workspace using the Azure portal](tutorial-logs-ingestion-portal.md)
-- [Sending custom logs o your Log Analytics workspace using Resource Manager templates and REST API](tutorial-logs-ingestion-api.md)
+- [Collecting logs with the Log Ingestion API](../logs/logs-ingestion-api-overview.md)
+- [Collecting logs with Azure Monitor Agent](../agents/agents-overview.md)
+- [Data collection rules](../essentials/data-collection-endpoint-overview.md)
