@@ -195,9 +195,11 @@ The result of the `update_one` operation contains the `_id` field value that you
 
 ### Get a document
 
-In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and partition key (`category`).
+Use the [find_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find_one) method to get a document.
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="read_doc":::
+
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and a partition key. In this code quickstart, you could use `category`.
 
 ### Query documents
 
