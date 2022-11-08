@@ -49,6 +49,14 @@ Fixed the following constraint validation checks:
 
 ## Feature collection
 
+:::zone pivot="facility-ontology-v1"
+
+At a high level, the facility ontology consists of feature collections, each contains an array of feature objects. All feature objects have two fields in common, `ID` and `Geometry`. When importing a drawing package into Azure Maps Creator, these fields are automatically generated.
+
+:::zone-end
+
+:::zone pivot="facility-ontology-v2"
+
 At a high level, the facility ontology consists of feature collections, each contains an array of feature objects. All feature objects have two fields in common, `ID` and `Geometry`.
 
 # [Drawing package](#tab/dwg)
@@ -71,6 +79,8 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 For more information, see [Create a dataset using a GeoJson package](how-to-dataset-geojson.md).
 
 ---
+
+:::zone-end
 
 In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependant properties evaluate to the `ID` of another feature class.
 
