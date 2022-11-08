@@ -56,7 +56,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
    - **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group). For a list of Azure regions where the Azure Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principle Id** - **Optional** - An Azure AD user object ID that you would like to provide access to for read/write permissions to the FHIR service. This account can be used to access the FHIR service to view the device messages that are generated as part of this tutorial. It's recommended to use your own Azure AD user object ID so that you'll have access to the FHIR service. If you don't choose to use the **Fhir Contributor Principle Id** option, clear the field of any entries. To learn more about how to acquire an Azure AD user object ID, see [Find the user object ID](https://learn.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID used in this tutorial isn't real and shouldn't be used. You'll use your own user object ID or that of another person you wish to provide access to the FHIR service.
+   - **Fhir Contributor Principle Id** - **Optional** - An Azure AD user object ID that you would like to provide access to for read/write permissions to the FHIR service. This account can be used to access the FHIR service to view the device messages that are generated as part of this tutorial. It's recommended to use your own Azure AD user object ID so that you'll have access to the FHIR service. If you don't choose to use the **Fhir Contributor Principle Id** option, clear the field of any entries. To learn more about how to acquire an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID used in this tutorial isn't real and shouldn't be used. You'll use your own user object ID or that of another person you wish to provide access to the FHIR service.
 
     - Don't change the **Device Mapping** and **Destination Mapping** default values at this time as they'll work with the provided device message sample later in this tutorial when you send a device message to the IoT Hub using Visual Studio Code with the Azure IoT Hub extension.
 
@@ -93,13 +93,13 @@ Once the deployment has competed, the following resources and access roles will 
 
 - An Azure IoT Hub with [messaging routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) configured to send device messages to the device message event hub.
 
-- A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) that provides send access from the IoT Hub to the device message event hub (**Event Hubs Data Sender** within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the device message event hub).  
+- A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) that provides send access from the IoT Hub to the device message event hub (**Event Hubs Data Sender** role within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the device message event hub).  
 
 - An Azure Health Data Services workspace.
 
 - An Azure Health Data Services FHIR service.
 
-- An Azure Health Data Services MedTech service instance, including the necessary [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) roles to the device message event hub (**Azure Events Hubs Receiver** within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the device message event hub) and FHIR service (**FHIR Data Writer** within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the FHIR service).
+- An Azure Health Data Services MedTech service instance, including the necessary [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) roles to the device message event hub (**Azure Events Hubs Receiver** role within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the device message event hub) and FHIR service (**FHIR Data Writer** role within the [Access control section (IAM)](/azure/role-based-access-control/overview) of the FHIR service).
 
 > [!TIP]
 > For detailed step-by-step instructions on how to manually deploy the MedTech service, see [How to manually deploy the MedTech service using the Azure portal](deploy-03-new-manual.md).
