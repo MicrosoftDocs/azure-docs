@@ -19,7 +19,7 @@ ms.author: askaur
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- [An Event Grid subscription for Incoming Call](../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
+- An Event Grid subscription for Incoming Call. 
 
 ## Create a new Java application
 

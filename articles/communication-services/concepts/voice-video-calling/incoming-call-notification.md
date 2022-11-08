@@ -46,7 +46,7 @@ This architecture has the following benefits:
 - PSTN number assignment and routing logic can exist in your application versus being statically configured online.
 - As identified in the above [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this scenario together with the [Call Recording APIs](../voice-video-calling/call-recording.md) to meet compliance needs.
 
-To subscribe to the `IncomingCall` notification from Event Grid, [follow this how-to guide](../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md).
+To check out a sample payload for the event and to learn about other calling events published to Event Grid, check out this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 
 ## Call routing in Call Automation or Event Grid
 
@@ -55,3 +55,7 @@ You can use [advanced filters](../../../event-grid/event-filtering.md) in your E
 ## Number assignment
 
 Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
+
+## Next steps
+1. [Build a Call Automation application](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) to simulate a customer interaction.
+2. [Redirect an inbound PSTN call](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md) to your resource.
