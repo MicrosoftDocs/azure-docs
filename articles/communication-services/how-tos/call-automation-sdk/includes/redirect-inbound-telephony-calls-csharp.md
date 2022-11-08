@@ -42,7 +42,7 @@ In this quick-start, you'll use Ngrok tool to project a public URI to the local 
 First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json. 
 ![Screenshot of demo application's launchsetting.json file.](../../../quickstarts/voice-video-calling/media/call-automation/dotnet-application-port.jpg)
 
-Then, install Ngrok and run Ngrok with the following command: ngrok http <port>. This command will create a public URI like https://ff2f-75-155-253-232.ngrok.io/, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+Then, install Ngrok and run Ngrok with the following command: ngrok http <replace_with_port>. This command will create a public URI like https://ff2f-75-155-253-232.ngrok.io/, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
 ## Configure Program.cs to redirect the call
 

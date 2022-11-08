@@ -86,7 +86,7 @@ Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the followi
 
 In your project folder, create a Controller.java file and update it to handle incoming calls. 
 
-In this code snippet, /api/incomingCall is the default route that will be used to listen for incoming calls. At a later step, we'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).
+In this code snippet, /api/incomingCall is the default route that will be used to listen for incoming calls. At a later step, we'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../event-grid/webhook-event-delivery.md).
 
 ```Java
 package com.example.demo;
