@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/31/2022
+ms.date: 11/08/2022
 ms.custom: devx-track-js, ignite-2022
 ---
 
@@ -158,30 +158,13 @@ For the steps below, the database won't use sharding and shows a synchronous app
 
 Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
 
-```python
-client = pymongo.MongoClient(CONNECTION_STRING)
-```
-<!--- 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="connect_client":::
---->
 
 ### Get database
 
 Check if the database exists with [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method. If the database doesn't exist, use the [create database extension command](/azure/cosmos-db/mongodb/custom-commands#create-database) to create it with a specified provisioned throughput.
 
-```python
-# Create database if it doesn't exist
-db = client[DB_NAME]
-if DB_NAME not in client.list_database_names():
-    # Database with 400 RU throughput that can be shared across the DB's collections
-    db.command({"customAction": "CreateDatabase", "offerThroughput": 400})
-    print("Created db '{}' with shared throughput.\n".format(DB_NAME))
-else:
-    print("Using database: '{}'.\n".format(DB_NAME))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_database" :::
---->
 
 ### Get collection
 
