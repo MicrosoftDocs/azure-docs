@@ -28,6 +28,8 @@ ms.custom: references.regions
 
 Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It is an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
+::: moniker range="form-recog-3.0.0"
+
 ## Form Recognizer Identity document (ID) model
 
 The Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
@@ -35,6 +37,24 @@ The Form Recognizer Identity document (ID) model combines Optical Character Reco
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
 :::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Data extraction
+
+The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response.
+
+### **Driver's license example**
+
+![Sample Driver's License](./media/id-example-drivers-license.JPG)
+
+### **Passport example**
+
+![Sample Passport](./media/id-example-passport-result.JPG)
+
+::: moniker-end
 
 ## Development options
 
@@ -117,7 +137,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Analyze Results of Form Recognizer ID model":::
 
 1. Download the JSON output file to view the detailed results.
 
@@ -131,13 +151,13 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
+::: moniker range="form-recog-3.0.0"
+
 ## Supported languages and locales
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (permanent resident card)</li></ul></br>|English (United States)—en-US|
-
-::: moniker range="form-recog-3.0.0"
 
 ## Field extractions
 
@@ -251,11 +271,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-### ID document field extractions
+### Document type - `idDocument` field extracted
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
@@ -281,11 +297,34 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
 |  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
 
-### Migration guide and REST API v3.0
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Supported document types and locales
+
+ **Pre-built ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
+
+## Fields extracted
+
+|Name| Type | Description | Value |
+|:-----|:----|:----|:----|
+|  Country | country | Country code compliant with ISO 3166 standard | "USA" |
+|  DateOfBirth | date | DOB in YYYY-MM-DD format | "1980-01-01" |
+|  DateOfExpiration | date | Expiration date in YYYY-MM-DD format | "2019-05-05" |
+|  DocumentNumber | string | Relevant passport number, driver's license number, etc. | "340020013" |
+|  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" |
+|  LastName | string | Extracted surname | "BROOKS" |
+|  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
+|  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
+|  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
+|  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" |
+
+### Migration guide
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
-
-* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ::: moniker-end
 

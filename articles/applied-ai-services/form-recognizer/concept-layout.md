@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/08/2022
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
@@ -339,13 +338,15 @@ The response includes classifying whether each text line is of handwriting style
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
+::: moniker-end
+
 ::: moniker range="form-recog-2.1.0"
 
 ### Natural reading order output (Latin only)
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="./media/layout-reading-order-example.png" alt-text="Layout Reading order example" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="media/layout-reading-order-example.png" alt-text="Layout Reading order example" lightbox="../../cognitive-services/Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
@@ -397,6 +398,9 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
 
 Layout API also extracts selection marks from documents. Extracted selection marks include the bounding box, confidence, and state (selected/unselected). Selection mark information is extracted in the `readResults` section of the JSON output.
 
+### Migration guide
+
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 ::: moniker-end
 
 ## Next steps
