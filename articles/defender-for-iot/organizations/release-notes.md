@@ -64,13 +64,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |- **All versions**: [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) - **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)       |
+|**OT networks**     |- **All versions**: [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) <br>- **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)       |
 
 ### Site-based access control on the Azure portal (Public preview)
 
 Defender for IoT now supports *site-based access control*, which allows customers to control user access to Defender for IoT features on the Azure portal at the *site* level.
 
-For example, now you can define user permissions per site or multiple sites, for sensor management activities, access to the the Azure [Device inventory](how-to-manage-device-inventory-for-organizations.md) page, or access to the Azure [Alerts](how-to-manage-cloud-alerts.md) page.
+For example, now you can define user permissions per site or multiple sites, for OT sensor management activities, access to the the Azure [Device inventory](how-to-manage-device-inventory-for-organizations.md) page, or access to the Azure [Alerts](how-to-manage-cloud-alerts.md) page.
 
 To manage site-based access control, select the site in the **Sites and sensors** page, and then select the **Manage site access control (Preview)** link. For example:
 
@@ -79,7 +79,7 @@ To manage site-based access control, select the site in the **Sites and sensors*
 For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md).
 
 > [!NOTE]
-> *Sites*, and therefore site-based access control, are relevant only for OT monitoring.
+> *Sites*, and therefore site-based access control, are relevant only for OT network monitoring.
 >
 
 ### Enhanced OT monitoring alert reference
