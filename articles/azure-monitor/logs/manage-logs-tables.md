@@ -43,7 +43,7 @@ A table's schema is the set of columns into which Azure Monitor Logs collects lo
 
 Each Azure table has a predefined schema into which Azure Monitor Logs collects logs defined by Azure resources, services, and solutions. 
 
-You can [add columns to an Azure table](../logs/create-custom-table.md#add-a-custom-column) to store transformed log data or enrich data in the Azure table with data from another source. 
+You can [add columns to an Azure table](../logs/create-custom-table.md#add-or-delete-a-custom-column) to store transformed log data or enrich data in the Azure table with data from another source. 
 ### Custom table schema
 
 You can [define a custom table's schema](../logs/create-custom-table.md) based on how you want to store data you collect from a given data source.  
