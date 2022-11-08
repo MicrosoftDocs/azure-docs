@@ -10,10 +10,11 @@ ms.date: 10/24/2022
 
 # What's new in Azure Private 5G Core?
 
-The Azure Private 5G Core online services and packet core receive improvements on an ongoing basis. To help you stay up to date with the most recent developments, this article provides:
+The Azure Private 5G Core online services and packet core (edge components) receive improvements on an ongoing basis. To help you stay up to date with the most recent developments, this article provides:
 
 - Details of new online services features.
 - Details of improvements to existing online services features.
+- Online services bug fixes.
 - Notifications of new packet core releases. These updates will link to the relevant release note for further information.
 
 This page is updated on a monthly basis to list what's new with Azure Private 5G Core since the previous month's update. <!-- TODO: update with agreed update frequency -->
@@ -33,7 +34,7 @@ If you use the Azure portal to manage your deployment and all your resources wer
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used the 2021-04-01-preview or the 2022-03-01-preview APIs to create any of your resources, you'll need to delete and redeploy them using the 2022-11-01 API.
+If you used the 2021-04-01-preview or the 2022-03-01-preview APIs to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Delete these resources and redeploy them using the 2022-04-01-preview API before the 2022-11-01 API becomes the default version.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 
@@ -183,6 +184,18 @@ In addition to the default Microsoft-Managed Keys (MMK), you can now use Custome
 Once a SIM group is created, you can't change the encryption type. If you want to protect the existing SIMs' secrets with CMK, [delete their corresponding SIM groups](manage-sim-groups.md#delete-a-sim-group) and [recreate them](manage-sim-groups.md#create-a-sim-group) with CMK enabled. Once a SIM group that uses CMK is created, you can update the key used for encryption.
 
 For more information, see [Customer-managed key encryption at rest](security.md#customer-managed-key-encryption-at-rest).
+
+### Fixed bug which prevented the creation/update of ADN objects
+
+**Type:** Bug fix
+
+**Date available:** October 11, 2022
+
+### Time to provision SIMs greatly reduced
+
+**Type:** Enhancement
+
+**Date available:** October 5, 2022
 
 ## Next steps
 
