@@ -154,9 +154,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
-> For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
-
-
+> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Download and apply a new activation file
 

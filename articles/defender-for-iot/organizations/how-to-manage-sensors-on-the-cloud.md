@@ -165,7 +165,7 @@ Make sure that you've started with the relevant updates steps for this update. F
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
-> For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 
 ## Understand sensor health (Public preview)

@@ -17,7 +17,7 @@ By default, each OT network sensor is installed with the privileged *cyberx*, *s
 
 When setting up a sensor for the first time, sign in with one of these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new OT sensor users
 
@@ -36,7 +36,7 @@ This procedure describes how to create new users for a specific OT network senso
     |**First Name**     |    Enter the user's first name.     |
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select one of the following user roles: *Admin*, *Security Analyst*, or *Read Only*. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Integrating with Active Discovery lets you associate groups of users with specific permission levels. For more information, see [Integrate on-premises users with Active Directory](#integrate-on-premises-users-with-active-directory).|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Integrating with Active Discovery lets you associate groups of users with specific permission levels. For more information, see [Active Directory on the sensor](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory) and [Active Directory on the on-premises management console](manage-users-on-premises-management-console.md#integrate-on-premises-users-with-active-directory).|
 
 1. Select **Save** when you're done.
 
@@ -128,7 +128,7 @@ This procedure is not supported for users with **Security analyst** or **Read-on
 
 ### Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users)..
 
 **To recover privileged access to a sensor**:
 

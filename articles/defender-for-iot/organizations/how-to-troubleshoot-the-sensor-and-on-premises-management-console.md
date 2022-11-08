@@ -250,7 +250,7 @@ In cases where the sensor needs to be relocated or erased, the sensor can be res
 > Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
 
 **To clear system data**:
-1. Sign in to the sensor as the **cyberx** user. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+1. Sign in to the sensor as the **cyberx** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
 

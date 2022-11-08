@@ -135,7 +135,7 @@ This procedure describes how to install the sensor software on your VM.
 
     - **cyberX**: The equivalent of root for accessing the appliance.
 
-    For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 

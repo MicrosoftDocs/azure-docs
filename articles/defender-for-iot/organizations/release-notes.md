@@ -64,7 +64,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All versions**: [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) <br><br> **Sensor versions 22.x and later**: [Site-based access control for OT monitoring resources on the Azure portal](#site-based-access-control-for-ot-monitoring-resources-on-the-azure-portal-public-preview)        |
+|**OT networks**     |- **All versions**: [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) - **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)       |
 
 ### Site-based access control on the Azure portal (Public preview)
 

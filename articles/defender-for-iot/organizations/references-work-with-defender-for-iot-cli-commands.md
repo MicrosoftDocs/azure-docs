@@ -13,7 +13,7 @@ This article describes CLI commands for sensors and on-premises management conso
 - `support`
 - `cyberx_host`
 
-For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users)..
 
 To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user.
 

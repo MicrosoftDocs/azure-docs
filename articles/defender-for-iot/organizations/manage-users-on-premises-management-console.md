@@ -17,7 +17,7 @@ By default, each on-premises management console is installed with the privileged
 
 When setting up a sensor for the first time, sign in with one of these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new on-premises management console users
 
@@ -184,7 +184,7 @@ Before you create access groups, we also recommend that you:
 
   - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory instance to integrate with the on-premises management console.
 
-  - **Assign local users**: Verify that you created users. For more information, see [Add new users](#add-new-users).
+  - **Assign local users**: Verify that you created users. For more information, see [Add new on-premises management console users](#add-new-on-premises-management-console-users).
 
 
 > [!NOTE]
