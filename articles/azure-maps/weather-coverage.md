@@ -267,7 +267,7 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Chad                                   |            ✓             |           ✓             |                       |   ✓   |
 | Comoros                                |            ✓             |           ✓             |                       |   ✓   |
 | Congo (DRC)                            |            ✓             |           ✓             |                       |   ✓   |
-| Côte d'Ivoire                          |            ✓             |                         |                       |   ✓   |
+| Côte d'Ivoire                          |            ✓             |           ✓             |                       |   ✓   |
 | Djibouti                               |            ✓             |           ✓             |                       |   ✓   |
 | Egypt                                  |            ✓             |           ✓             |                       |   ✓   |
 | Equatorial Guinea                      |            ✓             |           ✓             |                       |   ✓   |
