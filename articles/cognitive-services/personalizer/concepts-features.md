@@ -89,7 +89,7 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * Features that are not available should be omitted from the request. If the value of a specific feature is not available for a given request, omit the feature for this request.
 * Avoid sending features with a null value. A null value will be processed as a string with a value of "null" which is undesired.
 
-It is ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request containing all new features, Personalizer's model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
+It's ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request containing all new features, Personalizer's model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
 
 ### Context Features
 * Some context features may only be available part of the time. For example, if a user is logged into the online grocery store website, the context will contain features describing purchase history. These features will not be available for a guest user.
@@ -105,12 +105,12 @@ Examples:
 The following are good examples for action features. These will depend a lot on each application.
 
 * Features with characteristics of the actions. For example, is it a movie or a tv series?
-* Features about how users may have interacted with this action in the past. For example, this movie is mostly seen by people in demographics A or B, it is typically played no more than one time.
+* Features about how users may have interacted with this action in the past. For example, this movie is mostly seen by people in demographics A or B, it's typically played no more than one time.
 * Features about the characteristics of how the user *sees* the actions. For example, does the poster for the movie shown in the thumbnail include faces, cars, or landscapes?
 
 ## Supported feature types
 
-Personalizer supports features of string, numeric, and boolean types. It is very likely that your application will mostly use string features, with a few exceptions.
+Personalizer supports features of string, numeric, and boolean types. It's very likely that your application will mostly use string features, with a few exceptions.
 
 ### How feature types affects the Machine Learning in Personalizer
 
@@ -132,7 +132,7 @@ Having features of high density helps Personalizer extrapolate learning from one
 
 * **Sending features with high cardinality.** Features that have unique values that are not likely to repeat over many events. For example, PII specific to one individual (such as name, phone number, credit card number, IP address) shouldn't be used with Personalizer.
 * **Sending user IDs** With large numbers of users, it's unlikely that this information is relevant to Personalizer learning to maximize the average reward score. Sending user IDs (even if non-PII) will likely add more noise to the model and is not recommended.
-* **Sending unique values that will rarely occur more than a few times**. It is recommended to bucket your features to a higher level-of-detail. For example, having features such as `"Context.TimeStamp.Day":"Monday"` or `"Context.TimeStamp.Hour":13` can be useful as there are only 7 and 24 unique values, respectively. However, `"Context.TimeStamp":"1985-04-12T23:20:50.52Z"` is very precise and has an extremely large number of unique values, which makes it very difficult for Personalizer to learn from it.
+* **Sending unique values that will rarely occur more than a few times**. It's recommended to bucket your features to a higher level-of-detail. For example, having features such as `"Context.TimeStamp.Day":"Monday"` or `"Context.TimeStamp.Hour":13` can be useful as there are only 7 and 24 unique values, respectively. However, `"Context.TimeStamp":"1985-04-12T23:20:50.52Z"` is very precise and has an extremely large number of unique values, which makes it very difficult for Personalizer to learn from it.
 
 ### Improve feature sets 
 
