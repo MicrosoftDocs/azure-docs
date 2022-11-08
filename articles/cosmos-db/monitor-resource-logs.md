@@ -159,6 +159,8 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 
 Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabling full-text query, you’ll be able to view the deobfuscated query for all requests within your Azure Cosmos DB account.  You’ll also give permission for Azure Cosmos DB to access and surface this data in your logs. 
 
+### [Azure portal](#tab/azure-portal)
+
 1. To enable this feature, navigate to the `Features` blade in your Azure Cosmos DB account.
    
    :::image type="content" source="./media/monitor/full-text-query-features.png" alt-text="Navigate to Features blade":::
@@ -166,6 +168,79 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 2. Select `Enable`, this setting will then be applied in the within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
    
     :::image type="content" source="./media/monitor/select-enable-full-text.png" alt-text="Select enable full-text":::
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Ensure you are logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Optionally, ensure that you have configured the active subscription for your CLI. For more information, see [change the active Azure CLI subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+
+1. Create shell variables for `accountName` and `resourceGroupName`.
+
+    ```azurecli
+    # Variable for resource group name
+    resourceGroupName="<resource-group-name>"
+    
+    # Variable for account name
+    accountName="<account-name>"
+    ```
+
+1. Get the unique identifier for your existing account using [`az show`](/cli/azure/cosmosdb#az-cosmosdb-show).
+
+    ```azurecli
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --query id
+    ```
+
+    Store the unique identifier in a shell variable named `$uri`.
+
+    ```azurecli
+    uri=$(
+        az cosmosdb show \
+            --resource-group $resourceGroupName \
+            --name $accountName \
+            --query id \
+            --output tsv
+    )
+    ```
+
+1. Check if full-text query is already enabled by querying the resource using the REST API and [`az rest`](/cli/azure/reference-index#az-rest) with a HTTP `GET` verb.
+
+    ```azurecli
+    az rest \
+        --method GET \
+        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
+        --query "{AccountName:name, FullTextQueryEnabled:properties.diagnosticLogSettings.enableFullTextQuery}"
+    ```
+
+1. If full-text query is not already enabled, enable it using `az rest` again with a HTTP `PATCH` verb and a JSON payload.
+
+    ```azurecli
+    az rest \
+        --method PATCH \
+        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
+        --body '{"properties": {"diagnosticLogSettings": {"enableFullTextQuery": "True"}}}'
+    ```
+
+1. Wait a few minutes for the operation to complete. Check the status of full-text query by using `az rest` again.
+
+    ```azurecli
+    az rest \
+        --method GET \
+        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
+        --query "{AccountName:name, FullTextQueryEnabled:properties.diagnosticLogSettings.enableFullTextQuery}"
+    ```
+
+    The output should be similar to this example.
+
+    ```json
+    {
+      "AccountName": "<account-name>",
+      "FullTextQueryEnabled": "True"
+    }
+    ```
+
+---
 
 To learn how to query using this newly enabled feature visit [advanced queries](advanced-queries.md).
 
