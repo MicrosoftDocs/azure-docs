@@ -28,11 +28,11 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
       `npm install azure-maps-drawing-tools`
 
-      Then, add a reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
+      Then, import the JavaScript and CSS stylesheet in a source file:
 
-      ```html
-      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
-      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
+      ```js
+      import * as drawing from "azure-maps-drawing-tools";
+      import "azure-maps-drawing-tools/dist/atlas-drawing.min.css";
       ```
 
 ## Use the drawing manager directly
