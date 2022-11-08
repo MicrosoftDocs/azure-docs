@@ -22,7 +22,7 @@ The following example shows you how to create and run a job to set the light thr
 
 1. On the left pane, select **Jobs**.
 
-1. Select **+ New job**.
+1. Select **+ New**.
 
 1. On the **Configure your job** page, enter a name and description to identify the job you're creating.
 
@@ -30,13 +30,16 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
-1. Choose **Cloud property**, **Property**, **Command**, **Change device template**, or **Change edge deployment manifest** as the **Job type**:
+1. Choose **Cloud property**, **Property**, **Command**, **Change device template**, or **Change edge deployment manifest** as the **Job type**. To configure a:
 
-    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group. To configure a **Change edge deployment manifest** job, select the IoT Edge deployment manifest to assign to the IoT Edge devices in the device group.
+    * **Property** job, select a property and set its new value. A property job can set multiple properties.
+    * **Command** job, choose the command to run.
+    * **Change device template** job, select the device template to assign to the devices in the device group.
+    * **Change edge deployment manifest** job, select the IoT Edge deployment manifest to assign to the IoT Edge devices in the device group.
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
-1. Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page lets you set the delivery options for this job: **Batches** and **Cancellation threshold**.
+1. Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page lets you set the **Batches** and **Cancellation threshold** delivery options for this job:
 
     Batches let you stagger jobs for large numbers of devices. The job is divided into multiple batches and each batch contains a subset of the devices. The batches are queued and run in sequence.
 
@@ -61,19 +64,19 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Schedule** to schedule the job:
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-schedule-review.png" alt-text="Screenshot of scheduled job wizard review page":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/job-wizard-schedule-review.png" alt-text="Screenshot of scheduled job wizard review page." lightbox="media/howto-manage-devices-in-bulk/job-wizard-schedule-review.png":::
 
 1. The job details page shows information about scheduled jobs. When the scheduled job executes, you see a list of the job instances. The scheduled job execution is also be part of the **Last 30-day** job list.
 
     On this page, you can **Unschedule** the job or **Edit** the scheduled job. You can return to a scheduled job from the list of scheduled jobs.
 
-1. In the job wizard, you can choose to not schedule a job, and run it immediately. The following screenshot shows a job without a schedule that's ready to run immediately. Select **Run** to run the job:
+1. In the job wizard, you can choose to not schedule a job, and run it immediately.
 
 1. A job goes through *pending*, *running*, and *completed* phases. The job execution details contain result metrics, duration details, and a device list grid.
 
-    When the job is complete, you can select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting.
+    When the job is complete, you can select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting:
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows device status":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows device status" lightbox="media/howto-manage-devices-in-bulk/download-details.png":::
 
 1. The job now appears in **Last 30 days** list on the **Jobs** page. This page shows currently running jobs and the history of any previously run or saved jobs.
 
@@ -86,15 +89,9 @@ To stop a running job, open it and select **Stop**. The job status changes to re
 
 When a job is in a stopped state, you can select **Continue** to resume running the job. The job status changes to reflect that the job is now running again. The **Summary** section continues to update with the latest progress.
 
-:::image type="content" source="media/howto-manage-devices-in-bulk/stopped-job.png" alt-text="Screenshot that shows a stopped job and the button for continuing a job":::
-
 ## Copy a job
 
-To copy an existing job, select an executed job. Select **Copy** on the job results page or jobs details page:
-
-:::image type="content" source="media/howto-manage-devices-in-bulk/job-details-copy.png" alt-text="Screenshot that shows the copy button":::
-
-A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name.
+To copy an existing job, select an executed job. Select **Copy** on the job results page or jobs details page. A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name.
 
 ## View job status
 
@@ -130,13 +127,13 @@ To download a CSV file that includes the job details and the list of devices and
 
 You can filter the device list on the **Job details** page by selecting the filter icon. You can filter on the **Device ID** or **Status** field:
 
-:::image type="content" source="media/howto-manage-devices-in-bulk/filter.png" alt-text="Screenshot that shows selections for filtering a device list.":::
+:::image type="content" source="media/howto-manage-devices-in-bulk/filter.png" alt-text="Screenshot that shows the options for filtering a job device list." lightbox="media/howto-manage-devices-in-bulk/filter.png":::
 
 ## Customize columns in the device list
 
 You can add columns to the device list by selecting the column options icon:
 
-:::image type="content" source="media/howto-manage-devices-in-bulk/column-options.png" alt-text="Screenshot that shows the icon for column options.":::
+:::image type="content" source="media/howto-manage-devices-in-bulk/column-options.png" alt-text="Screenshot that shows the icon for column options." lightbox="media/howto-manage-devices-in-bulk/column-options.png":::
 
 Use the **Column options** dialog box to choose the device list columns. Select the columns that you want to display, select the right arrow, and then select **OK**. To select all the available columns, choose **Select all**. The selected columns appear in the device list.
 
@@ -144,9 +141,7 @@ Selected columns persist across a user session or across user sessions that have
 
 ## Rerun jobs
 
-You can rerun a job that has failed devices. Select **Rerun on failed**:
-
-:::image type="content" source="media/howto-manage-devices-in-bulk/rerun.png" alt-text="Screenshot that shows the button for rerunning a job on failed devices.":::
+You can rerun a job that has failed devices. Select **Rerun on failed**.
 
 Enter a job name and description, and then select **Rerun job**. A new job is submitted to retry the action on failed devices.
 
@@ -157,7 +152,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 
 ## Import devices
 
-To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/bulk-upload-devices). The CSV file should include the following column headers:
+To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/bulk-upload-devices/IoT%20Central%20Bulk%20Upload%20Sample%20File.csv). The CSV file should include the following column headers:
 
 | Column | Description |
 | - | - |
@@ -175,8 +170,6 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-1.png" alt-text="Screenshot showing import action settings.":::
-
 1. Select an organization to assign the devices to. All the devices you're importing are assigned to the same organization. To assign devices to different organizations, create multiple import files, one for each organization. Alternatively, upload them all to the root organization and then in the UI reassign them to the correct organizations.
 
 1. Select the CSV file that has the list of device IDs to be imported.
@@ -185,7 +178,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the **Device Operations** panel.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-2.png" alt-text="Screenshot showing import success.":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import.png" alt-text="Screenshot showing import success." lightbox="media/howto-manage-devices-in-bulk/bulk-import.png":::
 
 If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
 
@@ -211,7 +204,7 @@ To bulk export devices from your application:
 
 1. Select the **Download File** link to download the file to a local folder on the disk.
 
-    ![Export Success](./media/howto-manage-devices-in-bulk/export-2.png)
+    :::image type="content" source="media/howto-manage-devices-in-bulk/export.png" alt-text="Screenshot that shows a successful device export." lightbox="media/howto-manage-devices-in-bulk/export.png":::
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 

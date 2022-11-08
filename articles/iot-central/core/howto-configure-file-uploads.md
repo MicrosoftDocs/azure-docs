@@ -40,7 +40,7 @@ To configure device file uploads:
 
 1. Select **Save**. When the status shows **Configured**, you're ready to upload files from devices.
 
-:::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Configure file upload in application":::
+:::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Screenshot that shows a properly configured file upload." lightbox="media/howto-configure-file-uploads/file-upload-configuration.png":::
 
 ## Disable device file uploads
 
@@ -69,7 +69,7 @@ If you enabled access to files in the file upload configuration, users with the 
 
 To view and delete uploaded files, navigate to the **Files** view for a device. On this page, you can see thumbnails of the uploaded files and toggle between a gallery and list view. Each file has options to download or delete it:
 
-:::image type="content" source="media/howto-configure-file-uploads/file-upload-list-files.png" alt-text="Screenshot that shows the gallery view for uploaded files.":::
+:::image type="content" source="media/howto-configure-file-uploads/file-upload-list-files.png" alt-text="Screenshot that shows the gallery view for uploaded files." source="media/howto-configure-file-uploads/file-upload-list-files.png":::
 
 > [!TIP]
 > The file type is determined by the mime type assigned to the file when it was uploaded to blob storage. The default type is `binary/octet-stream`.
@@ -78,7 +78,7 @@ You can customize the list view by filtering based on file name and choosing the
 
 To preview the content of the file and get more information about the file, select it. IoT Central supports previews of common file types such as text and images:
 
-:::image type="content" source="media/howto-configure-file-uploads/file-upload-preview.png" alt-text="Screenshot that shows a preview of a text file.":::
+:::image type="content" source="media/howto-configure-file-uploads/file-upload-preview.png" alt-text="Screenshot that shows a preview of a text file." source="media/howto-configure-file-uploads/file-upload-preview.png":::
 
 ## Next steps
 
