@@ -1,23 +1,19 @@
 ---
-title: Get started with Azure Synapse Link for Azure SQL Database (preview)
-description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link (preview).
+title: Get started with Azure Synapse Link for Azure SQL Database
+description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link.
 author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
-# Get started with Azure Synapse Link for Azure SQL Database (preview)
+# Get started with Azure Synapse Link for Azure SQL Database
 
-This article is a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For an overview of this feature, see [Azure Synapse Link for Azure SQL Database (preview)](sql-database-synapse-link.md). 
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article is a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For an overview of this feature, see [Azure Synapse Link for Azure SQL Database](sql-database-synapse-link.md). 
 
 ## Prerequisites
 
@@ -75,7 +71,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. On the left pane of the Azure portal, select **Integrate**.
 
-1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection (Preview)**.
+1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-link-connection.png" alt-text="Screenshot that shows how to select a new link connection from Synapse Studio.":::
 
