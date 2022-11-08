@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/23/2020
+ms.date: 11/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -25,8 +25,6 @@ This technical profile:
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
 - Uses the Azure AD SSPR service to generate and send a code to an email address, and then verifies the code.
 - Validates an email address via a verification code.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Protocol
 
