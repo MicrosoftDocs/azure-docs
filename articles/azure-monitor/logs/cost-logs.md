@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Logs pricing details
+title: Azure Monitor Logs cost calculations and options
 description: Cost details for data stored in a Log Analytics workspace in Azure Monitor, including commitment tiers and data size calculation.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
@@ -7,7 +7,7 @@ ms.date: 03/24/2022
 ms.reviwer: dalek git 
 ---
  
-# Azure Monitor Logs pricing details
+# Azure Monitor Logs cost calculations and options
 
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
