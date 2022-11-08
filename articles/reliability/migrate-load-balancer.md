@@ -68,4 +68,7 @@ To migrate an internal load balancer to availability zones across regions, see [
 
 ## Next steps
 
- To learn more about load balancers and availability zones, check out [Load Balancer and availability zones](../load-balancer/load-balancer-standard-availability-zones.md).
+ To learn more about load balancers and availability zones, see:
+ 
+> [!div class="nextstepaction"]
+> [Load Balancer and availability zones](../load-balancer/load-balancer-standard-availability-zones.md).

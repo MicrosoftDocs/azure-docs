@@ -64,3 +64,21 @@ Azure services are built for reliability including high availability and disaste
 
 If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
 
+
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Business continuity management in Azure](business-continuity-management-program.md)
+
+> [!div class="nextstepaction"]
+> [Availability zone migration guidance](availability-zones-migration-overview.md)
+
+> [!div class="nextstepaction"]
+> [Availability of service by category](availability-service-by-category.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
+
+> [!div class="nextstepaction"]
+> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

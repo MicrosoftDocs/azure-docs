@@ -151,10 +151,10 @@ If your API Management instance is deployed in a virtual network in the primary 
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [deploying an Azure API Management service instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md).
+> [Deploying an Azure API Management service instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md).
 
 > [!div class="nextstepaction"]
-> [building for reliability](/azure/architecture/framework/resiliency/app-design) in Azure.
+> [Building for reliability](/azure/architecture/framework/resiliency/app-design) in Azure.
 
 > [!div class="nextstepaction"]
 > [Azure services and regions that support availability zones](availability-zones-service-support.md)
