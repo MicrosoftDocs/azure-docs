@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 11/08/2022
 ---
 
-# Tutorial: Programmatic access to Microsoft Purview data policies.
+# Tutorial: programmatic access to Microsoft Purview data policies.
 
 In this tutorial, learn how to programmatically fetch the access policies that have been created in Microsoft Purview. This tutorial will use Arc-enabled SQL Server as an example of data source.
 
@@ -55,12 +55,12 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 - resourceType = sqlServerInstances
 - apiVersion = 2021-01-01-preview
 
-##### Example Request:
+##### Example request:
 ```
 GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/sqlServerInstances/vm-finance/policyelements?api-version=2021-01-01-preview
 ```
 
-##### Example Response:
+##### Example response:
 
 ```json
 {
