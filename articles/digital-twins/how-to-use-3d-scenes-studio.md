@@ -27,8 +27,9 @@ To use 3D Scenes Studio, you'll need the following resources:
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
 * An Azure storage account. For instructions, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+    * Take note of the *URL* of your storage account to use later.
 * A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-    * Take note of the *URL* of your storage container to use later.
+    * Take note of the *name* of your storage container to use later.
 * *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
 You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
@@ -50,7 +51,7 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
     1. The **Azure Digital Twins instance URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
     
-    1. For the **Azure storage container URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section.
+    1. For the **Azure Storage account URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section. For the **Azure Storage container name**, enter the name of your storage container from the [Prerequisites](#prerequisites) section.
     
     1. Select **Save**.
     

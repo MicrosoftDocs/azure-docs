@@ -111,8 +111,8 @@ The following table summarizes our migration or deployment recommendations for w
 
 |Scenario |Description |
 |---------|------------|
-| New or existing cluster deployment [runs a supported version](#dependencies) of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<br> - [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]<br> - [Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
-| New or existing cluster deployment [runs an unsupported version](#dependencies) of Azure Identity client library| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
+| New or existing cluster deployment [runs a supported version][azure-identity-libraries] of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<br> - [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]<br> - [Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
+| New or existing cluster deployment runs an unsupported version of Azure Identity client library| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 ## Next steps
 
@@ -134,7 +134,7 @@ The following table summarizes our migration or deployment recommendations for w
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
-[workload-identity-migration-sidecar]: workload-identity-migration-sidecar.md
+[workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [dotnet-azure-identity-client-library]: /dotnet/api/overview/azure/identity-readme
 [java-azure-identity-client-library]: /java/api/overview/azure/identity-readme
 [javascript-azure-identity-client-library]: /javascript/api/overview/azure/identity-readme
