@@ -174,7 +174,7 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az acr build --registry $ACR_NAME --image $API_NAME .
+az acr build --registry $ACRName --image $APIName .
 ```
 
 ---
@@ -202,7 +202,7 @@ docker build --tag $ACR_NAME.azurecr.io/$API_NAME .
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-docker build --tag "$ACR_NAME.azurecr.io/$API_NAME" .
+docker build --tag "$ACRName.azurecr.io/$APIName" .
 ```
 
 ---
@@ -220,7 +220,7 @@ az acr login --name $ACR_NAME
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-az acr login --name $ACR_NAME
+az acr login --name $ACRName
 ```
 
 ---
@@ -236,7 +236,7 @@ docker push $ACR_NAME.azurecr.io/$API_NAME
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-docker push "$ACR_NAME.azurecr.io/$API_NAME"
+docker push "$ACRName.azurecr.io/$APIName"
 ```
 
 ---
@@ -316,7 +316,7 @@ az containerapp create \
 ```azurepowershell
 $ImageParams = @{
     Name = $APIName
-    Image = $AcrName + '.azurecr.io/' + $APIName
+    Image = $ACRName + '.azurecr.io/' + $APIName
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroup $ResourceGroup).Id
