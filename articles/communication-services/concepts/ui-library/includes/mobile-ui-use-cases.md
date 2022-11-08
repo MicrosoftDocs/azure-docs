@@ -107,9 +107,11 @@ Call and chat client libraries must have the context for the call they join. Lik
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
-When troubleshooting voice or video calls, you may be asked to provide a **CallID**.
+When troubleshooting happens for voice or video calls, you may be asked to provide a **CallID**; this ID is used to identify Communication Services calls.
 
-This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see three dots, once the user perform the tap action an option of ***"Share diagnostic info"***, the user will have the capability to share the **CallID**.
+This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostic info"***, the user will have the capability to share **the diagnostics info** that will be required by support any issues by the support team.
+
+You can learn more about troubleshooting guidelines here: ["Troubleshooting in Azure Communication Services"](../../troubleshooting-info.md) page.
 
 | Calling screen | Diagnostic info menu | Share CallID |
 | ------------------| ------------------------| ----------- |
