@@ -14,57 +14,48 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid Connection String
-- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md).
-- Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
+- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
+- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- [An Event Grid subscription for Incoming Call](../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
-## Create a new Java application
+## Create a new Java Spring application
 
-Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
-```console
-mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-```
+Configure the [Spring Initializr](https://start.spring.io/) to create a new Java Spring application.
 
-The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source.
+1. Set the Project to be a Maven Project.
+2. Leave the rest as default unless you want to have your own customization.
+3. Add Spring Web to Dependencies section.
+4. Generate the application and it will be downloaded as a zip file. Unzip the file and start coding.
 
-You'll notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
+## Install the Maven package
 
-Update your application's POM file to use Java 8 or higher.
-```xml
-<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-</properties>
-```
+**Configure Azure Artifacts development feed:**
 
-## Configure Azure SDK Dev Feed
+Since the Call Automation SDK version used in this QuickStart isn't yet available in Maven Central Repository, we need to configure an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.
 
-Since the Call Automation SDK version used in this quick start isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
+Follow the instruction [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/connect/maven) for adding [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) feed to your POM file.
 
-Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the “Connect to Feed” button.
+**Add Call Automation package references:**
 
-## Add package references
+*azure-communication-callautomation* - Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 
-In your POM file, add the following dependencies for the project.
+Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/versions)
 
-**azure-communication-callautomation**
+And then add it to your POM file like this (using version 1.0.0-alpha.20221101.1 as example)
 
-Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 ```xml
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-callautomation</artifactId>
-  <version>1.0.0-alpha.20220928.2</version>
+<groupId>com.azure</groupId>
+<artifactId>azure-communication-callautomation</artifactId>
+<version>1.0.0-alpha.20221101.1</version>
 </dependency>
 ```
 
-**azure-messaging-eventgrid**
+**Add other packages’ references:** 
 
-Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
+*azure-messaging-eventgrid* - Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
+
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -73,20 +64,8 @@ Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://se
 </dependency>
 ```
 
-**spark-core**
+*gson* - Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.google.code.gson/gson) is a serialization/deserialization library to handle conversion between Java Objects and JSON.
 
-Spark framework: com.sparkjava : spark-core. We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. You can use any framework to create a web api.
-```xml
-<dependency>
-  <groupId>com.sparkjava</groupId>
-  <artifactId>spark-core</artifactId>
-  <version>2.9.4</version>
-</dependency>
-```
-
-**gson**
-
-Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.sparkjava/spark-core). A serialization/deserialization library to handle conversion between Java Objects and JSON.
 ```xml
 <dependency>
   <groupId>com.google.code.gson</groupId>
@@ -95,44 +74,91 @@ Google Gson package: [com.google.code.gson : gson](https://search.maven.org/arti
 </dependency>
 ```
 
+## Set up a public URI for the local application
+
+In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
+
+First, determine the port of your java application. `8080` is the default endpoint of a spring boot application.
+
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+
 ## Redirect incoming call
 
-In your editor of choice, open App.java file and update it with the following code to create an endpoint to receive IncomingCall events and redirect calls to another user.
-```java
-package com.communication.quickstart;
+In your project folder, create a Controller.java file and update it to handle incoming calls. 
 
-import java.util.List;
+In this code snippet, /api/incomingCall is the default route that will be used to listen for incoming calls. At a later step, we'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).
+
+```Java
+package com.example.demo;
+
 import com.azure.communication.callautomation.*;
-import com.azure.communication.common.CommunicationUserIdentifier;
-import com.azure.messaging.eventgrid.*;
-import com.google.gson.*;
-import static spark.Spark.*;
+import com.azure.communication.callautomation.models.*;
+import com.azure.communication.callautomation.models.events.*;
+import com.azure.communication.common.CommunicationIdentifier;
+import com.azure.communication.common.PhoneNumberIdentifier;
+import com.azure.messaging.eventgrid.EventGridEvent;
+import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationEventData;
+import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationResponse;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.time.Duration;
+import java.util.*;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        String connectionString = "<acsConnectionString>";
-        CallAutomationClient client = new CallAutomationClientBuilder().connectionString(connectionString).buildClient(false);
-
-        post("/api/incomingCall", (request, response) -> {
-            List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
-
-            for (EventGridEvent eventGridEvent : eventGridEvents) {
-
-                // Webhook validation is assumed to be complete
-                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-                                               
-                String incomingCallContext = data.get("incomingCallContext").getAsString();
-                client.redirectCall(incomingCallContext, new CommunicationUserIdentifier("<userId>"));
-            }
-
-            return "";
-        });
+@RestController
+public class ActionController {
+    @Autowired
+    private CallAutomationAsyncClient client;
+ 
+    private String connectionString = "<resource_connection_string>"); //noted from pre-requisite step
+    
+    private CallAutomationAsyncClient getCallAutomationAsyncClient() {
+        if (client == null) {
+            client = new CallAutomationClientBuilder()
+                .connectionString(connectionString)
+                .buildAsyncClient();
+        }
+        return client;
     }
+
+    @RequestMapping(value = "/api/incomingCall", method = POST)
+    public ResponseEntity<?> handleIncomingCall(@RequestBody(required = false) String requestBody) {
+        List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(requestBody);
+
+        for (EventGridEvent eventGridEvent : eventGridEvents) {
+            // Handle the subscription validation event
+            if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
+                SubscriptionValidationEventData subscriptionValidationEventData = eventGridEvent.getData().toObject(SubscriptionValidationEventData.class);
+                SubscriptionValidationResponse subscriptionValidationResponse = new SubscriptionValidationResponse()
+                        .setValidationResponse(subscriptionValidationEventData.getValidationCode());
+                ResponseEntity<SubscriptionValidationResponse> ret = new ResponseEntity<>(subscriptionValidationResponse, HttpStatus.OK);
+                return ret;
+            }
+                
+          JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
+                
+          String incomingCallContext = data.get("incomingCallContext").getAsString();
+          CommunicationIdentifier target = new PhoneNumberIdentifier("<phone_number_to_redirect_to>");
+          RedirectCallOptions redirectCallOptions = new RedirectCallOptions(incomingCallContext, target); 
+          Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).block();                               
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+      }
 }
 ```
+Update the placeholders in the code above for connection string and phone number to redirect to. 
 
-## Run the code
+## Run the app
 
-To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoint will be available at `http://localhost:4567/api/incomingCall`.
+To run your Java application, run maven compile, package, and execute commands.
+
+```console
+mvn compile
+mvn package
+mvn exec:java -Dexec.mainClass=com.example.demo.DemoApplication -Dexec.cleanupDaemonThreads=false
+```
