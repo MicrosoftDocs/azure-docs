@@ -291,7 +291,7 @@ mltable = from_delta_lake(delta_table_path, timestamp_as_of="2021-01-01T00:00:00
 df = mltable.to_pandas_dataframe()
 print(df.to_string())
 ```
-Please find more details about [MLTable Python functions here](https://learn.microsoft.com/python/api/mltable/mltable.mltable?view=azure-ml-py#functions).
+Please find more details about [MLTable Python functions here](/python/api/mltable/mltable).
 
 
 In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
