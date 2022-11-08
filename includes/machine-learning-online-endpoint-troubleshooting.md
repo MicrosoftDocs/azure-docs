@@ -69,14 +69,14 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
 
     The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
 1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
-1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if private link resolution works correctly from custom DNS. 
+1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS. 
     ```bash
-    dig <endpointname>.<GUID>.<region>.privatelink.api.azureml.ms
+    dig endpointname.westcentralus.inference.ml.azure.com
     ```
     
-    If this fails to resolve to A record, verify if private link resolution works from Azure DNS(168.63.129.16). 
+    If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
     ```bash
-    dig @168.63.129.16 <endpointname>.<GUID>.<region>.privatelink.api.azureml.ms
+    dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
     ```
 
     if this succeeds then troubleshoot conditional forwarder for private link on custom DNS.
