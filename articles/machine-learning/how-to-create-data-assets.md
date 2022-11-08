@@ -234,7 +234,7 @@ The MLTable file is a file that provides the specification of the data's schema 
 > [!NOTE]
 > This file needs to be named exactly as `MLTable`.
 
-An *example* MLTable file is provided below:
+An *example* MLTable file for delimited files is provided below:
 
 ```yml
 type: mltable
@@ -247,6 +247,24 @@ transformations:
       encoding: ascii
       header: all_files_same_headers
 ```
+
+An *example* MLTable file for Delta Lake is provided below:
+```yml
+type: mltable
+
+paths:
+  - abfss://my_delta_files
+
+transformations:
+  - read_delta_lake:
+      timestamp_as_of: '2022-08-26T00:00:00Z'
+#timestamp_as_of: Timestamp to be specified for time-travel on the specific Delta Lake data.
+#version_as_of: Version to be specified for time-travel on the specific Delta Lake data.
+```
+
+For more transformations availabe in `mltable`, please look into [reference-yaml-mltable](reference-yaml-mltable.md). 
+
+
 > [!IMPORTANT]
 > We recommend co-locating the MLTable file with the underlying data in storage. For example:
 > 
