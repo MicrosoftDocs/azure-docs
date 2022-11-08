@@ -9,27 +9,9 @@
     - name: Blobs
       tocHref: /azure/storage/blobs/
       topicHref: /azure/storage/blobs/index
-
-- name: Azure
-  tocHref: /dotnet/azure/
-  topicHref: /azure/index
-  items: 
-  - name: Storage
-    tocHref: /dotnet/azure/
-    topicHref: /azure/storage/index
-    items: 
     - name: Blobs
       tocHref: /dotnet/azure/
       topicHref: /azure/storage/blobs/index
-
-- name: Azure
-  tocHref: /azure/developer/javascript
-  topicHref: /azure/index
-  items: 
-  - name: Storage
-    tocHref: /azure/developer/javascript
-    topicHref: /azure/storage/index
-    items: 
     - name: Blobs
       tocHref: /azure/developer/javascript
       topicHref: /azure/storage/blobs/index
