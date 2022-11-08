@@ -11,7 +11,7 @@ ms.custom: public_preview
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20221013.1)
+- Download the [Java SDK](https://search.maven.org/artifact/com.azure/azure-communication-callautomation/1.0.0-beta.1/jar)
 
 ## Before you start
 
