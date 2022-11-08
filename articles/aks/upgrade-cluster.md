@@ -97,6 +97,18 @@ If no upgrade is available, create a new cluster with a supported version of Kub
 
 ---
 
+### [Azure portal](#tab/azure-portal)
+
+To check which Kubernetes releases are available for your cluster:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your AKS cluster.
+3. Under **Settings**, select **Cluster configuration**.
+4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+5. In **Kubernetes version**, select the version to check for available upgrades.
+
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
+
 ## Customize node surge upgrade
 
 > [!IMPORTANT]
@@ -206,6 +218,20 @@ myAKSCluster eastus   1.19.1            Succeeded         myakscluster-dns-379cb
 ```
 
 ---
+
+### [Azure portal](#tab/azure-portal)
+
+You can also manually upgrade your cluster in the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your AKS cluster.
+3. Under **Settings**, select **Cluster configuration**.
+4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+5. In **Kubernetes version**, select your desired version and then select **Save**.
+
+It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
+
+To confirm that the upgrade was successful, navigate to your AKS cluster in the Azure portal. On the **Overview** page, the **Status** will be " ".
 
 ## View the upgrade events
 
