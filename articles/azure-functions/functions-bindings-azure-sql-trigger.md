@@ -22,7 +22,6 @@ For information on setup and configuration details for change tracking for use w
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
-# [In-process](#tab/in-process)
 
 The example refers to a `ToDoItem` class and a corresponding database table:
 
@@ -40,6 +39,12 @@ SET CHANGE_TRACKING = ON
 ALTER TABLE [dbo].[ToDo]
 ENABLE CHANGE_TRACKING;
 ```
+
+The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`. A `SqlChange` object contains the change operation and the item that was changed.
+- SqlChange.Item: the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
+- SqlChange.Operation: a value from SqlChangeOperation enum. The possible values are `Insert`, `Update`, and `Delete`.
+
+# [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
 
@@ -80,6 +85,7 @@ Isolated worker process isn't currently supported.
 -->
 ---
 
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"
@@ -104,15 +110,27 @@ In [C# class libraries](functions-dotnet-class-library.md), the SQL trigger uses
 
 ::: zone-end
 
+## Configuration
+
 <!-- ### for another day ###
 ::: zone pivot="programming-language-java,programming-language-powershell,programming-language-javascript,programming-language-python"  
-## Configuration
+
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
 
 ::: zone-end -->
+
+
+In addition to the required ConnectionStringSetting application setting, the following optional settings can be configured for the SQL trigger:
+
+| App Setting | Description|
+|---------|---------|
+|Sql_Trigger_BatchSize |This controls the number of changes processed at once before being sent to the triggered function. The default value is 100.|
+|Sql_Trigger_PollingIntervalMs|This controls the delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
+|Sql_Trigger_MaxChangesPerWorker|This controls the upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-scaling). The default value is 1000.|
+
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -146,7 +164,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
 ## Enable runtime scaling
 
-To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
+Optionally, your functions can scale automatically based on the amount of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
 
 [!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
