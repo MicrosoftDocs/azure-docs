@@ -12,7 +12,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Gather user input
+# Gather user input with Recognize action
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
