@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 02/24/2022
+ms.date: 11/08/2022
 ms.author: kgremban
 ms.custom: include file
 ---
@@ -27,34 +27,49 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    - **IoT hub name**: Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.
 
    - **Region**: Select the region, closest to you, where you want your hub to be located. Some features, such as [IoT Hub device streams](../articles/iot-hub/iot-hub-device-streams-overview.md), are only available in specific regions. For these limited features, you must select one of the supported regions.
-
+   
+   - **Tier**: Select the tier that you want to use for your hub. Tier selection depends on how many features you want and how many messages you send through your solution per day. Some features, such as [device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md), are only available in specific tiers. The free tier is intended for testing and evaluation. The free tier allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier. 
+   To compare the features available to each tier, select **Compare tiers** and select the tier that contains the features you want to use for your hub. For more information, see [Choose the right IoT Hub tier for your solution](../articles/iot-hub/iot-hub-scaling.md).
+   If you're working through a quickstart, select the free tier.
+   
+   -  **Daily message limit**: Select the maximum daily quota of messages for your hub. The available options depend on the tier you've selected for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
+   
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Screenshot that shows how to create an IoT hub in the Azure portal.":::
 
 1. Select **Next: Networking** to continue creating your hub.
 
-   Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example.
+   On the **Networking** tab, complete the fields as follows:
 
+      - **Connectivity configuration**: Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example. You can change this setting after the IoT hub is created. For more information, see [Managing public network access for your IoT hub](../articles/iot-hub/iot-hub-devguide-endpoints.md).
+
+      - **Minimum TLS Version**: Select the minimum TLS version to be supported by your IoT hub. Once the IoT hub is created, this value cannot be changed. Accept the default setting, **1.0**, for this example.
+      
    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Choose the endpoints that can connect.":::
 
 1. Select **Next: Management** to continue creating your hub.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Set the size and scale for a new hub using the Azure portal.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Set the role-based access control and scale for a new hub using the Azure portal.":::
 
-    Accept the default settings here. If desired, you can modify any of the following fields:
+   Accept the default settings here. If desired, you can modify any of the following fields:
+    
+   - **Permission model**: Part of role-based access control, this property decides how you *manage access* to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
+    
+   - **Assign me**: You may need access to IoT Hub data APIs to manage elements within an instance. If you have access to role assignments, select **IoT Hub Data Contributor role** to grant yourself full access to the data APIs.
+    
+   > [!NOTE]
+   > [!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+   
+   - **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs need only four partitions.
 
-    - **Pricing and scale tier**: Tier selection depends on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. The free tier allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier. For details about other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
-
-      If you're working through a quickstart, select the free tier.
-
-    - **IoT Hub units**: The number of messages allowed per *unit* per day depends on your hub's pricing tier. For example, if you want the hub to support ingress of 700,000 messages, choose two S1 tier units.
-
-    - **Microsoft Defender for IoT**: Turn Defender on to add an extra layer of protection to IoT and your devices. This option isn't available for hubs in the free tier. Learn more about [security recommendations for IoT Hub in Defender for IoT](../articles/defender-for-iot/device-builders/concept-recommendations.md).
-
-    - **Role-based access control**: This property decides how you *manage access* to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
-
-    - **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
+1. Select **Next: Add-ons** to continue to the next screen.
+   
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Set the optional add-ons for a new hub using the Azure portal.":::
+   
+   Accept the default settings here. If desired, you can modify any of the following fields:
+   
+   - **Enable Defender for IoT**: Turn Defender for IoT on to add an extra layer of protection to IoT and your devices. This option isn't available for hubs in the free tier. Learn more about [security recommendations for IoT Hub in Defender for IoT](../articles/defender-for-iot/device-builders/concept-recommendations.md).
 
 1. Select **Next: Tags** to continue to the next screen.
 
