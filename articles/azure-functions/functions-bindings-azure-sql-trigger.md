@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted.
 
-For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
+For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
 ## Example usage
 <a id="example"></a>
@@ -29,7 +29,7 @@ The example refers to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-[Change tracking](#setting-up-change-tracking) is enabled on the database and on the table:
+[Change tracking](#set-up-change-tracking-required) is enabled on the database and on the table:
 
 ```sql
 ALTER DATABASE [SampleDatabase]
@@ -99,12 +99,12 @@ Isolated worker process isn't currently supported.
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
 
-The [C# library](functions-dotnet-class-library.md) uses the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute, which has the following properties:
+The [C# library](functions-dotnet-class-library.md) uses the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute to declare the SQL trigger on the function, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | Required. The name of the table being monitored by the trigger.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.| 
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database which contains the table being monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.| 
 
 
 ::: zone-end
@@ -122,7 +122,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end -->
 
 
-In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#work-with-application-settings), the following optional settings can be configured for the SQL trigger:
+In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
 
 | App Setting | Description|
 |---------|---------|
