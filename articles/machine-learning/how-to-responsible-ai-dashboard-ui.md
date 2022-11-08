@@ -15,14 +15,15 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 # Generate a Responsible AI insights in the studio UI
 
-In this article, you create a Responsible AI dashboard and scorecard (preview) with a no-code experience in the [Azure Machine Learning studio UI](https://ml.azure.com/). To access the dashboard generation wizard, do the following:
+In this article, you create a Responsible AI dashboard and scorecard (preview) with a no-code experience in the [Azure Machine Learning studio UI](https://ml.azure.com/).
 
+To access the dashboard generation wizard and generate a Responsible AI dashboard, do the following:
 1. [Register your model](how-to-manage-models.md) in Azure Machine Learning so that you can access the no-code experience.
 1. On the left pane of Azure Machine Learning studio, select the **Models** tab.
 1. Select the registered model that you want to create Responsible AI insights for, and then select the **Details** tab.
 1. Select **Create Responsible AI dashboard (preview)**.
 
-    :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details pane with 'Create Responsible AI dashboard (preview)' tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-page.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard.png" alt-text="Screenshot of the wizard details pane with 'Create Responsible AI dashboard (preview)' tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard.png":::
 
 To learn more, see the Responsible AI dashboard [supported model types and limitations](concept-responsible-ai-dashboard.md#supported-scenarios-and-limitations).
 
@@ -30,7 +31,8 @@ The wizard provides an interface for entering all the necessary parameters to cr
 
 The wizard is divided into five sections:
 
-1. Datasets
+1. Training datasets
+1. Test dataset
 1. Modeling task
 1. Dashboard components
 1. Component parameters
@@ -38,27 +40,26 @@ The wizard is divided into five sections:
 
 ## Select your datasets
 
-In the first section, you select the train and test datasets that you used when you trained your model to generate model-debugging insights. For components like causal analysis, which doesn't require a model, you use the train dataset to train the causal model to generate the causal insights.
+In the first two sections, you select the train and test datasets that you used when you trained your model to generate model-debugging insights. For components like causal analysis, which doesn't require a model, you use the train dataset to train the causal model to generate the causal insights.
 
 > [!NOTE]
-> Only tabular dataset formats are supported.
+> Only tabular dataset formats in ML Table are supported.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/datasets.png" alt-text="Screenshot of the wizard, showing the 'Datasets for training and testing' pane." lightbox= "./media/how-to-responsible-ai-dashboard-ui/datasets.png":::
+1. **Select a dataset for training**: In the list of registered datasets in the Azure Machine Learning workspace, select the dataset you want to use to generate Responsible AI insights for components, such as model explanations and error analysis.  
 
-1. **Select a dataset for training**: In the dropdown list of registered datasets in the Azure Machine Learning workspace, select the dataset you want to use to generate Responsible AI insights for components, such as model explanations and error analysis.  
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-train-dataset.png" alt-text="Screenshot of the train dataset tab." lightbox= "./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-train-dataset.png":::
 
-1. **Select a dataset for testing**: In the dropdown list, select the dataset you want to use to populate your Responsible AI dashboard visualizations.
+1. **Select a dataset for testing**: In the list of registered datasets, select the dataset you want to use to populate your Responsible AI dashboard visualizations.
 
-1. If the train or test dataset you want to use isn't listed, select **New dataset** to upload it.
+   :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-test-dataset.png" alt-text="Screenshot of the test dataset tab." lightbox= "./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-test-dataset.png":::
+
+1. If the train or test dataset you want to use isn't listed, select **Create** to upload it.
 
 ## Select your modeling task
 
 After you've picked your datasets, select your modeling task type, as shown in the following image:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/modeling.png" alt-text="Screenshot of the wizard on modeling task type." lightbox= "./media/how-to-responsible-ai-dashboard-ui/modeling.png":::
-
-> [!NOTE]
-> The wizard supports only models in MLflow format and with a sklearn (scikit-learn) flavor.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-modeling-task.png" alt-text="Screenshot of the modeling task tab." lightbox= "./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-modeling-task.png":::
 
 ## Select your dashboard components
 
@@ -70,17 +71,16 @@ The Responsible AI dashboard offers two profiles for recommended sets of tools t
     > [!NOTE]
     > Multi-class classification doesn't support the real-life interventions analysis profile.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug.png" alt-text="Screenshot of the wizard, showing the 'Model debugging' and 'Real-life interventions' profiles." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-debug.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-dashboard-components.png" alt-text="Screenshot of the dashboard components tab, showing the 'Model debugging' and 'Real-life interventions' profiles." lightbox ="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-dashboard-components.png":::
 
 1. Select the profile you want to use.
 1. Select **Next**.
-
 
 ## Configure parameters for dashboard components
 
 After you’ve selected a profile, the **Component parameters for model debugging** configuration pane for the corresponding components appears.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-parameters.png" alt-text="Screenshot of the wizard, showing the 'Component parameters for model debugging' configuration pane." lightbox = "./media/how-to-responsible-ai-dashboard-ui/model-debug-parameters.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-component-parameter-debugging.png" alt-text="Screenshot of the component parameter tab, showing the 'Component parameters for model debugging' configuration pane." lightbox = "./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-component-parameter-debugging.png":::
 
 Component parameters for model debugging:
 
@@ -102,7 +102,7 @@ Component parameters for model debugging:
 
 Alternatively, if you select the **Real-life interventions** profile, you’ll see the following screen generate a causal analysis. This will help you understand the causal effects of features you want to “treat” on a certain outcome you want to optimize.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/real-life-parameters.png" alt-text="Screenshot of the wizard, showing the 'Component parameters for real-life interventions' pane." lightbox = "./media/how-to-responsible-ai-dashboard-ui/real-life-parameters.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-component-parameter-real-life-intervention.png" alt-text="Screenshot of the wizard, showing the 'Component parameters for real-life interventions' pane." lightbox = "./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-component-parameter-real-life-intervention.png":::
 
 Component parameters for real-life interventions use causal analysis. Do the following:
 
@@ -115,9 +115,9 @@ Component parameters for real-life interventions use causal analysis. Do the fol
 
 Finally, configure your experiment to kick off a job to generate your Responsible AI dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/experiment-config.png" alt-text="Screenshot of the wizard, showing the 'Training job or experiment configuration' pane." lightbox= "./media/how-to-responsible-ai-dashboard-ui/experiment-config.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/create-responsible-ai-dashboard-ui-experiment-config.png" alt-text="Screenshot of the Experiment configuration tab, showing the 'Training job or experiment configuration' pane." lightbox= "./media/create-responsible-ai-dashboard-ui-experiment-config.png":::
 
-On the **Training job or experiment configuration** pane, do the following:
+On the **Training job** or **Experiment configuration** pane, do the following:
 
 1. **Name**: Give your dashboard a unique name so that you can differentiate it when you’re viewing the list of dashboards for a given model.
 1. **Experiment name**: Select an existing experiment to run the job in, or create a new experiment.
@@ -127,14 +127,79 @@ On the **Training job or experiment configuration** pane, do the following:
 1. **Description**: Add a longer description of your Responsible AI dashboard.
 1. **Tags**: Add any tags to this Responsible AI dashboard.
 
-After you’ve finished configuring your experiment, select **Create** to start generating your Responsible AI dashboard. You'll be redirected to the experiment page to track the progress of your job. 
+After you’ve finished configuring your experiment, select **Create** to start generating your Responsible AI dashboard. You'll be redirected to the experiment page to track the progress of your job with a link to the resulting Responsible AI dashboard from the job page when it's completed.
 
-In the "Next steps" section, you can learn how to view and use your Responsible AI dashboard.
+To learn how to view and use your Responsible AI dashboard see, [Use the Responsible AI dashboard in Azure Machine Learning studio](how-to-responsible-ai-dashboard.md).
+
+## Generate Responsible AI scorecard (preview)
+
+Once you've created a dashboard, you can use a no-code UI in Azure Machine Learning studio to customize and generate a Responsible AI scorecard. This enables you to share key insights for responsible deployment of your model, such as fairness and feature importance, with non-technical and technical stakeholders. Similar to creating a dashboard, you can use the following steps to access the scorecard generation wizard:
+
+- Navigate to the Models tab from the left navigation bar in Azure Machine Learning studio.
+- Select the registered model you’d like to create a scorecard for and select the **Responsible AI** tab.
+- From the top panel, select **Create Responsible AI insights (preview)** and then **Generate new PDF scorecard**.
+
+The wizard will allow you to customize your PDF scorecard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio to help contextualize the variety of choices of UI with a guided flow and instructional text to help you choose the components you’d like to populate your scorecard with. The wizard is divided into seven steps, with an eighth step (fairness assessment) that will only appear for models with categorical features:
+
+1. PDF scorecard summary
+2. Model performance
+3. Tool selection
+4. Data explorer
+5. Causal analysis
+6. Interpretability
+7. Experiment configuration
+8. Fairness assessment (only if categorical features exist)
+
+### Configuring your scorecard
+
+1. First, enter a descriptive title for your scorecard. You can also enter an optional description about the model's functionality, data it was trained and evaluated on, architecture type, and more.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-summary.png" alt-text="Screenshot of the wizard on scorecard summary configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-summary.png":::
+
+2. *The Model performance* section allows you to incorporate into your scorecard industry-standard model evaluation metrics, while enabling you to set desired target values for your selected metrics. Select your desired performance metrics (up to three) and target values using the dropdowns.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-performance.png" alt-text="Screenshot of the wizard on scorecard model performance configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-performance.png":::
+
+3. *The Tool selection* step allows you to choose which subsequent components you would like to include in your scorecard. Check Include in scorecard to include all components, or check/uncheck each component individually. Select the info icon ("i" in a circle) next to the components to learn more about them.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-selection.png" alt-text="Screenshot of the wizard on scorecard tool selection configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-selection.png":::
+
+4. *The Data explorer* section enables cohort analysis. Here, you can identify issues of over- and under-representation explore how data is clustered in the dataset, and how model predictions impact specific data cohorts. Use checkboxes in the dropdown to select your features of interest below to identify your model performance on their underlying cohorts.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png" alt-text="Screenshot of the wizard on scorecard data explorer configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png":::
+
+5. *The Fairness assessment* section can help with assessing which groups of people might be negatively impacted by predictions of a machine learning model. There are two fields in this section.
+
+    - Sensitive features: identify your sensitive attribute(s) of choice (for example, age, gender) by prioritizing up to 20 subgroups you would like to explore and compare.
+    
+    - Fairness metric: select a fairness metric that is appropriate for your setting (for example, difference in accuracy, error rate ratio), and identify your desired target value(s) on your selected fairness metric(s). Your selected fairness metric (paired with your selection of difference or ratio via the toggle) will capture the difference or ratio between the extreme values across the subgroups. (max - min or max/min).
+
+    :image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png" alt-text="Screenshot of the wizard on scorecard fairness assessment configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png":::
+
+    > [!NOTE]
+    > The Fairness assessment is currently only available for categorical sensitive attributes such as gender.
+
+6. *The Causal analysis* section answers real-world “what if” questions about how changes of treatments would impact a real-world outcome. If the causal component is activated in the Responsible AI dashboard for which you're generating a scorecard, no more configuration is needed.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-causal.png" alt-text="Screenshot of the wizard on scorecard causal analysis configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-causal.png":::
+
+7. *The Interpretability* section generates human-understandable descriptions for predictions made by of your machine learning model. Using model explanations, you can understand the reasoning behind decisions made by your model. Select a number (K) below to see the top K important features impacting your overall model predictions. The default value for K is 10.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-interpretability.png" alt-text="Screenshot of the wizard on scorecard feature importance configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-interpretability.png":::
+
+8. Lastly, configure your experiment to kick off a job to generate your scorecard. These configurations are the same as the ones for your Responsible AI dashboard.
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-experiment.png" alt-text="Screenshot of the wizard on scorecard experiment configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-experiment.png":::
+
+9. Finally, review your configurations and select **Create** to start your job!
+
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-review.png" alt-text="Screenshot of the wizard on scorecard configuration review." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-review.png":::
+
+    You'll be redirected to the experiment page to track the progress of your job once you've started it. To learn how to view and use your Responsible AI scorecard, see [Use Responsible AI scorecard (preview)](how-to-responsible-ai-scorecard.md).
 
 ## Next steps
 
 - After you've generated your Responsible AI dashboard, [view how to access and use it in Azure Machine Learning studio](how-to-responsible-ai-dashboard.md).
-- Summarize and share your Responsible AI insights with the [Responsible AI scorecard as a PDF export](how-to-responsible-ai-scorecard.md).
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn more about how to [collect data responsibly](concept-sourcing-human-data.md).
 - Learn more about how to use the Responsible AI dashboard and scorecard to debug data and models and inform better decision-making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard).
