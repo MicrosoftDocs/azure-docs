@@ -67,3 +67,11 @@ You can't edit the schema of existing search results and restored logs tables.
 
 To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
 
+## Next steps
+
+Learn how to:
+
+- [Set a table's log data plan](../logs/basic-logs-configure.md)
+- [Add custom tables and columns](../logs/create-custom-table.md)
+- [Set retention and archive policies](../logs/data-retention-archive.md)
+- [Design a workspace architecture](../logs/workspace-design.md)

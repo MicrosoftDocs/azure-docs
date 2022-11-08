@@ -12,7 +12,7 @@ ms.date: 09/10/2022
 
 Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs. 
 
-The default **Analytics** log data plan provides full KQL capabilities, while the **Basic** log data plan lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. 
+The default **Analytics** log data plan provides full analysis capabilities and makes the log data available for queries, Azure Monitor features, such as alerts, and use by other services. The **Basic** log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. 
 
 This article describes Azure Monitor's log data plans and explains how to configure the log data plan of the tables in your Log Analytics workspace.
 
@@ -240,3 +240,5 @@ Basic Logs tables retain data for eight days. When you change an existing table'
 ## Next steps
 
 - [Query data in Basic Logs](basic-logs-query.md)
+- [Set retention and archive policies](../logs/data-retention-archive.md)
+
