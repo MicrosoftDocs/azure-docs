@@ -26,7 +26,7 @@ In this article, we'll cover how to write more advanced queries to help troubles
 
 For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../monitor-resource-logs.md) to learn how to enable this feature.
 
-For [resource-specific tables](../monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode because it:
+For [resource-specific tables](../monitor-resource-logs.md), data is written into individual tables for each category of the resource. We recommend this mode because it:
 
 - Makes it much easier to work with the data. 
 - Provides better discoverability of the schemas.
