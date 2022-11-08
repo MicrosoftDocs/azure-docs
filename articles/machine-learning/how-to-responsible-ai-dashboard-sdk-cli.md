@@ -1,91 +1,40 @@
 ---
-title: Generate a Responsible AI dashboard with YAML and Python (preview) 
+title: Generate a Responsible AI insights with YAML and Python
 titleSuffix: Azure Machine Learning
-description: Learn how to generate a Responsible AI dashboard with Python and YAML in Azure Machine Learning.
+description: Learn how to generate a Responsible AI insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic:  how-to
-ms.author: lagayhar
-author: lgayhardt
-ms.date: 08/17/2022
+ms.reviewer: lagayhar
+ms.author: mithigpe
+author: minthigpen
+ms.date: 11/07/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Generate a Responsible AI dashboard with YAML and Python (preview)
+# Generate a Responsible AI insights with YAML and Python
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You can generate a Responsible AI dashboard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
+You can generate a Responsible AI dashboard and scorecard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png":::
-
-## Get started
-
-To use the Responsible AI components, you must first register them in your Azure Machine Learning workspace. This section documents the required steps.
-
-### Prerequisites
-
-You'll need:
-
-- An Azure Machine Learning workspace
-- A Git installation
-- A MiniConda installation
-- An Azure CLI installation
-
-### Installation steps
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/Azure/RAI-vNext-Preview.git 
-    
-    cd RAI-vNext-Preview 
-    ```
-
-2. Sign in to Azure:
-
-    ```bash
-    Az login
-    ```
-
-3. From the repository root, run the following PowerShell setup script:
-
-    ```powershell
-    Quick-Setup.ps1 
-    ```
-
-    Running the script:
-
-    - Creates a new conda environment with a name you specify.
-    - Installs all the required Python packages.
-    - Registers all the Responsible AI components in your Azure Machine Learning workspace.
-    - Registers some sample datasets in your workspace.
-    - Sets the defaults for the Azure CLI to point to your workspace.  
-
-    Running the script prompts for the desired conda environment name and Azure Machine Learning workspace details. 
-
-    Alternatively, you can use the following Bash script:
-
-    ```bash
-    ./quick-setup.bash <CONDA-ENV-NAME> <SUBSCRIPTION-ID> <RESOURCE-GROUP-NAME> <WORKSPACE-NAME>
-    ```
-
-    This script echoes the supplied parameters, and it pauses briefly before continuing.
 
 ## Responsible AI components
 
 The core components for constructing the Responsible AI dashboard in Azure Machine Learning are:
 
-- RAI Insights dashboard constructor
+- `RAI Insights dashboard constructor`
 - The tool components:
-    - Add Explanation to RAI Insights dashboard
-    - Add Causal to RAI Insights dashboard
-    - Add Counterfactuals to RAI Insights dashboard
-    - Add Error Analysis to RAI Insights dashboard
-    - Gather RAI Insights dashboard
+    - `Add Explanation to RAI Insights dashboard`
+    - `Add Causal to RAI Insights dashboard`
+    - `Add Counterfactuals to RAI Insights dashboard`
+    - `Add Error Analysis to RAI Insights dashboard`
+    - `Gather RAI Insights dashboard`
+    - `Gather RAI Insights score card`
 
-The RAI Insights dashboard constructor and Gather RAI Insights dashboard components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
+The `RAI Insights dashboard constructor` and `Gather RAI Insights dashboard` components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
 
 In the following sections are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer).
 
@@ -96,9 +45,9 @@ The current set of components have a number of limitations on their use:
 - All models must be registered in Azure Machine Learning in MLflow format with a sklearn (scikit-learn) flavor.
 - The models must be loadable in the component environment.
 - The models must be pickleable.
-- The models must be supplied to the Responsible AI components by using the *fetch registered model* component, which we provide.
-- The dataset inputs must be in pandas.DataFrame.to_parquet format. 
-- A model must be supplied even if only a causal analysis of the data is performed. You can use the DummyClassifier and DummyRegressor estimators from scikit-learn for this purpose.
+- The models must be supplied to the Responsible AI components by using the `Fetch Registered Model` component, which we provide.
+- The dataset inputs must be in `mltable` format.
+- A model must be supplied even if only a causal analysis of the data is performed. You can use the `DummyClassifier` and `DummyRegressor` estimators from scikit-learn for this purpose.
 
 ### RAI Insights dashboard constructor
 
@@ -110,12 +59,12 @@ This component has three input ports:
 
 To generate model-debugging insights with components such as error analysis and Model explanations, use the training and test dataset that you used when you trained your model. For components like causal analysis, which doesn't require a model, you use the training dataset to train the causal model to generate the causal insights. You use the test dataset to populate your Responsible AI dashboard visualizations.
 
-The easiest way to supply the model is to use the fetch registered model component, which we discuss later in this article.
+The easiest way to supply the model is to register the input model and reference the same model in the model input port of `RAI Insight Constructor` component,, which we discuss later in this article.
 
 > [!NOTE]
-> Currently, only models in MLflow format and with a sklearn flavor are supported.
+> Currently, only models in MLflow format and with a `sklearn` flavor are supported.
 
-The two datasets should be file datasets (of type `uri_file`) in Parquet format. Tabular datasets aren't supported, but we provide a TabularDataset to Parquet file component to help with conversions. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. By default, for performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.
+The two datasets should be in `mltable` format. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. By default, for performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.
 
 The constructor component also accepts the following parameters:
 
@@ -130,7 +79,7 @@ The constructor component also accepts the following parameters:
 
 <sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names` and `classes` inputs.
 
-The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the Gather RAI Insights dashboard component at the end.
+The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the `Gather RAI Insights dashboard` component at the end.
 
 # [YAML](#tab/yaml)
 
@@ -138,11 +87,12 @@ The constructor component has a single output named `rai_insights_dashboard`. Th
  create_rai_job: 
 
     type: command 
-    component: azureml:rai_insights_constructor:1 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_insight_constructor/versions/<get current version>
     inputs: 
       title: From YAML snippet 
-      task_type: regression 
-      model_info_path: ${{parent.jobs.fetch_model_job.outputs.model_info_output_path}} 
+      task_type: regression
+      type: mlflow_model
+      path: azureml:<registered_model_name>:<registered model version> 
       train_dataset: ${{parent.inputs.my_training_data}} 
       test_dataset: ${{parent.inputs.my_test_data}} 
       target_column_name: ${{parent.inputs.target_column_name}} 
@@ -156,16 +106,14 @@ First load the component:
 ```python
 # First load the component:
 
-        rai_constructor_component = load_component( 
-            client=ml_client, name="rai_insights_constructor", version="1" 
-        ) 
+        rai_constructor_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_insight_constructor", label="latest")
 
 #Then inside the pipeline:
 
             construct_job = rai_constructor_component( 
                 title="From Python", 
                 task_type="classification", 
-                model_info_path=fetch_model_job.outputs.model_info_output_path, 
+                model_input= model_input= Input(type=AssetTypes.MLFLOW_MODEL, path="<azureml:model_name:model_id>"),
                 train_dataset=train_data, 
                 test_dataset=test_data, 
                 target_column_name=target_column_name, 
@@ -174,51 +122,12 @@ First load the component:
                 classes="[]", 
             ) 
 ```
+
 ---
-### Export pre-built cohorts for scorecard generation 
-
-You can export pre-built cohorts for use in scorecard generation. For example, here are building cohorts in a Jupyter Notebook: [responsibleaidashboard-diabetes-decision-making.ipynb](https://github.com/microsoft/responsible-ai-toolbox/blob/main/notebooks/responsibleaidashboard/responsibleaidashboard-diabetes-decision-making.ipynb). After you've defined a cohort, you can export it to a JSON file, as shown here:
-
-```python
-# cohort1, cohort2 are cohorts defined in sample notebook of type raiwidgets.cohort.Cohort 
-import json 
-json.dumps([cohort1.to_json(), cohort2.to_json) 
-```
-A sample generated JSON string is shown here: 
-
-```json
-[ 
-  { 
-    "name": "High Yoe", 
-    "cohort_filter_list": [ 
-      { 
-        "method": "greater", 
-        "arg": [ 
-          5 
-        ], 
-        "column": "YOE" 
-      } 
-    ] 
-  }, 
-  {
-    "name": "Low Yoe", 
-    "cohort_filter_list": [ 
-
-      { 
-        "method": "less", 
-        "arg": [ 
-          6.5 
-        ], 
-        "column": "YOE" 
-      } 
-    ] 
-  } 
-] 
-```
 
 ### Add Causal to RAI Insights dashboard
 
-This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
+This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the `RAI Insights dashboard constructor`. It also accepts the following parameters:
 
 | Parameter name | Description | Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |---|---|---|
@@ -239,14 +148,14 @@ This component performs a causal analysis on the supplied datasets. It has a sin
 
 <sup>2</sup> For the `list` parameters: Several of the parameters accept lists of other types (strings, numbers, even other lists). To pass these into the component, they must first be JSON-encoded into a single string.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the `Gather RAI Insights Dashboard` component.
 
 # [YAML](#tab/yaml)
 
 ```yml
   causal_01: 
     type: command 
-    component: azureml:rai_insights_causal:1 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_causal/versions/<version>
     inputs: 
       rai_insights_dashboard: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
       treatment_features: `["Number of GitHub repos contributed to", "YOE"]' 
@@ -256,9 +165,9 @@ This component has a single output port, which can be connected to one of the `i
 
 ```python
 #First load the component: 
-        rai_causal_component = load_component( 
-            client=ml_client, name="rai_insights_causal", version="1" 
-        ) 
+
+        rai_causal_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_causal", label="latest")
+
 #Use it inside a pipeline definition: 
             causal_job = rai_causal_component( 
                 rai_insights_dashboard=construct_job.outputs.rai_insights_dashboard, 
@@ -284,14 +193,14 @@ This component generates counterfactual points for the supplied test dataset. It
 
 <sup>3</sup> For the non-scalar parameters: Parameters that are lists or dictionaries should be passed as single JSON-encoded strings.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the `Gather RAI Insights dashboard` component.
 
 # [YAML](#tab/yaml)
 
 ```yml
  counterfactual_01: 
     type: command 
-    component: azureml:rai_insights_counterfactual:1 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_counterfactual/versions/<version>
     inputs: 
       rai_insights_dashboard: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
       total_CFs: 10 
@@ -303,9 +212,8 @@ This component has a single output port, which can be connected to one of the `i
 
 ```python
 #First load the component: 
-        rai_counterfactual_component = load_component( 
-            client=ml_client, name="rai_insights_counterfactual", version="1" 
-        ) 
+        rai_counterfactual_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_counterfactual", label="latest")
+
 #Use it in a pipeline function: 
             counterfactual_job = rai_counterfactual_component( 
                 rai_insights_dashboard=create_rai_job.outputs.rai_insights_dashboard, 
@@ -318,7 +226,7 @@ This component has a single output port, which can be connected to one of the `i
 
 ### Add Error Analysis to RAI Insights dashboard 
 
-This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
+This component generates an error analysis for the model. It has a single input port, which accepts the output of the `RAI Insights Dashboard Constructor`. It also accepts the following parameters:
 
 | Parameter name | Description | Type |
 |---|---|---|
@@ -327,14 +235,14 @@ This component generates an error analysis for the model. It has a single input 
 | `min_child_samples` | The minimum number of datapoints required to produce a leaf. | Optional integer. Defaults to 20. |
 | `filter_features` | A list of one or two features to use for the matrix filter. | Optional list, to be passed as a single JSON-encoded string. |
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the `Gather RAI Insights Dashboard` component.
 
 # [YAML](#tab/yaml)
 
 ```yml
   error_analysis_01: 
     type: command 
-    component: azureml:rai_insights_erroranalysis:1 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_erroranalysis/versions/<version>
     inputs: 
       rai_insights_dashboard: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
       filter_features: `["style", "Employer"]' 
@@ -344,9 +252,8 @@ This component has a single output port, which can be connected to one of the `i
 
 ```python
 #First load the component: 
-        rai_erroranalysis_component = load_component( 
-            client=ml_client, name="rai_insights_erroranalysis", version="1" 
-        ) 
+        rai_erroranalysis_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_erroranalysis", label="latest")
+
 #Use inside a pipeline: 
             erroranalysis_job = rai_erroranalysis_component( 
                 rai_insights_dashboard=create_rai_job.outputs.rai_insights_dashboard, 
@@ -358,9 +265,9 @@ This component has a single output port, which can be connected to one of the `i
 
 ### Add Explanation to RAI Insights dashboard
 
-This component generates an explanation for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It accepts a single, optional comment string as a parameter.
+This component generates an explanation for the model. It has a single input port, which accepts the output of the `RAI Insights Dashboard Constructor`. It accepts a single, optional comment string as a parameter.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
 
 
 # [YAML](#tab/yaml)
@@ -407,7 +314,7 @@ There are two output ports:
 ```yml
   gather_01: 
     type: command 
-    component: azureml:rai_insights_gather:1 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_insight_gather/versions/<version>
     inputs: 
       constructor: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
       insight_1: ${{parent.jobs.causal_01.outputs.causal}} 
@@ -421,9 +328,7 @@ There are two output ports:
 
 ```python
 #First load the component: 
-        rai_gather_component = load_component( 
-            client=ml_client, name="rai_insights_gather", version="1" 
-        ) 
+        rai_gather_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_insight_gather", label="latest")
 #Use in a pipeline: 
             rai_gather_job = rai_gather_component( 
                 constructor=create_rai_job.outputs.rai_insights_dashboard, 
@@ -436,65 +341,205 @@ There are two output ports:
 
 ---
 
-## Helper components
 
-We provide two helper components to aid in connecting the Responsible AI components to your existing assets. 
+## How to generate a Responsible AI scorecard?
 
-### Fetch registered model
+The configuration stage requires you to use your domain expertise around the problem to set your desired target values on model performance and fairness metrics. 
 
-This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the RAI Insights dashboard constructor component. It has a single input parameter: the Azure Machine Learning ID (`<NAME>:<VERSION>`) of the desired model.
-
-# [YAML](#tab/yaml)
+Like other Responsible AI dashboard components configured in the YAML pipeline, you can add a component to generate the scorecard in the YAML pipeline:
 
 ```yml
-  fetch_model_job: 
-    type: command 
-    component: azureml:fetch_registered_model:1 
-    inputs:
-      model_id: my_model_name:12 
+scorecard_01: 
+
+   type: command 
+   component: azureml:rai_score_card@latest 
+   inputs: 
+     dashboard: ${{parent.jobs.gather_01.outputs.dashboard}} 
+     pdf_generation_config: 
+       type: uri_file 
+       path: ./pdf_gen.json 
+       mode: download 
+
+     predefined_cohorts_json: 
+       type: uri_file 
+       path: ./cohorts.json 
+       mode: download 
+
 ```
 
-# [Python SDK](#tab/python)
+Where pdf_gen.json is the score card generation configuration json file, and *predifined_cohorts_json* ID the prebuilt cohorts definition json file. 
 
-```python
-#First load the component: 
-        fetch_model_component = load_component( 
-            client=ml_client, name="fetch_registered_model", version="1" 
-        ) 
-#Use it in a pipeline: 
-            fetch_model_job = fetch_model_component(model_id=registered_adult_model_id) 
+Here's a sample JSON file for cohorts definition and scorecard-generation configuration:
+
+
+Cohorts definition:
+```yml
+[ 
+  { 
+    "name": "High Yoe", 
+    "cohort_filter_list": [ 
+      { 
+        "method": "greater", 
+        "arg": [ 
+          5 
+        ], 
+        "column": "YOE" 
+      } 
+    ] 
+  }, 
+  { 
+    "name": "Low Yoe", 
+    "cohort_filter_list": [ 
+      { 
+        "method": "less", 
+        "arg": [ 
+          6.5 
+        ], 
+        "column": "YOE" 
+      } 
+    ] 
+  } 
+] 
 ```
 
----
-
-### Tabular dataset to parquet file
-
-This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the RAI Insights dashboard constructor component. Its single input parameter is the name of the desired dataset.
-
-# [YAML](#tab/yaml)
+Here's a scorecard-generation configuration file as a regression example:
 
 ```yml
-  convert_train_job: 
-    type: command 
-    component: azureml:convert_tabular_to_parquet:1 
-    inputs: 
-      tabular_dataset_name: tabular_dataset_name 
+{ 
+  "Model": { 
+    "ModelName": "GPT-2 Access", 
+    "ModelType": "Regression", 
+    "ModelSummary": "This is a regression model to analyze how likely a programmer is given access to GPT-2" 
+  }, 
+  "Metrics": { 
+    "mean_absolute_error": { 
+      "threshold": "<=20" 
+    }, 
+    "mean_squared_error": {} 
+  }, 
+  "FeatureImportance": { 
+    "top_n": 6 
+  }, 
+  "DataExplorer": { 
+    "features": [ 
+      "YOE", 
+      "age" 
+    ] 
+  }, 
+  "Fairness": {
+    "metric": ["mean_squared_error"],
+    "sensitive_features": ["YOUR SENSITIVE ATTRIBUTE"],
+    "fairness_evaluation_kind": "difference OR ratio"
+  },
+  "Cohorts": [ 
+    "High Yoe", 
+    "Low Yoe" 
+  ]  
+} 
 ```
 
+Here's a scorecard-generation configuration file as a classification example:
 
-# [Python SDK](#tab/python)
-
-```python
-#First load the component: 
-        tabular_to_parquet_component = load_component( 
-            client=ml_client, name="convert_tabular_to_parquet", version="1" 
-        ) 
-#Use it in a pipeline: 
-            to_parquet_job_train = tabular_to_parquet_component( 
-                tabular_dataset_name=train_data_name 
+```yml
+{
+  "Model": {
+    "ModelName": "Housing Price Range Prediction",
+    "ModelType": "Classification",
+    "ModelSummary": "This model is a classifier that predicts whether the house will sell for more than the median price."
+  },
+  "Metrics" :{
+    "accuracy_score": {
+        "threshold": ">=0.85"
+    },
+  }
+  "FeatureImportance": { 
+    "top_n": 6 
+  }, 
+  "DataExplorer": { 
+    "features": [ 
+      "YearBuilt", 
+      "OverallQual", 
+      "GarageCars"
+    ] 
+  },
+  "Fairness": {
+    "metric": ["accuracy_score", "selection_rate"],
+    "sensitive_features": ["YOUR SENSITIVE ATTRIBUTE"],
+    "fairness_evaluation_kind": "difference OR ratio"
+  }
+}
 ```
 
----
+### Definition of inputs for the Responsible AI scorecard component
+
+This section lists and defines the parameters that are required to configure the Responsible AI scorecard component.
+
+#### Model
+
+| ModelName | Name of model |
+|---|---|
+| `ModelType` | Values in ['classification', 'regression']. |
+| `ModelSummary` | Enter text that summarizes what the model is for. |
+
+> [!NOTE]
+> For multi-class classification, you should first use the One-vs-Rest strategy to choose your reference class, and then split your multi-class classification model into a binary classification problem for your selected reference class versus the rest of the classes.
+
+#### Metrics
+
+| Performance metric | Definition | Model type |
+|---|---|---|
+| `accuracy_score` | The fraction of data points that are classified correctly. | Classification |
+| `precision_score` | The fraction of data points that are classified correctly among those classified as 1. | Classification |
+| `recall_score` | The fraction of data points that are classified correctly among those whose true label is 1. Alternative names: true positive rate, sensitivity. | Classification |
+| `f1_score` | The F1 score is the harmonic mean of precision and recall. | Classification |
+| `error_rate` | The proportion of instances that are misclassified over the whole set of instances. | Classification |
+| `mean_absolute_error` | The average of absolute values of errors. More robust to outliers than `mean_squared_error`. | Regression |
+| `mean_squared_error` | The average of squared errors. | Regression |
+| `median_absolute_error` | The median of squared errors. | Regression |
+| `r2_score` | The fraction of variance in the labels explained by the model. | Regression |
+
+Threshold: The desired threshold for the selected metric. Allowed mathematical tokens are >, <, >=, and <=m, followed by a real number. For example, >= 0.75 means that the target for the selected metric is greater than or equal to 0.75.
+
+#### Feature importance
+
+top_n: The number of features to show, with a maximum of 10. Positive integers up to 10 are allowed.
+
+#### Fairness
+
+| Metric | Definition |
+|--|--|
+| `metric` | The primary metric for evaluation fairness. |
+| `sensitive_features` | A list of feature names from the input dataset to be designated as sensitive features for the fairness report. |
+| `fairness_evaluation_kind` | Values in ['difference', 'ratio']. |
+| `threshold` | The *desired target values* of the fairness evaluation. Allowed mathematical tokens are >, <, >=,  and <=, followed by a real number.<br>For example, metric="accuracy", fairness_evaluation_kind="difference".<br><= 0.05 means that the target for the difference in accuracy is less than or equal to 0.05. |
+
+> [!NOTE]
+> Your choice of `fairness_evaluation_kind` (selecting 'difference' versus 'ratio') affects the scale of your target value. In your selection, be sure to choose a meaningful target value.
+
+You can select from the following metrics, paired with `fairness_evaluation_kind`, to configure your fairness assessment component of the scorecard:
+
+| Metric | fairness_evaluation_kind | Definition | Model type |
+|---|---|---|---|
+| `accuracy_score` | difference | The maximum difference in accuracy score between any two groups. | Classification |
+| `accuracy_score` | ratio | The minimum ratio in accuracy score between any two groups. | Classification |
+| `precision_score` | difference | The maximum difference in precision score between any two groups. | Classification |
+| `precision_score` | ratio | The maximum ratio in precision score between any two groups. | Classification |
+| `recall_score` | difference | The maximum difference in recall score between any two groups. | Classification |
+| `recall_score` | ratio | The maximum ratio in recall score between any two groups. | Classification |
+| `f1_score` | difference | The maximum difference in f1 score between any two groups. | Classification |
+| `f1_score` | ratio | The maximum ratio in f1 score between any two groups. | Classification |
+| `error_rate` | difference | The maximum difference in error rate between any two groups. | Classification |
+| `error_rate` | ratio | The maximum ratio in error rate between any two groups.|Classification|
+| `Selection_rate` | difference | The maximum difference in selection rate between any two groups. | Classification |
+| `Selection_rate` | ratio | The maximum ratio in selection rate between any two groups. | Classification |
+| `mean_absolute_error` | difference | The maximum difference in mean absolute error between any two groups. | Regression |
+| `mean_absolute_error` | ratio | The maximum ratio in mean absolute error between any two groups. | Regression |
+| `mean_squared_error` | difference | The maximum difference in mean squared error between any two groups. | Regression |
+| `mean_squared_error` | ratio | The maximum ratio in mean squared error between any two groups. | Regression |
+| `median_absolute_error` | difference | The maximum difference in median absolute error between any two groups. | Regression |
+| `median_absolute_error` | ratio | The maximum ratio in median absolute error between any two groups. | Regression |
+| `r2_score` | difference | The maximum difference in R<sup>2</sup> score between any two groups. | Regression |
+| `r2_Score` | ratio | The maximum ratio in R<sup>2</sup> score between any two groups. | Regression |
 
 ## Input constraints
 
@@ -504,7 +549,7 @@ The model must be in the MLflow directory with a sklearn flavor available. Addit
 
 ### What data formats are supported?
 
-The supplied datasets should be file datasets (of type `uri_file`) in Parquet format. We provide the `TabularDataset to Parquet File` component to help convert the data into the required format.
+The supplied datasets should be `mltable` with tabular data.
 
 ## Next steps
 
