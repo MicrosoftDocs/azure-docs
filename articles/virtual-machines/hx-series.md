@@ -38,8 +38,8 @@ All HX-series VMs feature 400 GB/s NDR InfiniBand from NVIDIA Networking to enab
 |Standard_HX176rs    |176 |AMD EPYC Genoa |1408 |8 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HX176-144rs|144 |AMD EPYC Genoa |1408 |10|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HX176-96rs |96  |AMD EPYC Genoa |1408 |15|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-48rs |48  |AMD EPYC Genoa |1408 |30|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
-|Standard_HX176-24rs |24  |AMD EPYC Genoa |1408 |60|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-48rs |48  |AMD EPYC Genoa |1408 |29|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
+|Standard_HX176-24rs |24  |AMD EPYC Genoa |1408 |59|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
