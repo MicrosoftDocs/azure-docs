@@ -19,7 +19,7 @@ Azure App Configuration supports Azure availability zones to protect your applic
 
 [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
 
-For more information about availability zones, go to [Regions and Availability Zones in Azure.](../availability-zones/availability-zones-overview.md)
+For more information about availability zones, go to [Regions and Availability Zones in Azure.](../reliability/availability-zones-overview.md)
 
 ## App Configuration store migration
 

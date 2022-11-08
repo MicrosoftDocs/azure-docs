@@ -4,7 +4,7 @@ description: Availability zone migration guidance overview for Microsoft Azure p
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 011/08/2022
+ms.date: 11/08/2022
 ms.author: anaharris
 ms.custom: references_regions
 ---

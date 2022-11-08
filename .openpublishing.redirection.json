@@ -29410,11 +29410,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/availability-zones/toc.yml",
-            "redirect_URL": "/azure/reliability/toc.yml",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/availability-zones/migrate-functions.md",
             "redirect_URL": "/azure/reliability/migrate-functions",
             "redirect_document_id": false
