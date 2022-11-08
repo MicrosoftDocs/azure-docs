@@ -19,7 +19,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 You can generate a Responsible AI dashboard and scorecard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png":::
+:::image type="content" source="./media/how-to-responsible-ai-insights-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-insights-sdk-cli/sample-experiment-graph.png":::
 
 ## Responsible AI components
 
