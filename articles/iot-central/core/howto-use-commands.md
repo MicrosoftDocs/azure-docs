@@ -3,7 +3,7 @@ title: How to use device commands in an Azure IoT Central solution
 description: How to use device commands in Azure IoT Central solution. This tutorial shows you how to use device commands in client app to your Azure IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022 
+ms.date: 10/31/2022 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -32,7 +32,7 @@ Standard commands are sent to a device to instruct the device to do something. A
 
 Commands are defined as part of a device template. The following screenshot shows the **Get Max-Min report** command definition in the **Thermostat** device template. This command has both request and response parameters: 
 
-:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template":::
+:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template" lightbox="media/howto-use-commands/command-definition.png":::
 
 The following table shows the configuration settings for a command capability:
 
@@ -155,7 +155,7 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 
 The following screenshot shows how the successful command response displays in the IoT Central UI:
 
-:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command":::
+:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command" lightbox="media/howto-use-commands/simple-command-ui.png":::
 
 ## Long-running commands
 
@@ -208,7 +208,7 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 
 The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 
-:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished":::
+:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished" lightbox="media/howto-use-commands/long-running-finish.png":::
 
 ## Offline commands
 
@@ -219,7 +219,7 @@ This section shows you how a device handles an offline command. If a device is o
 
 The following screenshot shows an offline command called **GenerateDiagnostics**. The request parameter is an object with datetime property called **StartTime** and an integer enumeration property called **Bank**:
 
-:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command":::
+:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command" lightbox="media/howto-use-commands/offline-command.png":::
 
 The following code snippet shows how a client can listen for offline commands and display the message contents:
 
@@ -251,7 +251,7 @@ Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-
 
 You can call commands on a device that isn't assigned to a device template. To call a command on an unassigned device navigate to the device in the **Devices** section, select **Manage device** and then **Command**. Enter the method name, payload, and any other required values. The following screenshot shows the UI you use to call a command:
 
-:::image type="content" source="media/howto-use-commands/unassigned-commands.png" alt-text="Screenshot that shows an example of calling a command on an unassigned device.":::
+:::image type="content" source="media/howto-use-commands/unassigned-commands.png" alt-text="Screenshot that shows an example of calling a command on an unassigned device." lightbox="media/howto-use-commands/unassigned-commands.png":::
 
 ## Next steps
 

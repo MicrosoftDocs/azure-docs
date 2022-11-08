@@ -200,7 +200,7 @@ To configure role assignments for your Azure AD-enabled Windows Server 2019 Data
 
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. You obtain the username of your current Azure account by using [az account show](/cli/azure/account#az-account-show), and you set the scope to the VM created in a previous step by using [az vm show](/cli/azure/vm#az-vm-show). 
 
-You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure by using Azure Active Directory authentication](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
+You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply.
 
 ```AzureCLI
 $username=$(az account show --query user.name --output tsv)

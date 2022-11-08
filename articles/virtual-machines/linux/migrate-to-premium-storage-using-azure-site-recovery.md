@@ -212,8 +212,8 @@ For specific scenarios for migrating virtual machines, see the following resourc
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
-* [Azure Storage](/azure/storage/)
-* [Azure Virtual Machines](/azure/virtual-machines/)
+* [Azure Storage](../../storage/index.yml)
+* [Azure Virtual Machines](../index.yml)
 * [Select a disk type for IaaS VMs](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

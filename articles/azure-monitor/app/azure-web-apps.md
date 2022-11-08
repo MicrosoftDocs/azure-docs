@@ -18,6 +18,8 @@ There are two ways to enable monitoring for applications hosted on App Service:
 
   This method is the easiest to enable, and no code change or advanced configurations are required. It's often referred to as "runtime" monitoring. For App Service, we recommend that at a minimum you enable this level of monitoring. Based on your specific scenario, you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
+  For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
   The following platforms are supported for auto-instrumentation monitoring:
 
   - [.NET Core](./azure-web-apps-net-core.md)

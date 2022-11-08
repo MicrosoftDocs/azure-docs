@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ## Introduction
 
-[Azure Functions](./functions-overview.md) allows you to implement your system's logic into readily-available blocks of code. These code blocks are called "functions".
+[Azure Functions](./functions-overview.md) allows you to implement your system's logic as event-driven, readily-available blocks of code. These code blocks are called "functions".
 
 Use the following resources to get started.
 

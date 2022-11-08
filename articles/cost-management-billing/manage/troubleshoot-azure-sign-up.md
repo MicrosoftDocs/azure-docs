@@ -57,7 +57,7 @@ To resolve this error, follow these steps:
 
 1. Sign in to the [Microsoft account center](https://account.microsoft.com/).
 1. At the top of the page, select **Your info**.
-1. Verify that your billing and shipping details are are completed and valid.
+1. Verify that your billing and shipping details are completed and valid.
 1.	When you sign up for the Azure subscription, verify that the billing address for the credit card registration matches your bank records.
 
 If you continue to receive the message, try to sign up by using a different browser.
@@ -141,7 +141,7 @@ Complete the Agreement.
 
 ## Other issues
 
-### Can't activate Azure benefit plan like Visual Studio, BizSpark, BizSparkPlus, or MPN
+### Can't activate Azure benefit plan like Visual Studio, BizSpark, BizSparkPlus, or Microsoft Cloud Partner Program
 
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
 - Visual Studio
@@ -150,9 +150,9 @@ Check that you're using the correct sign-in credentials. Then, check the benefit
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
   - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
-- MPN
-  - Sign in to the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for additional benefits.
-  - If you can't verify your status, contact [MPN Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
+- Cloud Partner Program
+  - Sign in to the [Cloud Partner Program portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for additional benefits.
+  - If you can't verify your status, contact [Cloud Partner Program Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
 ### Can't activate new Azure In Open subscription
 

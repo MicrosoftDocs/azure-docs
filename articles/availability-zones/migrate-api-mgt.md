@@ -33,7 +33,7 @@ In this article, we'll take you through the different options for availability z
     * Japan East
     * Korea Central (*)
     * North Europe
-    * Norway East (*)
+    * Norway East
     * South Africa North (*)
     * South Central US
     * Southeast Asia

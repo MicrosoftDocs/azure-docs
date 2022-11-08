@@ -204,7 +204,6 @@ For data connectors that include both free and paid data types, you can select w
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
-Data connectors listed as public preview don't generate cost. Data connectors generate cost only once becoming Generally Available (GA).
 
 ## Next steps
 

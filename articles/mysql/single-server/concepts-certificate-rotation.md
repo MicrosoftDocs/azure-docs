@@ -13,7 +13,9 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-Azure Database for MySQL Single Server successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
+Azure Database for MySQL Single Server as part of standard maintenance and security best practices will complete the root certificate change starting October 2022. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 > [!NOTE]
 > This article applies to [Azure Database for MySQL - Single Server](single-server-overview.md) ONLY. For [Azure Database for MySQL - Flexible Server](../flexible-server/overview.md), the certificate needed to communicate over SSL is [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
@@ -79,7 +81,7 @@ To avoid interruption of your application's availability as a result of certif
    In the future, after the new certificate is deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
 > [!NOTE]
-> Please don't drop or alter **Baltimore certificate** until the cert change is made. We'll send a communication after the change is done, and then it will be safe to drop the **Baltimore certificate**.
+> Please don't drop or alter **Baltimore certificate** until the cert change is made. We'll send a communication after the change is done and then it will be safe to drop the **Baltimore certificate**.
 
 #### What if we removed the BaltimoreCyberTrustRoot certificate?
 
@@ -89,7 +91,24 @@ You'll start to encounter connectivity errors while connecting to your Azure Dat
 
 #### If I'm not using SSL/TLS, do I still need to update the root CA?
 
-  No actions are required if you aren't using SSL/TLS.
+No actions are required if you aren't using SSL/TLS.
+
+#### When will my single server instance undergo root certificate change?
+
+The migration from **BaltimoreCyberTrustRoot** to  **DigiCertGlobalRootG2** will be carried out across all regions of Azure starting **October 2022** in phases. 
+To make sure that you do not lose connectivity to your server, follow the steps mentioned under [Create a combined CA certificate](#create-a-combined-ca-certificate).
+Combined CA certificate will allow connectivity over SSL to your single server instance with either of these two certificates.
+
+
+#### When can I remove BaltimoreCyberTrustRoot certificate completely?
+
+Once the migration is completed successfully across all Azure regions we'll send a communication post that you're safe to change single CA **DigiCertGlobalRootG2**  certificate.
+
+
+#### I don't specify any CA cert while connecting to my single server instance over SSL, do I still need to perform [the steps](#create-a-combined-ca-certificate) mentioned above?
+
+If you have both the CA root cert in your [trusted root store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store), then no further actions are required. This also applies to your client drivers that use local store for accessing root CA certificate.
+
 
 #### If I'm using SSL/TLS, do I need to restart my database server to update the root CA?
 
@@ -125,10 +144,6 @@ For a connector using Self-hosted Integration Runtime where you explicitly inclu
 #### Do I need to plan a database server maintenance downtime for this change?
 
 No. Since the change is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
-
-#### If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
-
-For servers created after February 15, 2021 (02/15/2021), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) for your applications to connect using SSL.
 
 #### How often does Microsoft update their certificates or what is the expiry policy?
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 10/31/2022
 ms.author: helohr
 manager: femila
 ---
@@ -35,6 +35,14 @@ To enroll your Azure subscription into per-user access pricing:
 6. Review the Product Terms, then select **Enroll** to begin enrollment. It may take up to an hour for the enrollment process to finish.
 
 7. After enrollment is done, check the value in the **Per-user access pricing** column of the subscriptions list to make sure it's changed from “Enrolling” to “Enrolled.”
+
+## Licensing other products and services for use with Azure Virtual Desktop
+
+There are a few ways to enable your external users to access Office: 
+
+- Users can sign in to Office with their own Office account.
+- You can re-sell Office through your Cloud Service Provider (CSP). 
+- You can distribute Office by using a Service Provider Licensing Agreement (SPLA).
 
 ## Next steps
 

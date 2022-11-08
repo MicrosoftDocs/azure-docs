@@ -55,7 +55,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Active Directory limits
+## Azure Active Directory limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -145,6 +145,10 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
 
+## Azure Lab Services
+
+[!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]
+
 ## Azure Load Testing limits
 
 For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md).
@@ -209,6 +213,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure Spring Apps limits
+
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
 
 ## Azure Virtual Desktop Service limits
 
@@ -402,6 +410,10 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
 
+## Multi workspace limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
+
 ### Notebook limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
@@ -519,7 +531,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 
-## Virtual machine scale sets limits
+## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 

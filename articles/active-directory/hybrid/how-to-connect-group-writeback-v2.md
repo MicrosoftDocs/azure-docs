@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/15/2022
+ms.date: 10/12/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -17,6 +17,10 @@ ms.collection: M365-identity-device-management
 # Plan for Azure AD Connect group writeback
  
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
+
+> [!NOTE]
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-group-writeback-v2#understand-limitations-of-public-preview) before you enable this functionality.
+
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
 
@@ -31,7 +35,7 @@ There are two versions of group writeback. The original version is in general av
 - You can configure the common name in an Active Directory group's distinguished name to include the group's display name when it's written back.  
 - You can use the Azure AD admin portal, Graph Explorer, and PowerShell to configure which Azure AD groups are written back. 
 
-The new version is available only in [Azure AD Connect version 2.0.89.0 or later](https://www.microsoft.com/download/details.aspx?id=47594). It must be enabled in addition to the original version. 
+The new version is enabled on the tenant and not per Azure AD Connect client instance. Make sure that all Azure AD Connect client instances are updated to a minimal build of [Azure AD Connect version 2.0 or later](https://www.microsoft.com/download/details.aspx?id=47594) if group writeback is currently enabled on the client instance. 
 
 This article walks you through activities that you should complete before you enable group writeback for your tenant. These activities include discovering your current configuration, verifying the prerequisites, and choosing the deployment approach. 
 
@@ -117,16 +121,18 @@ If you plan to make changes to the default behavior, we recommend that you do so
  
 ## Understand limitations of public preview  
 
-Although this release has undergone extensive testing, you might still encounter issues. One of the goals of this public preview release is to find and fix any issues before the feature moves to general availability.
-
-Microsoft provides support for this public preview release, but it might not be able to immediately fix issues that you encounter. For this reason, we recommend that you use your best judgment before deploying this release in your production environment. 
+Although this release has undergone extensive testing, you might still encounter issues. One of the goals of this public preview release is to find and fix any issues before the feature moves to general availability. Please also note that any public preview functionality can still receive breaking changes which may require you to make changes to you configuration to continue using this feature. We may also decide to change or remove certain functionality without prior notice.
+Microsoft provides support for this public preview release, but we might not be able to immediately fix issues that you encounter. For these reasons, we recommend that you do not deploy this release in your production environment. 
 
 These limitations and known issues are specific to group writeback: 
 
-- Cloud [distribution list groups](/exchange/recipients-in-exchange-online/manage-distribution-groups/manage-distribution-groups) created in Exchange Online can't be written back to Active Directory. Only Microsoft 365 and Azure AD security groups are supported. 
-- When you enable group writeback, all existing Microsoft 365 groups are written back and created as distribution groups by default. This behavior is for backward compatibility with the current version of group writeback. You can modify this behavior by following the steps in [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 
-- When you disable writeback for a group, the group won't automatically be removed from your on-premises Active Directory instance until you hard delete it in Azure AD. You can modify this behavior by following the steps in [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 
-- Group writeback does not support writeback of nested group members that have a scope of **Domain local** in Active Directory, because Azure AD security groups are written back with a scope of **Universal**. 
+- Cloud [distribution list groups](/exchange/recipients-in-exchange-online/manage-distribution-groups/manage-distribution-groups) created in Exchange Online cannot be written back to AD, only Microsoft 365 and Azure AD security groups are supported. 
+- To be backwards compatible with the current version of group writeback, when you enable group writeback, all existing Microsoft 365 groups are written back and created as distribution groups, by default. 
+- When you disable writeback for a group, the group won't automatically be removed from your on-premises Active Directory, until hard deleted in Azure AD. This behavior can be modified by following the steps detailed in [Modifying group writeback](how-to-connect-modify-group-writeback.md) 
+- Group Writeback does not support writeback of nested group members that have a scope of ‘Domain local’ in AD, since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you'll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member.”  The resolution is to remove the member with scope ‘Domain local’ from the Azure AD group or update the nested group member scope in AD to ‘Global’ or ‘Universal’ group. 
+- Group Writeback only supports writing back groups to a single Organization Unit (OU). Once the feature is enabled, you cannot change the OU you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
+- Nested cloud groups that are members of writeback enabled groups must also be enabled for writeback to remain nested in AD. 
+- Group Writeback setting to manage new security group writeback at scale is not yet available. You will need to configure writeback for each group.  
 
   If you have a nested group like this, you'll see an export error in Azure AD Connect with the message "A universal group cannot have a local group as a member." The resolution is to remove the member with the **Domain local** scope from the Azure AD group, or update the nested group member scope in Active Directory to **Global** or **Universal**. 
 - Group writeback supports writing back groups to only a single organizational unit (OU). After the feature is enabled, you can't change the OU that you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  

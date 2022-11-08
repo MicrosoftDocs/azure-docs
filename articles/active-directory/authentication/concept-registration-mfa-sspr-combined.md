@@ -20,9 +20,7 @@ ms.collection: M365-identity-device-management
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)
 
 > [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. 
-> 
-> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
+> Effective Oct. 1st, 2022, we will begin to enable combined registration for all users in Azure AD tenants created before August 15th, 2020. Tenants created after this date are enabled with combined registration. 
 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 
@@ -59,14 +57,16 @@ Combined registration supports the authentication methods and actions in the fol
 | Hardware token | No | No | Yes |
 | Phone | Yes | Yes | Yes |
 | Alternate phone | Yes | Yes | Yes |
-| Office phone | Yes | Yes | Yes |
+| Office phone* | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
-| App passwords | Yes | No | Yes |
-| FIDO2 security keys<br />*Managed mode only from the [Security info](https://mysignins.microsoft.com/security-info) page*| Yes | Yes | Yes |
+| App passwords* | Yes | No | Yes |
+| FIDO2 security keys*| Yes | Yes | Yes |
 
 > [!NOTE]
-> App passwords are available only to users who have been enforced for Azure AD Multi-Factor Authentication. App passwords are not available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy.
+> <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
+> <b>App passwords</b> are available only to users who have been enforced for Azure AD Multi-Factor Authentication. App passwords are not available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
+> <b>FIDO2 security keys</b>, can only be added in *Managed mode only from the [Security info](https://mysignins.microsoft.com/security-info) page*
 
 Users can set one of the following options as the default multifactor authentication method. 
 
@@ -140,7 +140,7 @@ A user who hasn't yet set up all required security info goes to [https://myaccou
 
 ### Set up other methods after partial registration
 
-If a user has partially satisfied MFA or SSPR registration due to existing authentication method registrations performed by the user or admin, users will only be asked to register additional information allowed by the Authentication methods policy. If more than one other authentication method is available for the user to choose and register, an option on the registration experience titled **I want to set up another method** will be shown and allow the user to set up their desired authentication method.  
+If a user has partially satisfied MFA or SSPR registration due to existing authentication method registrations performed by the user or admin, users will only be asked to register additional information allowed by the Authentication methods policy settings when registration is required. If more than one other authentication method is available for the user to choose and register, an option on the registration experience titled **I want to set up another method** will be shown and allow the user to set up their desired authentication method.  
 
 :::image type="content" border="true" source="./media/concept-registration-mfa-sspr-combined/other-method.png" alt-text="Screenshot of how to set up another method." :::  
 
@@ -164,6 +164,12 @@ If this user removes SMS/Text as one of the authentication options on their home
 To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
+
+Or, you can specify a tenant by URL to access security information.
+
+`https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>`
+
+`https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
 
 ## Next steps
 

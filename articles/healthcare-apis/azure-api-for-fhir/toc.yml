@@ -8,8 +8,6 @@ items:
   items:
   - name: About Azure API for FHIR
     href: overview.md
-  - name: About Azure IoT Connector for FHIR (preview)
-    href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Quickstarts
   expanded: true
   items:
@@ -27,13 +25,6 @@ items:
     - name: Using ARM template
       displayName: Resource Manager
       href: azure-api-fhir-resource-manager-template.md
-  - name: Deploy Azure IoT Connector for FHIR (preview)
-    expanded: false
-    items:
-    - name: Using Portal
-      href: iot-fhir-portal-quickstart.md
-    - name: Using ARM template
-      href: iot-azure-resource-manager-template-quickstart.md 
 - name: Tutorials
   expanded: true
   items:
@@ -50,11 +41,6 @@ items:
       href: tutorial-web-app-write-web-app.md
   - name: Use SMART on FHIR proxy
     href: use-smart-on-fhir-proxy.md
-  - name: Ingest data from IoT devices
-    expanded: false
-    items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md
   - name: Interoperability and Patient Access
     expanded: false
     items:
@@ -102,9 +88,7 @@ items:
     - name: Autoscale for Azure API for FHIR
       href: autoscale-azure-api-fhir.md
     - name: Disaster recovery for Azure API for FHIR
-      href: disaster-recovery.md
-    - name: Display and configure Azure IoT Connector for FHIR (preview) metrics
-      href: iot-metrics-display.md 
+      href: disaster-recovery.md 
   - name: Diagnostic logging
     expanded: false
     items:
@@ -154,8 +138,6 @@ items:
     href: find-identity-object-ids.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
-  - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
-    href: iot-troubleshoot-guide.md
   - name: Move to a different subscription
     href: move-fhir-service.md
 - name: Concepts
@@ -167,13 +149,6 @@ items:
     href: azure-api-fhir-access-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
-  - name: Azure IoT Connector for FHIR (preview) workings
-    expanded: false
-    items:
-    - name: Azure IoT Connector for FHIR (preview) data flow
-      href: iot-data-flow.md
-    - name: Azure IoT Connector for FHIR (preview) mapping templates
-      href: iot-mapping-templates.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security

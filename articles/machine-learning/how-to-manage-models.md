@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cli-v2, sdk-v2, event-tier1-build-2022
+ms.custom: devx-track-python, cli-v2, sdk-v2, event-tier1-build-2022, ignite-2022
 ---
 
 # Work with models in Azure Machine Learning
@@ -255,6 +255,6 @@ To create a model in Machine Learning, from the UI, open the **Models** page. Se
 
 ## Next steps
 
-* [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
+* [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [No-code deployment for MLflow models](how-to-deploy-mlflow-models-online-endpoints.md)
 * Learn more about [MLflow and Azure Machine Learning](concept-mlflow.md)

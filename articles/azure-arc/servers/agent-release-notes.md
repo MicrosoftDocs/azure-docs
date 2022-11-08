@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/14/2022
+ms.date: 10/11/2022
 ms.custom: references_regions
 ---
 
@@ -16,12 +16,35 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.23 - October 2022
+
+### New features
+
+- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
+- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
+- Added support for Rocky Linux 8 and Debian 11.
+
+### Fixed
+
+- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
+- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
+- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
+- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
+- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
+- Improved logging during the installation process.
+- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
+
 ## Version 1.22 - September 2022
+
+### Known issues
+
+- When connecting a server and specifying multiple tags, the value of the last tag is used for all tags. You will need to fix the tags after onboarding to use the correct values.
 
 ### New features
 
 - The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
 - If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- Added support for Ubuntu 22.04
 - Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
 
 ### Fixed
@@ -84,20 +107,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - An issue that could cause the extension manager to hang during extension installation, update, and removal operations has been resolved.
 - Improved support for TLS 1.3
-
-## Version 1.18 - May 2022
-
-### New features
-
-- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
-- VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
-
-### Fixed
-
-- `systemd` is now an official prerequisite on Linux and your package manager will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
-- Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
-- Improved reliability when extracting extensions and guest configuration policy packages
-- Improved reliability for guest configuration policies that have child processes
 
 ## Next steps
 

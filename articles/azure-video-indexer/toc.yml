@@ -11,6 +11,8 @@
     href: accounts-overview.md
   - name: Language support
     href: language-support.md
+  - name: Insights
+    href: insights-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -40,8 +42,8 @@
   items:
   - name: Terminology & concepts overview
     href: concepts-overview.md
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
+  - name: Indexing configuration guide
+    href: indexing-configuration-guide.md  
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
   - name: Using at scale 
@@ -90,6 +92,8 @@
     items:
     - name: Slate detection
       href: slate-detection-insight.md
+  - name: Compare Azure Video Indexer and Media Services presets
+    href: compare-video-indexer-with-media-services-presets.md
 - name: How to guides
   items:
   - name: Manage accounts
@@ -121,7 +125,7 @@
       href: video-indexer-search.md
     - name: Detect scenes, shots, keyframes
       href: scenes-shots-keyframes.md
-    - name: Insert or remove transcript lines
+    - name: View and update transcriptions
       href: edit-transcript-lines-portal.md     
     - name: Identify and transcribe multi-language content
       href: multi-language-identification-transcription.md
@@ -134,12 +138,14 @@
       items:
       - name: Detected clothing (preview)
         href: detected-clothing.md
-      - name: Featured clothing (preview)
-        href: observed-people-featured-clothing.md
+    - name: Featured clothing (preview)
+      href: observed-people-featured-clothing.md
     - name: Matched person (preview)
       href: matched-person.md
     - name: Audio effects detection (preview)
       href: audio-effects-detection.md
+    - name: View closed captions
+      href: view-closed-captions.md
     - name: Customize content models
       items:
       - name: Animated characters

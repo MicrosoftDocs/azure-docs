@@ -1,19 +1,19 @@
 ---
-title: 'Migrate from v1 to v2: '
+title: Upgrade hyperparameter tuning to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade hyperparameter tuning from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: SturgeonMi
-ms.author: sgilley
+ms.author: xunwan 
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate hyperparameter tuning from SDK v1 to SDK v2
+# Upgrade hyperparameter tuning to SDK v2
 
 In SDK v2, tuning hyperparameters are consolidated into jobs.
 
@@ -275,6 +275,6 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 For more information, see:
 
-* [SDK v1 - Tune Hyperparameters](/v1/how-to-tune-hyperparameters-v1.md)
+* [SDK v1 - Tune Hyperparameters](/azure/machine-learning/v1/how-to-tune-hyperparameters-v1)
 * [SDK v2 - Tune Hyperparameters](/python/api/azure-ai-ml/azure.ai.ml.sweep)
 * [SDK v2 - Sweep in Pipeline](how-to-use-sweep-in-pipeline.md)

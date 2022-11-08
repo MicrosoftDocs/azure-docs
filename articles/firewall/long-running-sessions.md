@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/22/2022
+ms.date: 10/03/2022
 ms.author: victorh 
 ---
 
@@ -16,14 +16,14 @@ Azure Firewall is designed to be available and redundant. Every effort is made t
 ## Scenarios that impact long running TCP sessions
 
 The following scenarios can potentially drop long running TCP sessions:
-- Scale down
+- Scale in
 - Firewall maintenance
 - Idle timeout
 - Auto-recovery
 
-### Scale down
+### Scale in
 
-Azure Firewall scales up\down based on throughput and CPU usage. Scale down is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
+Azure Firewall scales in/out based on throughput and CPU usage. Scale in is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
 
 ### Firewall maintenance
 

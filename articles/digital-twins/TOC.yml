@@ -137,14 +137,10 @@
       href: how-to-integrate-maps.md
   - name: Monitor and troubleshoot
     items:
-    - name: Metrics
-      href: how-to-monitor-metrics.md
-    - name: Diagnostics logs
-      href: how-to-monitor-diagnostics.md
-    - name: Alerts
-      href: how-to-monitor-alerts.md
-    - name: Resource health
-      href: how-to-monitor-resource-health.md
+    - name: Monitor your instance
+      href: how-to-monitor.md
+    - name: Troubleshoot resource health
+      href: troubleshoot-resource-health.md
     - name: Troubleshoot performance
       href: troubleshoot-performance.md
     - name: Known issues
@@ -292,11 +288,11 @@
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools/UploadModels
-      - name: Model Visualizer (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer 
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
+      - name: Model Deleter (sample)
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
       - name: OWL2DTDL Converter   
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/OWL2DTDL   
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL   
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample

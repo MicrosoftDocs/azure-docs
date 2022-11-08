@@ -229,6 +229,8 @@
           href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
     - name: Frameworks
       items:
         - name: Express.js
@@ -266,11 +268,13 @@
       items: 
         - name: In-process
           href: functions-dotnet-class-library.md
-        - name: Isolated process 
+        - name: Isolated worker process 
           displayName: .NET isolated, .NET 5
           href: dotnet-isolated-process-guide.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
+        - name: Execution mode comparison
+          href: dotnet-isolated-in-process-differences.md
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
@@ -293,6 +297,7 @@
           items:
             - name: Develop and debug locally
               href: functions-develop-local.md
+              displayName: local.settings.json
             - name: Visual Studio Code development
               href: functions-develop-vs-code.md
               displayName: VS Code, VS
@@ -420,6 +425,12 @@
           href: ../availability-zones/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md  
+    - name: Migrate
+      items:
+        - name: Migrate v3.x to v4.x
+          href: migrate-version-3-version-4.md
+        - name: Migrate v1.x to v4.x
+          href: migrate-version-1-version-4.md
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -515,6 +526,8 @@
               href: start-stop-vms/manage.md
             - name: Remove Start/Stop VMs
               href: start-stop-vms/remove.md
+            - name: Define pre-actions
+              href: start-stop-vms/pre-actions.md
             - name: Troubleshoot
               href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database

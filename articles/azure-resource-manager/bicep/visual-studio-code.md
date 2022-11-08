@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 11/02/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -44,6 +44,13 @@ The `build` command converts a Bicep file to an Azure Resource Manager template 
 
 The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you can overwrite the existing file.
 
+To create a Bicep configuration file:
+
+1. Open Visual Studio Code.
+1. From the **View** menu, select **Command Palette** (or press **[CTRL/CMD]**+**[SHIRT]**+**P**), and then select **Bicep: Create Bicep Configuration File**.
+1. Select the file directory where you want to place the file.
+1. Save the configuration file when you are done.
+
 ### Deploy Bicep file
 
 You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
@@ -56,21 +63,28 @@ This command creates a parameter file in the same folder as the Bicep file. The 
 
 The `insert resource` command adds a resource declaration in the Bicep file by providing the resource ID of an existing resource. After you select **Insert Resource**, enter the resource ID in the command palette. It takes a few moments to insert the resource.
 
-You can find the resource ID from the Azure portal, or by using:
+You can find the resource ID by using one of these methods:
 
-# [CLI](#tab/CLI)
+- Use [Azure Resource extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
 
-```azurecli
-az resource list
-```
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension.":::
 
-# [PowerShell](#tab/PowerShell)
+- Use the [Azure portal](https://portal.azure.com).
+- Use Azure CLI or Azure PowerShell:
 
-```azurepowershell
-Get-AzResource
-```
+  # [CLI](#tab/CLI)
 
----
+  ```azurecli
+  az resource list
+  ```
+
+  # [PowerShell](#tab/PowerShell)
+
+  ```azurepowershell
+  Get-AzResource
+  ```
+
+  ---
 
 Similar to exporting templates, the process tries to create a usable resource. However, most of the inserted resources require some modification before they can be used to deploy Azure resources.
 

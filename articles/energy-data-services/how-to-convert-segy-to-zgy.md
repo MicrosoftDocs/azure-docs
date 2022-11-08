@@ -9,33 +9,28 @@ ms.date: 08/18/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# How to convert a SEG-Y file to ZGY?
+# How to convert a SEG-Y file to ZGY
 
-Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
+In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-### Postman
-
-* Download and install [Postman](https://www.postman.com/) desktop app.
-* Import the [oZGY Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oZGY%20Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-* Microsoft Energy Data Services Preview instance is created already
-* Clone the **sdutil** repo as shown below:
+1. Download and install [Postman](https://www.postman.com/) desktop app.
+2. Import the [oZGY Conversions.postman_collection](https://github.com/microsoft/meds-samples/blob/main/postman/SegyToZgyConversion%20Workflow%20using%20SeisStore%20R3%20CI-CD%20v1.0.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
+3. Ensure that your Microsoft Energy Data Services Preview instance is created already
+4. Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git
 
   git checkout azure/stable
   ```
-* The [jq command](https://stedolan.github.io/jq/download/), using your favorite tool on your favorite OS.
+5. The [jq command](https://stedolan.github.io/jq/download/), using your favorite tool on your favorite OS.
   
-## Step by Step guide
+## Convert SEG-Y file to ZGY file
 
-1. The user needs to be part of the `users.datalake.admins` group and user needs to generate a valid refresh token. See [How to generate a refresh token](how-to-generate-refresh-token.md) for further instructions. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future. If it isn't present, add the group for the member ID. In this case, use the app ID you have been using for everything as the `user-email`.
-
-    > [!NOTE]
-    > `data-partition-id` should be in the format `<instance-name>-<data-partition-name>` in both the header and the url, and will be for any following    command that requires `data-partition-id`.
+1. The user needs to be part of the `users.datalake.admins` group and user needs to generate a valid refresh token. See [How to generate a refresh token](how-to-generate-refresh-token.md) for further instructions. If you continue to follow other "how-to" documentation, you'll use this refresh token again. Once you've generated the token, store it in a place where you'll be able to access it in the future. If it isn't present, add the group for the member ID. In this case, use the app ID you have been using for everything as the `user-email`. Additionally, the `data-partition-id` should be in the format `<instance-name>-<data-partition-name>` in both the header and the url, and will be for any following command that requires `data-partition-id`.
 
     ```bash
     curl --location --request POST "<url>/api/entitlements/v2/groups/users.datalake.admins@<data-partition>.<domain>.com/members" \
@@ -105,10 +100,9 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     }'
     ```
 
-5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users?](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). Data access isolation achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
+5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
-    > [!NOTE] 
-    > Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
+    Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.
 
     ```bash
     curl --location --request POST '<url>/seistore-svc/api/v3/subproject/tenant/<data-partition>/subproject/<subproject>' \
@@ -158,7 +152,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     }'
     ```
 
-6. Patch Subproject with the legal tag you created above:
+6. Patch Subproject with the legal tag you created above. Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
 
     ```bash
     curl --location --request PATCH '<url>/seistore-svc/api/v3/subproject/tenant/<data-partition>/subproject/<subproject-name>' \
@@ -182,10 +176,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     }'
     ```
 
-    > [!NOTE]
-    > Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
-
-7. Open the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) codebase and edit the `config.yaml` at the root. Update this config to:
+7. Open the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. See [How to generate a refresh token](how-to-generate-refresh-token.md) to generate the required refresh token. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     ```yaml
     seistore:
@@ -208,10 +199,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
         empty: none
     ```
 
-    > [!NOTE]
-    > See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
-
-8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md).
+8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     > [!NOTE]
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
@@ -239,22 +227,21 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
 
 10. Create the manifest file (otherwise known as the records file)
 
-    ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, where the dataset definitions come from, visit [their website](https://www.equinor.com/en/what-we-do/digitalisation-in-our-dna/volve-field-data-village-download.html). Complete the following steps in order to create the manifest file:
+    ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/en/what-we-do/digitalisation-in-our-dna/volve-field-data-village-download.html). Complete the following steps in order to create the manifest file:
 
     * Clone the [repo](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/) and navigate to the folder doc/sample-records/volve
-    * Edit the values in the `prepare-records.sh` bash script:
+    * Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
 
       * `DATA_PARTITION_ID=<your-partition-id>`
       * `ACL_OWNER=data.default.owners@<your-partition-id>.<your-tenant>.com`
       * `ACL_VIEWER=data.default.viewers@<your-partition-id>.<your-tenant>.com`
       * `LEGAL_TAG=<legal-tag-created-above>`
 
-    > [!NOTE]
-    >  Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
+    * Run the `prepare-records.sh` script.
     * The output will be a JSON array with all objects and will be saved in the `all_records.json` file.
     * Save the `filecollection_segy_id` and the `work_product_id` values in that JSON file to use in the conversion step. That way the converter knows where to look for this contents of your `all_records.json`.
 
-11. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection (that is, copy and paste the contents of that file to the `--data-raw` field in the following command):
+11. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection. In other words, copy and paste the contents of that file to the `--data-raw` field in the following command. If the above steps have produced two sets, you can run this command twice, using each set once.
 
     ```bash
         curl --location --request PUT '<url>/api/storage/v2/records' \
@@ -329,4 +316,4 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert segy to ovds](/how-to-convert-segy-to-ovds.md)
+> [How to convert segy to ovds](/azure/energy-data-services/how-to-convert-segy-to-ovds)

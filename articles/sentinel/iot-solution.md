@@ -148,5 +148,7 @@ For more information, see:
 
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
+- [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
+- [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
 - [Microsoft Defender for IoT data connector](data-connectors-reference.md#microsoft-defender-for-iot)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
+

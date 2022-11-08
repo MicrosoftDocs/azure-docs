@@ -39,6 +39,36 @@
         "source_path_from_root": "/articles/communication-services/concepts/router/azure-function-rule-engine.md",
         "redirect_url": "/azure/communication-services/how-tos/router-sdk/customize-worker-scoring",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/call-automation-api-sample.md",
+        "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/call-automation-apis.md",
+        "redirect_url": "/azure/communication-services/concepts/voice-video-calling/call-automation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/download-recording-file-sample.md",
+        "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/call-recording-sample.md",
+        "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/call-recording-unmixed-audio-private-preview-quickstart.md",
+        "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording",
+        "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/communication-services/quickstarts/telephony/manage-inbound-calls.md",
+          "redirect_url": "/azure/communication-services/how-tos/call-automation-sdk/redirect-inbound-telephony-calls",
+          "redirect_document_id": false
       }
     ]
 }

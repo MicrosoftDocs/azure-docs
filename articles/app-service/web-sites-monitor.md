@@ -56,16 +56,13 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 
 ## Understand metrics
 
-> [!NOTE]
-> **File System Usage** is now available globally for apps hosted in multi-tenants and App Service Environment.
-> 
-
 > [!IMPORTANT]
 > **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
 
 > [!NOTE]
 > Metrics for an app include the requests to the app's SCM site(Kudu).  This includes requests to view the site's logstream using Kudu.  Logstream requests may span several minutes, which will affect the Request Time metrics.  Users should be aware of this relationship when using these metrics with autoscale logic.
 > 
+> **Http Server Errors** only records requests that reach the backend service (the worker(s) hosting the app). If the requests are failing at the FrontEnd, they are not recorded as Http Server Errors. The [Health Check feature](./monitor-instances-health-check.md) / Application Insights availability tests can be used for outside in monitoring.
 
 Metrics provide information about the app or the App Service plan's behavior.
 
