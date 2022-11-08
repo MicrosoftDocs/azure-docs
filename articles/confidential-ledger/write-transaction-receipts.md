@@ -11,7 +11,7 @@ ms.topic: overview
 
 # Azure Confidential Ledger write transaction receipts
 
-To enforce transaction integrity guarantees, an Azure Confidential Ledger uses a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) data structure to record the hash of all transactions blocks that are appended to the ledger. After executing a write transaction, Azure Confidential Ledger users can get a cryptographic Merkle proof, or receipt, over the entry produced in a Confidential Ledger to verify that the write operation was correctly saved. A write transaction receipt is proof that the system has committed the corresponding transaction and can be used to verify that the entry has been effectively appended to the ledger.
+To enforce transaction integrity guarantees, an Azure Confidential Ledger uses a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) data structure to record the hash of all transactions blocks that are appended to the immutable ledger. After a write transaction is committed, Azure Confidential Ledger users can get a cryptographic Merkle proof, or receipt, over the entry produced in a Confidential Ledger to verify that the write operation was correctly saved. A write transaction receipt is proof that the system has committed the corresponding transaction and can be used to verify that the entry has been effectively appended to the ledger.
 
 More details about how a Merkle Tree is used in a Confidential Ledger can be found in the [CCF documentation](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
@@ -21,7 +21,7 @@ More details about how a Merkle Tree is used in a Confidential Ledger can be fou
 
 Azure Confidential Ledger users can get a receipt for a specific transaction by using the [Azure Confidential Ledger client library](https://learn.microsoft.com/azure/confidential-ledger/quickstart-python?tabs=azure-cli#use-the-data-plane-client-library). The following example shows how to get a write receipt using the [client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger), but the steps are the same with any other supported SDK for Azure Confidential Ledger.
 
-We assume that we have already created a Confidential Ledger resource using the Azure Confidential Ledger Management library. If you do not have an existing ledger resource yet, please create one using the [following instructions](https://docs.microsoft.com/azure/confidential-ledger/quickstart-python?tabs=azure-cli#use-the-control-plane-client-library).
+We assume that a Confidential Ledger resource has already been created using the Azure Confidential Ledger Management library. If you don't have an existing ledger resource yet, create one using the [following instructions](https://docs.microsoft.com/azure/confidential-ledger/quickstart-python?tabs=azure-cli#use-the-control-plane-client-library).
 
 ### Code walkthrough
 
@@ -38,7 +38,7 @@ from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient 
 ```
 
-The following are the constants we are going to use to set up the Azure Confidential Ledger client. Please make sure to update the `ledger_name` constant with the name unique name of your Confidential Ledger resource.
+The following are the constant values used to set up the Azure Confidential Ledger client. Make sure to update the `ledger_name` constant with the unique name of your Confidential Ledger resource.
 
 ```python
 # Constants for our program 
@@ -54,7 +54,7 @@ We authenticate using the [DefaultAzureCredential class](/python/api/azure-ident
 credential = DefaultAzureCredential() 
 ```
 
-Then, we get and save the Confidential Ledger service certificate using the Certificate client from the [Confidential Ledger Identity URL](https://identity.confidential-ledger.core.azure.com/ledgerIdentity). The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it is used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
+Then, we get and save the Confidential Ledger service certificate using the Certificate client from the [Confidential Ledger Identity URL](https://identity.confidential-ledger.core.azure.com/ledgerIdentity). The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it's used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
 
 ```python
 # Create a Certificate client and use it to 
@@ -82,7 +82,7 @@ ledger_client = ConfidentialLedgerClient(
 ) 
 ```
 
-Using the Confidential Ledger client, we can run any supported operations on an Azure COnfidential Ledger instance. For example, we can append a new entry to the ledger and wait for corresponding write transaction to be committed.
+Using the Confidential Ledger client, we can run any supported operations on an Azure Confidential Ledger instance. For example, we can append a new entry to the ledger and wait for corresponding write transaction to be committed.
 
  ```python
 # The method begin_create_ledger_entry returns a poller that  
@@ -94,7 +94,7 @@ create_entry_poller = ledger_client.begin_create_ledger_entry(
 create_entry_result = create_entry_poller.result() 
 ```
 
-Now that we have a committed transaction, we can use the client to get a receipt over the entry appended to the ledger in the previous step using the [transaction ID](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Transaction-ID) of the committed transaction.
+After the transaction is committed, we can use the client to get a receipt over the entry appended to the ledger in the previous step using the respective [transaction ID](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Transaction-ID).
 
 ```python
 # The method begin_get_receipt returns a poller that  
@@ -169,7 +169,7 @@ with open("receipt.json", "w") as receipt_file:
 
 ## Write transaction receipt content
 
-Here is an example of a JSON response payload returned by an Azure Confdential Ledger instance when calling the `GET_RECEIPT` endpoint.
+Here's an example of a JSON response payload returned by an Azure Confidential Ledger instance when calling the `GET_RECEIPT` endpoint.
 
 ```json
 {
@@ -200,12 +200,12 @@ Here is an example of a JSON response payload returned by an Azure Confdential L
 
 The JSON response contains the following fields at the root level.
 
-* **receipt**: It contains the values that can be used to verify the validiy of the receipt for the corresponding write transaction.
+* **receipt**: It contains the values that can be used to verify the validity of the receipt for the corresponding write transaction.
 
-* **state**: The status of the returned JSON response. Possible values are the following:
+* **state**: The status of the returned JSON response. The following are the possible values allowed:
   
   * `Ready`: The receipt returned in the response is available
-  * `Loading`: The receipt is not yet available to be retrieved and the request will have to be re-tried
+  * `Loading`: The receipt isn't yet available to be retrieved and the request will have to be retried
 
 * **transactionId**: The transaction ID associated with the write transaction receipt.
 
@@ -213,29 +213,29 @@ The `receipt` field contains the following fields.
 
 * **cert**: String with the [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) public key certificate of the CCF node that signed the write transaction. The certificate of the signing node should always be endorsed by the service identity certificate. See also more details about how transactions get regularly signed and how the signature transactions are appended to the ledger in CCF at the following [link](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
-* **is_signature_transaction**: Value indicating whether the receipt is related to a signature transaction or not. Receipts for signature transactions cannot be retrieved for Confidential Ledgers.
+* **is_signature_transaction**: Boolean value indicating whether the receipt is related to a signature transaction or not. Receipts for signature transactions can't be retrieved for Confidential Ledgers.
 
 * **node_id**: Hexadecimal string representing the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash digest of the public key of the signing CCF node.
 
-* **leaf_components**: The components of the leaf node hash in the [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) that are associated to the specified transaction. A Merkle Tree is a tree data structure that records the hash of every transaction and guarantees the integrity of the ledger (see how a Merkle Tree is used in CCF [here](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html)).
+* **leaf_components**: The components of the leaf node hash in the [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) that are associated to the specified transaction. A Merkle Tree is a tree data structure that records the hash of every transaction and guarantees the integrity of the ledger. For more information on how a Merkle Tree is used in CCF, see the related [CCF documentation](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
-* **proof**: List of key-value pairs representing the Merkle Tree nodes hashes that, when combined with the leaf node hash corresponding to the given transaction, allow the re-computation of the root hash of the tree. Thanks to the properties of a Merkle Tree, it is possible to re-compute the root hash of the tree only a subset of nodes. The elements in this list are in the form of key-value pairs, where the key indicates the relative position with respect to the parent node in the tree and the value is the the SHA-256 hash digest digest of the node given, as an hexadecimal string.
+* **proof**: List of key-value pairs representing the Merkle Tree nodes hashes that, when combined with the leaf node hash corresponding to the given transaction, allow the recomputation of the root hash of the tree. Thanks to the properties of a Merkle Tree, it's possible to recompute the root hash of the tree only a subset of nodes. The elements in this list are in the form of key-value pairs: keys indicate the relative position with respect to the parent node in the tree at a certain level; values are the SHA-256 hash digests of the node given, as hexadecimal strings.
 
-* **service_endorsements**: List of PEM-encoded certificates strings representing previous service identities certificated. If the service identity is renewed, it is possible that the service identity that endorsed the signing node is not the same as the one that issued the receipt. The list of past service certificates allows to build the chain of trust from the CCF signing node to the current service certificate.
+* **service_endorsements**: List of PEM-encoded certificates strings representing previous service identities certificates. It's possible that the service identity that endorsed the signing node isn't the same as the one that issued the receipt. For example, the service certificate is renewed after a disaster recovery of a Confidential Ledger. The list of past service certificates allows auditors to build the chain of trust from the CCF signing node to the current service certificate.
 
 * **signature**: Base64 string representing the signature of the root of the Merkle Tree at the given transaction, by the signing CCF node.
 
 The `leaf_components` field contains the following fields.
 
-* **claims_digest**: Hexadecimal string representing the the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. Application claims are currently unsupported as the Confidential Ledger application does not attach any claim when executing a write transaction.
+* **claims_digest**: Hexadecimal string representing the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. Application claims are currently unsupported as the Confidential Ledger application doesn't attach any claim when executing a write transaction.
 
-* **commit_evidence**: A unique string produced per transaction, derived from the transaction ID and the ledger secrets. Please refer to the CCF documentation for more information about the [Commit Evidence](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#commit-evidence).
+* **commit_evidence**: A unique string produced per transaction, derived from the transaction ID and the ledger secrets. For more information about the commit evidence, see the related [CCF documentation](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#commit-evidence).
 
-* **write_set_digest**: Hexadecimal string representing the the SHA-256 hash digest of the [Key-Value store](https://microsoft.github.io/CCF/main/build_apps/kv/index.html), which contains all the keys and values written at the time the transaction was completed. Please refer to the CCF documentation for more information about the [Write Set](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Write-Set).
+* **write_set_digest**: Hexadecimal string representing the SHA-256 hash digest of the [Key-Value store](https://microsoft.github.io/CCF/main/build_apps/kv/index.html), which contains all the keys and values written at the time the transaction was completed. For more information about the write set, see the related [CCF documentation](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Write-Set).
 
-### Additional resources
+### More resources
 
-Please refer to the following [CCF documentation](https://microsoft.github.io/CCF/main/) links for more information about transaction receipts and how CCF ensures the integrity of each transaction:
+For more information about write transaction receipts and how CCF ensures the integrity of each transaction, see the following links:
 
 * [Write Receipts](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#write-receipts)
 * [Receipts](https://microsoft.github.io/CCF/main/audit/receipts.html)
@@ -246,5 +246,6 @@ Please refer to the following [CCF documentation](https://microsoft.github.io/CC
 
 ## Next steps
 
+* [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)
 * [Overview of Microsoft Azure confidential ledger](overview.md)
 * [Azure confidential ledger architecture](architecture.md)
