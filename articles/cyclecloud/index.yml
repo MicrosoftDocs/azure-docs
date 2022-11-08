@@ -30,7 +30,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a Cluster
-            url: tutorials/create-cluster.md
+            url: tutorials/tutorial.md
       - linkListType: download
         links:
           - text: Get Azure CycleCloud

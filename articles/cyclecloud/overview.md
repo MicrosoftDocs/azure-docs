@@ -81,5 +81,5 @@ An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCl
 * [Try Azure CycleCloud using a Marketplace VM](qs-install-marketplace.md)
 * [Install Azure CycleCloud using an ARM template](~/how-to/install-arm.md)
 * [Install CycleCloud manually](~/how-to/install-manual.md)
-* [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
+* [Explore CycleCloud features with the tutorial](./tutorials/tutorial.md)
 * [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)
