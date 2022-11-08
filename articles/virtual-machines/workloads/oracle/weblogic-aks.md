@@ -61,7 +61,7 @@ Explore running Oracle WebLogic Server on the Azure Kubernetes Service.
 > [WLS on AKS marketplace solution](https://portal.azure.com/#create/oracle.20210620-wls-on-aks20210620-wls-on-aks)
 
 > [!div class="nextstepaction"]
-> [WLS on AKS marketplace solution documentation](https://oracle.github.io/weblogic-kubernetes-operator/userguide/aks/)
+> [WLS on AKS marketplace solution documentation](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster)
 
 > [!div class="nextstepaction"]
 > [Guidance, scripts and samples for running WLS on AKS](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/)
