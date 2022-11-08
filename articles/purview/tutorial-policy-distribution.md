@@ -19,7 +19,7 @@ In this tutorial, learn how to programmatically fetch the access policies that h
 
 * You must have an existing Microsoft Purview account. If you don't have one, see the [quickstart for creating a Microsoft Purview account](create-catalog-portal.md).
 
-* To register a data source, enable Data use Management and create a simple policy [follow this guide](how-to-policies-devops-arc-sql-server.md)
+* To register a data source, enable *Data use management* and create a simple policy [follow this guide](how-to-policies-devops-arc-sql-server.md)
 
 * To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level. For that, see the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
