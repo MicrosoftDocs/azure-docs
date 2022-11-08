@@ -52,9 +52,11 @@ The following ARM template excerpt shows the location and form of a scale defini
 }
 ```
 
+As you set your scaling configuration, keep in mind the following items:
+
 - If your container app scales to zero, then you aren't billed usage charges.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
-- Replicas not processing, but that remain in memory are billed in the "idle charge" category.
+- Replicas that are not processing, but remain in memory are billed as "idle".
 - Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
 - Set the  `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
 - Container Apps implements the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) and HTTP scaler with the following default settings.
@@ -70,10 +72,10 @@ If you don't create a scale rule, the default scale rule is an HTTP rule with 0 
 
 ## Scale triggers
 
-Scaling is driven by various different triggers. Azure Container Apps supports two categories of scale triggers:
+Scaling is driven by various triggers. Azure Container Apps supports two categories of scale triggers:
 
-- [HTTP](#http): Where scaling based on the number of concurrent HTTP requests to your revision.
-- [Custom](#custom): Where scaling is based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
+- [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
+- [Custom](#custom): Based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
 
 ## HTTP
 
@@ -87,7 +89,7 @@ In the following example, the container app scales out up to five replicas and c
 
 ### Examples
 
-# [ARM](#tab/arm)
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -144,17 +146,20 @@ TODO
 
 You can create a custom Container Apps scaling rule based on any [KEDA scaler][https://keda.sh/docs/latest/scalers/].
 
-KEDA scalers are defined as [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)s with [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) objects that define security contexts. You can convert a KEDA scaler by mapping values from a `ScaledObject` and `TriggerAuthentication` object to a Container Apps scale rule.
+KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)s with [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) objects that define security contexts. You can convert a KEDA scaler to a Container Apps scale rule by mapping values from a `ScaledObject` and `TriggerAuthentication` object to a scale rule.
 
 The structure of a Container Apps scale rule follows this form:
 
 ```json
 ...
-"rules": [{
-    "type": ...,
-    "metadata": {...},
-    "auth": {...} (optional)
-}]
+  "scale": {
+    ...
+    "rules": [{
+        "type": ...,
+        "metadata": {...},
+        "auth": {...} (optional)
+    }]
+  }
 ...
 ```
 
@@ -175,7 +180,7 @@ Refer to the [considerations section](#considerations) for more security related
 
 This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
-# [ARM](#tab/arm)
+# [ARM template](#tab/arm)
 
 TODO
 
