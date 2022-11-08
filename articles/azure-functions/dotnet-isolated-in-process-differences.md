@@ -3,7 +3,7 @@ title: Differences between in-process and isolate worker process .NET Azure Func
 description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process. 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 09/29/2022
+ms.date: 11/07/2022
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
@@ -22,7 +22,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior |  In-process<sup>3</sup> | Isolated worker process  |
 | ---- | ---- | ---- |
-| .NET versions | Long Term Support (LTS) versions<br/>(.NET 6.0) | All supported versions + .NET Framework<br/>(.NET 6.0, .NET 7.0 (Preview), .NET Framework 4.8 (GA)) |
+| [Supported .NET versions](./dotnet-isolated-process-guide.md#supported-versions) | Long Term Support (LTS) versions | All supported versions + .NET Framework |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 

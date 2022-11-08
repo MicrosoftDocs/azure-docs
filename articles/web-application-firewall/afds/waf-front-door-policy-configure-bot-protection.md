@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 10/05/2022
+ms.date: 11/07/2022
 ms.author: victorh
 zone_pivot_groups: web-application-firewall-configuration
 ---
@@ -14,7 +14,7 @@ zone_pivot_groups: web-application-firewall-configuration
 
 The Azure Web Application Firewall (WAF) for Front Door provides bot rules to identify good bots and protect from bad bots. For more information on the bot protection rule set, see [Bot protection rule set](afds-overview.md#bot-protection-rule-set).
 
-This article shows how to enable bot protection rules on Azure Front Door Standard and Premium tiers.
+This article shows how to enable bot protection rules on the Azure Front Door Premium tier.
 
 ## Prerequisites
 

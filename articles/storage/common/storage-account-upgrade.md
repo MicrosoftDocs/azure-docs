@@ -132,7 +132,7 @@ To monitor data access patterns for Blob storage, you need to enable the hourly 
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
-For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
 
 > [!NOTE]
 > Storing, accessing, and downloading analytics data is also charged just like regular user data.
