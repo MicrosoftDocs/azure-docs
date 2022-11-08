@@ -4,7 +4,7 @@ description: Learn the basics of Azure Monitor Logs, which is used for advanced 
 documentationcenter: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 01/27/2022
+ms.date: 11/08/2022
 ms.author: bwren
 ---
 
@@ -27,7 +27,7 @@ The following table describes some of the ways that you can use Azure Monitor Lo
 | **Alert** | Configure a [log alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
 | **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](./log-powerbi.md) to use different visualizations and share with users outside Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources.|
 | **Get insights** | Logs support [insights](../insights/insights-overview.md) that provide a customized monitoring experience for particular applications and services.  |
-| **Retrieve** | Access log query results from a:<ul><li>Command line via the [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>Custom app via the [REST API](https://dev.loganalytics.io/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
+| **Retrieve** | Access log query results from a:<ul><li>Command line via the [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>Custom app via the [REST API](https://dev.loganalytics.io/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
 | **Export** | Configure [automated export of log data](./logs-data-export.md) to an Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](./logicapp-flow-connector.md). |
 
 ![Diagram that shows an overview of Azure Monitor Logs.](media/data-platform-logs/logs-overview.png)

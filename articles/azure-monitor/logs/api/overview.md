@@ -3,7 +3,7 @@ title: Overview
 description: This site describes the REST API created to make the data collected by Azure Log Analytics easily available.
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 11/29/2021
+ms.date: 11/08/2022
 ms.topic: article
 ---
 # Azure Monitor Log Analytics API Overview
@@ -45,4 +45,12 @@ To try the API without writing any code, you can use:
   - Your favorite client such as [Fiddler](https://www.telerik.com/fiddler) or [Postman](https://www.getpostman.com/) to manually generate queries with a user interface.
   - [cURL](https://curl.haxx.se/) from the command line, and then pipe the output into [jsonlint](https://github.com/zaach/jsonlint) to get readable JSON. 
 
-Instead of calling the REST API directly, you can also use the Azure Monitor Query SDK. The SDK contains idiomatic client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), and [Python](/python/api/overview/azure/monitor-query-readme). Each client library is a wrapper around the REST API that allows you to retrieve log data from the workspace.
+Instead of calling the REST API directly, you can also use the Azure Monitor Query SDK. The SDK contains idiomatic client libraries for the following ecosystems:
+
+- [.NET](/dotnet/api/overview/azure/Monitor.Query-readme)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)
+- [Java](/java/api/overview/azure/monitor-query-readme)
+- [JavaScript](/javascript/api/overview/azure/monitor-query-readme)
+- [Python](/python/api/overview/azure/monitor-query-readme)
+
+Each client library is a wrapper around the REST API that allows you to retrieve log data from the workspace.
