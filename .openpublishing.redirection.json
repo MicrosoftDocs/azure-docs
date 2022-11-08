@@ -131,6 +131,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
+            "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/api-management/zone-redundancy.md",
             "redirect_url": "/azure/availability-zones/migrate-api-mgt",
             "redirect_document_id": false

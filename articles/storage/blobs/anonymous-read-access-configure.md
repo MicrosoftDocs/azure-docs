@@ -81,7 +81,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
-    -AllowBlobPublicAccess $false
+    -AllowBlobPublicAccess $true
 
 # Read the AllowBlobPublicAccess property for the newly created storage account.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
