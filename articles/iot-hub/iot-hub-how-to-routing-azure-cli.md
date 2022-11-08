@@ -344,4 +344,75 @@ az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub
 
 # [Azure Storage](#tab/azurestorage)
 
-If you need to create an Azure Storage resource (with container), see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli).
+### Create an Azure Storage resource with container
+
+If you don't yet have an Azure Storage account and container, you can create one in a few commands.
+
+1. Create a new storage account.
+   > [!TIP]
+   > Your storage name must be between 3 and 24 characters in length and use numbers and lower-case letters only. No dashes are allowed.
+
+   ```azurecli
+   az storage account create --name mystorageaccount --resource-group myresourcegroup
+   ```
+
+1. Create a new container in your storage account.
+
+   ```azurecli
+   az storage container create --name my-storage-container --account-name mystorageaccount
+   ```
+
+   You see a confirmation that your container was created in your console.
+   ```azurecli
+   {
+   "created": true
+   }
+   ```
+
+### Create an Azure Storage endpoint
+
+Before creating an IoT Hub route to an Azure Storage, you must create the endpoint first. Let's create a new endpoint using the `az iot hub` commands.
+
+1. You need the connection string from your Azure Storage resource to create an endpoint. Get the string using the `show` command and copy it for the next step.
+
+   ```azurecli
+   az storage account show-connection-string --resource-group my-resource-group --name my-storage-account 
+   ```
+
+1. Create a new Azure Storage endpoint. The **endpoint-type** must be **azurestoragecontainer**, otherwise all parameters should have your own values. Use the connection string you copied from the previous step.
+
+   ```azurecli
+   az iot hub routing-endpoint create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-storage-endpoint --endpoint-type azurestoragecontainer --container my-storage-container --endpoint-resource-group my-resource-group --endpoint-subscription-id xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx --connection-string "DefaultEndpointsProtocol=<my connection string>"
+   ```
+
+   For more parameter options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
+
+### Create an IoT hub route to Azure Storage
+
+1. Now that you have an Azure storage endpoint, create a new IoT Hub route that uses the endpoint.
+
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+
+   ```azurecli
+   az iot hub route create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-storage-endpoint --source deviceconnectionstateevents --route-name my-route
+   ```
+
+1. Confirm that your new route is in your IoT hub.
+
+   ```azurecli
+   
+   ```
+
+   You should see something similar in your Azure CLI.
+
+   ```json
+     {
+        "condition": "true",
+        "endpointNames": [
+          "my-storage-endpoint"
+        ],
+        "isEnabled": true,
+        "name": "my-storage-route",
+        "source": "DeviceConnectionStateEvents"
+      }
+   ```
