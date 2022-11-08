@@ -11,17 +11,16 @@ ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
+Personalizer works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
+
+
 # Table of Contents
 * [Context](#context) Information about the current user or state of the system 
 * [Actions](#actions) A list of options to choose from
 * [Features](#features) Attributes describing the Context and Actions
 * [Feature Engineering](#feature-engineering) Tips for constructing impactful features
 * [Namespaces](#namespaces) Grouping Features
-* [Examples](#JSON-examples-for-actions,-context,-and-namespaces) Examples of Context and Action features in JSON format
-
-# Context and Actions
-
-Personalizer service works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
+* [Examples](#JSON-examples) Examples of Context and Action features in JSON format
 
 
 ## Context
@@ -68,7 +67,7 @@ Features from actions may typically come from content management systems, catalo
 
 ### Prevent actions from being ranked
 
-In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked is by adding it to the [Excluded Actions](https://learn.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest.excludedactions?view=azure-dotnet-preview) list, or not passing it to the Rank Request.
+In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked is by adding it to the [Excluded Actions](https://learn.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest.excludedactions) list, or not passing it to the Rank Request.
 
 In some cases, you might not want events to be trained on by default, i.e., you only want to train events when a specific condition is met. For example, The personalized part of your webpage is below the fold (users have to scroll before interacting with the personalized content). In this case you will render the entire page, but only want an event to be trained on when the user scrolls and has a chance to interact with the personalized content. For these cases, you should [Defer Event Activation](concept-active-inactive-events.md) to avoid assigning default reward (and training) events which the end user did not have a chance to interact with.
 
@@ -191,7 +190,7 @@ The following are examples of feature namespaces used by applications:
 * All namespaces starting with an underscore `_` will be ignored.
 
 
-## JSON Examples for Actions, Context, and Namespaces
+## JSON Examples
 
 ### Actions
 When calling Rank, you will send multiple actions to choose from:
