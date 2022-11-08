@@ -390,7 +390,7 @@ As you can see in the previous screenshot, Defender for Cloud's security recomme
 
 To view all the active recommendations for your resources by resource type, use Defender for Cloud's asset inventory page and filter to the AWS resource type in which you're interested:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the AWS options":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="screenshot of the asset inventory page's resource type filter showing the AWS options.":::
 
 ## FAQ - AWS in Defender for Cloud
 
