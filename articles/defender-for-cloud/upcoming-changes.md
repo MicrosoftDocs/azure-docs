@@ -18,15 +18,15 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [The ability to create custom recommendations in AWS and GCP is set to be deprecated](#the-ability-to-create-custom-recommendations-in-aws-and-gcp-is-set-to-be-deprecated) | November 2022 |
+| [The ability to create custom assessments in AWS and GCP is set to be deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-is-set-to-be-deprecated) | November 2022 |
 | [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 
-### The ability to create custom recommendations in AWS and GCP is set to be deprecated
+### The ability to create custom assessments in AWS and GCP is set to be deprecated
 
 **Estimated date for change: November 2022**
 
-The ability to create custom recommendations for AWS accounts and GCP projects is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan to be released in the future. 
+The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md) is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan, which will be released in the future. 
 
 ### Recommendation to configure dead-letter queues for Lambda functions to be deprecated
 
