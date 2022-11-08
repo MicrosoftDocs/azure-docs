@@ -15,13 +15,8 @@ For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgr
 
 ## Before you begin
 
-### [Azure CLI](#tab/azure-cli)
-
-This article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* If you're using Azure CLI, this article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ---
 
