@@ -76,7 +76,7 @@ For more information about the content of an Azure Confidential Ledger write tra
 
 For reference purposes, we provide sample code in Python to fully verify Azure Confidential Ledger write transaction receipts following the steps outlined above.
 
-To run the full verification algorithm, the current service network certificate and a write transaction receipt from a running Confidential Ledger resource are required. Refer to [this article](write-transaction-receipts.md#fetching-a-write-transaction-receipt) for details on how to fetch a write transaction receipt and the service certificate from a Confidential Ledger instance.
+To run the full verification algorithm, the current service network certificate and a write transaction receipt from a running Confidential Ledger resource are required. Refer to [this article](write-transaction-receipts.md#get-write-transaction-receipts) for details on how to fetch a write transaction receipt and the service certificate from a Confidential Ledger instance.
 
 ### Code walkthrough
 

@@ -19,9 +19,9 @@ More details about how a Merkle Tree is used in a Confidential Ledger can be fou
 
 ### Setup and pre-requisites
 
-Azure Confidential Ledger users can get a receipt for a specific transaction by using the [Azure Confidential Ledger client library](https://learn.microsoft.com/azure/confidential-ledger/quickstart-python?tabs=azure-cli#use-the-data-plane-client-library). The following example shows how to get a write receipt using the [client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger), but the steps are the same with any other supported SDK for Azure Confidential Ledger.
+Azure Confidential Ledger users can get a receipt for a specific transaction by using the [Azure Confidential Ledger client library](quickstart-python.md#use-the-data-plane-client-library). The following example shows how to get a write receipt using the [client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger), but the steps are the same with any other supported SDK for Azure Confidential Ledger.
 
-We assume that a Confidential Ledger resource has already been created using the Azure Confidential Ledger Management library. If you don't have an existing ledger resource yet, create one using the [following instructions](https://docs.microsoft.com/azure/confidential-ledger/quickstart-python?tabs=azure-cli#use-the-control-plane-client-library).
+We assume that a Confidential Ledger resource has already been created using the Azure Confidential Ledger Management library. If you don't have an existing ledger resource yet, create one using the [following instructions](quickstart-python.md#use-the-control-plane-client-library).
 
 ### Code walkthrough
 
