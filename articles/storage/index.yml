@@ -22,19 +22,19 @@ highlightedContent:
       url: /azure/cloud-adoption-framework/ready/considerations/storage-options
     - title: Introduction to Azure Storage
       itemType: concept
-      url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-introduction.md?toc=/azure/storage/blobs/toc.json
     - title: Learn about types of storage accounts
       itemType: concept
-      url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json
     - title: Create a storage account
       itemType: how-to-guide
-      url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-account-create.md?toc=/azure/storage/blobs/toc.json
     - title: Build new Azure Storage skills
       itemType: learn
       url: /users/henryyan-8971/collections/d2zmi3jdje144m
     - title: Migrate data to Azure Storage
       itemType: concept
-      url: ./common/storage-migration-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json
 
  
 # additionalContent section (optional)
@@ -145,11 +145,11 @@ additionalContent:
         # Card
         - title: Transfer small datasets (online)
           links:
-          - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - url: ./common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json
             text: Use the AzCopy command-line tool
           - url: ./blobs/quickstart-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
-          - url: ./blobs/blobfuse2-what-is.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - url: ./blobs/blobfuse2-what-is.md?toc=/azure/storage/blobs/toc.json
             text: Use BlobFuse2 to mount Azure blobs on Linux
         # Card
         - title: Control costs
