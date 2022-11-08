@@ -120,7 +120,7 @@ These examples assume that your folder is named `myFolder`, your storage account
 # [Linux](#tab/linux)
 
 ```bash
-azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn/4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 ```
 
 # [Windows](#tab/windows)
@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-- [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=/azure/storage/files/toc.json).
 
 For more information about AzCopy, see any of these articles:
 
