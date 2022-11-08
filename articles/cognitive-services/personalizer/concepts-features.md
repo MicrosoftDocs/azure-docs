@@ -15,13 +15,13 @@ ms.date: 10/25/2022
 * [Context](#context) Information about the current user or state of the system 
 * [Actions](#actions) A list of options to choose from
 * [Features](#features) Attributes describing the Context and Actions
-* [Feature Engineering](#feature-engineering) Tips for constructing impactful features which the Personalizer model can learn from
+* [Feature Engineering](#feature-engineering) Tips for constructing impactful features
 * [Namespaces](#namespaces) Grouping Features
 * [Examples](#JSON-examples-for-actions,-context,-and-namespaces) Examples of Context and Action features in JSON format
 
 # Context and Actions
 
-The Personalizer service works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
+Personalizer service works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
 
 
 ## Context
@@ -88,7 +88,7 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * Features that are not available should be omitted from the request. If the value of a specific feature is not available for a given request, omit the feature for this request.
 * Avoid sending features with a null value. A null value will be processed as a string with a value of "null" which is undesired.
 
-It is ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request with all new features, the Personalizer model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
+It is ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request containing all new features, Personalizer's model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
 
 ### Context Features
 * Some context features may only be available part of the time. For example, if a user is logged into the online grocery store website, the context will contain features describing purchase history. These features will not be available for a guest user.
@@ -125,7 +125,7 @@ Personalizer supports features of string, numeric, and boolean types. It is very
 * Make sure there are enough features to drive personalization. The more precisely targeted the content needs to be, the more features are needed.
 * There are features of diverse *densities*. A feature is *dense* if many items are grouped in a few buckets. For example, thousands of videos can be classified as "Long" (over 5 min long) and "Short" (under 5 min long). This is a *very dense* feature. On the other hand, the same thousands of items can have an attribute called "Title", which will almost never have the same value from one item to another. This is a very non-dense or *sparse* feature.  
 
-Having features of high density helps the Personalizer extrapolate learning from one item to another. But if there are only a few features and they are too dense, the Personalizer will try to precisely target content with only a few buckets to choose from.
+Having features of high density helps Personalizer extrapolate learning from one item to another. But if there are only a few features and they are too dense, Personalizer will try to precisely target content with only a few buckets to choose from.
 
 ### Common issues with feature design and formatting
 
@@ -139,7 +139,7 @@ Analyze the user behavior by running a [Feature Evaluation Job](how-to-feature-e
 
 ### Expand feature sets with artificial intelligence and cognitive services
 
-Artificial Intelligence and ready-to-run Cognitive Services can be a very powerful addition to the Personalizer. 
+Artificial Intelligence and ready-to-run Cognitive Services can be a very powerful addition to Personalizer. 
 
 By preprocessing your items using artificial intelligence services, you can automatically extract information that is likely to be relevant for personalization.
 
@@ -155,6 +155,13 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 * [Language service](../language-service/index.yml)
 * [Emotion](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
+
+### Use Embeddings as Features
+
+Embeddings from various Machine Learning models have proven to be affective features for Personalizer
+
+* Embeddings from Large Language Models
+* Embeddings from Computer Vision Models
 
 
 ## Namespaces
