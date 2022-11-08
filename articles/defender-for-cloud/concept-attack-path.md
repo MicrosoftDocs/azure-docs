@@ -4,14 +4,16 @@ description: Learn how to prioritize remediation of cloud misconfigurations and 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 11/08/2022
 ---
 
 # What are the cloud security graph, attack path analysis, and the cloud security explorer? 
 
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolve and never enough resources to address them all. 
 
-Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way. 
+Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way.
+
+All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and the recruiting enablement of [agentless scanning for VMs](concept-agentless-data-collection.md)
 
 ## What is cloud security graph?
 
@@ -42,3 +44,6 @@ Learn how to use the [cloud security explorer](how-to-manage-cloud-security-expl
 ## Next steps
 
 [Identify and remediate attack paths](how-to-manage-attack-path.md)
+[Enable enhanced security features on a subscription](enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription)
+[Enabling agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines)
+[Build a query with the cloud security explorer](how-to-manage-cloud-security-explorer.md)

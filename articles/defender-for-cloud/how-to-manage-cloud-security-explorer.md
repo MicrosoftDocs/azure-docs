@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 10/03/2022
+ms.date: 11/08/2022
 ---
 
 # Cloud security explorer
@@ -13,13 +13,16 @@ Defender for Cloud's contextual security capabilities assists security teams in 
 
 By using the cloud security explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more. 
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more.
+
+Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
 ## Availability
 
 | Aspect | Details |
 |--|--|
 | Release state | Preview |
+| Prerequisite | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md) <br> - [Enable Defender for CSPM](enable-enhanced-security.md) <br> - [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
