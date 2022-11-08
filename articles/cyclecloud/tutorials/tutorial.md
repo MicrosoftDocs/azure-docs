@@ -8,4 +8,4 @@ ms.author: doclayto
 
 # Azure CycleCloud Tutorial
 
-There is a [Learn Module](https://learn.microsoft.com/en-us/training/modules/customize-clusters-azure-cyclecloud/) on creating and customizing clusters with CycleCloud.
+There is a [Learn Module](/training/modules/customize-clusters-azure-cyclecloud/) on creating and customizing clusters with CycleCloud.
