@@ -390,7 +390,7 @@ items:
             href: anonymous-read-access-prevent.md
           - name: Remediate anonymous access (classic deployments)
             href: anonymous-read-access-prevent-classic.md
-          - name: Configure anonymous read access
+          - name: Configure anonymous access
             href: anonymous-read-access-configure.md  
       - name: Secure blob data
         items:
