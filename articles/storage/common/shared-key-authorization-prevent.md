@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 11/08/2022
 ms.author: jammart
 ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -31,7 +31,7 @@ When you disallow Shared Key authorization for a storage account, requests from 
 - [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
 - [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
 - [Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-- [Transition Azure Files and Table storage workloads](#transition-azure-files-and-table-storage-workloads)
+- [Transition Azure Files workloads](#transition-azure-files-workloads)
 
 ## Identify storage accounts with Shared Key access enabled
 
@@ -313,11 +313,11 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
 
-## Transition Azure Files and Table storage workloads
+## Transition Azure Files workloads
 
-Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files or Table storage that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file and table data, if you disallow authorization with Shared Key for the storage account, you will not be able to access file or table data in the Azure portal.
+Azure Storage supports Azure AD authorization for requests to blob, table and queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file data, if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
 
-Microsoft recommends that you either migrate any Azure Files or Table storage data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files or Table storage workloads.
+Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files workloads.
 
 Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
 
