@@ -182,7 +182,6 @@ Create an index using the [update collection extension command](/azure/cosmos-db
 
 Create a document with the *product* properties for the `adventureworks` database:
 
-* An _id property for the unique identifier of the product.
 * A *category* property. This property can be used as the logical partition key.
 * A *name* property.
 * An inventory *quantity* property.
@@ -190,7 +189,9 @@ Create a document with the *product* properties for the `adventureworks` databas
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_doc":::
 
-Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
+Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, you'll *upsert* instead of *create* a new document in case you run this sample code more than once.
+
+The result of the `update_one` operation contains the `_id` field value that you can use in subsequent operations. The *_id* property was created automatically in this case.
 
 ### Get a document
 
@@ -202,7 +203,7 @@ In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblo
 
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [`Collection.find`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [`Cursor`](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
-:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="query_doc":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="query_docs":::
 
 Troubleshooting:
 
