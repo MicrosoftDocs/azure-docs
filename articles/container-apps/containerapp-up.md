@@ -5,15 +5,15 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 11/08/2022
 ms.author: v-bcatherine
 ---
 
 # Deploy Azure Container Apps with the az containerapp up command
 
-The `az containerapp up` (or `up`) command is the fastest way to deploy an Azure Container App from an existing image, local source code or a GitHub repo.  With this single command, you can have your container app up and running in minutes.  
+The `az containerapp up` (or `up`) command is the fastest way to deploy an app in Azure Container Apps from an existing image, local source code or a GitHub repo.  With this single command, you can have your container app up and running in minutes.  
 
-The `az containerapp up` command is a streamlined way to create and deploy container apps that primarily use default settings. You'll need to use the `az containerapp create` command to create  apps with customizations such as:
+The `az containerapp up` command is a streamlined way to create and deploy container apps that primarily use default settings. However, you'll need to use the `az containerapp create` command to for apps with customizations such as:
 
 - Dapr configuration
 - Secrets
@@ -28,7 +28,7 @@ The `up` command can create or use existing resources including:
 - Resource group
 - Azure Container Registry
 - Container Apps environment and Log Analytics workspace
-- the container app
+- Your container app
 
 The command can build and push a container image to an Azure Container Registry (ACR) when you provide local source code or a GitHub repo.  When you're working from a GitHub repo, it creates a GitHub Actions workflow that automatically builds and pushes a new container image when you commit changes to your GitHub repo.
 
