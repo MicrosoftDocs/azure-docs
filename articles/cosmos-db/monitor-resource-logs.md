@@ -34,25 +34,25 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
 
-   :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Select diagnostics":::
+    :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
 
 1. In the **Diagnostic settings** pane, fill the form with your preferred categories. Included here's a list of log categories.
 
-   |Category  |API   | Definition  | Key Properties   |
-   |---------|---------|---------|---------|
-   |DataPlaneRequests     |  All APIs        |     Logs back-end requests as data plane operations, which are requests executed to create, update, delete or retrieve data within the account.   |   `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode`      |
-   |MongoRequests     |    Mongo    |   Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for MongoDB. When you enable this category, make sure to disable DataPlaneRequests.      |  `Requestcharge`, `opCode`, `retryCount`, `piiCommandText`      |
-   |CassandraRequests     |   Cassandra      |    Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. When you enable this category, make sure to disable DataPlaneRequests.     |     `operationName`, `requestCharge`, `piiCommandText`    |
-   |GremlinRequests     |    Gremlin    |     Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Gremlin. When you enable this category, make sure to disable DataPlaneRequests.    |   `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting`       |
-   |QueryRuntimeStatistics     |   SQL      |     This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging personal data with full text query logging available by request.    |    `databasename`, `partitionkeyrangeid`, `querytext`    |
-   |PartitionKeyStatistics     |    All APIs     |   Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the top three keys with largest storage size are captured by the PartitionKeyStatistics log. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size may not be accurate.  |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
-   |PartitionKeyRUConsumption     |   API for NoSQL    |     Logs the aggregated per-second RU/s consumption of partition keys. This table is useful for troubleshooting hot partitions. Currently, Azure Cosmos DB reports partition keys for API for NoSQL accounts only and for point read/write and stored procedure operations.   |     `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId`   |
-   |ControlPlaneRequests     |   All APIs       |    Logs details on control plane operations, which include, creating an account, adding or removing a region, updating account replication settings etc.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
-   |TableApiRequests     |   API for Table    |     Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Table. When you enable this category, make sure to disable DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
+    | Category | API | Definition | Key Properties |
+    | --- | --- | --- | --- |
+    | **DataPlaneRequests** | All APIs | Logs back-end requests as data plane operations, which are requests executed to create, update, delete or retrieve data within the account. | `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode` |
+    | **MongoRequests** | Mongo | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for MongoDB. When you enable this category, make sure to disable DataPlaneRequests. | `Requestcharge`, `opCode`, `retryCount`, `piiCommandText` |
+    | **CassandraRequests** | Cassandra | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |
+    | **GremlinRequests** | Gremlin | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Gremlin. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting` |
+    | **QueryRuntimeStatistics** | SQL | This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging personal data with full text query logging available by request. | `databasename`, `partitionkeyrangeid`, `querytext` |
+    | **PartitionKeyStatistics** | All APIs | Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the top three keys with largest storage size are captured by the PartitionKeyStatistics log. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size may not be accurate. | `subscriptionId`, `regionName`, `partitionKey`, `sizeKB` |
+    | **PartitionKeyRUConsumption** | API for NoSQL | Logs the aggregated per-second RU/s consumption of partition keys. This table is useful for troubleshooting hot partitions. Currently, Azure Cosmos DB reports partition keys for API for NoSQL accounts only and for point read/write and stored procedure operations. | `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId` |
+    | **ControlPlaneRequests** | All APIs | Logs details on control plane operations, which include, creating an account, adding or removing a region, updating account replication settings etc. | `operationName`, `httpstatusCode`, `httpMethod`, `region` |
+    | **TableApiRequests** | API for Table | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Table. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |
 
 1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
-    :::image type="content" source="media/monitor/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
+    :::image type="content" source="media/monitor/diagnostics-resource-specific.png" alt-text="Screenshot of the option to enable resource-specific diagnostics.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -79,14 +79,14 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 
 1. Use `az monitor diagnostic-settings create` to create the setting.
 
-```azurecli-interactive
-az monitor diagnostic-settings create \
-    --resource "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDb/databaseAccounts/" \
-    --name $diagnosticSettingName \
-    --export-to-resource-specific true \
-    --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' \
-    --workspace "/subscriptions/$subscriptionId/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$workspaceName"
-```
+    ```azurecli-interactive
+    az monitor diagnostic-settings create \
+        --resource "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDb/databaseAccounts/" \
+        --name $diagnosticSettingName \
+        --export-to-resource-specific true \
+        --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' \
+        --workspace "/subscriptions/$subscriptionId/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$workspaceName"
+    ```
 
 ### [REST API](#tab/rest-api)
 
@@ -97,19 +97,19 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 
 1. Create an HTTP `PUT` request.
 
-   ```HTTP
-   PUT
-   https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
-   ```
+    ```HTTP
+    PUT
+    https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+    ```
 
 1. Use these headers with the request.
 
-   |Parameters/Headers  | Value/Description  |
-   |---------|---------|
-   |name     |  The name of your Diagnostic setting.      |
-   |resourceUri     |   `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`      |
-   |api-version     |    `2017-05-01-preview`     |
-   |Content-Type     |    `application/json`     |
+    | Parameters/Headers | Value/Description |
+    | --- | --- |
+    | **name** | The name of your diagnostic setting. |
+    | **resourceUri** | `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}` |
+    | **api-version** | `2017-05-01-preview` |
+    | **Content-Type** | `application/json` |
 
 1. Set the body of the request to this JSON payload.
 
@@ -193,11 +193,11 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 1. To enable this feature, navigate to the `Features` page in your Azure Cosmos DB account.
 
-   :::image type="content" source="media/monitor/full-text-query-features.png" lightbox="media/monitor/full-text-query-features.png" alt-text="Navigate to Features blade":::
+    :::image type="content" source="media/monitor/full-text-query-features.png" lightbox="media/monitor/full-text-query-features.png" alt-text="Screenshot of navigation to the Features page.":::
 
 2. Select `Enable`, this setting will then be applied within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
 
-    :::image type="content" source="media/monitor/select-enable-full-text.png" alt-text="Select enable full-text":::
+    :::image type="content" source="media/monitor/select-enable-full-text.png" alt-text="Screenshot of full-text being enabled.":::
 
 ### [Azure CLI / REST API](#tab/azure-cli+rest-api)
 

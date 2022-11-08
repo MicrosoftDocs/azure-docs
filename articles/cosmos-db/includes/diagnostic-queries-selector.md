@@ -9,8 +9,8 @@ ms.custom: include file
 
 > [!div class="op_single_selector"]
 >
-> * [API for NoSQL](nosql/diagnostic-queries.md)
-> * [API for MongoDB](mongodb/diagnostic-queries.md)
-> * [API for Apache Cassandra](cassandra/diagnostic-queries.md)
-> * [API for Apache Gremlin](gremlin/diagnostic-queries.md)
+> * [API for NoSQL](../nosql/diagnostic-queries.md)
+> * [API for MongoDB](../mongodb/diagnostic-queries.md)
+> * [API for Apache Cassandra](../cassandra/diagnostic-queries.md)
+> * [API for Apache Gremlin](../gremlin/diagnostic-queries.md)
 >

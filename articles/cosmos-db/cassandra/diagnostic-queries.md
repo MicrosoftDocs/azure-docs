@@ -16,7 +16,7 @@ ms.date: 11/08/2022
 
 [!INCLUDE[Diagnostic queries selector](../includes/diagnostic-queries-selector.md)]
 
-In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB Cassansra API account by using diagnostics logs sent to **resource-specific** tables.
+In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB for Cassandra account by using diagnostics logs sent to **resource-specific** tables.
 
 For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../monitor-resource-logs.md) to learn how to enable this feature.
 

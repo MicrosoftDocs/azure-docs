@@ -170,5 +170,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 ---
 
 ## Next steps
-* For more information on how to create diagnostic settings for Azure Cosmos DB, see [Create diagnostic settings](monitor-resource-logs.md).
-* For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic settings to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
+
+- For more information on how to create diagnostic settings for Azure Cosmos DB, see [Create diagnostic settings](../monitor-resource-logs.md).
+- For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic settings to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
