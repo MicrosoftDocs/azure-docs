@@ -80,7 +80,7 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) Github repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
 | .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Dependencies

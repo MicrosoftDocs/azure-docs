@@ -180,6 +180,13 @@ Below claims are generated and included in the attestation token by the service 
     - **tcbinfohash**: SHA256 value of the TCB Info collateral 
 - **x-ms-sgx-report-data**: SGX enclave report data field (usually SHA256 hash of x-ms-sgx-ehd) 
 
+Below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054). The claim definitions can be found [here](https://github.com/openenclave/openenclave/issues/3054)
+
+- **x-ms-sgx-config-id**
+- **x-ms-sgx-config-svn**
+- **x-ms-sgx-isv-extended-product-id**
+- **x-ms-sgx-isv-family-id**
+
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 
 Deprecated claim | Recommended claim
@@ -199,7 +206,7 @@ The following claims are additionally supported by the SevSnpVm attestation type
 
 - **x-ms-sevsnpvm-authorkeydigest**: SHA384 hash of the author signing key 
 - **x-ms-sevsnpvm-bootloader-svn** :AMD boot loader security version number (SVN)
-- **x-ms-sevsnpvm-familyId**: HCL family identification string
+- **x-ms-sevsnpvm-familyId**: Host Compatibility Layer (HCL) family identification string
 - **x-ms-sevsnpvm-guestsvn**: HCL security version number (SVN)
 - **x-ms-sevsnpvm-hostdata**: Arbitrary data defined by the host at VM launch time
 - **x-ms-sevsnpvm-idkeydigest**: SHA384 hash of the identification signing key

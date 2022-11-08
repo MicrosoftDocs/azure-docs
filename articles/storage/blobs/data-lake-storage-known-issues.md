@@ -69,7 +69,7 @@ If [anonymous read access](./anonymous-read-access-configure.md) has been grante
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer"></a>
 
