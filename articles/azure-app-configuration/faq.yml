@@ -150,7 +150,7 @@ sections:
         answer: |
           Spring profiles can be used to either separate sections of an application or to change execution based on the profile. They are set using the `spring.profiles.active` property.
 
-          App Configuration recommences setting the App Configuration label of your keys to the value of your Spring profile they match. By default the value loaded from App Configuration is the label(s) matching the current active Spring profile(s).
+          Preferably set the App Configuration label of your keys to the value of a matching Spring profile. By default, App Configuration will load the values matching the label and current active Spring profile(s).
 
           For example, with the keys values:
 
