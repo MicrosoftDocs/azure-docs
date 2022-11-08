@@ -53,7 +53,6 @@ Now that your Azure CLI setup is complete, you can define the environment variab
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
-
 ## Prepare the GitHub repository
 
 Navigate to the repository for your preferred language and fork the repository.
@@ -200,7 +199,7 @@ The following command builds a container image for the album API and tags it wit
 docker build --tag $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 docker build --tag "$ACR_NAME.azurecr.io/$API_NAME" .
@@ -218,7 +217,7 @@ First, sign in to your Azure Container Registry.
 az acr login --name $ACR_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 az acr login --name $ACR_NAME
@@ -234,7 +233,7 @@ Now, push the image to your registry.
 docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 docker push "$ACR_NAME.azurecr.io/$API_NAME"
@@ -312,10 +311,9 @@ az containerapp create \
   --registry-server $ACR_NAME.azurecr.io
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-<<<<<<< HEAD
+```azurepowershell
 $ImageParams = @{
     Name = $APIName
     Image = $AcrName + '.azurecr.io/' + $APIName
@@ -335,17 +333,6 @@ $AppArgs = @{
 }
 $MyApp = New-AzContainerApp @AppArgs
 ($MyApp.Configuration.Ingress | Where-Object { $_.Type -eq 'external' }).Fqdn
-```
-=======
-az containerapp create `
-  --name $API_NAME `
-  --resource-group $RESOURCE_GROUP `
-  --environment $ENVIRONMENT `
-  --image "$ACR_NAME.azurecr.io/$API_NAME" `
-  --target-port 3500 `
-  --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"
->>>>>>> b7aa75365b542229b403e3f3488a0246d6ab283f
 ```
 
 ---
@@ -374,9 +361,9 @@ If you're not going to continue on to the [Communication between microservices](
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
