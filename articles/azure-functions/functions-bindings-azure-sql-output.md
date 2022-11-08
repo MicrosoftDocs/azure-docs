@@ -4,7 +4,7 @@ description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 5/24/2022
+ms.date: 11/10/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -164,10 +164,10 @@ Isolated worker process isn't currently supported.
 
 ::: zone-end
 
-::: zone pivot="programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-java"  
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), [PowerShell functions](functions-reference-powershell.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
 
@@ -322,6 +322,156 @@ module.exports = async function (context, req) {
 
 
 ::: zone-end  
+
+
+::: zone pivot="programming-language-powershell"
+
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
+
+This section contains the following examples:
+
+* [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-powershell)
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-powershell)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+
+<a id="http-trigger-write-records-to-table-powershell"></a>
+### HTTP trigger, write records to a table
+
+The following example shows a SQL input binding in a function.json file and a PowerShell function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample PowerShell code:
+
+```powershell
+using namespace System.Net
+
+param($Request)
+
+Write-Host "PowerShell function with SQL Output Binding processed a request."
+
+# Update req_body with the body of the request
+$req_body = $Request.Body
+
+# Assign the value we want to pass to the SQL Output binding. 
+# The -Name value corresponds to the name property in the function.json for the binding
+Push-OutputBinding -Name todoItems -Value $req_body
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $req_body
+})
+```
+
+<a id="http-trigger-write-to-two-tables-powershell"></a>
+### HTTP trigger, write to two tables
+
+The following example shows a SQL input binding in a function.json file and a PowerShell function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+The second table, `dbo.RequestLog`, corresponds to the following definition:
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+},
+{
+    "name": "requestLog",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.RequestLog",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample PowerShell code:
+
+```powershell
+using namespace System.Net
+
+param($Request)
+
+Write-Host "PowerShell function with SQL Output Binding processed a request."
+
+# Update req_body with the body of the request
+$req_body = $Request.Body
+$new_log = @{
+    RequestTimeStamp = [DateTime]::Now
+    ItemCount = 1
+}
+
+Push-OutputBinding -Name todoItems -Value $req_body
+Push-OutputBinding -Name requestLog -Value $new_log
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $req_body
+})
+```
+
+
+::: zone-end  
+
+
 ::: zone pivot="programming-language-python"  
 
 More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
@@ -489,10 +639,6 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
 ::: zone-end
 
 <!---### Use these pivots when we get other non-C# languages added. ###
-::: zone pivot="programming-language-powershell" 
- 
-
-::: zone-end 
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -524,7 +670,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone-end  
 -->
 
-::: zone pivot="programming-language-javascript,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -543,7 +689,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
 The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 The output bindings uses the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database. 

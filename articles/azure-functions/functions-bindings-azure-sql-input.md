@@ -4,7 +4,7 @@ description: Learn to use the Azure SQL input binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 5/24/2022
+ms.date: 11/10/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -129,10 +129,10 @@ Isolated worker process isn't currently supported.
 
 ::: zone-end
 
-::: zone pivot="programming-language-java,programming-language-powershell"
+::: zone pivot="programming-language-java"
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), [PowerShell functions](functions-reference-powershell.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
 
@@ -302,7 +302,178 @@ module.exports = async function (context, req, todoItems) {
 }
 ```
 
-::: zone-end  
+::: zone-end
+
+
+::: zone pivot="programming-language-powershell"
+
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
+
+This section contains the following examples:
+
+* [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-powershell)
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-powershell)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-powershell)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-get-multiple-items-powershell"></a>
+### HTTP trigger, get multiple rows
+
+The following example shows a SQL input binding in a function.json file and a PowerShell function that reads from a query and returns the results in the HTTP response.
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo",
+    "commandType": "Text",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample PowerShell code:
+
+```powershell
+using namespace System.Net
+
+param($Request, $todoItems)
+
+Write-Host "PowerShell function with SQL Input Binding processed a request."
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = $todoItems
+})
+```
+
+<a id="http-trigger-look-up-id-from-query-string-powershell"></a>
+### HTTP trigger, get row by ID from query string
+
+The following example shows a SQL input binding in a PowerShell function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+    "commandType": "Text",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample PowerShell code:
+
+
+```powershell
+using namespace System.Net
+
+param($Request, $todoItem)
+
+Write-Host "PowerShell function with SQL Input Binding processed a request."
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = $todoItem
+})
+```
+
+<a id="http-trigger-delete-one-or-multiple-rows-powershell"></a>
+### HTTP trigger, delete rows
+
+The following example shows a SQL input binding in a function.json file and a PowerShell function that executes a stored procedure with input from the HTTP request query parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "DeleteToDo",
+    "commandType": "StoredProcedure",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample PowerShell code:
+
+
+```powershell
+using namespace System.Net
+
+param($Request, $todoItems)
+
+Write-Host "PowerShell function with SQL Input Binding processed a request."
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = $todoItems
+})
+```
+
+::: zone-end
 
 ::: zone pivot="programming-language-python"  
 
@@ -480,10 +651,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 ::: zone-end
 
 <!---### Use these pivots when we get other non-C# languages added. ###
-::: zone pivot="programming-language-powershell" 
- 
 
-::: zone-end 
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -517,7 +685,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ::: zone-end 
 --> 
-::: zone pivot="programming-language-javascript,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -538,7 +706,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
