@@ -24,11 +24,13 @@ In the rest of this article, we’ll show you how easy it is to make this happen
 In this section, you’ll:
 
 • Configure a Log Analytics workspace
+
 • Create a diagnostic setting in your private cloud to send your logs to this workspace
 
 A Log Analytics workspace:
 
 • Contains your AVS private cloud logs.
+
 • Is the workspace from which you can take desired actions, such as querying for logs.
 
 ### Setup your workspace
@@ -61,4 +63,4 @@ To understand how Kusto works and how you can write your own queries, check out 
 [Kusto Query Language (KQL) from Scratch | Pluralsight
 Introduction - Training | Microsoft Docs](https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch/table-of-contents)
 
-To see how commonly used SQL queries would translate to  Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet)
+To see how commonly used SQL queries could translate to Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet)
