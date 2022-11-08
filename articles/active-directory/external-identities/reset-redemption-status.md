@@ -45,7 +45,7 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 
     :::image type="content" source="media/reset-redemption-status/user-profile-b2b-collaboration.png" alt-text="Screenshot of the guest user's profile overview." lightbox="media/reset-redemption-status/user-profile-b2b-collaboration.png":::
 
-1. Under **Manage invitations** > **Redemption status** > **Reset invitation status? (Preview)**, select **Yes**.
+1. In the **Manage invitations** pane, under **Redemption status**, set **Reset invitation status? (Preview)** to **Yes**.
 1. Select **Yes** to confirm.
 
 ## Use PowerShell or Microsoft Graph API to reset redemption status
