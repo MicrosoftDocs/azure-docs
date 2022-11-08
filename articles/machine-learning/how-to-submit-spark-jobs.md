@@ -16,7 +16,7 @@ ms.custom: template-how-to
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning provides the ability to submit standalone machine learning jobs or creating a [machine learning pipeline](/concept-ml-pipelines.md) comprising multiple steps in a machine learning workflow. Azure Machine Learning supports creation of a standalone Spark job, and creation of a reusable Spark component that can be used in Azure Machine Learning pipelines. In this article you will learn how to submit Spark jobs using:
+Azure Machine Learning provides the ability to submit standalone machine learning jobs or creating a [machine learning pipeline](./concept-ml-pipelines.md) comprising multiple steps in a machine learning workflow. Azure Machine Learning supports creation of a standalone Spark job, and creation of a reusable Spark component that can be used in Azure Machine Learning pipelines. In this article you will learn how to submit Spark jobs using:
 - Azure Machine Learning studio UI
 - Azure Machine Learning CLI
 - Azure Machine Learning SDK
@@ -24,13 +24,13 @@ Azure Machine Learning provides the ability to submit standalone machine learnin
 ## Prerequisites
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md)
-- [An attached Synapse Spark pool in the Azure Machine Learning workspace](/how-to-manage-synapse-spark-pool.md).
+- [An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create)
 - [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2)
 - [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public)
 
 ## Ensuring resource access for Spark jobs
-Spark jobs can use either user identity passthrough or a managed identity to access data and other resource. Different mechanisms for accessing resources while using attached Synapse Spark pool and Managed (Automatic) Spark compute are summarized in the following table.
+Spark jobs can use either user identity passthrough or a managed identity to access data and other resource. Different mechanisms for accessing resources while using attached Synapse Spark pool and Managed (Automatic) Spark compute are summarized in the following table. 
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
@@ -66,9 +66,9 @@ armclient PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/res
 > To ensure successful execution of spark job, the identity being used for the Spark job should be assigned **Contributor** and **Storage Blob Data Contributor** roles on the Azure storage account used for data input and output.
 
 ## Submit a standalone Spark job
-Once a Python script is developed by [interactive data wrangling](/interactive-data-wrangling-with-apache-spark-azure-ml.md), it can be used for submitting a batch job to process a larger volume of data after making necessary changes for parameterization of the Python script. A simple data wrangling batch job can be submitted as a standalone Spark job. 
+Once a Python script is developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md), it can be used for submitting a batch job to process a larger volume of data after making necessary changes for parameterization of the Python script. A simple data wrangling batch job can be submitted as a standalone Spark job. 
 
-A Spark job requires a Python script that takes arguments, which can be developed by modifying the Python code developed from [interactive data wrangling](/interactive-data-wrangling-with-apache-spark-azure-ml.md). A sample Python script is shown here.
+A Spark job requires a Python script that takes arguments, which can be developed by modifying the Python code developed from [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md). A sample Python script is shown here.
 
 ```python
 
@@ -126,7 +126,7 @@ A standalone Spark job can be defined as a YAML specification file, which can be
       - `spark.dynamicAllocation.maxExecutors` - the maximum number of Spark executors instances, for dynamic allocation.
   -   If dynamic allocation of executors is disabled, define this property:
       - `spark.executor.instances` - the number of Spark executor instances.
-- `environment` - an [Azure Machine Learning environment](/reference-yaml-environment) to run the job.
+- `environment` - an [Azure Machine Learning environment](./reference-yaml-environment.md) to run the job.
 - `args` - the command line arguments that should be passed to the job entry point Python script or class. See the YAML specification file provided below for an example.
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
 ```yaml
@@ -429,7 +429,7 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
     1. Select **Create** to submit the standalone Spark job.
 
 ## Spark component in a pipeline job
-A Spark component allows the flexibility to use the same component in multiple [Azure Machine Learning pipelines](/concept-ml-pipelines) as a pipeline step. 
+A Spark component allows the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md) as a pipeline step. 
 
 # [Azure CLI](#tab/cli)
 
@@ -501,7 +501,7 @@ conf:
 
 ```
 
-The Spark component defined in the above YAML specification file can be used in an Azure Machine Learning pipeline job. See [pipeline job YAML schema](/reference-yaml-job-pipeline.md) to learn more about the YAML syntax that defines a pipeline job. This is an example YAML specification file for a pipeline job, with a Spark component:
+The Spark component defined in the above YAML specification file can be used in an Azure Machine Learning pipeline job. See [pipeline job YAML schema](./reference-yaml-job-pipeline.md) to learn more about the YAML syntax that defines a pipeline job. This is an example YAML specification file for a pipeline job, with a Spark component:
 
 ```yaml
 

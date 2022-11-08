@@ -94,9 +94,9 @@ After a department is created, the enterprise administrator can add department a
 - Add accounts
 - Remove accounts
 - Download usage details
-- View the monthly usage and charges <sup>1</sup>
+- View the monthly usage and charges ¹
 
-> <sup>1</sup> An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+> ¹ An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
 
 ### To add a department administrator
 

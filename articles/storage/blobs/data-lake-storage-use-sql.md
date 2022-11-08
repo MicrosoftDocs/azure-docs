@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json)
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
@@ -83,7 +83,7 @@ In this section, you create an Azure Workspace.
 
 1. Select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A//raw.githubusercontent.com/Azure-Samples/Synapse/master/Manage/DeployWorkspace/azuredeploy.json)
 
 2. Enter or update the following values:
 
