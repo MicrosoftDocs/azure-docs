@@ -94,7 +94,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 ### Error code: 2012 - TestConnectionFailed
 - **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
 
-- **Cause**: The self-hosted Integration Runtime can't connect to the service back end. This issue is usually caused by network settings in the firewall.
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is usually caused by network settings in the firewall.
 
 - **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. See [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
 
