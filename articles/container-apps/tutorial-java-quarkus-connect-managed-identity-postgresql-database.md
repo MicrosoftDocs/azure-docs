@@ -45,7 +45,7 @@ The following example creates a resource group named `myResourceGroup` in the Ea
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, contain 5-50 alphanumeric characters. All leters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
+Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
 ```azurecli
 az acr create \
