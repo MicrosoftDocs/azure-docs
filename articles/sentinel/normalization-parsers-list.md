@@ -39,15 +39,14 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 
 | **Source** | **Notes** | **Parser**
 | --- | --------------------------- | ---------- |
-| **Normalized DNS Logs** | Any event normalized at ingestion to the `ASimDnsActivityLogs` table. | `_Im_Dns_Native` |
+| **Normalized DNS Logs** | Any event normalized at ingestion to the `ASimDnsActivityLogs` table. The DNS connector for the Azure Monitor Agent uses the `ASimDnsActivityLogs` table and is supported by the `_Im_Dns_Native` parser. | `_Im_Dns_Native` |
 | **Azure Firewall** | | `_Im_Dns_AzureFirewallVxx` |
 | **Cisco Umbrella**  | | `_Im_Dns_CiscoUmbrellaVxx` |
 | **Corelight Zeek** | | `_Im_Dns_CorelightZeekVxx` |
 | **GCP DNS** | | `_Im_Dns_GcpVxx` |
 | - **Infoblox NIOS**<br> - **BIND**<br> - **BlucCat** | The same parsers support multiple sources. | `_Im_Dns_InfobloxNIOSVxx` |
-| **Microsoft DNS Server** | Collected by the DNS connector and the Log Analytics Agent. | `_Im_Dns_MicrosoftOMSVxx`  | 
-| **Microsoft DNS Server** | Collected by NXlog. | `_Im_Dns_MicrosoftNXlogVxx` |
-| **Sysmon for Windows**  (event 22) | Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables. | `_Im_Dns_MicrosoftSysmonVxx` |
+| **Microsoft DNS Server** | Collected using:<br>- DNS connector for the Log Analytics Agent<br>- DNS connector for the Azure Monitor Agent<br>- NXlog | <br>`_Im_Dns_MicrosoftOMSVxx`<br>See Normalized DNS logs.<br>`_Im_Dns_MicrosoftNXlogVxx` | 
+| **Sysmon for Windows**  (event 22) | Collected using:<br>- the Log Analytics Agent<br>- the Azure Monitor Agent<br><br>For both agents, both collecting to the<br> `Event` and `WindowsEvent` tables are supported. | `_Im_Dns_MicrosoftSysmonVxx` |
 | **Vectra AI** | |`_Im_Dns_VectraIAVxx`  |
 | **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
 ||||
@@ -58,9 +57,16 @@ Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub reposi
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific File Activity parsers:
 
-- **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
+- **Windows file activity**
+    - Reported by **Windows (event 4663)**:
+        - Collected using the Log Analytics Agent based Security Events connector to the SecurityEvent table.
+        - Collected using the Azure Monitor Agent based Security Events connector to the SecurityEvent table.
+        - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
+    - Reported using **Sysmon file activity events** (Events 11, 23, and 26):
+        - Collected using the Log Analytics Agent to the Event table.
+        - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
+    - Reported by **Microsoft 365 Defender for Endpoint**, collected using the Microsoft 365 Defender connector.
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
-- **Microsoft 365 Defender for Endpoint file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
 Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimFileEvent).
@@ -71,23 +77,25 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
+| **Normalized Network Session Logs** | Any event normalized at ingestion to the `ASimNetworkSessionLogs` table. The Firewall connector for the Azure Monitor Agent uses the `ASimNetworkSessionLogs` table and is supported by the `_Im_NetworkSession_Native` parser. | `_Im_NetworkSession_Native` |
 | **AppGate SDP** | IP connection logs collected using Syslog. | `_Im_NetworkSession_AppGateSDPVxx` |
 | **AWS VPC logs** | Collected using the AWS S3 connector. | `_Im_NetworkSession_AWSVPCVxx` |
 | **Azure Firewall logs** | |`_Im_NetworkSession_AzureFirewallVxx`|
 | **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_VMConnectionVxx`  |
 | **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_AzureNSGVxx` |
-| **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx`* |
-| **Cisco ASA** | Collected using the CEF connector. | `_Im_NetworkSession_CiscoASAVxx`* |
+| **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx` |
+| **Cisco ASA** | Collected using the CEF connector. | `_Im_NetworkSession_CiscoASAVxx` |
 | **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |
-| **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx`* |
+| **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
 | **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
 | **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
-| **Microsoft Defender for IoT - Endpoint** | | `_Im_NetworkSession_MD4IoTVxx` |
+| **Microsoft Defender for IoT micro agent** | | `_Im_NetworkSession_MD4IoTAgentVxx` |
+| **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` * |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
 | **Sysmon for Linux**  (event 3) | Collected using the Log Analytics Agent<br> or the Azure Monitor Agent. |`_Im_NetworkSession_LinuxSysmonVxx`  |
 | **Vectra AI** | | `_Im_NetworkSession_VectraIAVxx`  |
 | **Windows Firewall logs** | Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. | `_Im_NetworkSession_MicrosoftWindowsEventFirewallVxx`|
-| **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx`* |
+| **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
 | **Zscaler ZIA firewall logs** | Collected using CEF. | `_Im_NetworkSessionZscalerZIAVxx` |
 
 Note that the parsers marked with (*) are available for deployment from GitHub and are not yet built into workspaces.
@@ -122,7 +130,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
-|**Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
+| **Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
 | **Vectra AI Streams** | | `_Im_WebSession_VectraAIVxx`  |
 | **Zscaler ZIA** | Collected using CEF | `_Im_WebSessionZscalerZIAVxx` |
 

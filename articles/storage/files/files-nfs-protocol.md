@@ -63,7 +63,7 @@ The status of items that appear in this table may change over time as support co
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
-| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
+| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=/azure/storage/files/toc.json#grant-access-from-an-internet-ip-range)| ⛔ |
 | [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
 | [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
@@ -75,7 +75,7 @@ The status of items that appear in this table may change over time as support co
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
@@ -98,4 +98,4 @@ The following workloads have known issues:
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
-- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=/azure/storage/files/toc.json)

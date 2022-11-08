@@ -1,6 +1,7 @@
 ---
 title: How to move from classic to modernized VMware disaster recovery?
 description: This article describes how to move from classic to modernized VMware disaster recovery.
+ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: jsuri
 ms.topic: how-to

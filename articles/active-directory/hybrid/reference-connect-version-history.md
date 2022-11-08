@@ -84,7 +84,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Functional changes
 
- - We added a new attribute 'employeeLeaveDateTime' for syncing to Azure AD 
+ - We added a new attribute 'employeeLeaveDateTime' for syncing to Azure AD. To learn more about how to use this attribute to manage your users' life cycles, please refer to [this article](https://learn.microsoft.com/azure/active-directory/governance/how-to-lifecycle-workflow-sync-attributes)
 
 ### Bug fixes
 

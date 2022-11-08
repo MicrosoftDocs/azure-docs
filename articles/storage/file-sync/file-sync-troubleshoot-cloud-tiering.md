@@ -197,7 +197,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 
 This option doesn't require removing the server endpoint but requires sufficient disk space to copy the full files locally.
 
-1. [Mount](../files/storage-how-to-use-files-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) the Azure file share on the Windows Server that has orphaned tiered files.
+1. [Mount](../files/storage-how-to-use-files-windows.md?toc=/azure/storage/filesync/toc.json) the Azure file share on the Windows Server that has orphaned tiered files.
 2. Run the following PowerShell commands to list orphaned tiered files:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

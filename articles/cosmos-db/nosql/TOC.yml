@@ -32,7 +32,7 @@
     - name: Build web applications
       items:
         - name: .NET
-          href: tutorial-dotnet-console-app.md
+          href: tutorial-dotnet-web-app.md
         - name: Java
           href: tutorial-java-web-app.md
         - name: Node.js
@@ -40,7 +40,7 @@
     - name: Build console applications
       items:
         - name: .NET
-          href: tutorial-dotnet-web-app.md
+          href: tutorial-dotnet-console-app.md
         - name: Java
           href: quickstart-java.md?tabs=sync
         - name: Async Java
@@ -739,13 +739,11 @@
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
-        - name: Managed Identity
-          items:
-            - name: Use a managed identity
-              href: ../how-to-setup-managed-identity.md
-            - name: Use managed identities to access data
-              href: ../managed-identity-based-authentication.md
-              displayName: msi, managed service identity, aad, azure active directory, identity
+        - name: Use managed identities with Azure services
+          href: ../how-to-setup-managed-identity.md
+        - name: Use managed identities to access data
+          href: ../managed-identity-based-authentication.md
+          displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
             - name: Configure role-based access control to data
