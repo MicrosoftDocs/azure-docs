@@ -22,13 +22,13 @@ To get the necessary context about Microsoft Purview policies, see concept guide
 
 * If you don't have an Azure subscription, [create a free one](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * You must have an existing Microsoft Purview account. If you don't have one, see the [quickstart for creating a Microsoft Purview account](create-catalog-portal.md).
-* To register a data source, enable *Data use management* and create a simple policy [follow this guide](how-to-policies-devops-arc-sql-server.md)
-* To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level. For that, see the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
+* To register a data source, enable *Data use management*, and create a policy [follow this guide](how-to-policies-devops-arc-sql-server.md)
+* To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level. You can assign those roles by following the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
 ## Overview
 There are two ways to fetch access policies from Microsoft Purview
 - Full pull: Provides a complete set of policies for a particular data resource scope.
-- Delta pull: Provides an incremental view of policies, i.e. what has changed since the last pull request, whether that one was a full pull or a delta pull.
+- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull.
 
 Microsoft Purview policy model is described using [JSON syntax](https://datatracker.ietf.org/doc/html/rfc8259)
 
@@ -96,7 +96,7 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 ```
 
 ## Policy constructs
-There are 3 top-level policy constructs used in conjunction with the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
+There are 3 top-level policy constructs used within the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
 
 ### PolicySet
 
@@ -117,8 +117,8 @@ AttributeRule produces derived attributes and add them to request context attrib
 #### AttributePredicate
 AttributePredicate checks whether predicate specified on an attribute is satisfied. AttributePredicate  can specify the following properties:
 - attributeName: specifies attribute name on which attribute predicate needs to be evaluated.
-- matcherId: id of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId is not specified, it defaults to GlobMatcher.
-- fromRule: optional property specifying id of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
+- matcherId: Identifier of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId isn't specified, it defaults to GlobMatcher.
+- fromRule: optional property specifying the identifier of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
 - attributeValueIncludes: scalar literal value that should match the request context attribute values.
 - attributeValueIncludedIn: array of literal values that should match the request context attribute values.
 - attributeValueExcluded: scalar literal value that should not  match the request context attribute values.
