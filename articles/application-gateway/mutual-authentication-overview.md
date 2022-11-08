@@ -113,16 +113,14 @@ A list of all Azure CLI references for client authentication configuration on Ap
 # [Azure Portal](#tab/portal)
 Azure portal support is currently not available.
 
-To verify OCSP revocation status has been evaluated, access logs will contain a property called "sslClientVerify", with the status of the OCSP response.
+To verify OCSP revocation status has been evaluated, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
-Note: OCSP revocation status may fail upon first lookup to cache the response.
-
-Notes: Client revoation check was introduced in API version 2022-05-01
+Note: OCSP checks are validated via local cache, based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache has not been populated from a previous request, the response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
 
 Limitations
 - Revocation check via CRL is not supported
-- Azure CLI support
-- Azure Portal support
+- Client revoation check was introduced in API version 2022-05-01
+- Azure Portal support is not available
 
 ## Next steps
 
