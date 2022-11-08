@@ -40,7 +40,7 @@ Your Log Analytics workspace can contain the following types of tables:
 
 ## Table schema
 
-A table's schema is the set of columns that make up the table, into which Azure Monitor Logs collects logs from one or more data sources.
+A table's schema is the set of columns that make up the table, into which Azure Monitor Logs collects log data from one or more data sources.
 
 ### Azure table schema
 
