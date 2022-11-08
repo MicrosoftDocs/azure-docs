@@ -425,8 +425,6 @@
           href: error-codes-solutions.md
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name: Troubleshoot API for MongoDB queries with diagnostics
-          href: diagnostic-queries.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Optimize query and storage costs when upgrading
@@ -522,6 +520,8 @@
               href: ../monitor-logs-basic-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
