@@ -54,12 +54,12 @@
         - name: Introduction
           displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
           href: tutorial-x509-introduction.md
-        - name: Using the supplied scripts
-          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
-          href: tutorial-x509-scripts.md
         - name: Using OpenSSL
           displayName: test certificate hierarchy, root CA, subordinate CA, X.509 CA Signed, device certificate, certificate signing request (CSR), client device certificate
           href: tutorial-x509-openssl.md
+        - name: Using the supplied scripts
+          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
+          href: tutorial-x509-scripts.md
         - name: Creating self-signed certificates
           displayName: OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
