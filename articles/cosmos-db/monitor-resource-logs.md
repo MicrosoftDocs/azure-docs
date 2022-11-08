@@ -107,9 +107,13 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     | Parameters/Headers | Value/Description |
     | --- | --- |
     | **name** | The name of your diagnostic setting. |
-    | **resourceUri** | `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}` |
+    | **resourceUri** | Microsoft Insights sub-resource URI for Azure Cosmos DB account. |
     | **api-version** | `2017-05-01-preview` |
     | **Content-Type** | `application/json` |
+
+    > [!NOTE]
+    > The URI for the Microsoft Insights sub-resource is in this format: `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`. For more information about Azure Cosmos DB resource URIs, see [resource URI syntax for Azure Cosmos DB REST API](/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest).
+
 
 1. Set the body of the request to this JSON payload.
 

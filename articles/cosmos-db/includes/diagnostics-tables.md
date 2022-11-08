@@ -3,6 +3,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
 ms.service: cosmos-db
+ms.topic: include
 ms.date: 11/08/2022
 ms.custom: include file
 ---
