@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 09/26/2022
+ms.date: 11/08/2022
 ms.topic: conceptual
 ---
 
@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that m
 
 ### Logs
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the client machine from which you've deployed the Azure Arc resource bridge.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same client machine that you used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the host machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the host machine to the Appliance VM.
 
 The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. To use a different client machine to run the Azure CLI command, you need to make sure the following files are copied to the new client machine:
 
@@ -22,25 +22,11 @@ $HOME\.KVA\.ssh\logkey.pub
 $HOME\.KVA\.ssh\logkey 
 ```
 
-To run the `az arcappliance logs` command, the path to the kubeconfig must be provided. The kubeconfig is generated after successful completion of the `az arcappliance deploy` command and is placed in the same directory as the CLI command in ./kubeconfig or as specified in `--outfile` (if the parameter was passed).  
+To run the `az arcappliance logs` command, the Appliance VM IP, Control Plane IP, or kubeconfig can be passed in the corresponding parameter. If `az arcappliance deploy` was not completed, then the kubeconfig file may be empty, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs.  
 
-If `az arcappliance deploy` was not completed, then the kubeconfig file may exist but may be empty or missing data, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs instead. The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane Endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 10.97.176.27", the command to use for logs collection would be:
+The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 192.168.1.1", the command to use for logs collection would be:
 
-```azurecli
-az arcappliance logs hci --out-dir c:\logs --ip 10.97.176.27
-```
-
-To view the logs, run the following command:
-
-```azurecli
-az arcappliance logs <provider> --kubeconfig <path to kubeconfig>
-```
-
-To save the logs to a destination folder, run the following command:
-
-```azurecli
-az arcappliance logs <provider> --kubeconfig <path to kubeconfig> --out-dir <path to specified output directory>
-```
+az arcappliance logs hci --ip 192.168.1.1 --out-dir c:\logs
 
 To specify the IP address of the Azure Arc resource bridge virtual machine, run the following command:
 
@@ -122,7 +108,7 @@ When the appliance is deployed to a host resource pool, there is no high availab
 
 ### Restricted outbound connectivity
 
-Make sure the URLs listed below are added to your allowlist.
+Below is the list of firewall and proxy URLs that need to be allow-listed to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 
 #### Proxy URLs used by appliance agents and services
 
@@ -133,10 +119,10 @@ Make sure the URLs listed below are added to your allowlist.
 |Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used for Kubernetes cluster configuration.|
 |Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
 |Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-prem resources to Azure.|
-|SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Host machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
+|SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
 |Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
 |Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
-|Resource bridge (appliance) image download| 80 | `*.dl.delivery.mp.microsoft.com`| Host machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
+|Resource bridge (appliance) image download| 80 | `*.dl.delivery.mp.microsoft.com`| Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
 |Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8sdev.azurecr.io`|  Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
 |ADHS telemetry service | 443 | adhs.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
 |Microsoft events data service | 443 |v20.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
