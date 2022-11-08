@@ -150,7 +150,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
     :::image type="content" source="media/manage-users-sensor/recover-my-password.png" alt-text="Screenshot of the Recover my password option on the Sites and sensors page.":::
 
-1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your sensor. A **password_recovery.zip** file is automatically downloaded.
+1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your sensor and select **Recover**. A **password_recovery.zip** file is automatically downloaded.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -159,7 +159,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
     > [!NOTE]
     > If an error message appears, indicating that the file is invalid, you may have had an incorrect subscription selected in your Azure portal settings. Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensor was onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the sensor again.
 
-1. Select **Next**. A system-generated password for your management console appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+1. Select **Next**. A system-generated password for your sensor appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
 
 1. Select **Next** again to sign into your sensor.
 

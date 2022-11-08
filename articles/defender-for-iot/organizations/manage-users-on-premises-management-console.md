@@ -42,9 +42,7 @@ This procedure describes how to create new users for an on-premises management c
 1. Select **Save** when you're done.
 
 > [!TIP]
-> Enhance user access control by [creating global access groups](#define-global-access-permission-for-on-premises-users) on an on-premises management console. For cloud-connected sensors, you can also control user access to Azure portal features by [applying site-based access control](manage-users-portal.md).
->
-> Both methods provide administrators with extra control over the users who can manage and analyze device detections, especially in large organizations with complex user permissions or global security policies.
+> Enhance user access control by [creating global access groups](#define-global-access-permission-for-on-premises-users) on an on-premises management console. Global access groups provide provide administrators with extra control over the users who can manage and analyze device detections. This extra control is especially helpful in large organizations with complex user permissions or global security policies.
 
 ## Control user session timeouts
 
@@ -68,7 +66,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
     sudo nano /var/cyberx/properties/authentication
     ```
 
-    The following output appears:
+    The `authentication` file appears in the output, for example:
 
     ```cli
     infinity_session_expiration = true
@@ -83,76 +81,61 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 1. Do either of the following:
 
-    - To turn off user session timeouts entirely, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
-    - To adjust an inactivity timeout period, adjust the `= <number>` value to the required time, in seconds.
+    - **To turn off user session timeouts entirely**, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
+    - **To adjust an inactivity timeout period**, adjust the `= <number>` value to the required time, in seconds.
 
 
 ### Reset a user's password
 
-<!--validate this procedure-->
-Users with an administrator role can change passwords for other users who have either the **Security Analyst** or **Read-only** role.
-
-Administrator users cannot change their own passwords, and must contact a user who has access to either the *cyberx* or *support* user to have their passwords reset.
-
-This procedure is not supported for users with **Security analyst** or **Read-only** roles. [On-premises user roles](roles-on-premises.md#on-premises-user-roles).
+Users with an **Administrator** role can change passwords for other users. This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).
 
 **To reset a user's password on the sensor**:
 
-1. Sign into the sensor as either the *cyberx* or *support* user, or another user with the **Administrator** role.
+1. Sign into the sensor as a user with the **Administrator** role.
 
 1. Select **Users** from the left, and locate the user whose password needs to be changed.
 
-1. At the right of that user row, do one of the following:
+1. At the right of that user row, select the **Edit** :::image type="icon" source="media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: button.
 
-    - On the sensor console, select the options (**...**) menu > **Edit**.
-    - On the on-premises management console, select the **Edit** button.
-
-1. In the **Change password** pane that appears, enter and confirm the new password.
+1. In the **Edit user** pane that appears, scroll down to the **Change password** section. Enter and confirm the new password.
 
     Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers, and one of the following symbols: **#%*+,-./:=?@[]^_{}~**
 
 1. Select **Update** when you're done.
 
-### Recover a password
+### Recover a privileged user password
 
-<!--validate this procedure-->
-
-The *cyberx* and *support* users can recover passwords for users on sensors or an on-premises management console.
-
-This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+This procedure describes how to recover either the *cyberx* or *support* user password on an on-premises management console. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 **To recover a password**:
 
-1. Start signing in to your sensor or on-premises management console. On the sign-in screen, select **Password recovery**. <!--For example: TBD-->
+1. Start signing in to your sensor or on-premises management console. On the sign-in screen, under the **Username** and **Password** fields, select **Password recovery**.
 
 1. Select either **CyberX** or **Support** from the drop-down menu, and copy the unique identifier code to the clipboard.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Screenshot of selecting either the Defender for IoT user or the support user.":::
-
 1. On the Azure portal:
 
-    1. Go to the Defender for IoT **Sites and Sensors** page.
+1. Go the Defender for IoT **Sites and sensors** page in the Azure portal. You may want to open the Azure portal in a new browser tab or window, keeping your on-premises management console open.
 
-    1. From the Azure toolbar, select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  and make sure that the subscription your sensor is connected to is selected.
+    In your Azure portal settings > **Directories + subscriptions**, make sure that you've selected the subscription where your sensors were onboarded to Defender for IoT.
 
-    1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**.
+    1. In the **Sites and sensors** page, select the **More Actions** drop down menu > **Recover on-premises management console password**.
 
         :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Screenshot of the recover on-premises management console password option.":::
 
-    1. Enter the unique identifier that you received on the **Password recovery** screen from either the sensor or the on-premises management console, and then select **Recover**. The `password_recovery.zip` file is downloaded.
+1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your on-premises management console and select **Recover**. A **password_recovery.zip** file is automatically downloaded.
 
-        :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-       [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+1. Back on the sensor console, on the **Password recovery** screen, select **Upload**, and upload the **password_recovery.zip** file you downloaded from the Azure portal.
 
-1. Back on the sensor or on-premises management console, on the **Password recovery** screen, select **Upload**.
-
-1. In the **Upload Password Recovery File** dialog, select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
     > [!NOTE]
-    > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.
+    > If an error message appears, indicating that the file is invalid, you may have had an incorrect subscription selected in your Azure portal settings. Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensors were onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the on-premises management console again.
 
-1. Select **Next** > you user account. A system-generated password for your management console appears for you to use.
+1. Select **Next**. A system-generated password for your on-premises management console appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+
+1. Select **Next** again to sign into your on-premises management console.
 
 ## Define global access permission for on-premises users
 
@@ -168,6 +151,7 @@ Create *user access groups* to establish global access control across Defender f
 
 For example, the following diagram shows how you can allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region:
 
+<!--redo this image-->
 :::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
 
 **Prerequisites**:
@@ -176,19 +160,19 @@ You must have administrator access to an on-premises management console to creat
 
 Before you create access groups, we also recommend that you:
 
-- Carefully set up your business topology. For more information about business topology, see [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views).
-
-    - For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window.
-
 - Plan which users are associated with the access groups that you create. Two options are available for assigning users to access groups:
 
-  - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory instance to integrate with the on-premises management console.
+  - **Assign groups of Active Directory groups**: Verify that you [set up an Active Directory instance](#integrate-on-premises-users-with-active-directory) to integrate with the on-premises management console.
 
-  - **Assign local users**: Verify that you created users. For more information, see [Add new on-premises management console users](#add-new-on-premises-management-console-users).
+  - **Assign local users**: Verify that you've [created local users](#create-and-manage-users-on-an-on-premises-management-console).
 
+    Users with **Administrator** roles have access to all business topology entities by default, and can't be assigned to access groups.
 
-> [!NOTE]
-> Users with **Administrator** roles can't be assigned to access groups, and have access to all business topology entities by default.
+- Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see:
+
+    - [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
+    - [Create enterprise zones](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones)
+    - [Assign sensors to zones](how-to-activate-and-set-up-your-on-premises-management-console.md#assign-sensors-to-zones)
 
 **To create access groups**:
 
@@ -199,18 +183,6 @@ Before you create access groups, we also recommend that you:
 1. Select **Access Groups** from the left navigation menu, and then select **Add** :::image type="icon" source="media/how-to-define-global-user-access-control/add-icon.png" border="false":::.
 
 1. In the **Add Access Group** dialog box, enter a meaningful name for the access group, with a maximum of 64 characters.
-
-1. Add users with one or both of the following methods:
-
-    - If the **Assign an Active Directory Group** option appears, assign an Active Directory group of users to this access group as needed. For example:
-
-       :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
-
-       If the option doesn't appear, and you want to include Active Directory groups in access groups, select **System Settings**. On the **Integrations** pane, define the groups you want to include, in lowercase and exactly as they appear in the Active Directory configuration.
-
-    - Add local users by assigning users in the **Users** pane.
-
-    If you have previously created access groups and rules, you can assign users to multiple groups at the same time.
 
 1. Select **ADD RULE**, and then select the business topology options that you want to include in the access group. The options that appear  in the **Add Rule** dialog are the entities that you'd created in the **Enterprise View** and **Site Management** pages. For example:
 
@@ -223,6 +195,20 @@ Before you create access groups, we also recommend that you:
 Any rules you create are listed in the **Add Access Group** dialog box, where you can edit them further or delete them as needed. For example:
 
 :::image type="content" source="media/how-to-define-global-user-access-control/edit-access-groups.png" alt-text="View and edit all of your access groups from this window.":::
+
+
+1. Add users with one or both of the following methods:
+
+    - If the **Assign an Active Directory Group** option appears, assign an Active Directory group of users to this access group as needed. For example:
+
+       :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
+
+       If the option doesn't appear, and you want to include Active Directory groups in access groups, make sure that you've included your Active Directory group in your Active Directory integration. For more information, see [Integrate on-premises users with Active Directory](#integrate-on-premises-users-with-active-directory).
+
+    - Add local users by assigning users in the **Users** pane.
+
+    If you have previously created access groups and rules, you can assign users to multiple groups at the same time.
+
 
 > [!IMPORTANT]
 > If you later modify a topology entity and the change affects the rule logic, the rule is automatically deleted. If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in.
