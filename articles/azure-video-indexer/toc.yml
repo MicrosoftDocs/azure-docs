@@ -13,8 +13,6 @@
     href: accounts-overview.md
   - name: Language support
     href: language-support.md
-  - name: Insights
-    href: insights-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -62,6 +60,8 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
+  - name: Insights
+    href: insights-overview.md      
   - name: Post-production insights
     items:
     - name: Slate detection
