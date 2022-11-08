@@ -75,10 +75,18 @@ To create the Resource Guard in a tenant different from the vault tenant, follow
 
 # [PowerShell](#tab/powershell)
 
-Use the following command to create a resource guard:
+To create a resource guard, run the following cmdlet:
 
    ```azurepowershell-interactive
    New-AzDataProtectionResourceGuard -Location “Location” -Name “ResourceGuardName” -ResourceGroupName “rgName”
+   ```
+
+# [CLI](#tab/cli)
+
+To create a resource guard, run the following command:
+
+   ```azurecli-interactive
+   az dataprotection resource-guard create --location "Location" --tags key1="val1" --resource-group "RgName" --resource-guard-name "ResourceGuardName"
    ```
 
 ---
@@ -105,7 +113,7 @@ To exempt operations, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-Use the following commands to update the operations. These exclude operations from protection by the resource guard.
+To update the operations. These exclude operations from protection by the resource guard, run the following cmdlets:
 
    ```azurepowershell-interactive
    $resourceGuard = Get-AzDataProtectionResourceGuard -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx" -ResourceGroupName "rgName" -Name "resGuardName"
@@ -119,6 +127,27 @@ Use the following commands to update the operations. These exclude operations fr
 - The first command fetches the resource guard that needs to be updated.
 - The second and third commands fetch the critical operations that you want to update.
 - The fourth command excludes some critical operations from the resource guard.
+
+# [CLI](#tab/cli)
+
+To update the operations that are to be excluded from being protected by the resource guard, run the following commands:
+
+   ```azurecli-interactive
+   az dataprotection resource-guard update --name
+                                          --resource-group
+                                          [--critical-operation-exclusion-list {deleteProtection, getSecurityPIN, updatePolicy, updateProtection}]
+                                          [--resource-type {Microsoft.RecoveryServices/vaults}]
+                                          [--tags]
+                                          [--type]
+
+   ```
+
+**Example**:
+
+   ```azurecli
+   az dataprotection resource-guard update --resource-group "RgName" --resource-guard-name "ResourceGuardName" --resource-type "Microsoft.RecoveryServices/vaults" --critical-operation-exclusion-list deleteProtection getSecurityPIN updatePolicy   
+   ```
+
 
 ---
 
@@ -177,7 +206,7 @@ To enable MUA on the vaults, follow these steps.
 
 # [PowerShell](#tab/powershell)
 
-Use the following command to enable MUA on a Recovery Services vault:
+To enable MUA on a Recovery Services vault, run run the following cmdlet:
 
    ```azurepowershell-interactive
    $token = (Get-AzAccessToken -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx").Token
@@ -189,6 +218,27 @@ Use the following command to enable MUA on a Recovery Services vault:
 
 >[!NOTE]
 >The token parameter is optional and is only needed to authenticate cross tenant protected operations.
+
+# [CLI](#tab/cli)
+
+To enable MUA on a Recovery Services vault, run the following command:
+
+   ```azurecli-interactive
+   az backup vault resource-guard-mapping update --resource-guard-id
+                                                [--ids]
+                                                [--name]
+                                                [--resource-group]
+                                                [--tenant-id]
+
+   ```
+
+The tenant ID is required if the resource guard exists in a different tenant.
+
+**Example**:
+
+   ```azurecli
+   az backup vault resource-guard-mapping update --resource-group RgName --name VaultName --resource-guard-id ResourceGuardId
+   ```
 
 ---
 
@@ -318,7 +368,7 @@ To disable MUA on a vault, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-Use the following command to disable MUA on a Recovery Services vault:
+To disable MUA on a Recovery Services vault, use the following cmdlet:
 
    ```azurepowershell-interactive
    $token = (Get-AzAccessToken -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx").Token
@@ -331,7 +381,27 @@ Use the following command to disable MUA on a Recovery Services vault:
 >[!NOTE]
 >The token parameter is optional and is only needed to authenticate the cross tenant protected operations.
 
----
+# [CLI](#tab/cli)
+
+To disable MUA on a Recovery Services vault, run the following command:
+
+   ```azurecli-interactive
+   az backup vault resource-guard-mapping delete [--ids]
+                                                [--name]
+                                                [--resource-group]
+                                                [--tenant-id]
+                                                [--yes]
+
+   ```
+   ---
+
+The tenant ID is required if the resource guard exists in a different tenant.
+
+**Example**:
+
+   ```azurecli
+   az backup vault resource-guard-mapping delete --resource-group RgName --name VaultName
+   ```
 
 
 
