@@ -48,6 +48,8 @@ landingContent:
             url: architecture.md
           - text: Authenticating ledger nodes
             url: authenticate-ledger-nodes.md
+          - text: Azure Confidential Ledger write transaction receipts
+            url: write-transaction-receipts.md
 
   # Card
   - title: How-to-guides
@@ -60,6 +62,8 @@ landingContent:
             url: create-client-certificate.md
           - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
+          - text: Verify Azure Confidential Ledger write transaction receipts
+            url: verify-write-transaction-receipts.md
   # Card
   - title: References
     linkLists:

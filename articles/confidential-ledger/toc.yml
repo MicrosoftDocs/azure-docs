@@ -27,6 +27,8 @@
     href: authentication-azure-ad.md
   - name: Authenticating ledger nodes
     href: authenticate-ledger-nodes.md
+  - name: Azure Confidential Ledger write transaction receipts
+    href: write-transaction-receipts.md
 - name: How To Guides
   items:
   - name: Create a client certificate
@@ -35,6 +37,8 @@
     href: register-ledger-resource-provider.md
   - name: Register an ACL app with Azure AD
     href: register-application.md
+  - name: Verify Azure Confidential Ledger write transaction receipts
+    href: verify-write-transaction-receipts.md
 - name: References
   items:
 
