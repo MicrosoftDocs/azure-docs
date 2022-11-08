@@ -28,7 +28,7 @@ Both share-level and file/directory level permissions are enforced when a user a
 
 The following table contains the Azure RBAC permissions related to this configuration. If you're using Azure Storage Explorer, you'll also need the [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role in order to read/access the file share.
 
-| Built-in role  | NTFS permission  | Resulting access  |
+| Share-level permission (Built-in role)  | NTFS permission  | Resulting access  |
 |---------|---------|---------|
 |Storage File Data SMB Share Reader | Full control, Modify, Read, Write, Execute | Read & execute  |
 |     |   Read |     Read  |
@@ -64,6 +64,8 @@ The following permissions are included on the root directory of a file share:
 - `NT AUTHORITY\SYSTEM:(OI)(CI)(F)`
 - `NT AUTHORITY\SYSTEM:(F)`
 - `CREATOR OWNER:(OI)(CI)(IO)(F)`
+
+For more information on these advanced permissions, see [icacls reference](/windows-server/administration/windows-commands/icacls#remarks).
 
 ## Mount the file share using your storage account key
 
