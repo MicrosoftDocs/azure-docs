@@ -38,7 +38,7 @@ To learn more about the SQL syntax for Azure Cosmos DB for NoSQL, see [Getting s
 > [!NOTE]
 > The examples in this article assume that you have already defined a C# type to represent your data named **Product**:
 >
-> :::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Product.cs" id="type" :::
+> :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/300-query-items/Product.cs" id="type" :::
 >
 
 To query items in a container, call one of the following methods:
@@ -50,13 +50,13 @@ To query items in a container, call one of the following methods:
 
 This example builds a SQL query using a simple string, retrieves a feed iterator, and then uses nested loops to iterate over results. The outer **while** loop will iterate through result pages, while the inner **foreach** loop iterates over results within a page.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Program.cs" id="query_items_sql" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/300-query-items/Program.cs" id="query_items_sql" :::
 
 The [Container.GetItemQueryIterator<>](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) method returns a [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) that is used to iterate through multi-page results. The ``HasMoreResults`` property indicates if there are more result pages left. The ``ReadNextAsync`` method gets the next page of results as an enumerable that is then used in a loop to iterate over results.
 
 Alternatively, use the [QueryDefinition](/dotnet/api/microsoft.azure.cosmos.querydefinition) to build a SQL query with parameterized input:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Program.cs" id="query_items_sql_parameters" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/300-query-items/Program.cs" id="query_items_sql_parameters" :::
 
 > [!TIP]
 > Parameterized input values can help prevent many common SQL query injection attacks.
@@ -65,7 +65,7 @@ Alternatively, use the [QueryDefinition](/dotnet/api/microsoft.azure.cosmos.quer
 
 In this example, an [``IQueryable``<>](/dotnet/api/system.linq.iqueryable) object is used to construct a [Language Integrated Query (LINQ)](/dotnet/csharp/programming-guide/concepts/linq/). The results are then iterated over using a feed iterator.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Program.cs" id="query_items_queryable" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/300-query-items/Program.cs" id="query_items_queryable" :::
 
 The [Container.GetItemLinqQueryable<>](/dotnet/api/microsoft.azure.cosmos.container.getitemlinqqueryable) method constructs an ``IQueryable`` to build the LINQ query. Then the ``ToFeedIterator<>`` method is used to convert the LINQ query expression into a [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1).
 

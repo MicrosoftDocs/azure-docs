@@ -29,7 +29,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Prerequisites
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- An [Azure Storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- An [Azure Storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/03/2022
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -69,7 +69,7 @@ If [anonymous read access](./anonymous-read-access-configure.md) has been grante
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer"></a>
 
@@ -79,9 +79,9 @@ Use only versions `1.6.0` or higher.
 
 <a id="explorer-in-portal"></a>
 
-## Storage Explorer in the Azure portal
+## Storage browser in the Azure portal
 
-ACLs are not yet supported.
+In the storage browser that appears in the Azure portal, you can't access a file or folder by specifying a path. Instead, you must browse through folders to reach a file.  Therefore, if an ACL grants a user read access to a file but not read access to all folders leading up to the file, that user won't be able to view the file in storage browser.  
 
 <a id="third-party-apps"></a>
 

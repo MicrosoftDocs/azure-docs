@@ -8,7 +8,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.subservice: core
-ms.date: 05/03/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
 ---
