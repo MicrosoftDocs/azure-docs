@@ -420,5 +420,5 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 
 ## Next steps
 
-* Learn how to [connect to on-premises data](../logic-apps/logic-apps-gateway-connection.md) 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
