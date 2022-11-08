@@ -20,9 +20,9 @@ For a list of Azure resource provider namespaces, see [Resource providers for Az
 For a list of resource providers that support Azure Monitor
 
 - **Metrics** - See [Supported metrics in Azure Monitor](essentials/metrics-supported.md).
-- **Metric alerts** - See [Supported resources for metric alerts in Azure Monitor](/alerts/alerts-metric-near-real-time.md).
+- **Metric alerts** - See [Supported resources for metric alerts in Azure Monitor](alerts/alerts-metric-near-real-time.md).
 - **Prometheus metrics** - See [TBD](essentials/FILL ME IN.md).
-- **Resource logs** - See [Supported categories for Azure Monitor resource logs](/essentials/resource-logs-categories.md).
+- **Resource logs** - See [Supported categories for Azure Monitor resource logs](essentials/resource-logs-categories.md).
 - **Activity log** - All entries in the activity log are available for query, alerting and routing to Azure Monitor Logs store regardless of resource provider.
 
 ## Services that require agents
