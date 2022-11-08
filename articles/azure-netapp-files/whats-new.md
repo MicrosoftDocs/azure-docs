@@ -20,6 +20,7 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 * [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (Preview)
+
     Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files large volumes break this barrier by enabling volumes of 100 TiB to 500TiB in size. Large volumes enable a variety of use cases and workloads that require large volumes with a single directory namespace.   
     
 ## November 2022 
