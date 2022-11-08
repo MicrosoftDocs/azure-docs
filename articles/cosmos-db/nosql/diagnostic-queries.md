@@ -21,11 +21,12 @@ In this article, we'll cover how to write more advanced queries to help troubles
 [!INCLUDE[Diagnostic tables](../includes/diagnostics-tables.md)]
 
 ## Common queries
+
 Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 ### Top N(10) queries ordered by Request Unit (RU) consumption in a specific time frame
 
-# [Resource-specific](#tab/resource-specific)
+#### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
    let topRequestsByRUcharge = CDBDataPlaneRequests 
@@ -38,7 +39,8 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | order by RequestCharge desc
    | take 10
    ```
-# [Azure Diagnostics](#tab/azure-diagnostics)
+
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
    let topRequestsByRUcharge = AzureDiagnostics
@@ -51,12 +53,13 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | project databasename_s , collectionname_s , querytext_s , requestCharge_s, TimeGenerated
    | order by requestCharge_s desc
    | take 10
-   ```    
+   ```
+  
 ---
 
-### Requests throttled (statusCode = 429) in a specific time window 
+### Requests throttled (statusCode = 429) in a specific time window
 
-# [Resource-specific](#tab/resource-specific)
+#### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
    let throttledRequests = CDBDataPlaneRequests
@@ -67,7 +70,8 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | join kind=inner throttledRequests on ActivityId
    | project DatabaseName , CollectionName , QueryText , OperationName, TimeGenerated
    ```
-# [Azure Diagnostics](#tab/azure-diagnostics)
+
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
    let throttledRequests = AzureDiagnostics
@@ -78,12 +82,13 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | project querytext_s, activityId_g, databasename_s , collectionname_s
    | join kind=inner throttledRequests on activityId_g
    | project databasename_s , collectionname_s , querytext_s , OperationName, TimeGenerated
-   ```    
+   ```
+
 ---
 
 ### Queries with the largest response lengths (payload size of the server response)
 
-# [Resource-specific](#tab/resource-specific)
+#### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
    let operationsbyUserAgent = CDBDataPlaneRequests
@@ -95,7 +100,8 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | summarize max(ResponseLength) by QueryText
    | order by max_ResponseLength desc
    ```
-# [Azure Diagnostics](#tab/azure-diagnostics)
+
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
    let operationsbyUserAgent = AzureDiagnostics
@@ -108,12 +114,13 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | join kind=inner operationsbyUserAgent on activityId_g
    | summarize max(responseLength_s1) by querytext_s
    | order by max_responseLength_s1 desc
-   ```    
+   ```
+
 ---
 
 ### RU consumption by physical partition (across all replicas in the replica set)
 
-# [Resource-specific](#tab/resource-specific)
+#### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
    CDBPartitionKeyRUConsumption
@@ -125,7 +132,8 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
    | render columnchart
    ```
-# [Azure Diagnostics](#tab/azure-diagnostics)
+
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
    AzureDiagnostics
@@ -137,12 +145,13 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
    | render columnchart  
-   ```    
+   ```
+
 ---
 
 ### RU consumption by logical partition (across all replicas in the replica set)
 
-# [Resource-specific](#tab/resource-specific)
+#### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
    CDBPartitionKeyRUConsumption
@@ -154,7 +163,8 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
    | render columnchart  
    ```
-# [Azure Diagnostics](#tab/azure-diagnostics)
+
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
    AzureDiagnostics
@@ -167,6 +177,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s
    | render columnchart  
    ```
+
 ---
 
 ## Next steps
