@@ -12,6 +12,7 @@ ms.topic: how-to
 # Verify Azure Confidential Ledger write transaction receipts
 
 ## Context
+
 For more details about Azure Confidential Ledger write transaction receipts, please refer to the detailed documentation on the topic that can be found at the [following page](write-transaction-receipts.md).
 
 ## Receipt verification steps
@@ -32,32 +33,32 @@ Similarly, the leaf node hash digest can be computed by applying the SHA-256 has
 
 ### Root node computation
 
-The second step is to compute the SHA-256 hash of the root of the Merkle Tree at the time the transaction was committed. This can be accomplished by iteratively concatenating and hashing the result of the previous iteration (starting from the leaf node hash computed in the previous step) with the ordered nodes' hashes provided in the `proof` field of a receipt. Please note that the `proof` list is provided as an ordered list and its elements need to be iterated in the given order. 
+The second step is to compute the SHA-256 hash of the root of the Merkle Tree at the time the transaction was committed. This can be accomplished by iteratively concatenating and hashing the result of the previous iteration (starting from the leaf node hash computed in the previous step) with the ordered nodes' hashes provided in the `proof` field of a receipt. Please note that the `proof` list is provided as an ordered list and its elements need to be iterated in the given order.
 
-The concatenation needs to be done on the bytes representation with respect to the relative order indicated in the objects provided in the `proof` field (either `left` or `right`):
+The concatenation needs to be done on the bytes representation with respect to the relative order indicated in the objects provided in the `proof` field (either `left` or `right`).
 
-* If the key of the current element in proof is `left`, then the result of the previous iteration should be appended to the current element value 
-* If the key of the current element in proof is `right`, then the result of the previous iteration should be prepended to the current element value
+* If the key of the current element in `proof` is `left`, then the result of the previous iteration should be appended to the current element value.
+* If the key of the current element in `proof` is `right`, then the result of the previous iteration should be prepended to the current element value.
 
 After each concatenation, the SHA-256 function needs to be applied in order to obtain the input for the next iteration. This process follows the standard steps to compute the root node of a [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) data structure given the required nodes for the computation.
 
-### Verify signature over root node 
+### Verify signature over root node
 
 The third step is to verify that the cryptographic signature produced over the root node hash is valid using the signing node certificate in the receipt. The verification process follows the standard steps for digital signature verification for messages signed using the [Elliptic Curve Digital Signature Algorithm (ECDSA)](https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). More specifically, the steps are:
 
-1. Decode the base64 string `signature` into an array of bytes
-2. Extract the ECDSA public key from the signing node certificate `cert` 
+1. Decode the base64 string `signature` into an array of bytes.
+2. Extract the ECDSA public key from the signing node certificate `cert`.
 3. Verify that the signature over the root of the Merkle Tree (computed using the instructions in the previous sub-section) is authentic using the extracted public key from the previous step. This step effectively corresponds to a standard [digital signature](https://wikipedia.org/wiki/Digital_signature) verification process using ECDSA. There are many libraries in the most popular programming languages that allow verifying an ECDSA signature using a public key certificate over some data and that can be leveraged for this step (e.g., [ecdsa](https://pypi.org/project/ecdsa/) for Python).
 
 ### Verify signing node certificate endorsement
 
 In addition to the above, it is also required to verify that the signing node certificate is endorsed (i.e., signed) by the current ledger certificate. Please note that this step does not depend on the other three previous steps and can be carried out independenly from the others.
 
-As the ledger certificate may have been renewed since the transaction was committed, it is possible that the current service identity that issued the receipt is different from the one that endorsed the signing node. If this applies, it is required to verify the chain of certificates trust from the signing node certificate (i.e., the `cert` field in the receipt) up to the trusted root Certificate Authority (CA) (i.e., the current service identity certificate) through other previous service identities (i.e., the `service_endorsements` list field in the receipt). Please note that the `service_endorsements` list is provided as an ordered list from the oldest to the latest service identity. 
+As the ledger certificate may have been renewed since the transaction was committed, it is possible that the current service identity that issued the receipt is different from the one that endorsed the signing node. If this applies, it is required to verify the chain of certificates trust from the signing node certificate (i.e., the `cert` field in the receipt) up to the trusted root Certificate Authority (CA) (i.e., the current service identity certificate) through other previous service identities (i.e., the `service_endorsements` list field in the receipt). Please note that the `service_endorsements` list is provided as an ordered list from the oldest to the latest service identity.
 
 Certificate endorsement need to be verified for the entire chain and follows the exact same digital signature verification process outlined in the previous sub-section. There are popular open-source cryptographic libraries (e.g., [OpenSSL](https://www.openssl.org/)) that can be typically used to carry out a certificate endorsement step.
 
-### Additional resources 
+### Additional resources
 
 Please refer to the [CCF documentation about receipt verification](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#receipt-verification) for more details about how the algorithm works. The following links could also be useful to better understand some topics related to receipt verification:
 
@@ -66,7 +67,7 @@ Please refer to the [CCF documentation about receipt verification](https://micro
 * [Cryptography](https://microsoft.github.io/CCF/main/architecture/cryptography.html)
 * [Certificates](https://microsoft.github.io/CCF/main/operations/certificates.html)
 
-## Verify write transaction receipts 
+## Verify write transaction receipts
 
 ### Setup and pre-requisites
 
@@ -74,9 +75,9 @@ For reference purposes, we provide sample code in Python to fully verify Azure C
 
 For the verification algorithm, we are going to need the current service network certificate and a write transaction receipt from a running Confidential Ledger resource. Please refer to the [following page](write-transaction-receipts.md#fetching-a-write-transaction-receipt) for details on how to fetch a write transaction receipt and how to retrieve the service certificate.
 
-### Code walkthrough 
+### Code walkthrough
 
-We are going to use a separate utility (`verify_receipt`) to run the receipt verification algorithm and we provide as input of the algorithm the content of the `receipt` field of a `GET_RECEIPT` response as a dictionary and the service certitificate as a simple string. The function throws an exceptions if the receipt is not valid or if any error was encountered. 
+We are going to use a separate utility (`verify_receipt`) to run the receipt verification algorithm and we provide as input of the algorithm the content of the `receipt` field of a `GET_RECEIPT` response as a dictionary and the service certitificate as a simple string. The function throws an exceptions if the receipt is not valid or if any error was encountered.
 
 We assume that both the receipt and the service certificate can be loaded from files.
 
@@ -111,7 +112,7 @@ As the verification process requires some cryptographic and hashing algorithms, 
 
 * The [CCF Python library](https://microsoft.github.io/CCF/main/audit/python_library.html): the module provides a set of tools for receipt verification.
 * The [Python cryptography library](https://cryptography.io/en/latest/): a widely used library that includes a variety of cryptographic algorithms and primitives.
-* The [hashlib module](https://docs.python.org/3/library/hashlib.html), part of the Python standard library: a module that provides a common interface for popular hashing algorithms. 
+* The [hashlib module](https://docs.python.org/3/library/hashlib.html), part of the Python standard library: a module that provides a common interface for popular hashing algorithms.
 
 ```python
 from ccf.receipt import verify, check_endorsements, root 
@@ -156,7 +157,7 @@ We check that the receipt is not related to a signature transaction. Receipts fo
 assert not is_signature_transaction 
 ```
 
-We can load the PEM certificates for the service identity, the signing node, and the endorsements certificates from previous service identities using the cryptography library. 
+We can load the PEM certificates for the service identity, the signing node, and the endorsements certificates from previous service identities using the cryptography library.
 
 ```python
 # Load service and node PEM certificates 
@@ -171,7 +172,7 @@ service_endorsements_certs = [
 ```
 
 The first step of the verification process is to compute the digest of the leaf node.
- 
+
 ```python
 # Compute leaf of the Merkle Tree corresponding to our transaction 
 leaf_node_hex = compute_leaf_node( 
@@ -181,9 +182,8 @@ leaf_node_hex = compute_leaf_node(
 
 The `compute_leaf_node` function accepts as parameters the leaf components of the receipt (the `claims_digest`, the `commit_evidence`, and the `write_set_digest`) and returns the leaf node hash in hexadecimal form.
 
-As detailed above, we compute the digest of `commit_evidence` (using the SHA256 hashlib function). Then, we convert both `write_set_digest` and `claims_digest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 hashlib function. 
+As detailed above, we compute the digest of `commit_evidence` (using the SHA256 hashlib function). Then, we convert both `write_set_digest` and `claims_digest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 hashlib function.
 
- 
 ```python
 def compute_leaf_node( 
     claims_digest_hex: str, commit_evidence_str: str, write_set_digest_hex: str 
@@ -220,7 +220,7 @@ After computing the leaf, we can compute the root of the Merkle tree.
 root_node = root(leaf_node_hex, proof_list) 
 ```
 
-We leverage the function `root` provided as part of the CCF Python library. The function successively concatenates the result of the previous iteration with a new element from `proof`, digests the concatenation, and then repeats the step for every element in `proof` with the previously computed digest. The concatenation needs to respect the order of the nodes in the Merkle Tree to make sure the root is re-computed correctly. 
+We leverage the function `root` provided as part of the CCF Python library. The function successively concatenates the result of the previous iteration with a new element from `proof`, digests the concatenation, and then repeats the step for every element in `proof` with the previously computed digest. The concatenation needs to respect the order of the nodes in the Merkle Tree to make sure the root is re-computed correctly.
 
 ```python
 def root(leaf: str, proof: List[dict]): 
@@ -238,10 +238,9 @@ def root(leaf: str, proof: List[dict]):
             current = sha256(current + bytes.fromhex(n["right"])).digest() 
     return current.hex() 
 ```
- 
+
 After computing the root node hash, we can verify the signature contained in the receipt over the root to validate that the signature is correct.
 
- 
 ```python
 # Verify signature of the signing node over the root of the tree 
 verify(root_node, root_node_signature, node_cert) 
@@ -265,16 +264,15 @@ def verify(root: str, signature: str, cert: Certificate):
     )
 ```
 
-The last step of receipt verification is validating the certificate that was used to sign the root of the Merkle tree. 
+The last step of receipt verification is validating the certificate that was used to sign the root of the Merkle tree.
 
 ```python
 # Verify node certificate is endorsed by the service certificates through endorsements 
 check_endorsements(node_cert, service_cert, service_endorsements_certs) 
 ```
 
-Likewise, we can use the CCF utility `check_endorsements` to validate that the certificate of the signing node is endorsed by the service identity. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `service_endorsements` is not an empty list. 
+Likewise, we can use the CCF utility `check_endorsements` to validate that the certificate of the signing node is endorsed by the service identity. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `service_endorsements` is not an empty list.
 
- 
 ```python
 def check_endorsement(endorsee: Certificate, endorser: Certificate): 
     """ 
@@ -305,10 +303,9 @@ def check_endorsements(
         cert_i = endorsement 
     check_endorsement(cert_i, service_cert) 
 ```
- 
-As an alternative, we could also validate the certificate by leveraging the OpenSSL library using a similar method. 
 
- 
+As an alternative, we could also validate the certificate by leveraging the OpenSSL library using a similar method.
+
 ```python
 from OpenSSL.crypto import ( 
     X509, 
@@ -345,7 +342,7 @@ def verify_openssl_certificate(
     ctx = X509StoreContext(store, node_cert_pem, certs_chain) 
     ctx.verify_certificate() 
 ```
- 
+
 ### Sample code
 
 The full sample code used in the code walkthrough can be found below.
@@ -375,7 +372,7 @@ with open("network_certificate.pem", "r") as service_certificate_file, open(
         raise e 
 ```
 
-#### Receipt verification 
+#### Receipt verification
 
 ```python
 from cryptography.x509 import load_pem_x509_certificate, Certificate 
@@ -506,5 +503,5 @@ def verify_openssl_certificate(
 
 ## Next steps
 
-- [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Azure confidential ledger architecture](architecture.md)
+* [Overview of Microsoft Azure confidential ledger](overview.md)
+* [Azure confidential ledger architecture](architecture.md)
