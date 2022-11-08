@@ -43,12 +43,12 @@ Validation is evaluated against:
 
 Validation is carried out twice:
 
-1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
+1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate can't be uploaded.
 1. When initiating encrypted communication between:
 
     - Defender for IoT system components, for example, a sensor and on-premises management console.
 
-    - Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
+    - Defender for IoT and certain third party servers defined in Forwarding rules.  For more information, see [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information).  
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
@@ -58,7 +58,7 @@ Following sensor and on-premises management console installation, a local self-s
 
 When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
 
-If the certificate is not created properly by the certificate lead or there are connection issues to it, the certificate cannot be uploaded and users will be forced to work with a locally signed certificate.  
+If the certificate isn't created properly by the certificate lead or there are connection issues to it, the certificate can't be uploaded and users will be forced to work with a locally signed certificate.  
 
 The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
 
@@ -91,7 +91,7 @@ If you are working with certificate validation, verify access to port 80 is avai
 
 Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
 
-Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can: 
+Some organizational security policies may block access to this port. If your organization doesn't have access to port 80, you can: 
 
 1. Define another URL and a specific port in the certificate.
 
@@ -103,11 +103,11 @@ Some organizational security policies may block access to this port. If your org
 
 ### File type requirements
 
-Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT does not require this file type.
+Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT doesn't require this file type.
 
 **.crt – certificate container file**
 
-A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
+A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file isn't recognized by Windows Explorer.
 
 **.key – Private key file**
 
@@ -121,7 +121,7 @@ You may need to convert existing files types to supported types. See [Convert ex
 
 ### Certificate file parameter requirements
 
-Verify that you have met the following parameter requirements before creating a certificate:
+Verify that you've met the following parameter requirements before creating a certificate:
 
 - [CRT file requirements](#crt-file-requirements)
 - [Key file requirements](#key-file-requirements)
@@ -212,7 +212,7 @@ Admin users attempting to log in to the sensor or on-premises management console
 | This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
 | This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
 |This certificate has been revoked by the CRL and cannot be trusted for a secure connection | Create a new unrevoked certificate. |
-|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate.You can use a proxy server if there are limitations in establishing a direct connection.  
+|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate. You can use a proxy server if there are limitations in establishing a direct connection.  
 |Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
 ### Troubleshoot file conversions  
