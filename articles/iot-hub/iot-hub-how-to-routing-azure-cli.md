@@ -120,35 +120,6 @@ References used in the following commands:
    ]
    ```
 
-### Update an IoT Hub route
-
-Try changing one of the parameters, for example the **source** from **deviceconnectionstateevents** to **devicejoblifecycleevents**.
-
-```azurecli
-az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
-```
-
-Use the `az iot hub route show` command to confirm the change in your route.
-
-```azurecli
-az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-```
-
-### Delete an Event Hubs endpoint
-
-```azurecli
-az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-event-hub-endpoint 
-```
-
-### Delete an IoT Hub route
-
-```azurecli
-az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-```
-
-> [!TIP]
-> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
-
 # [Service Bus queue](#tab/servicebusqueue)
 
 References used in the following commands:
@@ -210,37 +181,6 @@ Before creating an IoT Hub route to a Service Bus queue, you must create the end
    ```azurecli
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
    ```
-
-### Update your IoT hub route
-
-While you can't modify an endpoint, you can change the endpoint within the route, in addition to other changes in a route. For a list of parameters in the `update` command, see [az iot hub route update](/cli/azure/iot/hub/route#az-iot-hub-route-update).
-
-1. Change the route source from **deviceconnectionstateevents** to **devicejoblifecycleevents**.
-
-   ```azurecli
-   az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
-   ```
-
-1. Use the `az iot hub route show` command to confirm the change in your route.
-
-   ```azurecli
-   az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-   ```
-
-### Delete your Service Bus queue endpoint
-
-```azurecli
-az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-service-bus-queue-endpoint 
-```
-
-### Delete your IoT hub route
-
-```azurecli
-az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-```
-
-> [!TIP]
-> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
 
 # [Service Bus topic](#tab/servicebustopic)
 
@@ -308,41 +248,11 @@ Before creating an IoT Hub route to a Service Bus topic, you must create the end
    az iot hub route list --resource-group my-resource-group --hub-name my-iot-hub
    ```
 
-### Update your IoT hub route
-
-For a list of parameters in the `update` command, see [az iot hub route update](/cli/azure/iot/hub/route#az-iot-hub-route-update).
-
-> [!NOTE]
-> While you can't modify an endpoint, you can change the endpoint within the route or create a new one for the route.
-
-1. Change the route source from **deviceconnectionstateevents** to **devicejoblifecycleevents**.
-
-   ```azurecli
-   az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
-   ```
-
-1. Use the `az iot hub route show` command to confirm the change in your route.
-
-   ```azurecli
-   az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-   ```
-
-### Delete your Service Bus topic endpoint
-
-```azurecli
-az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-service-bus-topic-endpoint 
-```
-
-### Delete your IoT hub route
-
-```azurecli
-az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-```
-
-> [!TIP]
-> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
-
 # [Azure Storage](#tab/azurestorage)
+
+References used in the following commands:
+* [az iot hub](/cli/azure/iot/hub)
+* [az storage](/cli/azure/storage)
 
 ### Create an Azure Storage resource with container
 
@@ -416,3 +326,35 @@ Before creating an IoT Hub route to an Azure Storage, you must create the endpoi
         "source": "DeviceConnectionStateEvents"
       }
    ```
+
+## Update an IoT Hub route
+
+With an IoT Hub route, no matter the type of endpoint, you can update some properties of the route.
+
+Try changing one of the parameters, for example the **source** from **deviceconnectionstateevents** to **devicejoblifecycleevents**.
+
+```azurecli
+az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
+```
+
+Use the `az iot hub route show` command to confirm the change in your route.
+
+```azurecli
+az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
+```
+
+## Delete an endpoint
+
+```azurecli
+az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-endpoint 
+```
+
+## Delete an IoT Hub route
+
+```azurecli
+az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
+```
+
+> [!TIP]
+> Deleting a route won't delete endpoints in your Azure account. The endpoints must be deleted separately.
+
