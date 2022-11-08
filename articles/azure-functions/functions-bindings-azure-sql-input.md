@@ -492,7 +492,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/SqlAttribute.cs) attribute, which has the following properties:
+In [C# class libraries](functions-dotnet-class-library.md), SQL bindings use the [Sql](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/SqlAttribute.cs) attribute, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
@@ -550,4 +550,5 @@ Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.
 ## Next steps
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+- [Run a function when data is changed in a SQL table (Trigger)](./functions-bindings-azure-sql-trigger.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)

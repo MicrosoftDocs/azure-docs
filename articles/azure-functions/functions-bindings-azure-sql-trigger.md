@@ -11,11 +11,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL trigger for Functions (preview)
 
-The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor the user table for changes.  When a change is detected, the trigger fires and the function is executed.
+The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes.  When a change is detected, the trigger fires and the function is executed.
 
 For information on setup and configuration details for change tracking for use with the Azure SQL trigger, see [Setting up change tracking](#setting-up-change-tracking) and the [SQL binding overview](./functions-bindings-azure-sql.md).
 
-## Example
+## Example usage
 <a id="example"></a>
 
 ::: zone pivot="programming-language-csharp"
@@ -30,6 +30,17 @@ The example refers to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
+[Change tracking](#setting-up-change-tracking) is enabled on the database and on the table:
+
+```sql
+ALTER DATABASE [SampleDatabase]
+SET CHANGE_TRACKING = ON
+(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
+
+ALTER TABLE [dbo].[ToDo]
+ENABLE CHANGE_TRACKING;
+```
+
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
 
 ```cs
@@ -38,7 +49,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.WebJobs.Extensions.Sql;
 
-namespace Company.Function
+namespace AzureSQL.ToDo
 {
     public static class ToDoTrigger
     {
@@ -83,12 +94,11 @@ Isolated worker process isn't currently supported.
 ## Attributes 
 
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute, which has the following properties:
+In [C# class libraries](functions-dotnet-class-library.md), the SQL trigger uses the [SqlTrigger](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/TriggerBinding/SqlTriggerAttribute.cs) attribute, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
-|---------|---------|
-| **TableName** | Required. The name of the table being written to by the binding.  |
+| **TableName** | Required. The name of the table being monitored by the trigger.  |
 | **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.| 
 
 
@@ -113,7 +123,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
     ```sql
-    ALTER DATABASE ['your database name']
+    ALTER DATABASE [your database name]
     SET CHANGE_TRACKING = ON
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
     ```
@@ -124,7 +134,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
     More information on change tracking options is available [here](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server).
 
-2. Enable change tracking on the table, substituting `your table name` with the name to be monitored:
+2. Enable change tracking on the table, substituting `your table name` with the name of the table to be monitored:
 
     ```sql
     ALTER TABLE [dbo].[your table name]
@@ -133,3 +143,15 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
     The trigger needs to have read access on the table being monitored for changes as well as to the change tracking system tables. Each function trigger will have associated change tracking table and leases table in a schema `az_func`, which are created by the trigger if they do not yet exist.  More information on these data structures are available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/triggerbindings/README.md#internal-state-tables].
 
+
+## Enable runtime scaling
+
+To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
+
+[!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
+
+
+## Next steps
+
+- [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
+- [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
