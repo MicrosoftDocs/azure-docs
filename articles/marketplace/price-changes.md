@@ -97,6 +97,8 @@ To update the monthly or yearly price of a SaaS or Azure app offer:
     3. Import the spreadsheet using **Import pricing data**.
 7. To change prices across all markets, edit the desired **billing term price** box.
 
+1. 
+1. 
 1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
@@ -130,6 +132,8 @@ To update the per user monthly or yearly fee of a SaaS offer:
     3. Import the spreadsheet using **Import pricing data**.
 7. To change prices across all markets, edit the desired **billing term price** box.
 
+1. 
+1. 
 1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
@@ -166,6 +170,8 @@ To update the price per unit of a meter dimension of a SaaS or Azure app offer:
     1. Locate the dimension to update.
     1. Edit the **Price per unit in USD** box.
 
+1. 
+1. 
 1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
@@ -206,6 +212,8 @@ To update the price per core or per core size of a VM offer.
 
 7. To change prices across all markets:
 
+1. 
+1. 
 1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
@@ -227,13 +235,11 @@ Customers are billed the new price for consumption of the resource that happens 
 
 ## Canceling or modifying a price change
 
-To modify an already scheduled price change, request the cancellation by submitting a [support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market-specific).
-
-If the price change was an increase, we will email customers a second time to inform them the price increase has been canceled.
-
-After the price change is canceled, follow the steps in the appropriate part of this document to schedule a new price change with the needed modifications.
-
+If the price change was configured within the last 2 days, it can be cancelled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken affect, [submit a support request](https://partner.microsoft.com/en-US/support/?stage=1), that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
+If the price change was an increase and the cancelation was after the 2-day period, we will email the customers a second time to inform them of the cancelation.
+After the price change is canceled, follow the steps in the appropriate part of this article to schedule a new price change with the needed modifications. 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
 
