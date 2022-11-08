@@ -18,7 +18,7 @@ This article shows you how to create an IoT hub using Azure CLI.
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group](/cli/azure/resource):
-    
+
    ```azurecli-interactive
    az group create --name {your resource group name} --location westus
    ```
@@ -35,14 +35,13 @@ When you create an IoT hub, you must create it in a resource group. Either use a
 Use the Azure CLI to create a resource group and then add an IoT hub.
 
 Run the following [command to create an IoT hub](/cli/azure/iot/hub#az-iot-hub-create) in your resource group, using a globally unique name for your IoT hub:
-    
+
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
       --resource-group {your resource group name} --sku S1
    ```
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
-
 
 The previous command creates an IoT hub in the S1 pricing tier for which you're billed. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -87,7 +86,7 @@ az iot hub delete --name {your iot hub name} -\
 
 ## Next steps
 
-Learn more about using an IoT hub:
+Learn more about the commands available in the Microsoft Azure IoT extension for Azure CLI:
 
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Using the Azure portal to manage IoT Hub](iot-hub-create-through-portal.md)
+* [IoT Hub-specific commands (az iot hub)](/cli/azure/iot/hub)
+* [All commands (az iot)](/cli/azure/iot)

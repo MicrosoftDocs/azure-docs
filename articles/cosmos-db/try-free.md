@@ -3,11 +3,11 @@ title: Try Azure Cosmos DB free
 description: Try Azure Cosmos DB free of charge. No sign-up or credit card required. It's easy to test your apps, deploy, and run small workloads free for 30 days. Upgrade your account at any time during your trial.
 author: seesharprun
 ms.author: sidandrews
-ms.reviewer: mjbrown
+ms.reviewer: merae
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 11/02/2022
 ---
 
 # Try Azure Cosmos DB free
@@ -47,6 +47,7 @@ From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an 
 Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosmos DB or get started with our documentation.
 
 * [API for NoSQL Quickstart](nosql/quickstart-portal.md#create-container-database)
+* [API for PostgreSQL Quickstart](postgresql/quickstart-create-portal.md)
 * [API for MongoDB Quickstart](mongodb/quickstart-python.md#learn-the-object-model)
 * [API for Apache Cassandra](cassandra/adoption.md)
 * [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
@@ -125,6 +126,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
   * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
+  * [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
   * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
   * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
   * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)

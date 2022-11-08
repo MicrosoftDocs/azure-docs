@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 11/02/2022
 ms.author: alkohli
 ---
 
@@ -35,7 +35,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro devic
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).|
 
 
 ## Power supply unit specifications

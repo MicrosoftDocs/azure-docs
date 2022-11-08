@@ -57,7 +57,7 @@ You can let the onboarding experience create a Log Analytics workspace in the de
 
 ### Azure Monitor workspace (preview)
 
-If you're going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus-metrics-addon.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you must have an Azure Monitor workspace where Prometheus metrics are stored. You can let the onboarding experience create an Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
+If you're going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you must have an Azure Monitor workspace where Prometheus metrics are stored. You can let the onboarding experience create an Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
 
 ### Permissions
 

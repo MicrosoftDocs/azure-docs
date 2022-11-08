@@ -12,10 +12,10 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/31/2022
 ms.author: anfdocs
 ---
-# Use availability zones for high availability in Azure NetApp Files
+# Use availability zones for high availability in Azure NetApp Files (preview)
 
 Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
@@ -40,6 +40,9 @@ Azure NetApp Files deployments will occur in the availability of zone of choice 
 You can co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
 Latency is subject to availability zone latency for within availability zone access and the regional latency envelope for cross-availability zone access.
+
+>[!IMPORTANT]
+>Availability zone volume placement in Azure NetApp Files is currently in preview. Refer to [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#register-the-feature) for details on registering the feature. 
 
 ## Azure regions with availability zones
 

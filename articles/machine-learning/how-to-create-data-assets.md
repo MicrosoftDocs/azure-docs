@@ -23,7 +23,7 @@ ms.date: 09/22/2022
 In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from AzureML datastores, Azure Storage, public URLs, and local files.
 
 > [!IMPORTANT]
-> If you didn't creat/register the data source as a data asset, you can still [consume the data via specifying the data path in a job](how-to-read-write-data-v2.md#read-data-in-a-job) without below benefits.
+> If you didn't creat/register the data source as a data asset, you can still [consume the data via specifying the data path in a job](how-to-read-write-data-v2.md#read-data-in-a-job) without benefits below.
 
 The benefits of creating data assets are:
 
@@ -71,6 +71,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
  - The schema of your data is complex and/or changes frequently.
  - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
  - AutoML jobs requiring tabular data.
+ 
 If your scenario does not fit the above then it is likely that URIs are a more suitable type.
 
 ## Create a `uri_folder` data asset
@@ -216,7 +217,7 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 ## Create a `mltable` data asset
 
 `mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (an overview can be found in [MLTable](concept-data.md#mltable)). 
-`mltable` supports tabular data coming from belowing sources:
+`mltable` supports tabular data coming from following sources:
 - Delimited files (CSV, TSV, TXT)
 - Parquet files
 - JSON Lines

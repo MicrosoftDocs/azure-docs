@@ -251,7 +251,7 @@ Next, we'll create the managed online endpoints and deployments.
     model = Model(path="./src/model.pkl")
     env = Environment(
         conda_file="./src/conda_env_v_1_0_0.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
