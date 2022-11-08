@@ -174,7 +174,7 @@ To allow or disallow public access for a storage account with a template, create
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
 
-When a container is configured for anonymous public access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block anonymous traffic.
+When a container is configured for anonymous public access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block traffic inline with the configured ACLs.
 
 Allowing or disallowing blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
