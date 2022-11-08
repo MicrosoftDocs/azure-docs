@@ -1,5 +1,5 @@
 ---
-title: 'Govern Azure Data Explorer'
+title: 'Connect to and manage Azure Data Explorer'
 description: This guide describes how to connect to Azure Data Explorer in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Data Explorer source.
 author: nayenama
 ms.author: nayenama
@@ -10,7 +10,7 @@ ms.date: 12/03/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Govern Azure Data Explorer in Microsoft Purview
+# Connect to and manage Azure Data Explorer in Microsoft Purview
 
 
 This article outlines how to register Azure Data Explorer, and how to authenticate and interact with Azure Data Explorer in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Govern an SAP S/4HANA source
+title: Connect to and manage an SAP S/4HANA source
 description: This guide describes how to connect to SAP S/4HANA in Microsoft Purview, and use Microsoft Purview's features to scan and manage your SAP S/4HANA source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Govern SAP S/4HANA in Microsoft Purview
+# Connect to and manage SAP S/4HANA in Microsoft Purview
 
 This article outlines how to register SAP S/4HANA, and how to authenticate and interact with SAP S/4HANA in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: 'Govern Azure Data Lake Storage (ADLS) Gen1'
-description: This article outlines the process to register an Azure Data Lake Storage Gen1 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen 1 source
+title: 'Connect to and Azure Data Lake Storage (ADLS) Gen1'
+description: This article outlines the process to register an Azure Data Lake Storage Gen1 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen 1 source.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview

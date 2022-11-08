@@ -1,5 +1,5 @@
 ---
-title: Govern Salesforce
+title: Connect to and manage Salesforce
 description: This guide describes how to connect to Salesforce in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Salesforce source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Govern Salesforce in Microsoft Purview
+# Connect to and manage Salesforce in Microsoft Purview
 
 This article outlines how to register Salesforce, and how to authenticate and interact with Salesforce in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 

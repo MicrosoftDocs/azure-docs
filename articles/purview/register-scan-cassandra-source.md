@@ -1,5 +1,5 @@
 ---
-title: Govern Cassandra
+title: Connect to and manage Cassandra
 description: This guide describes how to connect to Cassandra in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Cassandra source.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Govern Cassandra in Microsoft Purview
+# Connect to and manage Cassandra in Microsoft Purview
 
 This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
