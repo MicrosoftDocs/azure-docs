@@ -168,7 +168,9 @@ The following properties are reserved and shouldn't be used in a custom record t
 
 
 ## Filter data
-Create a workspace transformation DCR to filter or transform incoming data. You must first migrate the custom table to the new Logs ingestion API.
+You can create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr) to filter or transform data sent by the data ingestion API before it's sent to the Log Analytics workspace. 
+
+To support transformations, you must first migrate the custom table to the new Logs ingestion API. You can 
 
 
 ## Data limits
@@ -582,6 +584,82 @@ Although the Data Collector API should cover most of your needs as you collect f
 | Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Defender for Cloud, Container insights and virtual machines, and so on). </li></ul> |
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
+## Configure workspace to use data collection rule
+The data collection rule will not take effect until you apply it to your workspace. You cannot currently perform this configuration with the Azure portal but must use an API call.
+
+Replace the parameters in the following PowerShell with the details for your workspace and data collection rule and then run it in Command Shell.
+
+```PowerShell
+$params = @'
+{
+  "properties": {
+    "defaultDataCollectionRuleResourceId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.Insights/dataCollectionRules/<DCRName>"
+  },
+  "location": "<Location>",
+  "type": "Microsoft.OperationalInsights/workspaces"
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>?api-version=2015-11-01-preview" -Method PUT -payload $params
+```
+
+The output should look similar to the following.
+
+:::image type="content" source="media/data-sources-text-logs-data-collection-rule/data-collection-rule-association-output.png" lightbox="media/data-sources-text-logs-data-collection-rule/data-collection-rule-association-output.png" alt-text="Command line output for association of data collection rule with workspace":::
+
+## Enable data collection rules for the table
+There is currently no method in the Azure portal to enable data collection rules on your table, so you must call an API to perform this configuration. You must first get the current log configuration and then update that configuration after adding the required flag.
+
+1. Modify the following command with the details for your workspace and table and then run in Command Shell to get the definition for your custom table:
+
+    ```PowerShell
+    Invoke-AzRestMethod -Path "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>/logsettings/customlogs/definitions/<TableName>?api-version=2020-08-01" -Method GET 
+    ```
+
+2. Copy the following commands into an editor and then replace the contents of `$tableConfig` with the configuration of your log from the previous step. Add `SetDataCollectionRuleBased": true` to the end. Replace the parameters in `Invoke-AzRestMethod` with the details for your environment, and then copy this modified configuration to use in the next step.
+
+    ```PowerShell
+    $tableConfig = @'
+    {
+      "Name": "MyLog_CL",
+      "Description": "custom text log",
+      "Inputs": [
+        {
+          "Location": {
+            "FileSystemLocations": {
+              "WindowsFileTypeLogPaths": [
+                "C:\\MyLogs\\*.txt",
+              ]
+            }
+          },
+          "RecordDelimiter": {
+            "RegexDelimiter": {
+              "Pattern": \\n,
+              "MatchIndex": 0,
+              "NumberedGroup": null
+            }
+          }
+        }
+      ],
+      "Properties": [
+        {
+          "Name": "TimeGenerated",
+          "Type": "DateTime",
+          "Extraction": {
+            "DateTimeExtraction": {}
+          }
+        }
+      ],
+      "SetDataCollectionRuleBased": true 
+    }
+    '@
+
+    Invoke-AzRestMethod -Path "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>/logsettings/customlogs/definitions/<TableName>?api-version=2020-08-01" -Method PUT -payload $tableConfig
+    ```
+
+3. Paste the modified configuration into Command Shell and run it to update the log configuration. The output should look similar to the following.
+
+  :::image type="content" source="media/data-collector-api/table-output.png" lightbox="media/data-sources-text-logs-data-collection-rule/table-output.png" alt-text="Command line output for configuration of table":::
 
 ## Next steps
 - Use the [Log Search API](./log-query-overview.md) to retrieve data from the Log Analytics workspace.

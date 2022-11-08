@@ -106,12 +106,12 @@ This capability is enabled as part of the Azure CLI monitor-control-service exte
 For sample templates, see [Azure Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md).
 
 ---
-## Filter events using XPath queries
+## Filter events
 
-You're charged for any data you collect in a Log Analytics workspace, so collect only the data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events. There are two methods that you can use to further filter event data from the agent. Both of these methods are specified in the data collection rule.
+Since you're charged for any data you collect in a Log Analytics workspace, you should limit data collection from your agent to only the event data that you need. The basic configuration in the Azure portal provides you with a limited ability to filter out unneeded events. There are two methods that you can use to further filter event data from the agent. Both of these methods are specified in the data collection rule.
 
-- [XPath queries](#xpath-queries) filter data collected from the agent before it's sent to Azure Monitor.
-- [Transformations](#transformations) apply a KQL query to data sent from the agent that further filters or transforms the data before it's stored in the Log Analytics workspace.
+- [XPath queries](#xpath-queries) should be your first choice since it filters data collected from the agent before it's sent to Azure Monitor. You can also add XPath queries to your data collection rule using the Azure portal.
+- [Transformations](#transformations) apply a KQL query to data sent from the agent that further filters or transforms the data before it's stored in the Log Analytics workspace. Use transformations when you need more complex criteria for filtering records or to remove or modify data in individual columns.
 
 :::image type="content" source="media/data-collection-rule-azure-monitor-agent/agent-filter-methods.png" alt-text="Diagram showing XPath query on agent sending filtered data to Azure Monitor where a transformation is applied and then transformed data sent to Log Analytics workspace." lightbox="media/data-collection-rule-azure-monitor-agent/agent-filter-methods.png":::
 
