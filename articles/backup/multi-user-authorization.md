@@ -206,7 +206,7 @@ To enable MUA on the vaults, follow these steps.
 
 # [PowerShell](#tab/powershell)
 
-To enable MUA on a Recovery Services vault, run run the following cmdlet:
+To enable MUA on a Recovery Services vault, run the following cmdlet:
 
    ```azurepowershell-interactive
    $token = (Get-AzAccessToken -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx").Token
