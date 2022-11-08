@@ -175,5 +175,5 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
-[workload-identity-migration]: workload-identity-migration-sidecar.md
+[workload-identity-migration]: workload-identity-migrate-from-pod-identity.md
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
