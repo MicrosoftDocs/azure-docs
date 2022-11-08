@@ -87,8 +87,9 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
                     "documentId": string, // Document id for retrieving from storage
                     "index": int, // Index providing ordering for this chunk in the entire recording
                     "endReason": string, // Reason for chunk ending: "SessionEnded", "ChunkMaximumSizeExceeded”, etc.
-                    "metadataLocation": <string>, // url of the metadata for this chunk
-                    "contentLocation": <string>   // url of the mp4, mp3, or wav for this chunk
+                    "metadataLocation": <string>,  // url of the metadata for this chunk
+                    "contentLocation": <string>,   // url of the mp4, mp3, or wav for this chunk
+                    "deleteLocation": <string>     // url of the mp4, mp3, or wav to delete this chunk
                 }
             ]
         },
