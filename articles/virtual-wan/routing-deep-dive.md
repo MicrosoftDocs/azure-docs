@@ -12,15 +12,15 @@ ms.author: jomore
 
 # Virtual WAN routing deep dive
 
-[Azure Virtual WAN][virtual-wan-overview] is a networking solution that allows creating sophisticated networking topologies very easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][virtual-wan-nva], including the option to [secure the traffic][virtual-wan-secured-hub]. In most scenarios it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
+[Azure Virtual WAN][virtual-wan-overview] is a networking solution that allows creating sophisticated networking topologies easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][virtual-wan-nva], including the option to [secure the traffic][virtual-wan-secured-hub]. In most scenarios it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
 
-This document will explore sample Virtual WAN scenarios that will explain some of the behaviors that organizations might encounter when interconnecting their VNets and branches in complex networks. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically designed to demonstrate certain Virtual WAN functionalities.
+This document will explore sample Virtual WAN scenarios that will explain some of the behaviors that organizations might encounter when interconnecting their VNets and branches in complex networks. The scenarios shown in this article are by no means design recommendations, they are just sample topologies designed to demonstrate certain Virtual WAN functionalities.
 
 ## Scenario 1: topology with default routing preference
 
-The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and indirectly through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP (see [BGP peering with a virtual hub][virtual-wan-bgp]), and VNet 22 is configured with static routes, so that differences between both options can be shown.
+The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub, there are VNets connected directly (VNets 11 and 21) and indirectly through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP (see [BGP peering with a virtual hub][virtual-wan-bgp]), and VNet 22 has static routes configured, so that differences between both options can be shown.
 
-In each hub the VPN and SDWAN appliances server to a dual purpose: on one side they advertise their own individual prefixes (`10.4.1.0/24` over VPN in hub 1 and `10.5.3.0/24` over SDWAN in hub 2), and on the other they advertise the same prefixes as the ExpressRoute circuits in the same region (`10.4.2.0/24` in hub 1 and `10.5.2.0/24` in hub 2). This will be used to demonstrate how the [Virtual WAN hub routing preference][virtual-wan-hrp] works.
+In each hub, the VPN and SDWAN appliances server to a dual purpose: on one side they advertise their own individual prefixes (`10.4.1.0/24` over VPN in hub 1 and `10.5.3.0/24` over SDWAN in hub 2), and on the other they advertise the same prefixes as the ExpressRoute circuits in the same region (`10.4.2.0/24` in hub 1 and `10.5.2.0/24` in hub 2). This difference will be used to demonstrate how the [Virtual WAN hub routing preference][virtual-wan-hrp] works.
 
 All VNet and branch connections are associated and propagating to the default route table. Although the hubs are secured (there is an Azure Firewall deployed in every hub), they are not configured to secure private or Internet traffic. Doing so would result in all connections propagating to the `None` route table, which would remove all non-static routes from the `Default` route table and defeat the purpose of this article since the effective route blade in the portal would be almost empty (with the exception of the static routes to send traffic to the Azure Firewall).
 
@@ -45,7 +45,7 @@ In hub 2 the route for `10.2.20.0/22` to the indirect spokes VNet 221 (10.2.21.0
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-add-route.png" alt-text="Screenshot that shows how to add a static route to a Virtual WAN hub." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-add-route-expanded.png":::
 
-After adding the static route hub 1 will contain the `10.2.20.0/22` route as well:
+After adding the static route, hub 1 will contain the `10.2.20.0/22` route as well:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-hub-1-with-route.png" alt-text="Screenshot of effective routes in Virtual hub 1." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-hub-1-with-route-expanded.png":::
 
@@ -88,7 +88,7 @@ Now the routes for remote spokes and branches in hub 1 will have a next hop of `
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 with Global Reach and routing preference A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-aspath-hub-1-expanded.png":::
 
-You can see that the IP prefix for hub 2 (`192.168.2.0/23`) still appears reachable over the Global Reach link, but this shouldn't impact traffic as there shouldn't be any traffic specifically addressed to devices in hub 2. This might be an issue though if there were NVAs in both hubs establishing SDWAN tunnels between each other.
+You can see that the IP prefix for hub 2 (`192.168.2.0/23`) still appears reachable over the Global Reach link, but this shouldn't impact traffic as there shouldn't be any traffic addressed to devices in hub 2. This might be an issue though if there were NVAs in both hubs establishing SDWAN tunnels between each other.
 
 However, note that `10.4.2.0/24` is now preferred over the VPN Gateway. This can happen if the routes advertised via VPN have a shorter AS path than the routes advertised over ExpressRoute. After configuring the on-premises VPN device to prepend its Autonomous System Number (`65501`) to the VPN routes to make the less preferable, hub 1 now selects ExpressRoute as next hop for `10.4.2.0/24`:
 
