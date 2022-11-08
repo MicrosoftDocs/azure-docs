@@ -39,22 +39,22 @@ By specifying interactive applications at job creation, you can connect directly
   ![screenshot select-job-ui](media/interactive-jobs/create-job.png) 
 
 2. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
-
+  
   ![screenshot select-compute-ui](media/interactive-jobs/select-compute.png) 
 
 3. Follow the wizard to choose the environment you want to start the job.
-
+  
   ![screenshot select-environment-ui](media/interactive-jobs/select-environment.png) 
 
 4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
-
+  
   ![screenshot set-command](media/interactive-jobs/sleep-command.png) 
 
   You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
-    * sleep 1s
-    * sleep 1m
-    * sleep 1h
-    * sleep 1d
+      * sleep 1s
+      * sleep 1m
+      * sleep 1h
+      * sleep 1d
 
   You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
     
@@ -222,8 +222,8 @@ Once you're done with the interactive training, you can also go to the job detai
 ## Attach a debugger to a job
 To submit a job with a debugger attached and the execution paused, you can use debugpy & VS Code (`debugpy` must be installed in your job environment). 
 
-1. During job submission (either through the UI, the CLIv2 or the SDKv2) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script.
-
+1. During job submission (either through the UI, the CLIv2 or the SDKv2) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script (`tfevents.py` can be replaced with the name of your training script).
+   
    ![screenshot use-debugpy](./media/interactive-jobs/use-debugpy.png)
 
 2. Once the job has been submitted, [connect to the VS Code](./how-to-interactive-jobs.md#connect-to-endpoints), and click on the in-built debugger.
@@ -232,12 +232,12 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 3. Use the "Remote Attach" debug configuration to attach to the submitted job and pass in the path and port you configured in your job submission command. You can also find this information on the job details page.
    
- ![screenshot debug-path-and-port](./media/interactive-jobs/debug-path-and-port.png)
+   ![screenshot debug-path-and-port](./media/interactive-jobs/debug-path-and-port.png)
    
    ![screenshot remote-attach](./media/interactive-jobs/remote-attach.png)
 
 4. Set breakpoints and walk through your job execution as you would in your local debugging workflow. 
-
+   
    ![screenshot set-breakpoints](./media/interactive-jobs/set-breakpoints.png)
 
 
