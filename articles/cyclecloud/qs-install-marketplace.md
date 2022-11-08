@@ -118,6 +118,6 @@ You should now have a running CycleCloud application that allows you to create a
 
 * [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)
 * [Install CycleCloud manually](./how-to/install-manual.md)
-* [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
+* [Explore CycleCloud features with the tutorial](./tutorials/tutorial.md)
 * [Use Managed Identities for account](./how-to/managed-identities.md)
 * [Use Service Principals for account](./how-to/service-principals.md)

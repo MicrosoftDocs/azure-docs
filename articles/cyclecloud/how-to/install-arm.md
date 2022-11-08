@@ -130,4 +130,4 @@ You should now have a running CycleCloud application that allows you to create a
 
 * [Run CycleCloud using a Marketplace VM](../qs-install-marketplace.md)
 * [Install CycleCloud manually](install-manual.md)
-* [Explore CycleCloud features with the tutorial](../tutorials/create-cluster.md)
+* [Explore CycleCloud features with the tutorial](../tutorials/tutorial.md)

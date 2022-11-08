@@ -426,6 +426,24 @@ where `physical_cpu` is the complex name:
 ]
 ```
 
+Ordering is important when you want a particular behavior for a specific attribute. To allocate a single slot
+for a specific nodearray while retaining default slot count for all other nodearrays:
+
+```json
+    "default_resources": [
+    {
+      "select": {"node.nodearray": "FPGA"},
+      "name": "slots",
+      "value": "1",
+    },
+    {
+      "select": {},
+      "name": "slots",
+      "value": "node.vcpu_count"
+    },
+]
+```
+
 ## Hostgroups
 
 The CycleCloud autoscaler, in attempting to satisfy job requirements, will map nodes to
@@ -602,6 +620,6 @@ In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]
 
 ```
 
-These configs will override the default gridengine version and installation location, as the cluster starts.  
+These configs will override the default gridengine version and installation location when the cluster starts.
 It is not safe to move off of the `/sched` as it's a specifically shared nfs location in the cluster.
 ::: moniker-end

@@ -85,6 +85,8 @@ A list of error messages one encounters in CycleCloud
 
 [Failed to execute cluster-init script {script} in project](common-issues/cluster-init.md)
 
+[Detected corrupt RPM database, rebuilding...](common-issues/corrupt-rpm.md)
+
 ## Scheduler Configuration
 
 [Unable to execute command `/usr/bin/systemctl --system start slurmd` (exit code 1)](common-issues/slurmd_errors.md)
