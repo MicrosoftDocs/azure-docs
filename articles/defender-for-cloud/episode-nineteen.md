@@ -3,7 +3,7 @@ title: Defender for DevOps | Defender for Cloud in the Field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Defender for Cloud integration with Defender for DevOps.
 ms.topic: reference
-ms.date: 11/03/2022
+ms.date: 11/08/2022
 ---
 
 # Defender for DevOps | Defender for Cloud in the Field
@@ -45,4 +45,4 @@ ms.date: 11/03/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cloud security explorer and Attack path analysis](episode-twenty.md)
+> [Cloud security explorer and attack path analysis](episode-twenty.md)
