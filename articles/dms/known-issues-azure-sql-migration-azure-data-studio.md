@@ -85,7 +85,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Cause**: Backups of multiple databases are in the same container folder.
 
-- **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container.
+- **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. See [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate?view=azuresql#limitations) for more information.
 
 
     > [!NOTE]
