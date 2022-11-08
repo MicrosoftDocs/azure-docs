@@ -10,16 +10,14 @@ ms.subservice: call-automation
 ms.date: 11/03/2022
 ms.author: askaur
 manager: visho
-ms.custom: public_preview
+ms.custom: private_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
 # How to control and steer calls with Call Automation
 > [!IMPORTANT]
-> This feature of Azure Communication Services is currently in public preview.
-> Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the  actions available for steering calls, like CreateCall, Transfer, Redirect, and managing participants. Actions are accompanied with sample code on how to invoke the said action and sequence diagrams describing the events expected after invoking an action. These diagrams will help you visualize how to program your service application with Call Automation. 
 
@@ -32,7 +30,7 @@ As a pre-requisite, we recommend you to read the below articles to make the most
 1. Call Automation [concepts guide](../../concepts/voice-video-calling/call-automation.md#call-actions) that describes the action-event programming model and event callbacks. 
 2. Learn about [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like CommunicationUserIdentifier and PhoneNumberIdentifier used in this guide. 
 
-For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. 
+For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application. 
 ## [csharp](#tab/csharp)
 ```csharp
 var client = new CallAutomationClient("<resource_connection_string>"); 
