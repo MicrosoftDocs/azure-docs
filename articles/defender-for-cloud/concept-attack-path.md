@@ -9,11 +9,13 @@ ms.date: 11/08/2022
 
 # What are the cloud security graph, attack path analysis, and the cloud security explorer? 
 
+<iframe src="https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolve and never enough resources to address them all. 
 
 Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way.
 
-All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and the recruiting enablement of [agentless scanning for VMs](concept-agentless-data-collection.md)
+All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and the requiring the enablement of [agentless scanning for VMs](concept-agentless-data-collection.md)
 
 ## What is cloud security graph?
 
