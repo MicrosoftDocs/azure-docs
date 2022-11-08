@@ -155,9 +155,11 @@ This section instructs you how to enable the Application Live View under an exis
 #### [Portal](#tab/Portal)
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
-1. Check the Application Live View checkbox and click "Save"
-1. After it is saved successfully, you can view the state of Application Live View in the "Developer Tools (Preview)" blade.
-  ![application-live-view-enabled](../media/how-to-use-application-live-view/application-live-view-enabled.png)
+   ![dev-tool-manage](./media/how-to-use-application-live-view/manage.png)
+3. Check the Application Live View checkbox and click "Save"
+   ![dev-tool-manage](./media/how-to-use-application-live-view/check-enable.png)
+5. After it is saved successfully, you can view the state of Application Live View in the "Developer Tools (Preview)" blade.
+  ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
 
 
 #### [CLI](#tab/Azure-CLI)
