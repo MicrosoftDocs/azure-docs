@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2022
+ms.date: 11/08/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -175,7 +175,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-create-data-disk.png" alt-text="Screenshot highlighting create and attach a new disk on the disk page." lightbox="media/disks-deploy-premium-v2/premv2-create-data-disk.png":::
 
-1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
+1. Select the **Disk SKU** and select **Premium SSD v2**.
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
 
