@@ -434,7 +434,7 @@ items:
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Troubleshooting access policies
-      href: tutorial-policy-distribution.md
+      href: troubleshoot-policy-distribution.md
     - name: Frequently asked questions (FAQ)
       href: ./frequently-asked-questions.yml
 - name: Resources
