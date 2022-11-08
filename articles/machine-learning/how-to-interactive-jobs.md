@@ -82,21 +82,26 @@ By specifying interactive applications at job creation, you can connect directly
         services={
           "My_jupyterlab": JobService(
             job_service_type="jupyter_lab",
-            nodes="all"
+            nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
           ),
           "My_vscode": JobService(
             job_service_type="vs_code",
             nodes="all"
           ),
           "My_tensorboard": JobService(
-            job_service_type="tensor_board"
-            logs = "logs/tblogs" # relative path of Tensorboard logs (same as in your training script),
-            nodes="all"
+            job_service_type="tensor_board",
+            nodes="all",
+            properties={
+                "logDir": "output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
+            }          
           ),
           "My_ssh": JobService(
             job_service_type="ssh",
             sshPublicKeys="<add-public-key>",
             nodes="all"
+            properties={
+                "sshPublicKeys":"<add-public-key>"
+            }    
           ),
         }
     )
@@ -133,11 +138,11 @@ By specifying interactive applications at job creation, you can connect directly
     services:
         my_vs_code:
           job_service_type: vs_code
-          nodes: all
+          nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
         my_tensor_board:
           job_service_type: tensor_board
           properties:
-            logDir: "logs/tblogs" # relative path of Tensorboard logs (same as in your training script)
+            logDir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
           nodes: all
         my_jupyter_lab:
           job_service_type: jupyter_lab
