@@ -53,6 +53,10 @@ IoT Hub has the following restrictions for IoT Edge automatic deployments:
 * 100 deployments (including layered deployments per paid SKU hub)
 * 10 deployments per free SKU hub
 
+### NTLM and Kerberos Authentication
+
+IoT Edge is not tested or verified to work with NTLM proxies.
+
 ## Restrictions
 
 ### Certificates
