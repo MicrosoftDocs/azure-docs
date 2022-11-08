@@ -11,7 +11,9 @@ ms.date: 11/09/2022
 
 # Manage tables in a Log Analytics workspace
 
-Azure Monitor Logs stores log data in configurable tables. Log table configuration lets you define how to store collected data, how long to retain the data, and whether you collect the data for auditing and troubleshooting or for ongoing data analysis and regular use by features and services. This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
+Azure Monitor Logs stores log data in tables. Table configuration lets you define how to store collected data, how long to retain the data, and whether you collect the data for auditing and troubleshooting or for ongoing data analysis and regular use by features and services. 
+
+This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
 
 ## Table configuration
 
