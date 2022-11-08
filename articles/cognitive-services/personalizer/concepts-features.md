@@ -11,6 +11,14 @@ ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
+# Table of Contents
+* [Context](#context) Information about the current user or state of the system 
+* [Actions](#actions) A list of options to choose from
+* [Features](#features) Attributes describing the Context and Actions
+* [Feature Engineering](#feature-engineering) Tips for constructing impactful features which the Personalizer model can learn from
+* [Namespaces](#namespaces) Grouping Features
+* [Examples](#JSON-examples-for-actions,-context,-and-namespaces) Examples of Context and Action features in JSON format
+
 # Context and Actions
 
 The Personalizer service works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
@@ -62,7 +70,7 @@ Features from actions may typically come from content management systems, catalo
 
 In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked is by adding it to the [Excluded Actions](https://learn.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest.excludedactions?view=azure-dotnet-preview) list, or not passing it to the Rank Request.
 
-In some cases, you might not want events to be trained on by default, i.e., you only want to train events when a specific condition is met. For example, The personalized part of your webpage is below the fold (users have to scroll before interacting with the personalized content). In this case you will render the entire page, but only want an event to be trained on when the user scrolls and has a chance to interact with the personalized content. For these cases, you should [Defer Event Activation](https://learn.microsoft.com/azure/cognitive-services/personalizer/concept-active-inactive-events) to avoid assigning default reward (and training) events which the end user did not have a chance to interact with.
+In some cases, you might not want events to be trained on by default, i.e., you only want to train events when a specific condition is met. For example, The personalized part of your webpage is below the fold (users have to scroll before interacting with the personalized content). In this case you will render the entire page, but only want an event to be trained on when the user scrolls and has a chance to interact with the personalized content. For these cases, you should [Defer Event Activation](concept-active-inactive-events.md) to avoid assigning default reward (and training) events which the end user did not have a chance to interact with.
 
 
 ## Features
@@ -77,15 +85,15 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * Feature names starting with an underscore `_` will be ignored.
 * The list of features can be large (hundreds), but we recommend starting with a concise feature set and expanding as necessary.
 * **action** features may or may not have any correlation with **context** features.
+* Features that are not available should be omitted from the request. If the value of a specific feature is not available for a given request, omit the feature for this request.
+* Avoid sending features with a null value. A null value will be processed as a string with a value of "null" which is undesired.
 
-Personalizer's machine learning algorithms will perform better when there are stable feature sets, but Rank calls will not fail if the feature set changes over time. 
-
+It is ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request with all new features, the Personalizer model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
 
 ### Context Features
 * Some context features may only be available part of the time. For example, if a user is logged into the online grocery store website, the context will contain features describing purchase history. These features will not be available for a guest user.
 * There must be at least one context feature. Personalizer does not support an empty context.
 * If the context features are identical for every request, Personalizer will choose the globally best action.
-
 
 ### Action Features
 * Not all actions need to contain the same features. For example, in the online grocery store scenario, microwavable popcorn will have a "cooking time" feature, while a cucumber will not.
@@ -110,7 +118,6 @@ Personalizer supports features of string, numeric, and boolean types. It is very
 * **Boolean**
 * **Arrays** ONLY numeric arrays are supported.
 
-Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
 
 ## Feature Engineering
 
@@ -128,7 +135,7 @@ Having features of high density helps the Personalizer extrapolate learning from
 
 ### Improve feature sets 
 
-Analyze the user behavior by running a [Feature Evaluation Job](https://learn.microsoft.com/azure/cognitive-services/personalizer/how-to-feature-evaluation). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
+Analyze the user behavior by running a [Feature Evaluation Job](how-to-feature-evaluation.md). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
 
 ### Expand feature sets with artificial intelligence and cognitive services
 
@@ -167,12 +174,12 @@ The following are examples of feature namespaces used by applications:
 * current_time
 * NewsArticle_TextAnalytics
 
-### Namespace naming conventions and guideliens
+### Namespace naming conventions and guidelines
 
 * Namespaces should not be nested.
-* Namespces must start with unique ASCII characters (we recommend using names namespaces that are UTF-8 based). Currently having namespaces with same first characters could result in collisions.
-* Namespaces are case sensitve. For example `user` and `User` will be considered different namespaces.
-* Feature names can be repeated accross namespaces, and will be treated as seperate features
+* Namespaces must start with unique ASCII characters (we recommend using names namespaces that are UTF-8 based). Currently having namespaces with same first characters could result in collisions.
+* Namespaces are case sensitive. For example `user` and `User` will be considered different namespaces.
+* Feature names can be repeated across namespaces, and will be treated as separate features
 * The following characters cannot be used: codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
 * All namespaces starting with an underscore `_` will be ignored.
 
