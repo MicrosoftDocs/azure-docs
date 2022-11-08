@@ -43,7 +43,7 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Device mappings overview
+      - name: Device mappings
         href: how-to-use-device-mappings.md
       - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
