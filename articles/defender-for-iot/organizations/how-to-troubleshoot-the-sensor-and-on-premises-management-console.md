@@ -242,11 +242,11 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Clearing sensor data to factory default
+### Clearing sensor data
 
-In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
+In cases where the sensor needs to be relocated or erased, all learned data can be cleared from the sensor. 
 
-For more information on how to clear system data, see [Clearing sensor data to factory default](how-to-manage-individual-sensors.md#clearing-sensor-data-to-factory-default).
+For more information on how to clear system data, see [Clearing sensor data](how-to-manage-individual-sensors.md#clearing-sensor-data).
 
 ## Troubleshoot an on-premises management console
 
