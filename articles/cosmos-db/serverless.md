@@ -49,8 +49,9 @@ Any container that is created in a serverless account is a serverless container.
     - You can't create a shared throughput database in a serverless account and doing so returns an error.
 - Serverless containers can store a maximum of 50 GB of data and indexes.
 
-> [!NOTE]
-> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
+### Serverless 1 TB container preview
+Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md). After the request is approved, all existing and future serverless accounts in the subscription will be able to use containers with size up to 1 TB.
+:::image type="content" source="media/serverless/enable-1TB-preview.png" alt-text="Image of serverless 1 TB container in Preview Features page in Subscription overview in Azure Portal":::
 
 ## Monitoring your consumption
 
