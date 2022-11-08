@@ -244,7 +244,7 @@ You can restore a soft-deleted container and its contents within the retention p
 
 ## See also
 
-- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)
 - [Manage blob containers using PowerShell](blob-containers-powershell.md)
 
 <!--Point-in-time restore: /azure/storage/blobs/point-in-time-restore-manage?tabs=portal-->

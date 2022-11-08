@@ -37,7 +37,7 @@ items:
     href: tutorial-django-webapp-postgres-cli.md
   - name: ASP.NET app with Blob Storage
     href: tutorial-csharp-webapp-storage-cli.md
-  - name: Spring Cloud app with MySQL
+  - name: Azure Spring Apps with MySQL Flexible Server
     href: tutorial-java-spring-mysql.md
   - name: Spring Cloud app with Kafka on Confluent Cloud
     href: tutorial-java-spring-confluent-kafka.md

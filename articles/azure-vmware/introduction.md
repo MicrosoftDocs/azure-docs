@@ -17,9 +17,9 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 :::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagram of Azure VMware Solution private cloud adjacency to Azure and on-premises." border="false":::
 
-## AV36P and AV52 node sizes generally available in Azure VMware Solution
+## AV36P and AV52 node sizes available in Azure VMware Solution
 
- The new node sizes in will increase memory and storage options to optimize your workloads. These gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of these new nodes allows large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.
+ The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allow for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.
 
 **AV36P key highlights for Memory and Storage optimized Workloads:**
 

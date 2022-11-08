@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
      `https://<companyname-pricing>.predictix.com/sso/request`
 
 	> [!NOTE]
-	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Price Reporting support team](https://www.infor.com/customer-center) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
@@ -120,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Predictix Price Reporting SSO
 
-To configure single sign-on on the Predictix Price Reporting side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/). This team ensures the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Price Reporting side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Price Reporting support team](https://www.infor.com/customer-center). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create a Predictix Price Reporting test user
 
-Next, you need to create a user named Britta Simon in Predictix Price Reporting. Work with the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to add users. Users need to be created and activated before you use single sign-on.
+Next, you need to create a user named Britta Simon in Predictix Price Reporting. Work with the [Predictix Price Reporting support team](https://www.infor.com/customer-center) to add users. Users need to be created and activated before you use single sign-on.
 
 ## Test SSO
 
