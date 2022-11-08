@@ -21,11 +21,11 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 ## Defender CSPM plan options
 
-The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender Cloud Security Posture Management (CSPM). When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
+The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender CSPM. When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
-| Feature | Foundational CSPM capabilities | Defender Cloud Security Posture Management (CSPM) | Cloud availability |
+| Feature | Foundational CSPM capabilities | Defender CSPM | Cloud availability |
 |--|--|--|--|
 | Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
@@ -40,7 +40,7 @@ The following table summarizes what's included in each plan and their cloud avai
 > [!NOTE]
 > If you have enabled Defender for DevOps, you will only gain cloud security graph and attack path analysis to the artifacts that arrive through those connectors. 
 >
-> To enable Governance for for DevOps related recommendations, the Defender Cloud Security Posture Management (CSPM) plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
+> To enable Governance for for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
 
 ## Security governance and regulatory compliance
 

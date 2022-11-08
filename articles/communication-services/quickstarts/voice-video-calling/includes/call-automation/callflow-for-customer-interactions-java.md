@@ -5,7 +5,7 @@ services: azure-communication-services
 author: ashwinder
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 09/06/2022
 ms.topic: include
 ms.custom: include file
@@ -19,56 +19,46 @@ ms.author: askaur
 - [Acquire a PSTN phone number from Azure Communication Services.](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows)
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
-## Create a new Java application
+## Create a new Java Spring application
 
-Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
-```console
-mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-```
+Configure the [Spring Initializr](https://start.spring.io/) to create a new Java Spring application.
 
-The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source
+1. Set the Project to be a Maven Project.
+2. Leave the rest as default unless you want to have your own customization.
+3. Add Spring Web to Dependencies section.
+4. Generate the application and it will be downloaded as a zip file. Unzip the file and start coding.
 
-You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
+## Install the Maven package
 
-Update your application's POM file to use Java 8 or higher:
-```xml
-<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-</properties>
-```
+**Configure Azure Artifacts development feed:**
 
-## Configure Azure SDK Dev Feed
+Since the Call Automation SDK version used in this QuickStart isn't yet available in Maven Central Repository, we need to configure an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.
 
-Since the Call Automation SDK version used in this QuickStart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
+Follow the instruction [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/connect/maven) for adding [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) feed to your POM file.
 
-Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the “Connect to Feed” button.
+**Add Call Automation package references:**
 
-## Add package references
+*azure-communication-callautomation* - Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 
-In your POM file, add the following dependencies for the project.
+Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/versions)
 
-**azure-communication-callautomation**
+And then add it to your POM file like this (using version 1.0.0-alpha.20221101.1 as example)
 
-Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
-
-Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20220929.1)
-
-And then add it to your POM file like this (using version 1.0.0-alpha.20220929.1 as example)
 ```xml
 <dependency>
 <groupId>com.azure</groupId>
 <artifactId>azure-communication-callautomation</artifactId>
-<version>1.0.0-alpha.20220929.1</version>
+<version>1.0.0-alpha.20221101.1</version>
 </dependency>
 ```
 
-**azure-messaging-eventgrid**
+**Add other packages’ references:** 
 
-Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
+This section is for adding references for packages that will be used in the following examples.
+
+*azure-messaging-eventgrid* - Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
+
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -77,20 +67,8 @@ Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://se
 </dependency>
 ```
 
-**spark-core**
+*gson* - Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.google.code.gson/gson) is a serialization/deserialization library to handle conversion between Java Objects and JSON.
 
-Spark framework: [com.sparkjava : spark-core](https://search.maven.org/artifact/com.sparkjava/spark-core). We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. You can use any framework to create a web api.
-```xml
-<dependency>
-  <groupId>com.sparkjava</groupId>
-  <artifactId>spark-core</artifactId>
-  <version>2.9.4</version>
-</dependency>
-```
-
-**gson**
-
-Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.google.code.gson/gson) is a serialization/deserialization library to handle conversion between Java Objects and JSON.
 ```xml
 <dependency>
   <groupId>com.google.code.gson</groupId>
@@ -99,125 +77,164 @@ Google Gson package: [com.google.code.gson : gson](https://search.maven.org/arti
 </dependency>
 ```
 
-## Create a Communication Services User
+## Obtain your connection string and phone number
 
-You'll need a Communication Services user to try out the functionality of adding participants to a call. If you don’t have a Communication Services user yet, you can read [here](../../../identity/quick-create-identity.md) how to create one.
+From the Azure portal, locate your Communication Service resource.
 
-## Update App.java with code
+1. Select on the Keys section to obtain your connection string.
+:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
+2. Then select on the Phone numbers section to obtain your ACS phone number.
 
-In your editor of choice, open App.java file and update it with the following code. For more addition details, see the comments in the code snippet below.
+## Add Controller.java
+
+In your project folder, create a Controller.java file and update it to handle incoming calls. A callback URI is required so the service knows how to contact your web server for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+
+In this code snippet, /api/incomingCall is the default route that will be used to listen for and answer incoming calls. At a later step, we'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).
+
+The code sample also illustrates how you can control the callback URI by setting your own context/ID when you answer the call. All events generated by the call will be sent to the specific route you provide when answering an inbound call and the same applies to when you place an outbound call.
+
 ```Java
-package com.communication.quickstart;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-import java.util.logging.Logger;
-import java.time.Duration;
+package com.example.demo;
+
 import com.azure.communication.callautomation.*;
 import com.azure.communication.callautomation.models.*;
 import com.azure.communication.callautomation.models.events.*;
 import com.azure.communication.common.CommunicationIdentifier;
 import com.azure.communication.common.CommunicationUserIdentifier;
-import com.azure.communication.common.PhoneNumberIdentifier;
-import com.azure.messaging.eventgrid.*;
-import com.google.gson.*;
-import static spark.Spark.*;
-public class App
-{
-    public static void main( String[] args ) throws URISyntaxException
-    {
-        // args[0] - the Ngrok base URI
-        // callbackUri - location where Call Automation platform's events will be delivered
-        // The endpoint must be reachable from the internet, therefore, the base address is Ngrok URI
-        URI callbackUri = new URI(args[0] + "/api/callback");
-        String connectionString = "[connectionString]";
-        CallAutomationClient client = new CallAutomationClientBuilder()
-            .connectionString(connectionString)
-            .buildClient();
-        // Endpoint to receive Event Grid IncomingCall event
-        post("/api/incomingCall", (request, response) -> {
-            Logger.getAnonymousLogger().info(request.body());
-            List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
-            for (EventGridEvent eventGridEvent : eventGridEvents) {
-                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);                
-                if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
-                    String validationCode = data.get("validationCode").getAsString();
-                    return "{\"validationResponse\": \"" + validationCode + "\"}";
-                }
-                // Answer the incoming call and pass the callbackUri where Call Automation events will be delivered
-                String incomingCallContext = data.get("incomingCallContext").getAsString();
-                client.answerCall(incomingCallContext, callbackUri);
-            }
-            return "";
-        });
-        // Endpoint to receive Call Automation events
-        post("/api/callback", (request, response) -> {
-            Logger.getAnonymousLogger().info(request.body());
-            List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(request.body());
-            if (acsEvents.isEmpty()) {
-                return "";
-            }
-            for (CallAutomationEventBase acsEvent : acsEvents) {
-                if (acsEvent.getClass() == CallConnectedEvent.class) {
-                    CallConnectedEvent event = (CallConnectedEvent) acsEvent;
-                    
-                    // Call was answered and is now established
-                    String callConnectionId = event.getCallConnectionId();
-                    CallConnection callConnection = client.getCallConnection(callConnectionId);
-    
-                    // Play audio to participants in the call
-                    CallMedia callMedia = callConnection.getCallMedia();
-                    FileSource fileSource = new FileSource().setUri("<Audio file URL>");
-                    CommunicationIdentifier targetParticipant = new PhoneNumberIdentifier("<Target-Participant-Phone-Number>");
-                    CallMediaRecognizeOptions recognizeDtmfOptions= new CallMediaRecognizeDtmfOptions(targetParticipant, 3)
-                        .setInterToneTimeoutInSeconds(2)
-                        .setStopTones(Collections.singletonList(Tone.POUND))
-                        .setInterruptPromptAndStartRecognition(true)
-                        .setInitialSilenceTimeoutInSeconds(5)
-                        .setPlayPrompt(fileSource)
-                        .setStopCurrentOperations(true);
-                    callMedia.startRecognizing(recognizeDtmfOptions);
-                } else if (event.getClass() == RecognizeCompleted.class) {
-                    RecognizeCompleted event = (RecognizeCompleted) acsEvent;
+import com.azure.messaging.eventgrid.EventGridEvent;
+import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationEventData;
+import com.azure.messaging.eventgrid.systemevents.SubscriptionValidationResponse;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.time.Duration;
+import java.util.*;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-                    // Add participant to the call after recognize has completed playing.
-                    String callConnectionId = event.getCallConnectionId();
-                    CallConnection callConnection = client.getCallConnection(callConnectionId);
+@RestController
+public class ActionController {
+    @Autowired
+    private Environment environment;
+    private CallAutomationAsyncClient client;
+
+    private CallAutomationAsyncClient getCallAutomationAsyncClient() {
+        if (client == null) {
+            client = new CallAutomationClientBuilder()
+                .connectionString(environment.getProperty("connectionString"))
+                .buildAsyncClient();
+        }
+        return client;
+    }
+
+    @RequestMapping(value = "/api/incomingCall", method = POST)
+    public ResponseEntity<?> handleIncomingCall(@RequestBody(required = false) String requestBody) {
+        List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(requestBody);
+
+        for (EventGridEvent eventGridEvent : eventGridEvents) {
+            // Handle the subscription validation event
+            if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
+                SubscriptionValidationEventData subscriptionValidationEventData = eventGridEvent.getData().toObject(SubscriptionValidationEventData.class);
+                SubscriptionValidationResponse subscriptionValidationResponse = new SubscriptionValidationResponse()
+                        .setValidationResponse(subscriptionValidationEventData.getValidationCode());
+                ResponseEntity<SubscriptionValidationResponse> ret = new ResponseEntity<>(subscriptionValidationResponse, HttpStatus.OK);
+                return ret;
+            }
+
+            // Answer the incoming call and pass the callbackUri where Call Automation events will be delivered
+            JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class); // Extract body of the event
+            String incomingCallContext = data.get("incomingCallContext").getAsString(); // Query the incoming call context info for answering
+            String callerId = data.getAsJsonObject("from").get("rawId").getAsString(); // Query the id of caller for preparing the Recognize prompt.
+
+            // Call events of this call will be sent to an url with unique id.
+            String callbackUri = environment.getProperty("callbackUriBase") + String.format("/api/calls/%s?callerId=%s", UUID.randomUUID(), callerId);
+
+            AnswerCallResult answerCallResult = getCallAutomationAsyncClient().answerCall(incomingCallContext, callbackUri).block();
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/calls/{contextId}", method = POST)
+    public ResponseEntity<?> handleCallEvents(@RequestBody String requestBody, @PathVariable String contextId, @RequestParam(name = "callerId", required = true) String callerId) {
+        List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(requestBody);
+
+        for (CallAutomationEventBase acsEvent : acsEvents) {
+            if (acsEvent instanceof CallConnected) {
+                CallConnected event = (CallConnected) acsEvent;
+
+                // Call was answered and is now established
+                String callConnectionId = event.getCallConnectionId();
+                CommunicationIdentifier target = CommunicationIdentifier.fromRawId(callerId);
+
+                // Play audio then recognize 3-digit DTMF input with pound (#) stop tone
+                CallMediaRecognizeDtmfOptions recognizeOptions = new CallMediaRecognizeDtmfOptions(target, 3);
+                recognizeOptions.setInterToneTimeout(Duration.ofSeconds(10))
+                        .setStopTones(new ArrayList<>(Arrays.asList(DtmfTone.POUND)))
+                        .setInitialSilenceTimeout(Duration.ofSeconds(5))
+                        .setInterruptPrompt(true)
+                        .setPlayPrompt(new FileSource().setUri(environment.getProperty("mediaSource")))
+                        .setOperationContext("MainMenu");
+
+                getCallAutomationAsyncClient().getCallConnectionAsync(callConnectionId)
+                        .getCallMediaAsync()
+                        .startRecognizing(recognizeOptions)
+                        .block();
+            } else if (acsEvent instanceof RecognizeCompleted) {
+                RecognizeCompleted event = (RecognizeCompleted) acsEvent;
+
+                // This RecognizeCompleted correlates to the previous action as per the OperationContext value
+                if (event.getOperationContext().equals("MainMenu")) {
+                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());
 
                     // Invite other participants to the call
                     List<CommunicationIdentifier> participants = new ArrayList<>(
-                        Arrays.asList(new CommunicationUserIdentifier("[acsUserId]")));
-                    AddParticipantsOptions options = new AddParticipantsOptions(participants)
-                        .setInvitationTimeout(Duration.ofSeconds(30))
-                        .setOperationContext(UUID.randomUUID().toString())
-                        .setSourceCallerId(new PhoneNumberIdentifier("[phoneNumber]"));
-                    callConnection.addParticipants(options);
-                } 
+                            Arrays.asList(new CommunicationUserIdentifier(environment.getProperty("participantToAdd"))));
+                    AddParticipantsOptions options = new AddParticipantsOptions(participants);
+                    AddParticipantsResult addParticipantsResult = callConnectionAsync.addParticipants(participants).block();
+                }
             }
-            return "";
-        });
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
+
 ```
 
-## Start Ngrok
+## Set up a public URI for the local application
 
-In this quickstart, we'll use [Ngrok tool](https://ngrok.com/) to make our localhost java application reachable from the internet. This tool will be needed to receive the Event Grid `IncomingCall` event and the Call Automation events using webhooks.
+In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-Determine the root URI of the java application. By default, it should be `http://localhost:4567/` where the port is 4567.
+First, determine the port of your java application. `8080` is the default endpoint of a spring boot application.
 
-Install and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, we’ll need this URI in the next sections. Keep Ngrok running while following the rest of this quickstart.
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
-## Run the code
+## Set up environment variables
 
-To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoints will be available at `http://localhost:4567/api/incomingCall` and `http://localhost:4567/api/callback`.
+Some environment variables are used in the shown code snippet, configure them in <PROJECT_ROOT>\src\main\resources\application.properties file.
 
-The application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace `ngrokBaseUri` with your Ngrok URI, for example, `https://ff2f-75-155-253-232.ngrok.io`  
+```java
+connectionString=Your_ACS_resource_connection_string
+callbackUriBase=Your_Ngrok_FQDN
+mediaSource=Link_to_media_file_for_play_prompt
+participantToAdd=The_participant_to_be_added_after_recognizing_tones
+```
+
+Input phone number with country code, for example: +18001234567. ParticipantToAdd used in the code snippet is assumed to be an ACS User MRI.
+
+## Run the app
+
+To run your Java application, run maven compile, package, and execute commands.
+
 ```console
 mvn compile
 mvn package
-mvn exec:java -Dexec.mainClass=com.communication.quickstart.App -Dexec.cleanupDaemonThreads=false -Dexec.args=<ngrokBaseUri>
+mvn exec:java -Dexec.mainClass=com.example.demo.DemoApplication -Dexec.cleanupDaemonThreads=false
 ```
+
+## Set up IncomingCall event
+
+IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource, like the phone number purchased in pre-requisites. Follow [this guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.

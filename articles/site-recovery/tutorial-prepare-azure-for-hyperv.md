@@ -5,7 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.custom: MVC
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Prepare Azure resources for Hyper-V disaster recovery
 

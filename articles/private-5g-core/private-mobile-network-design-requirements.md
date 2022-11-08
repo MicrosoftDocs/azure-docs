@@ -64,6 +64,18 @@ You should ask your RAN partner for the countries and frequency bands for which 
 
 Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UEs on the frequency band it is configured to use. You should define the PLMN ID and confirm your access to spectrum. In some countries, spectrum must be obtained from the national regulator or incumbent telecommunications operator. For example, if you're using the band 48 Citizens Broadband Radio Service (CBRS) spectrum, you may need to work with your RAN partner to deploy a Spectrum Access System (SAS) domain proxy on the enterprise site so that the RAN can continuously check that it is authorized to broadcast.
 
+#### Maximum Transmission Units (MTUs)
+
+The Maximum Transmission Unit (MTU) is a property of an IP link, and it is configured on the interfaces at each end of the link. Packets that exceed an interface's configured MTU are split into smaller packets via IPv4 fragmentation prior to sending and are then reassembled at their destination. However, if an interface's configured MTU is higher than the link's supported MTU, the packet will fail to be transmitted correctly.
+
+To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signalled by the packet core.
+
+IP packets from UEs are tunnelled through from the RAN, which adds overhead from encapsulation. Due to this, the MTU value for the UE should be smaller than the MTU value used between the RAN and the Packet Core to avoid transmission issues.
+
+RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is 1300 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation that may be dropped by the network.
+
+If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
+
 ### Signal coverage
 
 The UEs must be able to communicate with the RAN from any location at the site. This means that the signals must propagate effectively in the environment, including accounting for obstructions and equipment, to support UEs moving around the site (for example, between indoor and outdoor areas).

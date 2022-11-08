@@ -31,14 +31,14 @@ You'll find more information and configuration options in the following sections
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.2.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.3.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.3.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -61,7 +61,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.2.jar` is located.
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.3.jar` is located.
 
 ```json
 {
@@ -413,7 +413,7 @@ Starting from 3.4.2, you can capture the log markers for Logback and Log4j 2:
 
 ### Additional log attributes for Logback (preview)
 
-Starting from 3.4.2, you can capture `FileName`, `ClassName`, `MethodName`, and `LineNumber`, for Logback:
+Starting from 3.4.3, you can capture `FileName`, `ClassName`, `MethodName`, and `LineNumber`, for Logback:
 
 ```json
 {
@@ -752,7 +752,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.2.jar` is located.
+`applicationinsights-agent-3.4.3.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.
