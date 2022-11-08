@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 07/06/2021
+ms.date: 11/07/2022
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
 ms.custom: mode-api

@@ -341,9 +341,7 @@ The following Python endpoint object:
 * Assigns the name by which you want to refer to the endpoint to the variable `endpoint_name. 
 * Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
 
-```python
-endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=2-define-endpoint-configuration)]
 
 This deployment object: 
 
@@ -354,27 +352,7 @@ This deployment object:
 * Includes environment variables needed for the system-assigned managed identity to access storage.  
 
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../../model-1/model/"),
-    code_configuration=CodeConfiguration(
-        code="../../model-1/onlinescoring/", scoring_script="score_managedidentity.py"
-    ),
-    environment=Environment(
-        conda_file="../../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-    environment_variables={
-        "STORAGE_ACCOUNT_NAME": storage_account_name,
-        "STORAGE_CONTAINER_NAME": storage_container_name,
-        "FILE_NAME": file_name,
-    },
-)
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=2-define-deployment-configuration)]
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
@@ -392,29 +370,7 @@ This deployment object:
 * Adds a placeholder environment variable for `UAI_CLIENT_ID`, which will be added after creating one and before actually deploying this configuration. 
 
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../../model-1/model/"),
-    code_configuration=CodeConfiguration(
-        code="../../model-1/onlinescoring/", scoring_script="score_managedidentity.py"
-    ),
-    environment=Environment(
-        conda_file="../../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-    environment_variables={
-        "STORAGE_ACCOUNT_NAME": storage_account_name,
-        "STORAGE_CONTAINER_NAME": storage_container_name,
-        "FILE_NAME": file_name,
-        # We will update this after creating an identity
-        "UAI_CLIENT_ID": "uai_client_id_place_holder",
-    },
-)
-``` 
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=2-define-deployment-configuration)]
 
 ---
 

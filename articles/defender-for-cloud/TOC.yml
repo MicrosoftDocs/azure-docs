@@ -132,7 +132,7 @@
         href: recommendations-reference.md
       - name: Reference list of AWS recommendations
         href: recommendations-reference-aws.md
-      - name: Reference list of attack paths
+      - name: Reference list of attack paths and cloud security graph components
         href: attack-path-reference.md
   - name: Protect cloud workloads
     items:
@@ -534,7 +534,9 @@
     - name: Defender for Azure Cosmos DB
       href: episode-eighteen.md
     - name: Defender for DevOps
-      href: episode-nineteen.md   
+      href: episode-nineteen.md
+    - name: Cloud security explorer and attack path analysis
+      href: episode-twenty.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

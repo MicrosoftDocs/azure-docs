@@ -267,7 +267,7 @@ When you use a secure webhook action, you must use Azure AD to secure the connec
 
 > [!NOTE]
 >
-> Basic authentication is not supported for SecureWebhok. To use basic authentication you must use Webhook.
+> Basic authentication is not supported for SecureWebhook. To use basic authentication you must use Webhook.
 
 > [!NOTE]
 >
