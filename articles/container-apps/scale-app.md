@@ -144,9 +144,9 @@ TODO
 
 ## Custom
 
-You can create a custom Container Apps scaling rule based on any [KEDA scaler][https://keda.sh/docs/latest/scalers/].
+You can create a custom Container Apps scaling rule based on any [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
-KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)s with [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) objects that define security contexts. You can convert a KEDA scaler to a Container Apps scale rule by mapping values from a `ScaledObject` and `TriggerAuthentication` object to a scale rule.
+KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)s with [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) objects that define security contexts. You can convert a KEDA scaler to a Container Apps scale rule by mapping values from a `ScaledObject` and `TriggerAuthentication` to a scale rule.
 
 The structure of a Container Apps scale rule follows this form:
 
@@ -163,7 +163,7 @@ The structure of a Container Apps scale rule follows this form:
 ...
 ```
 
-The `type` and `metadata` values carry over verbatim from a `ScaledObject`, while `auth` values are composed from a KEDA [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object. Each `secretTargetRef` from a `TriggerAuthentication` object maps to an object in the Container Apps scale rule `auth` array.
+The `type` and `metadata` values carry over verbatim from a `ScaledObject`, while `auth` values are composed from a KEDA `TriggerAuthentication` object. Each `secretTargetRef` from a `TriggerAuthentication` object maps to an object in the Container Apps scale rule `auth` array.
 
 This table shows the mapping between KEDA and Container Apps.
 
