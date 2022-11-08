@@ -17,6 +17,9 @@ The job diagram in the Azure portal can help you visualize your job's query step
 There are two types of job diagrams: 
 
 * **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+
+   Inside each streaming node, there are Stream Analytics processors available for processing the stream data. A diagram is also available to visualize the processor topology in each streaming node. It's called **processor diagram** in physical job diagram.
+
 * **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
 This article describes the two types of job diagrams to guide you. 
@@ -64,8 +67,40 @@ The **Diagram/Table section** and **Chart section** can be interactive with each
 
 :::image type="content" source="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png" alt-text="Screenshot that shows physical job diagram node chart interaction."  lightbox="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png":::
 
-
 To learn more about how to debug with physical diagram, see [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
+
+
+## Processor diagram in physical job diagram
+
+The processor diagram in physical job diagram visualizes the processor topology inside the specific streaming node. To access the processor diagram, you'll need to open the physical job diagram, and locate a streaming node you want to check its processor diagram, then open the processor diagram by clicking the streaming node name.
+
+:::image type="content" source="./media/job-diagram-with-metrics/7-processor-diagram-openning.png" alt-text="Screenshot that shows processor diagram entrypoint."  lightbox="./media/job-diagram-with-metrics/7-processor-diagram-openning.png":::
+
+:::image type="content" source="./media/job-diagram-with-metrics/7-processor-diagram-view.png" alt-text="Screenshot that shows processor diagram view."  lightbox="./media/job-diagram-with-metrics/7-processor-diagram-view.png":::
+
+1. **Information bar section**: it's the place where you can view the basic information for this processor diagram, such as the time range, the corresponding streaming node name.
+2. **Diagram section**: it's the place where the processor diagram is visualized. Each node box in this section represents a processor that processes the stream data for certain purpose.
+    * **Processor type**: it shows the type of the processor, stands for certain data processing purpose. It's available in each processor node.
+    
+        | Processor type | Description | 
+        | --- | --- | 
+        | **Input** or **Output** | This processor is used for receiving (Input) or outputting (Output) stream data. |
+        | **ReferenceData** | This processor is used for fetching the reference data. |
+        | **Computing** | This processor is used for aggregating the stream data according to the query logic. |
+        | **MarshallerUpstream** and **MarshallerDownstream** | When there's stream data interaction among streaming nodes, there will be two marshaller processors: 1). **MarshallerUpstream** for sending the data in the upstream streaming node and 2). **MarshallerDownstream** for receiving the data in the downstream streaming node. |
+        | **Merger** | This processor is to receive the crossing-partition stream data, which were outputted from several upstream streaming nodes. The best practice to optimize job performance is to update query to remove the merger processor to make the job become parallel since the merger processor is the bottleneck of the job. The job diagram simulator feature within VSCode ASA extension can help you simulating your query locally when you optimizing your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md). |
+        |
+
+
+        :::image type="content" source="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png" alt-text="Screenshot that shows marshaller and merger diagram."  lightbox="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png":::
+
+
+    * **Adapter type**: it shows the type of the input or output adapter. Stream Analytics supports various input sources and output destinations. Each input source or output destination has a dedicated adapter type. It's only available in input processor and output processor. For example, "InputBlob" represents the ADLS Gen2 input where the input processor receives the data from; "OutputDocumentDb" represents the Cosmos DB output where the output processor outputs the data to. 
+    
+        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md)
+
+    * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
+    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several serialization types. It's only available in input processor and output processor. Currently there are four types supported: CSV, JSON, Parquet, and Avro.
 
 
 ## Logical job diagram
