@@ -12,8 +12,7 @@ ms.date: 05/28/2021
 
 # Marketplace Rewards
 
-Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). 
-
+Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace Rewards testimonials
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
 Your benefits are differentiated based on whether your offer is [Contact Me, Free Trial, or Transact](determine-your-listing-type.md).
@@ -49,3 +48,4 @@ Your steps to get started are easy:
 >If your offer has been live for more than four weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
+
