@@ -44,7 +44,7 @@ export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
-export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=demo-non-admin
+export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
 export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
@@ -57,6 +57,9 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
 - `<YOUR_USER_ASSIGNED_MANAGED_IDENTITY_NAME>`: The name of your user assigned managed identity server, which should be unique across Azure.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+> [!IMPORTANT]
+> When setting <YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>, the username must already exist in your Azure AD tenant or you will be unable to create an Azure AD user in your database.
 
 ### [Password](#tab/password)
 
@@ -119,15 +122,14 @@ az postgres flexible-server create \
     --output tsv
 ```
 
-Now run the following command to set the Azure AD admin user:
+Follow the steps below to set up an Azure AD administrator after server creation:
 
-```azurecli
-az postgres server ad-admin create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_SERVER_NAME \
-    --display-name $CURRENT_USERNAME \
-    --object-id $CURRENT_USER_OBJECTID
-```
+1. In the Azure portal, select the instance of Azure Database for PostgreSQL Flexible Server that you want to enable for Azure AD.
+1. Under Security, select Authentication and choose either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
+set azure ad administrator
+
+1. Select `Add Azure AD Admins` and select a valid Azure AD user / group /service principal/Managed Identity in the customer tenant to be Azure AD administrator.
+1. Select Save,
 
 > [!IMPORTANT]
 > When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
@@ -220,7 +222,6 @@ Create a SQL script called *create_ad_user.sql* for creating a non-admin user. A
 
 ```bash
 cat << EOF > create_ad_user.sql
-SET aad_validate_oids_in_tenant = off;
 CREATE ROLE "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME" WITH LOGIN IN ROLE azure_ad_user;
 GRANT ALL PRIVILEGES ON DATABASE $AZ_DATABASE_NAME TO "$AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME";
 EOF
