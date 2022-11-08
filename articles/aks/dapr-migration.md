@@ -33,7 +33,7 @@ You've installed and configured Dapr OSS on your Kubernetes cluster and want to 
 dapr uninstall -k –-all
 ```
 
-1. Uninstall the Dapr namespace:
+2. Uninstall the Dapr namespace:
 
 ```bash
 kubectl delete namespace dapr-system
@@ -50,7 +50,7 @@ kubectl delete namespace dapr-system
 helm uninstall dapr -n dapr-system
 ```
 
-1. Uninstall CRDs: 
+2. Uninstall CRDs: 
 
 ```bash
 kubectl delete crd components.dapr.io
@@ -59,7 +59,7 @@ kubectl delete crd subscriptions.dapr.io
 kubectl delete crd resiliencies.dapr.io
 ```
 
-1. Uninstall the Dapr namespace:
+3. Uninstall the Dapr namespace:
 
 ```bash
 kubectl delete namespace dapr-system
