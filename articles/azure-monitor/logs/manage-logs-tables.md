@@ -19,7 +19,7 @@ This article explains the table configuration options in Azure Monitor Logs and 
 
 This diagram provides an overview of the table configuration options in Azure Monitor Logs:
 
-:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and retention and archive policies." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management-large.png":::
+:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and retention and archive policies." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
 
 In the Azure portal, you can view and set table configuration settings by selecting **Tables** from your Log Analytics workspace.   
 
