@@ -1,4 +1,4 @@
----
+F---
 title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
@@ -55,7 +55,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new storage accounts with that setting enabled. Configure this policy in audit mode to identify storage accounts that have Shared Key access enabled. After you have identified client applications that access those storage accounts using Shared Key authorization and changed them to use Azure AD authorization, you can change the **Effect** of the policy from `Audit` to `Deny` to block non-compliant changes.
+Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new storage accounts with that setting enabled. Configure this policy in audit mode to identify storage accounts that have Shared Key access enabled. After you have identified client applications that access those storage accounts using Shared Key authorization and changed them to use Azure AD authorization, you can change the **Effect** of the policy from `Audit` to `Deny` to block non-compliant changes. See section [Update Azure Policy assignment to prevent enabling Shared Key access](#update-azure-policy-assignment-to-prevent-enabling-shared-key-access) for details on how to change the effect of the policy.
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -81,8 +81,6 @@ Follow these steps to assign the built-in policy to the appropriate scope in the
     :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-parameters.png" alt-text="Screenshot showing the parameters tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-parameters.png":::
 
 1. On the **Remediation** tab, select **Next**.
-
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-remediation.png" alt-text="Screenshot showing the remediation tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-remediation.png":::
 
 1. On the **Non-compliance messages** tab, enter a message to be displayed when a storage account is out of compliance then select **Next**.
 
@@ -258,6 +256,23 @@ az storage account update \
 After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns error indicating that key-based authorization is not permitted on the storage account.
 
 The **AllowSharedKeyAccess** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
+
+### Update Azure Policy assignment to prevent enabling Shared Key access
+
+To begin enforcing [the Azure Policy you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode), **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny requests for enabling Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
+
+1. On the Azure Policy dashboard, locate and select the policy assignment [you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode).
+
+1. Select **Edit assignment**.
+1. Go to the **Parameters** tab.
+1. Uncheck the **Only show parameters that need input or review** checkbox.
+1. In the **Effect** drop-down change `Audit` to `Deny`, then select **Review + save**.
+1. On the **Review + save** tab, review your changes, then select Save.
+
+> [!NOTE]
+> It might take up to 30 minutes for your policy change to take effect.
+
+Continue to monitor the policy for ongoing compliance.
 
 ## Verify that Shared Key access is not allowed
 
