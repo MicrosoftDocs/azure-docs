@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 11/02/2022
+ms.date: 11/08/2022
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -41,7 +41,6 @@ This is the list of known limitations for Azure Synapse Link for SQL.
   * geometry
   * geography
 * A maximum of 5,000 tables can be added to a single link connection.
-* When a source column is of type datetime2(7) or time(7), the last digit will be truncated when data is replicated to Azure Synapse Analytics.
 * The following table DDL operations aren't allowed on source tables when they are enabled for Azure Synapse Link for SQL.  All other DDL operations are allowed, but they won't be replicated to Azure Synapse Analytics.
   * Switch Partition
   * Add/Drop/Alter Column
@@ -61,6 +60,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
+* Azure Synapse Link for SQL will **NOT** work and can't be enabled if your database contains a schema or user named "changefeed".
 * Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can’t be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 * Single row updates (including off-page storage) of > 370MB are not supported.
 
@@ -104,23 +104,15 @@ This is the list of known limitations for Azure Synapse Link for SQL.
         ```sql
         EXEC sys.sp_change_feed_disable_db
 
-### DateTime2(7) and Time(7) Could Cause Snapshot Hang
-* Applies To - Azure SQL Database
-* Issue - One of the preview limitations with the data types DateTime2(7) and Time(7) is the loss of precision (only 6 digits are supported). When certain database settings are turned on (`NUMERIC_ROUNDABORT`, `ANSI_WARNINGS`, and `ARITHABORT`), the snapthot process can hang, requiring a database failover to recover.
-* Resolution - To resolve this situation, take the following steps:
-1. Turn off all three database settings.
-    ```sql
-    ALTER DATABASE <logical_database_name> SET NUMERIC_ROUNDABORT OFF
-    ALTER DATABASE <logical_database_name> SET ANSI_WARNINGS OFF
-    ALTER DATABASE <logical_database_name> SET ARITHABORT OFF
-    ```
-1. Run the following query to verify that the settings are in fact turned off.
-    ```sql
-    SELECT name, is_numeric_roundabort_on, is_ansi_warnings_on, is_arithabort_on
-    FROM sys.databases
-    WHERE name = 'logical_database_name'
-    ```
-1. Open an Azure support ticket requesting a database failover. Alternately, you could change the Service Level Objective (SLO) of your database instead of opening a ticket.
+### Trying to re-enable change feed on a table for that was recently disabled table will show an error. This is an uncommon behavior
+* Applies To - Azure SQL Database and SQL Server 2022
+* Issue - When you try to enable a table which has been recently disabled with its metadata not yet been cleaned up and state marked as DISABLED, an error will be thrown stating "A table can only be enabled once among all table groups"
+* Resolution - Wait for sometime for the disabled table system procedure to complete and then try to re-enable the table again.
+
+### Attempt to enable Synapse Link on an imported database using SSDT, SQLPackage for Import/Export and Extract/Deploy operations causes Synapse Link enablement to fail
+* Applies To - Azure SQL Database and SQL Server 2022
+* Issue - For SQL databases enabled with Synapse Link, when you use SSDT Import/Export and Extract/Deploy operations to import/setup a new database, the "changefeed" schema and user do not get excluded in the new database. On attempting to enable Synapse Link on the imported/deployed database, the system stored procedure sys.sp_change_feed_enable_db fails as the "changefeed" user and schema already exists. This issue will also be encountered if you have a user or schema named "changefeed" that is not related to Synapse Link changefeed capability.
+* Resolution - Manually drop the empty changefeed schema and user for Synapse Link to be enabled successfully on the imported/deployed database. **If you have defined a custom schema or user named "changefeed" in your database that is not related to Synapse Link and you do not intend to use Azure Synapse Link for SQL, please do NOT drop your "changefeed" schema or user to avoid any potential data loss**
 
 ## Next steps
 

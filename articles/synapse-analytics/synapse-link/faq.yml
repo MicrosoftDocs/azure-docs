@@ -63,6 +63,10 @@ sections:
         answer: |
           No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. When the link is stopped then the entire landing zone folder is removed.
       - question: |
+          Which regions does Azure Synapse Link for SQL available in?
+        answer: |
+          Azure Synapse Link for SQL is available in all regions where [Azure Synapse Workspace is currently available] (https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=synapse-analytics&rar=true&regions=all)
+      - question: |
           Where is my landing zone located?
         answer: |
           For Azure SQL Database, the landing zone is fully managed and is located in the same region as your target Azure Synapse Analytics workspace. For SQL Server 2022, the landing zone is customer-managed and can be located where you like.
