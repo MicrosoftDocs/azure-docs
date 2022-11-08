@@ -112,6 +112,35 @@ Policy specifies decision that should be emitted if the policy is applicable for
 AttributeRule produces derived attributes and add them to request context attributes. Evaluation of AttributeRule triggers evaluation of additional AttributeRules referenced in the AttributeRule.
 
 
+## Common sub-constructs used in PolicySet, Policy, AttributeRule
+
+#### AttributePredicate
+AttributePredicate checks whether predicate specified on an attribute is satisfied. AttributePredicate  can specify the following properties:
+- attributeName: specifies attribute name on which attribute predicate needs to be evaluated.
+- matcherId: id of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId is not specified, it defaults to GlobMatcher.
+- fromRule: optional property specifying id of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
+- attributeValueIncludes: scalar literal value that should match the request context attribute values.
+- attributeValueIncludedIn: array of literal values that should match the request context attribute values.
+- attributeValueExcluded: scalar literal value that should not  match the request context attribute values.
+- attributeValueExcludedIn: array of literal values that should not match the request context attribute values.
+
+#### CNFCondition
+Array of array of AttributePredicates that have to be satisfied with the semantic of ANDofORs.
+
+#### DNFCondition
+Array of array of AttributePredicates that have to be satisfied with the semantic of ORofANDs.
+
+#### PreConditionRule
+- A PreConditionRule can specify at most one each of CNFCondition, DNFConition, Condition.
+- All of the specified CNFCondition, DNFCondition, Condition should evaluate to “true” for the  PreConditionRule to be satisfied for the current request.
+- If any of the precondition rules is not satisfied,  containing PolicySet or Policy is considered not applicable for the current request and skipped.
+
+#### Condition
+- A Condition allows specifying a complex condition of predicates that can nest functions from library of functions.
+- At decision compute time the Condition evaluates to “true” or “false” and also could emit optional Obligation(s).
+- If the Condition evaluates to  “false” the containing DecisionRule is considered Not Applicable to the current request.
+
+
 ## Next steps
 
 Concept guides for Microsoft Purview access policies:
