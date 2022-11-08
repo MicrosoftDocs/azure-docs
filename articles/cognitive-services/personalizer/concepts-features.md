@@ -43,7 +43,7 @@ Your application is responsible for loading the information about the context fr
 
 Actions represent a list of options.
 
-Do not send in more than 50 actions when Ranking actions. These may be the same 50 actions every time, or they may change. For example, if you have a product catalog of 10,000 items for an e-commerce application, you may use a recommendation or filtering engine to determine the top 40 a customer may like, and use Personalizer to find the one that will generate the most reward (for example, the user will add to the basket) for the current context.
+Don't send in more than 50 actions when Ranking actions. These may be the same 50 actions every time, or they may change. For example, if you have a product catalog of 10,000 items for an e-commerce application, you may use a recommendation or filtering engine to determine the top 40 a customer may like, and use Personalizer to find the one that will generate the most reward (for example, the user will add to the basket) for the current context.
 
 
 ### Examples of actions
@@ -185,7 +185,7 @@ The following are examples of feature namespaces used by applications:
 ### Namespace naming conventions and guidelines
 
 * Namespaces should not be nested.
-* Namespaces must start with unique ASCII characters (we recommend using names namespaces that are UTF-8 based). Currently having namespaces with same first characters could result in collisions.
+* Namespaces must start with unique ASCII characters (we recommend using names namespaces that are UTF-8 based). Currently having namespaces with same first characters could result in collisions, therefore it's strongly recommended to have your namespaces start with characters that are distinct from each other.
 * Namespaces are case sensitive. For example `user` and `User` will be considered different namespaces.
 * Feature names can be repeated across namespaces, and will be treated as separate features
 * The following characters cannot be used: codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
