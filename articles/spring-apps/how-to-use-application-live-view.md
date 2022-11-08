@@ -33,8 +33,9 @@ You can enable Application Live View when provisioning an Azure Spring Apps Ente
 1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
 1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Clieck "next".
 1. In the "VMware Tanzu settings" tab, check "App Live View" checkbox.
-1. Fulfill other settings and click "Review and Create".
-1. You can obtain "Enable Application Live View" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
+   ![Enable-Application-Live-View](./media/how-to-use-application-live-view/create.png)
+3. Fulfill other settings and click "Review and Create".
+4. You can obtain "Enable Application Live View" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
 
 #### [CLI](#tab/Azure-CLI)
 
