@@ -184,40 +184,43 @@ items:
   - name: Data sources
     href: data-sources.md
   - name: Diagnostic Settings
-    displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-    href: essentials/diagnostic-settings.md
-  - name: Agents
     items:
-    - name: Azure Monitor Agent
+    - name: Overview 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings with Azure Policy
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings-policy.md
+  - name: Azure Monitor Agent
+    items:
+    - name: Overview
+      href: agents/agents-overview.md
+    - name: Install Azure Monitor Agent
+      displayName: Azure Monitor agent
       items:
-        - name: Overview
-          href: agents/agents-overview.md
-        - name: Install Azure Monitor Agent
-          displayName: Azure Monitor agent
-          items:
-          - name: Using the agent extension
-            href: agents/azure-monitor-agent-manage.md
-          - name: Using Windows client installer (preview)
-            href: agents/azure-monitor-agent-windows-client.md
-        - name: Configure data collection
-          items:
-          - name: Collect events and performance
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-rule-azure-monitor-agent.md
-          - name: Collect text and IIS Logs
-            displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-text-log.md
-        - name: Define network settings
-          href: agents/azure-monitor-agent-data-collection-endpoint.md
-        - name: Migrate from Log Analytics Agent
-          items:
-          - name: Migration guidance
-            href: agents/azure-monitor-agent-migration.md
-          - name: Migration tools
-            href: agents/azure-monitor-agent-migration-tools.md
-        - name: FAQ
-          displayName: Azure Monitor agent FAQ
-          href: /azure/azure-monitor/faq#azure-monitor-agent
+      - name: Using the agent extension
+        href: agents/azure-monitor-agent-manage.md
+      - name: Using Windows client installer
+        href: agents/azure-monitor-agent-windows-client.md
+    - name: Configure data collection
+      items:
+      - name: Collect events and performance
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Collect text and IIS Logs
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-text-log.md
+    - name: Define network settings
+      href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Migrate from Log Analytics Agent
+      items:
+      - name: Migration guidance
+        href: agents/azure-monitor-agent-migration.md
+      - name: Migration tools
+        href: agents/azure-monitor-agent-migration-tools.md
+    - name: FAQ
+      displayName: Azure Monitor agent FAQ
+      href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Legacy agents
       items:
       - name: Log Analytics agent
@@ -277,57 +280,57 @@ items:
               href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
             - name: Resource Manager template
               href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to Azure Monitor Metrics
-          items:
-            - name: Virtual Machine
-              href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
-            - name: Virtual machine scale set
-              href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
-            - name: VM classic
-              href: essentials/collect-custom-metrics-guestos-vm-classic.md
-            - name: Cloud service
-              href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-        - name: Send to Event Hubs
-          href: agents/diagnostics-extension-stream-event-hubs.md
-        - name: Send to Logs
-          href: agents/diagnostics-extension-logs.md
-        - name: Send to Application Insights
-          href: agents/diagnostics-extension-to-application-insights.md
-        - name: Version history
-          href: agents/diagnostics-extension-versions.md
-        - name: Troubleshooting
-          href: agents/diagnostics-extension-troubleshooting.md
-      - name: Linux
-        displayName: diagnostics extension
-        items:
-          - name: Version 4.0
-            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Version 3.0
-            href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
-          - name: Collect metrics with Telegraf
-            href: essentials/collect-custom-metrics-linux-telegraf.md
-          - name: Troubleshoot
+          - name: Send to Azure Monitor Metrics
             items:
-            - name: Linux VM
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-            - name: Linux Rsyslog issues
-              href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-            - name: Windows VM
-              href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-            - name: Windows Arc-enabled server
-              href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-            - name: Troubleshoot legacy Agents
-              displayName: Troublshooting guidance
-              items:  
-                - name: Log Analytics VM Extension
-                  displayName: troubleshoot, troubleshooting
-                  href: visualize/vmext-troubleshoot.md
-                - name: Log Analytics Windows agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-windows-troubleshoot.md
-                - name: Log Analytics Linux agent
-                  displayName: troubleshoot, troubleshooting
-                  href: agents/agent-linux-troubleshoot.md
+              - name: Virtual Machine
+                href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
+              - name: Virtual Machine Scale Set
+                href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
+              - name: VM classic
+                href: essentials/collect-custom-metrics-guestos-vm-classic.md
+              - name: Cloud service
+                href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+          - name: Send to Event Hubs
+            href: agents/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: agents/diagnostics-extension-logs.md
+          - name: Send to Application Insights
+            href: agents/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: agents/diagnostics-extension-versions.md
+          - name: Troubleshooting
+            href: agents/diagnostics-extension-troubleshooting.md
+        - name: Linux
+          displayName: diagnostics extension
+          items:
+            - name: Version 4.0
+              href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Version 3.0
+              href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
+            - name: Collect metrics with Telegraf
+              href: essentials/collect-custom-metrics-linux-telegraf.md
+    - name: Troubleshoot
+      items:
+      - name: Linux VM
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Linux Rsyslog issues
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+      - name: Windows VM
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+      - name: Windows Arc-enabled server
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
+      - name: Troubleshoot legacy Agents
+        displayName: Troublshooting guidance
+        items:  
+          - name: Log Analytics VM Extension
+            displayName: troubleshoot, troubleshooting
+            href: visualize/vmext-troubleshoot.md
+          - name: Log Analytics Windows agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-windows-troubleshoot.md
+          - name: Log Analytics Linux agent
+            displayName: troubleshoot, troubleshooting
+            href: agents/agent-linux-troubleshoot.md
   - name: Data collection rules
     items:
     - name: Overview
@@ -339,9 +342,6 @@ items:
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Create with Azure Policy
-      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
@@ -389,8 +389,16 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
       - name: Remote-write
-        displayName: Prometheus
-        href: essentials/prometheus-remote-write-managed-identity.md
+        items:
+        - name: Overview
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write.md
+        - name: Managed identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-managed-identity.md
+        - name: Azure Active Directory
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-active-directory.md
       - name: Configure Grafana
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
@@ -550,7 +558,7 @@ items:
       items:
       - name: Overview
         href: app/codeless-overview.md
-      - name: Azure VM and virtual machine scale set
+      - name: Azure VM and Virtual Machine Scale Set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
         items:
@@ -1486,17 +1494,17 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
-      - name: Scale virtual machine scale sets using Resource Manager templates
+      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using CLI
+      - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using PowerShell
+      - name: Scale Virtual Machine Scale Sets using PowerShell
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
-      - name: Scale virtual machine scale sets
+      - name: Scale Virtual Machine Scale Sets
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale virtual machine scale sets using Resource Manager templates
+      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: autoscale/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md

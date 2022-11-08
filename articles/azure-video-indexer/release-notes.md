@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 09/15/2022
+ms.date: 11/07/2022
 ms.author: juliako
 ---
 
@@ -41,6 +41,14 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
+## November 2022
+
+### Speakers' names can now be edited from the Azure Video Indexer website
+
+You can now add new speakers, rename identified speakers and modify speakers assigned to a particular transcript line using the [Azure Video Indexer website](https://www.videoindexer.ai/). For details on how to edit speakers from the **Timeline** pane, see [Edit speakers with the Azure Video Indexer website](edit-speakers.md). 
+
+The same capabilities are available from the Azure Video Indexer [upload video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) API.
+
 ## October 2022
 
 ### A new built-in role: Video Indexer Restricted Viewer
@@ -75,15 +83,21 @@ Now supporting word level time annotation with confidence score.
 
 An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
 
+For more information, see [Examine word-level transcription information](edit-transcript-lines-portal.md#examine-word-level-transcription-information).
+
 ### Azure Monitor integration enabling indexing logs 
 
 The new set of logs, described below, enables you to better monitor your indexing pipeline.
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-### Expanded supported languages in LID and MLID through the API
+### Expanded supported languages in LID and MLID through Azure Video Indexer API
 
-We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
+Expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API. 
+
+The following languages are now supported through the API: Arabic (United Arab Emirates), Arabic Modern Standard, Arabic Egypt, Arabic (Iraq), Arabic (Jordan), Arabic (Kuwait), Arabic (Oman), Arabic (Qatar), Arabic (Saudi Arabia), Arabic Syrian Arab Republic, Czech, Danish, German, English Australia, English United Kingdom, English United States, Spanish, Spanish (Mexico), Finnish, French (Canada), French, Hebrew, Hindi, Italian, Japanese, Korean, Norwegian, Dutch, Polish, Portuguese, Portuguese (Portugal), Russian, Swedish, Thai, Turkish, Ukrainian, Vietnamese, Chinese (Simplified), Chinese (Cantonese, Traditional).
+
+To specify the list of languages to be identified by LID or MLID when auto-detecting, call [upload a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API and set the `customLanguages` parameter to include up to 10 languages from the supported languages above. Please note that the languages specified in the `customLanguages` are compared at a language level thus should include only one locale per language.
 
 For more information, see [supported languages](language-support.md).
 

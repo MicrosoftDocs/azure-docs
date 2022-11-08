@@ -169,7 +169,7 @@ A per-transaction charge applies to all tiers and increases as the tier gets coo
 
 ### Geo-replication data transfer costs
 
-This charge only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
+This charge only applies to accounts with geo-replication configured, including GRS, RA-GRS and GZRS. Geo-replication data transfer incurs a per-gigabyte charge.
 
 ### Outbound data transfer costs
 

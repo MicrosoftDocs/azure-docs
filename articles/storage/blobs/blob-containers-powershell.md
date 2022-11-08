@@ -333,4 +333,4 @@ loop-container4
 ## See also
 
 - [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
-- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)
