@@ -196,9 +196,8 @@ You can access resources in a storage account by any language that can make HTTP
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 - [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 
-### Azure Storage data movement API and library references
+### Azure Storage data movement API
 
-- [Storage Import/Export Service REST API](/rest/api/storageimportexport/)
 - [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### Tools and utilities
