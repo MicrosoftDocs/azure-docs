@@ -171,7 +171,7 @@ The 2210 release for the Azure Private 5G Core packet core is now available. For
 
 When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you'll only need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
 
-See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. <!-- If your site is already deployed, you can link it to your ASE device by following the relevant steps in Modify packet core. -->
+See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. If your site is already deployed, you can link it to your ASE device by following the steps in [Modify the packet core instance in a site](modify-packet-core.md).
 
 ### Customer Managed Keys (CMK) and managed identity
 
