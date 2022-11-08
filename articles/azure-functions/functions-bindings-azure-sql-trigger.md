@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL trigger for Functions (preview)
 
-The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes.  When a change is detected, the trigger fires and the function is executed.
+The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a change is detected.
 
 For information on setup and configuration details for change tracking for use with the Azure SQL trigger, see [Setting up change tracking](#setting-up-change-tracking) and the [SQL binding overview](./functions-bindings-azure-sql.md).
 
@@ -128,9 +128,9 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
     ```
 
-    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  This may affect the trigger functionality. For example, if the user application is turned off for several days and then resumed, it will only be able to catch the changes that occurred in past two days with the above query.
+    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database may affect the trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, it will only be able to catch the changes that occurred in past two days with the above query.
 
-    The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. In the event of a temporary problem that prevents the trigger from running, this can be useful to pause the removal of information older than the retention period until the problem is resolved.
+    The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. If a temporary problem that prevents the trigger from running, turning off auto cleanup can be useful to pause the removal of information older than the retention period until the problem is resolved.
 
     More information on change tracking options is available [here](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server).
 
@@ -141,7 +141,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     ENABLE CHANGE_TRACKING;
     ```
 
-    The trigger needs to have read access on the table being monitored for changes as well as to the change tracking system tables. Each function trigger will have associated change tracking table and leases table in a schema `az_func`, which are created by the trigger if they do not yet exist.  More information on these data structures are available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/triggerbindings/README.md#internal-state-tables].
+    The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger will have associated change tracking table and leases table in a schema `az_func`, which are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/triggerbindings/README.md#internal-state-tables].
 
 
 ## Enable runtime scaling

@@ -12,10 +12,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL bindings for Azure Functions overview (preview)
 
-This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
+This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input bindings, output bindings, and a function trigger for the Azure SQL and SQL Server products.
 
 | Action | Type |
 |---------|---------|
+| Trigger a function when a change is detected on a SQL table | [SQL trigger](./functions-bindings-azure-sql-trigger.md) |
 | Read data from a database | [Input binding](./functions-bindings-azure-sql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-sql-output.md) |
 
@@ -156,7 +157,7 @@ Support for Python durable functions with SQL bindings isn't yet available.
 
 ## SQL connection string
 
-Azure SQL bindings for Azure Functions have a required property for connection string on both [input](./functions-bindings-azure-sql-input.md) and [output](./functions-bindings-azure-sql-output.md) bindings. SQL bindings passes the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.1&preserve-view=true).  Notable keywords include:
+Azure SQL bindings for Azure Functions have a required property for connection string on both [input](./functions-bindings-azure-sql-input.md) and [output](./functions-bindings-azure-sql-output.md) bindings. SQL bindings passes the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  Notable keywords include:
 
 - `Authentication` allows a function to connect to Azure SQL with Azure Active Directory, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
 - `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
@@ -165,8 +166,7 @@ Azure SQL bindings for Azure Functions have a required property for connection s
 
 ## Considerations
 
-- Because the Azure SQL bindings doesn't have a trigger, you need to use another supported trigger to start a function that reads from or writes to an Azure SQL database. 
-- Azure SQL binding supports version 2.x and later of the Functions runtime.
+- Azure SQL binding supports version 4.x and later of the Functions runtime.
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
