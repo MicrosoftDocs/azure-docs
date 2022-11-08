@@ -361,7 +361,7 @@ code: src
 command: >-
   python load_score.py 
   --input_model ${{inputs.input_model}} 
-  --output_folder ${{outputs.output_folder}}
+  --custom_model_output ${{outputs.output_folder}}
 inputs:
   input_model: 
     type: <type> # mlflow_model,custom_model, triton_model
