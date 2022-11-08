@@ -73,7 +73,7 @@ To learn more about the `az containerapp up` command and its options, see [`az c
 
 ## Deploy from an existing image
 
-You can deploy a container app that uses an existing image in a public or private container registry.  If you are deploying from a private registry, you'll need to provide your credentials using the  `registry-server`, `--registry-username`, and `--registry-password` options.  
+You can deploy a container app that uses an existing image in a public or private container registry.  If you are deploying from a private registry, you'll need to provide your credentials using the `--registry-server`, `--registry-username`, and `--registry-password` options.  
 
 In this example, the `az containerapp up` command performs the following actions:
 
