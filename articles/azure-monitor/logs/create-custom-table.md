@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 
 # Add or delete tables and columns in Azure Monitor Logs
 
-Azure Monitor Logs lets you [filter and transform log data before ingestion](../essentials/data-collection-transformations.md) and send the data to a standard [Azure table or a custom table](../logs/manage-logs-tables.md#table-type) where you can retain the data you need in the format you choose. This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To create a custom table, you need:
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 ## Create a custom table
 
-When you collect logs using [Azure Monitor Agent](../agents/agents-overview.md) or [the Log Ingestion API](../logs/logs-ingestion-api-overview.md), you can send the data to certain Azure tables or you can ingest the data into a custom table.
+Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
 
 > [!NOTE]
 > For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
@@ -95,7 +95,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 > [!IMPORTANT]
 > Custom tables have a suffix of *_CL*; for example, *tablename_CL*. The *tablename_CL* in the DataFlows Streams must match the *tablename_CL* name in the Log Analytics workspace.
 
-1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
 
@@ -180,7 +180,7 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
 1. To add a new column: 
     1. Select **Add a column**.
     1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
-    1. Select **Save** to to save the new column.
+    1. Select **Save** to save the new column.
 1. To delete a column, select the **Delete** icon to the left of the column you want to delete.
 
 ## Next steps
