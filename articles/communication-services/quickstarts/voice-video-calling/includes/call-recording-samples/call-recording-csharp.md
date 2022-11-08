@@ -11,7 +11,7 @@ ms.custom: public_preview
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [.NET SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/overview/1.0.0-alpha.20221013.2)
+- Download the [.NET SDK](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1)
 
 ## Before you start
 
