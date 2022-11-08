@@ -7,7 +7,7 @@ ms.reviewer: imotiwala
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/07/2022
+ms.date: 11/08/2022
 ---
 
 # Troubleshoot: Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database
@@ -33,13 +33,13 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-linked-services.png" alt-text="A screenshot of Synapse Studio. The Manage hub is open. Under External connections, the Linked Services page is selected. In the list of Linked services, the AzureSqlDatabase1 linked service is highlighted." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-linked-services.png":::
 
 1. You must reset the linked service connection string based on the new primary server after failover so that Synapse Link can connect to the new primary logical server's database. There are two options:
-    * Use [the auto-failover group read/write listener endpoint](/sql/azure-sql/managed-instance/auto-failover-group-configure-sql-mi#locate-listener-endpoint) and the workspace's managed identity to connect your Synapse workspace to the source database. Because of Read/Write listener endpoint that automatically maps to the new primary server after failover, so you only need to set it once. If failover occurs later, it will automatically use the Fully qualified domain name (FQDN) of the listener endpoint. 
+    * Use [the auto-failover group read/write listener endpoint](/sql/azure-sql/managed-instance/auto-failover-group-configure-sql-mi#locate-listener-endpoint) and the workspace's managed identity to connect your Synapse workspace to the source database. Because of Read/Write listener endpoint that automatically maps to the new primary server after failover, so you only need to set it once. If failover occurs later, it will automatically use the Fully qualified domain name (FQDN) of the listener endpoint. Note that you still need to take action on every failover to update the Resource ID and Managed Identity ID for the new primary (see next step).
     * After each failover, edit the linked service **Connection string** with the **Server name**, **Database name**, and authentication information for the new primary server.
     To the auto-failover group read/write listener endpoint:
 
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png" alt-text="Screenshot of the Azure Synapse Studio, showing the Edit linked service dialog. The Fully qualified domain name (FQDN) of the read/write listener endpoint is entered manually." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png":::
 
-1. You must refresh the Resource ID and Managed Identity ID. Open the **Integrate** hub. Select your Synapse Link.
+1. You must refresh the Resource ID and Managed Identity ID after every failover. Open the **Integrate** hub. Select your Synapse Link.
 1. The next step depends on the connection string you chose previously.
     - If you choose to use the Read/Write listener endpoint for updating linked service connection string, you must update the **SQL logical server resource ID** and **Managed identity ID** corresponding to the new primary server manually. 
     - If you provided the new primary server's connection information, select the **Refresh** button.
