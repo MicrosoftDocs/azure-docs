@@ -62,8 +62,8 @@ Response<StartCallRecordingResult> response = callAutomationClient.getCallRecord
 
 ```
 
-### 2.1. Only for Unmixed - Specify a user on a channel 0
-To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
+### 2.1. Only for Unmixed - Specify a user on channel 0
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
@@ -71,8 +71,7 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
                     .setRecordingFormat(RecordingFormat.WAV)
                     .setRecordingContent(RecordingContent.AUDIO)
                     .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>")
-                    .setChannelAffinity(List.of(
-                            new ChannelAffinity(0, new CommunicationUserIdentifier("<participantMri>"));
+                    .setAudioChannelParticipantOrdering(List.of(new CommunicationUserIdentifier("<participantMri>")));
 
 Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
 .startRecordingWithResponse(recordingOptions, null);
