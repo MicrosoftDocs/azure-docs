@@ -44,7 +44,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
    3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum governing how users of local diagnostics APIs will be authenticated. Set this field to **AAD** to use Microsoft Azure Active Directory (Azure AD) or **Password** to use passwords.
-   4. Update the billing SKU **properties.sku** according to the mapping in the following table.
+   4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
         |--|--|
@@ -159,7 +159,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 
 **Type:** New release
 
-**Date available:**
+**Date available:** November 3, 2022
 
 The 2210 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2210 release notes](azure-private-5g-core-release-notes-2210.md).
 
