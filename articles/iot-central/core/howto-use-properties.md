@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2022
+ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -29,24 +29,24 @@ Properties are data fields that represent the state of your device. Use properti
 
 The following screenshot shows a property definition in an Azure IoT Central application.
 
-:::image type="content" source="media/howto-use-properties/property-definition.png" alt-text="Screenshot that shows a property definition in an Azure IoT Central application.":::
+:::image type="content" source="media/howto-use-properties/property-definition.png" alt-text="Screenshot that shows a property definition in an Azure IoT Central application." lightbox="media/howto-use-properties/property-definition.png":::
 
 The following table shows the configuration settings for a property capability.
 
-| Field           | Description                                                                                                                                                                                                                        |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Display name    | The display name for the property value used on dashboard tiles and device forms.                                                                                                                                                              |
-| Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value.           |
-| Capability type | Property.                                                                                                                                                                                                                          |
-| Semantic type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
-| Schema          | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types.                                               |
-| Writable       | If the property isn't writable, the device can report property values to Azure IoT Central. If the property is writable, the device can report property values to Azure IoT Central. Then Azure IoT Central can send property updates to the device. |
-| Severity        | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**.                                                                                                                         |
-| State values    | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value.                                                                                   |
-| Unit            | A unit for the property value, such as **mph**, **%**, or **&deg;C**.                                                                                                                                                              |
-| Display unit    | A display unit for use on dashboards tiles and device forms.                                                                                                                                                                                    |
-| Comment         | Any comments about the property capability.                                                                                                                                                                                        |
-| Description     | A description of the property capability.                                                                                                                                                                                          |
+| Field | Description |
+|---|---|
+| Display name | The display name for the property value used on dashboard tiles and device forms. |
+| Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value. |
+| Capability type | Property. |
+| Semantic type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
+| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Writable | If the property isn't writable, the device can report property values to Azure IoT Central. If the property is writable, the device can report property values to Azure IoT Central. Then Azure IoT Central can send property updates to the device. |
+| Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
+| State values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
+| Unit | A unit for the property value, such as **mph**, **%**, or **&deg;C**. |
+| Display unit | A display unit for use on dashboards tiles and device forms. |
+| Comment | Any comments about the property capability. |
+| Description | A description of the property capability. |
 
 The properties can also be defined in an interface in a device template as shown here:
 
@@ -87,43 +87,47 @@ Optional fields, such as display name and description, let you add more details 
 
 When you create a property, you can specify complex schema types such as **Object** and **Enum**.
 
-:::image type="content" source="media/howto-use-properties/property.png" alt-text="Screenshot that shows how to add a capability.":::
+:::image type="content" source="media/howto-use-properties/property.png" alt-text="Screenshot that shows how to add a capability." lightbox="media/howto-use-properties/property.png":::
 
-When you select the complex **Schema**, such as **Object**, you need to define the object, too.
+When you select the complex **Schema**, such as **Object**, you need to define the object schema.
 
-:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object.":::
+:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object." lightbox="media/howto-use-properties/object.png":::
 
 The following code shows the definition of an Object property type. This object has two fields with types string and integer.
 
 ``` json
 {
-  "@type": "Property",
-  "displayName": {
-    "en": "ObjectProperty"
-  },
-  "name": "ObjectProperty",
-  "schema": {
-    "@type": "Object",
-    "displayName": {
-      "en": "Object"
+    "@type": "Property",
+    "description": {
+        "en": "Device model name."
     },
-    "fields": [
-      {
+    "displayName": {
+        "en": "Device model"
+    },
+    "name": "model",
+    "writable": false,
+    "schema": {
+        "@type": "Object",
         "displayName": {
-          "en": "Field1"
+            "en": "Object"
         },
-        "name": "Field1",
-        "schema": "integer"
-      },
-      {
-        "displayName": {
-          "en": "Field2"
-        },
-        "name": "Field2",
-        "schema": "string"
-      }
-    ]
-  }
+        "fields": [
+            {
+                "displayName": {
+                    "en": "Model Name"
+                },
+                "name": "ModelName",
+                "schema": "string"
+            },
+            {
+                "displayName": {
+                    "en": "Model ID"
+                },
+                "name": "ModelID",
+                "schema": "integer"
+            }
+        ]
+    }
 }
 ```
 
@@ -165,7 +169,7 @@ This article uses Node.js for simplicity. For other language examples, see the [
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 
-:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property.":::
+:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property." lightbox="media/howto-use-properties/read-only.png":::
 
 ## Implement writable properties
 
@@ -230,11 +234,11 @@ You can view and update writable properties on a device that isn't assigned to a
 
 To view existing properties on an unassigned device, navigate to the device in the **Devices** section, select **Manage device**, and then **Device Properties**:
 
-:::image type="content" source="media/howto-use-properties/view-unassigned-device-properties.png" alt-text="Screenshot that shows properties on an unassigned device.":::
+:::image type="content" source="media/howto-use-properties/view-unassigned-device-properties.png" alt-text="Screenshot that shows properties on an unassigned device." lightbox="media/howto-use-properties/view-unassigned-device-properties.png":::
 
 You can update the writable properties in this view:
 
-:::image type="content" source="media/howto-use-properties/update-unassigned-device-properties.png" alt-text="Screenshot that shows how to update properties.":::
+:::image type="content" source="media/howto-use-properties/update-unassigned-device-properties.png" alt-text="Screenshot that shows how to update properties." lightbox="media/howto-use-properties/update-unassigned-device-properties.png":::
 
 ## Next steps
 
