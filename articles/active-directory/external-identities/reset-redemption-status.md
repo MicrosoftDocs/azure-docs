@@ -41,7 +41,7 @@ To manage these scenarios previously, you had to manually delete the guest user�
    - Update **Other emails** to also include the new email.
    - Select the **Save** button at the bottom of the page.
 
-1. In the **Overview** tab, under **My Feed** > **B2B collaboration** select **Manage (resend invitation / reset status)**.
+1. On the **Overview** tab, under **My Feed**,  select the **Manage (resend invitation / reset status)** link in the **B2B collaboration** tile.
 
     :::image type="content" source="media/reset-redemption-status/user-profile-b2b-collaboration.png" alt-text="Screenshot of the guest user's profile overview." lightbox="media/reset-redemption-status/user-profile-b2b-collaboration.png":::
 
