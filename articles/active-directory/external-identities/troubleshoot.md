@@ -9,7 +9,7 @@ ms.date: 08/30/2022
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ---
 
@@ -80,7 +80,7 @@ By default, SharePoint Online and OneDrive have their own set of external user o
 
 If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
 
-![Screenshot showing the External Users settings.](media/troubleshoot/external-user-settings.png)
+:::image type="content" source="media/troubleshoot/external-user-settings.png" alt-text="Screenshot showing the External User settings.":::
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -201,4 +201,5 @@ Let's say you inadvertently invite a guest user with an email address that match
 
 ## Next steps
 
-[Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Use audit logs and access reviews](auditing-and-reporting.md)
