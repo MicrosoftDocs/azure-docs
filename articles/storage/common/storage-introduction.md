@@ -158,7 +158,7 @@ Azure NetApp Files data traffic is inherently secure by design, as it does not p
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json).
 
 Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
 
@@ -196,9 +196,8 @@ You can access resources in a storage account by any language that can make HTTP
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 - [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 
-### Azure Storage data movement API and library references
+### Azure Storage data movement API
 
-- [Storage Import/Export Service REST API](/rest/api/storageimportexport/)
 - [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### Tools and utilities

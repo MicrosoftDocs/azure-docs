@@ -20,7 +20,7 @@ This article outlines how to register Azure Arc-enabled SQL Server instances, an
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [1.DevOps policies](how-to-policies-devops-arc-sql-server.md) [2.Data Owner](how-to-policies-data-owner-arc-sql-server.md) | Limited** | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#access-policy) | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -155,6 +155,14 @@ To create and run a new scan, do the following:
 1. Review your scan and select **Save and run**.
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
+
+## Access policy
+
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+* [DevOps policies](how-to-policies-devops-arc-sql-server.md)
+* [Data Owner](how-to-policies-data-owner-arc-sql-server.md)(preview)
+
 
 ## Next steps
 

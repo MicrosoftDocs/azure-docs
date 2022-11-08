@@ -112,6 +112,9 @@ synthesis finished.
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-file-output" target="_target">I ran into an issue</a>
 
+> [!WARNING]
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](/azure/cognitive-services/speech-service/troubleshooting#connection-closed-or-timeout).
+
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
