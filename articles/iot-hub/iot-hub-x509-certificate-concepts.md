@@ -4,7 +4,7 @@ description: Understand cryptography and X.509 PKI for Azure IoT Hub
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/08/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
@@ -20,7 +20,7 @@ You can use X.509 certificates to authenticate devices to an Azure IoT Hub. A ce
 * **Certificates** are digital documents that contain an entity's public key and enable you to determine whether the subject of the certificate is who or what it claims to be.
 * **Certification Authorities** attest to the authenticity of certificate subjects.
 
-You can purchase a certificate from a certification authority (CA). You can also, for testing and development or if you are working in a self-contained environment, create a self-signed root CA. If, for example, you own one or more devices and are testing IoT hub authentication, you can self-sign your root CA and use that to issue device certificates. You can also issue self-signed device certificates. This is discussed in subsequent articles.
+You can purchase a certificate from a certification authority (CA). You can also, for testing and development or if you're working in a self-contained environment, create a self-signed root CA. If, for example, you own one or more devices and are testing IoT hub authentication, you can self-sign your root CA and use that to issue device certificates. You can also issue self-signed device certificates. This is discussed in subsequent articles.
 
 Before discussing X.509 certificates in more detail and using them to authenticate devices to an IoT Hub, we discuss the cryptography on which certificates are based.
 
@@ -29,8 +29,8 @@ Before discussing X.509 certificates in more detail and using them to authentica
 Cryptography is used to protect information and communications. This is typically done by using cryptographic techniques to scramble plaintext (ordinary text) into ciphertext (encoded text) and back again. This scrambling process is called encryption. The reverse process is called decryption. Cryptography is concerned with the following objectives:
 
 * **Confidentiality**: The information can be understood by only the intended audience.
-* **Integrity**: The information cannot be altered in storage or in transit.
-* **Non-repudiation**: The creator of information cannot later deny that creation.
+* **Integrity**: The information can't be altered in storage or in transit.
+* **Non-repudiation**: The creator of information can't later deny that creation.
 * **Authentication**: The sender and receiver can confirm each other's identity.
 
 ## Encryption
@@ -47,7 +47,7 @@ Symmetric encryption uses the same key to encrypt plaintext into ciphertext and 
 
 ### Asymmetric encryption
 
-If only symmetric encryption is used, the problem is that all parties to the communication must possess the private key. However, it is possible that unauthorized third parties can capture the key during transmission to authorized users. To address this issue, use asymmetric or public key cryptography instead.
+If only symmetric encryption is used, the problem is that all parties to the communication must possess the private key. However, it's possible that unauthorized third parties can capture the key during transmission to authorized users. To address this issue, use asymmetric or public key cryptography instead.
 
 In asymmetric cryptography, every user has two mathematically related keys called a key pair. One key is public and the other key is private. The key pair ensures that only the recipient has access to the private key needed to decrypt the data. The following illustration summarizes the asymmetric encryption process.
 
@@ -65,7 +65,7 @@ In asymmetric cryptography, every user has two mathematically related keys calle
 
 ### Combining symmetric and asymmetric encryption
 
-Symmetric and asymmetric encryption can be combined to take advantage of their relative strengths. Symmetric encryption is much faster than asymmetric but, because of the necessity of sending private keys to other parties, is not as secure. To combine the two types together, symmetric encryption can be used to convert plaintext to ciphertext. Asymmetric encryption is used to exchange the symmetric key. This is demonstrated by the following diagram.
+Symmetric and asymmetric encryption can be combined to take advantage of their relative strengths. Symmetric encryption is much faster than asymmetric encryption, but, because of the necessity of sending private keys to other parties, it isn't as secure. To combine the two types together, symmetric encryption can be used to convert plaintext to ciphertext. Asymmetric encryption is used to exchange the symmetric key. This process is demonstrated by the following diagram.
 
 ![Symmetric and assymetric encryption](media/iot-hub-x509-certificate-concepts/symmetric-asymmetric-encryption.png)
 
@@ -97,7 +97,7 @@ Asymmetric algorithms can be used to protect data from modification and prove th
 
 ## Signing
 
-Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, or *thumbprint*. A hash value cannot be reversed to obtain the original message. Because A small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message has not been modified.
+Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, or *thumbprint*. A hash value cannot be reversed to obtain the original message. Because A small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message hasn't been modified.
 
 ![Signing example](media/iot-hub-x509-certificate-concepts/signing.png)
 
@@ -113,7 +113,7 @@ Digital signing can be used to determine whether the data has been modified in t
 
 1. The recipient runs the same hash algorithm that the sender used over the message.
 
-1. The recipient compares the resulting signature to the decrypted signature. If the digests are the same, the message was not modified during transmission.
+1. The recipient compares the resulting signature to the decrypted signature. If the digests are the same, the message wasn't modified during transmission.
 
 ## Next steps
 

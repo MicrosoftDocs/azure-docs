@@ -63,7 +63,7 @@
         - name: Creating self-signed certificates
           displayName: OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
-        - name: Proving possession
+        - name: Upload and verify CA certificates
           displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
         - name: Testing authentication
