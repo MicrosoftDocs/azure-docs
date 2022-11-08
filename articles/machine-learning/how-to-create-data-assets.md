@@ -225,7 +225,7 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 
 Please find more details about what are the abilities we provide via `mltable` in [reference-yaml-mltable](reference-yaml-mltable.md).
 
-In this section, we show you how to create a data asset when the type is an `mltable`.
+In this section, we show you how to create a data asset when the type is a `mltable`.
 
 ### The MLTable file
 
@@ -275,7 +275,7 @@ The `uri` parameter in `mltable.load()` should be a valid path to a local or clo
 > [!NOTE]
 > You will need the `mltable` library installed in your Environment (`pip install mltable`).
 
-Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
+Below shows you how to create a `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
 
 # [Azure CLI](#tab/cli)
