@@ -96,19 +96,20 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 ```
 
 ## Policy constructs
-There are 3 top-level policy constructs used in conjunction with the full pull (/policyElements) and delta pull (/policyEvents) requests:
-- PolicySet: associates Policy to a resource scope. Purview policy decision compute starts with a list of PolicySets. PolicySet evaluation triggers evaluation of Policy referenced in the PolicySet.
--	Policy: specifies decision that should be emitted if the policy is applicable for the request provided request context attributes satisfy attribute predicates specified in the policy. Evaluation of policy triggers evaluation of AttributeRules referenced in the Policy.
--	AttributeRule: produces derived attributes and add them to request context attributes. Evaluation of AttributeRule triggers evaluation of additional AttributeRules referenced in the AttributeRule.
-
+There are 3 top-level policy constructs used in conjunction with the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
 
 ### PolicySet
+
+PolicySet associates Policy to a resource scope. Purview policy decision compute starts with a list of PolicySets. PolicySet evaluation triggers evaluation of Policy referenced in the PolicySet.
 
 
 ### Policy
 
+Policy specifies decision that should be emitted if the policy is applicable for the request provided request context attributes satisfy attribute predicates specified in the policy. Evaluation of policy triggers evaluation of AttributeRules referenced in the Policy.
 
 ### AttributeRule
+
+AttributeRule produces derived attributes and add them to request context attributes. Evaluation of AttributeRule triggers evaluation of additional AttributeRules referenced in the AttributeRule.
 
 
 ## Next steps
