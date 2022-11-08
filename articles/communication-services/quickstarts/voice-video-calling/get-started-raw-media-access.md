@@ -19,6 +19,10 @@ ms.custom: mode-other
 [!INCLUDE [Raw media with Android](./includes/raw-media/raw-media-access-android.md)]
 ::: zone-end
 
+::: zone pivot="platform-android"
+[!INCLUDE [Raw media with iOS](./includes/raw-media/raw-media-access-ios.md)]
+::: zone-end
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Raw media with JavaScript](./includes/raw-media/raw-media-access-javascript.md)]
 ::: zone-end
