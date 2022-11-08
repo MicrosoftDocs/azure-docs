@@ -327,7 +327,7 @@ Before creating an IoT Hub route to an Azure Storage, you must create the endpoi
       }
    ```
 
-## Update an IoT Hub route
+### Update an IoT Hub route
 
 With an IoT Hub route, no matter the type of endpoint, you can update some properties of the route.
 
@@ -343,13 +343,13 @@ Use the `az iot hub route show` command to confirm the change in your route.
 az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
 ```
 
-## Delete an endpoint
+### Delete an endpoint
 
 ```azurecli
 az iot hub routing-endpoint delete --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-endpoint 
 ```
 
-## Delete an IoT Hub route
+### Delete an IoT Hub route
 
 ```azurecli
 az iot hub route delete --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
