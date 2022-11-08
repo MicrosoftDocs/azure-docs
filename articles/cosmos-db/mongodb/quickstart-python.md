@@ -170,41 +170,13 @@ Check if the database exists with [list_database_names](https://pymongo.readthed
 
 Check if the collection exists with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method. If the collection doesn't exist, use the [create collection extension command](/azure/cosmos-db/mongodb/custom-commands#create-collection) to create it.
 
-```python
-# Create collection if it doesn't exist
-collection = db[COLLECTION_NAME]
-if COLLECTION_NAME not in db.list_collection_names():
-    # Creates a unsharded collection that uses the DBs shared throughput
-    db.command({"customAction": "CreateCollection", "collection": COLLECTION_NAME})
-    print("Created collection '{}'.\n".format(COLLECTION_NAME))
-else:
-    print("Using collection: '{}'.\n".format(COLLECTION_NAME))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_collection":::
---->
 
 ### Create an index
 
 Create an index using the [update collection extension command](/azure/cosmos-db/mongodb/custom-commands#update-collection). You can also set the index in the create collection extension command. Set the index to `name` property in this example so that you can later sort with the cursor class [sort](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor.sort) method on product name.
 
-```python
-indexes = [
-    {"key": {"_id": 1}, "name": "_id_1"},
-    {"key": {"name": 2}, "name": "_id_2"},
-]
-db.command(
-    {
-        "customAction": "UpdateCollection",
-        "collection": COLLECTION_NAME,
-        "indexes": indexes,
-    }
-)
-print("Indexes are: {}\n".format(sorted(collection.index_information())))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="create_index":::
---->
 
 ### Create a document
 
@@ -216,22 +188,7 @@ Create a document with the *product* properties for the `adventureworks` databas
 * An inventory *quantity* property.
 * A *sale* property, indicating whether the product is on sale.
 
-```python
-"""Create new document and upsert (create or replace) to collection"""
-product = {
-    "category": "gear-surf-surfboards",
-    "name": "Yamba Surfboard-{}".format(randint(50, 5000)),
-    "quantity": 1,
-    "sale": False,
-}
-result = collection.update_one(
-    {"name": product["name"]}, {"$set": product}, upsert=True
-)
-print("Upserted document with _id {}\n".format(result.upserted_id))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="new_doc":::
---->
 
 Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, we chose to *upsert* instead of *create* a new document in case you run this sample code more than once.
 
@@ -239,28 +196,13 @@ Create a document in the collection by calling the collection level operation [u
 
 In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and partition key (`category`).
 
-```python
-doc = collection.find_one({"_id": result.upserted_id})
-print("Found a document with _id {}: {}\n".format(result.upserted_id, doc))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="read_doc":::
---->
 
 ### Query documents
 
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [`Collection.find`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.find) to get a [`Cursor`](https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.Cursor) result.
 
-```python
-"""Query for documents in the collection"""
-print("Products with category 'gear-surf-surfboards':\n")
-allProductsQuery = {"category": "gear-surf-surfboards"}
-for doc in collection.find(allProductsQuery).sort("name", pymongo.ASCENDING):
-    print("Found a product with _id {}: {}\n".format(doc["_id"], doc))
-```
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="query_doc":::
---->
 
 Troubleshooting:
 
@@ -278,25 +220,7 @@ python run.py
 
 The output of the app should be similar to this example:
 
-```console
-Created db 'adventureworks' with shared throughput.
-
-Created collection 'products'.
-
-Indexes are: ['_id_', 'name_1']
-
-Upserted document with _id <ID>
-
-Found a document with _id <ID>: {'_id': <ID>, 'category': 'gear-surf-surfboards', 'name': 'Yamba Surfboard-50', 'quantity': 1, 'sale': False}
-
-Products with category 'gear-surf-surfboards':
-
-Found a product with _id <ID>: {'_id': ObjectId('<ID>'), 'name': 'Yamba Surfboard-386', 'category': 'gear-surf-surfboards', 'quantity': 1, 'sale': False}
-```
-
-<!---
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/index.js" id="console_result":::
---->
 
 ## Clean up resources
 
