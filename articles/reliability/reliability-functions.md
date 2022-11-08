@@ -4,9 +4,8 @@ description: Find out about reliability in Azure Functions
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
-ms.custom: subject-reliability
 ms.prod: non-product-specific
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ms.date: 10/07/2022
 ---
 
