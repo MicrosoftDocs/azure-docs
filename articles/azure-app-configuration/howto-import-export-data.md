@@ -464,7 +464,7 @@ From the Azure portal, follow these steps:
 
 You've exported key-values that have the "prod" label from an App Service resource, at their state from 07/28/2021 12:00:00 AM, and have trimmed the prefix "TestApp". The key-values have been exported with a content type in JSON format.
 
-If you checked the box to export key-values as app configuration references, the imported key-values will be indicated as App Configuration references in the "Source" column of your App Service resource configuration settings.
+If you checked the box to export key-values as app configuration references, the exported key-values will be indicated as App Configuration references in the "Source" column of your App Service resource configuration settings.
 
 :::image type="content" source="./media/import-export/export-app-service-reference-value.png" alt-text="Screenshot of App Service configuration settings. Exported App Configuration reference in App Service(Portal)."::: 
 
