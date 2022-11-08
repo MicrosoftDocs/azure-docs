@@ -84,7 +84,7 @@ To complete the scenario in this tutorial, you need:
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users) or users and groups. 
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
 
