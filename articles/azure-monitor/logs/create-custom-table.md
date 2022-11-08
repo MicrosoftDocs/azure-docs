@@ -35,10 +35,10 @@ To create a custom table, you need:
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 ## Create a custom table
 
-When you collect logs using the [Log Ingestion API](../logs/logs-ingestion-api-overview.md), you can send the data to one of the [Azure tables that supports the Log Ingestion API](../logs/logs-ingestion-api-overview.md#built-in-tables), or you can create a custom table to ingest the data into.
+When you collect logs using [Azure Monitor Agent](../agents/agents-overview.md) or [the Log Ingestion API](../logs/logs-ingestion-api-overview.md), you can send the data to certain Azure tables or you can ingest the data into a custom table.
 
 > [!NOTE]
-> When you [collect logs using Azure Monitor Agent](../agents/agents-overview.md), Azure Monitor Logs creates your custom table automatically when you define your [data collection rule](../agents/agents-overview.md#install-the-agent-and-configure-data-collection). For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
+> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
 
 ### [Portal](#tab/portal-1)
 
