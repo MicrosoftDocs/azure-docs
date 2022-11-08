@@ -79,7 +79,7 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 
 1. Use `az monitor diagnostic-settings create` to create the setting.
 
-    ```azurecli-interactive
+    ```azurecli
     az monitor diagnostic-settings create \
         --resource "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDb/databaseAccounts/" \
         --name $diagnosticSettingName \
