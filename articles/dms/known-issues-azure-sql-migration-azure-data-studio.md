@@ -100,13 +100,13 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Message**: `Failed to test connections using provided Integration Runtime. 'Cannot connect to <File share>. Detail Message: The system could not find the environment option that was entered`
 
-- **Cause**: The self-hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the network file share where the database backups are placed.
 
 - **Recommendation**: Make sure your network file share name is entered correctly.
 
 - **Message**: `Failed to test connections using provided Integration Runtime. The file name does not conform to the naming rules by the data store. Illegal characters in path.`
 
-- **Cause**: The self-hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+- **Cause**: The Self-Hosted Integration Runtime can't connect to the network file share where the database backups are placed.
 
 - **Recommendation**: Make sure your network file share name is entered correctly.
 
@@ -213,7 +213,7 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 - Azure SQL Database table names with double byte characters currently aren't supported for migration.  Mitigation is to rename tables before migration; they can be changed back to their original names after successful migration.
 - Tables with large blob columns may fail to migrate due to timeout.
 - Database names with SQL Server reserved words aren't valid.
-- Database names with DBCS characters are currently not supported.
+- Database names with double-byte character set (DBCS) are currently not supported.
 - Table names that include semicolons are currently not supported.
 - Computed columns do not get migrated.
 
