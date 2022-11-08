@@ -103,7 +103,7 @@ Continuous export can be configured and managed via the Microsoft Defender for C
 
 You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
-Here are some examples of options that you can only use in the the API:
+Here are some examples of options that you can only use in the API:
 
 * **Greater volume** - You can create multiple export configurations on a single subscription with the API. The **Continuous Export** page in the Azure portal supports only one export configuration per subscription.
 
