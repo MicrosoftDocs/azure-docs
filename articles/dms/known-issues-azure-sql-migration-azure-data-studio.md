@@ -98,6 +98,18 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. See [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
 
+- **Message**: `Failed to test connections using provided Integration Runtime. 'Cannot connect to <File share>. Detail Message: The system could not find the environment option that was entered`
+
+- **Cause**: The self-hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+
+- **Recommendation**: Make sure your network file share name is entered correctly.
+
+- **Message**: `Failed to test connections using provided Integration Runtime. The file name does not conform to the naming rules by the data store. Illegal characters in path.`
+
+- **Cause**: The self-hosted Integration Runtime can't connect to the network file share where the database backups are placed.
+
+- **Recommendation**: Make sure your network file share name is entered correctly.
+
 - **Message**: `Failed to test connections using provided Integration Runtime.`
 
 - **Cause**: Connection to the Self-Hosted Integration Runtime has failed.
@@ -203,6 +215,7 @@ The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (
 - Database names with SQL Server reserved words aren't valid.
 - Database names with DBCS characters are currently not supported.
 - Table names that include semicolons are currently not supported.
+- Computed columns do not get migrated.
 
 ## Azure SQL Managed Instance and SQL Server on Azure Virtual Machine known issues and limitations
 - If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
