@@ -60,40 +60,38 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
-  - name: Insights
-    items:
-    - name: Responsible use of AI
-      items:
-      - name: Limited access features
-        href: limited-access-features.md   
-      - name: Transparency notes, use cases 
-        items:
-        - name: Transparency notes
-          href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Audio effects detection
-          href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Faces detection
-          href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: OCR
-          href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Keywords extraction
-          href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
-        - name: Transcription, translation, language
-          href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Labels identification
-          href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Named entities
-          href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Observed people tracking & matched faces
-          href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
-        - name: Topics inference
-          href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
   - name: Post-production insights
     items:
     - name: Slate detection
       href: slate-detection-insight.md
   - name: Compare Azure Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md
+- name: Responsible use of AI
+  items:
+  - name: Limited access features
+    href: limited-access-features.md   
+  - name: Transparency notes
+    items:
+    - name: Transparency notes
+      href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Audio effects detection
+      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Faces detection
+      href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: OCR
+      href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Keywords extraction
+      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+    - name: Transcription, translation, language
+      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Labels identification
+      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Named entities
+      href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Observed people tracking & matched faces
+      href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Topics inference
+      href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Manage accounts
