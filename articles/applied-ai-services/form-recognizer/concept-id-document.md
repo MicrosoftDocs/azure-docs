@@ -55,6 +55,8 @@ The following tools are supported by Form Recognizer v2.1:
 |**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
 
+### Try Form Recognizer
+
 Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
@@ -65,7 +67,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 ::: moniker range="form-recog-3.0.0"
 
-#### Form Recognizer Studio
+## Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
@@ -84,7 +86,7 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 ::: moniker range="form-recog-2.1.0"
 
-#### Form Recognizer sample labeling tool
+## Form Recognizer sample labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
@@ -141,12 +143,15 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
 
 Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines, and styles that are included in the JSON output in the different sections.  
 
-* `pages.*.words`
-* `pages.*.lines`
-* `paragraphs`
-* `styles`
-* `documents`
-* `documents.*.fields`
+>[!NOTE]
+>
+> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national identity card, residence permit, or US social security card ).
+
+### Data extraction (all types)
+
+|**Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** |**Key-Value pairs** | **Fields** |
+|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|[prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 
 ### Document type - `idDocument.driverLicense` fields extracted
 

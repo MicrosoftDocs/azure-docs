@@ -15,7 +15,13 @@ recommendations: false
 
 # Document layout analysis
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
 
 ## What is document layout analysis?
 
@@ -27,9 +33,7 @@ The following illustration shows the typical components in an image of a sample 
 
 ## Form Recognizer Layout model
 
-The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks. 
-
-**Starting with v3.0 GA**, it extracts paragraphs and additional structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
+The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
@@ -41,7 +45,11 @@ The Form Recognizer Layout is an advanced machine-learning based document layout
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
+::: moniker range="form-recog-3.0.0"
+
 ### Data extraction
+
+**Starting with v3.0 GA**, it extracts paragraphs and additional structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
 
 | **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
 | --- | --- | --- | --- | --- | --- |
@@ -65,13 +73,37 @@ The following tools are supported by Form Recognizer v3.0:
 |----------|------------|------------|
 |**Layout model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
 
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+### Data extraction
+
+| **Model**   | **Text** | **Tables**  | Selection marks|
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓| ✓ |
+
 The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
 |**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-## Try document layout analysis
+::: moniker-end
+
+Extract data, including text and table structure from documents.
+
+You'll need the following resources:
+
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+:: moniker range="form-recog-3.0.0"
+
+### Try Form Recognizer
 
 Try extracting data from forms and documents using the Form Recognizer Studio. You'll need the following resources:
 
@@ -81,7 +113,9 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio
+::: moniker range="form-recog-3.0.0"
+
+## Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio is available with the v3.0 API.
@@ -101,6 +135,38 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
    > [!div class="nextstepaction"]
    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Form Recognizer sample labeling tool
+
+1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+
+1. On the sample tool home page, select **Use Layout to get text, tables and selection marks**.
+
+     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+
+1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+
+1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+
+1. In the **Source** field, select **URL** from the dropdown menu You can use our sample document:
+
+    * [**Sample document**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg)
+
+    * Select the **Fetch** button.
+
+1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
+
+    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+
+1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
+
+    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
+
+::: moniker-end
+
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
@@ -108,6 +174,8 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 ## Supported languages and locales
 
 *See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+
+::: moniker range="form-recog-3.0.0"
 
 ## Model extraction
 
@@ -201,6 +269,7 @@ The document layout model in Form Recognizer extracts print and handwritten styl
     }
 ]
 ```
+
 ### Selection marks extraction
 
 The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
@@ -247,6 +316,7 @@ Extracting tables is a key requirement for processing documents containing large
 }
 
 ```
+
 ### Handwritten style for text lines (Latin languages only)
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
@@ -254,14 +324,14 @@ The response includes classifying whether each text line is of handwriting style
 ```json
 "styles": [
 {
-	"confidence": 0.95,
-	"spans": [
-	{
-		"offset": 509,
-		"length": 24
-	}
-	"isHandwritten": true
-	]
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
 }
 ```
 
@@ -269,14 +339,80 @@ The response includes classifying whether each text line is of handwriting style
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
+::: moniker range="form-recog-2.1.0"
+
+### Natural reading order output (Latin only)
+
+You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
+
+:::image type="content" source="./media/layout-reading-order-example.png" alt-text="Layout Reading order example" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
+
+### Select page numbers or ranges for text extraction
+
+For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
+
+:::image type="content" source="./media/layout-select-pages.png" alt-text="Layout selected pages output":::
+
+## The Get Analyze Layout Result operation
+
+The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values.
+
+|Field| Type | Possible values |
+|:-----|:----:|:----|
+|status | string | `notStarted`: The analysis operation has not started.<br /><br />`running`: The analysis operation is in progress.<br /><br />`failed`: The analysis operation has failed.<br /><br />`succeeded`: The analysis operation has succeeded.|
+
+Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+
+When the **status** field has the `succeeded` value, the JSON response will include the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
+
+### Handwritten classification for text lines (Latin only)
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
+
+:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="handwriting classification example":::
+
+### Sample JSON output
+
+The response to the *Get Analyze Layout Result* operation is a structured representation of the document with all the information extracted.
+See here for a [sample document file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) and its structured output [sample layout output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json).
+
+The JSON output has two parts:
+
+* `readResults` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
+* `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
+
+## Example Output
+
+### Text
+
+Layout API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided on lines, words, bounding boxes, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
+
+### Tables with headers
+
+Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and are not necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
+
+![Tables example](./media/layout-table-header-demo.gif)
+
+### Selection marks
+
+Layout API also extracts selection marks from documents. Extracted selection marks include the bounding box, confidence, and state (selected/unselected). Selection mark information is extracted in the `readResults` section of the JSON output.
+
+::: moniker-end
+
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
+::: moniker range="form-recog-3.0.0"
 
-  > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
+* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Explore our REST API:
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
-  > [!div class="nextstepaction"]
-  > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
+::: moniker-end
