@@ -49,7 +49,7 @@ Fixed the following constraint validation checks:
 
 ## Feature collection
 
-At a high level, the facility ontology consists of feature collections, each contains an array of feature objects. All feature objects share two fields in common, `ID` and `Geometry`.
+At a high level, the facility ontology consists of feature collections, each contains an array of feature objects. All feature objects have two fields in common, `ID` and `Geometry`.
 
 # [Drawing package](#tab/dwg)
 
