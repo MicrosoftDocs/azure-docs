@@ -39,16 +39,16 @@ The [Azure portal](https://portal.azure.com/) now has a passwordless methods wiz
 
 Microsoft's passwordless authentication methods enable many scenarios. Consider your organizational needs, prerequisites, and the capabilities of each authentication method to select your passwordless authentication strategy. 
 
-The following table lists the passwordless authentication methods by device types. Our recommendations are in **bold**.
+The following table lists the passwordless authentication methods by device types. Our recommendations are in ***bold italics***.
 
 | Device types| Passwordless authentication method |
 | - | - |
-| Dedicated non-windows devices| <li> **Microsoft Authenticator** <li> Security keys |
-| Dedicated Windows 10 computers (version 1703 and later)| <li> **Windows Hello for Business** <li> Security keys |
-| Dedicated Windows 10 computers (before version 1703)| <li> **Windows Hello for Business** <li> Microsoft Authenticator app |
-| Shared devices: tablets, and mobile devices| <li> **Microsoft Authenticator** <li> One-time password sign-in |
-| Kiosks (Legacy)| **Microsoft Authenticator** |
-| Kiosks and shared computers ‎(Windows 10)| <li> **Security keys** <li> Microsoft Authenticator app |
+| Dedicated non-windows devices| <li> ***Microsoft Authenticator*** <li> Security keys |
+| Dedicated Windows 10 computers (version 1703 and later)| <li> ***Windows Hello for Business*** <li> Security keys |
+| Dedicated Windows 10 computers (before version 1703)| <li> ***Windows Hello for Business*** <li> Microsoft Authenticator app |
+| Shared devices: tablets, and mobile devices| <li> ***Microsoft Authenticator*** <li> One-time password sign-in |
+| Kiosks (Legacy)| ***Microsoft Authenticator*** |
+| Kiosks and shared computers ‎(Windows 10)| <li> ***Security keys*** <li> Microsoft Authenticator app |
 
 
 ## Prerequisites 

@@ -120,7 +120,7 @@ There are two ways to set up authentication for SQL server on-premises:
 - SQL Authentication
 - Windows Authentication
 
-This tutorial includes steps to use SQL authentication. For more information about scanning on-premises SQL Server with Windows authentication, see [Set up SQL server authentication](/register-scan-on-premises-sql-server.md#set-up-sql-server-authentication)
+This tutorial includes steps to use SQL authentication. For more information about scanning on-premises SQL Server with Windows authentication, see [Set up SQL server authentication](register-scan-on-premises-sql-server.md#set-up-sql-server-authentication).
 
 ### SQL authentication
 
