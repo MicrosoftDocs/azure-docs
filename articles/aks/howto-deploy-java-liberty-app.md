@@ -71,7 +71,9 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
    * **cmdToConnectToCluster**
-   
+   * **appDeploymentTemplateYaml**
+
+1. Paste the value of **appDeploymentTemplateYaml** into a bash shell, append `| grep secretName` and execute. It will output the Ingress TLS secret name, e.g., `- secretName: secret785e2c`. Save aside the value for **secretName** from the output.
 
 These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
@@ -109,7 +111,7 @@ java-app
 ├─ src/main/
 │  ├─ aks/
 │  │  ├─ db-secret.yaml
-│  │  ├─ openlibertyapplication.yaml
+│  │  ├─ openlibertyapplication-agic.yaml
 │  ├─ docker/
 │  │  ├─ Dockerfile
 │  │  ├─ Dockerfile-local
@@ -125,7 +127,7 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image.
 
 In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -145,6 +147,7 @@ export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Server name>
 export DB_PASSWORD=<Server admin password>
+export INGRESS_TLS_SECRET=<Ingress TLS secret name>
 
 mvn clean install
 ```
@@ -196,7 +199,7 @@ The following steps deploy and test the application.
 
 1. Connect to the AKS cluster.
 
-   Paste the value of **cmdToConnectToCluster** into a bash shell.
+   Paste the value of **cmdToConnectToCluster** into a bash shell and execute.
 
 1. Apply the DB secret.
 
@@ -210,7 +213,7 @@ The following steps deploy and test the application.
 1. Apply the deployment file.
 
    ```bash
-   kubectl apply -f openlibertyapplication.yaml
+   kubectl apply -f openlibertyapplication-agic.yaml
    ```
 
 1. Wait for the pods to be restarted.
@@ -224,21 +227,23 @@ The following steps deploy and test the application.
    You should see output similar to the following to indicate that all the pods are running.
 
    ```bash
-   NAME                                  READY   STATUS    RESTARTS   AGE
-   javaee-cafe-cluster-67cdc95bc-2j2gr   1/1     Running   0          29s
-   javaee-cafe-cluster-67cdc95bc-fgtt8   1/1     Running   0          29s
-   javaee-cafe-cluster-67cdc95bc-h47qm   1/1     Running   0          29s
+   NAME                                       READY   STATUS    RESTARTS   AGE
+   javaee-cafe-cluster-agic-67cdc95bc-2j2gr   1/1     Running   0          29s
+   javaee-cafe-cluster-agic-67cdc95bc-fgtt8   1/1     Running   0          29s
+   javaee-cafe-cluster-agic-67cdc95bc-h47qm   1/1     Running   0          29s
    ```
 
 1. Verify the results.
 
-   1. Get endpoint of the deployed service
+   1. Get **ADDRESS** of the Ingress resource deployed with the application
 
       ```bash
-      kubectl get service
+      kubectl get ingress
       ```
 
-   1. Go to `http://EXTERNAL-IP` to test the application.
+      Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
+
+   1. Go to `https://<ADDRESS>` to test the application.
    
 
 ## Clean up resources
