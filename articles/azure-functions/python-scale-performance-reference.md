@@ -112,7 +112,7 @@ You can set the value of maximum workers allowed for running sync functions usin
 
 For CPU-bound apps, you should keep the setting to a low number, starting from 1 and increasing as you experiment with your workload. This suggestion is to reduce the time spent on context switches and allowing CPU-bound tasks to finish.
 
-For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default - the number of cores + 4 and then tweak based on the throughput values you're seeing.
+For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default (the number of cores) + 4 and then tweak based on the throughput values you're seeing.
 
 For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend profiling them and set the values according to the behavior they present. Also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 

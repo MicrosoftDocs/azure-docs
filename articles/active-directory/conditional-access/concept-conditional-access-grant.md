@@ -161,7 +161,6 @@ The following client apps are confirmed to support this setting:
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
-- Microsoft Power Apps
 - Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar

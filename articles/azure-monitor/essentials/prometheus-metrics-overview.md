@@ -31,8 +31,8 @@ The only requirement to enable Azure Monitor managed service for Prometheus is t
 ## Grafana integration
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](azure-monitor-workspace-overview.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
-## Alerts
-Azure Monitor managed service for Prometheus adds a new Prometheus alert type for creating alerts using PromQL queries. You can view fired and resolved Prometheus alerts in the Azure portal along with other alert types. Prometheus alerts are configured with the same [alert rules](https://aka.ms/azureprometheus-promio-alertrules) used by Prometheus. For your AKS cluster, you can use a [set of predefined Prometheus alert rules]
+## Rules and alerts
+Azure Monitor managed service for Prometheus adds a new Prometheus alert type for creating alert rules and recording rules using PromQL queries. You can view fired and resolved Prometheus alerts in the Azure portal along with other alert types. Prometheus alerts are configured with the same [alert rules](https://aka.ms/azureprometheus-promio-alertrules) used by Prometheus. For your AKS cluster, you can use a [set of predefined Prometheus alert rules](../containers/container-insights-metric-alerts.md).
 
 
 ## Limitations

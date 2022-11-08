@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/27/2021
+ms.date: 11/03/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -113,11 +113,14 @@ This tutorial assumes the machine where you'll install your self-hosted integrat
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/successfully-registered.png" alt-text="successfully registered.":::
 
-## Set up SQL authentication
+## Set up authentication
 
-There is only one way to set up authentication for SQL server on-premises:
+There are two ways to set up authentication for SQL server on-premises:
 
 - SQL Authentication
+- Windows Authentication
+
+This tutorial includes steps to use SQL authentication. For more information about scanning on-premises SQL Server with Windows authentication, see [Set up SQL server authentication](register-scan-on-premises-sql-server.md#set-up-sql-server-authentication).
 
 ### SQL authentication
 
