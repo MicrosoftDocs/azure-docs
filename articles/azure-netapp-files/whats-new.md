@@ -24,6 +24,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
 ## November 2022 
 
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage. 
+
 * [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
 
     With the Encrypted SMB connections to Active Directory Domain Controller capability you can now specify whether encryption should be used for communication between SMB server and domain controller in Active Directory connections. When enabled, only SMB3 will be used for encrypted domain controller connections.
