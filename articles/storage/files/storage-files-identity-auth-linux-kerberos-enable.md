@@ -41,7 +41,7 @@ Before you enable AD authentication over SMB for Azure file shares, make sure yo
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
-Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as samba-common and smbclient. Use the commands below to install it. If you're asked for any input values during installation, leave them blank.
+Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Use the commands below to install it. If you're asked for any input values during installation, leave them blank.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ sudo apt update -y
@@ -64,11 +64,11 @@ localadmin@lxsmb-canvm15:~$ sudo systemctl restart systemd-timesyncd.service
 
 Three access control models are available for mounting SMB Azure file shares:
 
-1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no modebits).
+1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
 
 2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users.
 
-3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Modebits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
+3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
 
 
 ## Enable AD Kerberos authentication
@@ -428,12 +428,42 @@ The following are base mount options for all access control models: serverino,no
 
 If your environment is mostly Windows and you're enforcing access control using NT ACLs, use the following mount options.
 
-| **Parameter** | **Use case** | **Mount options** | **Comments** |
-|---------------|--------------|-------------------|--------------|
-| Security mode | Mount point accessed by a single user of AD domain. Not shared with other users of the domain. | Sec=krb5 | Each file access happens in the context of the user whose krb5 credentials were used to mount the file share. Any user on the local system who accesses the mount point will impersonate that user. |
-| File permissions | File permissions matter. File share accessed by Linux and Windows clients. | cifsacl,noperm | Converts file permissions to DACLs on file. Decision-making is offloaded to server using noperm, because Windows clients could set DACLs in ways that don't exactly map to permissions. |
-| File ownership | File ownership matters. File share is accessed by Linux and Windows clients. | cifsacl | Converts file ownership UID/GID to owner/group SID on file DACL. |
-| File attribute cache coherency | Performance is important. Even if file attributes are not always accurate. | actimeo=LARGEVAL | Default actimeo value is 1 (second), which means that the file attributes are fetched again from the server if the cached attributes are more than 1 second old. Increasing to 60 means that attributes are cached for at least 1 minute. Recommend a value of 30 for this option. |
+#### Security mode (sec=krb5)
+
+In this use case, the mount point is accessed by a single user of the AD domain and isn't shared with other users of the domain.
+
+Each file access happens in the context of the user whose krb5 credentials were used to mount the file share. Any user on the local system who accesses the mount point will impersonate that user.
+
+> [!Note]
+> In scenarios where multiple users on the same client will be accessing the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
+
+#### File permissions
+
+File permissions matter, as the file share will be accessed by Linux and Windows clients.
+
+Choose one of the following three mount options to convert file permissions to DACLs on files:
+
+- Use a default, such as **file_mode=<>,dir_mode=<>**
+- Specify **cifsacl,noperm** so permissions are visible to Linux apps and can be set, but are only enforced on the server (you can also use **cifsacl** if you want them to be enforced on both client and server)
+- Have client-enforced permissions that are opaque to the server (usually **modefromsid,idsfromsid** would both be set)
+
+When using **noperm**, permission checking is only done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL.
+
+#### File ownership
+
+File ownership matters, as the file share will be accessed by Linux and Windows clients.
+
+Choose one of the following three mount options to convert file ownership UID/GID to owner/group SID on file DACL.
+
+- Use a default such as **uid=<>,gid=<>**
+- Configure UID/GID mapping via RFC2307 and Active Directory (**nss_winbind** or **nss_sssd**)
+- Have client UID/GID that are opaque to the server (**idsfromsid**)
+
+#### File attribute cache coherency
+
+Performance is important, even if file attributes aren't always accurate. The default value for **actimeo** is 1 (second), which means that the file attributes are fetched again from the server if the cached attributes are more than 1 second old. Increasing the value to 60 means that attributes are cached for at least 1 minute. For most use cases, we recommend using a value of 30 for this option (**actimeo=30**).
+
+For newer kernels, consider setting the actimeo features more granularly, using **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
 
 
 ## Next steps
