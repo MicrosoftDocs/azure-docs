@@ -75,6 +75,8 @@
       href: security-features.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Rotate keys
+      href: rotate-keys.md
     - name: Use environment variables with Cognitive Services
       href: cognitive-services-environment-variables.md
     - name: Configure customer-managed keys
