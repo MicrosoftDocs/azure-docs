@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
@@ -82,6 +84,8 @@
             items: 
               - name: .NET with SQL DB
                 href: tutorial-connect-msi-sql-database.md
+              - name: Java Tomcat with Postgres
+                href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
               - name: Azure databases
                 href: tutorial-connect-msi-azure-database.md
           - name: Connect to services
@@ -180,7 +184,7 @@
               href: ./scripts/cli-connect-to-storage.md
             - name: Connect to Azure Cache for Redis
               href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Cosmos DB
+            - name: Connect to Azure Cosmos DB
               href: ./scripts/cli-connect-to-documentdb.md
         - name: Backup and restore an app
           href: ./scripts/cli-backup-schedule-restore.md
@@ -222,6 +226,8 @@
           href: overview-authentication-authorization.md
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
+        - name: Subdomain takeover
+          href: reference-dangling-subdomain-prevention.md                
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -243,12 +249,6 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Application Gateway integration
-          href: networking/app-gateway-with-service-endpoints.md
-        - name: NAT gateway integration
-          href: networking/nat-gateway-integration.md
-        - name: Traffic Manager integration
-          href: web-sites-traffic-manager.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics
@@ -335,7 +335,7 @@
               href: configure-authentication-provider-twitter.md
             - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
-            - name: Authenticate using Sign in with Apple (Preview)
+            - name: Authenticate using Sign-in with Apple (Preview)
               href: configure-authentication-provider-apple.md
         - name: Customize sign-ins/outs
           href: configure-authentication-customize-sign-in-out.md
@@ -391,7 +391,7 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Backup and restore
+        - name: Back up and restore
           href: manage-backup.md
         - name: Clone an app
           href: app-service-web-app-cloning.md
@@ -401,12 +401,18 @@
           href: manage-create-arc-environment.md
     - name: Networking
       items:
-        - name: Enable VNet integration
+        - name: Enable virtual network integration
           href: configure-vnet-integration-enable.md
-        - name: Configure VNet integration routing
+        - name: Configure network routing
           href: configure-vnet-integration-routing.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
+        - name: Integrate with Application Gateway
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: Configure NAT gateway integration
+          href: networking/nat-gateway-integration.md
+        - name: Integrate with Traffic Manager
+          href: web-sites-traffic-manager.md
     - name: Move app
       items:
         - name: Move between regions
@@ -450,8 +456,8 @@
   items:
     - name: App Service Blog
       href: https://aka.ms/appserviceblog
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
@@ -498,6 +504,28 @@
           href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
+        - name: Create or delete web apps FAQ 
+          href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
+        - name: App performance FAQs
+          href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
+        - name: App Service Compliance with PCI Standards
+          href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
+        - name: Back up and restore app services
+          href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
+        - name: Built-in Linux containers FAQs
+          href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
+        - name: Configuration and management FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-configuration-and-management-faqs?toc=/azure/app-service/toc.json
+        - name: Deployment FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
+        - name: FAQs about scaling web apps
+          href: /troubleshoot/azure/app-service/scaling-web-app-faq?toc=/azure/app-service/toc.json
+        - name: Open-source technologies FAQs for Web Apps
+          href: /troubleshoot/azure/app-service/web-apps-open-source-technologies-faqs?toc=/azure/app-service/toc.json
+        - name: Troubleshoot temporary storage
+          href: /troubleshoot/azure/app-service/temporary-storage-for-azure-app-service?toc=/azure/app-service/toc.json
+        - name: Troubleshoot instance-related issues
+          href:  /troubleshoot/azure/app-service/troubleshoot-instance-related-issues-on-azure-app-service?toc=/azure/app-service/toc.json
         - name: Troubleshoot intermittent outbound connection errors
           href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Troubleshoot with Visual Studio
@@ -510,6 +538,7 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
+
     - name: IP address change
       items:
       - name: Inbound IP address

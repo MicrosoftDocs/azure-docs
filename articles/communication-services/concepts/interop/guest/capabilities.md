@@ -36,7 +36,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Use typing indicators                                                                                               | ✔️ |
 |                   | Read receipt                                                                                                        | ❌ |
 |                   | File sharing                                                                                                        | ❌ |
-|                   | Reply to chat message                                                                                               | ❌ |
+|                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |

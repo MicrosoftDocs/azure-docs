@@ -66,7 +66,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
         container => "insights-logs-networksecuritygroupflowevent"
         codec => "json"
-        # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+        # Refer https://learn.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
         file_head_bytes => 12
         file_tail_bytes => 2
@@ -204,4 +204,3 @@ By integrating Network Watcher with ElasticSearch and Grafana, you now have a co
 ## Next steps
 
 - Learn more about using [Network Watcher](network-watcher-monitoring-overview.md).
-

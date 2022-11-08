@@ -1,10 +1,11 @@
 ---
-title: Overview about managed connectors in Azure Logic Apps
-description: Learn about Microsoft-managed connectors to create automated integration workflows in Azure Logic Apps.
+title: Managed connector overview
+description: Learn about Microsoft-managed connectors hosted on Azure in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
+ms.custom: engagement-fy23
 ms.date: 09/07/2022
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: How to install the machine configuration authoring module
 description: Learn how to install the PowerShell module for creating and testing machine configuration policy definitions and assignments.
-ms.date: 07/25/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
 author: timwarner-msft
 ---
-# How to setup a machine configuration authoring environment
+# How to set up a machine configuration authoring environment
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 

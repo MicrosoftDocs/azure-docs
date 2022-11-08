@@ -2,9 +2,9 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/29/2022
 ms.reviewer: viviandiec
-
 ---
 
 # Query logs from Container insights
@@ -259,7 +259,7 @@ AzureDiagnostics
 | summarize count() by Category
 ```
 
-## Query Prometheus metrics data
+## Prometheus metrics
 
 The following example is a Prometheus metrics query showing disk reads per second per disk per node.
 
@@ -282,7 +282,7 @@ InsightsMetrics
 
 ```
 
-To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify "prometheus". Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
+To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify *"prometheus"*. Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
 
 ```
 InsightsMetrics 
@@ -299,7 +299,38 @@ InsightsMetrics
 | where Name contains "some_prometheus_metric"
 ```
 
-### Query configuration or scraping errors
+To identify the ingestion volume of each metrics size in GB per day to understand if it's high, the following query is provided.
+
+```
+InsightsMetrics
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+
+The output will show results similar to the following example.
+
+![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-03.png)
+
+To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
+
+```
+InsightsMetrics
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
+| render barchart
+```
+
+The output will show results similar to the following example.
+
+![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-02.png)
+
+
+## Configuration or scraping errors
 
 To investigate any configuration or scraping errors, the following example query returns informational events from the `KubeMonAgentEvents` table.
 

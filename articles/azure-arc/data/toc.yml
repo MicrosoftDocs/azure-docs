@@ -82,7 +82,7 @@ items:
       items:
         - name: Upload usage data
           href: upload-usage-data.md
-        - name: Monitor with Grafana & Kibana
+        - name: Monitor with Grafana and Kibana
           href: monitor-grafana-kibana.md
         - name: Deploy telemetry router 
           href: deploy-telemetry-router.md
@@ -134,7 +134,7 @@ items:
           href: service-tiers.md
     - name: How-to
       items:
-        - name: Create & connect
+        - name: Create and connect
           items:
             - name: Create with CLI
               href: create-sql-managed-instance.md
@@ -148,7 +148,7 @@ items:
           items:
             - name: Configure
               href: configure-managed-instance.md
-            - name: Monitor, log analytics, & billing information - portal
+            - name: Monitor, log analytics, and billing information - portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
@@ -196,12 +196,16 @@ items:
                   href: deploy-active-directory-connector-cli.md
                 - name: Deploy AD connector - portal
                   href: deploy-active-directory-connector-portal.md
-            - name: Deploy SQL Managed Instance
-              href: deploy-active-directory-sql-managed-instance.md
-            - name: Deploy SQL Managed Instance - CLI
-              href: deploy-active-directory-sql-managed-instance-cli.md
-            - name: Connect SQL Managed Instance
-              href: connect-active-directory-sql-managed-instance.md
+            - name: Deploy and connect SQL managed instance
+              items:
+                - name: Deploy SQL Managed Instance
+                  href: deploy-active-directory-sql-managed-instance.md
+                - name: Deploy SQL Managed Instance - CLI
+                  href: deploy-active-directory-sql-managed-instance-cli.md
+                - name: Connect SQL Managed Instance
+                  href: connect-active-directory-sql-managed-instance.md
+            - name: Upgrade connector
+              href: upgrade-active-directory-connector.md
         - name: Transparent data encryption
           items:
             - name: Turn on transparent data encryption manually
@@ -216,6 +220,8 @@ items:
               href: managed-instance-high-availability.md
             - name: Disaster recovery
               href: managed-instance-disaster-recovery.md
+            - name: Reprovision replica
+              href: reprovision-replica.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview
@@ -240,15 +246,15 @@ items:
       items:
         - name: Manage
           items:
-            - name: Back up & restore
+            - name: Back up and restore
               href: backup-restore-postgresql.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
-            - name: Configure & scale
+            - name: Configure and scale
               items:
                 - name: Show configuration
                   href: show-configuration-postgresql-server.md
-                - name: Scale up|down memory & vCores
+                - name: Scale up|down memory and vCores
                   href: scale-up-down-postgresql-server-using-cli.md
             - name: Delete
               href: delete-postgresql-server.md
@@ -270,6 +276,8 @@ items:
               href: restore-adventureworks-sample-db-into-postgresql-server.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-server.md
+- name: Azure Arc-enabled SQL Server >
+  href: /sql/sql-server/azure-arc/overview
 - name: Reference
   items:
   - name: Release version log
@@ -284,5 +292,5 @@ items:
       href: preview-testing.md
     - name: Support policy
       href: support-policy.md
-    - name: Automated integration testing
+    - name: Automated validation testing
       href: automated-integration-testing.md

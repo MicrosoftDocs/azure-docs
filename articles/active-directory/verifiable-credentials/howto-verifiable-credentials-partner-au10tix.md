@@ -33,7 +33,7 @@ Before you can continue with the steps below you need to meet the following requ
 
 ## Scenario description
 
-When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access. Learn more about [account onboarding](https://docs.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
+When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access. Learn more about [account onboarding](https://learn.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
 
 
 
@@ -66,7 +66,9 @@ As a developer you can share these steps with your tenant administrator to obtai
 
 As a developer you now have the request URL and body from your tenant admin, follow these steps to update your application or website:
 
-1. Add the request URL and body to your application or website to request Verified IDs from your users. Note: If you are using [one of the sample apps](https://aka.ms/vcsample), you'll need to replace the contents of the presentation_request_config.json with the request body obtained.
+1. Add the request URL and body to your application or website to request Verified IDs from your users. 
+   >[!Note]
+   >If you are using [one of the sample apps](https://aka.ms/vcsample), you'll need to replace the contents of the `presentation_request_config.json` with the request body obtained in [Part 1](#part-1). The sample code overwrites the `trustedIssuers` values with `IssuerAuthority` value from `appsettings.json`. Copy the `trustedIssuers` value from the payload to `IssuerAuthority` in `appsettings.json` file.
 1. Be sure to replace the values for the "url", "state", and "api-key" with your respective values.
 1. [Grant permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to your app to obtain access token for the Verified ID service request service principal.
 

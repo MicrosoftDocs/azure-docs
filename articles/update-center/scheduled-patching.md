@@ -24,8 +24,6 @@ Update management center (preview) uses maintenance control schedule instead of 
 	> [!Note]
 	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
 
-1. The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**.
-
 
 ## Schedule recurring updates on single VM
 
@@ -66,6 +64,11 @@ To schedule recurring updates on a single VM, follow these steps:
 	- Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally you can also specify an end date when you want the schedule to expire.
 
 1. In the **Machines** page, select your machine and select **Next** to continue.
+
+1. In the **Updates** page, specify the updates to include in the deployment such as update classification(s) or KB ID/ packages that must be installed when you trigger your schedule.
+
+    > [!Note] 
+	> Update management center (preview) doesn't support driver updates.
 
 1. In the **Tags** page, assign tags to maintenance configurations.
 
@@ -124,6 +127,12 @@ To schedule recurring updates at scale, follow these steps:
 	> The hourly option is currently not supported in the portal, but can be used through the [API](./manage-vms-programmatically.md#create-a-maintenance-configuration-schedule). 
 
 1. In the **Machines** page, verify if the selected machines are listed. You can add or remove machines from the list. Select **Next** to continue.
+
+1. In the **Updates** page, specify the updates to include in the deployment such as update classification(s) or KB ID/ packages that must be installed when you trigger your schedule.
+
+    > [!Note] 
+	> Update management center (preview) doesn't support driver updates.
+
 
 1. In the **Tags** page, assign tags to maintenance configurations.
 
@@ -200,7 +209,8 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 The update management center (preview) allows you to target a dynamic group of Azure or non-Azure VMs for update deployment. Using a dynamic group keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use dynamic scoping by using built-in policies which you can customize as per your use-case.
 
 > [!NOTE]
-> This policy also ensures that the patch orchestration property for Azure machines is set to **Automatic by OS (Windows Automatic Updates)** or **Azure-orchestrated (preview)** as it is a prerequisite for scheduled patching.
+> This policy also ensures that the patch orchestration property for Azure machines is set to **Azure-orchestrated (Automatic by Platform)** as it is a prerequisite for scheduled patching.
+
 
 ### Assign a policy
 

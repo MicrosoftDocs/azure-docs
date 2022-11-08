@@ -2,11 +2,11 @@
 title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
-author: GrantMeStrength
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
 
-ms.author: jken
+ms.author: chpalm
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-communication-services

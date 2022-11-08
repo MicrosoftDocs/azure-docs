@@ -49,7 +49,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 1. This section allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to leverage the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
 1. Next to **Connect to Azure Application Gateway?** select **Yes**. This pane lets you customize the following deployment options.
    1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
-   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate).
+   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can enable cookie based affinity, also known as sticky sessions. We want this enabled for this article, so ensure this option is selected.
       ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
 1. Select **Review + create** to validate your selected options.
@@ -70,10 +70,10 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. In the left pane, select **Outputs**.
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
-   * **appDeploymentTemplateYamlEncoded**
    * **cmdToConnectToCluster**
+   
 
-   These values will be used later in this article. Note that several other useful commands are listed in the outputs.
+These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
 ## Create an Azure SQL Database
 
@@ -127,27 +127,11 @@ The directories *java*, *resources*, and *webapp* contain the source code of the
 
 In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-In the *docker* directory, we placed four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an AKS deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an AKS deployment respectively, but instead work with WebSphere Liberty.
-
 In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
-
-### Acquire necessary variables from AKS deployment
-
-After the offer is successfully deployed, an AKS cluster will be generated automatically. The AKS cluster is configured to connect to a generated ACR instance. Before we get started with the application, we need to extract the namespace configured for AKS.
-
-1. Run the following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
-
-   ```bash
-   echo <appDeploymentTemplateYamlEncoded> | base64 -d
-   ```
-
-1. Save aside the `metadata.namespace` from this yaml output for later use in this article.
 
 ### Build the project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
-
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts.
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts. These variables are used to also populate `JavaEECafeDB` properties in *server.xml* and in yaml files located in *src/main/aks*.
 
 ```bash
 cd <path-to-your-repo>/java-app
@@ -158,56 +142,42 @@ export REGISTRY_NAME=<Azure_Container_Registery_Name>
 export USER_NAME=<Azure_Container_Registery_Username>
 export PASSWORD=<Azure_Container_Registery_Password>
 export DB_SERVER_NAME=<Server name>.database.windows.net
-export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Server name>
 export DB_PASSWORD=<Server admin password>
-export NAMESPACE=<metadata.namespace>
 
 mvn clean install
 ```
 
-### Test your project locally
+### (Optional) Test your project locally
 
-Use the `liberty:devc` command to run and test the project locally before deploying to Azure. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
-In the sample application, we've prepared *Dockerfile-local* and *Dockerfile-wlp-local* for use with `liberty:devc`.
+Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure. 
 
-1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined in the above step. 
 
-1. Start the application in `liberty:devc` mode
+1. Start the application in `liberty:run` mode
 
    ```bash
    cd <path-to-your-repo>/java-app
-   
-   # If you're running with Open Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
-  
-   # If you're running with WebSphere Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
+   mvn liberty:run
    ```
-
+   
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
-1. Press `Ctrl+C` to stop `liberty:devc` mode.
+1. Press `Ctrl+C` to stop `liberty:run` mode.
 
 ### Build image for AKS deployment
 
-After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image.
+After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image. 
 
 ```bash
-cd <path-to-your-repo>/java-app
-
-# Fetch maven artifactId as image name, maven build version as image version
-export IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-export IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-
 cd <path-to-your-repo>/java-app/target
 
 # If you are running with Open Liberty
-docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
+docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 
 # If you are running with WebSphere Liberty
-docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
+docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
 ### Upload image to ACR
@@ -215,9 +185,9 @@ docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
 Now, we upload the built image to the ACR created in the offer.
 
 ```bash
-docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
 docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
-docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+docker push ${LOGIN_SERVER}/javaee-cafe:v1
 ```
 
 ### Deploy and test the application
@@ -248,7 +218,7 @@ The following steps deploy and test the application.
    Wait until all pods are restarted successfully using the following command.
 
    ```bash
-   kubectl get pods -n $NAMESPACE --watch
+   kubectl get pods --watch
    ```
 
    You should see output similar to the following to indicate that all the pods are running.
@@ -265,10 +235,11 @@ The following steps deploy and test the application.
    1. Get endpoint of the deployed service
 
       ```bash
-      kubectl get service -n $NAMESPACE
+      kubectl get service
       ```
 
    1. Go to `http://EXTERNAL-IP` to test the application.
+   
 
 ## Clean up resources
 

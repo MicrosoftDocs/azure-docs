@@ -1,10 +1,10 @@
 ---
-title: Configuring Azure File Sync network endpoints | Microsoft Docs
+title: Configuring Azure File Sync network endpoints
 description: Learn how to configure Azure File Sync network endpoints.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 11/01/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -15,16 +15,16 @@ Azure Files and Azure File Sync provide two main types of endpoints for accessin
 - Public endpoints, which have a public IP address and can be accessed from anywhere in the world.
 - Private endpoints, which exist within a virtual network and have a private IP address from within the address space of that virtual network.
 
-For both Azure Files and Azure File Sync, the Azure management objects, the storage account and the Storage Sync Service respectively, control both the public and private endpoints. The storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. The Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship. 
+For both Azure Files and Azure File Sync, the Azure management objects, the storage account and the Storage Sync Service respectively, control both the public and private endpoints. The storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. The Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship.
 
-This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](../files/storage-files-networking-endpoints.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](../files/storage-files-networking-endpoints.md?toc=/azure/storage/filesync/toc.json).
 
 We recommend reading [Azure File Sync networking considerations](file-sync-networking-overview.md) prior to reading this how to guide.
 
 ## Prerequisites 
 This article assumes that:
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+- You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json).
 - You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
 Additionally:
@@ -32,7 +32,7 @@ Additionally:
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create the private endpoints
-When you creating a private endpoint for an Azure resource, the following resources are deployed:
+When you are creating a private endpoint for an Azure resource, the following resources are deployed:
 
 - **A private endpoint**: An Azure resource representing either the private endpoint for the storage account or the Storage Sync Service. You can think of this as a resource that connects your Azure resource and a network interface.
 - **A network interface (NIC)**: The network interface that maintains a private IP address within the specified virtual network/subnet. This is the exact same resource that gets deployed when you deploy a virtual machine, however instead of being assigned to a VM, it's owned by the private endpoint.
@@ -45,7 +45,7 @@ When you creating a private endpoint for an Azure resource, the following resour
 # [Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
 
 ```console
 nslookup <storage-account-name>.file.core.windows.net
@@ -66,7 +66,7 @@ Aliases:  storageaccount.file.core.windows.net
 # [PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly with the following commands:
 
 ```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
@@ -93,7 +93,7 @@ IP4Address : 192.168.0.5
 # [Azure CLI](#tab/azure-cli)
 [!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly with the following commands:
 
 ```azurecli
 httpEndpoint=$(az storage account show \
@@ -138,7 +138,7 @@ The **Configuration** blade allows you to select the specific virtual network an
 
 Click **Review + create** to create the private endpoint.
 
-You can test that your private endpoint has been setup correctly by running the following commands from PowerShell. 
+You can test that your private endpoint has been set up correctly by running the following commands from PowerShell. 
 
 ```powershell
 $privateEndpointResourceGroupName = "<your-private-endpoint-resource-group>"
@@ -319,7 +319,7 @@ if ($null -eq $dnsZone) {
             -ErrorAction Stop
 }
 ```
-Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
+Now that you have a reference to the private DNS zone, you must create an A record for your Storage Sync Service.
 
 ```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
@@ -488,7 +488,7 @@ then
 fi
 ```
 
-Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
+Now that you have a reference to the private DNS zone, you must create an A record for your Storage Sync Service.
 
 ```bash
 privateEndpointNIC=$(az network private-endpoint show \

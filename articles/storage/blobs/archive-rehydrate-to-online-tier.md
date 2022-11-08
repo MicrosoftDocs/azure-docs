@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 09/29/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -89,16 +89,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to an online tier with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
-
-> [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
-
-```azcopy
-azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
-```
-
-The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
+N/A
 
 ---
 
@@ -185,16 +176,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to a blob in an online tier in a different storage account with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
-
-> [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
-
-```azcopy
-azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
-```
-
-The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
+N/A
 
 ---
 
@@ -204,7 +186,7 @@ If you've configured your storage account to use read-access geo-redundant stora
 
 To rehydrate from a secondary region, use the same guidance that is presented in the previous section ([Rehydrate a blob to a different storage account in the same region](#rehydrate-a-blob-to-a-different-storage-account-in-the-same-region). Append the suffix `–secondary` to the account name of the source endpoint. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
 
-To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
+To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json#read-access-to-data-in-the-secondary-region).
 
 ## Rehydrate a blob by changing its tier
 

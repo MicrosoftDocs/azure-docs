@@ -4,14 +4,14 @@ description: Troubleshoot known performance issues with Azure file shares. Disco
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 07/06/2021
+ms.date: 10/03/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 # Troubleshoot Azure file shares performance issues
 
-This article lists some common problems related to Azure file shares. It provides potential causes and workarounds for when you encounter these problems.
+This article lists some common problems related to Azure file shares and provides potential causes and workarounds.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -62,7 +62,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 #### Solution
 
-- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
+- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
 - If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
@@ -76,10 +76,9 @@ To determine whether most of your requests are metadata-centric, start by follow
 #### Workaround
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
-- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
-    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
-    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.
-- If you're continuously hitting the metadata operations limit that a single Azure file share can accommodate (2,000 operations per file share), we suggest separating the file share into multiple file shares within the same storage account.
+- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of local directly attached storage.
+    -   To mount a VHD on a Windows client, use the [`Mount-DiskImage`](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution. [Here's an example](https://man7.org/linux/man-pages/man5/nfs.5.html).  
 
 ### Cause 3: Single-threaded application
 
@@ -180,17 +179,6 @@ If the number of **DirectoryOpen/DirectoryClose** calls is among the top API cal
 ### Workaround
 
 - A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
-
-## File creation is slower than expected
-
-### Cause
-
-Workloads that rely on creating a large number of files won't see a substantial difference in performance between premium file shares and standard file shares.
-
-### Workaround
-
-- None.
-
 ## Slow performance from Windows 8.1 or Server 2012 R2
 
 ### Cause

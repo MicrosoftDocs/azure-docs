@@ -91,12 +91,16 @@ items:
       href: ftp-support.md
     - name: Performance
       href: firewall-performance.md
+    - name: Long running TCP sessions
+      href: long-running-sessions.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
       href: tutorial-firewall-deploy-portal.md
     - name: Deploy in hybrid network - classic
       href: tutorial-hybrid-portal.md
+    - name: Deploy Firewall Basic
+      href: deploy-firewall-basic-portal-policy.md
     - name: Filter inbound traffic with DNAT - classic
       href: tutorial-firewall-dnat.md
     - name: Deploy using Azure PowerShell

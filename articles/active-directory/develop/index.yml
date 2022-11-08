@@ -13,9 +13,9 @@ metadata:
    Use Azure Active Directory (Azure AD) with OAuth 2.0 and OpenID Connect (OIDC) to protect the apps and web APIs you build. Learn how to sign in users and
    manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
 
-  author: mmacy
+  author: Dickson-Mwendia
   manager: CelesteDG
-  ms.author: marsma
+  ms.author: dmwendia
   ms.date: 04/01/2022
   ms.service: active-directory
   ms.subservice: develop

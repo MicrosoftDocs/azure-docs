@@ -201,7 +201,7 @@ On initial creation, Windows containers may have no inbound or outbound connecti
 
 ### Cannot connect to underlying Docker API or run privileged containers
 
-Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](/rest/api/container-instances/) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the container runtime, orchestration technology, and running privileged container operations. To see what operations are supported by ACI, check the [REST reference documentation](/rest/api/container-instances/). If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
 ### Container group IP address may not be accessible due to mismatched ports
 

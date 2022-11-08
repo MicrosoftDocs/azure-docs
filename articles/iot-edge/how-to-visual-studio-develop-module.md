@@ -82,13 +82,11 @@ This article assumes that you use a machine running Windows as your development 
 
 * To test your module on a device, you'll need an active IoT Hub with at least one IoT Edge device. To create an IoT Edge device for testing you can create one in the Azure portal or with the CLI:
 
-    * Creating one in the [Azure portal](https://portal.azure.com/) is the quickest. From the Azure portal, go to your IoT Hub resource. Select **IoT Edge** from the menu on the left and then select **Add IoT Edge Device**.
+    * Creating one in the [Azure portal](https://portal.azure.com/) is the quickest. From the Azure portal, go to your IoT Hub resource. Select **Devices** under the **Device management** menu and then select **Add Device**.
 
-        :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-iot-edge-device.png" alt-text="Screenshot of how to add a new I o T Edge device":::
+       In **Create a device**,name your device using **Device ID**, check **IoT Edge Device**, then select **Save** in the lower left. 
     
-       A new popup called **Create a device** will appear. Add a name to your device (known as the Device ID), then select **Save** in the lower left. 
-    
-        Finally, confirm that your new device exists in your IoT Hub, from the **Device management > IoT Edge** menu. For more information on creating an IoT Edge device through the Azure portal, read [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md).
+        Finally, confirm that your new device exists in your IoT Hub, from the **Device management > Devices** menu. For more information on creating an IoT Edge device through the Azure portal, read [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md).
 
     * To create an IoT Edge device with the CLI follow the steps in the quickstart for [Linux](quickstart-linux.md#register-an-iot-edge-device) or [Windows](quickstart.md#register-an-iot-edge-device). In the process of registering an IoT Edge device, you create an IoT Edge device.
 

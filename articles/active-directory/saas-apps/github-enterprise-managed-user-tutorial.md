@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/15/2021
+ms.date: 09/27/2022
 ms.author: jeedes
 
 ---
@@ -122,9 +122,9 @@ In this section, you'll take the information provided from AAD above and enter t
 1. Click on Sign In at the top-right corner
 1. Enter the credentials for the first administrator user account. The login handle should be in the format: `<your enterprise short code>_admin`
 1. Navigate to `https://github.com/enterprises/` `<your enterprise name>`. This information should be provided by your Solutions Engineering contact.
-1. On the navigation menu on the left, select **Settings**, then **Security**.
-1. Click on the checkbox **Enable SAML authentication**
-1. Enter the Sign on URL. This URL is the Login URL that you copied from AAD above.
+1. On the navigation menu on the left, select **Settings**, then **Authentication security**.
+1. Click on the checkbox **Require SAML authentication**
+1. Enter the Sign-on URL. This URL is the Login URL that you copied from AAD above.
 1. Enter the Issuer. This URL is the Azure AD Identifier that you copied from AAD above.
 1. Enter the Public Certificate. Please open the base64 certificate that you downloaded above and paste the text contents of that file into this dialog.
 1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Log in with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.

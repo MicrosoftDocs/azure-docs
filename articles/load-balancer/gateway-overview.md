@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Gateway Load Balancer
 
-Gateway Load Balancer is a SKU of the Azure Load Balancer portfolio catered for high performance and high availability scenarios with third-party Network Virtual Appliances (NVAs). With the capabilities of Gateway Load Balancer, you can easily deploy, scale, and manage NVAs. Chaining a Gateway Load Balancer to your public endpoint only requires one click. 
+Gateway Load Balancer is a SKU of the Azure Load Balancer portfolio catered for high performance and high availability scenarios with third-party Network Virtual Appliances (NVAs). With the capabilities of Gateway Load Balancer, you can easily deploy, scale, and manage NVAs. Chaining a Gateway Load Balancer to your public endpoint only requires one selection. 
 
 You can insert appliances transparently for different kinds of scenarios such as:
 
@@ -23,7 +23,7 @@ You can insert appliances transparently for different kinds of scenarios such as
 * DDoS protection
 * Custom appliances
 
-With Gateway Load Balancer, you can easily add or remove advanced network functionality without additional management overhead. It provides the bump-in-the-wire technology you need to ensure all traffic to a public endpoint is first sent to the appliance before your application. In scenarios with NVAs, it's especially important that flows are symmetrical. Gateway Load Balancer maintains flow stickiness to a specific instance in the backend pool along with flow symmetry. As a result, a consistent route to your network virtual appliance is ensured – without additional manual configuration. As a result, packets traverse the same network path in both directions and appliances that need this key capability are able to function seamlessly.
+With Gateway Load Balancer, you can easily add or remove advanced network functionality without extra management overhead. It provides the bump-in-the-wire technology you need to ensure all traffic to a public endpoint is first sent to the appliance before your application. In scenarios with NVAs, it's especially important that flows are symmetrical. Gateway Load Balancer maintains flow stickiness to a specific instance in the backend pool along with flow symmetry. As a result, a consistent route to your network virtual appliance is ensured – without other manual configuration. As a result, packets traverse the same network path in both directions and appliances that need this key capability are able to function seamlessly.
 
 The health probe listens across all ports and routes traffic to the backend instances using the HA ports rule. Traffic sent to and from Gateway Load Balancer uses the VXLAN protocol. 
 
@@ -41,7 +41,7 @@ Gateway Load Balancer has the following benefits:
 
 * Chain applications across regions and subscriptions
 
-A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. Once chained to a Standard Public Load Balancer frontend or Standard IP configuration on a virtual machine, no additional configuration is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
+A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. Once chained to a Standard Public Load Balancer frontend or Standard IP configuration on a virtual machine, no extra configuration is needed to ensure traffic to, and from the application endpoint is sent to the Gateway Load Balancer.
 
 Traffic moves from the consumer virtual network to the provider virtual network. The traffic then returns to the consumer virtual network. The consumer virtual network and provider virtual network can be in different subscriptions, tenants, or regions removing management overhead.
 
@@ -61,22 +61,22 @@ Gateway Load Balancer consists of the following components:
 
     * A Gateway Load Balancer rule can be associated with up to two backend pools. 
 
-* **Backend pool(s)** - The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load Balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without extra operations. The scope of the backend pool is any virtual machine in a single virtual network. 
+* **Backend pool(s)** - The group of virtual machines or instances in a Virtual Machine Scale Set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load Balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without extra operations. The scope of the backend pool is any virtual machine in a single virtual network. 
 
-* **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to 2 tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, you should use the external type. For traffic going from your appliance to the application, you should use the internal type.
+* **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to two tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, you should use the external type. For traffic going from your appliance to the application, you should use the internal type.
 
 * **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Standard Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain.
 
 ## Pricing
 
-For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
-* Cross-tenant chaining is not supported through the Azure portal.
-* Gateway Load Balancer does not currently support IPv6
-* Gateway Load Balancer does not currently support zone-redundant frontends due to a known issue. All frontends configured as zone-redundant will be allocated no-zone or non-zonal IPs. Frontends configured in Portal will automatically be created as no-zone.
+* Cross-tenant chaining isn't supported through the Azure portal.
+* Gateway Load Balancer doesn't currently support IPv6
+* Currently, Gateway Load Balancer frontends configured in Portal will automatically be created as no-zone. To create a zone-redundant frontend, use an alternative client such as ARM/CLI/PS.
 
 ## Next steps
 

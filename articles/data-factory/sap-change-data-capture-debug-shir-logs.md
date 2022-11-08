@@ -1,20 +1,21 @@
 ---
-title: Debug copy activity in your SAP CDC solution (preview) by sending logs
+title: Debug issues with the SAP CDC connector by sending logs
 titleSuffix: Azure Data Factory
-description: Learn how to debug issues with the Azure Data Factory copy activity for your SAP change data capture (CDC) solution (preview) by sending self-hosted integration runtime logs to Microsoft.
+description: Learn how to debug issues with the Azure Data Factory SAP CDC (change data capture) connector by sending self-hosted integration runtime logs to Microsoft.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Debug copy activity by sending self-hosted integration runtime logs
+# Debug issues with the SAP CDC connector by sending self-hosted integration runtime logs
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you want Microsoft to debug Azure Data Factory copy activity issues in your SAP change data capture (CDC) solution (preview), send us your self-hosted integration runtime logs, and then contact us.
+If you want Microsoft to debug Azure Data Factory issues with your SAP CDC connector, send us your self-hosted integration runtime logs, and then contact us.
 
 ## Send logs to Microsoft
 
@@ -34,4 +35,4 @@ After you've uploaded and sent your self-hosted integration runtime logs, contac
 
 ## Next steps
 
-[Auto-generate a pipeline by using the SAP data partitioning template](sap-change-data-capture-data-partitioning-template.md)
+[SAP CDC (Change Data Capture) Connector](connector-sap-change-data-capture.md)

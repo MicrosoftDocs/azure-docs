@@ -7,12 +7,14 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 09/09/2022
+  ms.date: 10/20/2022
   ms.author: lajanuar
+  monikerRange: '>=form-recog-2.1.0'
+  recommendations: false
 
 title: Form Recognizer frequently asked questions
 summary: |
-
+   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 sections:
   - name: General concepts
     questions:
@@ -327,11 +329,13 @@ sections:
       - question: |
           How many custom models can I compose into a single custom model?
         answer: |
-           With the [Model Compose](compose-custom-models-v2-1.md#create-a-composed-model) operation, you can assign up to 100 models to a single model ID.
+           With the [Model Compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
            - When you make the Analyze request with a composed modelID, Form Recognizer classifies the submitted form, chooses the best model, and returns the results.
 
            - Model Compose is currently available only for custom models trained with labels.
+
+           - Analyzing a document with composed models is identical to analyzing a document with a single model, the analyze result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There is no change in pricing for analyzing a document with an individual custom model or a composed custom model.
 
            Learn more about [composed models](concept-custom.md).
 

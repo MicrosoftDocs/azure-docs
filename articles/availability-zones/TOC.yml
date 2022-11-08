@@ -1,7 +1,5 @@
 - name: Azure Resiliency
   items:
-  - name: Azure Resiliency feature page
-    href: https://azure.microsoft.com/features/
   - name: Resiliency in Azure
     href: overview.md
   - name: Design resilient applications for Azure
@@ -145,6 +143,8 @@
     href: /azure/architecture/framework/
 - name: Resources
   items:
+  - name: Azure Resiliency feature page
+    href: https://azure.microsoft.com/en-us/explore/reliability/#overview
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions

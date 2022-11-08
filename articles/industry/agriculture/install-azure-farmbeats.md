@@ -13,9 +13,9 @@ This article describes how to install Azure FarmBeats in your Azure subscription
 
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers and generation of actionable insights. Azure FarmBeats does this by enabling you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. The two main components of Azure FarmBeats are:
 
-- **Datahub**: An API layer that enables aggregation, normalization, and contextualization of various agriculture data sets across different providers.
+- **Data hub**: An API layer that enables aggregation, normalization, and contextualization of various agriculture data sets across different providers.
 
-- **Accelerator**: Web application that is built on top of Datahub. It jump-starts your model development and visualization. The accelerator uses Azure FarmBeats APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps.
+- **Accelerator**: Web application that is built on top of Data hub. It jump-starts your model development and visualization. The accelerator uses Azure FarmBeats APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps.
 
 ## General information
 
@@ -25,26 +25,26 @@ When you install Azure FarmBeats, the following resources are provisioned in you
 
 | Azure Resources Installed  | Azure FarmBeats component  |
 |---------|---------|
-| Application Insights   |      Datahub & Accelerator      |
-| App Service     |     Datahub & Accelerator     |
-| App Service Plan   | Datahub & Accelerator  |
-| API Connection    |  Datahub       |
-| Azure Cache for Redis       | Datahub      |
-| Azure Cosmos DB   |  Datahub       |
-| Azure Data Factory V2       |     Datahub & Accelerator      |
-| Azure Batch account    | Datahub   |
-| Azure Key Vault |  Datahub & Accelerator        |
+| Application Insights   |      Data hub & Accelerator      |
+| App Service     |     Data hub & Accelerator     |
+| App Service Plan   | Data hub & Accelerator  |
+| API Connection    |  Data hub       |
+| Azure Cache for Redis       | Data hub      |
+| Azure Cosmos DB   |  Data hub       |
+| Azure Data Factory V2       |     Data hub & Accelerator      |
+| Azure Batch account    | Data hub   |
+| Azure Key Vault |  Data hub & Accelerator        |
 | Azure Maps Account       |     Accelerator    |
-| Event Hub Namespace    |     Datahub      |
-| Logic App      |  Datahub       |
-| Storage Account      |     Datahub & Accelerator      |
-| Time Series Insights     |    Datahub    |
+| Event Hub Namespace    |     Data hub      |
+| Logic App      |  Data hub       |
+| Storage Account      |     Data hub & Accelerator      |
+| Time Series Insights     |    Data hub    |
 
 ### Costs incurred
 
 The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). The actual cost of the total installation will vary based on the usage. The steady state cost for the two components is:
 
-- Datahub - less than $10 per day
+- Data hub - less than $10 per day
 - Accelerator - less than $2 per day
 
 ### Regions supported
@@ -99,7 +99,7 @@ Azure FarmBeats require Azure Active Directory application creation and registra
 
 Run the following steps in a Cloud Shell instance using the PowerShell environment. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
+1. Download the AAD app generator script
 
     ```azurepowershell-interactive
         wget -q https://aka.ms/FarmBeatsAADScript -O ./create_aad_script.ps1
@@ -141,7 +141,7 @@ Your registration process is complete. Make a note of your **Sentinel Username**
 
 ## Install
 
-You are now ready to install FarmBeats. Follow the steps below to start the installation:
+You're now ready to install FarmBeats. Follow the steps below to start the installation:
 
 1. Sign in to the Azure portal. Select your account in the top-right corner and switch to the Azure AD tenant where you want to install Azure FarmBeats.
 
@@ -161,11 +161,11 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 
     ![Dependencies Tab](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
-8. Once the entered details are validated, select **OK**. The Terms of use page appear. Review the terms and select **Create** to start the installation. You will be redirected to the page where you can follow the installation progress.
+8. Once the entered details are validated, select **OK**. The Terms of use page appear. Review the terms and select **Create** to start the installation. You'll be redirected to the page where you can follow the installation progress.
 
 Once the installation is complete, you can verify the installation and start using FarmBeats portal by navigating to the website name you provided during installation: https://\<FarmBeats-website-name>.azurewebsites.net. You should see FarmBeats user interface with an option to create Farms.
 
-**Datahub** can be found at https://\<FarmBeats-website-name>-api.azurewebsites.net/swagger. Here you will see the different FarmBeats API objects and perform REST operations on the APIs.
+**Data hub** can be found at https://\<FarmBeats-website-name>-api.azurewebsites.net/swagger. Here you'll see the different FarmBeats API objects and perform REST operations on the APIs.
 
 ## Upgrade
 
@@ -173,7 +173,7 @@ To upgrade FarmBeats to the latest version, run the following steps in a Cloud S
 
 First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
+1. Download the upgrade script
 
     ```azurepowershell-interactive
         wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
@@ -195,7 +195,7 @@ The path to input.json file is optional. If not specified, the script will ask f
 
 ## Uninstall
 
-To uninstall Azure FarmBeats Datahub or Accelerator, complete the following steps:
+To uninstall Azure FarmBeats Data hub or Accelerator, complete the following steps:
 
 1. Log in to the Azure portal and **delete the resource groups** in which these components are installed.
 
@@ -203,4 +203,4 @@ To uninstall Azure FarmBeats Datahub or Accelerator, complete the following step
 
 ## Next steps
 
-You have learned how to install Azure FarmBeats in your Azure subscription. Now, learn how to [add users](manage-users-in-azure-farmbeats.md#manage-users) to your Azure FarmBeats instance.
+You've learned how to install Azure FarmBeats in your Azure subscription. Now, learn how to [add users](manage-users-in-azure-farmbeats.md#manage-users) to your Azure FarmBeats instance.

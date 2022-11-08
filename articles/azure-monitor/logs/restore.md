@@ -1,12 +1,12 @@
 ---
-title: Restore logs in Azure Monitor (Preview) 
+title: Restore logs in Azure Monitor
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 10/01/2022
 
 ---
 
-# Restore logs in Azure Monitor (preview)
+# Restore logs in Azure Monitor
 The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
 ## When to restore logs
@@ -145,7 +145,7 @@ The charge for maintaining restored logs is calculated based on the volume of da
 For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
 
 > [!NOTE]
-> There is no charge for restored data during the preview period.
+> Billing of restore is not yet enabled. Restore can be used for free until February 1, 2023.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

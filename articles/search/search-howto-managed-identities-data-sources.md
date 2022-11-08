@@ -7,6 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/28/2022
 ---
@@ -19,7 +20,7 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ An Azure resource that accepts incoming requests from an Azure AD login that has a valid role assignment.
++ An Azure resource that accepts incoming requests from an Azure Active Directory login that has a valid role assignment.
 
 ## Supported scenarios
 
@@ -115,7 +116,7 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 
-   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure marketplace.":::
+   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure Marketplace.":::
 
 1. Select the subscription, resource group, and region. Give the identity a descriptive name.
 
@@ -180,7 +181,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting debug session data, enrichment caching, and long-term content storage in a knowledge store. 
 
-The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
+The following steps are for Azure Storage. If your resource is Azure Cosmos DB or Azure SQL, the steps are similar.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 

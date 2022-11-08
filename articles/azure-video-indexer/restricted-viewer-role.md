@@ -39,7 +39,7 @@ Users with this role are **unable** to perform the following tasks:
 
 ## Using an ARM API
 
-To generate a Video Indexer restricted viewer access token via API, see [documentation](https://aka.ms/vi-restricted-doc). 
+To generate a Video Indexer restricted viewer access token via API, see [documentation](/rest/api/videoindexer/generate/access-token). 
 
 ## Restricted Viewer Video Indexer website experience
  

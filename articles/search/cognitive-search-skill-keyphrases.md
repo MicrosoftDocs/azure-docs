@@ -33,7 +33,7 @@ Parameters are case-sensitive.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/key-phrase-extraction/how-to/call-api.md#determine-how-to-process-the-data-optional) to use when calling the key phrase API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling the key phrase API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.  |
 
 ## Skill inputs
 

@@ -6,11 +6,11 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: esarroyo
 author: StefArroyo 
-ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
+ms.custom: devx-track-python, devx-track-java, contperf-fy21q1, ignite-2022
 ---
 
 # Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos DB Emulator supports only secure communication through TLS connections.
 
@@ -84,11 +84,11 @@ Once the "CosmosDBEmulatorCertificate" TLS/SSL certificate is installed, your ap
 
 ## Use the certificate with Python apps
 
-When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) for the SQL API will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
+When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK(version 2.0.0 or higher)](nosql/sdk-python.md) for the API for NoSQL will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
 
 ## How to use the certificate in Node.js
 
-When connecting to the emulator from Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) for the SQL API will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+When connecting to the emulator from Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](nosql/sdk-nodejs.md) for the API for NoSQL will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Rotate emulator certificates
 
