@@ -16,6 +16,9 @@ The Application Live View encompasses a sophisticated UI that provides visual in
 
 This article explains the Application Live View UI features and describe the pages and views included in the Application Live View user interface.
 
+## Prerequities
+- Have Application Live View enabled and can view your application through the dashboard. If not, see [Use Application Live View](./how-to-use-application-live-view.md)
+
 ## Details page
 
 This is the default page loaded in the **Live View** section. This page gives a tabular overview containing the following:
