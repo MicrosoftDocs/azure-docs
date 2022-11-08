@@ -65,7 +65,7 @@ To modify the packet core and/or access network configuration:
 
 To make changes to the data network attached to your packet core instance:
 
-1. In the the **Data network** tab, select the data network.
+1. In the **Data network** tab, select the data network.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-data-network-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data network tab.":::
 
