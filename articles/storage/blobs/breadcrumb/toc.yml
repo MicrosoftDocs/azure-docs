@@ -10,8 +10,8 @@
       tocHref: /azure/storage/blobs/
       topicHref: /azure/storage/blobs/index
     - name: Blobs
-      tocHref: /dotnet/azure/
+      tocHref: /dotnet/azure/sdk/
       topicHref: /azure/storage/blobs/index
     - name: Blobs
-      tocHref: /azure/developer/javascript
+      tocHref: /azure/developer/javascript/sdk/authentication/
       topicHref: /azure/storage/blobs/index
