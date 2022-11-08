@@ -107,7 +107,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/fixed-delay)
 
@@ -156,7 +156,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/exponential-backoff)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/exponential-backoff)
 

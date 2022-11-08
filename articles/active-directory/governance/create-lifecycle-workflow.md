@@ -42,7 +42,7 @@ If you are using the Azure portal to create a workflow, you can customize existi
 
 1. On the **configure scope** page select the **Trigger type** and execution conditions to be used for this workflow. For more information on what can be configured, see: [Configure scope](understanding-lifecycle-workflows.md#configure-scope).
 
-1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department. For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta#supported-user-properties-and-query-parameters?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
+1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department. For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta#supported-user-properties-and-query-parameters)
 
     :::image type="content" source="media/create-lifecycle-workflow/template-scope.png" alt-text="Screenshot of Lifecycle Workflows template scope configuration options.":::
 

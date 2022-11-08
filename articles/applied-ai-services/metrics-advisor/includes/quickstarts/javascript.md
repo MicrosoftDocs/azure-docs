@@ -137,6 +137,7 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
+## Create your application
 
 Create a file named `index.js` and copy the following code:
 
