@@ -229,7 +229,7 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 1. During job submission (either through the UI, the CLIv2 or the SDKv2) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script (`tfevents.py` can be replaced with the name of your training script).
    
-   ![screenshot use-debugpy](./media/interactive-jobs/use-debugpy.png)
+![screenshot use-debugpy](./media/interactive-jobs/use-debugpy.png)
 
 2. Once the job has been submitted, [connect to the VS Code](./how-to-interactive-jobs.md#connect-to-endpoints), and click on the in-built debugger.
    
