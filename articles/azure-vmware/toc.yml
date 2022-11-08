@@ -196,7 +196,7 @@
       href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
-    - name: Sending logs to Log analytics
+    - name: Sending logs to Log Analytics
       href: sending-logs-to-log-analytics.md
   - name: VMware solutions
     items:
