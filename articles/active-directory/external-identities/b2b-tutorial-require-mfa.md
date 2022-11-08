@@ -132,7 +132,7 @@ To complete the scenario in this tutorial, you need:
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
 1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
 
-    :::image type="content" source="media/tutorial-mfa/mfa-required.png" alt-text="Screenshot showing the More information required message.":::
+    :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::
 
     > [!NOTE]
     > You also can configure [cross-tenant access settings](cross-tenant-access-overview.md) to trust the MFA from the Azure AD home tenant. This allows external Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
