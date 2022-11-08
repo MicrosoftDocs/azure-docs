@@ -74,7 +74,7 @@ The Responsible AI dashboard includes a robust, rich set of visualizations and f
 
 - [Global controls](#global-controls)
 - [Error analysis](#error-analysis)
-- [Model overview and fairness metrics](#model-overview)
+- [Model overview and fairness metrics](#model-overview-and-fairness-metrics)
 - [Data analysis](#data-analysis)
 - [Feature importance (model explanations)](#feature-importances-model-explanations)
 - [Counterfactual what-if](#counterfactual-what-if)

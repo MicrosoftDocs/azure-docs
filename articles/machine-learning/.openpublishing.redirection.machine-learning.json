@@ -3527,17 +3527,17 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/concept-responsible-ml.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/concept-responsible-ai",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ai",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-responsible-ai-dashboard-ui.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-responsible-ai-insights-ui",
+        "redirect_url": "/azure/machine-learning/how-to-responsible-ai-insights-ui",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-responsible-ai-dashboard-sdk-cli.md",
-        "redirect_url": "/azure/machine-learning/batch-inference/how-to-responsible-ai-insights-sdk-cli",
+        "redirect_url": "/azure/machine-learning/how-to-responsible-ai-insights-sdk-cli",
         "redirect_document_id": true
     },
 ]

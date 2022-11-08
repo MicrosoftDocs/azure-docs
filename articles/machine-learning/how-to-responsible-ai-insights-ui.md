@@ -115,7 +115,7 @@ Component parameters for real-life interventions use causal analysis. Do the fol
 
 Finally, configure your experiment to kick off a job to generate your Responsible AI dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-insights-ui/create-responsible-ai-dashboard-ui-experiment-config.png" alt-text="Screenshot of the Experiment configuration tab, showing the 'Training job or experiment configuration' pane." lightbox= "./media/create-responsible-ai-dashboard-ui-experiment-config.png":::
+:::image type="content" source="./media/how-to-responsible-ai-insights-ui/create-responsible-ai-dashboard-ui-experiment-config.png" alt-text="Screenshot of the Experiment configuration tab, showing the 'Training job or experiment configuration' pane." lightbox= "./media/how-to-responsible-ai-insights-ui/create-responsible-ai-dashboard-ui-experiment-config.png":::
 
 On the **Training job** or **Experiment configuration** pane, do the following:
 

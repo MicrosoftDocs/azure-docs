@@ -32,6 +32,6 @@ Use the data explorer when you need to:
 
 ## Next steps
 
-- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported data explorer visualizations](how-to-responsible-ai-dashboard.md#data-explorer) of the Responsible AI dashboard.
+- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-insights-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md).
+- Explore the [supported data explorer visualizations](how-to-responsible-ai-dashboard.md#data-analysis) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.

@@ -5,7 +5,7 @@ description: Learn about how to use the Responsible AI scorecard to share respon
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.topic:  concept
+ms.topic:  conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
