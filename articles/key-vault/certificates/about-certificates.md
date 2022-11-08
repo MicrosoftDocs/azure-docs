@@ -25,6 +25,8 @@ Key Vault certificates support provides for management of your x509 certificates
 >[!Note]
 >Non-partnered providers/authorities are also allowed but, will not support the auto renewal feature.
 
+For details on certificate creation, see [Certificate creation methods](create-certificate.md).
+
 ## Composition of a Certificate
 
 When a Key Vault certificate is created, an addressable key and secret are also created with the same name. The Key Vault key allows key operations and the Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata.  
@@ -169,6 +171,7 @@ TLS certificates can help encrypt communications over the internet and establish
 A certificate can help secure the code/script of software, thereby ensuring that the author can share the software over the internet without being changed by malicious entities. Furthermore, once the author signs the code using a certificate leveraging the code signing technology, the software is marked with a stamp of authentication displaying the author and their website. Therefore, the certificate used in code signing helps validate the software's authenticity, promoting end-to-end security.
 
 ## Next steps
+- [Certificate creation methods](create-certificate.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
