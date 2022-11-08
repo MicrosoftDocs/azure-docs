@@ -61,7 +61,7 @@ For more information about the built-in policy, see **Storage accounts should pr
 
 #### Assign the built-in policy for a resource scope
 
-Follow these steps to assign the built-in policy to the appropriate scope in the Azure portal:
+Follow these steps to assign the built-in policy for the appropriate scope in the Azure portal:
 
 1. In the Azure portal, search for *Policy* to display the Azure Policy dashboard.
 1. In the **Authoring** section, select **Assignments**.
@@ -94,13 +94,17 @@ To monitor your storage accounts for compliance with the Shared Key access polic
 
 1. On the Azure Policy dashboard, locate and select the policy assignment you created in the previous section.
 1. Select the **View compliance** tab.
-1. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
+1. Any storage accounts within the scope of the policy assignment that do not meet the policy requirements appear in the compliance report.
 
     :::image type="content" source="media/shared-key-authorization-prevent/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/shared-key-authorization-prevent/policy-compliance-report-portal.png":::
 
-To get more information about why a storage is non-compliant, select **Details** under **Compliance reason**.
+To get more information about why a storage account is non-compliant, select **Details** under **Compliance reason**.
 
-To bring a storage account into compliance, follow the remaining steps in this article to [detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to access the storage account and change those applications to use Azure AD authorization. Continue to monitor the policy for compliance until you are satisfied it is safe to [disable Shared Key access](#remediate-authorization-via-shared-key).
+To bring a storage account into compliance, follow the remaining steps in this article to:
+
+1. [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to access the storage account.
+1. Change those applications to use Azure AD authorization.
+1. [Remediate authorization via Shared Key](#remediate-authorization-via-shared-key)
 
 ## Detect the type of authorization used by client applications
 
@@ -117,7 +121,13 @@ To track how requests to a storage account are being authorized, use Azure Metri
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 
 1. Navigate to your storage account in the Azure portal. Under the **Monitoring** section, select **Metrics**.
-1. Select **Add metric**. In the **Metric** dialog, specify the following values:
+1. The new metric box should appear:
+
+    :::image type="content" source="media/shared-key-authorization-prevent/metric-new-metric-portal.png" alt-text="Screenshot showing the new metric dialog" lightbox="media/shared-key-authorization-prevent/metric-new-metric-portal.png":::
+
+   If it doesn't, select **Add metric**.
+
+1. In the **Metric** dialog, specify the following values:
     1. Leave the **Scope** field set to the name of the storage account.
     1. Set the **Metric Namespace** to *Account*. This metric will report on all requests against the storage account.
     1. Set the **Metric** field to *Transactions*.
@@ -144,7 +154,7 @@ You can also configure an alert rule to notify you when a certain number of requ
 
 Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which clients are authorizing requests with Shared Key or a SAS token.
 
-To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
+To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -154,7 +164,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings (preview)**.
+1. In the Monitoring section, select **Diagnostic settings**.
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
@@ -167,7 +177,7 @@ You can create a diagnostic setting for each type of Azure Storage resource in y
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### Query logs for requests made with Shared Key or SAS
 
