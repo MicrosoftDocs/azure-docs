@@ -635,7 +635,7 @@ curl https://example_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65
 This API will retrieve the events associated with the specified fine tuning job. To stream events as they become available, use the query parameter “stream” and pass true value (&stream=true)
 
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}/events?api-version={api-version}
 ```
 
