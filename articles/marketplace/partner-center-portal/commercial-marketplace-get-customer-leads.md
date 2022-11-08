@@ -22,9 +22,8 @@ Leads are customers interested in or deploying your offers from [Microsoft AppSo
 
 Here are places where a lead is generated:
 
-- A customer consents to sharing their information after they select **Contact me** from the commercial marketplace. This lead is an *initial interest* lead. We share information with you about the customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
-
-    ![Dynamics 365 Contact Me](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
+- A customer consents to sharing their information after they select **Contact me** from the commercial marketplace. This lead is an *initial interest* lead. We share information with you about the customer who has expressed interest in getting your product, including notes they wrote to express their needs. The lead is the top of the acquisition funnel.
+       ![Dynamics 365 Contact Me](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
 - A customer selects **Get It Now** (or selects **Create** in the [Azure portal](https://portal.azure.com/)) to get your offer. This lead is an *active* lead. We share information with you about the customer who has started to deploy your product.
 
