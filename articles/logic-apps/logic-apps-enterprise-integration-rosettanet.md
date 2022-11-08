@@ -276,7 +276,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 To accelerate development and recommend integration patterns, you can use Consumption logic app templates for decoding and encoding RosettaNet messages. When you create a Consumption logic app workflow, you can select from the template gallery in the designer. You can also find these templates in the [GitHub repository for Azure Logic Apps](https://github.com/Azure/logicapps).
 
-:::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png" alt-text="Screenshot of the designer. The 'Enterprise Integration' category and templates for decoding and encoding RosettaNet messages are selected.":::
+:::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png" alt-text="Screenshot of the designer. The Enterprise Integration category and templates for decoding and encoding RosettaNet messages are selected.":::
 
 ## Next steps
 
