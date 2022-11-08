@@ -174,8 +174,10 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
 1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Edit schema**.
     This opens the **Schema Editor** screen.
-1. Scroll down to the **Custom Columns** section of the **Schema Editor** screen. 
+1. Scroll down to the **Custom Columns** section of the **Schema Editor** screen.
+ 
     :::image type="content" source="media/create-custom-table/add-or-delete-column-azure-monitor-logs.png" alt-text="Screenshot showing the Schema Editor screen with the Add a column and Delete buttons highlighted." lightbox="media/create-custom-table/add-or-delete-column-azure-monitor-logs.png":::
+
 1. To add a new column: 
     1. Select **Add a column**.
     1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
