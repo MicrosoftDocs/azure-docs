@@ -103,7 +103,7 @@ The service applies the first entry that it finds, such that:
 - If the first enrollment entry found is disabled, the service doesn't provision the device.  
 - If no enrollment entry is found for any of the certificates in the device's certificate chain, the service doesn't provision the device.
 
-Note that while each certificate in a device's certificate chain can be specified in an enrollment entry, it can be specified in only one entry.
+Note that each certificate in a device's certificate chain can be specified in an enrollment entry, but it can be specified in only one entry in the DPS instance.
 
 This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains:
 
