@@ -145,7 +145,7 @@ The `structure` feature class defines a physical and non-overlapping area that c
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` | [category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `levelId` | [level.Id](#level) | true | The ID of a [`level`](#level) feature. |
@@ -182,7 +182,7 @@ The `zone` feature class defines a virtual area, like a WiFi zone or emergency a
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` | [category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `setId` | string | true |Required for zone features that represent multi-level zones. The `setId` is the unique ID for a zone that spans multiple levels. The `setId` enables a zone with varying coverage on different floors to be  represented with different geometry on different levels. The `setId` can be any string and is case-sensitive. It's recommended that the `setId` is a GUID.  Maximum length allowed is 1,000 characters.|
@@ -222,7 +222,7 @@ The `level` class feature defines an area of a building at a set elevation. For 
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`facilityId` | [facility.Id](#facility) |true | The ID of a [`facility`](#facility) feature.|
 | `ordinal` | integer | true | The level number. Used by the [`verticalPenetration`](#verticalpenetration) feature to determine the relative order of the floors to help with travel direction. The general practice is to start with 0 for the ground floor. Add +1 for every floor upwards, and -1 for every floor going down. It can be modeled with any numbers, as long as the higher physical floors are represented by higher ordinal values. |
@@ -264,7 +264,7 @@ The `facility` feature class defines the area of the site, building footprint, a
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` | [category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 |`occupants` | array of [directoryInfo.Id](#directoryinfo) | false | The IDs of [directoryInfo](#directoryinfo) features. Used to represent one or many occupants in the feature. |
@@ -307,7 +307,7 @@ The `verticalPenetration` class feature defines an area that, when used in a set
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` | [category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `setId` | string | true | Vertical penetration features must be used in sets to connect multiple levels. Vertical penetration features in the same set are connected. The `setId` can be any string, and is case-sensitive. Using a GUID as a `setId` is recommended. Maximum length allowed is 1,000 characters. |
@@ -347,7 +347,7 @@ The `opening` class feature defines a traversable boundary between two units, or
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` |[category.Id](#category) |true | The ID of a category feature.|
 | `levelId` | [level.Id](#level) | true | The ID of a level feature. |
@@ -385,7 +385,7 @@ The `directoryInfo` object class feature defines the name, address, phone number
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`streetAddress` |string |false |Street address part of the address.  Maximum length allowed is 1,000 characters. |
 |`unit` |string |false |Unit number part of the address.  Maximum length allowed is 1,000 characters. |
@@ -426,7 +426,7 @@ The `pointElement` is a class feature that defines a point feature in a unit, su
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` |[category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `unitId` | string | true | The ID of a [`unit`](#unit) feature containing this feature.  Maximum length allowed is 1,000 characters.|
@@ -464,7 +464,7 @@ The `lineElement` is a class feature that defines a line feature in a unit, such
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` |[category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `unitId` | [`unitId`](#unit) | true | The ID of a [`unit`](#unit) feature containing this feature. |
@@ -504,7 +504,7 @@ The `areaElement` is a class feature that defines a polygon feature in a unit, s
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` |[category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 | `unitId` |  [`unitId`](#unit) | true | The ID of a [`unit`](#unit) feature containing this feature. |
@@ -539,7 +539,7 @@ The `category` class feature defines category names. For example: "room.conferen
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | The category's original ID derived from client data.  Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the category with another category in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`name` | string | true | Name of the category. Suggested to use "." to represent hierarchy of categories. For example: "room.conference", "room.privateoffice". Maximum length allowed is 1,000 characters. |
 
