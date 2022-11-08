@@ -31,7 +31,7 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 
 :::image type="content" source="media/merge/throughput-and-scaling-category.png" alt-text="Screenshot of Throughput and Scaling content in Diagnose and solve issues page.":::
 
-:::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Screenshot of merge eligibility check with table of all preview eligibility criteria.":::
+:::image type="content" source="media/merge/merge-eligibility-check.png" lightbox="media/merge/merge-eligibility-check.png" alt-text="Screenshot of merge eligibility check with table of all preview eligibility criteria.":::
 
 ### How to identify containers to merge
 
