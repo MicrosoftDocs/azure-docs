@@ -18,7 +18,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| The ability to create custom recommendations in AWS and GCP is set to be deprecated | November 2022 |
+| [The ability to create custom recommendations in AWS and GCP is set to be deprecated](#the-ability-to-create-custom-recommendations-in-aws-and-gcp-is-set-to-be-deprecated) | November 2022 |
 | [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 
