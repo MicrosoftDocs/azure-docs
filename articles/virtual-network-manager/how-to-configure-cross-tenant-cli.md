@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure cross-tenant connection in Azure Virtual Network Manager
 
-In this article, you’ll learn how-to create cross-tenant connections in Azure Virtual Network Manager using [Azure CLI](/cli/azure/network/manager/scope-connection). Cross-tenant support allows organizations to use a central Network Manager instance for managing virtual networks across different tenants and subscriptions. First, you'll create the scope connection on the central network manager. Then you'll create the network manager connection on the connecting tenant, and verify connection. Last, you'll add virtual networks from different tenants and verify. Once completed, You can centrally manage the resources of other tenants from a central network manager instance.
+In this article, you’ll learn how-to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager using [Azure CLI](/cli/azure/network/manager/scope-connection). Cross-tenant support allows organizations to use a central Network Manager instance for managing virtual networks across different tenants and subscriptions. First, you'll create the scope connection on the central network manager. Then you'll create the network manager connection on the connecting tenant, and verify connection. Last, you'll add virtual networks from different tenants and verify. Once completed, You can centrally manage the resources of other tenants from a central network manager instance.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -96,7 +96,7 @@ Now that the virtual network is in the network group, configurations will be app
 ```azurecli
 
 # Delete static member group
-az network manager group static-member delete --network-group-name  "CrossTenantNetworkGroup" --network-manager-name " myAVNM" --resource-group "myRG" --static-member-name "fabrikamVnet” 
+az network manager group static-member delete --network-group-name  "CrossTenantNetworkGroup" --network-manager-name " myAVNM" --resource-group "myRG" --static-member-name "targetVnet01” 
 
 # Delete scope connections
 az network manager scope-connection delete --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" 

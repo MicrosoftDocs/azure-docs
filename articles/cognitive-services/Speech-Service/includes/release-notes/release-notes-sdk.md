@@ -2,9 +2,27 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/22/2022
+ms.date: 11/01/2022
 ms.author: eur
 ---
+
+### Speech SDK 1.24.1: November 2022 release
+
+#### New features
+- Published packages for the Embedded Speech preview. See https://aka.ms/embedded-speech for more information.
+
+#### Bug fixes
+
+- **All programing languages**
+    - Fix embedded TTS crash when voice font is not supported
+    - Fix stopSpeaking() cannot stop playback on Linux ([#1686](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1686))
+- **JavaScript SDK**
+    - Fixed regression in how conversation transcriber gated audio.
+- **Java**
+    - Temporarily Published updated POM and Javadocs files to Maven Central to enable the docs pipeline to update online reference docs.
+- **Python**
+    - Fix regression where python speak_text(ssml) returns void.
+
 
 ### Speech SDK 1.24.0: October 2022 release
 

@@ -5511,6 +5511,11 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-metrics-addon.md",
             "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-enable",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-monitoring-addon.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
+            "redirect_document_id": false
         }
     ]
 }

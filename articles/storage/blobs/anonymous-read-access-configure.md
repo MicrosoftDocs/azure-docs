@@ -3,12 +3,12 @@ title: Configure anonymous public read access for containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container public access setting to make containers and blobs available for anonymous access.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/28/2022
-ms.author: jammart
+ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -81,7 +81,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
-    -AllowBlobPublicAccess $false
+    -AllowBlobPublicAccess $true
 
 # Read the AllowBlobPublicAccess property for the newly created storage account.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
@@ -174,7 +174,7 @@ To allow or disallow public access for a storage account with a template, create
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
 
-When a container is configured for anonymous public access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block anonymous traffic.
+When a container is configured for anonymous public access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block traffic inline with the configured ACLs.
 
 Allowing or disallowing blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 

@@ -68,7 +68,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries. Public preview in the portal and preview REST APIs.|
+| December | [Enhanced configuration for semantic search](semantic-how-to-query-request.md##2---create-a-semantic-configuration | This configuration is a new addition to the 2021-04-30-Preview API, and is now required for semantic queries and Azure portal.|
 | November | [Azure Files indexer (preview)](./search-file-storage-integration.md) | Public preview in the portal and preview REST APIs.|
 | July | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Public preview announcement. |
 | July | [Role-based access control for data plane (preview)](search-security-rbac.md) | Public preview announcement. |

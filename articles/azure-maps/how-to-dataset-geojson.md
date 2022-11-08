@@ -1,9 +1,9 @@
 ---
 title: How to create a dataset using a GeoJson package
-description: Learn how to create a dataset using a GeoJson package embedding the module's JavaScript libraries.
+description: Learn how to create a dataset using a GeoJson package.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/31/2021
+ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -66,10 +66,8 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 1. Copy the value of the `Resource-Location` key in the response header, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the GeoJSON package resource.
 
 ### Create a dataset
-<!--
+
 A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
--->
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new create dataset API. The create dataset API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
 
 > [!IMPORTANT]
 > This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted Drawing package.
@@ -104,11 +102,7 @@ See [Next steps](#next-steps) for links to articles to help you complete your in
 
 ## Add data to an existing dataset
 
-<!--
 Data can be added to an existing dataset by providing the `datasetId` parameter to the [dataset create API][Dataset Create 2022-09-01-preview] along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
--->
-
-Data can be added to an existing dataset by providing the `datasetId` parameter to the create dataset API along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
 
 One thing to consider when adding to an existing dataset is how the feature IDs are created. If a dataset is created from a converted drawing package, the feature IDs are generated automatically. When a dataset is created from a GeoJSON package, feature IDs must be provided in the GeoJSON file. When appending to an existing dataset, the original dataset drives the way feature IDs are created. If the original dataset was created using a `udid`, it uses the IDs from the GeoJSON, and will continue to do so with all GeoJSON packages appended to that dataset in the future.  If the dataset was created using a `conversionId`, IDs will be internally generated, and will continue to be internally generated with all GeoJSON packages appended to that dataset in the future.
 
@@ -124,8 +118,6 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 |--------------|-------------------------------------------------------------------|
 | conversionId | The ID returned when converting your drawing package. For more information, see [Convert a Drawing package][conversion]. |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package). |
-
-<!--For more information, see [][].-->
 
 ## Geojson zip package requirements
 
@@ -186,5 +178,5 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Facility Ontology]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
 [dataset-concept]: creator-indoor-maps.md#datasets
-<!--[Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create-->
+[Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/

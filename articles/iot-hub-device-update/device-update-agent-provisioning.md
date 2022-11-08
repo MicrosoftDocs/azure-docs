@@ -170,13 +170,13 @@ This section describes how to start and verify the Device Update agent as a modu
 1. Open a Terminal window, and enter the command below.
 
     ```shell
-    sudo systemctl restart adu-agent
+    sudo systemctl restart deviceupdate-agent
     ```
     
 1. You can check the status of the agent using the command below. If you see any issues, refer to this [troubleshooting guide](troubleshoot-device-update.md).
 	
     ```shell
-    sudo systemctl status adu-agent
+    sudo systemctl status deviceupdate-agent
     ```
     
     You should see status OK.
