@@ -167,6 +167,8 @@ items:
       href: register-scan-azure-multiple-sources.md
     - name: Azure Synapse Analytics workspaces
       href: register-scan-synapse-workspace.md
+    - name: Azure Arc-enabled SQL Server
+      href: register-scan-azure-arc-enabled-sql-server.md
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
       displayName: Register and scan Azure Blob Storage
