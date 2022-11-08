@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: how-to
-ms.date: 09/10/2022
+ms.date: 11/09/2022
 ---
 
 # Set a table's log data plan in Azure Monitor Logs

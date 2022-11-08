@@ -4,7 +4,7 @@ description: Learn how to manage the data and costs related to a Log Analytics w
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 11/09/2022
 # Customer intent: As a Log Analytics workspace administrator, I want to understand the options I have for configuring tables in a Log Analytics workspace so that I can manage the data and costs related to a Log Analytics workspace effectively.
 
 ---
