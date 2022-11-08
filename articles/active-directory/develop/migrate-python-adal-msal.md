@@ -119,8 +119,3 @@ for old_rt, scopes in get_preexisting_rt_and_their_scopes_from_elsewhere():
 
 print("Migration completed")
 ```
-
-
-## Next steps
-
-For more information, refer to [v1.0 and v2.0 comparison](azure-ad-endpoint-comparison.md).
