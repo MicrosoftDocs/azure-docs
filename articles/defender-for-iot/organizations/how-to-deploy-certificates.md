@@ -1,11 +1,11 @@
 ---
-title: Deploy certificates
+title: Setting SSL/TLS appliance certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
 ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# About certificates
+# Certificates for appliance encryption and authentication (OT appliances)
 
 This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
@@ -180,9 +180,9 @@ You can test certificates before deploying them to your sensors and on-premises 
 
 | **Test** | **CLI command** |
 |--|--|
-| Check a Certificate Signing Request (CSR) | openssl req -text -noout -verify -in CSR.csr |
-| Check a private key  | openssl rsa -in privateKey.key -check  |
-| Check a certificate  | openssl x509 -in certificate.crt -text -noout |
+| Check a Certificate Signing Request (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
+| Check a private key  | `openssl rsa -in privateKey.key -check`  |
+| Check a certificate  | `openssl x509 -in certificate.crt -text -noout` |
 
 If these tests fail, review [Certificate file parameter requirements](#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
 
