@@ -26,25 +26,28 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Create a WAF policy
 
-1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the search box, and then select **Web Application Firewall (WAF)**.
+1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the search box, and then select **Web Application Firewall policies (WAF)**.
 2. Select **Create**.
 3. On the **Create a WAF policy** page, use the following values to complete the **Basics** tab:
 
    |Setting  |Value  |
    |---------|---------|
    |Policy for     |Global WAF (Front Door)|
+   |Front door tier     |Standard or Premium, depending on whether your Front Door is Standard or Premium|
    |Subscription     |Select your subscription|
    |Resource group     |Select the resource group where your Front Door is.|
    |Policy name     |Type a name for your policy|
    |Policy state     |Enabled|
+   |Policy mode     |Prevention|
 
-   Select **Next: Policy settings**
 
-1. On the **Policy settings** tab, select **Prevention**. For the **Block response body**, type *You've been blocked!* so you can see that your custom rule is in effect.
-2. Select **Next: Managed rules**.
-3. Select **Next: Custom rules**.
-4. Select **Add custom rule**.
-5. On the **Add custom rule** page, use the following test values to create a custom rule:
+
+1. Select **Next: managed rules**.
+2. Select **Next: Policy settings**.
+3. On the **Policy settings** tab, for the **Block response body**, type *You've been blocked!* so you can see that your custom rule is in effect.
+4. Select **Next: Custom rules**.
+5. Select **Add custom rule**.
+6. On the **Add custom rule** page, use the following test values to create a custom rule:
 
    |Setting  |Value  |
    |---------|---------|
@@ -61,11 +64,12 @@ Create an Azure Front Door profile by following the instructions described in [Q
    :::image type="content" source="../media/waf-front-door-configure-ip-restriction/custom-rule.png" alt-text="Custom rule":::
 
    Select **Add**.
-6. Select **Next: Association**.
-7. Select **Add frontend host**.
-8. For **Frontend host**, select your frontend host and select **Add**.
-9. Select **Review + create**.
-10. After your policy validation passes, select **Create**.
+7. Select **Next: Association**.
+8. Select **Add frontend host**.
+9. For **Frontend host**, select your frontend host.
+10. For **Domain**     , select your domain and select **Add**.
+11. Select **Review + create**.
+12. After your policy validation passes, select **Create**.
 
 ### Test your WAF policy
 
