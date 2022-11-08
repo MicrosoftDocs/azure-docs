@@ -1,3 +1,17 @@
+---
+title: How to monitor apps by Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise Tier
+description: How to monitor apps by Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
+author: 
+ms.author: yuwzho
+ms.service: spring-apps
+ms.topic: how-to
+ms.date: 12/01/2022
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+---
+
+# Monitor apps by Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
+
 The Application Live View encompasses a sophisticated UI that provides visual insights into running apps by inspecting the app actuator information. The actuator data from the app serves as the source of truth. Application Live View provides a live view of the data from inside of the app only. Application Live View does not store any of the app data for further analysis or historical views. This easy-to-use interface provides ways to troubleshoot, learn, and maintain an overview of certain aspects of the apps. It gives a certain level of control to the users to change some parameters such as log levels and environment properties of running apps.
 
 This article explains the Application Live View UI features and describe the pages and views included in the Application Live View user interface.
