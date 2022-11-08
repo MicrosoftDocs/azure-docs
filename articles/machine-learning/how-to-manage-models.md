@@ -321,7 +321,7 @@ from azure.ai.ml import MLClient
 # Model Asset: azureml:<my_model>:<version>
 
 my_job_inputs = {
-    "input_model": Input(type=AssetTypes.MLFLOW_MODEL, path="<path>")
+    "input_model": Input(type=AssetTypes.MLFLOW_MODEL, path="mlflowmodel")
 }
 
 job = command(
@@ -369,7 +369,7 @@ inputs:
 outputs:
   output_folder: 
     type: <type> # mlflow_model,custom_model, triton_model
-environment: azureml:<environment_name>@latest
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9
 compute: azureml:cpu-cluster
 ```
 
@@ -410,7 +410,7 @@ my_job_outputs = {
 
 job = command(
     code="./src",  # local path where the code is stored
-    command="python load_write_score.py --input_model ${{inputs.input_model}} --input_data ${{inputs.input_data}} --output_folder ${{outputs.output_folder}}",
+    command="python load_write_model.py --input_model ${{inputs.input_model}} --output_folder ${{outputs.output_folder}}",
     inputs=my_job_inputs,
     outputs=my_job_outputs,
     environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
