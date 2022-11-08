@@ -34,7 +34,7 @@ Your Log Analytics workspace can contain the following types of tables:
 | Table type                           | Data source                                                                                          | Setup                                                                                                                                                     |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure table            | Logs from Azure resources or required by Azure services and solutions.                                                                                        | Azure Monitor Logs creates Azure tables automatically based on Azure services you use and [diagnostic settings](../essentials/diagnostic-settings.md) you configure for specific resources.                                                                 |
-| Custom table | [Create a custom table](../logs/create-custom-table.md).|
+| Custom table | Non-Azure resource and any other data source, such as file-based logs. | [Create a custom table](../logs/create-custom-table.md).|
 | Search results | Logs within the workspace. | Azure Monitor creates a search job results table when you run a [search job](../logs/search-jobs.md). |
 | Restored logs | Archived logs. | Azure Monitor creates a restored logs table when you [restore archived logs](../logs/restore.md). |
 
