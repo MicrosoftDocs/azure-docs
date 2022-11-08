@@ -141,10 +141,6 @@ In addition to setting up DNS, you also need to enable it in the [App Service En
 
 The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
 
-## Limitations
-
-While App Service Environment does deploy into your virtual network, you currently cannot use Azure Network Watcher or NSG flow to monitor outbound traffic.
-
 ## More resources
 
 - [Environment variables and app settings reference](../reference-app-settings.md)

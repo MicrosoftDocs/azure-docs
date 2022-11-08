@@ -4,6 +4,8 @@ description: This article provides an overview of components and architecture us
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # VMware to Azure disaster recovery architecture - Modernized
