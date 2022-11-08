@@ -1,3 +1,15 @@
+---
+title: How to create an accelerator.yaml for App Accelerator for VMware Tanzu
+titleSuffix: Azure Spring Apps Enterprise Tier
+description: How to create an accelerator.yaml for App Accelerator for VMware Tanzu
+author: 
+ms.service: spring-apps
+ms.topic: how-to
+ms.date: 12/01/2022
+ms.author: caiqing
+ms.custom: 
+---
+
 This topic describes how to create an accelerator.yaml file. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. For more information, see the [Sample accelerator](GUID-creating-accelerators-accelerator-yaml-sample.html).
 
 When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users.
@@ -92,7 +104,7 @@ The following option properties are for UI purposes only.
 
 The screenshot and `accelerator.yaml` file snippet that follows demonstrates each `inputType`. You can also see the sample [demo-input-types](https://github.com/sample-accelerators/demo-input-types) on GitHub.
 
-![Screenshot of option inputs for sample accelerator demo-input-types](Images/images-demo-input-types-2.png)
+![accelerator-demo-input-types](./media/how-to-create-accelerator-yaml/demo-input-types.png)
 
     accelerator:
       displayName: Demo Input Types
