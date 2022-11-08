@@ -19,7 +19,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 This article shows you how to start or stop your Azure Spring Apps service instance.
 
 > [!NOTE]
-> You can stop and start your Azure Spring Apps service instance to help you save costs, but you shouldn't stop and start a a running instance for service recovery.
+> You can stop and start your Azure Spring Apps service instance to help you save costs, but you shouldn't stop and start a running instance for service recovery.
 
 Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not need to run continuously if you have a service instance that's used only during business hours. There may be times when Azure Spring Apps is idle and running only the system components.
 
