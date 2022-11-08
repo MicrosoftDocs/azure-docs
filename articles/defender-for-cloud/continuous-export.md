@@ -114,16 +114,6 @@ Here are some examples of options that you can only use in the the API:
     > [!TIP]
     > These API-only options are not shown in the Azure portal. If you use them, there'll be a banner informing you that other configurations exist.
 
-### Export of data between different tenants
-
-It is possible to use continuous export to send data between tenants without using [Azure Lighthouse](https://azure.microsoft.com/products/azure-lighthouse/).
- 
-Export to Event Hub will work when configured both from the UI and API.
-
-Export to Log Analytics workspace between tenants can be configured through the API.
-
-Learn more about the automations API in the [REST API documentation](/rest/api/defenderforcloud/automations).
-
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
 ### Configure continuous export at scale using the supplied policies
@@ -182,7 +172,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ## Export data to an Azure Event hub or Log Analytics workspace in another tenant
 
-You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, which can help you to gather your data for central analysis.
+You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](https://learn.microsoft.com/azure/lighthouse/overview). When collecting data into a tenant, you can analyze the data from one central location. 
 
 To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
 
