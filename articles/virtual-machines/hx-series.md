@@ -18,18 +18,19 @@ HX-series VMs are optimized for workloads that require significant memory capaci
 
 During preview, HX VMs will feature up to 176 AMD EPYC™ 7004-series (Genoa) CPU cores, 1408 GB of RAM, and no simultaneous multithreading. HX-series VMs also provide 800 GB/s of DDR5 memory bandwidth and 768 MB L3 cache per VM, up to 12 GB/s (reads) and 7 GB/s (writes) of block device SSD performance, and clock frequencies up to 3.7 GHz. 
 
-**Note:** At General Availability, Azure HX-series VMs will automatically be upgraded to Genoa-X processors featuring 3D V-Cache. Updates to technical specifications for HX will be posted at that time. 
+> [!Note] 
+> At General Availability, Azure HX-series VMs will automatically be upgraded to Genoa-X processors featuring 3D V-Cache. Updates to technical specifications for HX will be posted at that time. 
 
 All HX-series VMs feature 400 GB/s NDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. NDR continues to support features like Adaptive Routing and the Dynamically Connected Transport (DCT). This newest generation of InfiniBand also brings greater support for offload of MPI collectives, optimized real-world latencies due to congestion control intelligence, and enhanced adaptive routing capabilities. These features enhance application performance, scalability, and consistency, and their usage is recommended.  
 
-[Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
-[VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported at preview<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
+[Premium Storage](premium-storage-performance.md): Supported\
+[Premium Storage caching](premium-storage-performance.md): Supported\
+[Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance)\
+[Live Migration](maintenance-and-updates.md): Not Supported\
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported\
+[VM Generation Support](generation-2.md): Generation 1 and 2\
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported at preview\
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 <br>
 
 |Size |Physical CPU cores |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth (GB/s) |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
