@@ -1,8 +1,8 @@
 ---
 title: Azure Confidential Ledger write transaction receipts
 description: Azure Confidential Ledger write transaction receipts
-author: apiccione
-ms.author: apiccione
+author: andpiccione
+ms.author: andpiccione
 ms.date: 11/07/2022
 ms.service: confidential-ledger
 ms.topic: overview

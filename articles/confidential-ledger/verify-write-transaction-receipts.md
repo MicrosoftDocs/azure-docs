@@ -1,8 +1,8 @@
 ---
 title: Verify Azure Confidential Ledger write transaction receipts
 description: Verify Azure Confidential Ledger write transaction receipts
-author: apiccione
-ms.author: apiccione
+author: andpiccione
+ms.author: andpiccione
 ms.date: 11/07/2022
 ms.service: confidential-ledger
 ms.topic: how-to
@@ -10,8 +10,6 @@ ms.topic: how-to
 ---
 
 # Verify Azure Confidential Ledger write transaction receipts
-
-## Context
 
 An Azure Confidential Ledger write transaction receipt represents a cryptographic Merkle proof that the corresponding write transaction has been globally committed by the CCF network. Azure Confidential Ledger users can get a receipt over a committed write transaction at any point in time to verify that the corresponding write operation was successfully recorded into the immutable ledger.
 
