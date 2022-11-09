@@ -7,7 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: merae
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, references_regions
 ms.topic: overview
 ms.date: 11/07/2022
 ---
@@ -108,9 +108,11 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. From either the Azure portal or the Try Azure Cosmos DB free page, select the option to **Upgrade** your account.
 
-    :::image type="content" source="media/try-free/upgrade-account.png" lightbox="media/try-free/upgrade-account.png" alt-text="Confirmation page for the account upgrade experience.":::
+    :::image type="content" source="media/try-free/upgrade-account.png" lightbox="media/try-free/upgrade-account.png" alt-text="Screenshot of the confirmation page for the account upgrade experience.":::
 
 1. Choose to either **Sign up for an Azure account** or **Sign in** and create a new Azure Cosmos DB account following the instructions in the next section.
+
+    :::image type="content" source="media/try-free/account-creation-options.png" lightbox="media/try-free/account-creation-options.png" alt-text="Screenshot of the sign-in or sign-up page.":::
 
 ### Create a new account
 
@@ -168,7 +170,7 @@ There can only be one free Try Azure Cosmos DB account per Microsoft account. Yo
 
 1. Select **Delete my account**.
 
-    :::image type="content" source="media/try-free/delete-account.png" lightbox="media/try-free/delete-account.png" alt-text="Confirmation page for the account deletion experience.":::
+    :::image type="content" source="media/try-free/delete-account.png" lightbox="media/try-free/delete-account.png" alt-text="Screenshot of the confirmation page for the account deletion experience.":::
 
 ## Next steps
 
