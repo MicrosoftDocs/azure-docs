@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2022
+ms.date: 11/09/2022
 ms.author: jodowns
 ---
 
@@ -26,7 +26,7 @@ In this reference architecture, you deploy a storage account and Front Door prof
 
 Data flows through the scenario as follows:
 
-1. The client establishes a connection to Azure Front Door by using a custom domain name. The client's connection terminates at a nearby Front Door point of presence (PoP).
+1. The client establishes a secure connection to Azure Front Door by using a custom domain name and Front Door-provided TLS certificate. The client's connection terminates at a nearby Front Door point of presence (PoP).
 1. If the Front Door PoP's cache contains a valid response for this request, Front Door returns the response immediately.
 1. Otherwise, the PoP sends the request to the origin storage account, wherever it is in the world, by using Microsoft's backbone network. The PoP connects to the storage account by using a separate, long-lived, TCP connection. In this scenario, Private Link is used to securely connect to the storage account.
 1. The storage account sends a response to the Front Door PoP.
@@ -66,11 +66,11 @@ Front Door is designed to be internet-facing, and this scenario is optimized for
 
 Front Door securely connects to the Azure Storage account by using [Private Link](private-link.md). The storage account is configured to deny direct access from the internet, and to only allow requests through the private endpoint connection used by Front Door. This configuration ensures that every request is processed by Front Door, and avoids exposing the contents of your storage account directly to the internet. However, this configuration requires the premium SKU of Azure Front Door. If you use the standard SKU, your storage account must be publicly accessible. You could use a [shared access signature](../storage/common/storage-sas-overview.md) to secure requests to the storage account, and either have the client include the signature on all of their requests, or use the Front Door [rules engine](front-door-rules-engine.md) to attach it from Front Door.
 
-#### Custom domains
+#### Custom domain names
 
-Front Door supports custom domains, and can issue and manage TLS certificates for those domains. By using custom domains, you can ensure that your clients receive files from a trusted and familiar domain name, and that TLS encrypts every connection to Front Door.
+Front Door supports custom domain names, and can issue and manage TLS certificates for those domains. By using custom domains, you can ensure that your clients receive files from a trusted and familiar domain name, and that TLS encrypts every connection to Front Door. When Front Door manages your TLS certificates, you avoid outages and security issues due to invalid or outdated TLS certificates.
 
-When Front Door manages your TLS certificates, you avoid outages and security issues due to invalid or outdated TLS certificates.
+Azure Storage also supports custom domain names, but doesn't support HTTPS when using a custom domain. Front Door is the best approach to use a custom domain name with a storage account.
 
 #### Web application firewall
 

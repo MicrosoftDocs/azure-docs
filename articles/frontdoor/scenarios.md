@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2022
+ms.date: 11/09/2022
 ms.author: jodowns
 ---
 
@@ -24,35 +24,50 @@ The [Azure Well-Architected Framework](/azure/architecture/framework/) describes
 
 ### Performance efficiency
 
-Front Door provides a powerful content delivery network (CDN) to [cache content at the network edge](front-door-caching.md). Almost all web applications contain cacheable content. Static assets like images and JavaScript files are cacheable. Also, many APIs return responses that can be cached, even for a short duration. Caching helps to improve the performance of your application, and to reduce the load on your application servers.
+Front Door provides several features to help to accelerate the performance of your application.
 
-Additionally, Front Door's global traffic acceleration capabilities help to [improve the performance of dynamic web applications](front-door-traffic-acceleration.md) by routing requests through Microsoft's high-speed backbone network.
+- **Caching:** Front Door provides a powerful content delivery network (CDN) to [cache content at the network edge](front-door-caching.md). Almost all web applications contain cacheable content. Static assets like images and JavaScript files are cacheable. Also, many APIs return responses that can be cached, even for a short duration. Caching helps to improve the performance of your application, and to reduce the load on your application servers.
+- **Compression:** [Many response types can be compressed](standard-premium/how-to-compression.md), which can improve your application's response time.
+- **Global traffic acceleration:** Front Door's global traffic acceleration capabilities help to [improve the performance of dynamic web applications](front-door-traffic-acceleration.md) by routing requests through Microsoft's high-speed backbone network.
+- **TLS termination:** Connections to Front Door terminate at the closest Front Door point of presence (PoP). TLS decryption is performed by the PoP. The biggest performance hit when doing TLS decryption is the initial handshake. To improve performance, the server doing the decryption caches TLS session IDs and manages TLS session tickets. If this is done at the Front Door PoP, all requests from the same client can use the cached values. If it's done on the origin servers, then each time the client's requests go to a different server the client must re‑authenticate. The use of TLS tickets can help mitigate this issue, but they aren't supported by all clients and can be difficult to configure and manage.
 
 ### Security
 
-Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
+Front Door's security capabilities help to protect your application servers from a variety of threats.
 
-Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
-
-[Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
+- **End-to-end TLS:** Front Door supports end-to-end TLS encryption. Front Door TLS/SSL offload terminates the TLS connection, decrypts the traffic at the Azure Front Door, and re-encrypts the traffic before forwarding it to the backend.
+- **Managed TLS certificates:** Front Door can [issue and manage certificates](standard-premium/how-to-configure-https-custom-domain.md#afd-managed-certificates-for-non-azure-pre-validated-domain), ensuring that your applications are protected by strong encryption and trust.
+- **Custom TLS certificates:** If you need to bring your own TLS certificates, Front Door enables you to use a [managed identity to access the key vault](managed-identity.md) that contains the certificate.
+- **Web application firewall:** Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
+- **DDoS protection:** Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
+- **Private Link origins:** [Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
 
 ### Reliability
 
-Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](routing-methods.md). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
+By using Front Door, you can create resilient, highly available solutions.
 
-By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
+- **Load balancing and failover:** Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](routing-methods.md). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
+- **Anycast routing:** Front Door itself has a [large number of PoPs](edge-locations-by-region.md), each of which can serve traffic for any request. [Anycast routing](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) steers traffic to the closest available Front Door PoP, and if a PoP is unavailable, clients are automatically routed to the next closest PoP.
+- **Caching:** By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
 ### Cost optimization
 
-Front Door can help you to reduce the cost of running your Azure solution by using caching. Cached content is returned from global Front Door edge nodes, reducing global bandwidth charges, and reducing the load on - and resources required by - your application server.
+Front Door can help you to reduce the cost of running your Azure solution.
 
-You can use a single Front Door profile for many different applications. When you configure multiple applications in Front Door, you share the cost across each application, and you can reduce the configuration you need to perform.
+- **Caching:** When you enable caching, content is returned from global Front Door edge nodes. This approach reduces global bandwidth charges and improves performance.
+- **Compression:** By compressing your responses, Front Door can reduce the bandwidth charges for your solution.
+- **Spread traffic across origins:** Use Front Door to reduce the need to scale your application servers, or overprovision the capacity of your servers for traffic spikes. Each Front Door PoP can return cached content if it's available, which reduces the load on your application servers. You can also spread traffic across multiple backend servers, reducing the load on each individual server.
+- **Shared profile:** You can use a single Front Door profile for many different applications. When you configure multiple applications in Front Door, you share the cost across each application, and you can reduce the configuration you need to perform.
 
 ### Operational excellence
 
-Front Door can help you to modernize your legacy applications with [HTTP/2 support](front-door-http2.md). The Front Door [rules engine](front-door-rules-engine.md) enables you to change the internal architecture of your solution without affecting your clients.
+Front Door can help to reduce the operational burden of running a modern internet application, and enable you to make some kinds of changes to your solution without modifying your applications.
 
-You can also deploy and configure Front Door by using infrastructure as code (IaC) technologies including Bicep, Terraform, ARM templates, Azure PowerShell, and the Azure CLI.
+- **Managed TLS certificates:** When you use Front Door to [issue and manage certificates](standard-premium/how-to-configure-https-custom-domain.md#afd-managed-certificates-for-non-azure-pre-validated-domain), you don't need to manage certificate renewals, and you reduce likelihood of an outage caused by using an invalid or expired TLS certificate.
+- **Wildcard TLS certificates:** Front Door's support for [wildcard domains](front-door-wildcard-domain.md), including DNS and TLS certificates, enables you to use multiple hostnames without reconfiguring Front Door for each subdomain.
+- **HTTP/2:** Front Door can help you to modernize your legacy applications with [HTTP/2 support](front-door-http2.md) without modifying your application servers.
+- **Rules engine:** The Front Door [rules engine](front-door-rules-engine.md) enables you to change the internal architecture of your solution without affecting your clients.
+- **Infrastructure as code:** You can also deploy and configure Front Door by using infrastructure as code (IaC) technologies including Bicep, Terraform, ARM templates, Azure PowerShell, and the Azure CLI.
 
 ## Solution architecture
 
@@ -67,7 +82,7 @@ The following diagram illustrates a generic solution architecture using Front Do
 
 ### Client to Front Door
 
-Traffic from the client first arrives at a Front Door point of presence (PoP). Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide, and [Anycast](TODO) routes the clients to their closest PoP.
+Traffic from the client first arrives at a Front Door PoP. Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide, and [Anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) routes the clients to their closest PoP.
 
 When the request is received by Front Door's PoP, Front Door uses your [custom domain name](front-door-custom-domain.md) to serve the request. Front Door performs [TLS offload](end-to-end-tls.md) by using either a Front Door-managed TLS certificate or a custom TLS certificate.
 
@@ -75,7 +90,7 @@ The PoP performs many functions based on the configuration you specify in your F
 - Protecting your solution against many types of [DDoS attacks](front-door-ddos.md).
 - Scanning the request for known vulnerabilties, by using the [Front Door WAF](web-application-firewall.md).
 - Returning [cached responses](front-door-caching.md) to improve performance, if they're stored at the Front Door PoP and are valid for the request.
-- [Compressing responses](TODO) to improve performance. 
+- [Compressing responses](standard-premium/how-to-compression.md) to improve performance. 
 - Returning [HTTP redirect responses](front-door-url-redirect.md) directly from Front Door.
 - Selecting the best origin to receive the traffic based on the [routing architecture](front-door-routing-architecture.md).
 - Modifying a request by using the [rules engine](front-door-rules-engine.md).
