@@ -77,6 +77,15 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.20.0
+
+### Release status: 
+11/9/2022: Released for download
+
+### Bug fixes
+
+ - We fixed a bug where the new employeeLeaveDateTime attribute was not syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
+
 ## 2.1.19.0
 
 ### Release status: 

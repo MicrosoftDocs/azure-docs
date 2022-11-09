@@ -19,11 +19,11 @@ ms.custom: private_preview
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
-> Call Automation currently doesnt interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isnt supported. 
+> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported. 
 
 ## Common Use Cases
 
-Some of the common use cases that can be build using Call Automation include:
+Some of the common use cases that can be built using Call Automation include:
 
 - Program VoIP or PSTN calls for transactional workflows such as click-to-call and appointment reminders to improve customer service.
 - Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL) and Recognize (DTMF) actions.
@@ -89,11 +89,11 @@ These actions can be performed on the calls that are answered or placed using Ca
 
 **Add/Remove participant(s)** – One or more participants can be added in a single request with each participant being a variation of supported destination endpoints. A web hook callback is sent for every participant successfully added to the call.
 
-**Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. This audio can be looped if needed in scenarios like playing hold music. To learn more, view our [concepts](./play-action.md) and [quickstart](../../quickstarts/voice-video-calling/play-action.md).
+**Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. This audio can be looped if needed in scenarios like playing hold music. To learn more, view our [concepts](./play-action.md) and how-to guide for [Customizing voice prompts to users with Play action](../../how-tos/call-automation-sdk/play-action.md).
 
-**Recognize input** - After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md).
+**Recognize input** - After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and how-to guide for [Gathering user input](../../how-tos/call-automation-sdk/recognize-action.md).
 
-**Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
+**Transfer** – When your application answers a call or places an outbound call to an endpoint, that call can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
 **Record** - You decide when to start/pause/resume/stop recording based on your application business logic, or you can grant control to the end user to trigger those actions. To learn more, view our [concepts](./call-recording.md) and [quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 
@@ -117,6 +117,7 @@ Most of the events sent by Event Grid are platform agnostic meaning they're emit
 | CallEnded         | A call is terminated and all participants are removed |
 | ParticipantAdded  | A participant has been added to a call |
 | ParticipantRemoved| A participant has been removed from a call |
+| RecordingFileStatusUpdated| A recording file is available |
 
 Read more about these events and payload schema [here](../../../event-grid/communication-services-voice-video-events.md)
 
@@ -136,7 +137,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | PlayCompleted| Your application successfully played the audio file provided |
 | PlayFailed| Your application failed to play audio |
 | RecognizeCompleted | Recognition of user input was successfully completed |
-| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
+| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation-sdk/recognize-action.md)*|
 
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation-sdk/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
@@ -155,3 +156,4 @@ Here are some articles of interest to you:
 1. Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
 2. Learn about metrics and logs available for this service.
 1. Troubleshoot common issues. 
+
