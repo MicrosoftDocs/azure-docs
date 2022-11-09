@@ -35,7 +35,7 @@ The WAF protects against the following web vulnerabilities:
 
 CRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Core Rule Set to meet your application requirements. You can also set specific actions per rule. The CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the block and log actions.
 
-Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. [For more information, see Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration?tabs=portal).
+Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. [For more information, see Web Application Firewall (WAF) with Application Gateway exclusion lists](~/application-gateway-waf-configuration?tabs=portal).
 
 By default, CRS version 3.2 and above will leverage anomaly scoring when a request matches a rule, CRS 3.1 and below will block matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
 
