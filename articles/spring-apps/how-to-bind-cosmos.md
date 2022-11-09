@@ -74,6 +74,31 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ## Bind your app to the Azure Cosmos DB
 
+#### [Service Connector](#tab/Service-Connector)
+
+Configure your Spring app to connect to a Cosmos Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
+
+```azurecli
+az spring connection create cosmos-sql \
+    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $MYSQL_RESOURCE_GROUP \
+    --account $COSMOSDB_ACCOUNT_NAME \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
+```
+
+ > [!NOTE]
+ > If you are using [Service Connector]([https://learn.microsoft.com/en-us/cli/azure/provider#az-provider-register](https://learn.microsoft.com/en-us/azure/service-connector/overview)) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
+
+ > [!NOTE]
+ > If you are using Cosmos Cassandra, use a `--key_space` instead of `--database`.
+    
+ > [!TIP]
+ > Run the command `az spring connection` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+
 #### [Service Binding](#tab/Service-Binding)
 
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
