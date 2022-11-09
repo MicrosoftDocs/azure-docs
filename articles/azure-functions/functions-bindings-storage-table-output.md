@@ -346,7 +346,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -464,7 +464,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
 # [C# script](#tab/csharp-script)
 
@@ -507,11 +507,11 @@ Return a plain-old CLR object (POCO) with properties that can be mapped to the t
 
 # [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Azure Cosmos DB for Table extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+The Azure Cosmos DB for Table extension does not currently support isolated worker process. You will instead need to use the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
 

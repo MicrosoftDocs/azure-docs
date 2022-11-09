@@ -170,6 +170,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Manage global | Read global |
 | Full Control | Read instance, Manage instance, Read global, Manage global <br/> Other dependencies: View device templates, device groups, device instances |
 
+**Edge deployment manifests**
+
+| Name | Dependencies |
+| ---- | -------- |
+| Read instance | None <br/> Other dependencies: View device templates, device groups, device instances |
+| Manage instance | Read instance <br /> Other dependencies: View device templates, device groups, device instances |
+| Read global | None   |
+| Manage global | Read global |
+| Full Control | Read instance, Manage instance, Read global, Manage global <br/> Other dependencies: View device templates, device groups, device instances. Update device instances |
+
 **Jobs permissions**
 
 | Name | Dependencies |

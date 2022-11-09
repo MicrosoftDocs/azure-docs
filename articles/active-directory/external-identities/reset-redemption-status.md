@@ -13,19 +13,20 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to update the sign-in information for a guest user.
 ---
 
 # Reset redemption status for a guest user (Preview)
 
-After a guest user has redeemed your invitation for B2B collaboration, there might be times when you'll need to update their sign-in information, for example when:
+In this article, you'll learn how to update the [guest user's](user-properties.md) sign-in information after they've redeemed your invitation for B2B collaboration. There might be times when you'll need to update their sign-in information, for example when:
 
 - The user wants to sign in using a different email and identity provider
 - The account for the user in their home tenant has been deleted and re-created
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Azure portal, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the [UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
 ## Use the Azure portal to reset redemption status
 
@@ -34,17 +35,18 @@ To manage these scenarios previously, you had to manually delete the guest user�
 1. Select **Users**.
 1. In the list, select the user's name to open their user profile.
 1. If the user wants to sign in using a different email:
-   - Select the **Properties** tab.
-   - Select the **Edit** icon next to **Contact information**.
+   - Select **Edit properties**.
+   - Select the **Contact Information** tab.
    - Next to **Email**, type the new email.
    - Update **Other emails** to also include the new email.
    - Select the **Save** button at the bottom of the page.
 
-1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**. 
-    ![new user profile page displaying the B2B Collaboration tile](./media/reset-redemption-status/user-profile-b2b-collaboration.png)
-1. Under **Redemption status**, next to **Reset invitation status? (Preview)**, select **Yes**.
-1. Select **Yes** to confirm.
+1. On the **Overview** tab, under **My Feed**,  select the **Manage (resend invitation / reset status)** link in the **B2B collaboration** tile.
 
+    :::image type="content" source="media/reset-redemption-status/user-profile-b2b-collaboration.png" alt-text="Screenshot of the guest user's profile overview." lightbox="media/reset-redemption-status/user-profile-b2b-collaboration.png":::
+
+1. In the **Manage invitations** pane, under **Redemption status**, set **Reset invitation status? (Preview)** to **Yes**.
+1. Select **Yes** to confirm.
 
 ## Use PowerShell or Microsoft Graph API to reset redemption status
 
@@ -79,7 +81,7 @@ New-MgInvitation `
 
 ### Use Microsoft Graph API to reset redemption status
 
-Using the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
+To use the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
@@ -112,3 +114,4 @@ ContentType: application/json
 
 - [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
 - [Properties of an Azure AD B2B guest user](user-properties.md)
+- [B2B for Azure AD integrated apps](configure-saas-apps.md)
