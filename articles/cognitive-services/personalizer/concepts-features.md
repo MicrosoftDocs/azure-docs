@@ -132,7 +132,7 @@ For example:
 
 * You can run a movie file via [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) to extract scene elements, text, sentiment, and many other attributes. These attributes can then be made more dense to reflect characteristics that the original item metadata didn't have.
 * Images can be run through object detection, faces through sentiment, etc.
-* Information in text can be augmented by extracting entities, sentiment, expanding entities with Bing knowledge graph.
+* Information in text can be augmented by extracting entities, sentiment, and expanding entities with Bing knowledge graph.
 
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
