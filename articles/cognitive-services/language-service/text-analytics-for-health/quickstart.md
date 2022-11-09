@@ -18,8 +18,7 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: Using Text Analytics for health client library and REST API
 
-> [!IMPORTANT]
-> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
+
 
 ::: zone pivot="programming-language-csharp"
 
@@ -51,6 +50,9 @@ zone_pivot_groups: programming-languages-text-analytics
 
 ::: zone-end
 
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -63,4 +65,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Text Analytics for health overview](overview.md)
+* [How to call the hosted API](./how-to/call-api.md)
+* [How to use containers](./how-to/use-containers.md) 
