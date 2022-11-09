@@ -72,11 +72,29 @@ Number of cross-validation folds to use for model/pipeline selection when user v
 | --- | ---- | ----------- | -------------- | ------------- |
 | `enable_early_termination` | boolean | Whether to enable early termination of experiment if the score is not improving  some x number of iterations. In AutoML job, no early stopping is applied on first 20 iterations. early stopping window starts only after first 20 iterations. | True, False | True |
 | `max_concurrent_trials` | integer | Maximum number of trials (children jobs) that would be executed in parallel. |  | None |
-| `max_cores_per_trial` | integer | ??Maximum number of cores per iteration (or trials) |  | None |
+| `max_cores_per_trial` | integer | Maximum number of cores per iteration (or trials) |  | None |
 | `max_trials` | integer | The maximum number of different algorithm and parameter combinations (trials) to try during an AutoML job. If user is using `enable_early_termination`, then the number of trials used can be smaller. |  | None |
 | `timeout_minutes ` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but doesn't include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is six days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), the user should make sure dataset's size isn't greater than 10,000,000 (rows times column) or an error results. |  | None |
 | `trial_timeout_minutes ` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of one month or 43200 minutes is used. |  | None |
 | `exit_score` | float | Target score for experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the primary metric. For for more information on exit criteria, see this `article <https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#exit-criteria>`. | | None |
+
+### forecasting
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `country_or_region_for_holidays` | string or None | The country/region used to generate holiday features. These should be ISO 3166 two-letter country/region codes, for example 'US' or 'GB'. |  | None |
+| `cv_step_size` | integer or None | Number of periods between the origin_time of one CV fold and the next fold. For example, if n_step = 3 for daily data, the origin time for each fold will be three days apart. |  | None |
+| `feature_lags` | string or None| Flag for generating lags for the numeric features | "auto", None | None |
+| `forecast_horizon` | string or integer or None | The desired maximum forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g., monthly, weekly that the forecaster should predict out. When task type is forecasting, this parameter is required.| string, integer, None | None |
+| `frequency` | string or None | Forecast frequency. When forecasting, this parameter represents the period with which the forecast is desired, for example daily, weekly, yearly, etc. The forecast frequency is dataset frequency by default. You can optionally set it to greater (but not lesser) than dataset frequency. We'll aggregate the data and generate the results at forecast frequency. For example, for daily data, you can set the frequency to be daily, weekly or monthly, but not hourly. The frequency needs to be a pandas offset alias.Please refer to pandas documentation for more information:https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects | string, None | None |
+| `seasonality` | string or integer | Set time series seasonality as an integer multiple of the series frequency. If seasonality is set to 'auto', it will be inferred. If set to None, the time series is assumed non-seasonal which is equivalent to seasonality=1| 'auto', integer, None | None | 
+| `short_series_handling_config` | string | The parameter defining how if AutoML should handle short time series. Possible values: <br>'auto' : short series will be padded if there are no long series,otherwise short series will be dropped.<br>'pad': all the short series will be padded with zeros.<br>'drop': all the short series will be dropped.<br> None:the short series will not be modified.| "auto","pad","drop", None | None |
+| `target_aggregate_function` | string | The function to be used to aggregate the time series target column to conform to a user specified frequency. If the target_aggregation_function is set, but the `freq` parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean". | "sum","max","min","mean", None | None |
+| `target_lags` | string or integer or list(integer) | The number of past periods to lag from the target column. Use 'auto' to use the automatic heuristic based lag. | string,"auto",None | None |
+| `target_rolling_window_size` | string or integer | The number of past periods used to create a rolling window average of the target column. | string, integer,"auto",None | None |
+| `time_column_name` | string | The name(header) of the time column. This parameter is required when forecasting to specify the datetime column in the input data used for building the time series and inferring its frequency. |  | None |
+| `time_series_id_column_names` | string or list(string) | The names of columns used to group a timeseries. |  | None |
+| `use_stl` | string | Configure STL Decomposition of the time-series target column. use_stl can take two values: 'season' - only generate season component and 'season_trend' - generate both season and trend components. |"season", "seasontrend", None | None |
 
 
 ### Distribution configurations
