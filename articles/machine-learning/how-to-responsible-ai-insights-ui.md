@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: mithigpe
 author: minthigpen
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -25,9 +25,9 @@ To access the dashboard generation wizard and generate a Responsible AI dashboar
 
     :::image type="content" source="./media/how-to-responsible-ai-insights-ui/create-responsible-ai-dashboard.png" alt-text="Screenshot of the wizard details pane with 'Create Responsible AI dashboard (preview)' tab highlighted." lightbox ="./media/how-to-responsible-ai-insights-ui/create-responsible-ai-dashboard.png":::
 
-To learn more, see the Responsible AI dashboard [supported model types and limitations](concept-responsible-ai-dashboard.md#supported-scenarios-and-limitations).
+To learn more supported model types and limitations in the Responsible AI dashboard, see [supported scenarios and limitations](concept-responsible-ai-dashboard.md#supported-scenarios-and-limitations).
 
-The wizard provides an interface for entering all the necessary parameters to create your Responsible AI dashboard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio UI. The studio presents a guided flow and instructional text to help contextualize the variety of choices about which Responsible AI components you’d like to populate your dashboard with. 
+The wizard provides an interface for entering all the necessary parameters to create your Responsible AI dashboard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio UI. The studio presents a guided flow and instructional text to help contextualize the variety of choices about which Responsible AI components you’d like to populate your dashboard with.
 
 The wizard is divided into five sections:
 
@@ -144,7 +144,7 @@ The wizard will allow you to customize your PDF scorecard without having to touc
 1. PDF scorecard summary
 2. Model performance
 3. Tool selection
-4. Data explorer
+4. Data analysis ( previously called data explorer )
 5. Causal analysis
 6. Interpretability
 7. Experiment configuration
@@ -164,17 +164,17 @@ The wizard will allow you to customize your PDF scorecard without having to touc
 
     :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-selection.png" alt-text="Screenshot of the wizard on scorecard tool selection configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-selection.png":::
 
-4. *The Data explorer* section enables cohort analysis. Here, you can identify issues of over- and under-representation explore how data is clustered in the dataset, and how model predictions impact specific data cohorts. Use checkboxes in the dropdown to select your features of interest below to identify your model performance on their underlying cohorts.
+4. *The Data analysis* section enables cohort analysis. Here, you can identify issues of over- and under-representation explore how data is clustered in the dataset, and how model predictions impact specific data cohorts. Use checkboxes in the dropdown to select your features of interest below to identify your model performance on their underlying cohorts.
 
-    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png" alt-text="Screenshot of the wizard on scorecard data explorer configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png" alt-text="Screenshot of the wizard on scorecard data analysis configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png":::
 
 5. *The Fairness assessment* section can help with assessing which groups of people might be negatively impacted by predictions of a machine learning model. There are two fields in this section.
 
     - Sensitive features: identify your sensitive attribute(s) of choice (for example, age, gender) by prioritizing up to 20 subgroups you would like to explore and compare.
-    
+
     - Fairness metric: select a fairness metric that is appropriate for your setting (for example, difference in accuracy, error rate ratio), and identify your desired target value(s) on your selected fairness metric(s). Your selected fairness metric (paired with your selection of difference or ratio via the toggle) will capture the difference or ratio between the extreme values across the subgroups. (max - min or max/min).
 
-    :image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png" alt-text="Screenshot of the wizard on scorecard fairness assessment configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png" alt-text="Screenshot of the wizard on scorecard fairness assessment configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-fairness.png":::
 
     > [!NOTE]
     > The Fairness assessment is currently only available for categorical sensitive attributes such as gender.

@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -174,5 +174,5 @@ The following people can use the Responsible AI dashboard, and its corresponding
 
 ## Next steps
 
-- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
+- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-insights-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md).
 - Learn how to generate a [Responsible AI scorecard](concept-responsible-ai-scorecard.md) based on the insights observed on the Responsible AI dashboard.

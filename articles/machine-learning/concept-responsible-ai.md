@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
 ---
@@ -57,9 +57,9 @@ The model interpretability component provides multiple views into a model's beha
 
 - *Global explanations*. For example, what features affect the overall behavior of a loan allocation model?
 - *Local explanations*. For example, why was a customer's loan application approved or rejected? 
-- *Model explanations for a selected cohort of data points*. For example, what features affect the overall behavior of a loan allocation model for low-income applicants? 
+- *Model explanations for a selected cohort of data points*. For example, what features affect the overall behavior of a loan allocation model for low-income applicants?
 
-The counterfactual what-if component enables understanding and debugging a machine learning model in terms of how it reacts to feature changes and perturbations. 
+The counterfactual what-if component enables understanding and debugging a machine learning model in terms of how it reacts to feature changes and perturbations.
 
 Azure Machine Learning also supports a [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md). The scorecard is a customizable PDF report that developers can easily configure, generate, download, and share with their technical and non-technical stakeholders to educate them about their datasets and models health, achieve compliance, and build trust. This scorecard can also be used in audit reviews to uncover the characteristics of machine learning models.
 

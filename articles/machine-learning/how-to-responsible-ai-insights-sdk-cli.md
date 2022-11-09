@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: mithigpe
 author: minthigpen
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -275,7 +275,7 @@ This component has a single output port, which can be connected to one of the `i
 ```yml
   explain_01: 
     type: command 
-    component: azureml:rai_insights_explanation:VERSION_REPLACEMENT_STRING 
+    component: azureml://registries/azureml/components/microsoft_azureml_rai_tabular_explanation/versions/<version>
     inputs: 
       comment: My comment 
       rai_insights_dashboard: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
@@ -286,9 +286,8 @@ This component has a single output port, which can be connected to one of the `i
 
 ```python
 #First load the component: 
-        rai_explanation_component = load_component( 
-            client=ml_client, name="rai_insights_explanation", version="1" 
-        )	1 
+        rai_explanation_component = ml_client_registry.components.get(name="microsoft_azureml_rai_tabular_explanation", label="latest"
+
 #Use inside a pipeline: 
             explain_job = rai_explanation_component( 
                 comment="My comment", 

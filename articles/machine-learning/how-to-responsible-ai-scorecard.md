@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -20,7 +20,7 @@ An Azure Machine Learning Responsible AI scorecard is a PDF report that's genera
 
 ## Where to find your Responsible AI scorecard
 
- Responsible AI scorecards are linked to a Responsible AI dashboards. To view your Responsible AI scorecard, go into your model registry by selecting the **Model** in Azure Machine Learning studio. Then select the registered model that you've generated a Responsible AI dashboard and scorecard for. After you've selected your model, select the **Responsible AI** tab to view a list of generated dashboards. Select which dashboard you want to export a Responsible AI scorecard PDF for by selecting **Responsible AI Insights** then **View all PDF scorecards.
+ Responsible AI scorecards are linked to your Responsible AI dashboards. To view your Responsible AI scorecard, go into your model registry by selecting the **Model** in Azure Machine Learning studio. Then select the registered model that you've generated a Responsible AI dashboard and scorecard for. After you've selected your model, select the **Responsible AI** tab to view a list of generated dashboards. Select which dashboard you want to export a Responsible AI scorecard PDF for by selecting **Responsible AI Insights** then **View all PDF scorecards.
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of the 'Responsible AI (preview)' pane in Azure Machine Learning studio, with the 'Responsible AI scorecard (preview)' tab highlighted." lightbox = "./media/how-to-responsible-ai-scorecard/scorecard-studio.png":::
 
@@ -64,7 +64,7 @@ Finally, you can see your dataset's causal insights summarized, which can help y
 
 ## Next steps
 
-- See the how-to guide for generating a Responsible AI dashboard via [CLI&nbsp;v2 and SDK&nbsp;v2](how-to-responsible-ai-dashboard-sdk-cli.md) or the [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
+- See the how-to guide for generating a Responsible AI dashboard via [CLI&nbsp;v2 and SDK&nbsp;v2](how-to-responsible-ai-insights-sdk-cli.md) or the [Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md).
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
 - Learn more about how you can use the Responsible AI dashboard and scorecard to debug data and models and inform better decision-making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard).
