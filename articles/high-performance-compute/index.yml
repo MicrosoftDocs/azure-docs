@@ -33,7 +33,7 @@ highlightedContent:
       url: /azure/architecture/reference-architectures/hpc/
     # Card
     - title: Workload
-      itemType: workload
+      itemType: sample
       url: /azure/workload/hpc/
     # Card
     - title: Start building with Azure HPC for high performance applications
@@ -78,11 +78,11 @@ productDirectory:
     # Card
     - title: HPC compute sizes
       # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/sizes/azurevmthumb.png
+      imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
       links:
-        - url: ../virtual-machines/sizes-hpc
+        - url: ../virtual-machines/sizes-hpc.md
           text: HPC VM sizes
-        - url: ../virtual-machines/sizes
+        - url: ../virtual-machines/sizes.md
           text: What are VM sizes?
         - url: /virtual-machines/h-series
           text: H-series
