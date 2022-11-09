@@ -29356,12 +29356,12 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/az-overview.md",
-            "redirect_url": "/azure/reliablity/availability-zones-overview.md",
+            "redirect_url": "/azure/reliability/availability-zones-overview.md",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/availability-zones/index.md",
-            "redirect_url": "/azure/reliablity/index.md",
+            "redirect_url": "/azure/reliability/index.md",
             "redirect_document_id": false
         },
         {
