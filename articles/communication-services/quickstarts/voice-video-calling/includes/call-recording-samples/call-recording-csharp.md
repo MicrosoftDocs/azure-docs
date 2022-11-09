@@ -11,7 +11,7 @@ ms.custom: public_preview
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [.NET SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/overview/1.0.0-alpha.20221013.2)
+- Download the [.NET SDK](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1)
 
 ## Before you start
 
@@ -19,7 +19,7 @@ Call Recording APIs use exclusively the `serverCallId`to initiate recording. The
 
 ### Call Automation scenarios
 - When using [Call Automation](../../callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 ### Calling SDK scenarios
@@ -60,8 +60,8 @@ Response<RecordingStateResult> response = await callAutomationClient.getCallReco
 .StartRecordingAsync(recordingOptions);
 ```
 
-### 2.1. Only for Unmixed - Specify a user on a channel 0
-To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
+### 2.1. Only for Unmixed - Specify a user on channel 0
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
@@ -70,16 +70,10 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingChannel = RecordingChannel.Unmixed,
     RecordingFormat = RecordingFormat.Wav,
     RecordingStateCallbackEndpoint = new Uri("<CallbackUri>"),
-    ChannelAffinity = new List<ChannelAffinity>
-    {
-        new ChannelAffinity {
-            Channel = 0,
-            Participant = new CommunicationUserIdentifier("<ACS_USER_MRI>")
-        }
-    }
+    AudioChannelParticipantOrdering = { new CommunicationUserIdentifier("<ACS_USER_MRI>") }
+    
 };
-Response<RecordingStateResult> response = await callAutomationClient.getCallRecording()
-.StartRecordingAsync(recordingOptions);
+Response<RecordingStateResult> response = await callAutomationClient.getCallRecording().StartRecordingAsync(recordingOptions);
 ```
 The `StartRecordingAsync` API response contains the `recordingId` of the recording session.
 
