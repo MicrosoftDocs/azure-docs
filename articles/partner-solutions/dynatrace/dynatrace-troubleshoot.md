@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Dynatrace for Azure - Azure partner solutions
+title: Troubleshooting Dynatrace for Azure
 description: This article provides information about troubleshooting Dynatrace for Azure 
 ms.topic: conceptual
 ms.collection: na

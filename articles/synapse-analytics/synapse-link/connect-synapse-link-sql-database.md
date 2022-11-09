@@ -110,7 +110,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool confiruation.
-   > We recommend starting low and increasing the number of cores as needed.
+   > * We recommend starting low and increasing the number of cores as needed.
 
 1. Select **OK**.
 

@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 11/08/2022
 ms.author: rogarana
 ---
 
@@ -20,7 +20,7 @@ With managed disks, you don't have to worry about managing storage accounts for 
 
 ## How does this affect me?
 
-- As of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks.
+- As of June 30th, 2023, new subscriptions won't be eligible to create unmanaged disks.
 - As of September 30, 2023, existing customers won't be able to create new unmanaged disks.
 - On September 30, 2025, customers will no longer be able to start IaaS VMs by using unmanaged disks. Any VMs that are still running or allocated will be stopped and deallocated.
 
