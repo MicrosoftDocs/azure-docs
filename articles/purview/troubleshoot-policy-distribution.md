@@ -28,7 +28,7 @@ To get the necessary context about Microsoft Purview policies, see concept guide
 ## Overview
 There are two ways to fetch access policies from Microsoft Purview
 - Full pull: Provides a complete set of policies for a particular data resource scope.
-- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull.
+- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull. A full pull is required prior to the first delta pull.
 
 Microsoft Purview policy model is described using [JSON syntax](https://datatracker.ietf.org/doc/html/rfc8259)
 
@@ -49,9 +49,9 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 |Http Code|Http Code Description|Type|Description|Response|
 |---------|---------------------|----|-----------|--------|
 |200|Success|Success|Request processed successfully|Policy data|
-|404|Not Found|Error|The request path is invalid or not registered|Error data|
 |401|Unauthenticated|Error|No bearer token passed in request or invalid token|Error data|
 |403|Forbidden|Error|Other authentication errors|Error data|
+|404|Not found|Error|The request path is invalid or not registered|Error data|
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
@@ -90,6 +90,75 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
             "updatedAt": "2022-11-04T20:57:20.9389456Z",
             "version": 1,
             "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
+        }
+    ]
+}
+```
+
+## Delta pull
+
+### Request
+To fetch policies via full pull, send a `GET` request to /policyEvents as follows:
+
+```
+GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyEvents?api-version={apiVersion}&syncToken={syncToken}
+```
+
+Provide the syncToken you got from the prior pull in any successive delta pulls.
+
+### Response status codes 
+
+|Http Code|Http Code Description|Type|Description|Response|
+|---------|---------------------|----|-----------|--------|
+|200|Success|Success|Request processed successfully|Policy data|
+|304|Not modified|Success|No events received since last delta pull call|None|
+|401|Unauthenticated|Error|No bearer token passed in request or invalid token|Error data|
+|403|Forbidden|Error|Other authentication errors|Error data|
+|404|Not found|Error|The request path is invalid or not registered|Error data|
+|500|Internal server error|Error|Backend service unavailable|Error data|
+|503|Backend service unavailable|Error|Backend service unavailable|Error data|
+
+### Example for Arc-enabled SQL Server
+
+##### Example parameters:
+- resourceProvider = Microsoft.AzureArcData
+- resourceType = sqlServerInstances
+- apiVersion = 2021-01-01-preview
+- syncToken = 808:0
+
+##### Example request:
+```
+https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/sqlServerInstances/vm-finance/policyEvents?api-version=2021-01-01-preview&syncToken=808:0
+```
+
+##### Example response:
+
+```json
+{
+    "count": 2,
+    "syncToken": "816:0",
+    "elements": [
+        {
+            "eventType": "Microsoft.Purview/PolicyElements/Write",
+            "id": "6554a0d5-2d18-49fb-b44d-dc26f935fc61",
+            "scopes": [
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+            ],
+            "kind": "policyset",
+            "updatedAt": "2022-11-09T00:46:23.2085292Z",
+            "version": 1,
+            "elementJson": "{\"id\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"name\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085292Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}]]}],\"policyRefs\":[\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\"]}"
+        },
+        {
+            "eventType": "Microsoft.Purview/PolicyElements/Write",
+            "id": "919a18b7-6dfd-4e3c-81c9-3414dcbd0cef",
+            "scopes": [
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+            ],
+            "kind": "policy",
+            "updatedAt": "2022-11-09T00:46:23.2085486Z",
+            "version": 1,
+            "elementJson": "{\"id\":\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\",\"name\":\"ArcSQL-Finance_sqlperfmonitor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085486Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlperfmonitor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlperfmonitor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_81cd13c9-0417-4b97-a310-c14009a7c2ed\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_4b655d27-c8b0-4aa7-aa36-27f95ede2ada\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/databases/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]}]}"
         }
     ]
 }
