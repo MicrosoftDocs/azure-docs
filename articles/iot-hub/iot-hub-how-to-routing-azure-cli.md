@@ -188,7 +188,7 @@ References used in the following commands:
 * [az iot hub](/cli/azure/iot/hub)
 * [az servicebus](/cli/azure/servicebus)
 
-### Create a Service Bus queue resource with subscription
+### Create a Service Bus topic resource with subscription
 
 If you don't yet have a Service Bus topic, you can create one in a few commands. We create the namespace first, followed by the Service Bus topic entity and then the authorization rule.
 
