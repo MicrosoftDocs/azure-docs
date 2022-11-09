@@ -8,7 +8,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
 # Quickstart: Manage blobs with JavaScript SDK in Node.js
