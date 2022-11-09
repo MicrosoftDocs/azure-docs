@@ -119,7 +119,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon:
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the user name in the follwing format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the user name in the following format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
