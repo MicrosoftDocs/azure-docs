@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -218,7 +218,7 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](../aks/egress-outboundtype.md#limitations).
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md). 
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#mariner-os).
 >
 > The AKS feature for [**API server authorized IP ranges**](../aks/api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
@@ -232,7 +232,8 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubelet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> 
 > To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
 
 ### Enable developer access to the API server

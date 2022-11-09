@@ -2,13 +2,13 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom: ignite-2022
 ms.date: 06/26/2020
-ms.author: mbender
+ms.author: allensu
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -101,7 +101,7 @@ No. Multicast and broadcast are not supported.
 You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
 ### Can I ping default gateway within a VNet?
-No. Azure provided default gateway does not respond ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
+No. Azure provided default gateway does not respond to ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
 
 ### Can I use tracert to diagnose connectivity?
 Yes. 

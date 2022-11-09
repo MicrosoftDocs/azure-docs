@@ -27,9 +27,53 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
+- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
 - [IoT device entity page (Preview)](#iot-device-entity-page-preview)
+
+### Account enrichment fields removed from Azure AD Identity Protection connector
+
+As of **September 30, 2022**, alerts coming from the **Azure Active Directory Identity Protection connector** no longer contain the following fields:
+
+- CompromisedEntity
+- ExtendedProperties["User Account"]
+- ExtendedProperties["User Name”]
+
+We are working to adapt Microsoft Sentinel's built-in queries and other operations affected by this change to look up these values in other ways (using the *IdentityInfo* table).
+
+In the meantime, or if you've built any custom queries or rules directly referencing these fields, you'll need another way to get this information. Use the following two-step process to have your queries look up these values in the *IdentityInfo* table:
+
+1. If you haven't already, **enable the UEBA solution** to sync the *IdentityInfo* table with your Azure AD logs. Follow the instructions in [this document](enable-entity-behavior-analytics.md).  
+(If you don't intend to use UEBA in general, you can ignore the last instruction  about selecting data sources on which to enable entity behavior analytics.)
+
+1. Incorporate the query below in your existing queries or rules to look up this data by joining the *SecurityAlert* table with the *IdentityInfo* table.
+
+    ```kusto
+    SecurityAlert
+    | where TimeGenerated > ago(7d)
+    | where ProductName == "Azure Active Directory Identity Protection"
+    | mv-expand Entity = todynamic(Entities)
+    | where Entity.Type == "account"
+    | extend AadTenantId = tostring(Entity.AadTenantId)
+    | extend AadUserId = tostring(Entity.AadUserId)
+    | join kind=inner (
+        IdentityInfo
+        | where TimeGenerated > ago(14d)
+        | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName
+        | extend UserAccount = AccountUPN
+        | extend UserName = AccountDisplayName
+        | where isnotempty(AccountDisplayName) and isnotempty(UserAccount)
+        | project AccountTenantId, AccountObjectId, UserAccount, UserName
+        )
+        on
+        $left.AadTenantId == $right.AccountTenantId,
+        $left.AadUserId == $right.AccountObjectId
+    | extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserAccount, CompromisedEntity)
+    | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
+    ```
+
+For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table) for a sample query.
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 

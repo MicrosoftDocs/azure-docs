@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus topics (.NET)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the .NET programming language.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 10/11/2021
+ms.date: 10/27/2022
 ms.devlang: csharp
 ms.custom: contperf-fy22q2, mode-api
 ---

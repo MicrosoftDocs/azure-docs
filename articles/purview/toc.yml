@@ -124,6 +124,8 @@ items:
     items:
     - name: Data owner policies
       href: concept-policies-data-owner.md
+    - name: DevOps policies
+      href: concept-policies-devops.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data Estate Insights
@@ -161,6 +163,8 @@ items:
       href: register-scan-azure-multiple-sources.md
     - name: Azure Synapse Analytics workspaces
       href: register-scan-synapse-workspace.md
+    - name: Azure Arc-enabled SQL Server
+      href: register-scan-azure-arc-enabled-sql-server.md
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
       displayName: Register and scan Azure Blob Storage
@@ -349,22 +353,36 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Register data sources for Data Use Management
+    - name: Register data sources for "Data use management"
       href: how-to-enable-data-use-management.md
-    - name: Author and publish data owner access policies
-      href: how-to-policies-data-owner-authoring-generic.md
-    - name: Data owner policies - Azure Storage
-      href: how-to-policies-data-owner-storage.md
-    - name: Data owner policies - Azure SQL DB
-      href: how-to-policies-data-owner-azure-sql-db.md
-    - name: Data owner policies - Azure Arc enabled SQL Servers
-      href: how-to-policies-data-owner-arc-sql-server.md
-    - name: Data owner policies - resource groups or subscriptions
-      href: how-to-policies-data-owner-resource-group.md
-    - name: View self-service data access policy
-      href: how-to-view-self-service-data-access-policy.md
-    - name: Delete self-service data access policy
-      href: how-to-delete-self-service-data-access-policy.md
+    - name: Impact of deleting Microsoft Purview account on access policies
+      href: how-to-policies-purview-account-delete.md
+    - name: DevOps policies
+      items:
+      - name: DevOps policies - Create, list, update and delete policies
+        href: how-to-policies-devops-authoring-generic.md
+      - name: DevOps policies - Azure SQL Database 
+        href: how-to-policies-devops-azure-sql-db.md
+      - name: DevOps policies - Azure Arc enabled SQL Servers
+        href: how-to-policies-devops-arc-sql-server.md
+    - name: Data owner policies
+      items:
+      - name: Data owner policies - Author and publish policies
+        href: how-to-policies-data-owner-authoring-generic.md
+      - name: Data owner policies - Azure Storage
+        href: how-to-policies-data-owner-storage.md
+      - name: Data owner policies - Azure SQL Database
+        href: how-to-policies-data-owner-azure-sql-db.md
+      - name: Data owner policies - Azure Arc enabled SQL Servers
+        href: how-to-policies-data-owner-arc-sql-server.md
+      - name: Data owner policies - Resource groups or Subscriptions
+        href: how-to-policies-data-owner-resource-group.md
+    - name: Self-service access policies
+      items:
+      - name: View self-service data access policy
+        href: how-to-view-self-service-data-access-policy.md
+      - name: Delete self-service data access policy
+        href: how-to-delete-self-service-data-access-policy.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access

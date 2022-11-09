@@ -13,10 +13,6 @@ ms.custom: subject-armqs
 
 # Quickstart: Get started with Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-rest-api.md)
-
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Welcome to Azure Data Factory!  This getting started article will let you create your first data factory and pipeline within 5 minutes. The ARM template below will create and configure everything you need to try it out.  Then you only need to navigate to your demo data factory and make one more click to trigger the pipeline, which moves some sample data from one Azure blob storage to another.
@@ -66,8 +62,8 @@ All of the resources referenced above will be created in the new resource group,
 1. In the resource group, you will see the new data factory, Azure blob storage account, and managed identity that were created by the deployment.
    :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="A screenshot of the contents of the resource group created for the demo.":::
 
-1. Select the data factory in the resource group to view it. Then select the **Open Azure Data Factory Studio** button to continue.
-   :::image type="content" source="media/quickstart-get-started/open-data-factory-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
+1. Select the data factory in the resource group to view it. Then select the **Launch Studio** button to continue.
+   :::image type="content" source="media/quickstart-get-started/launch-adf-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
 
 1. Select on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and then the **Pipeline** created by the template.  Then check the source data by selecting **Open**.
 
@@ -94,7 +90,7 @@ All of the resources referenced above will be created in the new resource group,
 
 1. In this quickstart, the pipeline has only one activity type: Copy. Click on the pipeline name and you can see the details of the copy activity's run results.
 
-   :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity in the data factorying monitoring tab.":::
+   :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity in the data factory monitoring tab.":::
 
 1. Click on details, and the detailed copy process is displayed.  From the results, data read and written size are the same, and 1 file was read and written, which also proves all the data has been successfully copied to the destination.
 

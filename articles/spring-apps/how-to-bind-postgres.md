@@ -70,23 +70,40 @@ Use the following steps to bind your app.
        --secret name=$USERNAME secret=$PASSWORD
    ```
 
-### [Using a passwordless connection with a managed identity](#tab/Passwordless)
+### [Using a passwordless connection with a managed identity for flexible server](#tab/Passwordlessflex)
 
-Configure Azure Spring Apps to connect to the PostgreSQL Database Single Server with a system-assigned managed identity using the `az spring connection create` command.
+Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
+
+```azurecli
+az spring connection create postgres-flexible \
+    --resource-group $SPRING_APP_RESOURCE_GROUP \
+    --service $Spring_APP_SERVICE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $POSTGRES_RESOURCE_GROUP \
+    --server $POSTGRES_SERVER_NAME \
+    --database $DATABASE_NAME \
+    --system-identity
+```
+
+### [Using a passwordless connection with a managed identity for single server](#tab/Passwordlesssingle)
+
+Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
 ```azurecli
 az spring connection create postgres \
     --resource-group $SPRING_APP_RESOURCE_GROUP \
     --service $Spring_APP_SERVICE_NAME \
-    --app $APP_NAME --deployment $DEPLOYMENT_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
     --target-resource-group $POSTGRES_RESOURCE_GROUP \
     --server $POSTGRES_SERVER_NAME \
     --database $DATABASE_NAME \
-    --system-assigned-identity
+    --system-identity
 ```
 
 ---
 
 ## Next steps
 
-In this article, you learned how to bind an application in Azure Spring Apps to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).
+In this article, you learned how to bind an application in Azure Spring Apps to an Azure Database for PostgreSQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).

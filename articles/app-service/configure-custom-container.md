@@ -497,7 +497,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 - ports
 - restart
 - services
-- volumes
+- volumes ([mapping to Azure Storage is unsupported](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux#limitations))
 
 #### Unsupported options
 

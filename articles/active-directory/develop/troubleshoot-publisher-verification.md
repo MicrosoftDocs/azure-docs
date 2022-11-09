@@ -19,26 +19,26 @@ If you're unable to complete the process or are experiencing unexpected behavior
 
 1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they've all been met.
 
-1. Review the instructions to [mark an app as publisher verified](mark-app-as-publisher-verified.md) and ensure all steps have been performed successfully.
+2. Review the instructions to [mark an app as publisher verified](mark-app-as-publisher-verified.md) and ensure all steps have been performed successfully.
 
-1. Review the list of [common issues](#common-issues).
+3. Review the list of [common issues](#common-issues).
 
-1. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather more info and rule out any issues in the UI.
+4. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather more info and rule out any issues in the UI.
 
 ## Common Issues
 Below are some common issues that may occur during the process. 
 
-- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is** 
-    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
-    1. Sign in with a user account in the org's primary Azure AD tenant 
-    1. If an MPN account already exists, this will be recognized and you'll be added to the account 
-    1. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
+- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is.** 
+    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
+    2. Sign in with a user account in the org's primary Azure AD tenant. 
+    3. If an MPN account already exists, this will be recognized and you'll be added to the account. 
+    4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed.
 
 - **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
-    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
-    1. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Select the desired admin role
-    1. The list of users assigned that role will be displayed
+    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
+    2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
+    3. Select the desired admin role.
+    4. The list of users assigned that role will be displayed.
 
 - **I don't know who the admin(s) for my MPN account are**
     Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and filter the user list to see what users are in various admin roles.
@@ -47,15 +47,15 @@ Below are some common issues that may occur during the process.
     1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
         - The MPN ID is correct. 
         - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    1. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
-    1. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Admin, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
+    2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
+    3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Admin, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
     Ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you're signing in with and for this scenario. For example, MFA could be:
-    - Always required for the user you're signing in with
+    - Always required for the user you're signing in with.
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you're signing in with.
 
@@ -184,7 +184,18 @@ Most commonly caused by the wrong MPN ID being provided.
 
 The target application (`AppId`) can’t be found. Provide a valid application ID and try again.
     
-Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. Note- the ID of the application must be provided, not the AppId/ClientId.
+Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. Note that the ID of the application must be provided, not the AppId/ClientId.
+
+### ApplicationObjectisInvalid 
+
+The target application's object ID is invalid. Please provide a valid ID and try again. 
+
+Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
+
+> [!NOTE] 
+> The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](/graph/api/resources/application).
+
+ 
 
 ### B2CTenantNotAllowed
 
@@ -202,13 +213,15 @@ Occurs when a [Publisher Domain](howto-configure-publisher-domain.md) isn't conf
 
 ### PublisherDomainMismatch
 
-The target application's Publisher Domain (`publisherDomain`) doesn't match the domain used to perform email verification in Partner Center (`pcDomain`). Ensure these domains match and try again. 
+The target application's Publisher Domain (`publisherDomain`) either doesn't match the domain used to perform email verification in Partner Center (`pcDomain`) or has not been verified. Ensure these domains match and have been verified then try again. 
     
-Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Azure AD tenant match the domain used to perform email verification in Partner Center.
+Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Azure AD tenant match the domain used to perform email verification in Partner Center or has not been verified.
+
+See [requirements](publisher-verification-overview.md) for a list of allowed domain or sub-domain matches. 
 
 ### NotAuthorizedToVerifyPublisher
 
-You aren't authorized to set the verified publisher property on application (<`AppId`) 
+You aren't authorized to set the verified publisher property on application (<`AppId`).
   
 Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
@@ -216,26 +229,39 @@ Most commonly caused by the signed-in user not being a member of the proper role
 
 The MPN ID wasn't provided in the request body or the request content type wasn't "application/json".
 
+Most commonly caused when the verification is being performed via Graph API, and the MPN ID wasn’t provided in the request. 
+
 ### MSANotSupported 
 
 This feature isn't supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported.
 
+Occurs when a consumer account (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
+
 ### InteractionRequired
 
-Occurs when multi-factor authentication hasn't been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail. 
+Occurs when multi-factor authentication (MFA) hasn't been enabled and performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail. 
 
 The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to proceed."
 
+### UserUnableToAddPublisher
+
+When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the user risk state is determined to be ‘AtRisk’, an error, “You're unable to add a verified publisher to this application. Contact your administrator for assistance” will be returned. Please investigate the user risk and take the appropriate steps to remediate the risk (guidance below): 
+
+> [Investigate risk](/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk#risky-users)
+
+> [Remediate risk/unblock users](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+
+> [Self-remediation guidance](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+
+> Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
+
+> [!NOTE] 
+> Please give some time after remediation for the risk state to update, and then try again.
+
 ### UnableToAddPublisher
 
-One of these error messages are displayed: "A verified publisher can’t be added to this application. Contact your administrator for assistance.", or "You're unable to add a verified publisher to this application. Contact your administrator for assistance."
-
-First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
-
-> [!NOTE]
-> If you've met the publisher verification requirements and are still having issues, try using an existing or newly created user with similar permissions.
-
 When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft doesn't disclose the specific criteria used to determine whether a request is risky or not. If you received this error and believe the "risky" assessment is incorrect, try waiting and resubmitting the verification request. Some customers have reported success after multiple attempts.
+
 
 ## Next steps
 
