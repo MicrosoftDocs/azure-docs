@@ -103,7 +103,7 @@ You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate the
 
 1. Navigate to the security alerts page. 
 
-1. Select **Create sample alerts**. 
+1. Select **Sample alerts**. 
 
 1. Select the subscription. 
 
