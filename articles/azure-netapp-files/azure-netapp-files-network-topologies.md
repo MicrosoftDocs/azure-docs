@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 11/08/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -45,6 +45,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   East US
 *   East US 2
 *	France Central
+*   Germany North
 *   Germany West Central
 *   Japan East
 *   Japan West
