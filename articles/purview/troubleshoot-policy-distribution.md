@@ -173,8 +173,7 @@ https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae
 }
 ```
 
-In this example, the delta pull communicates that the policy has been deleted
-per the "eventType": "Microsoft.Purview/PolicyElements/Delete".
+In this example, the delta pull communicates the event that the policy on the resource group Finance-rg, which had the scope ```"scopes": ["/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"]``` was deleted, per the ```"eventType": "Microsoft.Purview/PolicyElements/Delete"```.
 
 
 ## Policy constructs
