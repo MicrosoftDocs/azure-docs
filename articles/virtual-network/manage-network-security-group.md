@@ -18,17 +18,17 @@ Security rules in network security groups enable you to filter the type of netwo
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
 
 - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-- **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
+- **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
 
-    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Run `Connect-AzAccount` to create a connection with Azure.
+    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Run `Connect-AzAccount` to sign in to Azure.
 
-- **Azure CLI users**: Run the commands via either the [Azure Cloud Shell](https://shell.azure.com/bash), or the Azure CLI running locally. Use Azure CLI version 2.0.28 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
+- **Azure CLI users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.
+
+    If you're running Azure CLI locally, use Azure CLI version 2.0.28 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
 
 The account you log into, or connect to Azure with must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions listed in [Permissions](#permissions).
 
@@ -86,6 +86,8 @@ az network nsg create --resource-group MyResourceGroup --name myNSG
 # [**Portal**](#tab/network-security-group-portal)
 
 In the search box at the top of the portal, enter *Network security group*. Select **Network security groups** in the search results to see the list of network security groups in your subscription.
+
+:::image type="content" source="./media/manage-network-security-group/view-network-security-groups.png" alt-text="Screenshot of network security groups list in Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -164,10 +166,10 @@ To learn more about the common Azure settings listed, see the following articles
 ### Change a network security group
 
 The most common changes to a network security group are:
-- [add a security rule](#create-a-security-rule)
-- [remove a security rule](#delete-a-security-rule)
-- [associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
-- [associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+- [Associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+- [Associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+- [Create a security rule](#create-a-security-rule)
+- [Delete a security rule](#delete-a-security-rule)
 
 ### Associate or dissociate a network security group to or from a network interface
 
@@ -222,7 +224,7 @@ If a network security group is associated to any subnets or network interfaces, 
 
 1. In the search box at the top of the portal, enter *Network security group* and select **Network security groups** in the search results.
 
-2. Select the name of your network security group.
+2. Select the network security group you want to delete.
 
 3. Select **Delete**, then select **Yes** in the confirmation dialog box.
 
@@ -636,7 +638,7 @@ You can't delete an application security group if it contains any network interf
 
 1. In the search box at the top of the portal, enter *Application security group*. Select **Application security groups** in the search results.
 
-2. Select the application security group that you want to delete.
+2. Select the application security group you want to delete.
 
 3. Select **Delete**, and then select **Yes** to delete the application security group.
 
