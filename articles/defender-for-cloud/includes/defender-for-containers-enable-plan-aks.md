@@ -33,7 +33,7 @@ By default, when enabling the plan through the Azure portal, [Microsoft Defender
     
 You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
 
- If you want to disable automatic installation of components during the onboarding process, select **Edit configuration** for the **Containers** plan. This opens the Advanced options, where you can disable automatic installation for each component.
+If you don't want to automatically install the Defender for Containers monitoring components on your container resources, select **Edit configuration** for the **Containers** plan. Then, in the Settings & monitoring page, turn off automatic installation for each component.
 
 In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier).
 
