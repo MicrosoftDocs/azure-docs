@@ -268,6 +268,7 @@
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains, Azure Security Benchmark, Azure Foundations Benchmark, CMMC Level 3, FedRAMP High, FedRAMP Moderate, HIPAA HITRUST 9.2
           href: ./security-controls-policy.md
+        - name: Secure using X.509 CA certificates
           items:
             - name: X.509 CA certificate security concepts
               displayName: certificate-based authentication, cryptographic chain of trust, Device Provisioning Service (DPS), Hardware Secure Modules (HSM), self-signed certificate, Public Key Infrastructure (PKI)
@@ -461,6 +462,9 @@
         - name: Bulk import and export IoT devices
           displayName: identity registry, virtual network support, RegistryManager, JobProperties, jobs, job limits, import behavior, import troubleshooting, bulk device provisioning, bulk deletion, SAS URI
           href: iot-hub-bulk-identity-mgmt.md
+        - name: Manage device twin tags
+          displayName: device twin tags, device grouping, tags, query
+          href: iot-hubs-manage-device-twin-tags.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub

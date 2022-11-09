@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.date: 11/08/2022
 
 ---
 
@@ -21,7 +21,12 @@ Areas in Azure Monitor where you will use queries include the following:
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Use the results of a log query in an automated workflow using Logic Apps.
 - [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery). Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses Invoke-AzOperationalInsightsQuery.
 - [Azure Monitor Logs API](https://dev.loganalytics.io). Retrieve log data from the workspace from any REST API client.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
-- Azure Monitor Query SDK. Retrieve log data from the workspace via an idiomatic client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).
+- Azure Monitor Query SDK. Retrieve log data from the workspace via an idiomatic client library for the following ecosystems:
+  - [.NET](/dotnet/api/overview/azure/Monitor.Query-readme)
+  - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)
+  - [Java](/java/api/overview/azure/monitor-query-readme)
+  - [JavaScript](/javascript/api/overview/azure/monitor-query-readme)
+  - [Python](/python/api/overview/azure/monitor-query-readme)
 
 ## Getting started
 The best way to get started learning to write log queries using KQL is leveraging available tutorials and samples.

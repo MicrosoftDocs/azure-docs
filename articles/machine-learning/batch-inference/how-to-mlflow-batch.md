@@ -27,23 +27,28 @@ For no-code-deployment, Azure Machine Learning
 > [!NOTE]
 > For more information about the supported file types in batch endpoints with MLflow, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
-## Prerequisites
-
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
-
-* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](../how-to-convert-custom-model-to-mlflow.md).
-
 ## About this example
 
 This example shows how you can deploy an MLflow model to a batch endpoint to perform batch predictions. This example uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch` if you are using the Azure CLI or `sdk/endpoints/batch` if you are using our SDK for Python.
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/cli/endpoints/batch
+```
 
 ### Follow along in Jupyter Notebooks
 
 You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mlflow-for-batch-tabular.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb).
+
+## Prerequisites
+
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+
+* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](../how-to-convert-custom-model-to-mlflow.md).
 
 ## Steps
 
@@ -432,6 +437,10 @@ You will typically select this workflow when:
 
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
+
+> [!WARNING]
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio UI](https://ml.azure.com), please switch to the CLI or the SDK.
+
 
 ### Steps
 
