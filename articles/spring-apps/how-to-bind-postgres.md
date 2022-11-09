@@ -6,6 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
+ms.custom: passwordless-java
 ---
 
 # Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps

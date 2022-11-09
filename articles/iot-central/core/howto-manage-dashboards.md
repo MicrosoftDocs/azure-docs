@@ -103,7 +103,7 @@ By default, line charts show data over a range of time. The selected time range 
 
 For tiles that display aggregate values, select the **gear** button next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count:
 
-:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
+:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Screenshot that shows how to select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
 
 For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **palette** button next to the telemetry you want to customize:
 
@@ -128,7 +128,7 @@ To continuously monitor the data explorer queries, you can pin a query to a dash
 1. Navigate to **Data explorer** in the left pane and select a query.
 1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
 
-:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard" lightbox="media/howto-manage-dashboards/pin-dashboard.png":::
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Screenshot that shows how to pin a query to the dashboard." lightbox="media/howto-manage-dashboards/pin-dashboard.png":::
 
 ## Next steps
 
