@@ -130,6 +130,10 @@ items:
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
     href: azure-cli-metrics-alert-sample.md
+- name: Well-Architected Framework
+  items:
+  - name: Cost optimization
+    href: well-architected-cost-optimization.md      
 - name: Scenarios
   items:
   - name: End to end deployment
@@ -144,8 +148,6 @@ items:
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
-    - name: Optimize costs
-      href: best-practices-cost.md
   - name: Monitor a virtual machine
     items:
     - name: Overview
@@ -176,14 +178,6 @@ items:
     href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
-- name: Well-Architected Framework
-  items:
-  - name: Security
-    href: /azure/architecture/framework/services/monitoring/application-insights/security?toc=/azure/azure-monitor/toc.json
-  - name: Optimize costs
-    href: best-practices-cost.md      
-  - name: Operational excellence
-    href: /azure/architecture/framework/services/monitoring/application-insights/operational-excellence?toc=/azure/azure-monitor/toc.json 
 - name: Data collection
   items: 
   - name: Overview
