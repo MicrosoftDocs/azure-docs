@@ -210,7 +210,7 @@ catch (CosmosException cosmosException) {
 
 ### ConnectionPolicy
 
-Some settings in `ConnectionPolicy` have been renamed or replaced:
+Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClientOptions`:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
