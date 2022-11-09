@@ -14,6 +14,7 @@ ms.custom: template-how-to
 > [!NOTE]
 >
 > - The telemetry router is currently in Public Preview and you should only deploy it for **testing purposes only**.
+> - While the telemetry router is in Public Preview, be advised that future preview releases could include schema changes.
 > - In-place upgrades of a data controller deployed with the Arc telemetry router enabled are not currently available in the current preview. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
 
 **What is the Arc Telemetry Router?**
@@ -71,9 +72,9 @@ Pipeline Settings
 | metrics | Can only declare new metrics pipelines. Must be prefixed with "metrics" |
 | exporters       | List of exporters. Can be multiple of the same type.      |
 
-### Credentials 
+### Credentials
 
-**Credentials Settings**
+Credentials Settings
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -84,11 +85,11 @@ Pipeline Settings
 ### Example TelemetryRouter Specification:
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta2
+apiVersion: arcdata.microsoft.com/v1beta3
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
-  namespace: test
+  namespace: <namespace>
 spec:
     collector:
       customerPipelines:
@@ -182,24 +183,22 @@ kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 ```
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta2
+apiVersion: arcdata.microsoft.com/v1beta3
   kind: TelemetryRouter
   metadata:
     name: arc-telemetry-router
     namespace: <namespace>
   spec:
-    collector:
-      customerPipelines:
-        logs:
-          exporters:
-          - elasticsearch/arcdata/msft/internal
-      exporters:
-        elasticsearch/arcdata/msft/internal:
-          caCertificateName: cluster-ca-certificate
-          certificateName: arcdata-msft-elasticsearch-exporter-internal
-          endpoint: https://logsdb-svc:9200
-          settings:
-            index: logstash-otel
+    pipelines:
+      logs:
+        exporters:
+        - elasticsearch/arcdata/msft/internal
+    exporters:
+      elasticsearch/arcdata/msft/internal:
+        caCertificateName: cluster-ca-certificate
+        certificateName: arcdata-msft-elasticsearch-exporter-internal
+        endpoint: https://logsdb-svc:9200
+        index: logstash-otel
     credentials:
       certificates:
       - certificateName: arcdata-msft-elasticsearch-exporter-internal
@@ -210,21 +209,26 @@ We're exporting logs to our deployment of Elasticsearch in the Arc cluster. When
 
 You can run the following commands to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
+<!-- 
+TODO: 
+  Check to make sure these commands are correct. Update, if needed.
+  Update the corresponding yaml files.
+-->
+
 ```bash
-kubectl describe otelcollector collector-inbound -n <namespace>
-kubectl describe otelcollector collector-outbound -n <namespace>
+kubectl describe TelemetryCollector collector-inbound -n <namespace>
+kubectl describe TelemetryCollector collector-outbound -n <namespace>
 ```
 
-The first of the two OtelCollector custom resources is the inbound collector, dedicated to the inbound telemetry layer. The inbound collector receives the logs and metrics, then exports them to a Kafka custom resource.
+The first of the two TelemetryCollector custom resources is the inbound collector, dedicated to the inbound telemetry layer. The inbound collector receives the logs and metrics, then exports them to a Kafka custom resource.
 
 ```yaml
 Name:         collector-inbound
 Namespace:    <namespace>
 Labels:       <none>
 Annotations:  <none>
-Is Valid:     true
 API Version:  arcdata.microsoft.com/v1beta2
-Kind:         OtelCollector
+Kind:         TelemetryCollector
 Spec:
   Collector:
     Exporters:
@@ -232,19 +236,21 @@ Spec:
         Brokers:           kafka-broker-svc:9092
         Encoding:          otlp_proto
         protocol_version:  2.0.0
-        Tls:
-          ca_file:    cluster-ca-certificate
-          cert_file:  arcdata-msft-kafka-exporter-internal
-          key_file:   arcdata-msft-kafka-exporter-internal
+        auth:
+          Tls:
+            ca_file:    cluster-ca-certificate
+            cert_file:  arcdata-msft-kafka-exporter-internal
+            key_file:   arcdata-msft-kafka-exporter-internal
         Topic:        arcdata.microsoft.com.logs
       kafka/arcdata/msft/metrics:
         Brokers:           kafka-broker-svc:9092
         Encoding:          otlp_proto
         protocol_version:  2.0.0
-        Tls:
-          ca_file:    cluster-ca-certificate
-          cert_file:  arcdata-msft-kafka-exporter-internal
-          key_file:   arcdata-msft-kafka-exporter-internal
+        auth:
+          Tls:
+            ca_file:    cluster-ca-certificate
+            cert_file:  arcdata-msft-kafka-exporter-internal
+            key_file:   arcdata-msft-kafka-exporter-internal
         Topic:        arcdata.microsoft.com.metrics
     Extensions:
       memory_ballast:
@@ -303,9 +309,8 @@ Name:         collector-outbound
 Namespace:    arc
 Labels:       <none>
 Annotations:  <none>
-Is Valid:     true
 API Version:  arcdata.microsoft.com/v1beta2
-Kind:         OtelCollector
+Kind:         TelemetryCollector
 Spec:
   Collector:
     Exporters:
@@ -381,7 +386,7 @@ Events:             <none>
 
 ```
 
-After you deploy the Telemetry Router, both OtelCollector custom resources should be in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
+After you deploy the Telemetry Router, both TelemetryCollector custom resources should be in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource.
 
 If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`. You should also see the `kakfa-server-0` pod.
 
@@ -402,10 +407,11 @@ logsui-67hvm                  3/3     Running     0          19h
 metricsdb-0                   2/2     Running     0          19h
 metricsdc-hq25d               2/2     Running     0          19h
 metricsdc-twq7r               2/2     Running     0          19h
+metricsdc-z5khh               2/2     Running     0          19h
 metricsui-psnvg               2/2     Running     0          19h
 ```
 
 ## Next steps
 
 - [Add exporters to your telemetry router](/adding-exporters.md)
-- [Test Arc-enabled servers using an Azure VM](../servers/plan-evaluate-on-azure-virtual-machine.md)
+- [Add pipelines to your telemetry router](/adding-pipelines.md)
