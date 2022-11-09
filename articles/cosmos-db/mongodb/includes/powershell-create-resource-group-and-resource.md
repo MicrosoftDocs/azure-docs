@@ -4,7 +4,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/31/2022
 ms.author: diberry
 ---
 1. Create shell variables for *ACCOUNT_NAME*, *RESOURCE_GROUP_NAME*, and **LOCATION**.
@@ -38,7 +38,7 @@ ms.author: diberry
         ResourceGroupName = $RESOURCE_GROUP_NAME
         Name = $ACCOUNT_NAME
         Location = $LOCATION
-        Kind = "MongoDB"
+        ApiKind = "MongoDB"
     }
     New-AzCosmosDBAccount @parameters
     ```
