@@ -36,7 +36,7 @@ If you want to create a custom role, see [Rights required for Service Bus operat
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="media/add-role.png" alt-text="A screenshot showing how to assign a role.":::    
+    :::image type="content" source="media/service-bus-assign-roles/add-role.png" alt-text="A screenshot showing how to assign a role.":::    
 
 5. Use the search box to filter the results to the desired role. For this example, search for `Azure Service Bus Data Owner` and select the matching result. Then choose **Next**.
 
