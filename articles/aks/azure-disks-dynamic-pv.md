@@ -28,7 +28,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count will change based on the size of the node/node pool. Run the following command to determine the number of volumes that can be allocated per node:
 
 ```console
-kubectl get CSINode aks-mlrg-34603364-vmss000000 -o yaml
+kubectl get CSINode <nodename> -o yaml
 ```
 
 ## Built-in storage classes

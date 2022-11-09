@@ -27,7 +27,7 @@ If you want to interact with Azure disks on an AKS cluster with 1.20 or previous
 The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count will change based on the size of the node/node pool. Run the following command to determine the number of volumes that can be allocated per node:
 
 ```console
-kubectl get CSINode aks-mlrg-34603364-vmss000000 -o yaml
+kubectl get CSINode <nodename> -o yaml
 ```
 
 ## Storage class static provisioning
