@@ -15,7 +15,7 @@ ms.author: jasteppe
 The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
 
 > [!TIP]
-> For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview).
+> For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 
 Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then process the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md)
 
@@ -27,7 +27,7 @@ In order to begin the deployment and complete this tutorial, you need to have th
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- **Owner** or **Contributor** access to the Azure subscription. For more information about Azure role-based access control, see [What is Azure role-based access control?](/azure/role-based-access-control/overview).
+- **Owner** or **Contributor + User Access Administrator** access to the Azure subscription. For more information about Azure role-based access control, see [What is Azure role-based access control?](/azure/role-based-access-control/overview).
 
 - These resource providers registered with your Azure subscription: **Microsoft.HealthcareApis**, **Microsoft.EventHub**, and **Microsoft.Devices**. To learn more about registering resource providers, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
@@ -111,7 +111,7 @@ Once the deployment has competed, the following resources and access roles will 
 
 1. Open **VSCode** with the previously installed **Azure IoT Tools**.
 
-2. The **Azure IoT Hub extension** can be found in the **Explorer** section of **VSCode**. Select **…** and then select **Select IoT Hub**. You'll be shown a list of Azure subscriptions. Select the subscription where your IoT Hub was provisioned. You'll then be shown a list of IoT Hubs. Select your IoT Hub (your IoT Hub will be the basename you provided when you provisioned the resources prefixed with “ih-“.). For this example, we'll select an IoT Hub named **ih-azuredocsdemo**. You'll be selecting your own IoT Hub.
+2. The **Azure IoT Hub extension** can be found in the **Explorer** section of **VSCode**. Select **…** and then select **Select IoT Hub**. You'll be shown a list of Azure subscriptions. Select the subscription where your IoT Hub was provisioned. You'll then be shown a list of IoT Hubs. Select your IoT Hub (your IoT Hub will be the basename you provided when you provisioned the resources prefixed with **ih-**.). For this example, we'll select an IoT Hub named **ih-azuredocsdemo**. You'll be selecting your own IoT Hub.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the deployed IoT Hub for this tutorial " lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
 
@@ -126,7 +126,7 @@ Once the deployment has competed, the following resources and access roles will 
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the **Send D2C Message to IoT Hub** option." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
 
-5. In the **Send D2C Messages** box, make the following selections:
+5. In the **Send D2C Messages** box, make the following selections and edits:
 
    - **Device(s) to send messages from** - Leave at default. The device will be the one previously created by you.
    
