@@ -258,7 +258,7 @@ For convenience, this article uses Azure virtual machines to run the gateway and
 | Authentication Type | Password |
 | Admin Password Or Key | Your choice of password for the **AzureUser** account on both virtual machines. |
 
-[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway-1-1%2FDeployGatewayVMs.json)
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmain%2Ftransparent-gateway-1-1%2FDeployGatewayVMs.json)
 
 Select **Review + Create**, and then **Create**. It takes a couple of minutes to create the virtual machines in the **ingress-scenario** resource group.
 
