@@ -109,7 +109,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Disaster recovery for Edge Zones (preview)
-            url: tutorial-replicate-vms-edge-zone-to-another-zone.md      
+            url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
                
   - title: Get involved
     linkLists:
