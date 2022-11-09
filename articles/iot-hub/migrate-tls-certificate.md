@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 11/09/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -129,6 +129,14 @@ No, only the [public Azure cloud](https://azure.microsoft.com/global-infrastruct
 ### I use IoT Central. Do I need to update my devices?
 
 Yes, IoT Central uses IoT Hub in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
+
+### How long will it take my devices to reconnect?
+
+Several factors can affect device reconnection behavior.
+
+Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
+
+Also, as part of the migration, your IoT hub may get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
 
 ## Troubleshoot
 
