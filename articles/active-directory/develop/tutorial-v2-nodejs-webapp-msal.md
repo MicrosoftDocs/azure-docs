@@ -132,7 +132,7 @@ Fill in these details with the values you obtain from Azure app registration por
 
 ## Add code for user login and token acquisition
 
-1. Create a new file named *auth.js* under the *router* folder and add the following code there:
+1. Create a new file named *auth.js* under the *routes* folder and add the following code there:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js":::
 
