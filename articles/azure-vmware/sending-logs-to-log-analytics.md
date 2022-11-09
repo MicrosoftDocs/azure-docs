@@ -38,14 +38,14 @@ A Log Analytics workspace:
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
- 
+
 ### Add a diagnostic setting
 
 Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
 1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
 
-2. Give your diagnostic setting a name. Select the log categories you are interested in sending to your Log Analytics workspace. 
+2. Give your diagnostic setting a name. Select the log categories you are interested in sending to your Log Analytics workspace.
 
 3. Make sure to select the checkbox next to Send to Log Analytics workspace. Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. Click Save on the top left.
 
@@ -63,4 +63,4 @@ To understand how Kusto works and how you can write your own queries, check out 
 [Kusto Query Language (KQL) from Scratch | Pluralsight
 Introduction - Training | Microsoft Docs](https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch/table-of-contents)
 
-To see how commonly used SQL queries could translate to Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet)
+To see how commonly used SQL queries could translate to Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet.md)
