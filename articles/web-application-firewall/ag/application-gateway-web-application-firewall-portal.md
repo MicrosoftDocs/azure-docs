@@ -176,7 +176,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 
 1. Open a Bash Cloud Shell. To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
 
-:::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
 
 2. Run the following command to install NGINX on the virtual machine: 
 
