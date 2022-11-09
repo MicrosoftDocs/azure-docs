@@ -86,7 +86,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 ## Configure Dev Tools to access Application Live View
 As one of the Dev Tool components, Application Live View can be accessed through Dev Tool Portal. Dev Tool Portal resource has an Application Live View feature plugin to enable the front end view. This plugin can be enabled or disabled by manage Dev Tool Portal resource.
 
-See <!--TODO link (zhe li)--> for how to expose Dev Tool Portal to public access.
+See [Assign a public endpoint for Dev Tool Portal](./how-to-use-dev-tool-portal.md#assign-a-public-endpoint-for-dev-tool-portal) for how to expose Dev Tool Portal to public access.
 
 > Azure Spring Apps portal and CLI will help to manage the feature plugin on Dev Tool Portal when operating Application Live View. After the operation, you need to inactivate browser cache by pressing `ctrl+F5` to reload the plugin.
 
