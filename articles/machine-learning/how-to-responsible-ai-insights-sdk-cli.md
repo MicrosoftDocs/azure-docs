@@ -59,7 +59,7 @@ This component has three input ports:
 
 To generate model-debugging insights with components such as error analysis and Model explanations, use the training and test dataset that you used when you trained your model. For components like causal analysis, which doesn't require a model, you use the training dataset to train the causal model to generate the causal insights. You use the test dataset to populate your Responsible AI dashboard visualizations.
 
-The easiest way to supply the model is to register the input model and reference the same model in the model input port of `RAI Insight Constructor` component,, which we discuss later in this article.
+The easiest way to supply the model is to register the input model and reference the same model in the model input port of `RAI Insight Constructor` component, which we discuss later in this article.
 
 > [!NOTE]
 > Currently, only models in MLflow format and with a `sklearn` flavor are supported.
