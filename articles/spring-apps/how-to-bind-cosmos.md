@@ -74,30 +74,46 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ## Bind your app to the Azure Cosmos DB
 
-#### [Service Connector](#tab/Service-Connector)
+#### [Azure CLI](#tab/Service-Connector)
 
-Configure your Spring app to connect to a Cosmos Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
+* Use **Azure CLI** to configure your Spring app to connect to a Cosmos Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
 
-```azurecli
-az spring connection create cosmos-sql \
-    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-    --app $APP_NAME \
-    --deployment $DEPLOYMENT_NAME \
-    --target-resource-group $MYSQL_RESOURCE_GROUP \
-    --account $COSMOSDB_ACCOUNT_NAME \
-    --database $DATABASE_NAME \
-    --system-assigned-identity
-```
+   ```azurecli
+   az spring connection create cosmos-sql \
+       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $MYSQL_RESOURCE_GROUP \
+       --account $COSMOSDB_ACCOUNT_NAME \
+       --database $DATABASE_NAME \
+       --system-assigned-identity
+   ```
 
- > [!NOTE]
- > If you are using [Service Connector]([https://learn.microsoft.com/en-us/cli/azure/provider#az-provider-register](https://learn.microsoft.com/en-us/azure/service-connector/overview)) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
+    > [!NOTE]
+    > If you are using [Service Connector]([https://learn.microsoft.com/en-us/cli/azure/provider#az-provider-register](https://learn.microsoft.com/en-us/azure/service-connector/overview)) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
 
- > [!NOTE]
- > If you are using Cosmos Cassandra, use a `--key_space` instead of `--database`.
-    
- > [!TIP]
- > Run the command `az spring connection` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+    > [!NOTE]
+    > If you are using Cosmos Cassandra, use a `--key_space` instead of `--database`.
+
+    > [!TIP]
+    > Run the command `az spring connection` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+
+* Or you can use **Azure Portal** to configure this connection.
+
+   1.  Go to your Azure Spring Apps service page in the Azure portal. Choose the Azure Spring Apps and open the Apps page. Choose the App you want to configure connection and Open the Service Connector page.
+   
+   1. Click Create button, a create connection panel should show up.
+   
+   1. In the Basics tab, choose CosmosDB for service type. For this specific example, We will choose a subscription, Core(SQL) for API type, a CosmosDB account, a databse and a client type. Then Click Next.
+
+   1. In the Authentication tab, we will use Connection string. It automatically retrieves the access key from your CosmosDB account and configure it into your Spring App Settings. Then Click Next.
+
+   1. In the Networking tab, we will use "Configure firewall rules to enable access to target service". Then Click Next
+
+   1. Wait for the validation to pass and then we can check again the connection parameters before acutal creation of the connection.
+
+   1. Hit the Create button and wait for the creation operation to finish.
 
 #### [Service Binding](#tab/Service-Binding)
 
