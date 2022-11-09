@@ -17,6 +17,7 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 |Aspect|Details|
 |----|:----|
 |Release state:| Foundational CSPM capabilities: GA <br> Defender Cloud Security Posture Management (CSPM): Preview |
+| Prerequisites | - **Foundational CSPM capabilities** - None <br> - **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but attack path analysis and security explorer will not be populated with vulnerabilities due to the lack of data collection. 
 |Clouds:| 	**Foundational CSPM capabilities** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. <br> <br> **Defender Cloud Security Posture Management (CSPM)** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. |
 
 ## Defender CSPM plan options
