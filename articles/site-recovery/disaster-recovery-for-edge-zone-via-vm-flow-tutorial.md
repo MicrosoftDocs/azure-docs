@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery for Virtual machines on Edge 
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/04/2022
+ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
@@ -28,7 +28,8 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Basics**, select the **Target region** or an edge zone (preview).
     - Option1: **Edge Zone to Region**
     - Option2: **Edge Zone to Edge Zone**
-This flow proceeds with option1: Edge Zone to Region replication.
+    >[!Note]
+    >This flow proceeds with option1: Edge Zone to Region replication.
 1. Select **Next : Advanced settings**.
     >[!Note]
     >**Review + Start replication** will appear grey at this step.

@@ -3,7 +3,7 @@ title: Replicate virtual machines running in an Azure Edge Zone (preview) to ano
 description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to another Edge Zone connected to the same parent region.
 author: v-pgaddala
 ms.service: site-recovery
-ms.topic: how-to   
+ms.topic: tutorial
 ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
