@@ -114,7 +114,7 @@ The following table represents the set of supported browsers which are currently
 | ------------ | ------ | ------ | --------------   |
 | Android      | ✔️      | ❌      | ❌           | 
 | iOS          | ❌      | ✔️      | ❌           |
-| macOS        | ✔️      | ✔️      | ❌           | 
+| macOS        | ✔️      | ✔️      | ✔️           | 
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 

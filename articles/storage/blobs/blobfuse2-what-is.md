@@ -8,11 +8,11 @@ ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/07/2022
 ms.custom: engagement-fy23
 ---
 
-# What is BlobFuse2 (preview)?
+# What is BlobFuse? - BlobFuse2 (preview)
 
 BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure block blob data through the Linux file system.
 

@@ -29,7 +29,7 @@ Several open-source tools can help with your migration, depending on your scenar
 
 * [Velero](https://velero.io/) (Requires Kubernetes 1.7+)
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+
 
 In this article we will summarize migration details for:
 

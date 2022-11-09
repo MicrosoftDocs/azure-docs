@@ -77,26 +77,8 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
     From here, choose the relevant procedure below depending on the type of machines you're onboarding:
 
-    - [Onboard your Azure Stack Hub VMs](#onboard-your-azure-stack-hub-vms)
     - [Onboard your Linux machines](#onboard-your-linux-machines)
     - [Onboard your Windows machines](#onboard-your-windows-machines)
-
-### Onboard your Azure Stack Hub VMs
-
-To add Azure Stack Hub VMs, you need the information on the **Agents management** page and to configure the **Azure Monitor, Update and Configuration Management** virtual machine extension on the virtual machines running on your Azure Stack Hub instance.
-
-1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
-1. Log into your **Azure Stack Hub** portal and open the **Virtual machines** page.
-1. Select the virtual machine that you want to protect with Defender for Cloud.
-    >[!TIP]
-    > For information on how to create a virtual machine on Azure Stack Hub, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
-1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
-1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
-1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.
-    >[!NOTE]
-    > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack Hub operator to make it available.
-1. On the **Install extension** configuration page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous step.
-1. When you complete the configuration, select **OK**. The extension's status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in Defender for Cloud.
 
 ### Onboard your Linux machines
 
