@@ -40,7 +40,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## Sample architecture for playing audio in a call
 
-![Screenshot of flow for play action.](./media/play-action-flow.png)
+![Screenshot of flow for play action.](./media/play-action.png)
 
 ## Known limitations
 - Play action isn't enabled to work with Teams Interoperability.
