@@ -30,7 +30,35 @@ Text Analytics for health performs four key functions which are named entity rec
 
 [!INCLUDE [Text Analytics for health](includes/features.md)]
 
+Text Analytics for health can receive unstructured text in English as part of its generally available offering. Additional languages such as German, French, Italian, Spanish, Portuguese, and Hebrew are currently supported in preview.
+
+Additionally, Text Analytics for health can return the processed output using the Fast Healthcare Interoperability Resources (FHIR) structure which enables the service's integration with other electronic health systems.  
+
+
+
 > [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
+
+
+
+## Example use cases
+
+Text Analytics for health can be used in multiple scenarios across a variety of industries.
+Some common customer motivations for using Text Analytics for health include:
+* Assisting and automating the processing of medical documents by proper medical coding to ensure accurate care and billing.
+* Increasing the efficiency of analyzing healthcare data to help drive the success of value-based care models similar to Medicare.
+* Minimizing healthcare provider effort by automating the aggregation of key patient data for trend and pattern monitoring.
+* Facilitating and supporting the adoption of HL7 standards for improved exchange, integration, sharing, retrieval, and delivery of electronic health information in all healthcare services.    
+
+ 
+|Use case|Description|
+|--|--|
+|Extract insights and statistics|Identify medical entities such as symptoms, medications, diagnosis from clinical and research documents in order to extract insights and statistics for different patient cohorts.|
+|Develop predictive models using historic data|Power solutions for planning, decision support, risk analysis and more, based on prediction models created from historic data.|
+|Annotate and curate medical information|Support solutions for clinical data annotation and curation such as automating clinical coding and digitizing manually created data.|
+|Review and report medical information|Support solutions for reporting and flagging possible errors in medical information resulting from reviewal processes such as quality assurance.|
+|Assist with decision support|Enable solutions that provide humans with assistive information relating to patients’ medical information for faster and more reliable decisions.|
+
+
 
 ## Get started with Text analytics for health
 
@@ -40,7 +68,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 |Development option  |Description  | Links | 
 |---------|---------|---------|
 | Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
+| REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API, or the client library available in a variety of development languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
 | Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | • [How to deploy on-premises](how-to/use-containers.md) |
 
 ## Input requirements and service limits
