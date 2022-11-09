@@ -13,21 +13,20 @@ ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
-# What is Text Analytics for health in Azure Cognitive Service for Language?
+# What is Text Analytics for health?
 
 [!INCLUDE [service notice](includes/service-notice.md)]
 
-Text Analytics for health is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. 
+Text Analytics for health is one of the prebuilt features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to extract and label relevant medical information from a variety of unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
 
 This documentation contains the following types of articles:
-
-* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-* The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth explanations of the service's functionality and features.
+* The [**quickstart article**](quickstart.md) provides a short tutorial that guides you with making your first request to the service.
+* The [**how-to guides**](how-to/call-api.md) contain detailed instructions on how to make calls to the service using the hosted API or using the on-premise Docker container.
+* The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth information on each of the service's features, named entity recognition, relation extraction, entity linking, and assertion detection.
 
 ## Text Analytics for health features
 
-Text Analytics for health extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
+Text Analytics for health performs four key functions which are named entity recognition, relation extraction, entity linking, and assertion detection, all with a single API call.
 
 [!INCLUDE [Text Analytics for health](includes/features.md)]
 
