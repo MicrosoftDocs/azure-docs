@@ -67,7 +67,7 @@ There are three tabbed sections in this workbook:
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](monitor-sentinel-health.md).
+To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
 

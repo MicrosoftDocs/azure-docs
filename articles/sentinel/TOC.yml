@@ -307,7 +307,7 @@
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
     - name: Enable health monitoring
-      href: monitor-sentinel-health.md
+      href: enable-monitoring.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
   - name: Detect threats and analyze data

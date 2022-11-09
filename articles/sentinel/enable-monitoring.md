@@ -1,10 +1,10 @@
 ---
 title: Turn on health monitoring in Microsoft Sentinel
 description: Monitor supported data connectors by using the SentinelHealth data table.
-ms.topic: how-to
-ms.date: 7/28/2022
 author: limwainstein
 ms.author: lwainstein
+ms.topic: how-to
+ms.date: 7/28/2022
 ms.service: microsoft-sentinel
 ---
 
