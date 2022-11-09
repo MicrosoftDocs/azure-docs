@@ -25,7 +25,7 @@ Mount the ISO file onto your hardware appliance or VM using one of the following
     -	DVDs: First burn the software to the DVD as an image
     -	USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
 
-    Your physical media must have a minimum of 4 GB storage.
+    Your physical media must have a minimum of 4-GB storage.
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
@@ -266,6 +266,32 @@ After installing OT monitoring software, make sure to run the following tests:
 - **Version**: Verify that the version is correct.
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
+
+### Gateway Checks
+
+Use the `route` command to show the IP address of the Gateway. For example:
+
+:::image type="content" source="media/tutorial-install-components/route-n.png" alt-text="Screenshot that shows the result of running the command route." border="false":::
+
+Use the `arp -a` command to verify that the MAC recognizes the IP if a ping command to the gateway IP trigger fails. For example:
+
+:::image type="content" source="media/tutorial-install-components/arp-a.png" alt-text="Screenshot that shows the result of running the command arp -a." border="false":::
+
+### DNS Checks
+
+Use the `cat /etc/resolv.conf` command to check the IP that is configured for DNS. For example:
+
+:::image type="content" source="media/tutorial-install-components/cat-etc-resolv-conf.png" alt-text="Screenshot that shows the result of running the command to check DNS." border="false":::
+
+Use the `host` command to resolve an FQDN. For example:
+
+:::image type="content" source="media/tutorial-install-components/host.png" alt-text="Screenshot that shows the result of running the command host." border="false":::
+
+### Firewall Checks
+
+Use the `wget` command to verify that port 443 is open for communication. For example:
+
+:::image type="content" source="media/tutorial-install-components/wget.png" alt-text="Screenshot that shows the result of running the command wget." border="false":::
 
 For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
