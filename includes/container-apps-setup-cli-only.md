@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 05/11/2022
+ms.date: 11/08/2022
 ms.author: cshoe
 ---
 
@@ -34,7 +34,7 @@ az upgrade
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
+You must have the latest Az module installed.  Ignore warnings about modules currently in use.
 
 ```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force

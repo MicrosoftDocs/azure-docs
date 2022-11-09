@@ -42,7 +42,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 
 Next, define a container registry name unique to you.
 
-```powershell
+```azurepowershell
 $ACRName="acaalbums"+$GITHUB_USERNAME
 ```
 

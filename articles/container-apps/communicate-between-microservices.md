@@ -47,10 +47,10 @@ Sign in to the Azure CLI.
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az login
+```azurepowershell
+Connect-AzAccount
 ```
 
 ---
@@ -63,10 +63,10 @@ az login
 az acr login --name $ACR_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr login --name $ACR_NAME
+```azurepowershell
+az acr login --name $ACRName
 ```
 
 ---
@@ -112,7 +112,7 @@ az acr build --registry $ACR_NAME --image albumapp-ui .
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurepowershell
 az acr build --registry $ACR_NAME --image albumapp-ui .
 ```
 
@@ -134,7 +134,7 @@ Output from the `az acr build` command shows the upload progress of the source c
 
     # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
@@ -153,7 +153,7 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    az acr login --name $ACR_NAME
+    az acr login --name $ACRName
     ```
 
     ---
@@ -171,7 +171,7 @@ Output from the `az acr build` command shows the upload progress of the source c
 
     ```powershell
 
-    docker push "$ACR_NAME.azurecr.io/albumapp-ui"
+    docker push "$ACRName.azurecr.io/albumapp-ui"
     ```
 
     ---
