@@ -164,7 +164,7 @@ The wizard will allow you to customize your PDF scorecard without having to touc
 
     :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-selection.png" alt-text="Screenshot of the wizard on scorecard tool selection configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-selection.png":::
 
-4. *The Data analysis* section enables cohort analysis. Here, you can identify issues of over- and under-representation explore how data is clustered in the dataset, and how model predictions impact specific data cohorts. Use checkboxes in the dropdown to select your features of interest below to identify your model performance on their underlying cohorts.
+4. *The Data analysis* section (previously called data explorer) enables cohort analysis. Here, you can identify issues of over- and under-representation explore how data is clustered in the dataset, and how model predictions impact specific data cohorts. Use checkboxes in the dropdown to select your features of interest below to identify your model performance on their underlying cohorts.
 
     :::image type="content" source="./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png" alt-text="Screenshot of the wizard on scorecard data analysis configuration." lightbox= "./media/how-to-responsible-ai-insights-ui/scorecard-explorer.png":::
 
