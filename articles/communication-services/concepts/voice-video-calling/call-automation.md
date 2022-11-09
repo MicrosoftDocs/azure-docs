@@ -19,11 +19,11 @@ ms.custom: private_preview
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
-> Call Automation currently doesnt interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isnt supported. 
+> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported. 
 
 ## Common Use Cases
 
-Some of the common use cases that can be build using Call Automation include:
+Some of the common use cases that can be built using Call Automation include:
 
 - Program VoIP or PSTN calls for transactional workflows such as click-to-call and appointment reminders to improve customer service.
 - Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL) and Recognize (DTMF) actions.
@@ -91,7 +91,7 @@ These actions can be performed on the calls that are answered or placed using Ca
 
 **Recognize input** - After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and how-to guide for [Gathering user input](../../how-tos/call-automation-sdk/recognize-action.md).
 
-**Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
+**Transfer** – When your application answers a call or places an outbound call to an endpoint, that call can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
 **Hang-up** – When your application has answered a one-to-one call, the hang-up action will remove the call leg and terminate the call with the other endpoint. If there are more than two participants in the call (group call), performing a ‘hang-up’ action will remove your application’s endpoint from the group call.
 
