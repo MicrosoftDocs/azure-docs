@@ -130,4 +130,3 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
-- [Add B2B collaboration users without an invitation](add-user-without-invite.md)
