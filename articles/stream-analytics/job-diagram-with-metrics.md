@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/9/2022
 ---
 
 # Stream Analytics job diagram (preview) in Azure portal
@@ -72,7 +72,7 @@ To learn more about how to debug with physical diagram, see [Debugging with the 
 
 ## Processor diagram in physical job diagram
 
-The processor diagram in physical job diagram visualizes the processor topology inside the specific streaming node. To access the processor diagram, you'll need to open the physical job diagram, and locate a streaming node you want to check its processor diagram, then open the processor diagram by clicking the streaming node name.
+The processor diagram in physical job diagram visualizes the processor topology inside the specific streaming node. To access the processor diagram, you'll need to open the physical job diagram, locate a streaming node that you want to check its processor diagram, and then open the processor diagram by clicking the streaming node name.
 
 :::image type="content" source="./media/job-diagram-with-metrics/7-processor-diagram-openning.png" alt-text="Screenshot that shows processor diagram entrypoint."  lightbox="./media/job-diagram-with-metrics/7-processor-diagram-openning.png":::
 
@@ -86,7 +86,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
         | --- | --- | 
         | **Input** or **Output** | This processor is used for receiving (Input) or outputting (Output) stream data. |
         | **ReferenceData** | This processor is used for fetching the reference data. |
-        | **Computing** | This processor is used for aggregating the stream data according to the query logic. |
+        | **Computing** | This processor is used for processing the stream data according to the query logic, for example, aggregating, filtering, grouping with window, etc.. To learn more about the stream data computation query functions, see [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). |
         | **MarshallerUpstream** and **MarshallerDownstream** | When there's stream data interaction among streaming nodes, there will be two marshaller processors: 1). **MarshallerUpstream** for sending the data in the upstream streaming node and 2). **MarshallerDownstream** for receiving the data in the downstream streaming node. |
         | **Merger** | This processor is to receive the crossing-partition stream data, which were outputted from several upstream streaming nodes. The best practice to optimize job performance is to update query to remove the merger processor to make the job become parallel since the merger processor is the bottleneck of the job. The job diagram simulator feature within VSCode ASA extension can help you simulating your query locally when you optimizing your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md). |
         |
