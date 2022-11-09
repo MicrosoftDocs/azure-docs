@@ -1,6 +1,6 @@
 ---
 title: Publish revisions with GitHub Actions in Azure Container Apps
-description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps
+description: Learn to automatically create new revisions in Azure Container Apps using a GitHub Actions workflow
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -9,7 +9,7 @@ ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Set up GitHub Actions in Azure Container Apps
+# Deploy to Azure Container Apps with GitHub Actions
 
 Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions workflow is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 

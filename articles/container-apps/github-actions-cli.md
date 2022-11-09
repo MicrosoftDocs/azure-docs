@@ -18,7 +18,7 @@ Azure Container Apps allows you to use GitHub Actions to publish [revisions](rev
 
 The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the action.
 
-This article shows you how to generate a starter GitHub Actions workflow with Azure CLI. To create your own workflow that you can fully customize, see [Set up GitHub Actions in Azure Container Apps](github-actions.md).
+This article shows you how to generate a starter GitHub Actions workflow with Azure CLI. To create your own workflow that you can fully customize, see [Deploy to Azure Container Apps with GitHub Actions](github-actions.md).
 
 ## Authentication
 
