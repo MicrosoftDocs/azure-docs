@@ -14,7 +14,8 @@ ms.author: jasteppe
  
 The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
 
-For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview).
+> [!TIP]
+> For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview).
 
 Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then process the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md)
 
