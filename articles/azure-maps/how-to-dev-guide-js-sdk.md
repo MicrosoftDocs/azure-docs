@@ -122,9 +122,9 @@ You can authenticate with your Azure Maps subscription key. Your subscription ke
 
 :::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
 
-You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code. To expose the variables in .env, you need to install dotenv package:
+You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
 
-You can use a `.env` file for the subscription key variable. This is a more secure approach that hard coding the value in your source code. You'll need to install the [dotenv][dotenv] package:
+You can accomplish this by using a `.env` file to store the subscription key variable. You'll need to install the [dotenv][dotenv] package to retrieve the value:
 
 ```powershell
 npm install dotenv
@@ -168,14 +168,13 @@ async function main() {
   }); 
  
   // Log the result 
-  console.log(`Find ${response.numberResults} results:`); 
-  response.results.forEach((r) => { 
-    console.log("============="); 
-
-    console.log(`Phone: ${r.pointOfInterest.phone || "Not provided"}`); 
-
-    console.log(`Address: ${r.address.freeformAddress}`); 
-  }); 
+  console.log(`Starbucks search result nearby Seattle:`); 
+  response.results.forEach((result) => { 
+    console.log(`\ 
+      * ${result.address.streetNumber} ${result.address.streetName} 
+        ${result.address.municipality} ${result.address.countryCode} ${result.address.postalCode} 
+        Coordinate: (${result.position[0].toFixed(4)}, ${result.position[1].toFixed(4)})\ 
+    `); 
 } 
  
 main().catch((err) => { 
@@ -207,7 +206,7 @@ async function main() {
   const client = new MapsSearchClient(credential);
 
   const response = await client.searchAddress(
-    "1301 Alaskan Way, Seattle, WA 98101, US"
+    "1912 Pike Pl, Seattle, WA 98101, US"
   );
 
   console.log(`The coordinate is: ${response.results[0].position}`);}
@@ -228,10 +227,10 @@ Azure Maps Search also provides some batch query methods. These methods will ret
     // This is an invalid query
     { coordinates: [148.858561, 2.294911] },
     {
-      coordinates: [47.639765, -122.127896],
-      options: { radiusInMeters: 5000 },
+      coordinates: [47.61010, -122.34255],
     },
-    { coordinates: [47.621028, -122.34817] },
+    { coordinates: [47.6155, -122.33817] },
+      options: { radiusInMeters: 5000 },
   ]);
 ```
 
@@ -306,10 +305,10 @@ async function main() {
     // This is an invalid query
     { coordinates: [148.858561, 2.294911] },
     {
-      coordinates: [47.639765, -122.127896],
-      options: { radiusInMeters: 5000 },
+      coordinates: [47.61010, -122.34255],
     },
-    { coordinates: [47.621028, -122.34817] },
+    { coordinates: [47.6155, -122.33817] },
+      options: { radiusInMeters: 5000 },
   ]);
 
   // Get the partial result and keep polling
@@ -384,5 +383,3 @@ main().catch((err) => {
 [search package]: https://www.nuget.org/packages/Azure.Maps.Search
 [search readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Search/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Search/samples
-
-[Azure.Maps Namespace]: /dotnet/api/azure.maps
