@@ -28,14 +28,14 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 - **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 ## [Connection String](#tab/connection-string)
-[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal-passwordless.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal-passwordless.md)]
 
 ## [Passwordless](#tab/passwordless)
-[!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
+[!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/service-bus-create-namespace-portal-passwordless.md)]
 
 ---
 
-[!INCLUDE [service-bus-passwordless-template-tabbed](./includes/service-bus-passwordless-template-tabbed.md)]
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/service-bus-passwordless-template-tabbed.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
 
