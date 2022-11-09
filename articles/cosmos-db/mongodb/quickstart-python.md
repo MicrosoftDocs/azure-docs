@@ -77,9 +77,9 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 1. Create a new empty folder using your preferred terminal and change directory to the folder.
 
     > [!NOTE]
-    > If you just want the finished code, download or fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) from GitHub that has the full example. You can also `git clone` the repo in Azure Cloud Shell to try out the code.
+    > If you just want the finished code, download or fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) repo that has the full example. You can also `git clone` the repo in Azure Cloud Shell to walk through the steps shown in this quickstart.
 
-2. Create a *requirements.txt* file with lines for the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and the [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+2. Create a *requirements.txt* file that lists the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
     ```text
     # requirements.txt
@@ -136,9 +136,9 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 * [Get an document](#get-a-document)
 * [Query documents](#query-documents)
 
-The sample code described in this article creates a database named `adventureworks` with a collection named `products`. The `products` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/.
+The sample code described in this article creates a database named `adventureworks` with a collection named `products`. The `products` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier. The complete sample code is at https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started/tree/main/001-quickstart/.
 
-For the steps below, the database won't use sharding and shows a synchronous application using PyMongo. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
+For the steps below, the database won't use sharding and shows a synchronous application using the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) driver. For asynchronous applications, use the [Motor](https://www.mongodb.com/docs/drivers/motor/) driver.
 
 ### Authenticate the client
 
@@ -189,9 +189,9 @@ Create a document with the *product* properties for the `adventureworks` databas
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="new_doc":::
 
-Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, you'll *upsert* instead of *create* a new document in case you run this sample code more than once.
+Create a document in the collection by calling the collection level operation [update_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one). In this example, you'll *upsert* instead of *create* a new document. Upsert isn't necessary in this example because the product *name* is random. However, it's a good practice to upsert in case you run the code more than once and the product name is the same.
 
-The result of the `update_one` operation contains the `_id` field value that you can use in subsequent operations. The *_id* property was created automatically in this case.
+The result of the `update_one` operation contains the `_id` field value that you can use in subsequent operations. The *_id* property was created automatically.
 
 ### Get a document
 
@@ -199,7 +199,7 @@ Use the [find_one](https://pymongo.readthedocs.io/en/stable/api/pymongo/collecti
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="read_doc":::
 
-In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and a partition key. In this code quickstart, you could use `category`.
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (`_id`) and a partition key.
 
 ### Query documents
 
@@ -213,7 +213,7 @@ Troubleshooting:
 
 ## Run the code
 
-This app creates an API for MongoDB database and collection and creates a document and then reads the exact same document back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
+This app creates an API for MongoDB database and collection and creates a document and then reads the exact same document back. Finally, the example issues a query that returns documents that match a specified product *category*. With each step, the example outputs information to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
