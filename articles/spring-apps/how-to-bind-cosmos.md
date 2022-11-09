@@ -109,7 +109,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
    
    * In the **Basics** tab, choose CosmosDB for service type. In this example, we will choose a subscription, core(SQL) for API type, a CosmosDB account, a databse and Java for client type. Click Next button. Refer to the quickstart on [creating a cosmos database](../cosmos-db/create-cosmosdb-resources-portal.md) for help if your database is not created yet.
 
-   * In the **Authentication** tab, choose Connection string. It automatically retrieves the access key from your CosmosDB account and configure it into your spring app Settings. Click Next button.
+   * In the **Authentication** tab, choose Connection string. It automatically retrieves the access key from your CosmosDB account. Click Next button.
 
    * In the **Networking** tab, we will use "Configure firewall rules to enable access to target service". Click Next button.
 
