@@ -130,34 +130,34 @@ In our solution, we're going to build three projects. The main module that conta
 
 1. In **Configure your new project**, enter a name for your project, specify the location, and select **Create**.
 
-1. In **Add Module**, select the type of module you want to develop. If you have an existing module you want to add to your deployment, select **Existing module**. 
-1. Enter a name for your module. Choose a name that's unique within your container registry.
-1. Provide the name of the module's image repository. Visual Studio autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** ff you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
+1. In **Add Module**, select the type of module you want to develop. If you have an existing module you want to add to your deployment, select **Existing module**.
+1. In **Module Name**,enter a name for your module. Choose a name that's unique within your container registry.
+1. In **Repository Url**, provide the name of the module's image repository. Visual Studio autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
 1. Select **Add** to add your module to the project.
 
    ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
 
    > [!NOTE]
-   >If you have an existing IoT Edge project, you can still change the repository URL by opening the **module.json** file. The repository URL is located in the 'repository' property of the JSON file.
+   >If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the *repository* property of the JSON file.
 
-Now you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
+Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
 #### Project structure
 
-In your solution is a main project folder and a single module folder. Both are on the project level. The main project folder contains your deployment manifest.
+In your solution, there are two project level folders including a main project folder and a single module folder. For example, you may have a main project folder named *AzureIotEdgeApp1* and a module folder named *IotEdgeModule1*. The main project folder contains your deployment manifest.
 
 The module project folder contains a file for your module code named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
 
 #### Deployment manifest of your project
 
-The deployment manifest you'll edit is called `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
+The deployment manifest you'll edit is named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest that defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
 
 If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ### Set IoT Edge runtime version
 
-The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio to match.
+Currently, the latest stable runtime version is 1.4. You should update the IoT Edge runtime version to the latest stable release or the version you want to target for your devices.
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -167,7 +167,42 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
-1. If you changed the version, re-generate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This will generate a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
+    The extension hasn't been updated to include version 1.4. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+       "edgeAgent": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+       ...
+       "edgeHub": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+       ...
+    ```
+    
+1. If you changed the version, re-generate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This generates a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-cli"
+
+1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+        "edgeAgent": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+        ...
+        "edgeHub": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+        ...
+    ```
 
 ::: zone-end
 
@@ -204,8 +239,6 @@ To initialize the tool in Visual Studio:
 > [!NOTE]
 > You need to follow these steps only once on your development computer as the results are automatically applied to all subsequent Azure IoT Edge solutions. This procedure can be followed again if you need to change to a different connection string.
 
-::: zone-end
-
 ## Build and debug a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
@@ -219,11 +252,9 @@ Typically, you'll want to test and debug each module before running it within an
 :::moniker-end
 <!-- end 1.1 -->
 
-1. In **Solution Explorer**, right-click the module project folder and select **Set as StartUp Project** from the menu.
+1. In **Solution Explorer**, select and highlight the module project folder, for example, *IotEdgeModule1*. Set the module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/module-start-up-project.png" alt-text="Screenshot of how to set project as startup project.":::
-
-1. Press **F5** or click the run button in the toolbar to run the module. It may take 10 to 20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
+1. Press **F5** or select the run toolbar button to run the module. It may take 10 to 20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/run-module.png" alt-text="Screenshot of how to run a module.":::
 
@@ -289,7 +320,8 @@ After you're done developing a single module, you might want to run and debug an
 
 ## Build and push images
 
-1. Make sure the main IoT Edge project is the start-up project, not one of the individual modules. Select either **Debug** or **Release** as the configuration to build for your module images.
+1. Set the main IoT Edge project as the start-up project, not one of the individual modules.
+1. Select either **Debug** or **Release** as the configuration to build for your module images.
 
     > [!NOTE]
     > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
@@ -297,14 +329,14 @@ After you're done developing a single module, you might want to run and debug an
 1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. 
 
     ```cmd
-    docker login -u <ACR username> -p <ACR password> <ACR login server>
+    docker login <ACR login server>
     ```
 
 1. Let's add the Azure Container Registry login information to the runtime settings found in the file `deployment.debug.template.json`. There are two ways to do this. You can either add your registry credentials to your `.env` file (most secure) or add them directly to your `deployment.debug.template.json` file.
 
    **Add credentials to your `.env` file:**
 
-   In the Solution Explorer, click the button that will **Show All Files**. The `.env` file will appear. Add your Azure Container Registry username and password to your `.env` file. These credentials can be found on the **Access Keys** page of your Azure Container Registry in the Azure portal.
+   In **Solution Explorer**, select the **Show All Files** toolbar button. The `.env` file will appear. Add your Azure Container Registry username and password to your `.env` file. These credentials can be found on the **Access Keys** page of your Azure Container Registry in the Azure portal.
       
    :::image type="content" source="./media/how-to-visual-studio-develop-module/show-env-file.png" alt-text="Screenshot of button that will show all files in the Solution Explorer.":::
 
@@ -314,9 +346,9 @@ After you're done developing a single module, you might want to run and debug an
        CONTAINER_REGISTRY_PASSWORD_myregistry=<my-registry-password>
    ```
 
-   **Add credentials directly to `deployment.debug.template.json`:**
+   **Add credentials directly to deployment.debug.template.json**
 
-   If you'd rather add your credentials directly to your deployment template, replace the placeholders with your actual ACR admin username, password, and registry name.
+   If you'd rather add your credentials directly to your deployment template, replace the placeholders with your ACR admin username, password, and registry name.
 
     ```json
           "settings": {
@@ -393,6 +425,63 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
     ```
 
 1. After running the command, you'll see a confirmation of deployment printed in `JSON` in your command prompt.
+::: zone-end
+<!--iotedgedev end-->
+
+::: zone pivot="iotedge-dev-cli"
+
+## Build module Docker image
+
+Use the module's Dockerfile to build the module Docker image.
+
+```bash
+docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
+```
+
+For example, let's assume your command shell is in your project directory and your module name is *IotEdgeModule1*. To build the image for the local registry or an Azure container registry, use the following commands:
+
+```bash
+# Build the image for the local registry
+
+docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t localhost:5000/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
+
+# Or build the image for an Azure Container Registry
+
+docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t myacr.azurecr.io/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
+```
+
+#### Push module Docker image
+
+Push your module image to the local registry or a container registry.
+
+`docker push <ImageName>`
+
+For example:
+
+```bash
+# Push the Docker image to the local registry
+
+docker push localhost:5000/iotedgemodule1:0.0.1-amd64
+
+# Or push the Docker image to an Azure Container Registry
+az acr login --name myacr
+docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
+```
+
+#### Deploy the module to the IoT Edge device.
+
+Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+
+```azurecli
+az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
+```
+
+> [!TIP]
+> You can find your IoT Hub connection string in the Azure portal under Azure IoT Hub > **Security settings** > **Shared access policies**.
+>
+
+::: zone-end
+<!--iotedgedev end-->
 
 ### Confirm the deployment to your device
 
