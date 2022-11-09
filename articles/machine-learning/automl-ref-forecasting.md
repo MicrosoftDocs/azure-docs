@@ -18,9 +18,9 @@ ms.reviewer: ssalgado
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
+The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLForecastingJob.schema.json.
 
-a
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -28,26 +28,57 @@ a
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `type` | const | The type of job. | `command` | `command` |
-| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
-| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
-| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
+| `$schema` | string | The YAML schema. If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
+| `compute` | string | **Required.** Name of the AML compute infrastructure to execute the job on. This compute can be either a reference to an existing compute machine in the workspace *Note:* jobs in pipeline don't support 'local' as `compute`. * | 1. pattern `'[^azureml:<compute_name>]' to use existing compute, <br>2.`'local'` to use local execution | `'local'` |
+| `name` | string |  The name of the Job/Run. Must be unique across all jobs in the workspace. If not specified, Azure ML will generate a random string as the name. | ?? | ?? |
 | `description` | string | Description of the job. | | |
-| `tags` | object | Dictionary of tags for the job. | | |
-| `command` | string | **Required (if not using `component` field).** The command to execute. | | |
-| `code` | string | Local path to the source code directory to be uploaded and used for the job. | | |
-| `environment` | string or object | **Required (if not using `component` field).** The environment to use for the job. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. | | |
-| `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
-| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. **Note:** jobs in pipeline didn't support `local` as `compute` | | `local` |
-| `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
-| `resources.instance_type` | string | The instance type to use for the job. Applicable for jobs running on Azure Arc-enabled Kubernetes compute (where the compute target specified in the `compute` field is of `type: kubernentes`). If omitted, this will default to the default instance type for the Kubernetes cluster. For more information, see [Create and select Kubernetes instance types](how-to-attach-kubernetes-anywhere.md). | | |
-| `limits.timeout` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached the system will cancel the job. | | |
-| `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
-| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure ML will system-generate an output location for the output. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
+| `experiment_name` | string | The name of the Experiment. An Experiment is like a folder with multiple runs in Azure ML Workspace that should be related to the same logical machine learning experiment. For example, if a user runs this notebook multiple times, there will be multiple runs associated with the same Experiment name. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
+| `log_files` | object(string) | Dictionary containing logs of execution |  |  |
+| `log_verbosity` | string | Different levels of log verbosity. | 'not_set','debug','info','warning','error','critical' |  |
+| `type` | string | **Required.** The type of job. | 'automl' | 'automl' |
+| `creation_context` | object | ?? | ?? | ?? |
+| `environment_id` | string | ?? |  ?? | ?? |
+| `environment_variables` | object(strings) | ?? |  ?? | ?? |
+| `resources` | object |  Job resource configuration  | ?? | ?? |
+| `services` | object |  Job service configuration  | ?? | ?? |
+| `status` | string |  ??  | ?? | ?? |
+| `tags` | object |  ??  | ?? | ?? |
+| `properties` | properties(string) |  ??  | ?? | ?? |
+| `id` | string | ?? | pattern `"[^azureml:.*]"` | ?? |
+| `identity` | ?? | ?? | ?? | ?? |
+| `target_column_name` | string |  **Required.** The name of the target/label column. It must always be specified.|  |  |
+| `task` | string | **Required.** The type of AutoML task to execute. | 'forecasting' | 'forecasting' |
+| `cv_split_column_names` | list(string) | List of names of the columns that contain custom cross validation split. Each of the CV split columns represents one CV split where each row are either marked 1 for training or 0 for validation. This parameter is applicable to ``training_data`` parameter for custom cross validation purposes.For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`. | list(string), None | None |
+| `featurization` | object | Dictionary containing the featurization config. See [featurization](#featurization) to see the properties of this object. |  |  |
+| `forecasting` | object | Dictionary containing the forecasting settings config. See [forecasting](#forecasting) to see the properties of this object.|  |  |
+| `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the context of the job and the value is limit value. See [limits](#limits) to see the properties of this object.|  |  |
+| `n_cross_validations` | string or integer | Number of cross-validation folds to use for model/pipeline selection when user validation data is not specified.The default value is "auto", in which case AutoMl determines the number of cross-validations automatically, if a validation set is not provided. Or, users could specify an integer value. OR ---------- Number of cross validations to perform when user validation data is not specified. Specify `validation_data` to provide validation data, otherwise set `n_cross_validations` or `validation_size` to extract validation data out of the specified training data.For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__. | 'auto', integer,None | None |
+| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | ?? | ?? |
+| `primary_metric` | string | The metric that AutoML will optimize for Time Series Forecasting model selection. If not specified, then AutoML use normalized RMSE for forecasting tasks.| "spearman_correlation", "normalized_root_mean_squared_error", "r2_score", "normalized_mean_absolute_error" | None |
+| `test_data` | object | The test data to be used for a test run that will automatically be started after model training is complete. The test run will get predictions using the best model and will compute metrics given these predictions. If this parameter or the ``test_size`` parameter are not specified then no test run will be executed automatically after model training is completed. Test data should contain both features and label column. If ``test_data`` is specified then the ``label_column_name`` parameter must be specified. |  | None |
+| `test_data_size` | float | Specifies what fraction of the training data to hold out for test data for a test run that will automatically be started after model training is complete. The test run will get predictions using the best model and will compute metrics given these predictions. If ``test_size`` is specified at the same time as ``validation_size``, then the test data is split from ``training_data`` before the validation data is split. For example, if ``validation_size=0.1``, ``test_size=0.1`` and the original training data has 1000 rows, then the test data will have 100 rows, the validation data will contain 90 rows and the training data will have 810 rows. Forecasting does not currently support specifying a test dataset using a train/test split. If this parameter or the ``test_data`` parameter are not specified then no test run will be executed automatically after model training is completed. |  0.0 < size_value < 1.0 | None |
+| `training` | object | Dictionary containing the parameters that will be used in training the model. |  |  |
+| `training_data` | object | The subset of data to be used as input for model training. It should contain both training features and a label column (optionally a sample weights column). If ``training_data`` is specified, then the ``label_column_name``(or ``target_column_name``) parameter must also be specified. |  | None |
+| `validation_data` | object | The validation data to be used within the experiment for cross validation.It should contain both training features and label column (optionally a sample weights column). If ``validation_data`` is specified, then ``training_data`` and ``label_column_name`` parameters must be specified. For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__.Please note that samples in training data and validation data can not overlap in a fold.|  | None |
+| `validation_data_size` | float | Specifies the fraction of data to hold out as validation dataset when client has not passed validation dataset explicitly. Specify ``validation_data`` to provide validation data, otherwise set ``n_cross_validations`` or ``validation_size`` to extract validation data out of the specified training data. For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__.| 0.0 <= size_value <= 1.0 | None |
+| `weight_column_name` | string | The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down. This parameter is applicable to ``training_data`` and ``validation_data`` parameters. |  | None |
+
+
+=================================================================================
+
+### limits
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `enable_early_termination` | boolean | Whether to enable early termination of experiment if the score is not improving  some x number of iterations. In AutoML job, no early stopping is applied on first 20 iterations. early stopping window starts only after first 20 iterations. | True, False | True |
+| `max_concurrent_trials` | integer | Maximum number of trials (children jobs) that would be executed in parallel. |  | None |
+| `max_cores_per_trial` | integer | ??Maximum number of cores per iteration (or trials) |  | None |
+| `max_trials` | integer | The maximum number of different algorithm and parameter combinations (trials) to try during an AutoML job. If user is using `enable_early_termination`, then the number of trials used can be smaller. |  | None |
+| `timeout_minutes ` | integer | Maximum amount of time in minutes that the whole AutoML job can take before the job terminates. This timeout includes setup, featurization and training runs but doesn't include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. If not specified, the default job's total timeout is six days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), the user should make sure dataset's size isn't greater than 10,000,000 (rows times column) or an error results. |  | None |
+| `trial_timeout_minutes ` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of one month or 43200 minutes is used. |  | None |
+| `exit_score` | float | Target score for experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the primary metric. For for more information on exit criteria, see this `article <https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#exit-criteria>`. | | None |
+
 
 ### Distribution configurations
 
