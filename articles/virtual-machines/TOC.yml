@@ -332,7 +332,7 @@
         href: h-series.md
         items: 
         - name: H-series retirement
-          href: ./workloads/hpc/h-series-retirement.md
+          href: h-series-retirement.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -358,11 +358,11 @@
         href: hc-series.md
         items:
         - name: Overview
-          href: hc-series-overview.md
+          href: ./workloads/hpc/hc-series-overview.md
       - name: Performance
         href: ./workloads/hpc/hc-series-performance.md
       - name: HB-series retirement
-        href: ./workloads/hpc/hb-series-retirement.md
+        href: hb-series-retirement.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
