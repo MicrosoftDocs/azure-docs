@@ -57,6 +57,8 @@ This test finds parameters that aren't used in the template or parameters that a
 
 To reduce confusion in your template, delete any parameters that are defined but not used. Eliminating unused parameters simplifies template deployments because you don't have to provide unnecessary values.
 
+In Bicep, use [Linter rule - no unused parameters](../bicep/linter-rule-no-unused-parameters.md).
+
 The following example **fails** because the expression that references a parameter is missing the leading square bracket (`[`).
 
 ```json
@@ -86,6 +88,8 @@ Don't provide a hard-coded default value for a secure parameter in your template
 You use the types `secureString` or `secureObject` on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
 When you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
+
+In Bicep, use [Linter rule - secure parameter default](../bicep/linter-rule-secure-parameter-default.md).
 
 The following example **fails**.
 
@@ -125,6 +129,8 @@ Test name: **DeploymentTemplate Must Not Contain Hardcoded Uri**
 
 Don't hard-code environment URLs in your template. Instead, use the [environment](template-functions-deployment.md#environment) function to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
 
+In Bicep, use [Linter rule - no hardcoded environment URL](../bicep/linter-rule-no-hardcoded-environment-urls.md).
+
 The following example **fails** because the URL is hard-coded.
 
 ```json
@@ -159,6 +165,8 @@ To set a resource's location, your templates should have a parameter named `loca
 Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource. The `"[resourceGroup().location]"` expression could block users if the resource group was created in a region the user can't access. Users who are blocked are unable to use the template.
 
 By providing a `location` parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
+
+In Bicep, use [Linter rule - no location expressions outside of parameter default values](../bicep/linter-rule-no-loc-expr-outside-params.md).
 
 The following example **fails** because the resource's `location` is set to `resourceGroup().location`.
 
@@ -255,6 +263,8 @@ The following example **passes** when the template is used as the main template.
 Test name: **Resources Should Have Location**
 
 The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the `location` parameter described in [Location uses parameter](#location-uses-parameter).
+
+In Bicep, use [Linter rule - no hardcoded locations](../bicep/linter-rule-no-hardcoded-location.md).
 
 The following example **fails** because the `location` isn't an expression or `global`.
 
@@ -447,6 +457,8 @@ When you include parameters for `_artifactsLocation` and `_artifactsLocationSasT
 - `_artifactsLocationSasToken` must be a `secureString`.
 - `_artifactsLocationSasToken` can only have an empty string for its default value.
 - `_artifactsLocationSasToken` can't have a default value in a nested template.
+
+In Bicep, use [Linter rule - artifacts parameters](../bicep/linter-rule-artifacts-parameters.md).
 
 ## Declared variables must be used
 
