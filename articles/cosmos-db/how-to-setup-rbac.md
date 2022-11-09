@@ -471,7 +471,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
-Only the API for NoSQL is currently supported.
+Only SQL API is currently supported.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
