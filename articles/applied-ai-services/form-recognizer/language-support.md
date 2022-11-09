@@ -223,7 +223,7 @@ Language| Locale code |
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Receipt supports all English receipts with the following locales:
+Receipt supports all English receipts and the following locales:
 
 |Language| Locale code |
 |:-----|:----:|

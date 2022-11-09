@@ -41,7 +41,7 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 **Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connections)**:
 
-:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a processed Contoso invoice." 
+:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a processed Contoso invoice."::: 
 
 ::: moniker-end
 
@@ -67,7 +67,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ::: moniker-end
 
-## Try Form Recognizer
+## Try invoice data extraction
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio. You'll need the following resources:
 
@@ -296,4 +296,3 @@ The JSON output has three parts:
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
-
