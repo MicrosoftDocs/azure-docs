@@ -454,7 +454,6 @@ Site Recovery service ensures business continuity by keeping workloads running d
         ```
     This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
 
-    :::image type="Protected items list" source="media/tutorial-replicate-vms-edge-zone-to-azure-region/protected-items-inline.png" alt-text="Screenshot of Protected items list." lightbox="media/tutorial-replicate-vms-edge-zone-to-azure-region/protected-items-expanded.png":::
 
 1. Disable replication.
 
