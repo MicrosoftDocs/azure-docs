@@ -43,7 +43,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 > [!IMPORTANT]
 > Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
 
-## [Passwordless (Recommended)](#tab/passwordless)
+## [Passwordless](#tab/passwordless)
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
 ---
@@ -147,7 +147,7 @@ This section shows you how to create a .NET console application to send messages
     Console.ReadKey();
     ```
 
-    ## [Passwordless (Recommended)](#tab/passwordless)
+    ## [Passwordless](#tab/passwordless)
 
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
@@ -258,7 +258,7 @@ In this section, you'll create a .NET console application that receives messages
 
     :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
-### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
@@ -310,7 +310,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     }
     ```
 
-     ## [Passwordless (Recommended)](#tab/passwordless)
+     ## [Passwordless](#tab/passwordless)
 
     ```csharp
     using System.Threading.Tasks;
@@ -395,7 +395,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     }
     ```
 
-     ## [Passwordless (Recommended)](#tab/passwordless)
+     ## [Passwordless](#tab/passwordless)
 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. 
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
@@ -522,7 +522,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     }
     ```
 
-    ## [Passwordless (Recommended)](#tab/passwordless)
+    ## [Passwordless](#tab/passwordless)
     
     ```csharp
     using System;

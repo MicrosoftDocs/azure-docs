@@ -18,7 +18,7 @@ In this quickstart, you will do the following steps:
 4. Write a .NET console application to receive those messages from the queue.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+> - This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 > [!IMPORTANT]
 > Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
 
-## [Passwordless (Recommended)](#tab/passwordless)
+## [Passwordless](#tab/passwordless)
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
 ---
@@ -147,7 +147,7 @@ This section shows you how to create a .NET console application to send messages
     Console.ReadKey();
     ```
 
-    ### [Passwordless (Recommended)](#tab/passwordless)
+    ### [Passwordless](#tab/passwordless)
 
     > [!IMPORTANT]
     > Per the `TODO` comment, update the placeholder values in the code snippets with the values from the Service Bus you created.
@@ -270,7 +270,7 @@ In this section, you'll create a .NET console application that receives messages
 
     :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
-### [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
@@ -304,7 +304,7 @@ In this section, you'll add code to retrieve messages from the queue.
     ServiceBusProcessor processor;
     ```
 
-    ### [Passwordless (Recommended)](#tab/passwordless)
+    ### [Passwordless](#tab/passwordless)
 
     ```csharp
     using System.Threading.Tasks;
@@ -397,7 +397,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-    ### [Passwordless (Recommended)](#tab/passwordless)
+    ### [Passwordless](#tab/passwordless)
 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue.
@@ -535,7 +535,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-    ### [Passwordless (Recommended)](#tab/passwordless)
+    ### [Passwordless](#tab/passwordless)
     
     ```csharp
     using System.Threading.Tasks;
