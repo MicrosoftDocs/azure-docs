@@ -18,7 +18,7 @@ Edge Zones (preview) are fully managed solution deployed close to your data cent
 
 Site Recovery service ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is another edge zone connected to the same parent region. 
 
-## Set up disaster recovery for VMs in an Edge Zone (preview) via PowerShell
+## Set up disaster recovery for VMs in an Edge Zone (preview) using PowerShell
 
 ### Prerequisites
 
@@ -30,12 +30,14 @@ Site Recovery service ensures business continuity by keeping workloads running d
     ```
 
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
-- Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. Azure Site Recovery doesn’t re-create the public IP, so it's our job to check the availability of the public IP and is attached to the NIC before you switch to protection direction from recovery to primary. 
+- Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
 
-## Edge Zone (preview) to Azure region
+## Replicate Virtual machines running in an Edge Zone (preview) to another Edge zone
+
+Follow the below steps to replicate VMs running in an edge zone (preview) to another Edge zone:
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is the Edge Zone’s (preview) region.
+> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is another Edge Zone connected to the same region. 
 
 1. Sign-in to your Azure account.
 
@@ -320,11 +322,11 @@ Site Recovery service ensures business continuity by keeping workloads running d
 
     1. After the operation to start replication succeeds, virtual machine data is replicated to the recovery region.
     
-    The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes. See the status of the replication in the Vault blade under **Replicated items**.     
+    Initially, when the replication process starts, it creates a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes. See the status of the replication in the Vault blade under **Replicated items**.     
     
     :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/replicated-items.png" alt-text="Screenshot of replicated items.":::
 
-    When the replication completes, the Vault replication items will show as below:
+    When the replication is completed, the Vault replication items will show as below:
     
     :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/vault-replication.png" alt-text="Screenshot of Vault replication.":::
     
@@ -343,7 +345,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
 
-1. Perform, validate, and clean up a test failover. You can skip the Test failover. However, we recommend to execute test failover to ensure that your secondary region comes up as expected. 
+1. Perform, validate, and clean up a test failover. You can skip the Test failover. However, we recommend executing test failover to ensure that your secondary region comes up as expected. 
 
     1. Create a separate network for test failover (not connected to my DR network).
     
@@ -384,7 +386,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
         ```
 
     >[!NOTE]
-    >You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
+    >To check the progress, go to the portal, select the vault and then select the Site Recovery Jobs.
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
     Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover so you can start the real failover.
@@ -404,7 +406,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
     $ReplicationProtectedItem 
     ```
     The list of recovery points returned may not be sorted chronologically and will 
-    need to be sorted first, in order to be able to find the oldest or the latest recovery 
+    need to be sorted first, to be able to find the oldest or the latest recovery 
     points for the virtual machine.
 
     ```
