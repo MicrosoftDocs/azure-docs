@@ -67,8 +67,12 @@ If you purchased your support plan through the Azure website, Azure portal, or i
 ### Cancel a support plan for a Microsoft Customer Agreement
 
 1. In the Azure portal, navigate to **Cost Management + Billing**.
-1. Under **Billing**, select **Recurring charges**.
-1. On the right-hand side for the support plan line item, select the ellipsis (**...**) and select **Turn off auto-renewal**.
+1. Under **Products + Services**, select **All billing subscriptions**.
+1. On the right-hand side for the support plan line item, select the ellipsis (**...**) and select **Change renewal setting**.  
+    change-renewal-setting.png
+1. In the Change renewal settings window, select **Off** to turn off auto-renewal. Your support plan will be cancelled on the expiration date.  
+    change-renewal-settings-window.png
+1. Select **Save**.
 
 ## What happens after subscription cancellation?
 
