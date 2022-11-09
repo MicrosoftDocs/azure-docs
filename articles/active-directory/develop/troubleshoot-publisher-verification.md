@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/21/2021
+ms.date: 11/09/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, jesakowi
+ms.reviewer: ardhanap, jesakowi, brianokoyo
 ---
 
 # Troubleshoot publisher verification
