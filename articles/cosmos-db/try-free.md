@@ -22,20 +22,113 @@ If you're using the API for NoSQL or PostgreSQL, you can also migrate your Try A
 
 This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the API for NoSQL.
 
-## Try Azure Cosmos DB limits
+## Limits to free account
+
+### [NoSQL](#tab/nosql)
 
 The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
 
 | Resource | Limit |
 | --- | --- |
-| Duration of the trial | 30 days (a new trial can be requested after expiration) After expiration, the information stored is deleted. Prior to expiration you can upgrade your account and migrate the information stored. |
-| Maximum containers per subscription (API for NoSQL, Gremlin, Table) | 1 |
-| Maximum containers per subscription (API for MongoDB) | 3 |
-| Maximum throughput per container (API for NoSQL, MongoDB, Cassandra, Gremlin, Table) | 5,000 |
-| Maximum throughput per shared-throughput database (API for NoSQL, MongoDB, Cassandra, Gremlin, Table) | 20,000 |
-| Maximum total storage per account (API for NoSQL, MongoDB, Cassandra, Gremlin, Table) | 10 GB |
+| Duration of the trial | 30 days¹²  |
+| Maximum containers per subscription | 1 |
+| Maximum throughput per container | 5,000 |
+| Maximum throughput per shared-throughput database | 20,000 |
+| Maximum total storage per account | 10 GB |
 
-Try Azure Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+### [MongoDB](#tab/mongodb)
+
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+
+| Resource | Limit |
+| --- | --- |
+| Duration of the trial | 30 days¹²  |
+| Maximum containers per subscription | 3 |
+| Maximum throughput per container | 5,000 |
+| Maximum throughput per shared-throughput database | 20,000 |
+| Maximum total storage per account | 10 GB |
+
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+### [Cassandra](#tab/cassandra)
+
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+
+| Resource | Limit |
+| --- | --- |
+| Duration of the trial | 30 days¹²  |
+| Maximum containers per subscription | 1 |
+| Maximum throughput per container | 5,000 |
+| Maximum throughput per shared-throughput database | 20,000 |
+| Maximum total storage per account | 10 GB |
+
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+### [Gremlin](#tab/gremlin)
+
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+
+| Resource | Limit |
+| --- | --- |
+| Duration of the trial | 30 days¹²  |
+| Maximum containers per subscription | 1 |
+| Maximum throughput per container | 5,000 |
+| Maximum throughput per shared-throughput database | 20,000 |
+| Maximum total storage per account | 10 GB |
+
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+### [Table](#tab/table)
+
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+
+| Resource | Limit |
+| --- | --- |
+| Duration of the trial | 30 days¹²  |
+| Maximum containers per subscription | 1 |
+| Maximum throughput per container | 5,000 |
+| Maximum throughput per shared-throughput database | 20,000 |
+| Maximum total storage per account | 10 GB |
+
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+### [PostgreSQL](#tab/postgresql)
+
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+
+| Resource | Limit |
+| --- | --- |
+| Duration of the trial | 30 days¹²  |
+
+¹ A new trial can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+
+> [!NOTE]
+> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+---
 
 ## Create your Try Azure Cosmos DB account
 
@@ -75,7 +168,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ### Create a new account
 
-#### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql-mongodb-cassandra-gremlin-table)
+#### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql+mongodb+cassandra+gremlin+table)
 
 > [!NOTE]
 > While this example uses API for NoSQL, the steps are similar for the APIs for MongoDB, Cassandra, Gremlin, or Table.
@@ -96,7 +189,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ## Migrate your data
 
-### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql-mongodb-cassandra-gremlin-table)
+### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql+mongodb+cassandra+gremlin+table)
 
 > [!NOTE]
 > While this example uses API for NoSQL, the steps are similar for the APIs for MongoDB, Cassandra, Gremlin, or Table.
@@ -113,11 +206,11 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ### [PostgreSQL](#tab/postgresql)
 
-1. Locate your **PostgreSQL connection URL** for the Azure Cosmos DB account you created for your data. This information can be found within the **Connection String** page of your new account.
+1. Locate your **PostgreSQL connection URL** of the Azure Cosmos DB account you created for your data. This information can be found within the **Connection String** page of your new account.
 
 1. Back in the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide, insert the connection string of the new Azure Cosmos DB account in the **Connection string** field.
 
-1. Select **Next** to move the data to your account. Provide your email address to be notified by email once the migration has been completed.
+1. Select **Next** to move the data to your account.
 
 ---
 
