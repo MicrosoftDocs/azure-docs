@@ -50,12 +50,12 @@ The recognize action can be used for many reasons, below are a few examples of h
 
 ### Interrupt audio prompts
 
-**User can exit from an IVR menu and speak to a human agent** - With DTMF interruption your application can allow users to exit interrupt the flow of the IVR menu and be able to chat to a human agent. 
+**User can exit from an IVR menu and speak to a human agent** - With DTMF interruption your application can allow users to interrupt the flow of the IVR menu and be able to chat to a human agent. 
 
 
 ## Sample architecture for gathering user input in a call
 
-![Recognize Action](./media/recognize-action-flow.png)
+![Recognize Action](./media/recognize-flow.png)
 
 ## What's coming up next for Recognize action
 
