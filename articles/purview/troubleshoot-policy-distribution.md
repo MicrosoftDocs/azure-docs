@@ -13,7 +13,7 @@ ms.date: 11/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. This can be used to troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated and the data sources on which these policies are enforced.
+In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated and the data sources on which these policies are enforced.
 This guide will use Arc-enabled SQL Server as an example of data source.
 
 To get the necessary context about Microsoft Purview policies, see concept guides listed in [next-steps](#next-steps).
@@ -28,7 +28,7 @@ To get the necessary context about Microsoft Purview policies, see concept guide
 ## Overview
 There are two ways to fetch access policies from Microsoft Purview
 - Full pull: Provides a complete set of policies for a particular data resource scope.
-- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull.
+- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull. A full pull is required prior to the first delta pull.
 
 Microsoft Purview policy model is described using [JSON syntax](https://datatracker.ietf.org/doc/html/rfc8259)
 
@@ -49,18 +49,19 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 |Http Code|Http Code Description|Type|Description|Response|
 |---------|---------------------|----|-----------|--------|
 |200|Success|Success|Request processed successfully|Policy data|
-|404|Not Found|Error|The request path is invalid or not registered|Error data|
 |401|Unauthenticated|Error|No bearer token passed in request or invalid token|Error data|
 |403|Forbidden|Error|Other authentication errors|Error data|
+|404|Not found|Error|The request path is invalid or not registered|Error data|
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
 ### Example for Arc-enabled SQL Server
 
 ##### Example parameters:
+- Microsoft Purview account = relecloud-pv
 - resourceProvider = Microsoft.AzureArcData
 - resourceType = sqlServerInstances
-- apiVersion = 2021-01-01-preview
+- resourceName = vm-finance
 
 ##### Example request:
 ```
@@ -68,6 +69,8 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 ```
 
 ##### Example response:
+
+`200 OK`
 
 ```json
 {
@@ -95,6 +98,78 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 }
 ```
 
+## Delta pull
+
+### Request
+To fetch policies via full pull, send a `GET` request to /policyEvents as follows:
+
+```
+GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyEvents?api-version={apiVersion}&syncToken={syncToken}
+```
+
+Provide the syncToken you got from the prior pull in any successive delta pulls.
+
+### Response status codes 
+
+|Http Code|Http Code Description|Type|Description|Response|
+|---------|---------------------|----|-----------|--------|
+|200|Success|Success|Request processed successfully|Policy data|
+|304|Not modified|Success|No events received since last delta pull call|None|
+|401|Unauthenticated|Error|No bearer token passed in request or invalid token|Error data|
+|403|Forbidden|Error|Other authentication errors|Error data|
+|404|Not found|Error|The request path is invalid or not registered|Error data|
+|500|Internal server error|Error|Backend service unavailable|Error data|
+|503|Backend service unavailable|Error|Backend service unavailable|Error data|
+
+### Example for Arc-enabled SQL Server
+
+##### Example parameters:
+- Microsoft Purview account = relecloud-pv
+- resourceProvider = Microsoft.AzureArcData
+- resourceType = sqlServerInstances
+- resourceName = vm-finance
+- syncToken = 808:0
+
+##### Example request:
+```
+https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/sqlServerInstances/vm-finance/policyEvents?api-version=2021-01-01-preview&syncToken=808:0
+```
+
+##### Example response:
+
+`200 OK`
+
+```json
+{
+    "count": 2,
+    "syncToken": "816:0",
+    "elements": [
+        {
+            "eventType": "Microsoft.Purview/PolicyElements/Write",
+            "id": "6554a0d5-2d18-49fb-b44d-dc26f935fc61",
+            "scopes": [
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+            ],
+            "kind": "policyset",
+            "updatedAt": "2022-11-09T00:46:23.2085292Z",
+            "version": 1,
+            "elementJson": "{\"id\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"name\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085292Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}]]}],\"policyRefs\":[\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\"]}"
+        },
+        {
+            "eventType": "Microsoft.Purview/PolicyElements/Write",
+            "id": "919a18b7-6dfd-4e3c-81c9-3414dcbd0cef",
+            "scopes": [
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+            ],
+            "kind": "policy",
+            "updatedAt": "2022-11-09T00:46:23.2085486Z",
+            "version": 1,
+            "elementJson": "{\"id\":\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\",\"name\":\"ArcSQL-Finance_sqlperfmonitor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085486Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlperfmonitor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlperfmonitor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_81cd13c9-0417-4b97-a310-c14009a7c2ed\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_4b655d27-c8b0-4aa7-aa36-27f95ede2ada\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/databases/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]}]}"
+        }
+    ]
+}
+```
+
 ## Policy constructs
 There are 3 top-level policy constructs used within the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
 
@@ -102,23 +177,53 @@ There are 3 top-level policy constructs used within the full pull (/policyElemen
 
 PolicySet associates Policy to a resource scope. Purview policy decision compute starts with a list of PolicySets. PolicySet evaluation triggers evaluation of Policy referenced in the PolicySet.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|ID| |string|1||
+|name| |string|1||
+|kind| |string|1||
+|version|1|number|1||
+|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
+|preconditionRules| |array[Object:Rule]|0..1||
+|policyRefs| |array[string]|1|List of policy IDs|
 
 ### Policy
 
 Policy specifies decision that should be emitted if the policy is applicable for the request provided request context attributes satisfy attribute predicates specified in the policy. Evaluation of policy triggers evaluation of AttributeRules referenced in the Policy.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|ID| |string|1||
+|name| |string|1||
+|kind| |string|1||
+|version|1|number|1||
+|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
+|preconditionRules| |array[Object:Rule]|0..1|All the rules are 'anded'|
+|decisionRules| |array[Object:DecisionRule]|1||
+
+
 ### AttributeRule
 
 AttributeRule produces derived attributes and add them to request context attributes. Evaluation of AttributeRule triggers evaluation of additional AttributeRules referenced in the AttributeRule.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|ID| |string|1||
+|name| |string|1||
+|kind|AttributeRule|string|1||
+|version|1|number|1||
+|dnfCondition| |array[array[Object:AttributePredicate]]|0..1||
+|cnfCondition| |array[array[Object:AttributePredicate]]|0..1||
+|condition| |Object: Condition|0..1||
+|derivedAttributes| |array[Object:DerivedAttribute]|1||
 
 ## Common sub-constructs used in PolicySet, Policy, AttributeRule
 
 #### AttributePredicate
 AttributePredicate checks whether predicate specified on an attribute is satisfied. AttributePredicate  can specify the following properties:
 - attributeName: specifies attribute name on which attribute predicate needs to be evaluated.
-- matcherId: Identifier of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId isn't specified, it defaults to GlobMatcher.
-- fromRule: optional property specifying the identifier of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
+- matcherId: ID of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId isn't specified, it defaults to GlobMatcher.
+- fromRule: optional property specifying the ID of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
 - attributeValueIncludes: scalar literal value that should match the request context attribute values.
 - attributeValueIncludedIn: array of literal values that should match the request context attribute values.
 - attributeValueExcluded: scalar literal value that should not  match the request context attribute values.
