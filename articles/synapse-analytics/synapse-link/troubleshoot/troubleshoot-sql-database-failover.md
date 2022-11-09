@@ -7,7 +7,7 @@ ms.reviewer: imotiwala
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ---
 
 # Troubleshoot: Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database
@@ -17,6 +17,8 @@ This article is a guide to troubleshoot and configure Azure Synapse Link for Azu
 ## Symptom
 
 For the safety of data, users may choose to set [auto-failover group](/sql/azure-sql/database/failover-group-add-single-database-tutorial) for Azure SQL Database. By setting failover group, users can group multiple geo-replicated databases that can protect a potential data loss. However, when Azure Synapse Link for Azure SQL Database has been started for the table in the Azure SQL Database and the database experiences failover, Synapse Link will be disabled in the backend even though its status is still displayed as running. 
+
+## Resolution
 
 You must stop Synapse Link manually and configure Synapse Link according to the new primary server's information so that it can continue to work normally.  
 
@@ -46,7 +48,7 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
     
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-integrate-link-connection-refresh.png" alt-text="A screenshot of the Integrate hub of Synapse Studio. The Link connection linkconnection1 is selected. In the general tab, the Refresh button is boxed. This updates the SQL logical server resource ID and the Managed identity ID." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-integrate-link-connection-refresh.png":::
 
-1. Finally, restart the Azure Synapse Link. Before restarting the Link connection, you may need to clean up the target table if incomplete data is present. Or, check the option to **Drop and recreate table on target**.
+1. Finally, restart the Azure Synapse Link. Before restarting the Link connection, you must clean up the target table if incomplete data is present. Or, check the option to **Drop and recreate table on target**.
 
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-start-drop-recreate-table-target.png" alt-text="A screenshot of the Integrate hub of Synapse Studio. The Drop and recreate table on target option is highlighted. The Start button is highlighted." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-start-drop-recreate-table-target.png":::
 
