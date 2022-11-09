@@ -32,7 +32,7 @@ Standard commands are sent to a device to instruct the device to do something. A
 
 Commands are defined as part of a device template. The following screenshot shows the **Get Max-Min report** command definition in the **Thermostat** device template. This command has both request and response parameters: 
 
-:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template" lightbox="media/howto-use-commands/command-definition.png":::
+:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template." lightbox="media/howto-use-commands/command-definition.png":::
 
 The following table shows the configuration settings for a command capability:
 
@@ -155,7 +155,7 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 
 The following screenshot shows how the successful command response displays in the IoT Central UI:
 
-:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command" lightbox="media/howto-use-commands/simple-command-ui.png":::
+:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command." lightbox="media/howto-use-commands/simple-command-ui.png":::
 
 ## Long-running commands
 
@@ -208,7 +208,7 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 
 The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 
-:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished" lightbox="media/howto-use-commands/long-running-finish.png":::
+:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished." lightbox="media/howto-use-commands/long-running-finish.png":::
 
 ## Offline commands
 
@@ -219,7 +219,7 @@ This section shows you how a device handles an offline command. If a device is o
 
 The following screenshot shows an offline command called **GenerateDiagnostics**. The request parameter is an object with datetime property called **StartTime** and an integer enumeration property called **Bank**:
 
-:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command" lightbox="media/howto-use-commands/offline-command.png":::
+:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command." lightbox="media/howto-use-commands/offline-command.png":::
 
 The following code snippet shows how a client can listen for offline commands and display the message contents:
 
