@@ -14,7 +14,7 @@ This article describes how to use the **Common Event Format (CEF) via AMA** conn
 
 The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
 
-The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#how-collection-works-with-the-windows-dns-events-via-ama-connector).
+The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#how-collection-works-with-the-common-event-format-cef-via-ama-connector).
 
 > [!IMPORTANT]
 > The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
