@@ -179,7 +179,7 @@ PolicySet associates Policy to a resource scope. Purview policy decision compute
 
 |member|value|type|cardinality|description|
 |------|-----|----|-----------|-----------|
-|Id| |string|1||
+|ID| |string|1||
 |name| |string|1||
 |kind| |string|1||
 |version|1|number|1||
