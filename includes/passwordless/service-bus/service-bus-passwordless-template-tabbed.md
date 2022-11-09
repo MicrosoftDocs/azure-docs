@@ -15,7 +15,7 @@ ms.custom: include file
 ## [Connection String](#tab/connection-string)
 
 ## Get the connection string 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
 
 A client can use the connection string to connect to the Service Bus namespace. To copy the primary connection string for your namespace, follow these steps: 
 
@@ -23,7 +23,7 @@ A client can use the connection string to connect to the Service Bus namespace. 
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
-    :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" lightbox="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
+    :::image type="content" source="./media/service-bus-passwordless-template-tabbed/connection-string.png" lightbox="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
     You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string. 
 
