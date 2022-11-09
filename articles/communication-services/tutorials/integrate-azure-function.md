@@ -9,6 +9,7 @@ ms.date: 11/03/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ---
+
 # Integrate Azure Function
 ## Introduction
 This tutorial provides detailed guidance on how to set up an Azure Function to receive user related information. Setting up an Azure Function is highly recommended. It helps to avoid hard-coding application parameters in the Contoso APP(such as user ID and user token). This information is highly credential. More importantly, we refresh user tokens periodically on the backend. Hard-coded the user ID and token combination requires editing hard-coded value after every refresh.
