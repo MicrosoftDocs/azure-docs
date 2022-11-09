@@ -88,7 +88,7 @@ Below is the list of firewall and proxy URLs that need to be allowlisted to enab
 |Azure Arc Identity service | 443 | `https://*.his.arc.azure.com` | Appliance VM IP and Control Plane IP need outbound connection. | Manages identity and access control for Azure resources |  
 |Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used for Kubernetes cluster configuration.|
 |Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
-|Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-prem resources to Azure.|
+|Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-premises resources to Azure.|
 |SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
 |Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
 |Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
