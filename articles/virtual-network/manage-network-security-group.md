@@ -79,6 +79,8 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
 az network nsg create --resource-group MyResourceGroup --name myNSG
 ```
 
+---
+
 ### View all network security groups
 
 # [**Portal**](#tab/network-security-group-portal)
@@ -100,6 +102,8 @@ Use [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list) to list al
 ```azurecli-interactive
 az network nsg list --out table
 ```
+
+---
 
 ### View details of a network security group
 
@@ -155,6 +159,8 @@ To learn more about the common Azure settings listed, see the following articles
 - [Tags](../azure-resource-manager/management/tag-resources.md)
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
+---
+
 ### Change a network security group
 
 The most common changes to a network security group are:
@@ -206,6 +212,8 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vn
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVNet --name mySubnet --network-security-group myNSG
 ```
 
+---
+
 ### Delete a network security group
 
 If a network security group is associated to any subnets or network interfaces, it can't be deleted. Dissociate a network security group from all subnets and network interfaces before attempting to delete it.
@@ -235,6 +243,8 @@ Use [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete) to del
 ```azurecli-interactive
 az network nsg delete --resource-group myResourceGroup --name myNSG
 ```
+
+---
 
 ## Work with security rules
 
@@ -301,6 +311,8 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNSG --n
     --destination-address-prefixes '*' --destination-port-ranges 3389 --protocol Tcp --description "Allow RDP"
 ```
 
+---
+
 ### View all security rules
 
 A network security group contains zero or more rules. To learn more about the information listed when viewing rules, see [Security rules](./network-security-groups-overview.md#security-rules).
@@ -335,6 +347,8 @@ Use [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-l
 ```azurecli-interactive
 az network nsg rule list --resource-group myResourceGroup --nsg-name myNSG
 ```
+
+---
 
 ### View details of a security rule
 
@@ -377,6 +391,8 @@ az network nsg rule show --resource-group myResourceGroup --nsg-name myNSG --nam
 
 > [!NOTE]
 > This procedure only applies to a custom security rule. It doesn't work if you choose a default security rule.
+
+---
 
 ### Change a security rule
 
@@ -426,6 +442,8 @@ az network nsg rule update --resource-group myResourceGroup --nsg-name myNSG --n
 > [!NOTE]
 > This procedure only applies to a custom security rule. You aren't allowed to change a default security rule.
 
+---
+
 ### Delete a security rule
 
 # [**Portal**](#tab/network-security-group-portal)
@@ -472,6 +490,8 @@ az network nsg rule delete --resource-group myResourceGroup --nsg-name myNSG --n
 > [!NOTE]
 > This procedure only applies to a custom security rule. You aren't allowed to change a default security rule.
 
+---
+
 ## Work with application security groups
 
 An application security group contains zero or more network interfaces. To learn more, see [application security groups](./network-security-groups-overview.md#application-security-groups). All network interfaces in an application security group must exist in the same virtual network. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-or-remove-from-application-security-groups).
@@ -517,6 +537,8 @@ Use [az network asg create](/cli/azure/network/asg#az-network-asg-create)
 az network asg create --resource-group myResourceGroup --name myASG --location eastus
 ```
 
+---
+
 ### View all application security groups
 
 # [**Portal**](#tab/network-security-group-portal)
@@ -541,6 +563,8 @@ Use [az network asg list](/cli/azure/network/asg#az-network-asg-list) to list al
 az network asg list --resource-group myResourceGroup --out table
 ```
 
+---
+
 ### View details of a specific application security group
 
 # [**Portal**](#tab/network-security-group-portal)
@@ -564,6 +588,8 @@ Use [az network asg show](/cli/azure/network/asg#az-network-asg-show) to view de
 ```azurecli-interactive
 az network asg show --resource-group myResourceGroup --name myASG
 ```
+
+---
 
 ### Change an application security group
 
@@ -600,6 +626,8 @@ az network asg update --resource-group myResourceGroup --name myASG --tags Dept=
 > [!NOTE]
 > You can't change the resource group, subscription or location of an application security group using the Azure CLI.
 
+---
+
 ### Delete an application security group
 
 You can't delete an application security group if it contains any network interfaces. To remove all network interfaces from the application security group, either change the network interface settings or delete the network interfaces. To learn more, see [Add or remove from application security groups](virtual-network-network-interface.md#add-or-remove-from-application-security-groups) or [Delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
@@ -630,6 +658,8 @@ Use [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) to del
 ```azurecli-interactive
 az network asg delete --resource-group myResourceGroup --name myASG
 ```
+
+---
 
 ## Permissions
 
