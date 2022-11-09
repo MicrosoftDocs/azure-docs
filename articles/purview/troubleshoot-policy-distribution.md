@@ -44,6 +44,9 @@ To fetch policies via full pull, send a `GET` request to /policyElements as foll
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}
 ```
 
+The path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName} can be found by looking at the resource ID of the data source.
+
+
 ### Response status codes 
 
 |Http Code|Http Code Description|Type|Description|Response|
@@ -55,17 +58,15 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
-### Example for Arc-enabled SQL Server
+### Example for Azure SQL Database (Azure SQL Server)
 
 ##### Example parameters:
 - Microsoft Purview account = relecloud-pv
-- resourceProvider = Microsoft.AzureArcData
-- resourceType = sqlServerInstances
-- resourceName = vm-finance
+- Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
 
 ##### Example request:
 ```
-GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/sqlServerInstances/vm-finance/policyelements?api-version=2021-01-01-preview
+GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
 ```
 
 ##### Example response:
@@ -121,18 +122,16 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
-### Example for Arc-enabled SQL Server
+### Example for Azure SQL Database (Azure SQL Server)
 
 ##### Example parameters:
 - Microsoft Purview account = relecloud-pv
-- resourceProvider = Microsoft.AzureArcData
-- resourceType = sqlServerInstances
-- resourceName = vm-finance
-- syncToken = 808:0
+- Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
+- syncToken = 820:0
 
 ##### Example request:
 ```
-https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/sqlServerInstances/vm-finance/policyEvents?api-version=2021-01-01-preview&syncToken=808:0
+https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyEvents?api-version=2021-01-01-preview&syncToken=820:0
 ```
 
 ##### Example response:
