@@ -13,8 +13,8 @@ ms.date: 11/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated and the data sources on which these policies are enforced.
-This guide will use Arc-enabled SQL Server as an example of data source.
+In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources on which these policies are enforced.
+This guide will use Azure SQL Server as an example of data source.
 
 To get the necessary context about Microsoft Purview policies, see concept guides listed in [next-steps](#next-steps).
 
@@ -44,7 +44,7 @@ To fetch policies via full pull, send a `GET` request to /policyElements as foll
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}
 ```
 
-The path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName} can be found by looking at the resource ID of the data source.
+The path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName} matches the resource ID of the data source, which can be found under the properties for the data source in Azure portal.
 
 
 ### Response status codes 
@@ -75,8 +75,8 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 
 ```json
 {
-    "count": 2,
-    "syncToken": "808:0",
+    "count": 7,
+    "syncToken": "820:0",
     "elements": [
         {
             "id": "9912572d-58bc-4835-a313-b913ac5bef97",
