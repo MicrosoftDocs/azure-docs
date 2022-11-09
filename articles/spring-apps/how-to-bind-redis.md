@@ -62,7 +62,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
    ```
 
     > [!NOTE]
-    > If you are using [Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/overview)) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
+    > If you are using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
 
     > [!NOTE]
     > If you are using Redis Enterprise, use `az spring connection create redis-enterprise` command instead.
