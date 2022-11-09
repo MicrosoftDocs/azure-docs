@@ -1675,7 +1675,8 @@ resource diagnosticSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-pre
 }
 
 resource blob 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource blobSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasblob) {
@@ -1708,7 +1709,8 @@ resource blobSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
 }
 
 resource table 'Microsoft.Storage/storageAccounts/tableServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource tableSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hastable) {
@@ -1741,7 +1743,8 @@ resource tableSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview'
 }
 
 resource file 'Microsoft.Storage/storageAccounts/fileServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 resource fileSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasfile) {
@@ -1774,7 +1777,8 @@ resource fileSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
 }
 
 resource queue 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' existing = {
-  name:storageAccountName
+  name:'default'
+  parent:storageAccount
 }
 
 

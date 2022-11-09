@@ -9,7 +9,7 @@ ms.reviewer: vitalyg
 
 # Resource Manager template samples for creating Application Insights resources
 
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) and the new [preview workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) and the new [workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -136,7 +136,7 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
 
 ## Workspace-based Application Insights resource
 
-The following sample creates a [workspace-based Application Insights resource](../app/create-workspace-resource.md). Workspace-based Application Insights are currently in **preview**.
+The following sample creates a [workspace-based Application Insights resource](../app/create-workspace-resource.md). 
 
 ### Template file
 

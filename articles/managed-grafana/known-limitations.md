@@ -1,10 +1,11 @@
 ---
 title: Azure Managed Grafana limitations
-description: List of known limitations in Azure Managed Grafana
+description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 08/31/2022
+ms.date: 10/31/2022
 ms.author: malev
+ms.custom: engagement-fy23
 author: maud-lv
 ---
 
@@ -24,7 +25,13 @@ Managed Grafana has the following known limitations:
 
 * Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 
-* API key usage isn't included in the audit log.
+* Users can be assigned the following Grafana Organization level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
+
+* Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api) and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
+
+* Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
+
+* Private endpoints are currently not available in Azure Managed Grafana.
 
 ## Next steps
 

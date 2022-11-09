@@ -27,7 +27,7 @@ For more information, review the following documentation:
 
 * [Perform data operations in Azure Logic Apps](logic-apps-perform-data-operations.md)
 * [Liquid open-source template language](https://shopify.github.io/liquid/)
-* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
 * [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors overview for Azure Logic Apps](../connectors/managed.md) and [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)

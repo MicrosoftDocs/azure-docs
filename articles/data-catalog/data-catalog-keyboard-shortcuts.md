@@ -7,7 +7,7 @@ ms.date: 02/11/2022
 ---
 # Keyboard shortcuts for Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Keyboard shortcuts for the Data Catalog data source registration tool
 

@@ -89,7 +89,7 @@ landingContent:
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
   # Card
-  - title: Microsoft Learn
+  - title: Microsoft Learn training
     linkLists:
       - linkListType: learn
         links:

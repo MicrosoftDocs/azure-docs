@@ -106,6 +106,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your GitHub Enterprise Managed User (OIDC) Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to GitHub Enterprise Managed User (OIDC). If the connection fails, ensure your GitHub Enterprise Managed User (OIDC) account has created the secret token as an enterprise owner and try again.
 
+   For "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
+   
+   For example, if your enterprise account's URL is https://github.com/enterprises/octo-corp, the name of the enterprise account is octo-corp.
+   
+   For "Secret token", paste the personal access token with the admin:enterprise scope that  you created earlier.
+   
      ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.

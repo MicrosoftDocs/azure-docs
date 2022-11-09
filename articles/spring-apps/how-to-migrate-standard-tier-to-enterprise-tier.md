@@ -44,7 +44,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
 
 1. Select **Change** next to the **Pricing** option, then select **Enterprise**.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png":::
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
@@ -53,7 +53,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
    > [!NOTE]
    > All Tanzu components are enabled by default. Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png":::
 
 1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Apps instance.
 
@@ -147,7 +147,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Overview section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-overview.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Overview section showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png":::
 
 1. Select **Settings**, then add a new entry in the **Repositories** section with the following information:
 
@@ -160,7 +160,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Settings section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-settings.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Settings section showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -225,7 +225,7 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png":::
 
 The list under **App name** shows the apps bound with Tanzu Service Registry.
 
@@ -312,11 +312,11 @@ To check or update the current settings in Application Insights, use the followi
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit the binding settings, then select **Save**.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane." lightbox="media/enterprise/how-to-application-insights/application-insights-edit-binding.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 

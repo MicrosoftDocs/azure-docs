@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 10/28/2022
 ms.author: jammart
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Change how a storage account is replicated
@@ -132,13 +132,15 @@ There are two ways to initiate a conversion:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
+> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2
+>
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
 >
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -208,11 +210,28 @@ For more detailed guidance on how to perform a manual migration, see [Move an Az
 
 Limitations apply to some replication change scenarios depending on:
 
-- [Storage account type](#storage-account-type)
 - [Region](#region)
+- [Feature conflicts](#feature-conflicts)
+- [Storage account type](#storage-account-type)
 - [Access tier](#access-tier)
 - [Protocol support](#protocol-support)
 - [Failover and failback](#failover-and-failback)
+
+### Region
+
+Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
+
+The [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS is available in all public ZRS regions except for the following:
+
+- (Europe) West Europe
+- (Europe) UK South
+- (North America) Canada Central
+- (North America) East US
+- (North America) East US 2
+
+### Feature conflicts
+
+Some storage account features are not compatible with other features or operations. For example, the ability to failover to the secondary region is the key feature of geo-redundancy, but other features are not compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). Converting an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
 
 ### Storage account type
 
@@ -278,18 +297,6 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 ---
 
 To manually migrate your ZRS Classic account data to another type of replication, follow the steps to [perform a manual migration](#manual-migration).
-
-### Region
-
-Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
-
-The [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS is available in all public ZRS regions except for the following:
-
-- (Europe) West Europe
-- (Europe) UK South
-- (North America) Canada Central
-- (North America) East US
-- (North America) East US 2
 
 If you want to migrate your data into a zone-redundant storage account located in a region different from the source account, you must perform a manual migration. For more details, see [Move an Azure Storage account to another region](storage-account-move.md).
 

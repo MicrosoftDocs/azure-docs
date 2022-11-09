@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 09/21/2022
+ms.date: 10/20/2022
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -613,8 +613,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -747,14 +750,28 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
-allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you'll need to create an attestation for that compliance state.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
+
+Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:
+
+- FedRAMP High
+- FedRAMP Medium
+- HIPAA
+- HITRUST
+- ISO 27001
+- Microsoft CIS 1.3.0
+- Microsoft CIS 1.4.0
+- NIST SP 800-171 Rev. 2
+- NIST SP 800-53 Rev. 4
+- NIST SP 800-53 Rev. 5
+- PCI DSS 3.2.1
+- PCI DSS 4.0
+- SOC TSP
+- SWIFT CSP CSCF v2022
 
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
@@ -789,56 +806,7 @@ state appears in the Azure portal:
 
 ![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
 
-When a policy definition with `manual` effect is assigned, you have the option to include **evidence**, which refers to optional supplemental information which supports the custom compliance attestation. Evidence itself is stored in Azure Storage, and you can specify the storage blob container in the [policy assignment's metadata](../concepts/assignment-structure.md#metadata) under the property `evidenceStorages`. Further details of the evidence file are described in the attestation JSON resource.
-
-### Attestations
-
-`Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
- that sets the compliance states for targeted resources in a manual policy. You can only have one
- attestation on one resource for an individual policy. In preview, Attestations are available
-only through the Azure Resource Manager (ARM) API.
-
-Below is an example of creating a new attestation resource:
-
-```http
-PUT http://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{name}?api-version=2019-10-01
-```
-
-#### Request body
-
-Below is a sample attestation resource JSON object:
-
-```json
-"properties": {
-    "policyAssignmentId": "/subscriptions/{subscriptionID}/providers/microsoft.authorization/policyassignments/{assignmentID}",
-    "policyDefinitionReferenceId": "{definitionReferenceID}",
-    "complianceState": "Compliant",
-    "expiresOn": "2023-07-14T00:00:00Z",
-    "owner": "{AADObjectID}",
-    "comments": "This subscription has passed a security audit. See attached details for evidence",
-    "evidence": [
-        {
-          "description": "The results of the security audit.",
-          "sourceUri": "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011"
-        },
-        {
-          "description": "Description of the attached evidence document.",
-          "sourceUri": "https://storagesamples.blob.core.windows.net/sample-container/contingency_evidence_adendum.docx"
-        },
-    ],
-}
-```
-
-|Property  |Description  |
-|---------|---------|
-|policyAssignmentId     |Required assignment ID for which the state is being set. |
-|policyDefinitionReferenceId     |Optional definition reference ID, if within a policy initiative. |
-|complianceState     |Desired state of the resources. Allowed values are `Compliant`, `NonCompliant`, and `Unknown`. |
-|owner     |Optional Azure AD object ID of responsible party. |
-|comments     |Optional description of why state is being set. |
-|evidence     |Optional link array for attestation evidence. |
-
-Because attestations are a separate resource from policy assignments, they have their own lifecycle. You can PUT, GET and DELETE attestations by using the ARM API. See the [Policy REST API Reference](/rest/api/policy) for more details.
+When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
 ## Modify
 

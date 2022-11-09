@@ -2,7 +2,7 @@
 title: Quickstart - Create connected registry using the portal
 description: Use Azure portal to create a connected Azure container registry resource that can synchronize images and other artifacts with the cloud registry.
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021, mode-ui

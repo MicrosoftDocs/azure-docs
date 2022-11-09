@@ -119,8 +119,8 @@ The port ranges of the Media Processors are shown in the following table:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478–3481 and 49152–53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478–3481 and 49152–53247|
+|UDP/SRTP|Media Processor|SBC|49152–53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|49152–53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.

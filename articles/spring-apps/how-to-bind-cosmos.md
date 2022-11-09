@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022
 ---
 
 # Bind an Azure Cosmos DB database to your application in Azure Spring Apps
@@ -32,7 +32,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 1. Add one of the following dependencies to your application's pom.xml pom.xml file. Choose the dependency that is appropriate for your API type.
 
-    * API type: Core (SQL)
+    * API type: NoSQL
 
       ```xml
       <dependency>

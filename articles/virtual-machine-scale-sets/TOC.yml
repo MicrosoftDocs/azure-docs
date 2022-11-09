@@ -8,6 +8,8 @@
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
+  - name: What's new
+    href: whats-new.md  
   expanded: true
 - name: Quickstarts
   items:
@@ -67,6 +69,9 @@
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
     maintainContext: true
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
+    maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
@@ -93,6 +98,8 @@
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
+  - name: Spot Priority Mix (preview)
+    href: spot-priority-mix.md
   - name: Reserved instances
     href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
   - name: Azure Hybrid Benefit

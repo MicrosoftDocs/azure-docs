@@ -8,7 +8,7 @@ editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 08/20/2022
 ms.author: barclayn
 ms.reviewer: 
 ---

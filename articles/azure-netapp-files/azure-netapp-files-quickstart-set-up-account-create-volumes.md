@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 10/04/2021
+ms.date: 10/25/2022
 ms.custom: devx-track-azurecli, subject-armqs, mode-ui
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -460,3 +460,6 @@ Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.
 
 > [!div class="nextstepaction"]
 > [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
+
+> [!div class="nextstepaction"]
+> [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

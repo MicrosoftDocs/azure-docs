@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lgayhardt
 ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 08/17/2022
+ms.date: 11/04/2022
 ---
 
 # Model interpretability (preview)
@@ -59,7 +59,8 @@ By using the classes and methods in the SDK v1, you can:
 * Achieve model interpretability on real-world datasets at scale during training and inference.
 * Use an interactive visualization dashboard to discover patterns in your data and its explanations at training time.
 
-Model interpretability classes are made available through the SDK&nbsp;v1 package. For more information, see [Install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install) and [azureml.interpret](/python/api/azureml-interpret/azureml.interpret).
+> [!NOTE]
+> Model interpretability classes are made available through the SDK v1 package. For more information, see [Install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install) and [azureml.interpret](/python/api/azureml-interpret/azureml.interpret).
 
 ## Supported model interpretability techniques
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 09/26/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Sciforma
@@ -73,9 +73,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.sciforma.net/sciforma/saml`
+    `https://<SUBDOMAIN>.sciforma.net/sciforma`
 
-    b. In the **Sign on URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.sciforma.net/sciforma/saml/post`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sciforma.net/sciforma/main.html`
 
 	> [!NOTE]

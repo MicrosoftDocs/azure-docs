@@ -11,7 +11,7 @@ This article provides a catalog of the pre-configured appliances available for M
 
 Use the links in the tables below to jump to articles with more details about each appliance.
 
-Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
+Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsoft.com&subject=Information%20about%20MD4IoT%20pre-configured%20appliances).
 
 For more information, see [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors).
 
@@ -28,7 +28,7 @@ Pre-configured physical appliances have been validated for Defender for IoT OT s
 
 ## Appliances for OT network sensors
 
-You can [order](mailto:hardware.sales@arrow.com) any of the following preconfigured appliances for monitoring your OT networks:
+You can [order](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsoft.com&subject=Information%20about%20MD4IoT%20pre-configured%20appliances). any of the following preconfigured appliances for monitoring your OT networks:
 
 |Hardware profile  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|

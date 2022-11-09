@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot your connections in Microsoft Purview
 description: This article explains the steps to troubleshoot your connections in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -80,6 +80,13 @@ To verify this, do the following steps:
    :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Image showing dropdown selection of both Get and List permission options":::
 
 If you don't see your Microsoft Purview managed identity listed, then follow the steps in [Create and manage credentials for scans](manage-credentials.md) to add it.
+
+## Scans no longer run
+
+If your Microsoft Purview scan used to successfully run, but are now failing, check these things:
+1. Have credentials to your resource changed or been rotated? If so, you'll need to update your scan to have the correct credentials.
+1. Is an [Azure Policy](../governance/policy/overview.md) preventing **updates to Storage accounts**? If so follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts.
+1. Are you using a self-hosted integration runtime? Check that it's up to date with the latest software and that it's connected to your network.
 
 ## Next steps
 

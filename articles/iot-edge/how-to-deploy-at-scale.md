@@ -44,8 +44,8 @@ IoT Edge provides two different types of automatic deployments that you can use 
 The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. On the menu in the left pane, select **IoT Edge** under **Device Management**.
-1. On the upper bar, select **Add Deployment** or **Add Layered Deployment**.
+1. On the menu in the left pane, select **Configurations + Deployments** under **Device Management**.
+1. On the upper bar, select **Add** > **Add Deployment** or **Add Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
@@ -153,9 +153,9 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 ### Modify target conditions, custom metrics, and labels
 
-1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure.
-1. Select the **Target Condition** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.  Select **Save**.
+1. In your IoT hub, select **Configurations + Deployments** from the left pane menu.
+1. Select the deployment you want to configure.
+1. Select the **Target Devices** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.
 
     If you update the target condition, the following updates occur:
 
@@ -174,14 +174,10 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 When you delete a deployment, any deployed devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
-1. Select the **IoT Edge Deployments** tab.
-
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
-
+1. Select **Configurations + Deployments**.
 1. Use the checkbox to select the deployment that you want to delete.
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
 
 ## Next steps
 

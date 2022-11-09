@@ -58,13 +58,13 @@ To install a pre-release version, follow these pre-requisite instructions:
 If you use the Azure CLI extension:
 
 - Uninstall the Azure CLI extension (`az extension remove -n arcdata`).
-- Download the latest pre-release Azure CLI extension `.whl` file from [https://aka.ms/az-cli-arcdata-ext](https://aka.ms/az-cli-arcdata-ext).
+- Download the latest pre-release Azure CLI extension `.whl` file from the link in the [Current preview release information](#Current preview release information)
 - Install the latest pre-release Azure CLI extension (`az extension add -s <location of downloaded .whl file>`).
 
 If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
-- Download the latest pre-release Azure Data Studio extension .vsix files from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext) and [https://aka.ms/ads-azcli-ext](https://aka.ms/ads-azcli-ext).
+- Download the latest pre-release Azure Data Studio extension .vsix files from the links in the [Current preview release information](#Current preview release information)
 - Install the extensions by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix files. Install the `azcli` extension first and then `arc`.
 
 ### Install using Azure CLI

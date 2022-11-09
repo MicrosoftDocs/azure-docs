@@ -18,8 +18,8 @@ Replace your Subscription ID, Resource Group name and Workspace name in the code
 1. Copy the value for workspace, resource group and subscription ID into the code.  
 1. If you're using a notebook inside studio, you'll need to copy one value, close the area and paste, then come back for the next one.
 
-[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=subscription_id)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=subscription_id)]
 
-[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=ml_client)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ml_client)]
 
 `ml_client` is a handler to the workspace that you'll use to manage other resources and jobs.

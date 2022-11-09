@@ -4,7 +4,7 @@ description: Monitor your container app logs with Log Analytics
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-bcatherine
@@ -12,7 +12,7 @@ ms.author: v-bcatherine
 
 # Monitor logs in Azure Container Apps with Log Analytics
 
-Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  Each Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
+Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  When selected as your log monitoring solution, your Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
 
 Log entries are accessible by querying Log Analytics tables through the Azure portal or a command shell using the [Azure CLI](/cli/azure/monitor/log-analytics).
 
@@ -142,8 +142,6 @@ $queryResults.Results
 ```
 
 ---
-
-For more information about using Azure CLI to view container app logs, see [Viewing Logs](monitor.md#viewing-logs).
 
 ## Next steps
 

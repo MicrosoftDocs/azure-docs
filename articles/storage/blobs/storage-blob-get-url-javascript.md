@@ -18,7 +18,7 @@ You can get a container or blob URL by using the `url` property of the client ob
 
 - ContainerClient.[url](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-url)
 - BlobClient.[url](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-url)
-- BlockBlobClient.[url](/javascript/api/@azure/storage-blob/blockblobclien#@azure-storage-blob-blockblobclient-url)
+- BlockBlobClient.[url](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-url)
 
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.

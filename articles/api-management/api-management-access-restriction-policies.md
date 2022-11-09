@@ -26,11 +26,12 @@ This article provides a reference for API Management access restriction policies
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP header or a specified query parameter.
+-   [Validate Azure Active Directory token](#ValidateAAD) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
+-   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP header, query parameter, or token value.
 -  [Validate client certificate](#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 > [!TIP]
-> You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
+> You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-azure-ad-token` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
 
 ## <a name="CheckHTTPHeader"></a> Check HTTP header
 
@@ -187,7 +188,7 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
 | identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
 | identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |   |
-| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
 
 ### Authorization object
 
@@ -265,8 +266,8 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | Name       | Description                                                                                                                                                                                                                                                                                              | Required |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Root element.                                                                                                                                                                                                                                                                                            | Yes      |
-| api        | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
-| operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
+| api        | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used, and `name` will be ignored.                    | No       |
+| operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used, and `name` will be ignored. | No       |
 
 ### Attributes
 
@@ -274,7 +275,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
-| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
+| renewal-period | The length in seconds of the sliding window during which the number of allowed requests shouldn't exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -354,7 +355,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
-| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests shouldn't exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -372,6 +373,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
+
+> [!NOTE]
+> The policy filters the immediate caller's IP address. However, if API Management is hosted behind Application Gateway, the policy considers its IP address, not the originator of the API request. Presently, IP addresses in the `X-Forwarded-For` are not considered.
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -487,7 +491,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
+The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it's incremented only once per request. When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -555,9 +559,116 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
 
+## <a name="ValidateAAD"></a> Validate Azure Active Directory token
+
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service.  The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
+
+### Policy statement
+
+```xml
+<validate-azure-ad-token
+    tenant-id="tenant ID or URL (for example, "contoso.onmicrosoft.com") of the Azure Active Directory service"
+    header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
+    query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
+    token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
+    failed-validation-httpcode="HTTP status code to return on failure"
+    failed-validation-error-message="error message to return on failure"
+    output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
+    <client-application-ids>
+        <application-id>Client application ID from Azure Active Directory</application-id>
+        <!-- If there are multiple client application IDs, then add additional application-id elements -->
+    </client-application-ids>
+    <backend-application-ids>
+        <application-id>Backend application ID from Azure Active Directory</application-id>
+        <!-- If there are multiple backend application IDs, then add additional application-id elements -->
+    </backend-application-ids>
+    <audiences>
+        <audience>audience string</audience>
+        <!-- if there are multiple possible audiences, then add additional audience elements -->
+    </audiences>
+    <required-claims>
+        <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
+            <value>claim value as it is expected to appear in the token</value>
+            <!-- if there is more than one allowed value, then add additional value elements -->
+        </claim>
+        <!-- if there are multiple possible allowed values, then add additional value elements -->
+    </required-claims>
+</validate-azure-ad-token>
+```
+
+### Examples
+
+#### Simple token validation
+
+The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
+
+```xml
+<validate-azure-ad-token tenant-id="{{aad-tenant-id}}">
+    <client-application-ids>
+        <application-id>{{aad-client-application-id}}</application-id>
+    </client-application-ids>
+</validate-azure-ad-token>
+```
+
+#### Validate that audience and claim are correct
+
+The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The hostname is provided using a policy expression, and the Azure AD tenant ID and client application ID are provided using named values. The decoded JWT is provided in the `jwt` variable after validation.
+
+For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  
+
+```xml
+<validate-azure-ad-token tenant-id="{{aad-tenant-id}}" output-token-variable-name="jwt">
+    <client-application-ids>
+        <application-id>{{aad-client-application-id}}</application-id>
+    </client-application-ids>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <required-claims>
+        <claim name="ctry" match="any">
+            <value>US</value>
+        </claim>
+    </required-claims>
+</validate-azure-ad-token>
+```
+
+### Elements
+
+| Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-azure-ad-token        | Root element.                                                                                                                                                                                                                                                                                                                                         | Yes      |
+| audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
+| backend-application-ids | Contains a list of acceptable backend application IDs.  This is only required in advanced cases for the configuration of options and can generally be removed. | No |
+| client-application-ids | Contains a list of acceptable client application IDs.  If multiple application-id elements are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.  At least one application-id must be specified. | Yes |
+| required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. | No       |
+
+### Attributes
+
+| Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped.                                                                                                                                                                                                                                                                                                 | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
+| failed-validation-httpcode      | HTTP status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
+| header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
+| output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
+| query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
+| token-value                     | Expression returning a string containing the token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound
+-   **Policy scopes:** all scopes
+
+### Limitations
+
+This policy can only be used with an Azure Active Directory tenant in the public Azure cloud.  It doesn't support tenants configured in regional clouds or Azure clouds with restricted access.
+
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value. 
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
@@ -645,9 +756,12 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 
 #### Azure Active Directory token validation
 
+> [!NOTE]
+> Use the [`validate-azure-ad-token`](#ValidateAAD) policy to validate tokens against Azure Active Directory.
+
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration" />
     <audiences>
         <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
     </audiences>
@@ -715,15 +829,15 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | issuer-signing-keys | A list of Base64-encoded security keys used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). Key elements have an optional `id` attribute used to match against `kid` claim. <br/><br/>Alternatively supply an issuer signing key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management<br/>- RSA modulus `n` and exponent `e` pair in format `<key n="<modulus>" e="<exponent>" />` to specify the RSA parameters in base64url-encoded format               | No       |
 | decryption-keys     | A list of Base64-encoded keys used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds. Key elements have an optional `id` attribute used to match against `kid` claim.<br/><br/>Alternatively supply a decryption key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management                                                 | No       |
 | issuers             | A list of acceptable principals that issued the token. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.                                                                                                                                         | No       |
-| openid-config       | The element used for specifying a compliant Open ID configuration endpoint from which signing keys and issuer can be obtained.                                                                                                                                                                                                                        | No       |
-| required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all` every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any` at least one claim must be present in the token for validation to succeed. | No       |
+| openid-config       | Add one or more of these elements to specify a compliant OpenID configuration endpoint from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                                                                                                      | No       |
+| required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. | No       |
 
 ### Attributes
 
 | Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | Timespan. Use to specify maximum expected time difference between the system clocks of the token issuer and the API Management instance.                                                                                                                                                                                                                                                                                                               | No                                                                               | 0 seconds                                                                         |
-| failed-validation-error-message | Error message to return in the HTTP response body if the JWT does not pass validation. This message must have any special characters properly escaped.                                                                                                                                                                                                                                                                                                 | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
+| failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped.                                                                                                                                                                                                                                                                                                 | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
 | failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
@@ -731,10 +845,10 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | id                              | The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.                                                                                                                                                                                                                                           | No                                                                               | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Specifies whether an expiration claim is required in the token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
-| require-scheme                  | The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.                                                                                                                                                                                                                                                                                    | No                                                                               | N/A                                                                               |
+| require-scheme                  | The name of the token scheme, for example, "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.                                                                                                                                                                                                                                                                                    | No                                                                               | N/A                                                                               |
 | require-signed-tokens           | Boolean. Specifies whether a token is required to be signed.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
-| separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
-| url                             | Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`. | Yes                                                                              | N/A                                                                               |
+| separator                       | String. Specifies a separator (for example, ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
+| url                             | Open ID configuration endpoint URL from where OpenID configuration metadata can be obtained. The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Azure Active Directory use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- (v2) `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/> - (v2 multitenant) ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- (v1) `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/><br/> substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`. | Yes                                                                              | N/A                                                                               |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
 
 ### Usage
@@ -814,7 +928,7 @@ The following example validates a client certificate to match the policy's defau
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
-| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
+| validate-trust | Boolean. Specifies if validation should fail in case the chain can't be successfully built up to a trusted CA. | no | True |
 | validate-not-before | Boolean. Validates value against current time. | no | True |
 | validate-not-after  | Boolean. Validates value against current time. | no | True|
 | ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |

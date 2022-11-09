@@ -38,7 +38,7 @@ In this how-to guide, you'll learn to use the [Translator service REST APIs](ref
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Translator access only, create a Form Translator resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 * You'll need the key and endpoint from the resource to connect your application to the Translator service. Later, you'll paste your key and endpoint into the code samples. You can find these values on the Azure portal **Keys and Endpoint** page:
 
