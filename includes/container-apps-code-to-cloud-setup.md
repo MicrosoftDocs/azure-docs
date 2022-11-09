@@ -15,6 +15,7 @@ RESOURCE_GROUP="album-containerapps"
 LOCATION="canadacentral"
 ENVIRONMENT="env-album-containerapps"
 API_NAME="album-api"
+FRONTEND_NAME="album-ui"
 GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
@@ -31,11 +32,12 @@ ACR_NAME="acaalbums"$GITHUB_USERNAME
 Define the following variables in your PowerShell console.
 
 ```azurepowershell
-$ResourceGroupName="album-containerapps"
-$Location="canadacentral"
-$Environment="env-album-containerapps"
+$ResourceGroup = "album-containerapps"
+$Location = "canadacentral"
+$Environment = "env-album-containerapps"
 $APIName="album-api"
-$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
+$FrontendName="album-ui"
+$GITHUB_USERNAME = "<YOUR_GITHUB_USERNAME>"
 ```
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
@@ -43,7 +45,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Next, define a container registry name unique to you.
 
 ```azurepowershell
-$ACRName="acaalbums"+$GITHUB_USERNAME
+$ACRName = "acaalbums"+$GitHubUsername
 ```
 
 ---
