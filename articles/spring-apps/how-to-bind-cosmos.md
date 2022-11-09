@@ -103,7 +103,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
    * Go to your Azure Spring Apps service page in the Azure Portal. Choose the Azure Spring Apps and open the Apps page. Choose the App you want to configure connection and open the **Service Connector** page.
    
-   * Click create button, a create connection panel should show up.
+   * Click Create button, a create connection panel should show up.
    
    * In the **Basics** tab, choose CosmosDB for service type. In this example, we will choose a subscription, core(SQL) for API type, a CosmosDB account, a databse and Java for client type. Click Next button. Refer to the quickstart on [creating a cosmos database](../cosmos-db/create-cosmosdb-resources-portal.md) for help if your database is not created yet.
 
