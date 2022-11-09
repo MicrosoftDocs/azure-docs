@@ -304,10 +304,6 @@ The preceding code cleans up the resources the app created by removing the entir
 
 Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
-## Use the storage emulator
-
-This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](../common/storage-use-emulator.md) for development and testing. 
-
 ## Clean up 
 
 1. When you're done with this quickstart, delete the `blob-quickstart` directory.

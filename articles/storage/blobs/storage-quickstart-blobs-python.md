@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, passwordless-python
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
